@@ -48,7 +48,7 @@ export default function ProblemSolution() {
   const activeContent = contents[activeTab as keyof typeof contents];
 
   return (
-    <section ref={ref} className="py-24 bg-white" id="solucoes">
+    <section ref={ref} className="py-24 bg-white relative z-10 rounded-t-[40px] shadow-[-0_-25px_50px_-12px_rgba(0,0,0,0.1)]" id="solucoes">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div

@@ -206,20 +206,19 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative w-full min-h-screen flex items-center overflow-hidden bg-black">
+    <section className="relative w-full min-h-screen flex items-center overflow-hidden bg-surface-default sticky top-0 z-0">
       {/* Background: Large Rounded-Rectangle Grid */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Crect x='4' y='4' width='112' height='112' rx='20' ry='20' fill='none' stroke='%23ffffff' stroke-width='1' stroke-opacity='0.06'/%3E%3C/svg%3E")`,
+          backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Crect x='4' y='4' width='112' height='112' rx='20' ry='20' fill='none' stroke='%23000000' stroke-width='1' stroke-opacity='0.04'/%3E%3C/svg%3E")`,
           backgroundSize: "120px 120px",
         }}
       />
-      {/* Vignette */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
-          background: "radial-gradient(ellipse 100% 80% at 50% 50%, transparent 30%, rgba(0,0,0,0.8) 100%)",
+          background: "radial-gradient(ellipse 100% 80% at 50% 50%, transparent 30%, rgba(255,255,255,0.6) 100%)",
         }}
       />
 
@@ -234,7 +233,7 @@ export default function Hero() {
         >
           {/* Badge */}
           <motion.div variants={itemVariants}>
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-neutral-400 text-[11px] font-semibold">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-orange-50 border border-orange-100 text-orange-700 text-[11px] font-semibold">
               <Star className="w-3 h-3 text-[#E6A600] fill-[#E6A600]" />
               Ratoeira Hub v2 está no ar
             </div>
@@ -245,34 +244,29 @@ export default function Hero() {
             variants={itemVariants}
             className="text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.06]"
           >
-            <span className="text-white">Atendimento que vende.</span>
+            <span className="text-text-primary">Atendimento que vende.</span>
             <br />
-            <span className="text-neutral-500">Sem perder dinheiro.</span>
+            <span className="text-[#FFB800]">Sem perder dinheiro.</span>
           </motion.h1>
 
           {/* Subtitle */}
           <motion.p
             variants={itemVariants}
-            className="text-base md:text-lg text-neutral-400 leading-relaxed max-w-md"
+            className="text-base md:text-lg text-text-secondary leading-relaxed max-w-md"
           >
-            500+ empresas usam a Ratoeira Hub para rastrear, atender e converter
-            em tráfego pago sem desperdiçar verba com cliques desqualificados.
+            3000+ clientes usam a Ratoeira Hub para trackear e converter vendas
+            sem desperdiçar verba com bots.
           </motion.p>
 
           {/* CTAs */}
           <motion.div variants={itemVariants} className="flex items-center gap-3 pt-2">
             <Link
               href="#demo"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-white text-black font-semibold text-sm rounded-button hover:bg-neutral-100 transition-colors duration-200"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-brand-primary text-black font-semibold text-sm rounded-button hover:bg-brand-primary-hover transition-colors duration-200"
             >
               Começar Agora
             </Link>
-            <Link
-              href="#solucoes"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-transparent text-white font-semibold text-sm rounded-button border border-dashed border-neutral-700 hover:border-neutral-500 hover:bg-white/5 transition-colors duration-200"
-            >
-              Ver Demonstração
-            </Link>
+
           </motion.div>
         </motion.div>
 
@@ -284,8 +278,7 @@ export default function Hero() {
           className="relative hidden lg:block"
         >
           {/* Mockup container */}
-          <div className="relative rounded-2xl overflow-hidden border border-white/10 bg-[#0d0d0d] shadow-[0_0_80px_-20px_rgba(230,166,0,0.15)]" style={{ height: "420px" }}>
-            {/* Window bar */}
+          <div className="relative rounded-2xl overflow-hidden border border-neutral-200 bg-[#0d0d0d] shadow-card-resting" style={{ height: "420px" }}>
             <div className="bg-[#161616] border-b border-white/5 px-4 py-3 flex items-center justify-between">
               <div className="flex gap-1.5">
                 <div className="w-2.5 h-2.5 rounded-full bg-red-500/40" />
@@ -336,14 +329,14 @@ export default function Hero() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.2, duration: 0.5 }}
-            className="absolute -bottom-5 -left-8 bg-black/90 backdrop-blur-xl border border-white/10 rounded-xl px-4 py-3 flex items-center gap-3 shadow-xl"
+            className="absolute -bottom-5 -left-8 bg-white/95 backdrop-blur-xl border border-neutral-200 rounded-xl px-4 py-3 flex items-center gap-3 shadow-card-hover"
           >
             <div className="w-8 h-8 rounded-full bg-emerald-500/20 flex items-center justify-center">
               <TrendingUp className="w-4 h-4 text-emerald-400" />
             </div>
             <div>
-              <p className="text-white text-xs font-bold">+42% Conversão</p>
-              <p className="text-neutral-500 text-[10px]">Último mês</p>
+              <p className="text-text-primary text-xs font-bold">+42% Conversão</p>
+              <p className="text-text-secondary text-[10px]">Último mês</p>
             </div>
           </motion.div>
 
@@ -351,14 +344,14 @@ export default function Hero() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.4, duration: 0.5 }}
-            className="absolute -top-5 -right-4 bg-black/90 backdrop-blur-xl border border-white/10 rounded-xl px-4 py-3 flex items-center gap-3 shadow-xl"
+            className="absolute -top-5 -right-4 bg-white/95 backdrop-blur-xl border border-neutral-200 rounded-xl px-4 py-3 flex items-center gap-3 shadow-card-hover"
           >
             <div className="w-8 h-8 rounded-full bg-[#E6A600]/20 flex items-center justify-center">
               <Users className="w-4 h-4 text-[#E6A600]" />
             </div>
             <div>
-              <p className="text-white text-xs font-bold">+1.500 clientes</p>
-              <p className="text-neutral-500 text-[10px]">Empresas ativas</p>
+              <p className="text-text-primary text-xs font-bold">+1.500 clientes</p>
+              <p className="text-text-secondary text-[10px]">Empresas ativas</p>
             </div>
           </motion.div>
         </motion.div>

@@ -35,7 +35,7 @@ export default function Navbar() {
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           scrolled
             ? "bg-white/90 backdrop-blur-md shadow-sm border-b border-gray-100"
-            : "bg-transparent"
+            : "bg-white/80 backdrop-blur-md"
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -45,7 +45,7 @@ export default function Navbar() {
               <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-yellow-500 to-orange-500 flex items-center justify-center shadow-lg shadow-yellow-500/30 group-hover:scale-105 transition-transform">
                 <Zap className="w-5 h-5 text-white" />
               </div>
-              <span className={`text-xl font-black tracking-tight ${scrolled ? "text-gray-900" : "text-white"}`}>
+              <span className="text-xl font-black tracking-tight text-gray-900">
                 Ratoeira Hub
               </span>
             </Link>
@@ -61,11 +61,7 @@ export default function Navbar() {
                 >
                   <a
                     href={link.href}
-                    className={`px-4 py-2 rounded-xl text-sm font-semibold transition-all duration-200 flex items-center gap-1 ${
-                      scrolled
-                        ? "text-gray-600 hover:text-orange-600 hover:bg-orange-50"
-                        : "text-white/80 hover:text-white hover:bg-white/10"
-                    }`}
+                    className="px-4 py-2 rounded-xl text-sm font-semibold transition-all duration-200 flex items-center gap-1 text-gray-600 hover:text-orange-600 hover:bg-orange-50"
                   >
                     {link.label}
                     {link.hasDropdown && (
@@ -240,21 +236,13 @@ export default function Navbar() {
             <div className="hidden lg:flex items-center gap-3">
               <Link
                 href="/design-system"
-                className={`text-sm font-semibold px-4 py-2 rounded-xl transition-all ${
-                  scrolled
-                    ? "text-gray-600 hover:text-orange-600"
-                    : "text-white/80 hover:text-white"
-                }`}
+                className="text-sm font-semibold px-4 py-2 rounded-xl transition-all text-gray-600 hover:text-orange-600"
               >
                 DS
               </Link>
               <Link
                 href="#"
-                className={`inline-flex items-center gap-1.5 px-5 py-2.5 rounded-xl text-sm font-bold transition-all duration-200 group shadow-lg ${
-                  scrolled
-                    ? "bg-yellow-500 text-white hover:bg-yellow-600 shadow-yellow-500/25"
-                    : "bg-white text-orange-600 hover:bg-orange-50 shadow-white/20"
-                }`}
+                className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-xl text-sm font-bold transition-all duration-200 group shadow-lg bg-yellow-500 text-white hover:bg-yellow-600 shadow-yellow-500/25"
               >
                 Teste grátis
                 <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
@@ -265,9 +253,7 @@ export default function Navbar() {
             <button
               id="mobile-menu-button"
               onClick={() => setMobileOpen((o) => !o)}
-              className={`lg:hidden p-2 rounded-xl transition-colors ${
-                scrolled ? "text-gray-600 hover:bg-gray-100" : "text-white hover:bg-white/10"
-              }`}
+              className="lg:hidden p-2 rounded-xl transition-colors text-gray-600 hover:bg-gray-100"
               aria-label="Abrir menu"
             >
               {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
