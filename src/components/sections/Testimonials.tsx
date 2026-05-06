@@ -1,215 +1,186 @@
 "use client";
 
-import { useRef, useState } from "react";
-import { motion, useInView, AnimatePresence } from "framer-motion";
-import { Star, Quote, ChevronLeft, ChevronRight } from "lucide-react";
+import { useState, useRef, useEffect } from "react";
+import Image from "next/image";
+import { Transition } from "@headlessui/react";
+import { motion, useInView } from "framer-motion";
 
-const testimonials = [
+interface Testimonial {
+  img: string;
+  quote: string;
+  name: string;
+  role: string;
+}
+
+const avatarFromInitial = (initial: string) =>
+  `data:image/svg+xml;utf8,${encodeURIComponent(
+    `<svg xmlns="http://www.w3.org/2000/svg" width="56" height="56"><rect width="100%" height="100%" rx="28" fill="#EA580C"/><text x="50%" y="54%" dominant-baseline="middle" text-anchor="middle" font-family="Arial" font-size="24" font-weight="700" fill="#FFFFFF">${initial}</text></svg>`,
+  )}`;
+
+const testimonials: Testimonial[] = [
   {
+    img: avatarFromInitial("R"),
+    quote:
+      "A Ratoeira Hub trouxe clareza total sobre origem das vendas. Hoje decidimos com base em dado real, não em achismo.",
     name: "Roberto Santiago",
     role: "Mentor de Tráfego",
-    company: "Scalers Club",
-    avatar: "R",
-    color: "#FFB800",
-    rating: 5,
-    quote: "Indico a Ratoeira Hub para todos os meus mentorados. O nível de precisão no rastreamento é absurda. Finalmente consigo mostrar aos alunos exatamente de onde vem cada venda.",
-    metric: "+340%",
-    metricLabel: "de precisão no rastreamento",
   },
   {
+    img: avatarFromInitial("C"),
+    quote:
+      "Com o rastreamento server-side, finalmente parei de perder conversões invisíveis. Meu ROI ficou muito mais previsível.",
     name: "Carla Mendes",
     role: "Afiliada Top",
-    company: "Hotmart",
-    avatar: "C",
-    color: "#FF7E4A",
-    rating: 5,
-    quote: "Antes eu perdia 30% das conversões por falta de rastreamento. Com a Ratoeira, zero vazamento. Meu faturamento afiliado aumentou 127% no primeiro mês.",
-    metric: "+127%",
-    metricLabel: "faturamento em 30 dias",
   },
   {
+    img: avatarFromInitial("T"),
+    quote:
+      "A integração entre tracking e páginas encurtou nosso tempo operacional. O que levava horas agora leva minutos.",
     name: "Thiago Ferreira",
     role: "Gestor de Tráfego",
-    company: "Mídia Performance",
-    avatar: "T",
-    color: "#003B5C",
-    rating: 5,
-    quote: "Trabalho com infoprodutos há 4 anos e nunca vi um sistema de rastreamento tão completo. As páginas da Ratoeira Pages convertem absurdamente bem.",
-    metric: "2.8%",
-    metricLabel: "média de conversão",
   },
   {
+    img: avatarFromInitial("J"),
+    quote:
+      "Conseguir enxergar o dado completo da operação mudou a forma como escalamos campanhas. O resultado foi imediato.",
     name: "Juliana Costa",
     role: "Criadora de Cursos",
-    company: "Academia Digital",
-    avatar: "J",
-    color: "#FFB800",
-    rating: 5,
-    quote: "Minhas taxas de conversão dispararam depois que migrei para o ecossistema Ratoeira. O trackeamento perfeito faz toda a diferença na otimização.",
-    metric: "+89%",
-    metricLabel: "nas conversões",
   },
   {
+    img: avatarFromInitial("M"),
+    quote:
+      "A confiabilidade da plataforma me deu segurança para investir mais em tráfego sem medo de tomar decisão no escuro.",
     name: "Marcos Vinícius",
     role: "Investidor em Tráfego",
-    company: "Growth Lab",
-    avatar: "M",
-    color: "#FF7E4A",
-    rating: 5,
-    quote: "Escalo campanhas de 6 dígitos por mês na Ratoeira. A confiabilidade dos dados me permite operar com muito mais segurança e assertividade.",
-    metric: "R$100k+",
-    metricLabel: "mensais em tráfego",
   },
 ];
 
 export default function Testimonials() {
-  const ref = useRef<HTMLDivElement>(null);
-  const inView = useInView(ref, { once: true, margin: "-80px" });
-  const [active, setActive] = useState(0);
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const inView = useInView(sectionRef, { once: true, margin: "-80px" });
+  const testimonialsRef = useRef<HTMLDivElement>(null);
+  const [active, setActive] = useState<number>(0);
+  const [autorotate, setAutorotate] = useState<boolean>(true);
+  const autorotateTiming = 7000;
 
-  const next = () => setActive((a) => (a + 1) % testimonials.length);
-  const prev = () => setActive((a) => (a - 1 + testimonials.length) % testimonials.length);
+  useEffect(() => {
+    if (!autorotate) return;
+    const interval = setInterval(() => {
+      setActive((current) => (current + 1 === testimonials.length ? 0 : current + 1));
+    }, autorotateTiming);
+    return () => clearInterval(interval);
+  }, [autorotate]);
+
+  const heightFix = () => {
+    if (testimonialsRef.current?.parentElement) {
+      testimonialsRef.current.parentElement.style.height = `${testimonialsRef.current.clientHeight}px`;
+    }
+  };
+
+  useEffect(() => {
+    heightFix();
+  }, []);
 
   return (
-    <section ref={ref} className="py-28 bg-gray-50" id="cases">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
+    <section ref={sectionRef} className="py-28 bg-surface-subdued" id="cases">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7 }}
           className="text-center mb-16 space-y-4"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-yellow-50 border border-yellow-200 text-orange-700 text-sm font-semibold">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-badge bg-orange-50 border border-orange-200 text-orange-600 text-sm font-semibold">
             💬 Depoimentos Reais
           </div>
-          <h2 className="text-4xl lg:text-5xl font-black text-gray-900 leading-tight">
+          <h2 className="text-4xl lg:text-5xl font-black text-text-primary leading-tight">
             Quem{" "}
-            <span className="gradient-text">domina o tráfego</span>, confia na Ratoeira
+            <span className="text-orange-600">domina o tráfego</span>, confia na Ratoeira
           </h2>
-          <p className="text-gray-500 text-xl max-w-xl mx-auto">
+          <p className="text-text-secondary text-xl max-w-xl mx-auto">
             Veja o que mentores e afiliados do mercado de infoprodutos dizem sobre os resultados.
           </p>
         </motion.div>
 
-        {/* Featured testimonial carousel */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7, delay: 0.2 }}
-          className="max-w-3xl mx-auto mb-16"
+          className="mx-auto w-full max-w-3xl text-center"
         >
-          <div className="relative bg-gradient-to-br from-yellow-50 to-yellow-100 rounded-3xl p-10 border border-yellow-200 shadow-2xl shadow-yellow-500/10">
-            <Quote className="w-10 h-10 text-yellow-400 mb-6" />
-
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={active}
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -20 }}
-                transition={{ duration: 0.4 }}
-              >
-                {/* Rating */}
-                <div className="flex items-center gap-1 mb-5">
-                  {[...Array(testimonials[active].rating)].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
-                  ))}
-                </div>
-
-                {/* Quote */}
-                <p className="text-xl text-gray-800 leading-relaxed mb-8">
-                  &ldquo;{testimonials[active].quote}&rdquo;
-                </p>
-
-                {/* Author */}
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-4">
-                    <div
-                      className="w-12 h-12 rounded-full flex items-center justify-center text-white font-bold text-lg"
-                      style={{ backgroundColor: testimonials[active].color }}
-                    >
-                      {testimonials[active].avatar}
-                    </div>
-                    <div>
-                      <p className="font-bold text-gray-900">{testimonials[active].name}</p>
-                      <p className="text-sm text-gray-500">
-                        {testimonials[active].role} · {testimonials[active].company}
-                      </p>
-                    </div>
-                  </div>
-                  <div className="bg-white rounded-2xl px-5 py-3 border border-yellow-200 shadow-sm text-center">
-                    <p className="text-2xl font-black gradient-text">{testimonials[active].metric}</p>
-                    <p className="text-xs text-gray-500 font-medium">{testimonials[active].metricLabel}</p>
-                  </div>
-                </div>
-              </motion.div>
-            </AnimatePresence>
-          </div>
-
-          {/* Navigation */}
-          <div className="flex items-center justify-center gap-4 mt-6">
-            <button
-              onClick={prev}
-              className="w-10 h-10 rounded-button border border-gray-200 hover:border-yellow-400 hover:bg-yellow-50 flex items-center justify-center transition-all text-gray-500 hover:text-yellow-500"
-              aria-label="Anterior"
-            >
-              <ChevronLeft className="w-4 h-4" />
-            </button>
-            <div className="flex items-center gap-2">
-              {testimonials.map((_, i) => (
-                <button
-                  key={i}
-                  onClick={() => setActive(i)}
-                  className={`rounded-full transition-all duration-300 ${
-                    i === active ? "w-6 h-2 bg-yellow-500" : "w-2 h-2 bg-gray-300"
-                  }`}
-                />
-              ))}
-            </div>
-            <button
-              onClick={next}
-              className="w-10 h-10 rounded-button border border-gray-200 hover:border-yellow-400 hover:bg-yellow-50 flex items-center justify-center transition-all text-gray-500 hover:text-yellow-500"
-              aria-label="Próximo"
-            >
-              <ChevronRight className="w-4 h-4" />
-            </button>
-          </div>
-        </motion.div>
-
-        {/* Grid of mini testimonials */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-          {testimonials.slice(0, 3).map((t, i) => (
-            <motion.div
-              key={t.name}
-              initial={{ opacity: 0, y: 30 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.4 + i * 0.1 }}
-              className="bg-white rounded-2xl p-6 border border-gray-100 hover:border-yellow-200 hover:shadow-lg hover:shadow-yellow-500/5 transition-all duration-300 hover:-translate-y-1"
-            >
-              <div className="flex items-center gap-1 mb-3">
-                {[...Array(5)].map((_, j) => (
-                  <Star key={j} className="w-3 h-3 fill-amber-400 text-amber-400" />
+          <div className="relative h-32">
+            <div className="pointer-events-none absolute left-1/2 top-0 h-[480px] w-[480px] -translate-x-1/2 before:absolute before:inset-0 before:-z-10 before:rounded-full before:bg-gradient-to-b before:from-orange-600/25 before:via-orange-600/5 before:via-25% before:to-orange-600/0 before:to-75%">
+              <div className="h-32 [mask-image:_linear-gradient(0deg,transparent,theme(colors.white)_20%,theme(colors.white))]">
+                {testimonials.map((testimonial, index) => (
+                  <Transition
+                    as="div"
+                    key={index}
+                    show={active === index}
+                    className="absolute inset-0 -z-10 h-full"
+                    enter="transition ease-[cubic-bezier(0.68,-0.3,0.32,1)] duration-700 order-first"
+                    enterFrom="opacity-0 -rotate-[60deg]"
+                    enterTo="opacity-100 rotate-0"
+                    leave="transition ease-[cubic-bezier(0.68,-0.3,0.32,1)] duration-700"
+                    leaveFrom="opacity-100 rotate-0"
+                    leaveTo="opacity-0 rotate-[60deg]"
+                    beforeEnter={heightFix}
+                  >
+                    <Image
+                      className="relative left-1/2 top-11 -translate-x-1/2 rounded-full border-2 border-orange-200"
+                      src={testimonial.img}
+                      width={56}
+                      height={56}
+                      alt={testimonial.name}
+                    />
+                  </Transition>
                 ))}
               </div>
-              <p className="text-gray-600 text-sm mb-4 leading-relaxed line-clamp-3">
-                &ldquo;{t.quote}&rdquo;
-              </p>
-              <div className="flex items-center gap-3">
-                <div
-                  className="w-8 h-8 rounded-full flex items-center justify-center text-white font-bold text-xs"
-                  style={{ backgroundColor: t.color }}
+            </div>
+          </div>
+
+          <div className="mb-9 transition-all delay-300 duration-150 ease-in-out">
+            <div className="relative flex flex-col" ref={testimonialsRef}>
+              {testimonials.map((testimonial, index) => (
+                <Transition
+                  key={index}
+                  show={active === index}
+                  enter="transition ease-in-out duration-500 delay-200 order-first"
+                  enterFrom="opacity-0 -translate-x-4"
+                  enterTo="opacity-100 translate-x-0"
+                  leave="transition ease-out duration-300 delay-300 absolute"
+                  leaveFrom="opacity-100 translate-x-0"
+                  leaveTo="opacity-0 translate-x-4"
+                  beforeEnter={heightFix}
                 >
-                  {t.avatar}
-                </div>
-                <div>
-                  <p className="text-sm font-bold text-gray-900">{t.name}</p>
-                  <p className="text-xs text-gray-500">{t.role}</p>
-                </div>
-              </div>
-            </motion.div>
-          ))}
-        </div>
+                  <div className="text-2xl font-bold text-orange-600 before:content-['\201C'] after:content-['\201D']">
+                    {testimonial.quote}
+                  </div>
+                </Transition>
+              ))}
+            </div>
+          </div>
+
+          <div className="-m-1.5 flex flex-wrap justify-center">
+            {testimonials.map((testimonial, index) => (
+              <button
+                key={index}
+                className={`m-1.5 inline-flex justify-center whitespace-nowrap rounded-badge px-3 py-1.5 text-xs shadow-sm transition-colors duration-150 focus-visible:outline-none focus-visible:ring focus-visible:ring-orange-300 ${
+                  active === index
+                    ? "bg-orange-600 text-white shadow-orange-950/10"
+                    : "bg-white text-orange-600 hover:bg-orange-100"
+                }`}
+                onClick={() => {
+                  setActive(index);
+                  setAutorotate(false);
+                }}
+              >
+                <span>{testimonial.name}</span>{" "}
+                <span className={active === index ? "text-orange-200" : "text-orange-300"}>-</span>{" "}
+                <span>{testimonial.role}</span>
+              </button>
+            ))}
+          </div>
+        </motion.div>
       </div>
     </section>
   );
