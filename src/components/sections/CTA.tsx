@@ -10,15 +10,19 @@ export default function CTA() {
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section ref={ref} className="py-28 relative overflow-hidden animated-gradient" id="parcerias">
+    <section
+      ref={ref}
+      className="py-28 relative overflow-hidden bg-white"
+      id="parcerias"
+    >
       {/* Background decoration */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-0 right-1/4 w-96 h-96 rounded-full bg-white/10 blur-3xl" />
-        <div className="absolute bottom-0 left-1/4 w-72 h-72 rounded-full bg-yellow-300/15 blur-3xl" />
+        <div className="absolute top-0 right-1/4 w-96 h-96 rounded-full bg-white/30 blur-3xl" />
+        <div className="absolute bottom-0 left-1/4 w-72 h-72 rounded-full bg-orange-200/40 blur-3xl" />
         <div
-          className="absolute inset-0 opacity-20"
+          className="absolute inset-0 opacity-25"
           style={{
-            backgroundImage: `radial-gradient(circle, rgba(255,255,255,0.3) 1px, transparent 1px)`,
+            backgroundImage: "radial-gradient(circle, rgba(255,255,255,0.45) 1px, transparent 1px)",
             backgroundSize: "36px 36px",
           }}
         />
@@ -35,18 +39,18 @@ export default function CTA() {
           
 
           {/* Title */}
-          <h2 className="text-4xl lg:text-5xl font-black text-white leading-tight">
+          <h2 className="text-4xl lg:text-5xl font-black text-gray-900 leading-tight">
             Pronto para acabar com o desperdício de verba e{" "}
-            <span className="text-yellow-300">multiplicar suas vendas</span>?
+            <span className="text-orange-700">multiplicar suas vendas</span>?
           </h2>
 
           {/* Subtitle */}
-          <p className="text-yellow-200/80 text-lg max-w-2xl mx-auto leading-relaxed">
+          <p className="text-gray-700 text-lg max-w-2xl mx-auto leading-relaxed">
             Comece a usar a Ratoeira Hub hoje. Configure sua estrutura em minutos e veja a diferença que uma plataforma orientada a conversão faz no seu bolso.
           </p>
 
           {/* Garantia */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 border border-white/20 rounded-full text-yellow-200 text-sm">
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/70 border border-orange-200 rounded-full text-orange-800 text-sm">
             <span className="text-green-400">✓</span> Risco Zero. Teste por 7 dias e, se não gostar, devolvemos seu dinheiro.
           </div>
 
@@ -54,7 +58,7 @@ export default function CTA() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Link
               href="#fale-conosco"
-              className="inline-flex items-center gap-2.5 px-10 py-5 bg-white text-gray-900 font-black rounded-button text-lg hover:bg-yellow-400 transition-all duration-200 shadow-2xl shadow-yellow-900/30 hover:-translate-y-0.5 group"
+              className="inline-flex items-center gap-2.5 px-10 py-5 bg-gray-900 text-white font-black rounded-button text-lg hover:bg-orange-700 transition-all duration-200 shadow-2xl shadow-orange-900/25 hover:-translate-y-0.5 group"
             >
               Quero Acessar a Ratoeira Hub
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />

@@ -10,6 +10,7 @@ import {
   LayoutTemplate,
   ShieldCheck,
 } from "lucide-react";
+import { ShineBorder } from "@/components/ui/ShineBorder";
 
 const benefits = [
   {
@@ -19,7 +20,6 @@ const benefits = [
       "Afiliados que migram do pixel padrão para o tracking server-side do Ratoeira Ads recuperam em média 25-40% de conversões que estavam invisíveis. Cada venda recuperada é dinheiro que volta para o seu bolso.",
     imageLeft: false,
     icon: BarChart3,
-    gradient: "from-yellow-100 via-amber-50 to-orange-100",
   },
   {
     label: "Benefício 2",
@@ -28,7 +28,6 @@ const benefits = [
       "O bloqueio automático de tráfego fraudulento economiza em média R$4.000 a R$5.000 por mês. Cada real do seu investimento vai para quem tem chance real de comprar.",
     imageLeft: true,
     icon: Bot,
-    gradient: "from-orange-100 via-amber-50 to-yellow-100",
   },
   {
     label: "Benefício 3",
@@ -37,7 +36,6 @@ const benefits = [
       "Templates prontos, editor visual e integração automática de tracking. O que antes levava horas agora leva minutos. E cada página já nasce rastreada.",
     imageLeft: false,
     icon: LayoutTemplate,
-    gradient: "from-yellow-100 via-amber-50 to-orange-100",
   },
   {
     label: "Benefício 4",
@@ -46,7 +44,6 @@ const benefits = [
       "Dashboard consolidado com +50 métricas do Google Ads, plataformas de vendas e anti-fraude. Tudo em uma tela. Escalar campanhas vira estratégia, não aposta.",
     imageLeft: true,
     icon: FileBarChart,
-    gradient: "from-orange-100 via-amber-50 to-yellow-100",
   },
   {
     label: "Benefício 5",
@@ -55,7 +52,6 @@ const benefits = [
       "App próprio para iOS e Android. Notificações de vendas e bloqueio de bots em tempo real. Seu negócio na palma da mão, onde quer que você esteja.",
     imageLeft: false,
     icon: BellRing,
-    gradient: "from-yellow-100 via-amber-50 to-orange-100",
   },
   {
     label: "Benefício 6",
@@ -64,7 +60,6 @@ const benefits = [
       "Garantia incondicional de 7 dias. Se não gostar, devolvemos 100%. Sem perguntas, sem burocracia. Você não tem nada a perder.",
     imageLeft: true,
     icon: ShieldCheck,
-    gradient: "from-orange-100 via-amber-50 to-yellow-100",
   },
 ];
 
@@ -134,8 +129,8 @@ export default function Benefits() {
   const activeIndex = clamp(Math.round(rawProgress), 0, benefits.length - 1);
 
   return (
-    <section ref={ref} className="py-28 bg-white" id="solucoes">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section ref={ref} className="relative pt-28 pb-0 bg-gray-900" id="solucoes">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -143,18 +138,18 @@ export default function Benefits() {
           transition={{ duration: 0.7 }}
           className="text-center mb-20 space-y-6"
         >
-          <h2 className="text-4xl lg:text-5xl font-black text-black leading-tight">
+          <h2 className="text-4xl lg:text-5xl font-black text-text-inverse leading-tight">
             Por Que <span style={{ color: "var(--color-brand-primary)" }}>+2.600 Afiliados</span> Escolheram o{" "}
             <span className="whitespace-nowrap">Ratoeira Hub</span>
           </h2>
-          <p className="text-black text-lg max-w-2xl mx-auto">
+          <p className="text-white/80 text-lg max-w-2xl mx-auto">
             Ferramentas integradas para dominar o tráfego pago, aumentar a conversão e escalar sua operação com dados reais.
           </p>
         </motion.div>
 
       </div>
 
-      <div ref={sliderRef} className="relative h-[600vh]">
+      <div ref={sliderRef} className="relative z-10 h-[600vh] mb-0">
         <div className="sticky top-0 h-screen overflow-hidden flex items-center">
           <div className="relative w-full h-full">
             {benefits.map((benefit, index) => {
@@ -174,35 +169,52 @@ export default function Benefits() {
                   }}
                 >
                   <div className="w-full max-w-7xl mx-auto">
-                    <div className="h-[78vh] min-h-[520px] rounded-3xl border border-orange-100 bg-white shadow-xl p-6 md:p-10 lg:p-12">
-                      <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center h-full">
-                        <div className={benefit.imageLeft ? "order-2" : "order-1"}>
-                          <span className="inline-flex items-center rounded-full bg-orange-100 text-orange-700 text-sm font-semibold px-4 py-1.5">
-                            {benefit.label}
-                          </span>
-                          <h3 className="mt-6 text-3xl lg:text-4xl font-black text-black leading-tight">
-                            {benefit.title}
-                          </h3>
-                          <p className="mt-5 text-lg text-gray-700 leading-relaxed">
-                            {benefit.description}
-                          </p>
-                        </div>
+                    <ShineBorder
+                      borderRadius={24}
+                      borderWidth={5.5}
+                      duration={3.8}
+                      color={[
+                        "var(--color-brand-300)",
+                        "var(--color-brand-primary)",
+                        "var(--color-brand-secondary)",
+                        "var(--color-brand-primary-hover)",
+                      ]}
+                      className="h-[78vh] min-h-[520px] w-full"
+                    >
+                      <div className="h-full rounded-card border border-border-default bg-surface-default shadow-card-resting p-6 md:p-10 lg:p-12">
+                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center h-full">
+                          <div className={benefit.imageLeft ? "order-2" : "order-1"}>
+                            <h3 className="mt-6 text-3xl lg:text-4xl font-black text-text-primary leading-tight">
+                              {benefit.title}
+                            </h3>
+                            <p className="mt-5 text-lg text-text-secondary leading-relaxed">
+                              {benefit.description}
+                            </p>
+                          </div>
 
-                        <div className={benefit.imageLeft ? "order-1" : "order-2"}>
-                          <div className={`relative h-[320px] md:h-[380px] rounded-2xl border border-orange-200 bg-gradient-to-br ${benefit.gradient} overflow-hidden flex items-center justify-center`}>
-                            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.9),rgba(255,255,255,0.15))]" />
-                            <div className="relative z-10 flex flex-col items-center text-center px-6">
-                              <div className="w-20 h-20 rounded-2xl bg-white/85 border border-orange-200 flex items-center justify-center">
-                                <Icon className="w-10 h-10 text-orange-700" />
+                          <div className={benefit.imageLeft ? "order-1" : "order-2"}>
+                            <div
+                              className="relative h-[320px] md:h-[380px] rounded-card border border-border-default overflow-hidden flex items-center justify-center"
+                              style={{
+                                background: benefit.imageLeft
+                                  ? "linear-gradient(135deg, var(--color-brand-100) 0%, var(--color-brand-50) 100%)"
+                                  : "linear-gradient(135deg, var(--color-brand-50) 0%, var(--color-brand-100) 100%)",
+                              }}
+                            >
+                              <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.9),rgba(255,255,255,0.15))]" />
+                              <div className="relative z-10 flex flex-col items-center text-center px-6">
+                                <div className="w-20 h-20 rounded-card bg-surface-default border border-border-default flex items-center justify-center">
+                                  <Icon className="w-10 h-10 text-brand-primary" />
+                                </div>
+                                <p className="mt-4 text-sm font-semibold text-text-secondary">
+                                  Imagem ilustrativa do {benefit.label.toLowerCase()}
+                                </p>
                               </div>
-                              <p className="mt-4 text-sm font-semibold text-orange-900">
-                                Imagem ilustrativa do {benefit.label.toLowerCase()}
-                              </p>
                             </div>
                           </div>
                         </div>
                       </div>
-                    </div>
+                    </ShineBorder>
                   </div>
                 </article>
               );
