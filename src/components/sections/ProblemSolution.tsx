@@ -2,53 +2,41 @@
 
 import { useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
-import { Zap, BarChart3, Tag, Wand2, Phone, Clipboard } from "lucide-react";
+import { Radar, LayoutTemplate, Link2 } from "lucide-react";
 
 const tabs = [
-  { id: "campanhas", label: "Campanhas", icon: Zap },
-  { id: "dashboard", label: "Dashboard", icon: BarChart3 },
-  { id: "categorizacao", label: "Categorização", icon: Tag },
-  { id: "automacao", label: "Automação", icon: Wand2 },
-  { id: "chamadas", label: "Chamadas", icon: Phone },
-  { id: "pesquisas", label: "Pesquisas", icon: Clipboard },
+  { id: "rastreamento", label: "Rastreamento Inteligente", icon: Radar },
+  { id: "paginas", label: "Páginas de Alta Conversão", icon: LayoutTemplate },
+  { id: "ecossistema", label: "Ecossistema Integrado", icon: Link2 },
 ];
 
 const contents = {
-  campanhas: {
-    title: "Campanhas",
-    description: "Dispare campanhas para listas de contatos e acompanhe os resultados em tempo real. Descubra quem está engajado, no momento de compra, e direcione suas ações com precisão para ampliar conversões sem desperdiçar esforço.",
+  rastreamento: {
+    title: "Rastreie Cada Venda. Bloqueie Cada Bot. Saiba Tudo.",
+    description:
+      "O pixel padrão do Google captura entre 60% e 75% das conversões reais de afiliados. O Ratoeira Ads utiliza tracking server-side com validação cruzada, chegando a ~100% de conversões rastreadas. Cada venda confirmada na plataforma aparece no Google Ads — sem gaps, sem dados perdidos, sem “o pixel não pegou essa.”\n\nAlém disso, o sistema identifica e bloqueia automaticamente cliques de bots, concorrentes e IPs fraudulentos na lista de exclusão do Google Ads. Usuários reportam bloqueio médio de R$4.000 a R$5.000 por mês em tráfego fraudulento. Cada real do seu orçamento vai para quem realmente compra.\n\n• Tracking server-side com ~100% de conversões rastreadas\n• Bloqueio automático de bots e IPs fraudulentos\n• Dashboard consolidado: Google Ads + Plataformas + Anti-Fraude\n• +60 plataformas de vendas conectadas\n• Notificações em tempo real via app e Telegram",
   },
-  dashboard: {
-    title: "Dashboard",
-    description: "Não trabalhe no escuro. Acompanhe em gráficos dinâmicos e relatórios completos a verdadeira saúde do seu atendimento. Veja indicadores de produtividade, ROI e tendências de mercado para tomar decisões com segurança e antecipar oportunidades.",
+  paginas: {
+    title: "Construa Páginas Que Vendem Em Minutos. Sem Código.",
+    description:
+      "A Ratoeira Pages é o construtor de landing pages integrado ao Hub. Templates profissionais testados para conversão, editor visual drag-and-drop, Flash Pages (páginas ultra-rápidas) e geração por IA. O diferencial? Cada página já nasce com o script de tracking do Ratoeira Ads embutido nativamente — zero configuração, zero gaps de rastreamento.\n\n• Templates prontos e testados para conversão\n• Editor visual drag-and-drop (sem código)\n• Flash Pages: páginas prontas em segundos\n• Geração de páginas por IA\n• Hospedagem gratuita com SSL e domínios customizados\n• Integração nativa com o Ratoeira Ads",
   },
-  categorizacao: {
-    title: "Categorização",
-    description: "Com a categorização por rótulos, cada atendimento é classificado e acompanhado de ponta a ponta. Isso significa mais clareza, melhor priorização e estratégias muito mais assertivas.",
-  },
-  automacao: {
-    title: "Automação",
-    description: "Crie jornadas automatizadas, fluxos conversacionais e integrações em Low-Code. Nossa tecnologia de automação reduz custos e aumenta eficiência, permitindo que sua equipe foque onde realmente importa: o cliente.",
-  },
-  chamadas: {
-    title: "Chamadas",
-    description: "Converse com seus clientes por voz com a API oficial do WhatsApp. Realize e receba ligações, acompanhe métricas e veja relatórios claros — tudo no mesmo ambiente em que o restante dos contatos já acontece.",
-  },
-  pesquisas: {
-    title: "Pesquisas",
-    description: "Entenda, de verdade, o que seu cliente pensa do seu atendimento. Com pesquisas de satisfação (CSAT) simples e visuais, você mede impacto, identifica melhorias e fortalece ainda mais sua marca.",
+  ecossistema: {
+    title: "Ads + Pages Juntos. Seus Dados Conversam Entre Si.",
+    description:
+      "O verdadeiro poder do Ratoeira Hub está na integração nativa entre tracking e páginas. Enquanto outros afiliados usam três ou mais ferramentas separadas que não conversam entre si, você tem tudo consolidado em um único dashboard. O Google Ads recebe dados corretos, o algoritmo otimiza para compradores reais, e você escala sabendo exatamente o que está multiplicando.\n\n• Integração nativa Ads + Pages (sem configuração manual)\n• Dashboard único com +50 métricas consolidadas\n• ROAS real calculado com vendas confirmadas\n• Dados de tráfego + páginas + vendas em uma tela",
   },
 };
 
 export default function ProblemSolution() {
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
-  const [activeTab, setActiveTab] = useState("campanhas");
+  const [activeTab, setActiveTab] = useState("rastreamento");
 
   const activeContent = contents[activeTab as keyof typeof contents];
 
   return (
-    <section ref={ref} className="py-24 bg-white relative z-10 rounded-t-[40px] shadow-[-0_-25px_50px_-12px_rgba(0,0,0,0.1)]" id="solucoes">
+    <section ref={ref} className="py-24 bg-white" id="solucoes">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
@@ -58,15 +46,21 @@ export default function ProblemSolution() {
           className="text-center mb-16 space-y-6"
         >
           <h2 className="text-4xl lg:text-5xl font-black text-gray-900 leading-tight">
-            Tudo o que você precisa para dominar o{" "}
-            <span className="gradient-text">Google e Bing Ads</span>. Sem ferramentas soltas, sem perda de dados.
+            Tudo o Que Você Precisa Para Operar Tráfego Pago — Em Um Só Lugar
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            A Ratoeira Hub nasceu para resolver o maior pesadelo de quem investe em tráfego: o vazamento de conversões entre a página e a plataforma de anúncios. 
-            Nós unimos a inteligência de dados mais afiada do mercado com um construtor de páginas veloz e otimizado para ROI.
+          <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+            <span className="block whitespace-nowrap">
+              O afiliado que escala no Google Ads não trabalha com ferramentas soltas. Ele
+            </span>
+            <span className="block whitespace-nowrap">
+              usa um ecossistema integrado onde tracking, páginas e dados conversam entre si.
+            </span>
+            <span className="block whitespace-nowrap">
+              Conheça os três pilares do Ratoeira Hub.
+            </span>
           </p>
           <p className="text-lg text-orange-600 font-semibold">
-            Escolha a ferramenta que falta na sua operação ou integre ambas para resultados explosives.
+            Escolha a ferramenta que falta na sua operação ou integre ambas para resultados explosivos.
           </p>
         </motion.div>
 
@@ -111,7 +105,7 @@ export default function ProblemSolution() {
               <h3 className="text-3xl font-bold text-gray-900">
                 {activeContent.title}
               </h3>
-              <p className="text-lg text-gray-600 leading-relaxed">
+              <p className="text-lg text-gray-600 leading-relaxed whitespace-pre-line">
                 {activeContent.description}
               </p>
             </div>
@@ -127,12 +121,9 @@ export default function ProblemSolution() {
             >
               <div className="text-center">
                 <div className="w-20 h-20 rounded-2xl mx-auto mb-4 flex items-center justify-center bg-linear-to-r from-yellow-500 to-orange-500">
-                  {activeTab === "campanhas" && <Zap className="w-10 h-10 text-white" />}
-                  {activeTab === "dashboard" && <BarChart3 className="w-10 h-10 text-white" />}
-                  {activeTab === "categorizacao" && <Tag className="w-10 h-10 text-white" />}
-                  {activeTab === "automacao" && <Wand2 className="w-10 h-10 text-white" />}
-                  {activeTab === "chamadas" && <Phone className="w-10 h-10 text-white" />}
-                  {activeTab === "pesquisas" && <Clipboard className="w-10 h-10 text-white" />}
+                  {activeTab === "rastreamento" && <Radar className="w-10 h-10 text-white" />}
+                  {activeTab === "paginas" && <LayoutTemplate className="w-10 h-10 text-white" />}
+                  {activeTab === "ecossistema" && <Link2 className="w-10 h-10 text-white" />}
                 </div>
                 <p className="text-gray-500">Visualização do módulo {activeContent.title}</p>
               </div>

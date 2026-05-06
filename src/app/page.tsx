@@ -12,10 +12,8 @@ export default function Home() {
   return (
     <main className="flex flex-col flex-1">
       <Navbar />
-      <div className="relative">
-        <Hero />
-        <ProblemSolution />
-      </div>
+      <Hero />
+      <ProblemSolution />
       <Benefits />
       <Metrics />
       <Testimonials />

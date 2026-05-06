@@ -1,7 +1,7 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { motion, AnimatePresence, Variants } from "framer-motion";
+import { useState, useEffect, useRef } from "react";
+import { motion, AnimatePresence, Variants, useScroll, useTransform } from "framer-motion";
 import Link from "next/link";
 import {
   MessageCircle,
@@ -197,6 +197,21 @@ const itemVariants: Variants = {
 
 export default function Hero() {
   const [activeSlide, setActiveSlide] = useState(0);
+  const sectionRef = useRef<HTMLElement | null>(null);
+
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start start", "end end"],
+  });
+
+  // Primeiro painel (frente): faz o zoom agressivo em direção à tela e desaparece
+  const firstPanelScale = useTransform(scrollYProgress, [0, 0.12], [1, 40]);
+  const firstPanelOpacity = useTransform(scrollYProgress, [0, 0.12], [1, 0]);
+  const firstPointerEvents = useTransform(scrollYProgress, (v: number) => (v < 0.12 ? "auto" : "none"));
+
+  // Segundo painel (fundo): começa pequeno e cresce até o tamanho original. Sempre com opacidade 100%.
+  const secondPanelScale = useTransform(scrollYProgress, [0, 0.12], [0.5, 1]);
+  const secondPointerEvents = useTransform(scrollYProgress, (v: number) => (v >= 0.12 ? "auto" : "none"));
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -206,24 +221,84 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative w-full min-h-screen flex items-center overflow-hidden bg-surface-default sticky top-0 z-0">
-      {/* Background: Large Rounded-Rectangle Grid */}
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Crect x='4' y='4' width='112' height='112' rx='20' ry='20' fill='none' stroke='%23000000' stroke-width='1' stroke-opacity='0.04'/%3E%3C/svg%3E")`,
-          backgroundSize: "120px 120px",
-        }}
-      />
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          background: "radial-gradient(ellipse 100% 80% at 50% 50%, transparent 30%, rgba(255,255,255,0.6) 100%)",
-        }}
-      />
+    <section ref={sectionRef} className="relative h-[300vh] bg-surface-default z-0">
+      <div className="sticky top-0 h-screen w-full overflow-hidden bg-surface-default">
+        
+        {/* --- SEGUNDO PAINEL (FUNDO) --- */}
+        <motion.div
+          style={{ scale: secondPanelScale, pointerEvents: secondPointerEvents as unknown as "auto" | "none", backgroundColor: "#ffffff" }}
+          className="absolute inset-0 z-10 flex items-center justify-center origin-center"
+        >
 
-      {/* Split Layout */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-12 py-32 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div className="relative w-full max-w-7xl mx-auto px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div className="flex flex-col gap-6">
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-orange-50 border border-orange-100 text-orange-700 text-[11px] font-semibold w-fit">
+                <Star className="w-3 h-3 text-[#E6A600] fill-[#E6A600]" />
+                Próxima camada do ecossistema
+              </div>
+              <h2 className="text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.06] text-black">
+                Sua Página Está Pronta Para O Próximo Clique?
+              </h2>
+              <p className="text-base md:text-lg text-neutral-700 leading-relaxed max-w-2xl">
+                Enquanto você rastreia com precisão cada origem de venda, o
+                Ratoeira Pages entrega templates prontos para publicação com foco
+                em conversão, velocidade e experiência mobile.
+              </p>
+              <div className="flex items-center gap-3 pt-2">
+                <Link
+                  href="#planos"
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-brand-primary text-black font-semibold text-sm rounded-button hover:bg-brand-primary-hover transition-colors duration-200"
+                >
+                  Quero Conhecer o Hub
+                </Link>
+              </div>
+            </div>
+
+            <div className="relative hidden lg:block">
+              <div className="relative h-[420px] rounded-3xl overflow-hidden border border-neutral-200 bg-gradient-to-br from-[#FFF8E6] via-white to-orange-50 shadow-card-resting">
+                <div className="absolute top-6 left-6 right-6 h-12 rounded-xl bg-white/90 border border-neutral-200 flex items-center px-4">
+                  <div className="w-2.5 h-2.5 rounded-full bg-red-400/60 mr-1.5" />
+                  <div className="w-2.5 h-2.5 rounded-full bg-amber-400/60 mr-1.5" />
+                  <div className="w-2.5 h-2.5 rounded-full bg-emerald-400/60 mr-3" />
+                  <span className="text-xs font-semibold text-neutral-500">Ratoeira Pages Preview</span>
+                </div>
+                <div className="absolute inset-x-6 top-24 bottom-6 rounded-2xl bg-white border border-neutral-200 p-5 shadow-sm">
+                  <div className="h-24 rounded-xl bg-gradient-to-r from-orange-500 to-amber-500 mb-4 flex items-center px-5">
+                    <span className="text-white text-lg font-black">Template de Alta Conversão</span>
+                  </div>
+                  <div className="grid grid-cols-2 gap-3">
+                    <div className="h-20 rounded-lg bg-neutral-100 border border-neutral-200" />
+                    <div className="h-20 rounded-lg bg-neutral-100 border border-neutral-200" />
+                    <div className="h-10 rounded-lg bg-amber-100 border border-amber-200 col-span-2 flex items-center justify-center text-amber-700 text-sm font-bold">
+                      Publicar em minutos
+                    </div>
+                  </div>
+                </div>
+                <div className="absolute -bottom-4 -right-4 w-20 h-20 rounded-full bg-amber-200/70 blur-2xl" />
+              </div>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* --- PRIMEIRO PAINEL (FRENTE) --- */}
+        <motion.div
+          style={{ opacity: firstPanelOpacity, scale: firstPanelScale, pointerEvents: firstPointerEvents as unknown as "auto" | "none", backgroundColor: "#ffffff" }}
+          className="absolute inset-0 z-20 flex items-center justify-center origin-center"
+        >
+          <div
+            className="absolute inset-0 pointer-events-none"
+            style={{
+              backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Crect x='4' y='4' width='112' height='112' rx='20' ry='20' fill='none' stroke='%23000000' stroke-width='1' stroke-opacity='0.04'/%3E%3C/svg%3E")`,
+              backgroundSize: "120px 120px",
+            }}
+          />
+          <div
+            className="absolute inset-0 pointer-events-none"
+            style={{
+              background: "radial-gradient(ellipse 100% 80% at 50% 50%, transparent 30%, rgba(255,255,255,0.6) 100%)",
+            }}
+          />
+          <div className="relative w-full max-w-7xl mx-auto px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
         {/* LEFT: Text Content */}
         <motion.div
           variants={containerVariants}
@@ -355,6 +430,8 @@ export default function Hero() {
             </div>
           </motion.div>
         </motion.div>
+      </div>
+      </motion.div>
       </div>
     </section>
   );
