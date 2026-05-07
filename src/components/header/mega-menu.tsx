@@ -1,0 +1,120 @@
+"use client";
+
+import { motion, AnimatePresence } from "framer-motion";
+import { cn } from "@/lib/utils";
+import type { NavMenu } from "./nav-data";
+
+type Direction = "ltr" | "rtl";
+
+interface MegaMenuProps {
+  menu: NavMenu | null;
+  direction: Direction;
+  onMouseEnter: () => void;
+  onMouseLeave: () => void;
+  panelRef: React.RefObject<HTMLDivElement | null>;
+  onEscape: () => void;
+}
+
+const EASE = [0.16, 1, 0.3, 1] as [number, number, number, number];
+
+function MegaMenuPanel({
+  menu,
+  direction,
+  onMouseEnter,
+  onMouseLeave,
+  panelRef,
+  onEscape,
+}: MegaMenuProps & { menu: NavMenu }) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 8, x: direction === "ltr" ? 18 : -18 }}
+      animate={{
+        opacity: 1,
+        y: 0,
+        x: 0,
+        transition: { duration: 0.32, ease: EASE },
+      }}
+      exit={{
+        opacity: 0,
+        y: 6,
+        x: direction === "ltr" ? -14 : 14,
+        transition: { duration: 0.22, ease: [0.7, 0, 0.84, 0] as const },
+      }}
+      ref={panelRef}
+      role="dialog"
+      aria-label={`${menu.id} menu`}
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
+      onKeyDown={(event) => {
+        if (event.key === "Escape") onEscape();
+      }}
+      className="absolute left-0 top-full mt-3 w-full rounded-card border border-border-default bg-surface-default p-4 shadow-card-resting"
+    >
+      <div
+        className={cn(
+          "grid gap-3",
+          menu.columns.length === 2 && "grid-cols-2",
+          menu.columns.length === 3 && "grid-cols-3",
+          menu.columns.length >= 4 && "grid-cols-2 lg:grid-cols-4",
+        )}
+      >
+        {menu.columns.map((column) => (
+          <div
+            key={column.heading}
+            className={cn(
+              "rounded-card p-4",
+              column.accent ? "bg-surface-subdued border border-border-default" : "bg-surface-default",
+            )}
+          >
+            <p className="mb-3 text-[11px] font-semibold uppercase tracking-wide text-text-muted">
+              {column.heading}
+            </p>
+            <div className="space-y-1">
+              {column.items.map((item) => (
+                <motion.a
+                  key={item.label}
+                  href={item.href || "#"}
+                  whileHover={{ x: 2 }}
+                  transition={{ duration: 0.18 }}
+                  className="block w-full rounded-button px-3 py-2 text-left transition-colors hover:bg-brand-100/40"
+                >
+                  <span className="block text-sm font-semibold text-text-primary">{item.label}</span>
+                  {item.description && (
+                    <span className="mt-0.5 block text-xs leading-snug text-text-secondary">
+                      {item.description}
+                    </span>
+                  )}
+                </motion.a>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </motion.div>
+  );
+}
+
+export function MegaMenu({
+  menu,
+  direction,
+  onMouseEnter,
+  onMouseLeave,
+  panelRef,
+  onEscape,
+}: MegaMenuProps) {
+  return (
+    <AnimatePresence>
+      {menu && (
+        <MegaMenuPanel
+          key="mega-menu-panel"
+          menu={menu}
+          direction={direction}
+          onMouseEnter={onMouseEnter}
+          onMouseLeave={onMouseLeave}
+          panelRef={panelRef}
+          onEscape={onEscape}
+        />
+      )}
+    </AnimatePresence>
+  );
+}
