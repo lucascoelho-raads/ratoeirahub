@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 import type { NavMenu } from "./nav-data";
@@ -25,6 +26,8 @@ function MegaMenuPanel({
   panelRef,
   onEscape,
 }: MegaMenuProps & { menu: NavMenu }) {
+  const [hoveredItem, setHoveredItem] = useState<string | null>(null);
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 8, x: direction === "ltr" ? 18 : -18 }}
@@ -72,11 +75,20 @@ function MegaMenuPanel({
             <div className="space-y-1">
               {column.items.map((item) => (
                 <motion.a
-                  key={item.label}
+                  key={`${column.heading}-${item.label}`}
                   href={item.href || "#"}
                   whileHover={{ x: 2 }}
                   transition={{ duration: 0.18 }}
-                  className="block w-full rounded-button px-3 py-2 text-left transition-colors hover:bg-brand-100/40"
+                  onMouseEnter={() => setHoveredItem(`${column.heading}-${item.label}`)}
+                  onMouseLeave={() => setHoveredItem(null)}
+                  onFocus={() => setHoveredItem(`${column.heading}-${item.label}`)}
+                  onBlur={() => setHoveredItem(null)}
+                  className={cn(
+                    "block w-full rounded-button px-3 py-2 text-left transition-colors border border-transparent bg-transparent focus-visible:outline-none",
+                    hoveredItem === `${column.heading}-${item.label}`
+                      ? "bg-brand-100/30 ring-2 ring-orange-400 ring-offset-2 ring-offset-surface-default"
+                      : "hover:bg-brand-100/20",
+                  )}
                 >
                   <span className="block text-sm font-semibold text-text-primary">{item.label}</span>
                   {item.description && (
