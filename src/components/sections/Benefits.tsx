@@ -1,11 +1,13 @@
 "use client";
 
-import { useRef, useState } from "react";
-import { motion, useInView, useMotionValueEvent, useScroll } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
+import { AnimatePresence, motion, useInView } from "framer-motion";
 import {
   BarChart3,
   BellRing,
   Bot,
+  ChevronLeft,
+  ChevronRight,
   FileBarChart,
   LayoutTemplate,
   ShieldCheck,
@@ -63,70 +65,34 @@ const benefits = [
   },
 ];
 
-const clamp = (value: number, min: number, max: number) =>
-  Math.min(max, Math.max(min, value));
-
-const lerp = (start: number, end: number, t: number) => start + (end - start) * t;
-
-function getExitDirection(transitionIndex: number) {
-  return transitionIndex % 2 === 0 ? 100 : -100;
-}
-
-function getEntryDirection(transitionIndex: number) {
-  return -getExitDirection(transitionIndex);
-}
-
-function getCardOffset(index: number, rawProgress: number, totalCards: number) {
-  const lastIndex = totalCards - 1;
-
-  if (index === 0) {
-    if (rawProgress <= 0) return 0;
-    if (rawProgress < 1) return lerp(0, getExitDirection(0), rawProgress);
-    return getExitDirection(0);
-  }
-
-  if (index === lastIndex) {
-    const entryTransition = index - 1;
-    const entryStart = getEntryDirection(entryTransition);
-
-    if (rawProgress <= entryTransition) return entryStart;
-    if (rawProgress < entryTransition + 1) {
-      return lerp(entryStart, 0, rawProgress - entryTransition);
-    }
-    return 0;
-  }
-
-  const entryTransition = index - 1;
-  const exitTransition = index;
-  const entryStart = getEntryDirection(entryTransition);
-  const exitEnd = getExitDirection(exitTransition);
-
-  if (rawProgress <= entryTransition) return entryStart;
-  if (rawProgress < entryTransition + 1) {
-    return lerp(entryStart, 0, rawProgress - entryTransition);
-  }
-  if (rawProgress < exitTransition + 1) {
-    return lerp(0, exitEnd, rawProgress - exitTransition);
-  }
-  return exitEnd;
-}
-
 export default function Benefits() {
   const ref = useRef<HTMLDivElement>(null);
-  const sliderRef = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
-  const { scrollYProgress } = useScroll({
-    target: sliderRef,
-    offset: ["start start", "end end"],
-  });
-  const [progress, setProgress] = useState(0);
-  useMotionValueEvent(scrollYProgress, "change", (latest) => {
-    setProgress(latest);
-  });
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [slideDirection, setSlideDirection] = useState(1);
 
-  const transitionCount = benefits.length - 1;
-  const rawProgress = clamp(progress * transitionCount, 0, transitionCount);
-  const activeIndex = clamp(Math.round(rawProgress), 0, benefits.length - 1);
+  const goToNext = () => {
+    setSlideDirection(1);
+    setActiveIndex((prev) => (prev + 1) % benefits.length);
+  };
+
+  const goToPrev = () => {
+    setSlideDirection(-1);
+    setActiveIndex((prev) => (prev - 1 + benefits.length) % benefits.length);
+  };
+
+  const goToIndex = (index: number) => {
+    if (index === activeIndex) return;
+    setSlideDirection(index > activeIndex ? 1 : -1);
+    setActiveIndex(index);
+  };
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      goToNext();
+    }, 10000);
+    return () => clearInterval(interval);
+  }, [activeIndex]);
 
   return (
     <section ref={ref} className="relative pt-28 pb-0 bg-gray-900" id="solucoes">
@@ -149,25 +115,22 @@ export default function Benefits() {
 
       </div>
 
-      <div ref={sliderRef} className="relative z-10 h-[600vh] mb-0">
-        <div className="sticky top-0 h-screen overflow-hidden flex items-center">
-          <div className="relative w-full h-full">
-            {benefits.map((benefit, index) => {
-              const Icon = benefit.icon;
-              const offset = getCardOffset(index, rawProgress, benefits.length);
-              const cardOpacity = 1 - Math.min(Math.abs(offset) / 120, 1);
-              const zIndex = benefits.length - Math.abs(index - activeIndex);
+      <div className="relative z-10 h-screen overflow-hidden flex items-center">
+        <div className="relative w-full h-full">
+          <AnimatePresence mode="sync" initial={false}>
+            <motion.article
+              key={benefits[activeIndex].title}
+              initial={{ x: slideDirection > 0 ? "100%" : "-100%", opacity: 1 }}
+              animate={{ x: 0, opacity: 1 }}
+              exit={{ x: slideDirection > 0 ? "-100%" : "100%", opacity: 1 }}
+              transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+              className="absolute inset-0 px-4 sm:px-8 lg:px-12 py-8 flex items-center"
+            >
+              {(() => {
+                const benefit = benefits[activeIndex];
+                const Icon = benefit.icon;
 
-              return (
-                <article
-                  key={benefit.title}
-                  className="absolute inset-0 px-4 sm:px-8 lg:px-12 py-8 flex items-center"
-                  style={{
-                    transform: `translateX(${offset}%)`,
-                    opacity: cardOpacity,
-                    zIndex,
-                  }}
-                >
+                return (
                   <div className="w-full max-w-7xl mx-auto">
                     <ShineBorder
                       borderRadius={24}
@@ -216,12 +179,47 @@ export default function Benefits() {
                       </div>
                     </ShineBorder>
                   </div>
-                </article>
-              );
-            })}
+                );
+              })()}
+            </motion.article>
+          </AnimatePresence>
+
+          <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex items-center gap-3">
+            <button
+              type="button"
+              onClick={goToPrev}
+              aria-label="Card anterior"
+              className="w-10 h-10 rounded-full bg-surface-default/90 border border-border-default text-text-primary hover:bg-surface-default transition-colors flex items-center justify-center"
+            >
+              <ChevronLeft className="w-4 h-4" />
+            </button>
+
+            <div className="flex items-center gap-2">
+              {benefits.map((benefit, index) => (
+                <button
+                  key={benefit.title}
+                  type="button"
+                  onClick={() => goToIndex(index)}
+                  aria-label={`Ir para ${benefit.label}`}
+                  className={`h-2.5 rounded-full transition-all duration-300 ${
+                    index === activeIndex
+                      ? "w-8 bg-brand-primary"
+                      : "w-2.5 bg-white/40 hover:bg-white/70"
+                  }`}
+                />
+              ))}
+            </div>
+
+            <button
+              type="button"
+              onClick={goToNext}
+              aria-label="Próximo card"
+              className="w-10 h-10 rounded-full bg-surface-default/90 border border-border-default text-text-primary hover:bg-surface-default transition-colors flex items-center justify-center"
+            >
+              <ChevronRight className="w-4 h-4" />
+            </button>
           </div>
         </div>
-
       </div>
     </section>
   );

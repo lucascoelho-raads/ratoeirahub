@@ -1,17 +1,14 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
-import { motion, AnimatePresence, Variants, useScroll, useTransform } from "framer-motion";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence, Variants } from "framer-motion";
 import Link from "next/link";
 import {
   MessageCircle,
   Phone,
   Instagram,
-  BarChart3,
   Users,
   TrendingUp,
-  Star,
-  CheckCircle,
   Inbox,
   Send,
   Archive,
@@ -197,21 +194,7 @@ const itemVariants: Variants = {
 
 export default function Hero() {
   const [activeSlide, setActiveSlide] = useState(0);
-  const sectionRef = useRef<HTMLElement | null>(null);
-
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start start", "end end"],
-  });
-
-  // Primeiro painel (frente): faz o zoom agressivo em direção à tela e desaparece
-  const firstPanelScale = useTransform(scrollYProgress, [0, 0.12], [1, 40]);
-  const firstPanelOpacity = useTransform(scrollYProgress, [0, 0.12], [1, 0]);
-  const firstPointerEvents = useTransform(scrollYProgress, (v: number) => (v < 0.12 ? "auto" : "none"));
-
-  // Segundo painel (fundo): começa pequeno e cresce até o tamanho original. Sempre com opacidade 100%.
-  const secondPanelScale = useTransform(scrollYProgress, [0, 0.12], [0.5, 1]);
-  const secondPointerEvents = useTransform(scrollYProgress, (v: number) => (v >= 0.12 ? "auto" : "none"));
+  const [activePanel, setActivePanel] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -220,219 +203,231 @@ export default function Hero() {
     return () => clearInterval(interval);
   }, []);
 
+  useEffect(() => {
+    const panelInterval = setInterval(() => {
+      setActivePanel((prev) => (prev === 0 ? 1 : 0));
+    }, 8000);
+    return () => clearInterval(panelInterval);
+  }, []);
+
   return (
-    <section ref={sectionRef} className="relative h-[300vh] bg-surface-default z-0">
-      <div className="sticky top-0 h-screen w-full overflow-hidden bg-surface-default">
-        
-        {/* --- SEGUNDO PAINEL (FUNDO) --- */}
+    <section className="relative h-screen bg-surface-default z-0 overflow-hidden">
+      <AnimatePresence mode="sync" initial={false}>
         <motion.div
-          style={{ scale: secondPanelScale, pointerEvents: secondPointerEvents as unknown as "auto" | "none", backgroundColor: "#ffffff" }}
-          className="absolute inset-0 z-10 flex items-center justify-center origin-center"
+          key={activePanel}
+          initial={{ x: "100%" }}
+          animate={{ x: 0 }}
+          exit={{ x: "-100%" }}
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          className="absolute inset-0 bg-white flex items-center justify-center"
         >
-
-          <div className="relative w-full max-w-7xl mx-auto px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div className="flex flex-col gap-6">
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-orange-50 border border-orange-100 text-orange-700 text-[11px] font-semibold w-fit">
-                <Star className="w-3 h-3 text-[#E6A600] fill-[#E6A600]" />
-                Próxima camada do ecossistema
-              </div>
-              <h2 className="text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.06] text-black">
-                Sua Página Está Pronta Para O Próximo Clique?
-              </h2>
-              <p className="text-base md:text-lg text-neutral-700 leading-relaxed max-w-2xl">
-                Enquanto você rastreia com precisão cada origem de venda, o
-                Ratoeira Pages entrega templates prontos para publicação com foco
-                em conversão, velocidade e experiência mobile.
-              </p>
-              <div className="flex items-center gap-3 pt-2">
-                <Link
-                  href="#planos"
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-brand-primary text-black font-semibold text-sm rounded-button hover:bg-brand-primary-hover transition-colors duration-200"
+          {activePanel === 0 ? (
+            <>
+              <div
+                className="absolute inset-0 pointer-events-none"
+                style={{
+                  backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Crect x='4' y='4' width='112' height='112' rx='20' ry='20' fill='none' stroke='%23000000' stroke-width='1' stroke-opacity='0.04'/%3E%3C/svg%3E")`,
+                  backgroundSize: "120px 120px",
+                }}
+              />
+              <div
+                className="absolute inset-0 pointer-events-none"
+                style={{
+                  background:
+                    "radial-gradient(ellipse 100% 80% at 50% 50%, transparent 30%, rgba(255,255,255,0.6) 100%)",
+                }}
+              />
+              <div className="relative w-full max-w-7xl mx-auto px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <motion.div
+                  variants={containerVariants}
+                  initial="hidden"
+                  animate="visible"
+                  className="flex flex-col gap-6"
                 >
-                  Quero Conhecer o Hub
-                </Link>
-              </div>
-            </div>
+                  <motion.h1
+                    variants={itemVariants}
+                    className="text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.06]"
+                  >
+                    <span className="text-text-primary">Atendimento que vende.</span>
+                    <br />
+                    <span className="text-[#FFB800]">Sem perder dinheiro.</span>
+                  </motion.h1>
 
-            <div className="relative hidden lg:block">
-              <div className="relative h-[420px] rounded-3xl overflow-hidden border border-neutral-200 bg-gradient-to-br from-[#FFF8E6] via-white to-orange-50 shadow-card-resting">
-                <div className="absolute top-6 left-6 right-6 h-12 rounded-xl bg-white/90 border border-neutral-200 flex items-center px-4">
-                  <div className="w-2.5 h-2.5 rounded-full bg-red-400/60 mr-1.5" />
-                  <div className="w-2.5 h-2.5 rounded-full bg-amber-400/60 mr-1.5" />
-                  <div className="w-2.5 h-2.5 rounded-full bg-emerald-400/60 mr-3" />
-                  <span className="text-xs font-semibold text-neutral-500">Ratoeira Pages Preview</span>
-                </div>
-                <div className="absolute inset-x-6 top-24 bottom-6 rounded-2xl bg-white border border-neutral-200 p-5 shadow-sm">
-                  <div className="h-24 rounded-xl bg-gradient-to-r from-orange-500 to-amber-500 mb-4 flex items-center px-5">
-                    <span className="text-white text-lg font-black">Template de Alta Conversão</span>
-                  </div>
-                  <div className="grid grid-cols-2 gap-3">
-                    <div className="h-20 rounded-lg bg-neutral-100 border border-neutral-200" />
-                    <div className="h-20 rounded-lg bg-neutral-100 border border-neutral-200" />
-                    <div className="h-10 rounded-lg bg-amber-100 border border-amber-200 col-span-2 flex items-center justify-center text-amber-700 text-sm font-bold">
-                      Publicar em minutos
+                  <motion.p
+                    variants={itemVariants}
+                    className="text-base md:text-lg text-text-secondary leading-relaxed max-w-md"
+                  >
+                    3000+ clientes usam a Ratoeira Hub para trackear e converter vendas
+                    sem desperdiçar verba com bots.
+                  </motion.p>
+
+                  <motion.div variants={itemVariants} className="flex items-center gap-3 pt-2">
+                    <Link
+                      href="#demo"
+                      className="inline-flex items-center gap-2 px-6 py-3 bg-brand-primary text-black font-semibold text-sm rounded-button hover:bg-brand-primary-hover transition-colors duration-200"
+                    >
+                      Começar Agora
+                    </Link>
+                  </motion.div>
+                </motion.div>
+
+                <motion.div
+                  initial={{ opacity: 0, x: 40 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.9, delay: 0.4, ease: [0.215, 0.61, 0.355, 1] }}
+                  className="relative hidden lg:block"
+                >
+                  <div
+                    className="relative rounded-2xl overflow-hidden border border-neutral-200 bg-[#0d0d0d] shadow-card-resting"
+                    style={{ height: "420px" }}
+                  >
+                    <div className="bg-[#161616] border-b border-white/5 px-4 py-3 flex items-center justify-between">
+                      <div className="flex gap-1.5">
+                        <div className="w-2.5 h-2.5 rounded-full bg-red-500/40" />
+                        <div className="w-2.5 h-2.5 rounded-full bg-amber-500/40" />
+                        <div className="w-2.5 h-2.5 rounded-full bg-emerald-500/40" />
+                      </div>
+                      <AnimatePresence mode="wait">
+                        <motion.span
+                          key={activeSlide}
+                          initial={{ opacity: 0 }}
+                          animate={{ opacity: 1 }}
+                          exit={{ opacity: 0 }}
+                          className="text-neutral-500 text-[10px] font-semibold tracking-widest uppercase absolute left-1/2 -translate-x-1/2"
+                        >
+                          {slides[activeSlide].label}
+                        </motion.span>
+                      </AnimatePresence>
+                      <div className="flex gap-1">
+                        {slides.map((_, i) => (
+                          <button
+                            key={i}
+                            onClick={() => setActiveSlide(i)}
+                            className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${
+                              i === activeSlide ? "bg-[#E6A600]" : "bg-white/20"
+                            }`}
+                          />
+                        ))}
+                      </div>
+                    </div>
+
+                    <div className="relative h-[calc(100%-45px)] p-3">
+                      <AnimatePresence mode="wait">
+                        <motion.div
+                          key={activeSlide}
+                          initial={{ opacity: 0, y: 10 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          exit={{ opacity: 0, y: -10 }}
+                          transition={{ duration: 0.4, ease: "easeInOut" }}
+                          className="absolute inset-3"
+                        >
+                          {slides[activeSlide].content}
+                        </motion.div>
+                      </AnimatePresence>
                     </div>
                   </div>
-                </div>
-                <div className="absolute -bottom-4 -right-4 w-20 h-20 rounded-full bg-amber-200/70 blur-2xl" />
-              </div>
-            </div>
-          </div>
-        </motion.div>
 
-        {/* --- PRIMEIRO PAINEL (FRENTE) --- */}
-        <motion.div
-          style={{ opacity: firstPanelOpacity, scale: firstPanelScale, pointerEvents: firstPointerEvents as unknown as "auto" | "none", backgroundColor: "#ffffff" }}
-          className="absolute inset-0 z-20 flex items-center justify-center origin-center"
-        >
-          <div
-            className="absolute inset-0 pointer-events-none"
-            style={{
-              backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Crect x='4' y='4' width='112' height='112' rx='20' ry='20' fill='none' stroke='%23000000' stroke-width='1' stroke-opacity='0.04'/%3E%3C/svg%3E")`,
-              backgroundSize: "120px 120px",
-            }}
-          />
-          <div
-            className="absolute inset-0 pointer-events-none"
-            style={{
-              background: "radial-gradient(ellipse 100% 80% at 50% 50%, transparent 30%, rgba(255,255,255,0.6) 100%)",
-            }}
-          />
-          <div className="relative w-full max-w-7xl mx-auto px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-        {/* LEFT: Text Content */}
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-          className="flex flex-col gap-6"
-        >
-          {/* Badge */}
-          <motion.div variants={itemVariants}>
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-orange-50 border border-orange-100 text-orange-700 text-[11px] font-semibold">
-              <Star className="w-3 h-3 text-[#E6A600] fill-[#E6A600]" />
-              Ratoeira Hub v2 está no ar
-            </div>
-          </motion.div>
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 1.2, duration: 0.5 }}
+                    className="absolute -bottom-5 -left-8 bg-white/95 backdrop-blur-xl border border-neutral-200 rounded-xl px-4 py-3 flex items-center gap-3 shadow-card-hover"
+                  >
+                    <div className="w-8 h-8 rounded-full bg-emerald-500/20 flex items-center justify-center">
+                      <TrendingUp className="w-4 h-4 text-emerald-400" />
+                    </div>
+                    <div>
+                      <p className="text-text-primary text-xs font-bold">+42% Conversão</p>
+                      <p className="text-text-secondary text-[10px]">Último mês</p>
+                    </div>
+                  </motion.div>
 
-          {/* Title — Two-color like Forge UI */}
-          <motion.h1
-            variants={itemVariants}
-            className="text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.06]"
-          >
-            <span className="text-text-primary">Atendimento que vende.</span>
-            <br />
-            <span className="text-[#FFB800]">Sem perder dinheiro.</span>
-          </motion.h1>
-
-          {/* Subtitle */}
-          <motion.p
-            variants={itemVariants}
-            className="text-base md:text-lg text-text-secondary leading-relaxed max-w-md"
-          >
-            3000+ clientes usam a Ratoeira Hub para trackear e converter vendas
-            sem desperdiçar verba com bots.
-          </motion.p>
-
-          {/* CTAs */}
-          <motion.div variants={itemVariants} className="flex items-center gap-3 pt-2">
-            <Link
-              href="#demo"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-brand-primary text-black font-semibold text-sm rounded-button hover:bg-brand-primary-hover transition-colors duration-200"
-            >
-              Começar Agora
-            </Link>
-
-          </motion.div>
-        </motion.div>
-
-        {/* RIGHT: Alternating Mockups */}
-        <motion.div
-          initial={{ opacity: 0, x: 40 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.9, delay: 0.4, ease: [0.215, 0.61, 0.355, 1] }}
-          className="relative hidden lg:block"
-        >
-          {/* Mockup container */}
-          <div className="relative rounded-2xl overflow-hidden border border-neutral-200 bg-[#0d0d0d] shadow-card-resting" style={{ height: "420px" }}>
-            <div className="bg-[#161616] border-b border-white/5 px-4 py-3 flex items-center justify-between">
-              <div className="flex gap-1.5">
-                <div className="w-2.5 h-2.5 rounded-full bg-red-500/40" />
-                <div className="w-2.5 h-2.5 rounded-full bg-amber-500/40" />
-                <div className="w-2.5 h-2.5 rounded-full bg-emerald-500/40" />
-              </div>
-              <AnimatePresence mode="wait">
-                <motion.span
-                  key={activeSlide}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  className="text-neutral-500 text-[10px] font-semibold tracking-widest uppercase absolute left-1/2 -translate-x-1/2"
-                >
-                  {slides[activeSlide].label}
-                </motion.span>
-              </AnimatePresence>
-              <div className="flex gap-1">
-                {slides.map((_, i) => (
-                  <button
-                    key={i}
-                    onClick={() => setActiveSlide(i)}
-                    className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${i === activeSlide ? "bg-[#E6A600]" : "bg-white/20"}`}
-                  />
-                ))}
-              </div>
-            </div>
-
-            {/* Slides */}
-            <div className="relative h-[calc(100%-45px)] p-3">
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={activeSlide}
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -10 }}
-                  transition={{ duration: 0.4, ease: "easeInOut" }}
-                  className="absolute inset-3"
-                >
-                  {slides[activeSlide].content}
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 1.4, duration: 0.5 }}
+                    className="absolute -top-5 -right-4 bg-white/95 backdrop-blur-xl border border-neutral-200 rounded-xl px-4 py-3 flex items-center gap-3 shadow-card-hover"
+                  >
+                    <div className="w-8 h-8 rounded-full bg-[#E6A600]/20 flex items-center justify-center">
+                      <Users className="w-4 h-4 text-[#E6A600]" />
+                    </div>
+                    <div>
+                      <p className="text-text-primary text-xs font-bold">+1.500 clientes</p>
+                      <p className="text-text-secondary text-[10px]">Empresas ativas</p>
+                    </div>
+                  </motion.div>
                 </motion.div>
-              </AnimatePresence>
-            </div>
-          </div>
+              </div>
+            </>
+          ) : (
+            <>
+              <div
+                className="absolute inset-0 pointer-events-none"
+                style={{
+                  backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Crect x='4' y='4' width='112' height='112' rx='20' ry='20' fill='none' stroke='%23000000' stroke-width='1' stroke-opacity='0.04'/%3E%3C/svg%3E")`,
+                  backgroundSize: "120px 120px",
+                }}
+              />
+              <div
+                className="absolute inset-0 pointer-events-none"
+                style={{
+                  background:
+                    "radial-gradient(ellipse 100% 80% at 50% 50%, transparent 30%, rgba(255,255,255,0.6) 100%)",
+                }}
+              />
+              <div className="relative w-full max-w-7xl mx-auto px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+              <div className="flex flex-col gap-6">
+                <h2 className="text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.06] text-black">
+                  Sua Página Está Pronta{" "}
+                  <span style={{ color: "var(--color-brand-primary)" }}>Para O Próximo Clique?</span>
+                </h2>
+                <p className="text-base md:text-lg text-neutral-700 leading-relaxed max-w-2xl">
+                  Enquanto você rastreia com precisão cada origem de venda, o
+                  Ratoeira Pages entrega templates prontos para publicação com foco
+                  em conversão, velocidade e experiência mobile.
+                </p>
+                <div className="flex items-center gap-3 pt-2">
+                  <Link
+                    href="#planos"
+                    className="inline-flex items-center gap-2 px-6 py-3 bg-brand-primary text-black font-semibold text-sm rounded-button hover:bg-brand-primary-hover transition-colors duration-200"
+                  >
+                    Quero Conhecer o Hub
+                  </Link>
+                </div>
+              </div>
 
-          {/* Floating stat cards */}
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.2, duration: 0.5 }}
-            className="absolute -bottom-5 -left-8 bg-white/95 backdrop-blur-xl border border-neutral-200 rounded-xl px-4 py-3 flex items-center gap-3 shadow-card-hover"
-          >
-            <div className="w-8 h-8 rounded-full bg-emerald-500/20 flex items-center justify-center">
-              <TrendingUp className="w-4 h-4 text-emerald-400" />
-            </div>
-            <div>
-              <p className="text-text-primary text-xs font-bold">+42% Conversão</p>
-              <p className="text-text-secondary text-[10px]">Último mês</p>
-            </div>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.4, duration: 0.5 }}
-            className="absolute -top-5 -right-4 bg-white/95 backdrop-blur-xl border border-neutral-200 rounded-xl px-4 py-3 flex items-center gap-3 shadow-card-hover"
-          >
-            <div className="w-8 h-8 rounded-full bg-[#E6A600]/20 flex items-center justify-center">
-              <Users className="w-4 h-4 text-[#E6A600]" />
-            </div>
-            <div>
-              <p className="text-text-primary text-xs font-bold">+1.500 clientes</p>
-              <p className="text-text-secondary text-[10px]">Empresas ativas</p>
-            </div>
-          </motion.div>
+              <div className="relative hidden lg:block">
+                <div className="relative h-[420px] rounded-3xl overflow-hidden border border-neutral-200 bg-gradient-to-br from-[#FFF8E6] via-white to-orange-50 shadow-card-resting">
+                  <div className="absolute top-6 left-6 right-6 h-12 rounded-xl bg-white/90 border border-neutral-200 flex items-center px-4">
+                    <div className="w-2.5 h-2.5 rounded-full bg-red-400/60 mr-1.5" />
+                    <div className="w-2.5 h-2.5 rounded-full bg-amber-400/60 mr-1.5" />
+                    <div className="w-2.5 h-2.5 rounded-full bg-emerald-400/60 mr-3" />
+                    <span className="text-xs font-semibold text-neutral-500">
+                      Ratoeira Pages Preview
+                    </span>
+                  </div>
+                  <div className="absolute inset-x-6 top-24 bottom-6 rounded-2xl bg-white border border-neutral-200 p-5 shadow-sm">
+                    <div className="h-24 rounded-xl bg-gradient-to-r from-orange-500 to-amber-500 mb-4 flex items-center px-5">
+                      <span className="text-white text-lg font-black">
+                        Template de Alta Conversão
+                      </span>
+                    </div>
+                    <div className="grid grid-cols-2 gap-3">
+                      <div className="h-20 rounded-lg bg-neutral-100 border border-neutral-200" />
+                      <div className="h-20 rounded-lg bg-neutral-100 border border-neutral-200" />
+                      <div className="h-10 rounded-lg bg-amber-100 border border-amber-200 col-span-2 flex items-center justify-center text-amber-700 text-sm font-bold">
+                        Publicar em minutos
+                      </div>
+                    </div>
+                  </div>
+                  <div className="absolute -bottom-4 -right-4 w-20 h-20 rounded-full bg-amber-200/70 blur-2xl" />
+                </div>
+              </div>
+              </div>
+            </>
+          )}
         </motion.div>
-      </div>
-      </motion.div>
-      </div>
+      </AnimatePresence>
     </section>
   );
 }

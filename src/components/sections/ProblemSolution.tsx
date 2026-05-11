@@ -86,7 +86,7 @@ export default function ProblemSolution() {
           className="text-center mb-16 space-y-6"
         >
           <h2 className="text-4xl lg:text-5xl font-black text-white leading-tight">
-            Tudo o Que Você Precisa Para Operar Tráfego Pago — Em Um Só Lugar
+            Tudo o Que Você Precisa Para Escalar sua Operação — Em Um Só Lugar
           </h2>
           <p className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
             <span className="block whitespace-nowrap">
