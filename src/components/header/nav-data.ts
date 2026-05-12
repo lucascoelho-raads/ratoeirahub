@@ -153,11 +153,6 @@ export const NAV_LINKS: NavLink[] = [
               description: "Novidades e atualizacoes da plataforma.",
               href: "#materiais",
             },
-            {
-              label: "Central de Ajuda",
-              description: "Fale com a nossa equipe.",
-              href: "#materiais",
-            },
           ],
         },
         {
@@ -173,6 +168,11 @@ export const NAV_LINKS: NavLink[] = [
               description: "Termos de uso do Ratoeira Ads.",
               href: "#materiais",
             },
+            {
+              label: "Central de Ajuda",
+              description: "Fale com a nossa equipe.",
+              href: "#materiais",
+            },
           ],
         },
         {
@@ -186,6 +186,11 @@ export const NAV_LINKS: NavLink[] = [
             {
               label: "Termos de Uso",
               description: "Termos de uso do Ratoeira Pages.",
+              href: "#materiais",
+            },
+            {
+              label: "Central de Ajuda",
+              description: "Fale com a nossa equipe.",
               href: "#materiais",
             },
           ],
