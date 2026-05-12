@@ -31,7 +31,7 @@ const mvvData = [
 
 export default function MVVAbout() {
   return (
-    <section className="py-32 bg-white relative overflow-hidden">
+    <section id="manifesto" className="py-32 bg-white relative overflow-hidden">
       {/* Background Accent */}
       <div className="absolute top-0 right-0 w-full h-full bg-gradient-to-b from-gray-50 to-white pointer-events-none" />
 

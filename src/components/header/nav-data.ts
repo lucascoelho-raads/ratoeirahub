@@ -39,7 +39,7 @@ export const NAV_LINKS: NavLink[] = [
             {
               label: "Manifesto",
               description: "A missao por tras do ecossistema Ratoeira Hub.",
-              href: "#empresa",
+              href: "/quem-somos#manifesto",
             },
           ],
         },
@@ -47,11 +47,6 @@ export const NAV_LINKS: NavLink[] = [
           heading: "Carreira e Cultura",
           accent: true,
           items: [
-            {
-              label: "Carreiras",
-              description: "Faca parte do time que escala afiliados no Brasil.",
-              href: "#fale-conosco",
-            },
             {
               label: "Parcerias",
               description: "Conecte-se ao nosso programa de parceiros.",
@@ -89,26 +84,6 @@ export const NAV_LINKS: NavLink[] = [
           ],
         },
         {
-          heading: "Por Objetivo",
-          items: [
-            {
-              label: "Reduzir Desperdicio",
-              description: "Corte cliques invalidos e aumente eficiencia.",
-              href: "#solucoes",
-            },
-            {
-              label: "Escalar Campanhas",
-              description: "Otimize com dados reais de venda confirmada.",
-              href: "#solucoes",
-            },
-            {
-              label: "Aumentar Conversao",
-              description: "Suba paginas e funis sem depender de codigo.",
-              href: "#solucoes",
-            },
-          ],
-        },
-        {
           heading: "Stack da Plataforma",
           items: [
             {
@@ -119,6 +94,21 @@ export const NAV_LINKS: NavLink[] = [
             {
               label: "Ratoeira Pages",
               description: "Landing pages rapidas e orientadas a ROI.",
+              href: "#solucoes",
+            },
+          ],
+        },
+        {
+          heading: "Integracoes & IA",
+          items: [
+            {
+              label: "Conexoes Nativas",
+              description: "+60 plataformas de vendas e CRMs integrados.",
+              href: "#solucoes",
+            },
+            {
+              label: "Geracao por IA",
+              description: "Crie copys e paginas usando inteligencia artificial.",
               href: "#solucoes",
             },
           ],
@@ -138,47 +128,7 @@ export const NAV_LINKS: NavLink[] = [
   },
   {
     label: "Planos",
-    href: "#planos",
-  },
-  {
-    label: "Parcerias",
-    href: "#parcerias",
-    menu: {
-      id: "parcerias",
-      columns: [
-        {
-          heading: "Programa de Canais",
-          items: [
-            {
-              label: "Torne-se Parceiro",
-              description: "Amplie receita com o ecossistema Ratoeira Hub.",
-              href: "#parcerias",
-            },
-            {
-              label: "Beneficios do Programa",
-              description: "Comissao, suporte e materiais comerciais.",
-              href: "#parcerias",
-            },
-          ],
-        },
-        {
-          heading: "Recursos",
-          accent: true,
-          items: [
-            {
-              label: "Kit de Vendas",
-              description: "Apresente a plataforma com argumentos prontos.",
-              href: "#materiais",
-            },
-            {
-              label: "Onboarding",
-              description: "Guia de inicio rapido para novos parceiros.",
-              href: "#materiais",
-            },
-          ],
-        },
-      ],
-    },
+    href: "/planos",
   },
   {
     label: "Cases",

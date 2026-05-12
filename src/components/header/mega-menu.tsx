@@ -54,19 +54,14 @@ function MegaMenuPanel({
       className="absolute left-0 top-full mt-3 w-full rounded-card border border-border-default bg-surface-default p-4 shadow-card-resting"
     >
       <div
-        className={cn(
-          "grid gap-3",
-          menu.columns.length === 2 && "grid-cols-2",
-          menu.columns.length === 3 && "grid-cols-3",
-          menu.columns.length >= 4 && "grid-cols-2 lg:grid-cols-4",
-        )}
+        className="flex gap-3"
       >
         {menu.columns.map((column) => (
           <div
             key={column.heading}
             className={cn(
               "rounded-card p-4",
-              column.accent ? "bg-surface-subdued border border-border-default" : "bg-surface-default",
+              column.accent ? "bg-surface-subdued border border-border-default min-w-[280px]" : "bg-surface-default flex-1",
             )}
           >
             <p className="mb-3 text-[11px] font-semibold uppercase tracking-wide text-text-muted">
