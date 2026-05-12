@@ -84,15 +84,15 @@ export const NAV_LINKS: NavLink[] = [
           ],
         },
         {
-          heading: "Stack da Plataforma",
+          heading: "Fonte de Tráfego",
           items: [
             {
-              label: "Ratoeira Ads",
+              label: "Google Ads",
               description: "Server-side tracking para tráfego pago.",
               href: "#solucoes",
             },
             {
-              label: "Ratoeira Pages",
+              label: "Meta Ads",
               description: "Landing pages rápidas e orientadas a ROI.",
               href: "#solucoes",
             },
