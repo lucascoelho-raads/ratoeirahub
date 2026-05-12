@@ -33,18 +33,18 @@ export const NAV_LINKS: NavLink[] = [
           items: [
             {
               label: "Quem Somos",
-              description: "Conheca nossa jornada e visao de produto.",
+              description: "Conheça nossa jornada e visão de produto.",
               href: "/quem-somos",
             },
             {
               label: "Manifesto",
-              description: "A missao por tras do ecossistema Ratoeira Hub.",
+              description: "A missão por trás do ecossistema Ratoeira Hub.",
               href: "/quem-somos#manifesto",
             },
           ],
         },
         {
-          heading: "Carreira e Cultura",
+          heading: "Parceria",
           accent: true,
           items: [
             {
@@ -58,27 +58,27 @@ export const NAV_LINKS: NavLink[] = [
     },
   },
   {
-    label: "Solucoes",
+    label: "Soluções",
     href: "#solucoes",
     menu: {
       id: "solucoes",
       columns: [
         {
-          heading: "Por Operacao",
+          heading: "Por Operação",
           items: [
             {
               label: "Rastreamento Inteligente",
-              description: "Recupere conversoes invisiveis e bloqueie fraude.",
+              description: "Recupere conversões invisíveis e bloqueie fraude.",
               href: "#solucoes",
             },
             {
-              label: "Paginas de Alta Conversao",
+              label: "Páginas de Alta Conversão",
               description: "Templates e construtor visual integrados ao tracking.",
               href: "#solucoes",
             },
             {
               label: "Ecossistema Integrado",
-              description: "Ads + Pages em um unico dashboard operacional.",
+              description: "Ads + Pages em um único dashboard operacional.",
               href: "#solucoes",
             },
           ],
@@ -88,37 +88,37 @@ export const NAV_LINKS: NavLink[] = [
           items: [
             {
               label: "Ratoeira Ads",
-              description: "Server-side tracking para trafego pago.",
+              description: "Server-side tracking para tráfego pago.",
               href: "#solucoes",
             },
             {
               label: "Ratoeira Pages",
-              description: "Landing pages rapidas e orientadas a ROI.",
+              description: "Landing pages rápidas e orientadas a ROI.",
               href: "#solucoes",
             },
           ],
         },
         {
-          heading: "Integracoes & IA",
+          heading: "Integrações & IA",
           items: [
             {
-              label: "Conexoes Nativas",
+              label: "Conexões Nativas",
               description: "+60 plataformas de vendas e CRMs integrados.",
               href: "#solucoes",
             },
             {
-              label: "Geracao por IA",
-              description: "Crie copys e paginas usando inteligencia artificial.",
+              label: "Geração por IA",
+              description: "Crie copys e páginas usando inteligência artificial.",
               href: "#solucoes",
             },
           ],
         },
         {
-          heading: "Acesso Rapido",
+          heading: "Acesso Rápido",
           accent: true,
           items: [
-            { label: "Ver Beneficios", href: "#solucoes" },
-            { label: "Ver Numeros", href: "#empresa" },
+            { label: "Ver Benefícios", href: "#solucoes" },
+            { label: "Ver Números", href: "#empresa" },
             { label: "Ver Cases", href: "#cases" },
             { label: "Falar com Time", href: "#fale-conosco" },
           ],
@@ -145,12 +145,12 @@ export const NAV_LINKS: NavLink[] = [
           items: [
             {
               label: "FAQ",
-              description: "Respostas para duvidas frequentes.",
+              description: "Respostas para dúvidas frequentes.",
               href: "#materiais",
             },
             {
               label: "Grupo de Comunicados",
-              description: "Novidades e atualizacoes da plataforma.",
+              description: "Novidades e atualizações da plataforma.",
               href: "#materiais",
             },
           ],
@@ -160,7 +160,7 @@ export const NAV_LINKS: NavLink[] = [
           items: [
             {
               label: "Privacidade",
-              description: "Politicas de privacidade do Ads.",
+              description: "Políticas de privacidade do Ads.",
               href: "#materiais",
             },
             {
@@ -180,7 +180,7 @@ export const NAV_LINKS: NavLink[] = [
           items: [
             {
               label: "Privacidade",
-              description: "Politicas de privacidade do Pages.",
+              description: "Políticas de privacidade do Pages.",
               href: "#materiais",
             },
             {
