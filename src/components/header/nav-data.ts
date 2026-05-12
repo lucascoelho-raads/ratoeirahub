@@ -102,8 +102,8 @@ export const NAV_LINKS: NavLink[] = [
           heading: "Integrações & IA",
           items: [
             {
-              label: "Conexões Nativas",
-              description: "+60 plataformas de vendas e CRMs integrados.",
+              label: "Mais de 70 plataformas",
+              description: "Conexão em minutos. Zero retrabalho.",
               href: "#solucoes",
             },
             {
