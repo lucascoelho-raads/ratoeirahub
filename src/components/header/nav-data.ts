@@ -88,12 +88,12 @@ export const NAV_LINKS: NavLink[] = [
           items: [
             {
               label: "Google Ads",
-              description: "Server-side tracking para tráfego pago.",
+              description: "Escale campanhas de pesquisa e YouTube com dados limpos.",
               href: "#solucoes",
             },
             {
               label: "Meta Ads",
-              description: "Landing pages rápidas e orientadas a ROI.",
+              description: "Otimize criativos e escale no Facebook e Instagram.",
               href: "#solucoes",
             },
           ],
