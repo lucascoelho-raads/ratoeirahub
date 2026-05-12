@@ -132,7 +132,7 @@ export const NAV_LINKS: NavLink[] = [
   },
   {
     label: "Cases",
-    href: "#cases",
+    href: "/cases",
   },
   {
     label: "Materiais",
@@ -141,31 +141,51 @@ export const NAV_LINKS: NavLink[] = [
       id: "materiais",
       columns: [
         {
-          heading: "Aprendizado",
+          heading: "Comunidade e Suporte",
           items: [
-            {
-              label: "Documentacao",
-              description: "Tudo para configurar sua operacao no Hub.",
-              href: "#materiais",
-            },
             {
               label: "FAQ",
               description: "Respostas para duvidas frequentes.",
               href: "#materiais",
             },
-          ],
-        },
-        {
-          heading: "Conteudos",
-          items: [
             {
-              label: "Blog",
-              description: "Estrategias de trafego e escala com dados reais.",
+              label: "Grupo de Comunicados",
+              description: "Novidades e atualizacoes da plataforma.",
               href: "#materiais",
             },
             {
-              label: "Comunicados",
-              description: "Novidades e atualizacoes da plataforma.",
+              label: "Central de Ajuda",
+              description: "Fale com a nossa equipe.",
+              href: "#materiais",
+            },
+          ],
+        },
+        {
+          heading: "Ratoeira ADS",
+          items: [
+            {
+              label: "Privacidade",
+              description: "Politicas de privacidade do Ads.",
+              href: "#materiais",
+            },
+            {
+              label: "Termos de Uso",
+              description: "Termos de uso do Ratoeira Ads.",
+              href: "#materiais",
+            },
+          ],
+        },
+        {
+          heading: "Ratoeira Pages",
+          items: [
+            {
+              label: "Privacidade",
+              description: "Politicas de privacidade do Pages.",
+              href: "#materiais",
+            },
+            {
+              label: "Termos de Uso",
+              description: "Termos de uso do Ratoeira Pages.",
               href: "#materiais",
             },
           ],
