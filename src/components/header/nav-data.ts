@@ -166,7 +166,7 @@ export const NAV_LINKS: NavLink[] = [
             {
               label: "Privacidade",
               description: "Políticas de privacidade do Ads.",
-              href: "#materiais",
+              href: "/privacidade/ads",
             },
             {
               label: "Termos de Uso",

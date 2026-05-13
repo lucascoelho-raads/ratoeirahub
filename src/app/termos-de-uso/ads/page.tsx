@@ -1,6 +1,7 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { CheckCircle2 } from "lucide-react";
+import { CheckCircle2, ArrowLeft } from "lucide-react";
+import Link from "next/link";
 
 export const metadata = {
   title: "Termos de Uso do Ads | Ratoeira Hub",
@@ -14,6 +15,13 @@ export default function TermosDeUsoAdsPage() {
 
       <div className="flex-1 py-32 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto w-full">
         <div className="mb-12">
+          <Link
+            href="/"
+            className="inline-flex items-center gap-2 text-white/60 hover:text-white bg-white/5 hover:bg-white/10 px-4 py-2 rounded-full backdrop-blur-md transition-all font-medium text-sm border border-white/10 mb-8"
+          >
+            <ArrowLeft className="w-4 h-4" />
+            Voltar para a Home
+          </Link>
           <h1 className="text-4xl md:text-5xl font-black text-white mb-4 tracking-tight">Termos de Uso</h1>
           <p className="text-brand-primary font-bold uppercase tracking-widest text-sm">Ratoeira Ads</p>
         </div>

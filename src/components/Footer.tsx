@@ -26,8 +26,8 @@ const footerLinks = {
     { href: "#", label: "Webinars" },
   ],
   Legal: [
-    { href: "#", label: "Privacidade" },
-    { href: "#", label: "Termos de uso" },
+    { href: "/privacidade/ads", label: "Privacidade" },
+    { href: "/termos-de-uso/ads", label: "Termos de uso" },
     { href: "#", label: "Cookies" },
     { href: "#", label: "LGPD" },
   ],
