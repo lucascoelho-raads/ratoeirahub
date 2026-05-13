@@ -74,7 +74,7 @@ export const NAV_LINKS: NavLink[] = [
             {
               label: "Ratoeira Ads",
               description: "Recupere conversões invisíveis e bloqueie fraude.",
-              href: "#solucoes",
+              href: "/solucoes/ratoeira-ads",
             },
             {
               label: "Ratoeira Pages",
