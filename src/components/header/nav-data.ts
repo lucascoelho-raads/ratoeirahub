@@ -50,12 +50,12 @@ export const NAV_LINKS: NavLink[] = [
             {
               label: "Parcerias",
               description: "Conecte-se ao nosso programa de parceiros.",
-              href: "#parcerias",
+              href: "/parcerias",
             },
             {
               label: "Benefícios do Programa",
               description: "Vantagens exclusivas para parceiros certificados.",
-              href: "#parcerias",
+              href: "/parcerias/beneficios",
             },
           ],
         },
