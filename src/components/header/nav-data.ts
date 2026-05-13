@@ -52,6 +52,11 @@ export const NAV_LINKS: NavLink[] = [
               description: "Conecte-se ao nosso programa de parceiros.",
               href: "#parcerias",
             },
+            {
+              label: "Benefícios do Programa",
+              description: "Vantagens exclusivas para parceiros certificados.",
+              href: "#parcerias",
+            },
           ],
         },
       ],
@@ -67,12 +72,12 @@ export const NAV_LINKS: NavLink[] = [
           heading: "Por Operação",
           items: [
             {
-              label: "Rastreamento Inteligente",
+              label: "Ratoeira Ads",
               description: "Recupere conversões invisíveis e bloqueie fraude.",
               href: "#solucoes",
             },
             {
-              label: "Páginas de Alta Conversão",
+              label: "Ratoeira Pages",
               description: "Templates e construtor visual integrados ao tracking.",
               href: "#solucoes",
             },
@@ -107,8 +112,8 @@ export const NAV_LINKS: NavLink[] = [
               href: "#solucoes",
             },
             {
-              label: "Geração por IA",
-              description: "Crie copys e páginas usando inteligência artificial.",
+              label: "Conexões com IA",
+              description: "Integre dados com ferramentas de inteligência artificial.",
               href: "#solucoes",
             },
           ],

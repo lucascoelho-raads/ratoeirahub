@@ -1,6 +1,7 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import CasesSocialProof from "./components/CasesSocialProof";
+import MentorsRecommend from "./components/MentorsRecommend";
 import CasesList from "./components/CasesList";
 
 export const metadata = {
@@ -16,10 +17,13 @@ export default function CasesPage() {
       {/* 1. Provas Sociais e Vídeos/Prints */}
       <CasesSocialProof />
       
+      {/* 2. Mentores Indicam */}
+      <MentorsRecommend />
+      
       {/* Divider */}
       <div className="w-full max-w-7xl mx-auto h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
       
-      {/* 2. Cards de Cases (Apple Style) */}
+      {/* 3. Cards de Cases (Apple Style) */}
       <CasesList />
 
       <Footer />
