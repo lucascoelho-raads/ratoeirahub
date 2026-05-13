@@ -561,70 +561,42 @@ export default function PricingTabs() {
             </motion.div>
           </AnimatePresence>
 
-          <div className="mt-20 mb-10 text-center">
-            <h3 className="text-2xl md:text-3xl font-black text-white tracking-tight">
-              Compare em detalhes
-            </h3>
-            <p className="text-sm text-gray-400 mt-2">Todas as funcionalidades inclusas em cada plano.</p>
-          </div>
-
           {/* Features Table */}
-          <div className="rounded-[32px] border border-white/10 bg-[#111111] overflow-hidden">
-            <div className="grid grid-cols-[1.5fr_repeat(3,_1fr)] border-b border-white/10">
-              <div className="p-8 flex items-end">
-                <span className="text-lg font-bold text-white">Recursos inclusos</span>
-              </div>
-              {plans.map((plan) => (
-                <div
-                  key={plan.name}
-                  className={cn("p-8", plan.popular ? "bg-white/5 relative" : "")}
-                >
-                  {plan.popular && <div className="absolute top-0 left-0 w-full h-1 bg-brand-primary" />}
-                </div>
-              ))}
-            </div>
-
+          <div className="mt-16">
             {comparisonGroups.map((group, gi) => (
-              <div key={group.group}>
-                <div className="bg-white/5 px-8 py-5 border-y border-white/10 first:border-t-0">
-                  <span className="text-sm font-bold uppercase tracking-widest text-brand-primary">
-                    {group.group}
-                  </span>
+              <div key={group.group} className="mb-12">
+                <div className="mb-4 text-sm font-bold uppercase tracking-widest text-brand-primary border-b border-white/10 pb-4">
+                  {group.group}
                 </div>
 
-                {group.features.map((feature, fi) => (
-                  <div key={feature.label}>
-                    <div className="grid grid-cols-[1.5fr_repeat(3,_1fr)] items-center">
-                      {/* Label Column */}
-                      <div className="flex items-center gap-2 px-8 py-6 text-sm text-gray-300 font-medium">
+                <div className="space-y-0">
+                  {group.features.map((feature, fi) => (
+                    <div 
+                      key={feature.label} 
+                      className="relative grid grid-cols-3 gap-8 items-center py-6 border-b border-white/5 last:border-0 hover:bg-white/[0.02] transition-colors group/row"
+                    >
+                      {/* Label Column (Absolute on the left of the row) */}
+                      <div className="absolute left-0 flex items-center gap-2 text-sm text-gray-300 font-medium w-[180px] z-10 bg-[#050505]/80 md:bg-transparent backdrop-blur-sm md:backdrop-blur-none py-1">
                         {feature.label}
                         {feature.tooltip && (
-                          <div className="group relative">
-                            <Info className="w-4 h-4 text-gray-600 cursor-help" />
-                            <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-56 p-2 bg-[#222] border border-white/10 rounded-lg text-xs text-gray-300 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-20 text-center shadow-xl">
+                          <div className="group/tooltip relative">
+                            <Info className="w-4 h-4 text-gray-600 cursor-help hover:text-gray-400 transition-colors" />
+                            <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-56 p-2 bg-[#222] border border-white/10 rounded-lg text-xs text-gray-300 opacity-0 group-hover/tooltip:opacity-100 transition-opacity pointer-events-none z-20 text-center shadow-xl">
                               {feature.tooltip}
                             </div>
                           </div>
                         )}
                       </div>
                       
-                      {/* Value Columns */}
+                      {/* Value Columns (Perfectly aligned with cards) */}
                       {feature.values.map((val, vi) => (
-                        <div key={vi} className={cn("flex justify-center py-6", plans[vi]?.popular ? "bg-white/[0.02]" : "")}>
+                        <div key={vi} className="flex justify-center text-white">
                           <FeatureCell value={val} />
                         </div>
                       ))}
                     </div>
-                    {fi < group.features.length - 1 && (
-                      <div className="grid grid-cols-[1.5fr_repeat(3,_1fr)]">
-                        <div className="px-8"><div className="h-px bg-white/5" /></div>
-                        <div><div className="h-px bg-white/5" /></div>
-                        <div><div className="h-px bg-white/5" /></div>
-                        <div><div className="h-px bg-white/5" /></div>
-                      </div>
-                    )}
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
             ))}
           </div>

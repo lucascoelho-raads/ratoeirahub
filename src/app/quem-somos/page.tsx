@@ -2,6 +2,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import HeroAbout from "./components/HeroAbout";
 import TimelineAbout from "./components/TimelineAbout";
+import FoundersAbout from "./components/FoundersAbout";
 import MVVAbout from "./components/MVVAbout";
 import GalleryAbout from "./components/GalleryAbout";
 import PlatformCTAAbout from "./components/PlatformCTAAbout";
@@ -22,13 +23,16 @@ export default function QuemSomosPage() {
       {/* 2. Timeline / História (Zig-Zag) */}
       <TimelineAbout />
       
-      {/* 3. Missão, Visão e Valores */}
+      {/* 3. Conheça Nossos Fundadores */}
+      <FoundersAbout />
+      
+      {/* 4. Missão, Visão e Valores */}
       <MVVAbout />
       
-      {/* 4. Galeria / Fotos da Equipe/Eventos */}
+      {/* 5. Galeria / Fotos da Equipe/Eventos */}
       <GalleryAbout />
       
-      {/* 5. CTA Plataforma Inovadora */}
+      {/* 6. CTA Plataforma Inovadora */}
       <PlatformCTAAbout />
 
       <Footer />

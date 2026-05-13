@@ -151,7 +151,7 @@ export const NAV_LINKS: NavLink[] = [
             {
               label: "FAQ",
               description: "Respostas para dúvidas frequentes.",
-              href: "#materiais",
+              href: "/faq",
             },
             {
               label: "Grupo de Comunicados",
@@ -171,7 +171,7 @@ export const NAV_LINKS: NavLink[] = [
             {
               label: "Termos de Uso",
               description: "Termos de uso do Ratoeira Ads.",
-              href: "#materiais",
+              href: "/termos-de-uso/ads",
             },
             {
               label: "Central de Ajuda",
