@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Server, Ghost, Bot, Zap, Target, LineChart } from "lucide-react";
+import { BlurTextEffect } from "@/components/ui/blur-text-effect";
 
 const features = [
   {
@@ -49,21 +50,47 @@ export default function FeaturesAds() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="space-y-24">
           {features.map((feature, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-[#111111] border border-white/5 p-8 rounded-3xl hover:border-brand-primary/30 transition-colors group"
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.7 }}
+              className={`flex flex-col gap-12 items-center ${
+                index % 2 === 0 ? "md:flex-row-reverse" : "md:flex-row"
+              }`}
             >
-              <div className="w-14 h-14 rounded-2xl bg-white/5 flex items-center justify-center mb-6 group-hover:bg-brand-primary/10 transition-colors">
-                <feature.icon className="w-7 h-7 text-gray-400 group-hover:text-brand-primary transition-colors" />
+              {/* Text Side */}
+              <div className="flex-1 space-y-6">
+                <div className="w-16 h-16 rounded-2xl bg-brand-primary/10 flex items-center justify-center mb-6">
+                  <feature.icon className="w-8 h-8 text-brand-primary" />
+                </div>
+                <h3 className="text-3xl md:text-4xl font-black text-white leading-tight">
+                  <BlurTextEffect key={feature.title}>{feature.title}</BlurTextEffect>
+                </h3>
+                <p className="text-xl text-gray-400 leading-relaxed">
+                  <BlurTextEffect key={`${feature.title}-desc`}>{feature.description}</BlurTextEffect>
+                </p>
               </div>
-              <h3 className="text-xl font-bold text-white mb-3">{feature.title}</h3>
-              <p className="text-gray-400 leading-relaxed">{feature.description}</p>
+
+              {/* Image Side */}
+              <div className="flex-1 w-full">
+                <div className="relative aspect-[4/3] rounded-[40px] bg-gradient-to-br from-[#161616] to-[#0a0a0a] border border-white/5 flex flex-col items-center justify-center overflow-hidden group">
+                  <div className="absolute inset-0 bg-brand-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                  
+                  {/* Visual Placeholder for the feature */}
+                  <div className="relative z-10 p-8 text-center flex flex-col items-center">
+                    <feature.icon className="w-24 h-24 text-white/10 group-hover:text-brand-primary/40 transition-colors duration-700 mb-6 group-hover:scale-110 transform" />
+                    <p className="text-white/30 font-bold uppercase tracking-widest text-sm mb-2">Interface Visual</p>
+                    <p className="text-white/50 text-sm">Dashboard de {feature.title}</p>
+                  </div>
+                  
+                  {/* Decorative Glow */}
+                  <div className="absolute -bottom-20 -right-20 w-64 h-64 bg-brand-primary/20 rounded-full blur-[80px] pointer-events-none group-hover:bg-brand-primary/30 transition-colors duration-700" />
+                </div>
+              </div>
             </motion.div>
           ))}
         </div>

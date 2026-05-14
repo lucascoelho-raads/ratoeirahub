@@ -73,7 +73,7 @@ export const NAV_LINKS: NavLink[] = [
           items: [
             {
               label: "Ratoeira Ads",
-              description: "Recupere conversões invisíveis e bloqueie fraude.",
+              description: "A única ferramenta brasileira que rastreia, protege e dá visão total da suas operações no Google Ads e Meta Ads.",
               href: "/solucoes/ratoeira-ads",
             },
             {
