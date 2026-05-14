@@ -94,12 +94,12 @@ export const NAV_LINKS: NavLink[] = [
             {
               label: "Google Ads",
               description: "Escale campanhas de pesquisa e YouTube com dados limpos.",
-              href: "#solucoes",
+              href: "/fontes-de-trafego/google-ads",
             },
             {
               label: "Meta Ads",
               description: "Otimize criativos e escale no Facebook e Instagram.",
-              href: "#solucoes",
+              href: "/fontes-de-trafego/meta-ads",
             },
           ],
         },
