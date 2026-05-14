@@ -296,7 +296,7 @@ export default function PricingTabs() {
   };
 
   const [activeTab, setActiveTab] = useState<PlanType>("hub");
-  const [billingCycle, setBillingCycle] = useState<BillingCycle>("monthly");
+  const [billingCycle, setBillingCycle] = useState<BillingCycle>("annual");
   const [activePlanIndex, setActivePlanIndex] = useState<number>(() => getFeaturedIndex("hub"));
 
   const plans = plansData[activeTab];
@@ -414,16 +414,6 @@ export default function PricingTabs() {
                     </span>
                   )}
                 </div>
-                <ul className="space-y-3 mb-8 flex-1">
-                  {plan.features.map((feature, i) => (
-                    <li key={i} className="flex items-start gap-3">
-                      <div className="w-5 h-5 rounded-full bg-emerald-500/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                        <Check className="w-3 h-3 text-emerald-400" />
-                      </div>
-                      <span className="text-gray-300 text-sm">{feature}</span>
-                    </li>
-                  ))}
-                </ul>
                 <button
                   className={cn(
                     "w-full py-4 rounded-button font-bold text-sm transition-colors",
@@ -436,6 +426,11 @@ export default function PricingTabs() {
                 </button>
               </div>
             ))}
+          </div>
+          <div className="mb-12 text-center">
+            <p className="text-xs text-brand-primary">
+              * Renovação automática - Ao prosseguir você concorda que a assinatura será renovada automaticamente.
+            </p>
           </div>
 
           <div className="mb-8 text-center">
@@ -535,17 +530,6 @@ export default function PricingTabs() {
                     </div>
                   </div>
 
-                  <ul className="space-y-4 mb-10 flex-1">
-                    {plan.features.map((feature, i) => (
-                      <li key={i} className="flex items-start gap-3">
-                        <div className="w-5 h-5 rounded-full bg-emerald-500/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                          <Check className="w-3 h-3 text-emerald-400" />
-                        </div>
-                        <span className="text-gray-300 text-sm">{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-
                   <button
                     className={cn(
                       "w-full py-4 rounded-button font-bold text-sm transition-colors",
@@ -560,9 +544,27 @@ export default function PricingTabs() {
               ))}
             </motion.div>
           </AnimatePresence>
+          <div className="mt-6 text-center">
+            <p className="text-xs text-brand-primary">
+              * Renovação automática - Ao prosseguir você concorda que a assinatura será renovada automaticamente.
+            </p>
+          </div>
 
           {/* Features Table */}
           <div className="mt-16">
+            <div className="sticky top-20 z-20 -mt-6 mb-6">
+              <div className="relative grid grid-cols-3 gap-8 items-center py-3 border-b border-white/10 bg-black/80 backdrop-blur-md">
+                <div className="absolute left-0 w-[180px] h-full" />
+                {plans.map((plan) => (
+                  <div
+                    key={`plan-col-${activeTab}-${plan.name}`}
+                    className="flex justify-center text-xs font-bold uppercase tracking-widest text-gray-400"
+                  >
+                    {plan.name}
+                  </div>
+                ))}
+              </div>
+            </div>
             {comparisonGroups.map((group, gi) => (
               <div key={group.group} className="mb-12">
                 <div className="mb-4 text-sm font-bold uppercase tracking-widest text-brand-primary border-b border-white/10 pb-4">

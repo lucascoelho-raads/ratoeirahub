@@ -212,6 +212,40 @@ export default function Hero() {
 
   return (
     <section className="relative h-screen bg-surface-default z-0 overflow-hidden">
+      {/* Slider Controls - Absolute positioned at bottom center */}
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-50 flex items-center gap-3 bg-black/80 backdrop-blur-md px-4 py-2 rounded-full border border-white/10">
+        <button 
+          onClick={() => setActivePanel((prev) => (prev === 0 ? 1 : 0))}
+          className="w-8 h-8 rounded-full bg-white flex items-center justify-center hover:bg-neutral-200 transition-colors"
+        >
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="black" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+        </button>
+        
+        <div className="flex gap-2 items-center px-2">
+          <button 
+            onClick={() => setActivePanel(0)}
+            className={`transition-all duration-300 rounded-full ${activePanel === 0 ? 'w-8 h-3 bg-[#FFB800]' : 'w-3 h-3 bg-white/40 hover:bg-white/60'}`}
+            aria-label="Slide 1"
+          />
+          <button 
+            onClick={() => setActivePanel(1)}
+            className={`transition-all duration-300 rounded-full ${activePanel === 1 ? 'w-8 h-3 bg-[#FFB800]' : 'w-3 h-3 bg-white/40 hover:bg-white/60'}`}
+            aria-label="Slide 2"
+          />
+        </div>
+
+        <button 
+          onClick={() => setActivePanel((prev) => (prev === 0 ? 1 : 0))}
+          className="w-8 h-8 rounded-full bg-white flex items-center justify-center hover:bg-neutral-200 transition-colors"
+        >
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="black" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </button>
+      </div>
+
       <AnimatePresence mode="sync" initial={false}>
         <motion.div
           key={activePanel}

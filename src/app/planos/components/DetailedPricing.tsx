@@ -200,12 +200,30 @@ export default function DetailedPricing() {
           </div>
 
           {/* Features Rows */}
+          <div className="grid grid-cols-[1fr_repeat(3,_220px)] border-b border-white/10 bg-[#0A0A0A]">
+            <div className="px-8 py-3" />
+            {PRICING_PAGE_PLANS.map((plan, i) => (
+              <div
+                key={`col-label-${plan.id}`}
+                className={`flex items-center justify-center px-8 py-3 text-xs font-bold uppercase tracking-wider text-gray-300 ${
+                  i === 1 ? "bg-white/[0.02]" : ""
+                }`}
+              >
+                {plan.name}
+              </div>
+            ))}
+          </div>
           {PRICING_FEATURE_GROUPS.map((group, gi) => (
             <div key={group.group}>
-              <div className="bg-white/5 px-8 py-4 border-y border-white/10 first:border-t-0">
-                <span className="text-sm font-bold uppercase tracking-widest text-brand-primary">
-                  {group.group}
-                </span>
+              <div className="px-8 py-4 border-y border-white/10 first:border-t-0 grid grid-cols-[1fr_repeat(3,_220px)] relative">
+                <div className="flex items-center">
+                  <span className="text-sm font-bold uppercase tracking-widest text-brand-primary">
+                    {group.group}
+                  </span>
+                </div>
+                <div className="flex"></div>
+                <div className="flex"></div>
+                <div className="flex"></div>
               </div>
 
               {group.features.map((feature, fi) => (

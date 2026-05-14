@@ -79,7 +79,7 @@ export const NAV_LINKS: NavLink[] = [
             {
               label: "Ratoeira Pages",
               description: "Templates e construtor visual integrados ao tracking.",
-              href: "#solucoes",
+              href: "/solucoes/ratoeira-pages",
             },
             {
               label: "Ecossistema Integrado",
