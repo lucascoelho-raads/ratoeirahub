@@ -521,6 +521,65 @@ export default function PricingTabs() {
                     </div>
                   </div>
                 )}
+
+                {activeTab === "hub" && ADS_LIMITS_BY_PLAN[plan.name] && PAGES_LIMITS_BY_PLAN[plan.name] && (
+                  <div className="mb-6">
+                    <div className="h-px w-full bg-brand-primary" />
+                    <div className="mt-4 space-y-4">
+                      <div className="text-xs font-black uppercase tracking-widest text-brand-primary">
+                        Limites do Plano
+                      </div>
+
+                      <div className="space-y-2">
+                        <div className="text-[11px] font-black uppercase tracking-widest text-gray-400">
+                          Ratoeira Ads
+                        </div>
+                        <div className="flex items-center justify-between gap-4 text-xs">
+                          <span className="text-gray-300">Perfis Google Ads Conectados</span>
+                          <span className="font-bold text-white tabular-nums">
+                            {ADS_LIMITS_BY_PLAN[plan.name].googleAdsProfiles}
+                          </span>
+                        </div>
+                        <div className="flex items-center justify-between gap-4 text-xs">
+                          <span className="text-gray-300">Ratoeiras Automáticas</span>
+                          <span className="font-bold text-white tabular-nums">
+                            {ADS_LIMITS_BY_PLAN[plan.name].automaticTraps}
+                          </span>
+                        </div>
+                        <div className="flex items-center justify-between gap-4 text-xs">
+                          <span className="text-gray-300">Integrações/Plataformas Ilimitadas</span>
+                          <span className="font-bold text-white">
+                            {ADS_LIMITS_BY_PLAN[plan.name].integrations}
+                          </span>
+                        </div>
+                      </div>
+
+                      <div className="space-y-2">
+                        <div className="text-[11px] font-black uppercase tracking-widest text-gray-400">
+                          Ratoeira Pages
+                        </div>
+                        <div className="flex items-center justify-between gap-4 text-xs">
+                          <span className="text-gray-300">Acessos mensais</span>
+                          <span className="font-bold text-white tabular-nums">
+                            {PAGES_LIMITS_BY_PLAN[plan.name].monthlyAccesses}
+                          </span>
+                        </div>
+                        <div className="flex items-center justify-between gap-4 text-xs">
+                          <span className="text-gray-300">Domínios conectados</span>
+                          <span className="font-bold text-white tabular-nums">
+                            {PAGES_LIMITS_BY_PLAN[plan.name].connectedDomains}
+                          </span>
+                        </div>
+                        <div className="flex items-center justify-between gap-4 text-xs">
+                          <span className="text-gray-300">Páginas ilimitadas</span>
+                          <span className="font-bold text-white">
+                            {PAGES_LIMITS_BY_PLAN[plan.name].unlimitedPages}
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                )}
                 <button
                   className={cn(
                     "w-full py-4 rounded-button font-bold text-sm transition-colors",
@@ -689,6 +748,65 @@ export default function PricingTabs() {
                           <span className="font-bold text-white">
                             {PAGES_LIMITS_BY_PLAN[plan.name].unlimitedPages}
                           </span>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+
+                  {activeTab === "hub" && ADS_LIMITS_BY_PLAN[plan.name] && PAGES_LIMITS_BY_PLAN[plan.name] && (
+                    <div className="mb-8">
+                      <div className="h-px w-full bg-brand-primary" />
+                      <div className="mt-5 space-y-5">
+                        <div className="text-xs font-black uppercase tracking-widest text-brand-primary">
+                          Limites do Plano
+                        </div>
+
+                        <div className="space-y-3">
+                          <div className="text-[11px] font-black uppercase tracking-widest text-gray-400">
+                            Ratoeira Ads
+                          </div>
+                          <div className="flex items-center justify-between gap-6 text-sm">
+                            <span className="text-gray-300">Perfis Google Ads Conectados</span>
+                            <span className="font-bold text-white tabular-nums">
+                              {ADS_LIMITS_BY_PLAN[plan.name].googleAdsProfiles}
+                            </span>
+                          </div>
+                          <div className="flex items-center justify-between gap-6 text-sm">
+                            <span className="text-gray-300">Ratoeiras Automáticas</span>
+                            <span className="font-bold text-white tabular-nums">
+                              {ADS_LIMITS_BY_PLAN[plan.name].automaticTraps}
+                            </span>
+                          </div>
+                          <div className="flex items-center justify-between gap-6 text-sm">
+                            <span className="text-gray-300">Integrações/Plataformas Ilimitadas</span>
+                            <span className="font-bold text-white">
+                              {ADS_LIMITS_BY_PLAN[plan.name].integrations}
+                            </span>
+                          </div>
+                        </div>
+
+                        <div className="space-y-3">
+                          <div className="text-[11px] font-black uppercase tracking-widest text-gray-400">
+                            Ratoeira Pages
+                          </div>
+                          <div className="flex items-center justify-between gap-6 text-sm">
+                            <span className="text-gray-300">Acessos mensais</span>
+                            <span className="font-bold text-white tabular-nums">
+                              {PAGES_LIMITS_BY_PLAN[plan.name].monthlyAccesses}
+                            </span>
+                          </div>
+                          <div className="flex items-center justify-between gap-6 text-sm">
+                            <span className="text-gray-300">Domínios conectados</span>
+                            <span className="font-bold text-white tabular-nums">
+                              {PAGES_LIMITS_BY_PLAN[plan.name].connectedDomains}
+                            </span>
+                          </div>
+                          <div className="flex items-center justify-between gap-6 text-sm">
+                            <span className="text-gray-300">Páginas ilimitadas</span>
+                            <span className="font-bold text-white">
+                              {PAGES_LIMITS_BY_PLAN[plan.name].unlimitedPages}
+                            </span>
+                          </div>
                         </div>
                       </div>
                     </div>

@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { BlurTextEffect } from "@/components/ui/blur-text-effect";
 import { LayoutTemplate, Paintbrush, Zap, Settings, Eye, LineChart } from "lucide-react";
+import Image from "next/image";
 
 const features = [
   {
@@ -75,16 +76,19 @@ export default function FeaturesPages() {
         </div>
 
         <div className="space-y-32">
-          {features.map((feature, index) => (
-            <motion.div
-              key={feature.title}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-10%" }}
-              transition={{ duration: 0.6 }}
-              className={`flex flex-col ${index % 2 === 1 ? 'md:flex-row-reverse' : 'md:flex-row'} items-center gap-12 md:gap-24`}
-            >
-              <div className="flex-1 space-y-6">
+          {features.map((feature, index) => {
+            const isFlashPages = index === 0;
+
+            return (
+              <motion.div
+                key={feature.title}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-10%" }}
+                transition={{ duration: 0.6 }}
+                className="flex flex-col gap-12 items-stretch"
+              >
+              <div className="space-y-6 max-w-2xl">
                 <div className="w-16 h-16 rounded-2xl bg-[#FF7E4A]/10 flex items-center justify-center mb-6">
                   <feature.icon className="w-8 h-8 text-[#FF7E4A]" />
                 </div>
@@ -106,22 +110,35 @@ export default function FeaturesPages() {
                 </p>
               </div>
               
-              <div className="flex-1 w-full">
-                <div className="relative aspect-video rounded-2xl border border-white/10 bg-[#111111] overflow-hidden group">
-                  {/* Decorative glow inside mockup */}
+              <div className="w-full">
+                <div className="relative h-[320px] sm:h-[380px] md:h-[460px] lg:h-[520px] rounded-2xl border border-white/10 bg-[#111111] overflow-hidden group">
                   <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 h-3/4 bg-[#FF7E4A]/20 blur-[80px] rounded-full group-hover:bg-[#FF7E4A]/30 transition-colors duration-500" />
                   
-                  {/* Mockup Placeholder */}
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="text-center text-gray-600">
-                      <feature.icon className="w-16 h-16 mx-auto mb-4 opacity-50" />
-                      <p className="font-semibold uppercase tracking-wider text-sm">Espaço para Imagem/Mockup</p>
+                  {isFlashPages ? (
+                    <div className="absolute inset-0">
+                      <Image
+                        src="/flashpages.png"
+                        alt="Flash Pages"
+                        fill
+                        sizes="(min-width: 768px) 100vw, 100vw"
+                        className="object-cover object-top"
+                        priority
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/10 to-transparent" />
                     </div>
-                  </div>
+                  ) : (
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="text-center text-gray-600">
+                        <feature.icon className="w-16 h-16 mx-auto mb-4 opacity-50" />
+                        <p className="font-semibold uppercase tracking-wider text-sm">Espaço para Imagem/Mockup</p>
+                      </div>
+                    </div>
+                  )}
                 </div>
               </div>
             </motion.div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>
