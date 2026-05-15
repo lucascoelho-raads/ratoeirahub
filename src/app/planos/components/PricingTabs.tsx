@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Check, Info, Radar, LayoutTemplate, Link2 } from "lucide-react";
+import { Check, Radar, LayoutTemplate, Link2, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 type PlanType = "ads" | "pages" | "hub";
@@ -18,6 +18,24 @@ type FeatureRow = {
 type FeatureGroup = {
   group: string;
   features: FeatureRow[];
+};
+
+const ADS_LIMITS_BY_PLAN: Record<
+  string,
+  { googleAdsProfiles: string; automaticTraps: string; integrations: string }
+> = {
+  Rato: { googleAdsProfiles: "3", automaticTraps: "5", integrations: "Ilimitadas" },
+  Ratazana: { googleAdsProfiles: "10", automaticTraps: "50", integrations: "Ilimitadas" },
+  "Ratazana Plus": { googleAdsProfiles: "30", automaticTraps: "300", integrations: "Ilimitadas" },
+};
+
+const PAGES_LIMITS_BY_PLAN: Record<
+  string,
+  { monthlyAccesses: string; connectedDomains: string; unlimitedPages: string }
+> = {
+  Rato: { monthlyAccesses: "200.000", connectedDomains: "10", unlimitedPages: "Ilimitadas" },
+  Ratazana: { monthlyAccesses: "500.000", connectedDomains: "20", unlimitedPages: "Ilimitadas" },
+  "Ratazana Plus": { monthlyAccesses: "1.000.000", connectedDomains: "40", unlimitedPages: "Ilimitadas" },
 };
 
 const tabs = [
@@ -43,7 +61,7 @@ const plansData = {
         "1 domínio customizado",
         "Suporte por e-mail",
       ],
-      cta: "Assinar Plano Rato",
+      cta: "Assinar Rato",
       popular: false,
     },
     {
@@ -61,7 +79,7 @@ const plansData = {
         "3 domínios customizados",
         "Suporte prioritário via WhatsApp",
       ],
-      cta: "Assinar Plano Ratazana",
+      cta: "Assinar Ratazana",
       popular: false,
     },
     {
@@ -79,7 +97,7 @@ const plansData = {
         "Domínios ilimitados",
         "Gerente de conta dedicado",
       ],
-      cta: "Falar com Consultor",
+      cta: "Assinar Ratazana Plus",
       popular: true,
     },
   ],
@@ -99,7 +117,7 @@ const plansData = {
         "1 domínio customizado",
         "Hospedagem inclusa",
       ],
-      cta: "Assinar Plano Rato",
+      cta: "Assinar Rato",
       popular: false,
     },
     {
@@ -117,7 +135,7 @@ const plansData = {
         "3 domínios customizados",
         "Teste A/B nativo",
       ],
-      cta: "Assinar Plano Ratazana",
+      cta: "Assinar Ratazana",
       popular: false,
     },
     {
@@ -135,7 +153,7 @@ const plansData = {
         "Domínios ilimitados",
         "Suporte prioritário",
       ],
-      cta: "Falar com Consultor",
+      cta: "Assinar Ratazana Plus",
       popular: true,
     },
   ],
@@ -155,7 +173,7 @@ const plansData = {
         "2 domínios unificados",
         "Dashboard único de ROI",
       ],
-      cta: "Assinar Plano Rato",
+      cta: "Assinar Rato",
       popular: false,
     },
     {
@@ -173,7 +191,7 @@ const plansData = {
         "Domínios ilimitados unificados",
         "Suporte VIP WhatsApp",
       ],
-      cta: "Assinar Plano Ratazana",
+      cta: "Assinar Ratazana",
       popular: false,
     },
     {
@@ -191,7 +209,7 @@ const plansData = {
         "Desenvolvimento de features sob demanda",
         "SLA garantido",
       ],
-      cta: "Falar com Vendas",
+      cta: "Assinar Ratazana Plus",
       popular: true,
     },
   ],
@@ -199,6 +217,18 @@ const plansData = {
 
 const featureGroupsByTab: Record<PlanType, FeatureGroup[]> = {
   ads: [
+    {
+      group: "Limites do Plano",
+      features: [
+        { label: "E-Book de Estratégia Mensal", values: [true, true, true] },
+        { label: "Produtos rastreados simultaneamente", values: ["50", "100", "300"] },
+        { label: "Produtos com conversão 100% automática", values: ["5", "50", "300"] },
+        { label: "Integrações com plataformas", values: ["Ilimitadas", "Ilimitadas", "Ilimitadas"] },
+        { label: "Perfis Google Ads conectados", values: ["3", "10", "30"] },
+        { label: "Links de produtor automáticos", values: ["5", "50", "50"] },
+        { label: "Contas de anúncio", values: [null, null, "Ilimitadas"] },
+      ],
+    },
     {
       group: "Tracking & Anti-Fraude",
       features: [
@@ -225,6 +255,19 @@ const featureGroupsByTab: Record<PlanType, FeatureGroup[]> = {
     },
   ],
   pages: [
+    {
+      group: "Limites do Plano",
+      features: [
+        { label: "Hospedagem Grátis", values: [true, true, true] },
+        { label: "Domínios conectados", values: ["10", "20", "40"] },
+        { label: "Acessos mensais", values: ["200.000", "500.000", "1.000.000"] },
+        { label: "Páginas ilimitadas", values: ["Ilimitadas", "Ilimitadas", "Ilimitadas"] },
+        { label: "Tutorial Passo a Passo", values: [true, true, true] },
+        { label: "Suporte Via WhatsApp", values: [true, true, true] },
+        { label: "Domínio Customizado", values: [true, true, true] },
+        { label: "1 E-Book Mensal", values: ["1", "1", "1"] },
+      ],
+    },
     {
       group: "Construtor & Templates",
       features: [
@@ -278,7 +321,13 @@ const featureGroupsByTab: Record<PlanType, FeatureGroup[]> = {
 };
 
 function FeatureCell({ value }: { value: PlanFeatureValue }) {
-  if (value === null) return <span className="text-gray-500">—</span>;
+  if (value === null) {
+    return (
+      <span className="flex justify-center">
+        <X className="w-4 h-4 text-red-500" />
+      </span>
+    );
+  }
   if (value === true) {
     return (
       <span className="flex justify-center">
@@ -414,6 +463,64 @@ export default function PricingTabs() {
                     </span>
                   )}
                 </div>
+
+                {activeTab === "ads" && ADS_LIMITS_BY_PLAN[plan.name] && (
+                  <div className="mb-6">
+                    <div className="h-px w-full bg-brand-primary" />
+                    <div className="mt-4 space-y-2">
+                      <div className="text-xs font-black uppercase tracking-widest text-brand-primary">
+                        Limites do Plano
+                      </div>
+                      <div className="flex items-center justify-between gap-4 text-xs">
+                        <span className="text-gray-300">Perfis Google Ads Conectados</span>
+                        <span className="font-bold text-white tabular-nums">
+                          {ADS_LIMITS_BY_PLAN[plan.name].googleAdsProfiles}
+                        </span>
+                      </div>
+                      <div className="flex items-center justify-between gap-4 text-xs">
+                        <span className="text-gray-300">Ratoeiras Automáticas</span>
+                        <span className="font-bold text-white tabular-nums">
+                          {ADS_LIMITS_BY_PLAN[plan.name].automaticTraps}
+                        </span>
+                      </div>
+                      <div className="flex items-center justify-between gap-4 text-xs">
+                        <span className="text-gray-300">Integrações/Plataformas Ilimitadas</span>
+                        <span className="font-bold text-white">
+                          {ADS_LIMITS_BY_PLAN[plan.name].integrations}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                )}
+
+                {activeTab === "pages" && PAGES_LIMITS_BY_PLAN[plan.name] && (
+                  <div className="mb-6">
+                    <div className="h-px w-full bg-brand-primary" />
+                    <div className="mt-4 space-y-2">
+                      <div className="text-xs font-black uppercase tracking-widest text-brand-primary">
+                        Limites do Plano
+                      </div>
+                      <div className="flex items-center justify-between gap-4 text-xs">
+                        <span className="text-gray-300">Acessos mensais</span>
+                        <span className="font-bold text-white tabular-nums">
+                          {PAGES_LIMITS_BY_PLAN[plan.name].monthlyAccesses}
+                        </span>
+                      </div>
+                      <div className="flex items-center justify-between gap-4 text-xs">
+                        <span className="text-gray-300">Domínios conectados</span>
+                        <span className="font-bold text-white tabular-nums">
+                          {PAGES_LIMITS_BY_PLAN[plan.name].connectedDomains}
+                        </span>
+                      </div>
+                      <div className="flex items-center justify-between gap-4 text-xs">
+                        <span className="text-gray-300">Páginas ilimitadas</span>
+                        <span className="font-bold text-white">
+                          {PAGES_LIMITS_BY_PLAN[plan.name].unlimitedPages}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                )}
                 <button
                   className={cn(
                     "w-full py-4 rounded-button font-bold text-sm transition-colors",
@@ -468,7 +575,6 @@ export default function PricingTabs() {
                     <div className="flex items-center justify-between px-6 py-4">
                       <div className="flex items-center gap-2 text-sm text-gray-300 font-medium">
                         {feature.label}
-                        {feature.tooltip && <Info className="w-4 h-4 text-gray-600" />}
                       </div>
                       <div className="text-sm font-semibold text-white">
                         <FeatureCell value={feature.values[activePlanIndex]} />
@@ -530,6 +636,63 @@ export default function PricingTabs() {
                     </div>
                   </div>
 
+                  {activeTab === "ads" && ADS_LIMITS_BY_PLAN[plan.name] && (
+                    <div className="mb-8">
+                      <div className="h-px w-full bg-brand-primary" />
+                      <div className="mt-5 space-y-3">
+                        <div className="text-xs font-black uppercase tracking-widest text-brand-primary">
+                          Limites do Plano
+                        </div>
+                        <div className="flex items-center justify-between gap-6 text-sm">
+                          <span className="text-gray-300">Perfis Google Ads Conectados</span>
+                          <span className="font-bold text-white tabular-nums">
+                            {ADS_LIMITS_BY_PLAN[plan.name].googleAdsProfiles}
+                          </span>
+                        </div>
+                        <div className="flex items-center justify-between gap-6 text-sm">
+                          <span className="text-gray-300">Ratoeiras Automáticas</span>
+                          <span className="font-bold text-white tabular-nums">
+                            {ADS_LIMITS_BY_PLAN[plan.name].automaticTraps}
+                          </span>
+                        </div>
+                        <div className="flex items-center justify-between gap-6 text-sm">
+                          <span className="text-gray-300">Integrações/Plataformas Ilimitadas</span>
+                          <span className="font-bold text-white">
+                            {ADS_LIMITS_BY_PLAN[plan.name].integrations}
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+
+                  {activeTab === "pages" && PAGES_LIMITS_BY_PLAN[plan.name] && (
+                    <div className="mb-8">
+                      <div className="h-px w-full bg-brand-primary" />
+                      <div className="mt-5 space-y-3">
+                        <div className="text-xs font-black uppercase tracking-widest text-brand-primary">
+                          Limites do Plano
+                        </div>
+                        <div className="flex items-center justify-between gap-6 text-sm">
+                          <span className="text-gray-300">Acessos mensais</span>
+                          <span className="font-bold text-white tabular-nums">
+                            {PAGES_LIMITS_BY_PLAN[plan.name].monthlyAccesses}
+                          </span>
+                        </div>
+                        <div className="flex items-center justify-between gap-6 text-sm">
+                          <span className="text-gray-300">Domínios conectados</span>
+                          <span className="font-bold text-white tabular-nums">
+                            {PAGES_LIMITS_BY_PLAN[plan.name].connectedDomains}
+                          </span>
+                        </div>
+                        <div className="flex items-center justify-between gap-6 text-sm">
+                          <span className="text-gray-300">Páginas ilimitadas</span>
+                          <span className="font-bold text-white">
+                            {PAGES_LIMITS_BY_PLAN[plan.name].unlimitedPages}
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  )}
                   <button
                     className={cn(
                       "w-full py-4 rounded-button font-bold text-sm transition-colors",
@@ -577,17 +740,8 @@ export default function PricingTabs() {
                       key={feature.label} 
                       className="relative grid grid-cols-3 gap-8 items-center py-6 border-b border-white/5 last:border-0 hover:bg-white/[0.02] transition-colors group/row"
                     >
-                      {/* Label Column (Absolute on the left of the row) */}
                       <div className="absolute left-0 flex items-center gap-2 text-sm text-gray-300 font-medium w-[180px] z-10 bg-[#050505]/80 md:bg-transparent backdrop-blur-sm md:backdrop-blur-none py-1">
                         {feature.label}
-                        {feature.tooltip && (
-                          <div className="group/tooltip relative">
-                            <Info className="w-4 h-4 text-gray-600 cursor-help hover:text-gray-400 transition-colors" />
-                            <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-56 p-2 bg-[#222] border border-white/10 rounded-lg text-xs text-gray-300 opacity-0 group-hover/tooltip:opacity-100 transition-opacity pointer-events-none z-20 text-center shadow-xl">
-                              {feature.tooltip}
-                            </div>
-                          </div>
-                        )}
                       </div>
                       
                       {/* Value Columns (Perfectly aligned with cards) */}

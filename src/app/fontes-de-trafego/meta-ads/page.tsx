@@ -1,8 +1,9 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Link from "next/link";
-import { ArrowRight, ShieldCheck, Sparkles, TrendingUp, Gauge, Megaphone } from "lucide-react";
+import { ArrowRight, ShieldCheck, Sparkles, TrendingUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { HeroMetaAds } from "./components/HeroMetaAds";
 
 export const metadata = {
   title: "Meta Ads | Fonte de Tráfego | Ratoeira Hub",
@@ -35,86 +36,7 @@ export default function MetaAdsTrafficSourcePage() {
   return (
     <main className="flex flex-col flex-1 bg-[#050505] text-white">
       <Navbar />
-
-      <section className="relative overflow-hidden pt-28 pb-20">
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute -top-24 left-1/2 -translate-x-1/2 w-[900px] h-[500px] bg-brand-primary/10 rounded-full blur-[140px]" />
-          <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[700px] h-[420px] bg-brand-primary/5 rounded-full blur-[140px]" />
-        </div>
-
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 relative z-10 grid grid-cols-1 lg:grid-cols-[1.2fr_0.8fr] gap-10 items-center">
-          <div>
-            <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs font-bold uppercase tracking-widest text-brand-primary">
-              Fonte de tráfego
-              <span className="h-1 w-1 rounded-full bg-brand-primary" />
-              Meta Ads
-            </div>
-
-            <h1 className="mt-6 text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight">
-              Escale{" "}
-              <span className="text-brand-primary">Meta Ads</span>{" "}
-              com visão total.
-            </h1>
-
-            <p className="mt-6 text-lg sm:text-xl text-gray-300 max-w-2xl">
-              Mais clareza no que converte em Facebook e Instagram, com proteção em tempo real e uma operação guiada por dados.
-            </p>
-
-            <div className="mt-10 flex flex-col sm:flex-row gap-4">
-              <Button asChild size="lg" className="h-12 px-8 text-base">
-                <Link href="/planos">
-                  Ver Planos <ArrowRight className="ml-2 h-5 w-5" />
-                </Link>
-              </Button>
-              <Button asChild variant="outline" size="lg" className="h-12 px-8 text-base">
-                <Link href="/solucoes/ratoeira-ads#como-funciona">Como funciona</Link>
-              </Button>
-            </div>
-          </div>
-
-          <div className="relative">
-            <div className="absolute inset-0 bg-gradient-to-b from-brand-primary/15 via-transparent to-transparent rounded-[32px] blur-2xl" />
-            <div className="relative rounded-[32px] border border-white/10 bg-[#0A0A0A] p-6 shadow-2xl">
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-3">
-                  <span className="flex w-10 h-10 items-center justify-center rounded-xl bg-white/5 border border-white/10 text-brand-primary">
-                    <Megaphone className="w-5 h-5" />
-                  </span>
-                  <div>
-                    <div className="text-sm font-bold text-white">Campanhas</div>
-                    <div className="text-xs text-gray-500">Facebook & Instagram</div>
-                  </div>
-                </div>
-                <span className="text-xs font-bold uppercase tracking-widest text-brand-primary">Sinais</span>
-              </div>
-
-              <div className="mt-4 grid grid-cols-2 gap-3">
-                <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
-                  <div className="text-xs font-bold uppercase tracking-widest text-gray-400">Criativos</div>
-                  <div className="mt-2 text-2xl font-black text-white">+ leitura</div>
-                </div>
-                <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
-                  <div className="text-xs font-bold uppercase tracking-widest text-gray-400">Desperdício</div>
-                  <div className="mt-2 text-2xl font-black text-white">- fraude</div>
-                </div>
-              </div>
-
-              <div className="mt-3 rounded-2xl border border-white/10 bg-white/5 p-4 flex items-center justify-between">
-                <div className="flex items-center gap-3">
-                  <span className="flex w-10 h-10 items-center justify-center rounded-xl bg-white/5 border border-white/10 text-brand-primary">
-                    <Gauge className="w-5 h-5" />
-                  </span>
-                  <div>
-                    <div className="text-sm font-bold text-white">Performance</div>
-                    <div className="text-xs text-gray-500">Operação mais estável</div>
-                  </div>
-                </div>
-                <div className="text-xs font-bold uppercase tracking-widest text-gray-400">Tempo real</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <HeroMetaAds />
 
       <section className="py-20">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
@@ -173,4 +95,3 @@ export default function MetaAdsTrafficSourcePage() {
     </main>
   );
 }
-

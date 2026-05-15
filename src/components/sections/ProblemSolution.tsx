@@ -7,7 +7,7 @@ import { Radar, LayoutTemplate, Link2 } from "lucide-react";
 const tabs = [
   { id: "rastreamento", label: "Rastreamento Inteligente", icon: Radar },
   { id: "paginas", label: "Páginas de Alta Conversão", icon: LayoutTemplate },
-  { id: "ecossistema", label: "Ecossistema Integrado", icon: Link2 },
+  { id: "ecossistema", label: "Ratoeira Hub", icon: Link2 },
 ];
 
 const trackingHighlights = [

@@ -38,9 +38,9 @@ export const HeroGoogleAds = () => {
           <div className="[perspective:1200px] [mask-image:linear-gradient(to_right,black_50%,transparent_100%)] -mr-16 pl-16 lg:-mr-56 lg:pl-56">
             <div className="[transform:rotateX(20deg);]">
               <div className="h-[16rem] sm:h-[20rem] md:h-[28rem] lg:h-[44rem] relative skew-x-[.36rad]">
-                <div className="absolute inset-0 z-[2] translate-x-[-6%] translate-y-[10%] scale-[0.96] opacity-70">
+                <div className="absolute inset-0 z-[2] translate-x-[-6%] translate-y-[18%] scale-[0.96] opacity-70">
                   <Image
-                    className="rounded-[--radius] border border-white/10 object-cover shadow-2xl shadow-black/60"
+                    className="rounded-[--radius] border border-white/10 object-cover object-top shadow-2xl shadow-black/60"
                     src="/dashboard.png"
                     alt="Dashboard Financeiro"
                     fill
@@ -48,9 +48,9 @@ export const HeroGoogleAds = () => {
                     sizes="(min-width: 1024px) 80vw, 100vw"
                   />
                 </div>
-                <div className="absolute inset-0 z-[3] translate-x-[6%] translate-y-[-6%]">
+                <div className="absolute inset-0 z-[3] translate-x-[6%] translate-y-[2%]">
                   <Image
-                    className="rounded-[--radius] border border-white/10 object-cover shadow-2xl shadow-brand-primary/20"
+                    className="rounded-[--radius] border border-white/10 object-cover object-top shadow-2xl shadow-brand-primary/20"
                     src="/googleadshero.png"
                     alt="Campanhas Google Ads"
                     fill
@@ -60,26 +60,6 @@ export const HeroGoogleAds = () => {
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-[#050505] relative z-10 py-16 border-t border-white/5">
-        <div className="m-auto max-w-5xl px-6">
-          <h2 className="text-center text-lg font-medium text-gray-400">Plataformas suportadas nativamente</h2>
-          <div className="mx-auto mt-12 flex max-w-4xl flex-wrap items-center justify-center gap-x-12 gap-y-8 sm:gap-x-16 sm:gap-y-12 opacity-50 grayscale hover:grayscale-0 transition-all duration-500">
-            <img
-              className="h-8 w-fit invert brightness-0 hover:brightness-100 transition-all"
-              src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/768px-Google_%22G%22_logo.svg.png"
-              alt="Google"
-              height="32"
-              width="auto"
-            />
-            <div className="text-2xl font-black text-white/50 hover:text-white transition-colors">Meta</div>
-            <div className="text-2xl font-black text-white/50 hover:text-white transition-colors">TikTok</div>
-            <div className="text-2xl font-black text-white/50 hover:text-white transition-colors">Kwai</div>
-            <div className="text-2xl font-black text-white/50 hover:text-white transition-colors">Taboola</div>
-            <div className="text-2xl font-black text-white/50 hover:text-white transition-colors">Outbrain</div>
           </div>
         </div>
       </section>
