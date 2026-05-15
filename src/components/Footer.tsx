@@ -44,7 +44,7 @@ const socialLinks = [
 
 export default function Footer() {
   const pathname = usePathname();
-  const showTransformSection = pathname !== "/quem-somos";
+  const showTransformSection = true;
   const isLightBackground = pathname === "/design-system";
 
   const countries = useMemo(

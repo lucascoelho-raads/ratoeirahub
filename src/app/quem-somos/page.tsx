@@ -5,7 +5,6 @@ import TimelineAbout from "./components/TimelineAbout";
 import FoundersAbout from "./components/FoundersAbout";
 import MVVAbout from "./components/MVVAbout";
 import GalleryAbout from "./components/GalleryAbout";
-import PlatformCTAAbout from "./components/PlatformCTAAbout";
 
 export const metadata = {
   title: "Quem Somos | Ratoeira Hub",
@@ -31,9 +30,6 @@ export default function QuemSomosPage() {
       
       {/* 5. Galeria / Fotos da Equipe/Eventos */}
       <GalleryAbout />
-      
-      {/* 6. CTA Plataforma Inovadora */}
-      <PlatformCTAAbout />
 
       <Footer />
     </main>
