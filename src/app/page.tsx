@@ -5,7 +5,6 @@ import Benefits from "@/components/sections/Benefits";
 import Metrics from "@/components/sections/Metrics";
 import Testimonials from "@/components/sections/Testimonials";
 import CTA from "@/components/sections/CTA";
-import Contact from "@/components/sections/Contact";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -18,7 +17,6 @@ export default function Home() {
       <Metrics />
       <Testimonials />
       <CTA />
-      <Contact />
       <Footer />
     </main>
   );
