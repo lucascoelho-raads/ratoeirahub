@@ -84,7 +84,7 @@ export const NAV_LINKS: NavLink[] = [
             {
               label: "Ratoeira Hub",
               description: "Ads + Pages em um único dashboard operacional.",
-              href: "#solucoes",
+              href: "/solucoes/ratoeira-hub",
             },
           ],
         },
