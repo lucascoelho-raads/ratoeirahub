@@ -4,6 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 import { ChevronLeft, ChevronRight, Zap } from "lucide-react";
+import { BorderRotate } from "@/components/ui/animated-gradient-border";
 
 export function Features() {
   const slides = [
@@ -97,7 +98,14 @@ export function Features() {
               <div className="relative -mx-4 rounded-3xl p-3 md:-mx-12">
                 <div className="[perspective:800px]">
                   <div className="[transform:skewY(-2deg)skewX(-2deg)rotateX(6deg)]">
-                    <div className="relative h-[320px] overflow-hidden rounded-2xl border border-white/10 bg-[#111111] sm:h-[380px] md:h-[460px] lg:h-[520px]">
+                    <BorderRotate
+                      animationSpeed={7}
+                      gradientColors={{ primary: "#FF7E4A", secondary: "#FFB800", accent: "#E6A600" }}
+                      backgroundColor="#111111"
+                      borderWidth={2}
+                      borderRadius={24}
+                      className="relative h-[320px] overflow-hidden sm:h-[380px] md:h-[460px] lg:h-[520px]"
+                    >
                       <div className="pointer-events-none absolute inset-0 bg-[#FF7E4A]/10 blur-[80px]" />
                       <Image
                         src={activeSlide.imageSrc}
@@ -108,25 +116,32 @@ export function Features() {
                         priority={activeSlide.key === "flash-pages"}
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-black/15 to-transparent" />
-                    </div>
+                    </BorderRotate>
                   </div>
                 </div>
               </div>
 
-              <div className="mx-auto max-w-4xl rounded-2xl border border-white/10 bg-white/[0.03] p-6 sm:p-8">
+              <BorderRotate
+                animationMode="stop-rotate-on-hover"
+                animationSpeed={3}
+                gradientColors={{ primary: "#FF7E4A", secondary: "#FFB800", accent: "#E6A600" }}
+                backgroundColor="#0B0B0B"
+                borderWidth={2}
+                borderRadius={24}
+                className="mx-auto max-w-4xl p-6 sm:p-8"
+              >
                 <div className="flex items-start gap-3">
                   <div className="mt-1 flex h-9 w-9 items-center justify-center rounded-xl bg-[#FF7E4A]/10">
                     <Zap className="h-4 w-4 text-[#FF7E4A]" />
                   </div>
                   <div className="flex-1">
                     <h3 className="text-xl font-black leading-tight text-white sm:text-2xl">
-                      {activeSlide.titlePrefix}{" "}
-                      <span className="text-[#FF7E4A]">{activeSlide.titleHighlight}</span>
+                      {activeSlide.titlePrefix} <span className="text-[#FF7E4A]">{activeSlide.titleHighlight}</span>
                     </h3>
                     <p className="mt-4 text-base leading-relaxed text-gray-400 sm:text-lg">{activeSlide.description}</p>
                   </div>
                 </div>
-              </div>
+              </BorderRotate>
             </motion.div>
           </AnimatePresence>
 
