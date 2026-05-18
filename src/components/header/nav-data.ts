@@ -109,7 +109,7 @@ export const NAV_LINKS: NavLink[] = [
             {
               label: "Mais de 70 plataformas",
               description: "Conexão em minutos. Zero retrabalho.",
-              href: "#solucoes",
+              href: "/integracoes/mais-de-70-plataformas",
             },
             {
               label: "Conexões com IA",
