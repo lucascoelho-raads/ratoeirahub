@@ -1,6 +1,6 @@
 "use client";
 
-import { type ElementType, useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { type ComponentType, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
 import { Search, TrendingUp, X } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils";
 export interface ChainItem {
   id: string | number;
   name: string;
-  icon: ElementType;
+  icon: ComponentType<{ className?: string }>;
   details?: string;
   logo?: string;
 }

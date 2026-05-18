@@ -119,8 +119,8 @@ const Icon = ({
 };
 
 const FloatingIconsHero = React.forwardRef<
-  HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement> & FloatingIconsHeroProps
+  HTMLElement,
+  Omit<React.ComponentPropsWithoutRef<"section">, "title"> & FloatingIconsHeroProps
 >(({ className, title, subtitle, ctaText, ctaHref, icons, ...props }, ref) => {
   const mouseX = React.useRef(0);
   const mouseY = React.useRef(0);
