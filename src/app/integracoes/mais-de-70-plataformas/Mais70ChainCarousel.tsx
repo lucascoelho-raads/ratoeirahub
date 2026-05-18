@@ -43,7 +43,6 @@ const LOGO_FILES = [
   "drcash.png",
   "eliteaffiliates.png",
   "everflow.png",
-  "gas.png",
   "gasmobi.webp",
   "giant_mobi.png",
   "gurumedia.png",
@@ -94,6 +93,12 @@ const LOGO_FILES = [
 
 function humanizeLogoName(fileName: string) {
   const withoutExt = fileName.replace(/\.[^.]+$/, "");
+  if (withoutExt.toLowerCase() === "kawailogo" || withoutExt.toLowerCase() === "kwailogo") return "Kwai";
+  if (withoutExt.toLowerCase() === "adcombo-logo") return "AdCombo";
+  if (withoutExt.toLowerCase() === "adexico_logo") return "Adexico";
+  if (withoutExt.toLowerCase() === "blitzads_limited_logo") return "Blitzads Limited";
+  if (withoutExt.toLowerCase() === "clickdealerltd_logo") return "Clickdealerltd";
+  if (withoutExt.toLowerCase() === "shark-platform-logo") return "SHARK Platform";
   return withoutExt
     .replace(/[_-]+/g, " ")
     .replace(/\b\w/g, (m) => m.toUpperCase())

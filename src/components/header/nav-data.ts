@@ -114,7 +114,7 @@ export const NAV_LINKS: NavLink[] = [
             {
               label: "Conexões com IA",
               description: "Integre dados com ferramentas de inteligência artificial.",
-              href: "#solucoes",
+              href: "/integracoes/conexoes-com-ia",
             },
           ],
         },

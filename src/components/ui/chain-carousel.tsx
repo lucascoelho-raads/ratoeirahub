@@ -51,9 +51,9 @@ const CarouselItemCard = ({ chain, side }: CarouselItemProps) => {
     >
       <div className="rounded-full border border-white/10 p-2 bg-white/90">
         {logo ? (
-          <img src={logo} alt={`${name} logo`} className="size-8 rounded-full object-contain" />
+          <img src={logo} alt={`${name} logo`} className="size-10 rounded-full object-contain" />
         ) : (
-          <FallbackIcon className="size-8 text-black" />
+          <FallbackIcon className="size-10 text-black" />
         )}
       </div>
 
@@ -173,7 +173,7 @@ export default function ChainCarousel({
                   <img
                     src={currentItem.logo}
                     alt={`${currentItem.name} logo`}
-                    className="size-12 rounded-full object-contain"
+                    className="size-16 rounded-full object-contain"
                   />
                 ) : (
                   (() => {
@@ -236,7 +236,7 @@ export default function ChainCarousel({
                     className="flex items-center gap-3 px-4 py-3 cursor-pointer hover:bg-white/[0.06] transition-colors duration-150 rounded-xl m-2"
                   >
                     {chain.logo ? (
-                      <img src={chain.logo} alt={`${chain.name} logo`} className="size-6 rounded-full object-contain bg-white/90 p-1" />
+                      <img src={chain.logo} alt={`${chain.name} logo`} className="size-8 rounded-full object-contain bg-white/90 p-1" />
                     ) : (
                       (() => {
                         const IconComponent = chain.icon ?? TrendingUp;
