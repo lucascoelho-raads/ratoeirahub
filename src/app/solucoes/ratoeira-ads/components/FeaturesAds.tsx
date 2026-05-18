@@ -1,9 +1,11 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { Server, Ghost, Bot, Zap, Target, LineChart } from "lucide-react";
+import { AnimatePresence, motion } from "framer-motion";
+import { Bot, ChevronLeft, ChevronRight, Ghost, LineChart, Server, Target, Zap } from "lucide-react";
 import { BlurTextEffect } from "@/components/ui/blur-text-effect";
 import Image from "next/image";
+import { useState } from "react";
+import { BorderRotate } from "@/components/ui/animated-gradient-border";
 
 const features = [
   {
@@ -39,6 +41,39 @@ const features = [
 ];
 
 export default function FeaturesAds() {
+  const slides = features.map((feature) => {
+    const isAntiFraude = feature.title === "Bloqueio Anti-Fraude";
+    const isEconomizometro = feature.title === "Recuperação de Vendas Invisíveis";
+    const isDashboard = feature.title === "Dashboard em Tempo Real";
+
+    const imageSrc =
+      feature.title === "Tracking Server-Side"
+        ? "/serveraside.png"
+        : feature.title === "Bloqueio Anti-Fraude"
+          ? "/ip_bloqueado.png"
+          : feature.title === "Recuperação de Vendas Invisíveis"
+            ? "/economizometro.png"
+            : feature.title === "Dashboard em Tempo Real"
+              ? "/dash.png"
+              : null;
+
+    const imageClassName =
+      isAntiFraude || isEconomizometro || isDashboard ? "object-cover object-top" : "object-contain object-center";
+
+    return { ...feature, imageSrc, imageClassName } as const;
+  });
+
+  const [activeIndex, setActiveIndex] = useState(0);
+  const activeSlide = slides[activeIndex];
+
+  function goPrev() {
+    setActiveIndex((prev) => (prev - 1 + slides.length) % slides.length);
+  }
+
+  function goNext() {
+    setActiveIndex((prev) => (prev + 1) % slides.length);
+  }
+
   return (
     <section id="como-funciona" className="py-24 bg-[#0a0a0a]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -51,76 +86,112 @@ export default function FeaturesAds() {
           </p>
         </div>
 
-        <div className="space-y-24">
-          {features.map((feature, index) => {
-            const isServerSide = feature.title === "Tracking Server-Side";
-            const isAntiFraude = feature.title === "Bloqueio Anti-Fraude";
-            const isEconomizometro = feature.title === "Recuperação de Vendas Invisíveis";
-            const isDashboard = feature.title === "Dashboard em Tempo Real";
-            const featureImageSrc =
-              feature.title === "Tracking Server-Side"
-                ? "/serveraside.png"
-                : feature.title === "Bloqueio Anti-Fraude"
-                  ? "/ip_bloqueado.png"
-                  : feature.title === "Recuperação de Vendas Invisíveis"
-                    ? "/economizometro.png"
-                    : feature.title === "Dashboard em Tempo Real"
-                      ? "/dash.png"
-                  : null;
-            const imageClassName =
-              isAntiFraude || isEconomizometro || isDashboard ? "object-cover object-top" : "object-contain object-center";
+        <div className="relative">
+          <AnimatePresence mode="wait" initial={false}>
+            <motion.div
+              key={activeSlide.title}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.35, ease: "easeOut" }}
+              className="space-y-10"
+            >
+              <div className="relative -mx-4 rounded-3xl p-3 md:-mx-12">
+                <div className="[perspective:800px]">
+                  <div className="[transform:skewY(-2deg)skewX(-2deg)rotateX(6deg)]">
+                    <BorderRotate
+                      animationSpeed={7}
+                      gradientColors={{ primary: "#FFB800", secondary: "#FF7E4A", accent: "#E6A600" }}
+                      backgroundColor="#111111"
+                      borderWidth={2}
+                      borderRadius={24}
+                      className="relative h-[320px] sm:h-[380px] md:h-[460px] lg:h-[520px] 2xl:h-[720px] overflow-hidden"
+                    >
+                      <div className="pointer-events-none absolute inset-0 bg-brand-primary/10 blur-[80px]" />
 
-            return (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.2 }}
-                transition={{ duration: 0.7 }}
-                className="flex flex-col gap-12 items-stretch"
-              >
-                <div className={isServerSide ? "space-y-6 max-w-2xl" : "flex-1 space-y-6"}>
-                <div className="w-16 h-16 rounded-2xl bg-brand-primary/10 flex items-center justify-center mb-6">
-                  <feature.icon className="w-8 h-8 text-brand-primary" />
-                </div>
-                <h3 className="text-3xl md:text-4xl font-black text-white leading-tight">
-                  <BlurTextEffect key={feature.title}>{feature.title}</BlurTextEffect>
-                </h3>
-                <p className="text-xl text-gray-400 leading-relaxed">
-                  <BlurTextEffect key={`${feature.title}-desc`}>{feature.description}</BlurTextEffect>
-                </p>
-              </div>
-
-                <div className="w-full">
-                  <div className="relative rounded-[40px] bg-gradient-to-br from-[#161616] to-[#0a0a0a] border border-white/5 flex flex-col items-center justify-center overflow-hidden group h-[clamp(320px,40vh,720px)]">
-                    <div className="absolute inset-0 bg-brand-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-
-                    {featureImageSrc ? (
-                      <div className="absolute inset-0">
+                      {activeSlide.imageSrc ? (
                         <Image
-                          src={featureImageSrc}
-                          alt={feature.title}
+                          src={activeSlide.imageSrc}
+                          alt={activeSlide.title}
                           fill
-                          sizes="(min-width: 768px) 100vw, 100vw"
-                          className={imageClassName}
-                          priority={isServerSide}
+                          sizes="(min-width: 1024px) 900px, 100vw"
+                          className={`relative z-10 ${activeSlide.imageClassName}`}
+                          priority={activeSlide.title === "Tracking Server-Side"}
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/10 to-transparent" />
-                      </div>
-                    ) : (
-                      <div className="relative z-10 p-8 text-center flex flex-col items-center">
-                        <feature.icon className="w-24 h-24 text-white/10 group-hover:text-brand-primary/40 transition-colors duration-700 mb-6 group-hover:scale-110 transform" />
-                        <p className="text-white/30 font-bold uppercase tracking-widest text-sm mb-2">Interface Visual</p>
-                        <p className="text-white/50 text-sm">Dashboard de {feature.title}</p>
-                      </div>
-                    )}
+                      ) : (
+                        <div className="absolute inset-0 flex items-center justify-center">
+                          <div className="text-center text-white/35">
+                            <activeSlide.icon className="w-16 h-16 mx-auto mb-4 opacity-50" />
+                            <p className="font-bold uppercase tracking-wider text-sm">Espaço para Imagem/Mockup</p>
+                          </div>
+                        </div>
+                      )}
 
-                    <div className="absolute -bottom-20 -right-20 w-64 h-64 bg-brand-primary/20 rounded-full blur-[80px] pointer-events-none group-hover:bg-brand-primary/30 transition-colors duration-700" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-black/15 to-transparent" />
+                    </BorderRotate>
                   </div>
                 </div>
-              </motion.div>
-            );
-          })}
+              </div>
+
+              <BorderRotate
+                animationMode="stop-rotate-on-hover"
+                animationSpeed={3}
+                gradientColors={{ primary: "#FFB800", secondary: "#FF7E4A", accent: "#E6A600" }}
+                backgroundColor="#0B0B0B"
+                borderWidth={2}
+                borderRadius={24}
+                className="mx-auto max-w-4xl p-6 sm:p-8"
+              >
+                <div className="flex items-start gap-3">
+                  <div className="mt-1 flex h-9 w-9 items-center justify-center rounded-xl bg-brand-primary/10">
+                    <activeSlide.icon className="h-4 w-4 text-brand-primary" />
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-xl font-black leading-tight text-white sm:text-2xl">
+                      <BlurTextEffect key={activeSlide.title}>{activeSlide.title}</BlurTextEffect>
+                    </h3>
+                    <p className="mt-4 text-base leading-relaxed text-gray-400 sm:text-lg">
+                      <BlurTextEffect key={`${activeSlide.title}-desc`}>{activeSlide.description}</BlurTextEffect>
+                    </p>
+                  </div>
+                </div>
+              </BorderRotate>
+            </motion.div>
+          </AnimatePresence>
+
+          <div className="mt-8 flex items-center justify-center gap-3">
+            <button
+              type="button"
+              onClick={goPrev}
+              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/[0.03] text-white transition-colors hover:bg-white/[0.06]"
+              aria-label="Anterior"
+            >
+              <ChevronLeft className="h-5 w-5" />
+            </button>
+
+            <div className="flex items-center gap-2">
+              {slides.map((s, i) => (
+                <button
+                  key={s.title}
+                  type="button"
+                  onClick={() => setActiveIndex(i)}
+                  className={`h-2.5 rounded-full transition-all ${
+                    i === activeIndex ? "w-8 bg-brand-primary" : "w-2.5 bg-white/20 hover:bg-white/35"
+                  }`}
+                  aria-label={`Ir para ${i + 1}`}
+                />
+              ))}
+            </div>
+
+            <button
+              type="button"
+              onClick={goNext}
+              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/[0.03] text-white transition-colors hover:bg-white/[0.06]"
+              aria-label="Próximo"
+            >
+              <ChevronRight className="h-5 w-5" />
+            </button>
+          </div>
         </div>
       </div>
     </section>

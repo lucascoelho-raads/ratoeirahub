@@ -156,7 +156,7 @@ export const NAV_LINKS: NavLink[] = [
             {
               label: "Grupo de Comunicados",
               description: "Novidades e atualizações da plataforma.",
-              href: "#materiais",
+              href: "https://chat.whatsapp.com/BQCxIjwb3I0IjGvTOPmBuz",
             },
           ],
         },
