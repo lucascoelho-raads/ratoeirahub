@@ -15,7 +15,7 @@ export default function CTAAds() {
   });
 
   return (
-    <section className="py-32 bg-[#050505] relative overflow-hidden flex flex-col items-center justify-center min-h-[900px]">
+    <section className="py-32 bg-[#050505] relative overflow-hidden flex flex-col items-center justify-center min-h-[clamp(700px,90vh,1100px)]">
       
       {/* Background glow para o Radar */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-brand-primary/10 rounded-full blur-[150px] pointer-events-none z-0" />
@@ -101,10 +101,10 @@ export default function CTAAds() {
           transition={{ duration: 0.7, ease: "easeOut" }}
           className="flex flex-col items-center w-full max-w-6xl mx-auto"
         >
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6 tracking-tight drop-shadow-[0_0_15px_rgba(0,0,0,0.8)] whitespace-nowrap">
+          <h2 className="text-[clamp(2.25rem,3.2vw,4.5rem)] font-black text-white mb-6 tracking-tight drop-shadow-[0_0_15px_rgba(0,0,0,0.8)]">
             Pare de jogar dinheiro no <span className="text-brand-primary">lixo</span>.
           </h2>
-          <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto drop-shadow-[0_0_10px_rgba(0,0,0,0.8)]">
+          <p className="text-[clamp(1.1rem,1.25vw,1.5rem)] text-gray-300 max-w-3xl mx-auto drop-shadow-[0_0_10px_rgba(0,0,0,0.8)] leading-relaxed">
             Integre a <span className="text-brand-primary font-semibold">Ratoeira Ads</span> hoje mesmo e descubra o verdadeiro <span className="text-brand-primary font-semibold">ROI</span> das suas campanhas com proteção em tempo real.
           </p>
         </motion.div>
@@ -112,7 +112,7 @@ export default function CTAAds() {
         <div className="mt-16">
           <Link
             href="/planos"
-            className="inline-flex items-center gap-2 px-10 py-5 bg-brand-primary text-black font-black rounded-full hover:bg-brand-primary-hover transition-all text-xl shadow-xl shadow-brand-primary/20 hover:scale-105 active:scale-95"
+            className="inline-flex items-center gap-2 px-8 py-4 sm:px-10 sm:py-5 bg-brand-primary text-black font-black rounded-full hover:bg-brand-primary-hover transition-all text-lg sm:text-xl shadow-xl shadow-brand-primary/20 hover:scale-105 active:scale-95"
           >
             Escolher Meu Plano
             <ArrowRight className="w-6 h-6" />

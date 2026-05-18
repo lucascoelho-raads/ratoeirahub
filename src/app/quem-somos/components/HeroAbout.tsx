@@ -4,14 +4,14 @@ import { motion } from "framer-motion";
 
 export default function HeroAbout() {
   return (
-    <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-white">
+    <section className="relative min-h-[100svh] overflow-hidden bg-white flex items-center">
       {/* Background Decorative */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-orange-100 blur-[120px] rounded-full opacity-50" />
         <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-amber-100 blur-[120px] rounded-full opacity-50" />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-[clamp(5rem,10vh,9rem)]">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           
           {/* Left: Text Content */}
@@ -25,14 +25,14 @@ export default function HeroAbout() {
               <span className="text-sm font-semibold">NOSSA HISTÓRIA</span>
             </div>
 
-            <h1 className="text-5xl lg:text-7xl font-black text-gray-900 leading-tight tracking-tight">
+            <h1 className="text-[clamp(2.75rem,4.2vw,6rem)] font-black text-gray-900 leading-[1.04] tracking-tight">
               Conheça um pouco mais sobre a <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-amber-500">
                 Nossa Jornada
               </span>
             </h1>
 
-            <div className="space-y-6 text-gray-600 font-medium leading-relaxed max-w-xl text-lg">
+            <div className="space-y-6 text-gray-600 font-medium leading-relaxed max-w-xl text-[clamp(1rem,1.1vw,1.125rem)]">
               <p>
                 Nascemos com um propósito claro: aniquilar o desperdício de verba no tráfego pago.
                 No início, éramos apenas uma equipe de estrategistas cansados de ferramentas soltas

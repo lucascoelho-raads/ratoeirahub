@@ -211,7 +211,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative h-screen bg-surface-default z-0 overflow-hidden">
+    <section className="relative min-h-[100svh] bg-surface-default z-0 overflow-hidden">
       {/* Slider Controls - Absolute positioned at bottom center */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-50 flex items-center gap-3 bg-black/80 backdrop-blur-md px-4 py-2 rounded-full border border-white/10">
         <button 
@@ -280,7 +280,7 @@ export default function Hero() {
                 >
                   <motion.h1
                     variants={itemVariants}
-                    className="text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.06]"
+                    className="text-[clamp(2.75rem,3.8vw,5.25rem)] font-extrabold tracking-tight leading-[1.04]"
                   >
                     <span className="text-text-primary">Atendimento que vende.</span>
                     <br />
@@ -289,7 +289,7 @@ export default function Hero() {
 
                   <motion.p
                     variants={itemVariants}
-                    className="text-base md:text-lg text-text-secondary leading-relaxed max-w-md"
+                    className="text-[clamp(1rem,1.15vw,1.125rem)] text-text-secondary leading-relaxed max-w-xl"
                   >
                     3000+ clientes usam a Ratoeira Hub para trackear e converter vendas
                     sem desperdiçar verba com bots.
@@ -313,7 +313,7 @@ export default function Hero() {
                 >
                   <div
                     className="relative rounded-2xl overflow-hidden border border-neutral-200 bg-[#0d0d0d] shadow-card-resting"
-                    style={{ height: "420px" }}
+                    style={{ height: "clamp(420px, 46vh, 640px)" }}
                   >
                     <div className="bg-[#161616] border-b border-white/5 px-4 py-3 flex items-center justify-between">
                       <div className="flex gap-1.5">
@@ -411,11 +411,11 @@ export default function Hero() {
               />
               <div className="relative w-full max-w-7xl mx-auto px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
               <div className="flex flex-col gap-6">
-                <h2 className="text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.06] text-black">
+                <h2 className="text-[clamp(2.75rem,3.8vw,5.25rem)] font-extrabold tracking-tight leading-[1.04] text-black">
                   Sua Página Está Pronta{" "}
                   <span style={{ color: "var(--color-brand-primary)" }}>Para O Próximo Clique?</span>
                 </h2>
-                <p className="text-base md:text-lg text-neutral-700 leading-relaxed max-w-2xl">
+                <p className="text-[clamp(1rem,1.15vw,1.125rem)] text-neutral-700 leading-relaxed max-w-2xl">
                   Enquanto você rastreia com precisão cada origem de venda, o
                   Ratoeira Pages entrega templates prontos para publicação com foco
                   em conversão, velocidade e experiência mobile.
@@ -431,7 +431,7 @@ export default function Hero() {
               </div>
 
               <div className="relative hidden lg:block">
-                <div className="relative h-[420px] rounded-3xl overflow-hidden border border-neutral-200 bg-gradient-to-br from-[#FFF8E6] via-white to-orange-50 shadow-card-resting">
+                <div className="relative h-[clamp(420px,46vh,640px)] rounded-3xl overflow-hidden border border-neutral-200 bg-gradient-to-br from-[#FFF8E6] via-white to-orange-50 shadow-card-resting">
                   <div className="absolute top-6 left-6 right-6 h-12 rounded-xl bg-white/90 border border-neutral-200 flex items-center px-4">
                     <div className="w-2.5 h-2.5 rounded-full bg-red-400/60 mr-1.5" />
                     <div className="w-2.5 h-2.5 rounded-full bg-amber-400/60 mr-1.5" />

@@ -104,7 +104,7 @@ export function Features() {
                       backgroundColor="#111111"
                       borderWidth={2}
                       borderRadius={24}
-                      className="relative h-[320px] overflow-hidden sm:h-[380px] md:h-[460px] lg:h-[520px]"
+                      className="relative h-[320px] sm:h-[380px] md:h-[460px] lg:h-[520px] 2xl:h-[720px] overflow-hidden"
                     >
                       <div className="pointer-events-none absolute inset-0 bg-[#FF7E4A]/10 blur-[80px]" />
                       <Image

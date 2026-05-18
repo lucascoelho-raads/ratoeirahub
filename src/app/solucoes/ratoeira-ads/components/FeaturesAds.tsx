@@ -92,7 +92,7 @@ export default function FeaturesAds() {
               </div>
 
                 <div className="w-full">
-                  <div className="relative rounded-[40px] bg-gradient-to-br from-[#161616] to-[#0a0a0a] border border-white/5 flex flex-col items-center justify-center overflow-hidden group h-[320px] sm:h-[380px] md:h-[460px] lg:h-[520px]">
+                  <div className="relative rounded-[40px] bg-gradient-to-br from-[#161616] to-[#0a0a0a] border border-white/5 flex flex-col items-center justify-center overflow-hidden group h-[clamp(320px,40vh,720px)]">
                     <div className="absolute inset-0 bg-brand-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
 
                     {featureImageSrc ? (

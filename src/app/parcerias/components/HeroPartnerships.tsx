@@ -5,12 +5,12 @@ import { Handshake } from "lucide-react";
 
 export default function HeroPartnerships() {
   return (
-    <section className="relative pt-40 pb-20 overflow-hidden bg-[#050505]">
+    <section className="relative min-h-[100svh] overflow-hidden bg-[#050505] flex items-center">
       {/* Background Gradients */}
       <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-brand-primary/10 blur-[150px] rounded-full pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-orange-500/5 blur-[150px] rounded-full pointer-events-none" />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-[clamp(5rem,10vh,9rem)]">
         <div className="text-center max-w-4xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -23,14 +23,14 @@ export default function HeroPartnerships() {
               <span className="text-sm font-bold tracking-wider uppercase">Programa de Parceiros</span>
             </div>
             
-            <h1 className="text-5xl md:text-7xl font-black text-white mb-8 tracking-tight leading-tight">
+            <h1 className="text-[clamp(2.75rem,4.2vw,6rem)] font-black text-white mb-8 tracking-tight leading-[1.04]">
               Cresça junto com a <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-500 to-orange-500">
                 Plataforma Definitiva
               </span>
             </h1>
             
-            <p className="text-lg md:text-xl text-gray-400 leading-relaxed mb-10 max-w-2xl">
+            <p className="text-[clamp(1.05rem,1.25vw,1.35rem)] text-gray-400 leading-relaxed mb-10 max-w-3xl mx-auto">
               Indique o ecossistema Ratoeira Hub para sua audiência ou clientes de agência e garanta comissões recorrentes enquanto eles escalam com segurança.
             </p>
 

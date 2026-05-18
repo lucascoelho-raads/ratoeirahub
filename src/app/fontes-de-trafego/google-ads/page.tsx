@@ -90,9 +90,7 @@ export default function GoogleAdsPage() {
                 <div
                   className="w-full"
                 >
-                  <div
-                    className="relative rounded-2xl border border-white/10 bg-[#111111] overflow-hidden h-[320px] sm:h-[380px] md:h-[460px] lg:h-[520px]"
-                  >
+                  <div className="relative rounded-2xl border border-white/10 bg-[#111111] overflow-hidden h-[clamp(320px,40vh,720px)]">
                     <div className="absolute inset-0 bg-brand-primary/10 blur-[80px] opacity-60" />
                     <Image
                       src={feature.image}

@@ -446,7 +446,7 @@ export default function EtherealBeamsHero() {
         rotation: 45,
       }}
     >
-      <div className="flex flex-col items-center justify-center min-h-screen px-4 py-20">
+      <div className="flex flex-col items-center justify-center min-h-screen px-4 py-[clamp(4.5rem,10vh,8.5rem)]">
         {/* Badge */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -467,12 +467,12 @@ export default function EtherealBeamsHero() {
         </motion.div>
 
         {/* Hero Content */}
-        <div className="max-w-4xl text-center">
+        <div className="max-w-6xl text-center">
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-5xl md:text-7xl font-bold text-white tracking-tight mb-8"
+            className="text-[clamp(2.75rem,4.2vw,6rem)] font-black text-white tracking-tight leading-[1.04] mb-8"
           >
             A única ferramenta brasileira que <span className="text-[#E6A600]">rastreia</span>, <span className="text-[#E6A600]">protege</span> e dá visão total da suas operações no <span className="text-white">Google Ads</span> e <span className="text-white">Meta Ads</span>.
           </motion.h1>
@@ -481,7 +481,7 @@ export default function EtherealBeamsHero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-lg md:text-xl text-neutral-400 mb-12 max-w-2xl mx-auto"
+            className="text-[clamp(1.05rem,1.25vw,1.35rem)] text-neutral-400 mb-12 max-w-3xl mx-auto"
           >
             A tecnologia de tracking mais avançada do mercado para quem não tem margem para perder dinheiro com cliques falsos e dados imprecisos.
           </motion.p>
@@ -494,14 +494,14 @@ export default function EtherealBeamsHero() {
           >
             <a
               href="/planos"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-yellow-500 text-black font-semibold hover:bg-yellow-400 transition-colors"
+              className="inline-flex items-center gap-2 px-8 py-4 2xl:px-10 2xl:py-5 rounded-full bg-yellow-500 text-black font-semibold hover:bg-yellow-400 transition-colors"
             >
               Começar agora
               <ArrowRight className="w-4 h-4" />
             </a>
             <a
               href="#como-funciona"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-white/5 text-yellow-500 font-semibold border border-white/10 hover:bg-white/10 transition-colors"
+              className="inline-flex items-center gap-2 px-8 py-4 2xl:px-10 2xl:py-5 rounded-full bg-white/5 text-yellow-500 font-semibold border border-white/10 hover:bg-white/10 transition-colors"
             >
               <Github className="w-4 h-4" />
               Como Funciona

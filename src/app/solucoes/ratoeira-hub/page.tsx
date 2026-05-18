@@ -65,7 +65,7 @@ export default function RatoeiraHubPage() {
           }}
         >
           <div aria-hidden className="absolute inset-0 z-[1] bg-gradient-to-br from-yellow-500/15 via-orange-500/10 to-transparent" />
-          <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-4 py-20">
+          <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-4 py-[clamp(4.5rem,10vh,8.5rem)]">
             <div className="mb-8">
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10">
                 <Link2 className="w-4 h-4 text-yellow-400" />
@@ -75,8 +75,8 @@ export default function RatoeiraHubPage() {
               </div>
             </div>
 
-            <div className="max-w-4xl text-center">
-              <h1 className="text-5xl md:text-7xl font-bold text-white tracking-tight mb-8">
+            <div className="max-w-6xl text-center">
+              <h1 className="text-[clamp(2.75rem,4.2vw,6rem)] font-black text-white tracking-tight leading-[1.04] mb-8">
                 Ads + Pages em um{" "}
                 <span className="bg-gradient-to-r from-yellow-400 to-orange-500 bg-clip-text text-transparent">
                   único dashboard
@@ -84,21 +84,21 @@ export default function RatoeiraHubPage() {
                 operacional.
               </h1>
 
-              <p className="text-lg md:text-xl text-neutral-400 mb-12 max-w-2xl mx-auto">
+              <p className="text-[clamp(1.05rem,1.25vw,1.35rem)] text-neutral-400 mb-12 max-w-3xl mx-auto">
                 Unifique tracking, páginas e dados em um fluxo simples. Menos ferramentas soltas, mais clareza para escalar.
               </p>
 
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <a
                   href="/planos"
-                  className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-gradient-to-r from-yellow-500 to-orange-500 text-black font-semibold hover:from-yellow-400 hover:to-orange-400 transition-colors"
+                  className="inline-flex items-center gap-2 px-8 py-4 2xl:px-10 2xl:py-5 rounded-full bg-gradient-to-r from-yellow-500 to-orange-500 text-black font-semibold hover:from-yellow-400 hover:to-orange-400 transition-colors"
                 >
                   Começar agora
                   <ArrowRight className="w-5 h-5" />
                 </a>
                 <a
                   href="#como-funciona"
-                  className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-white/5 text-orange-400 font-semibold border border-white/10 hover:bg-white/10 transition-colors"
+                  className="inline-flex items-center gap-2 px-8 py-4 2xl:px-10 2xl:py-5 rounded-full bg-white/5 text-orange-400 font-semibold border border-white/10 hover:bg-white/10 transition-colors"
                 >
                   <MousePointerClick className="w-5 h-5" />
                   Como Funciona
@@ -158,12 +158,12 @@ export default function RatoeiraHubPage() {
         </div>
       </section>
 
-      <AuroraBackground className="flex items-center justify-center min-h-[600px] py-24">
+      <AuroraBackground className="flex items-center justify-center min-h-[clamp(600px,70vh,900px)] py-24">
         <div className="max-w-6xl mx-auto px-4 relative z-20 text-center w-full">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6 tracking-tight drop-shadow-xl whitespace-nowrap">
+          <h2 className="text-[clamp(2.25rem,3.2vw,4.5rem)] font-black text-white mb-6 tracking-tight drop-shadow-xl">
             Unifique e <span className="bg-gradient-to-r from-yellow-400 to-orange-500 bg-clip-text text-transparent">escale</span>.
           </h2>
-          <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto drop-shadow-md mb-10">
+          <p className="text-[clamp(1.1rem,1.25vw,1.5rem)] text-gray-300 max-w-3xl mx-auto drop-shadow-md mb-10 leading-relaxed">
             Ative o ecossistema completo no{" "}
             <span className="bg-gradient-to-r from-yellow-400 to-orange-500 bg-clip-text text-transparent font-semibold">
               Ratoeira Hub
