@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence, Variants } from "framer-motion";
 import Link from "next/link";
 import {
@@ -16,161 +16,61 @@ import {
   Search,
 } from "lucide-react";
 
+function HeroVideoMockup() {
+  const videoRef = useRef<HTMLVideoElement | null>(null);
+  const [isReady, setIsReady] = useState(false);
+  const [retryCount, setRetryCount] = useState(0);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    const tryPlay = async () => {
+      try {
+        await video.play();
+      } catch {
+      }
+    };
+
+    tryPlay();
+  }, [retryCount]);
+
+  return (
+    <div className="w-full h-full bg-black rounded-xl overflow-hidden relative">
+      <video
+        key={retryCount}
+        ref={videoRef}
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="auto"
+        className="w-full h-full object-cover"
+        onLoadedData={() => setIsReady(true)}
+        onError={() => {
+          setIsReady(false);
+          if (retryCount < 2) setRetryCount((v) => v + 1);
+        }}
+      >
+        <source src={`/videos/video1.mp4?v=${retryCount}`} type="video/mp4" />
+      </video>
+
+      {!isReady && (
+        <div className="absolute inset-0 flex items-center justify-center bg-black/60">
+          <div className="h-9 w-9 rounded-full border-2 border-[#FFB800]/30 border-t-[#FFB800] animate-spin" />
+        </div>
+      )}
+    </div>
+  );
+}
+
 // Mockups que alternam no lado direito
 const slides = [
   {
     id: 0,
-    label: "Central de Atendimento",
+    label: "Dashboard de Conversões",
     content: (
-      <div className="w-full h-full bg-[#111111] rounded-xl overflow-hidden flex text-left">
-        {/* Sidebar */}
-        <div className="w-48 border-r border-white/5 p-3 flex flex-col gap-1">
-          <div className="flex items-center gap-2 px-2 py-1.5 mb-2">
-            <div className="w-5 h-5 rounded bg-[#E6A600] flex items-center justify-center">
-              <MessageCircle className="w-3 h-3 text-black" />
-            </div>
-            <span className="text-white text-[11px] font-bold">Ratoeira Hub</span>
-          </div>
-          {[
-            { icon: Inbox, label: "Entrada", count: 24 },
-            { icon: Send, label: "Enviados", count: 0 },
-            { icon: Archive, label: "Arquivados", count: 142 },
-          ].map((item, i) => (
-            <div
-              key={i}
-              className={`flex items-center justify-between px-2 py-1.5 rounded-md text-[11px] ${i === 0 ? "bg-white/10 text-white" : "text-neutral-500"}`}
-            >
-              <div className="flex items-center gap-2">
-                <item.icon className="w-3.5 h-3.5" />
-                <span>{item.label}</span>
-              </div>
-              {item.count > 0 && (
-                <span className={`text-[10px] px-1.5 py-0.5 rounded-full ${i === 0 ? "bg-[#E6A600] text-black font-bold" : "bg-white/10"}`}>
-                  {item.count}
-                </span>
-              )}
-            </div>
-          ))}
-        </div>
-        {/* Conversation list */}
-        <div className="flex-1 flex flex-col">
-          <div className="px-3 py-2 border-b border-white/5 flex items-center gap-2">
-            <Search className="w-3.5 h-3.5 text-neutral-500" />
-            <span className="text-neutral-500 text-[11px]">Buscar conversas...</span>
-            <Filter className="w-3.5 h-3.5 text-neutral-500 ml-auto" />
-          </div>
-          <div className="flex-1 overflow-hidden">
-            {[
-              { name: "Ana Lima", msg: "Quero saber sobre os planos!", time: "agora", icon: MessageCircle, color: "bg-emerald-500", unread: true },
-              { name: "Carlos Mendes", msg: "Resolvi meu problema em 2 minutos!", time: "3 min", icon: Phone, color: "bg-blue-500", unread: false },
-              { name: "Marina Costa", msg: "Atendimento incrível! ⭐⭐⭐⭐⭐", time: "12 min", icon: Instagram, color: "bg-pink-500", unread: false },
-              { name: "Roberto Silva", msg: "Preciso de um orçamento urgente", time: "1h", icon: MessageCircle, color: "bg-amber-500", unread: true },
-            ].map((conv, i) => (
-              <div key={i} className={`flex items-center gap-3 px-3 py-2.5 border-b border-white/[0.03] cursor-pointer hover:bg-white/5 ${conv.unread ? "bg-white/[0.03]" : ""}`}>
-                <div className={`w-8 h-8 rounded-full ${conv.color} flex items-center justify-center flex-shrink-0`}>
-                  <conv.icon className="w-4 h-4 text-white" />
-                </div>
-                <div className="flex-1 min-w-0">
-                  <div className="flex justify-between items-center">
-                    <span className="text-white text-[11px] font-semibold truncate">{conv.name}</span>
-                    <span className="text-neutral-600 text-[9px] ml-1">{conv.time}</span>
-                  </div>
-                  <p className="text-neutral-500 text-[10px] truncate">{conv.msg}</p>
-                </div>
-                {conv.unread && <div className="w-1.5 h-1.5 rounded-full bg-[#E6A600] flex-shrink-0" />}
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-    ),
-  },
-  {
-    id: 1,
-    label: "Painel de Performance",
-    content: (
-      <div className="w-full h-full bg-[#111111] rounded-xl overflow-hidden p-5 text-left">
-        <div className="flex items-center justify-between mb-5">
-          <div>
-            <p className="text-neutral-500 text-[10px] uppercase tracking-widest font-bold">Visão Geral</p>
-            <h3 className="text-white font-bold text-sm">Campanha — Meta Ads</h3>
-          </div>
-          <div className="flex items-center gap-1.5 bg-emerald-500/10 px-2.5 py-1 rounded-full border border-emerald-500/20">
-            <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-            <span className="text-emerald-500 text-[10px] font-bold uppercase">Ao vivo</span>
-          </div>
-        </div>
-        <div className="grid grid-cols-3 gap-3 mb-5">
-          {[
-            { label: "Receita", value: "R$ 142k", change: "+12%", positive: true },
-            { label: "ROI", value: "8.4x", change: "+2x", positive: true },
-            { label: "CPA", value: "R$ 4,20", change: "-18%", positive: true },
-          ].map((stat, i) => (
-            <div key={i} className="bg-white/[0.04] rounded-lg p-3 border border-white/5">
-              <p className="text-neutral-500 text-[9px] uppercase tracking-widest font-bold mb-1">{stat.label}</p>
-              <p className="text-white text-lg font-black tracking-tight">{stat.value}</p>
-              <span className="text-emerald-400 text-[10px] font-bold">{stat.change}</span>
-            </div>
-          ))}
-        </div>
-        {/* Mini bar chart */}
-        <div className="bg-white/[0.03] rounded-lg p-3 border border-white/5">
-          <p className="text-neutral-500 text-[10px] font-bold mb-3 uppercase tracking-widest">Vendas — últimos 7 dias</p>
-          <div className="flex items-end gap-1.5 h-16">
-            {[40, 65, 50, 80, 55, 90, 75].map((h, i) => (
-              <div key={i} className="flex-1 flex flex-col items-center gap-1">
-                <div
-                  className="w-full rounded-sm"
-                  style={{ height: `${h}%`, background: i === 5 ? "#E6A600" : "rgba(255,255,255,0.15)" }}
-                />
-                <span className="text-[8px] text-neutral-600">{["S", "T", "Q", "Q", "S", "S", "D"][i]}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-    ),
-  },
-  {
-    id: 2,
-    label: "Leads & Contatos",
-    content: (
-      <div className="w-full h-full bg-[#111111] rounded-xl overflow-hidden p-5 text-left">
-        <div className="flex items-center justify-between mb-4">
-          <div>
-            <p className="text-neutral-500 text-[10px] uppercase tracking-widest font-bold">CRM</p>
-            <h3 className="text-white font-bold text-sm">Pipeline de Leads</h3>
-          </div>
-          <div className="flex gap-1">
-            <div className="px-2.5 py-1 bg-white/5 rounded-button text-neutral-400 text-[10px] font-semibold border border-white/5">Filtrar</div>
-            <div className="px-2.5 py-1 bg-[#E6A600] rounded-button text-black text-[10px] font-bold">+ Novo</div>
-          </div>
-        </div>
-        <div className="grid grid-cols-3 gap-2 h-[calc(100%-60px)]">
-          {[
-            { stage: "Novos", color: "border-blue-500/30", count: 12, leads: ["Ana Lima", "Pedro Costa", "Maria S."] },
-            { stage: "Em contato", color: "border-amber-500/30", count: 8, leads: ["Carlos M.", "Juliana R.", "Bruno T."] },
-            { stage: "Convertidos", color: "border-emerald-500/30", count: 5, leads: ["Rafael K.", "Camila V.", "Diego F."] },
-          ].map((col, i) => (
-            <div key={i} className={`bg-white/[0.025] rounded-lg border ${col.color} p-2 flex flex-col gap-1.5`}>
-              <div className="flex items-center justify-between mb-1">
-                <span className="text-white text-[10px] font-bold">{col.stage}</span>
-                <span className="text-neutral-500 text-[9px] bg-white/5 px-1.5 py-0.5 rounded-full">{col.count}</span>
-              </div>
-              {col.leads.map((lead, j) => (
-                <div key={j} className="bg-white/[0.04] rounded-md px-2 py-1.5 border border-white/[0.05]">
-                  <div className="flex items-center gap-1.5">
-                    <div className="w-5 h-5 rounded-full bg-gradient-to-br from-neutral-600 to-neutral-800 flex items-center justify-center text-[8px] font-bold text-white">
-                      {lead[0]}
-                    </div>
-                    <span className="text-white text-[9px] font-medium truncate">{lead}</span>
-                  </div>
-                </div>
-              ))}
-            </div>
-          ))}
-        </div>
-      </div>
+      <HeroVideoMockup />
     ),
   },
 ];
@@ -282,26 +182,27 @@ export default function Hero() {
                     variants={itemVariants}
                     className="text-[clamp(2.75rem,3.8vw,5.25rem)] font-extrabold tracking-tight leading-[1.04]"
                   >
-                    <span className="text-text-primary">Atendimento que vende.</span>
+                    <span className="text-text-primary">Cada venda tem uma origem.</span>
                     <br />
-                    <span className="text-[#FFB800]">Sem perder dinheiro.</span>
+                    <span className="text-[#FFB800]">A Ratoeira te mostra qual é.</span>
                   </motion.h1>
 
                   <motion.p
                     variants={itemVariants}
                     className="text-[clamp(1rem,1.15vw,1.125rem)] text-text-secondary leading-relaxed max-w-xl"
                   >
-                    3000+ clientes usam a Ratoeira Hub para trackear e converter vendas
-                    sem desperdiçar verba com bots.
+                    Rastreamento ~100% para Google Ads e Meta Ads. Visitas, leads e vendas num único dashboard — em tempo
+                    real.
                   </motion.p>
 
-                  <motion.div variants={itemVariants} className="flex items-center gap-3 pt-2">
+                  <motion.div variants={itemVariants} className="flex flex-col gap-2 pt-2">
                     <Link
                       href="#demo"
-                      className="inline-flex items-center gap-2 px-6 py-3 bg-brand-primary text-black font-semibold text-sm rounded-button hover:bg-brand-primary-hover transition-colors duration-200"
+                      className="inline-flex self-start items-center justify-center px-6 py-3 bg-brand-primary text-black font-semibold text-sm rounded-button hover:bg-brand-primary-hover transition-colors duration-200 text-center"
                     >
-                      Começar Agora
+                      Começar grátis
                     </Link>
+                    <span className="text-text-secondary text-sm">Plano gratuito disponível. Sem cartão.</span>
                   </motion.div>
                 </motion.div>
 
@@ -371,8 +272,8 @@ export default function Hero() {
                       <TrendingUp className="w-4 h-4 text-emerald-400" />
                     </div>
                     <div>
-                      <p className="text-text-primary text-xs font-bold">+42% Conversão</p>
-                      <p className="text-text-secondary text-[10px]">Último mês</p>
+                      <p className="text-text-primary text-xs font-bold">~100%</p>
+                      <p className="text-text-secondary text-[10px]">conversões rastreadas</p>
                     </div>
                   </motion.div>
 
@@ -386,8 +287,8 @@ export default function Hero() {
                       <Users className="w-4 h-4 text-[#E6A600]" />
                     </div>
                     <div>
-                      <p className="text-text-primary text-xs font-bold">+1.500 clientes</p>
-                      <p className="text-text-secondary text-[10px]">Empresas ativas</p>
+                      <p className="text-text-primary text-xs font-bold">+2.600</p>
+                      <p className="text-text-secondary text-[10px]">anunciantes ativos</p>
                     </div>
                   </motion.div>
                 </motion.div>
