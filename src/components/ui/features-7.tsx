@@ -24,6 +24,41 @@ export function Features() {
       titleHighlight: "Design Profissional ao Seu Alcance",
       description: "Adaptáveis à identidade da sua marca em minutos.",
     },
+    {
+      key: "drag-and-drop",
+      imageSrc: "/imagem pages/draganddrop.png",
+      imageAlt: "Construtor Drag-and-Drop",
+      titlePrefix: "Construtor Drag-and-Drop:",
+      titleHighlight: "Liberdade Total de Edição",
+      description:
+        "Controle total sobre o layout, pixel a pixel. Comece do zero ou personalize qualquer template com uma interface fluida — sem nenhuma barreira técnica entre você e a página que vai converter.",
+    },
+    {
+      key: "presell-ia",
+      imageSrc: "/imagem pages/iapages.png",
+      imageAlt: "Presell Review com IA",
+      titlePrefix: "Presell Review com",
+      titleHighlight: "IA",
+      description: "Uma URL que nossa IA irá analisar a página e criar uma página review 100% editável em minutos.",
+    },
+    {
+      key: "integracao-ads",
+      imageSrc: "/imagem pages/itegracaopages.png",
+      imageAlt: "Integração Ratoeira Ads",
+      titlePrefix: "Integração Ratoeira Ads:",
+      titleHighlight: "Rastreamento e Otimização Avançados",
+      description:
+        "Um token. Rastreamento cirúrgico de cada interação nas suas páginas. Combine Pages e Ads para identificar gargalos, escalar o que converte e cortar o que drena seu ROI — em tempo real.",
+    },
+    {
+      key: "clonador",
+      imageSrc: "/imagem pages/clonepages.png",
+      imageAlt: "Clonador de Páginas",
+      titlePrefix: "Clonador de Páginas:",
+      titleHighlight: "Sua Estrutura Própria em Segundos",
+      description:
+        "Importe qualquer estrutura vencedora do mercado com um clique. Layout e velocidade preservados — adapte à sua oferta e lance sem começar do zero.",
+    },
   ] as const;
 
   const [activeIndex, setActiveIndex] = useState(0);
