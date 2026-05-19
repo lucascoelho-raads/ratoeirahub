@@ -99,7 +99,9 @@ function HeaderActions({
 }) {
   const pathname = usePathname();
   const primaryLabel =
-    pathname === "/solucoes/ratoeira-ads" ? "Começar grátis" : "Teste gratis";
+    pathname === "/solucoes/ratoeira-ads" || pathname === "/solucoes/ratoeira-pages"
+      ? "Começar grátis"
+      : "Teste gratis";
 
   return (
     <div

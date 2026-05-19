@@ -176,7 +176,7 @@ export const NAV_LINKS: NavLink[] = [
             {
               label: "Central de Ajuda",
               description: "Fale com a nossa equipe.",
-              href: "#materiais",
+              href: "https://ratoeira-ads.gitbook.io/help-ratoeira",
             },
           ],
         },
@@ -196,7 +196,7 @@ export const NAV_LINKS: NavLink[] = [
             {
               label: "Central de Ajuda",
               description: "Fale com a nossa equipe.",
-              href: "#materiais",
+              href: "https://ratoeira-ads.gitbook.io/ratoeira-pages",
             },
           ],
         },

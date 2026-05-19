@@ -13,9 +13,9 @@ export function Features() {
       imageSrc: "/imagem pages/flashpages.png",
       imageAlt: "Flash Pages",
       titlePrefix: "Flash Pages:",
-      titleHighlight: "Criação e Validação em Tempo Recorde",
+      titleHighlight: "Valide qualquer oferta em minutos.",
       description:
-        "Ideal para afiliados construindo presell. Modelos pré-configurados para conversão que vão ao ar em minutos. Textos, cores e imagens editáveis sem uma linha de código — para validar qualquer oferta enquanto a janela de oportunidade ainda está aberta. Crie páginas de Cookie, Idade, Gênero, País e Captcha.",
+        "Para anunciantes que precisam testar rápido. Modelos pré-configurados para conversão — presell, cookie, idade, gênero, país e captcha. Textos, cores e imagens editáveis sem uma linha de código. Publique enquanto a janela de oportunidade ainda está aberta.",
     },
     {
       key: "templates",
@@ -29,10 +29,10 @@ export function Features() {
       key: "drag-and-drop",
       imageSrc: "/imagem pages/draganddrop.png",
       imageAlt: "Construtor Drag-and-Drop",
-      titlePrefix: "Construtor Drag-and-Drop:",
-      titleHighlight: "Liberdade Total de Edição",
+      titlePrefix: "Editor Drag-and-Drop.",
+      titleHighlight: "Sem código.",
       description:
-        "Controle total sobre o layout, pixel a pixel. Comece do zero ou personalize qualquer template com uma interface fluida — sem nenhuma barreira técnica entre você e a página que vai converter.",
+        "Monte sua página arrastando blocos prontos. Headings, imagens, vídeos, formulários e CTAs — tudo editável visualmente. Nenhuma linha de código. Nenhum desenvolvedor necessário. Publique e teste em minutos.",
     },
     {
       key: "presell-ia",
@@ -78,10 +78,10 @@ export function Features() {
       <div className="mx-auto max-w-7xl space-y-10 px-4 sm:px-6 lg:px-8">
         <div className="relative z-10 mx-auto max-w-2xl text-center">
           <h2 className="text-4xl font-black tracking-tight text-white md:text-5xl">
-            <span className="text-brand-primary">Liberdade</span> para criar
+            Tudo que você precisa para construir páginas que <span className="text-brand-primary">convertem</span>.
           </h2>
           <p className="mt-6 text-lg leading-relaxed text-gray-400">
-            Uma plataforma completa para construir, hospedar e otimizar as páginas da sua operação de tráfego pago.
+            Construtor, hospedagem e tracking numa plataforma só — feita para anunciantes que não têm tempo a perder com configuração.
           </p>
         </div>
 
