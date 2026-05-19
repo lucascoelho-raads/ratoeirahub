@@ -17,17 +17,18 @@ export default function CTAPages() {
           className="flex flex-col items-center w-full max-w-6xl mx-auto"
         >
           <h2 className="text-[clamp(2.25rem,3.2vw,4.5rem)] font-black text-white mb-6 tracking-tight drop-shadow-xl">
-            Construa páginas que <span className="text-[#FF7E4A]">convertem</span>.
+            Sua próxima página já poderia estar no ar.
           </h2>
           <p className="text-[clamp(1.1rem,1.25vw,1.5rem)] text-gray-300 max-w-3xl mx-auto drop-shadow-md mb-12 leading-relaxed">
-            Liberte-se das ferramentas lentas e complexas. Use o <span className="text-[#FF7E4A] font-semibold">Ratoeira Pages</span> para focar no que realmente importa: escalar suas vendas.
+            Pare de perder tempo com ferramentas que não integram entre si. Com o{" "}
+            <span className="text-[#FF7E4A] font-semibold">Ratoeira Pages</span>, você cria, publica e já começa a rastrear — tudo em um lugar, tudo conectado.
           </p>
           
           <Link
             href="/planos"
             className="inline-flex items-center gap-2 px-8 py-4 sm:px-10 sm:py-5 bg-[#FF7E4A] text-white font-bold rounded-full hover:bg-[#e86b3b] transition-all text-lg sm:text-xl shadow-xl shadow-[#FF7E4A]/20 hover:scale-105 active:scale-95"
           >
-            Começar a Criar
+            Começar grátis
             <ArrowRight className="w-6 h-6" />
           </Link>
         </motion.div>

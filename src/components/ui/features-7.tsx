@@ -38,27 +38,28 @@ export function Features() {
       key: "presell-ia",
       imageSrc: "/imagem pages/iapages.png",
       imageAlt: "Presell Review com IA",
-      titlePrefix: "Presell Review com",
+      titlePrefix: "Geração de Página por",
       titleHighlight: "IA",
-      description: "Uma URL que nossa IA irá analisar a página e criar uma página review 100% editável em minutos.",
+      description:
+        "Descreva o produto, a oferta e o público. A IA gera a estrutura, os textos e o layout — você ajusta, publica e rastreia. Menos tempo criando, mais tempo escalando.",
     },
     {
       key: "integracao-ads",
       imageSrc: "/imagem pages/itegracaopages.png",
       imageAlt: "Integração Ratoeira Ads",
-      titlePrefix: "Integração Ratoeira Ads:",
-      titleHighlight: "Rastreamento e Otimização Avançados",
+      titlePrefix: "Tracking Integrado Desde o Primeiro",
+      titleHighlight: "Clique",
       description:
-        "Um token. Rastreamento cirúrgico de cada interação nas suas páginas. Combine Pages e Ads para identificar gargalos, escalar o que converte e cortar o que drena seu ROI — em tempo real.",
+        "Cada página criada no Ratoeira Pages já nasce com o script do Ratoeira Ads embutido. Sem instalação manual. Sem risco de erro. Seus dados de tracking e suas páginas falam a mesma língua — automaticamente.",
     },
     {
       key: "clonador",
-      imageSrc: "/imagem pages/clonepages.png",
-      imageAlt: "Clonador de Páginas",
-      titlePrefix: "Clonador de Páginas:",
-      titleHighlight: "Sua Estrutura Própria em Segundos",
+      imageSrc: "/imagem pages/analyticspages.png",
+      imageAlt: "Hospedagem Rápida Inclusa",
+      titlePrefix: "Hospedagem Rápida",
+      titleHighlight: "Inclusa",
       description:
-        "Importe qualquer estrutura vencedora do mercado com um clique. Layout e velocidade preservados — adapte à sua oferta e lance sem começar do zero.",
+        "Suas páginas ficam hospedadas na infraestrutura da Ratoeira com carregamento ultra-rápido. Sem servidor para contratar, sem CDN para configurar. Publique e comece a rastrear imediatamente.",
     },
   ] as const;
 
