@@ -17,10 +17,11 @@ import {
 } from "lucide-react";
 import SpotlightBackground from "@/components/ui/spotlight-background";
 
-function HeroVideoMockup() {
+function HeroVideoMockup({ onReady }: { onReady?: () => void }) {
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const [isReady, setIsReady] = useState(false);
   const [retryCount, setRetryCount] = useState(0);
+  const readyNotifiedRef = useRef(false);
 
   useEffect(() => {
     const video = videoRef.current;
@@ -36,6 +37,30 @@ function HeroVideoMockup() {
     tryPlay();
   }, [retryCount]);
 
+  const notifyReady = () => {
+    if (readyNotifiedRef.current) return;
+    readyNotifiedRef.current = true;
+    onReady?.();
+  };
+
+  const markReady = () => {
+    setIsReady(true);
+    notifyReady();
+  };
+
+  const requestFirstFrame = (video: HTMLVideoElement) => {
+    const anyVideo = video as unknown as { requestVideoFrameCallback?: (cb: () => void) => void };
+    if (typeof anyVideo.requestVideoFrameCallback === "function") {
+      anyVideo.requestVideoFrameCallback(() => {
+        markReady();
+      });
+      return;
+    }
+    window.setTimeout(() => {
+      if (video.readyState >= 2 && video.videoWidth > 0) markReady();
+    }, 150);
+  };
+
   return (
     <div className="w-full h-full bg-black rounded-xl overflow-hidden relative">
       <video
@@ -47,7 +72,22 @@ function HeroVideoMockup() {
         playsInline
         preload="auto"
         className="w-full h-full object-cover"
-        onLoadedData={() => setIsReady(true)}
+        onLoadedMetadata={(event) => {
+          try {
+            event.currentTarget.currentTime = 0.1;
+          } catch {
+          }
+          requestFirstFrame(event.currentTarget);
+        }}
+        onCanPlay={async (event) => {
+          requestFirstFrame(event.currentTarget);
+          try {
+            await event.currentTarget.play();
+          } catch {
+          }
+        }}
+        onLoadedData={(event) => requestFirstFrame(event.currentTarget)}
+        onPlaying={(event) => requestFirstFrame(event.currentTarget)}
         onError={() => {
           setIsReady(false);
           if (retryCount < 2) setRetryCount((v) => v + 1);
@@ -70,9 +110,6 @@ const slides = [
   {
     id: 0,
     label: "Dashboard de Conversões",
-    content: (
-      <HeroVideoMockup />
-    ),
   },
 ];
 
@@ -147,17 +184,14 @@ export default function Hero() {
         </button>
       </div>
 
-      <AnimatePresence mode="sync" initial={false}>
-        <motion.div
-          key={activePanel}
-          initial={{ x: "100%" }}
-          animate={{ x: 0 }}
-          exit={{ x: "-100%" }}
-          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          className="absolute inset-0 bg-[#050505] flex items-center justify-center"
-        >
-          {activePanel === 0 ? (
-            <SpotlightBackground className="absolute inset-0">
+      <motion.div
+        initial={false}
+        animate={{ x: activePanel === 0 ? "0%" : "-50%" }}
+        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+        className="absolute inset-0 flex w-[200%] bg-[#050505]"
+      >
+        <div className="relative w-1/2 h-full flex items-center justify-center">
+          <SpotlightBackground className="absolute inset-0">
               <div
                 className="absolute inset-0 pointer-events-none"
                 style={{
@@ -247,7 +281,7 @@ export default function Hero() {
                           transition={{ duration: 0.4, ease: "easeInOut" }}
                           className="absolute inset-3"
                         >
-                          {slides[activeSlide].content}
+                          <HeroVideoMockup />
                         </motion.div>
                       </AnimatePresence>
                     </div>
@@ -285,8 +319,10 @@ export default function Hero() {
                 </motion.div>
               </div>
             </SpotlightBackground>
-          ) : (
-            <SpotlightBackground className="absolute inset-0">
+        </div>
+
+        <div className="relative w-1/2 h-full flex items-center justify-center">
+          <SpotlightBackground className="absolute inset-0">
               <div
                 className="absolute inset-0 pointer-events-none"
                 style={{
@@ -346,9 +382,8 @@ export default function Hero() {
               </div>
               </div>
             </SpotlightBackground>
-          )}
-        </motion.div>
-      </AnimatePresence>
+        </div>
+      </motion.div>
     </section>
   );
 }
