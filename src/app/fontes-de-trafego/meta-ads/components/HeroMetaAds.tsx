@@ -19,24 +19,27 @@ export const HeroMetaAds = () => {
         <div className="relative mx-auto max-w-6xl px-6 pt-[clamp(7rem,12vh,10rem)] pb-10">
           <div className="relative z-10 mx-auto max-w-3xl text-center">
             <h1 className="text-balance text-[clamp(2.5rem,3.6vw,5.25rem)] font-black text-white tracking-tight leading-[1.04] mb-6">
-              Escale{" "}
-              <span className="text-brand-primary">Meta Ads</span>{" "}
-              com visão total.
+              O pixel padrão perde até 40% das suas conversões. A Ratoeira fecha esse gap.
             </h1>
             <p className="mx-auto my-8 max-w-3xl text-[clamp(1.1rem,1.25vw,1.4rem)] text-gray-300 leading-relaxed">
-              Mais clareza no que converte em Facebook e Instagram, com proteção em tempo real e uma operação guiada por dados.
+              Envio duplo via browser e CAPI com deduplicação automática. Dados enriquecidos que elevam seu Pixel Quality
+              Score. Funil completo — visitas, leads e vendas — numa tela só. Tudo que o Meta precisa para encontrar quem
+              realmente compra.
             </p>
 
             <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
               <Button asChild size="lg" className="h-14 px-8 2xl:h-16 2xl:px-10 2xl:text-xl font-bold">
                 <Link href="/planos">
-                  Ver Planos
+                  Começar grátis
                   <ArrowRight className="w-5 h-5 ml-2" />
                 </Link>
               </Button>
               <Button asChild variant="outline" size="lg" className="h-14 px-8 2xl:h-16 2xl:px-10 2xl:text-xl font-bold">
                 <Link href="/solucoes/ratoeira-ads#como-funciona">Como funciona</Link>
               </Button>
+            </div>
+            <div className="mt-3 text-sm text-white/60 font-semibold">
+              Plano gratuito disponível. Sem cartão.
             </div>
           </div>
         </div>

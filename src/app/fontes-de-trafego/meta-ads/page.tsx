@@ -2,7 +2,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, ShieldCheck, Sparkles, TrendingUp } from "lucide-react";
+import { ArrowRight, Clapperboard, Gauge, LayoutDashboard, Network, Sparkles, TrendingUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { HeroMetaAds } from "./components/HeroMetaAds";
 
@@ -14,24 +14,45 @@ export const metadata = {
 
 const pillars = [
   {
-    title: "Atribuição mais confiável para escalar",
+    title: "Envio duplo: browser + CAPI com deduplicação",
     description:
-      "Tome decisões com base em sinais mais consistentes e reduza a perda de conversões por bloqueios e limitações comuns.",
+      "O pixel no navegador perde entre 25% e 40% das conversões por bloqueadores de anúncio, restrições de iOS e falhas de conexão. A Ratoeira envia cada evento pelos dois caminhos ao mesmo tempo — via browser e via API de Conversões (CAPI) — com deduplicação automática para que nenhuma venda seja contada duas vezes. O resultado: ~100% de cobertura, sem ruído, sem gap.",
     icon: TrendingUp,
-    image: "/metaadshero1.png",
+    image: "/serveraside.png",
   },
   {
-    title: "Proteção contra tráfego inválido",
+    title: "Enriquecimento de dados — Pixel Quality Score mais alto",
     description:
-      "Diminua desperdício com bots e cliques suspeitos e mantenha estabilidade na performance dos conjuntos.",
-    icon: ShieldCheck,
-    image: "/metaadshero2.png",
-  },
-  {
-    title: "Criativos com leitura operacional",
-    description:
-      "Enxergue o que realmente move seu ROI e ajuste seus criativos com mais velocidade e clareza.",
+      "Além de enviar o evento de conversão, a Ratoeira enriquece o dado enviado ao Meta com informações do comprador — email, telefone e outros identificadores com hash seguro. O Meta cruza esses dados com os perfis reais da plataforma, eleva seu Pixel Quality Score e passa a encontrar pessoas com perfil verdadeiro de compra — não só de clique. CPL cai. ROAS sobe. O algoritmo finalmente trabalha com dado verdadeiro.",
     icon: Sparkles,
+    image: "/dashboard_resumo.png",
+  },
+  {
+    title: "Saiba exatamente qual criativo gerou cada venda",
+    description:
+      "Com rastreamento ~100% e envio enriquecido via CAPI, você para de depender de \"conversões estimadas\" e começa a ver conversões reais — atribuídas ao conjunto de anúncios, ao criativo e ao público que as gerou. Chega de escalar criativo por achismo. Você escala o que converte com dado real e pausa o que drena antes de queimar mais verba.",
+    icon: Clapperboard,
+    image: "/dashboard.png",
+  },
+  {
+    title: "Visitas, leads e vendas. Tudo visível numa tela.",
+    description:
+      "Enquanto outras ferramentas mostram só de onde vieram os cliques, a Ratoeira mostra de onde vieram as vendas — com visitas, leads e conversões integradas num único dashboard. Você enxerga o funil completo: quantos entraram, quantos viraram lead e quantos compraram — por campanha, por criativo, por público. Mais dado real no pixel significa públicos melhores, criativos mais inteligentes e um custo por aquisição que cai enquanto o lucro sobe.",
+    icon: Network,
+    image: "/dashboard_resumo.png",
+  },
+  {
+    title: "Dados mais rápidos que o Ads Manager.",
+    description:
+      "O Meta Ads Manager demora para consolidar conversões — e nesse intervalo o algoritmo pode continuar otimizando para o público errado. A Ratoeira mostra seus dados integrados — visitas, leads e vendas — mais rápido do que o próprio painel do Meta. Você vê o que está funcionando e toma a decisão certa antes que o algoritmo tome a errada. Para quem escala no Meta, velocidade de leitura é vantagem competitiva.",
+    icon: Gauge,
+    image: "/dash.png",
+  },
+  {
+    title: "Meta Ads e Google Ads. Um único dashboard.",
+    description:
+      "Gerencie suas campanhas no Meta e no Google sem alternar entre ferramentas. Investimento, conversões, leads e ROI de cada canal — consolidados numa tela. Sem exportar relatório, sem montar planilha, sem perder tempo consolidando dado. Você vê o que está funcionando em cada canal e age antes de desperdiçar mais verba.",
+    icon: LayoutDashboard,
     image: "/dashboard.png",
   },
 ];
@@ -46,11 +67,11 @@ export default function MetaAdsTrafficSourcePage() {
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="mb-10">
             <h2 className="text-3xl sm:text-4xl font-black tracking-tight text-white">
-              O que muda quando a fonte é o{" "}
-              <span className="text-brand-primary">Meta Ads</span>
+              O Meta Ads só otimiza tão bem quanto o dado que recebe.
             </h2>
             <p className="mt-4 text-gray-300 max-w-3xl">
-              Em Meta, o jogo é criativo + sinal. Quando seu dado é consistente, você consegue iterar rápido, escalar e proteger o ROI.
+              Quando o pixel perde conversões, o algoritmo aprende errado — e vai buscar o público errado. A Ratoeira garante
+              que cada venda real chegue ao Meta com qualidade máxima, do clique ao pagamento.
             </p>
           </div>
 
