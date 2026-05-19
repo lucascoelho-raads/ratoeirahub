@@ -165,7 +165,7 @@ export default function Hero() {
                   backgroundSize: "120px 120px",
                 }}
               />
-              <div className="relative w-full h-full max-w-7xl mx-auto px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+              <div className="relative w-full h-full max-w-7xl 2xl:max-w-[90rem] mx-auto px-6 lg:px-12 2xl:px-16 grid grid-cols-1 lg:grid-cols-[1fr_1.1fr] 2xl:grid-cols-[1fr_1.25fr] gap-16 2xl:gap-20 items-center">
                 <motion.div
                   variants={containerVariants}
                   initial="hidden"
@@ -206,10 +206,7 @@ export default function Hero() {
                   transition={{ duration: 0.9, delay: 0.4, ease: [0.215, 0.61, 0.355, 1] }}
                   className="relative hidden lg:block"
                 >
-                  <div
-                    className="relative rounded-2xl overflow-hidden border border-neutral-200 bg-[#0d0d0d] shadow-card-resting"
-                    style={{ height: "clamp(420px, 46vh, 640px)" }}
-                  >
+                  <div className="relative rounded-2xl overflow-hidden border border-neutral-200 bg-[#0d0d0d] shadow-card-resting h-[clamp(420px,46vh,640px)] 2xl:h-[clamp(520px,22vw,820px)]">
                     <div className="bg-[#161616] border-b border-white/5 px-4 py-3 flex items-center justify-between">
                       <div className="flex gap-1.5">
                         <div className="w-2.5 h-2.5 rounded-full bg-red-500/40" />
@@ -297,7 +294,7 @@ export default function Hero() {
                   backgroundSize: "120px 120px",
                 }}
               />
-              <div className="relative w-full h-full max-w-7xl mx-auto px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+              <div className="relative w-full h-full max-w-7xl 2xl:max-w-[90rem] mx-auto px-6 lg:px-12 2xl:px-16 grid grid-cols-1 lg:grid-cols-[1fr_1.1fr] 2xl:grid-cols-[1fr_1.25fr] gap-16 2xl:gap-20 items-center">
               <div className="flex flex-col gap-6">
                 <h2 className="text-[clamp(2.75rem,3.8vw,5.25rem)] font-extrabold tracking-tight leading-[1.04] text-white">
                   Páginas que convertem.{" "}
@@ -321,7 +318,7 @@ export default function Hero() {
               </div>
 
               <div className="relative hidden lg:block">
-                <div className="relative h-[clamp(420px,46vh,640px)] rounded-3xl overflow-hidden border border-neutral-200 bg-gradient-to-br from-[#FFF8E6] via-white to-orange-50 shadow-card-resting">
+                <div className="relative h-[clamp(420px,46vh,640px)] 2xl:h-[clamp(520px,22vw,820px)] rounded-3xl overflow-hidden border border-neutral-200 bg-gradient-to-br from-[#FFF8E6] via-white to-orange-50 shadow-card-resting">
                   <div className="absolute top-6 left-6 right-6 h-12 rounded-xl bg-white/90 border border-neutral-200 flex items-center px-4">
                     <div className="w-2.5 h-2.5 rounded-full bg-red-400/60 mr-1.5" />
                     <div className="w-2.5 h-2.5 rounded-full bg-amber-400/60 mr-1.5" />
