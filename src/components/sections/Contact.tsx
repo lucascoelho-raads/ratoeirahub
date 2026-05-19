@@ -51,6 +51,14 @@ export default function Contact() {
   return (
     <section ref={ref} className="py-20 bg-white" id="fale-conosco">
       <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-10">
+          <h2 className="text-4xl lg:text-5xl font-black text-gray-900 leading-tight">
+            Vamos estruturar sua operação?
+          </h2>
+          <p className="mt-4 text-gray-700 text-lg max-w-2xl mx-auto leading-relaxed">
+            Fale com a equipe e descubra qual configuração faz sentido para o seu momento.
+          </p>
+        </div>
         {submitted ? (
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}

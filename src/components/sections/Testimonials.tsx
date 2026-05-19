@@ -21,35 +21,35 @@ const testimonials: Testimonial[] = [
   {
     img: avatarFromInitial("R"),
     quote:
-      "A Ratoeira Hub trouxe clareza total sobre origem das vendas. Hoje decidimos com base em dado real, não em achismo.",
+      "Nas primeiras semanas já vi 30% a mais de conversões subindo pro Google. Consegui otimizar a campanha que estava parada há semanas.",
     name: "Roberto Santiago",
     role: "Mentor de Tráfego",
   },
   {
     img: avatarFromInitial("C"),
     quote:
-      "Com o rastreamento server-side, finalmente parei de perder conversões invisíveis. Meu ROI ficou muito mais previsível.",
+      "Economizei mais de R$X no primeiro mês só com o bloqueio. Isso já pagou a ferramenta.",
     name: "Carla Mendes",
     role: "Afiliada Top",
   },
   {
     img: avatarFromInitial("T"),
     quote:
-      "A integração entre tracking e páginas encurtou nosso tempo operacional. O que levava horas agora leva minutos.",
+      "Gerencio X clientes num único painel. O que levava horas agora vejo em minutos.",
     name: "Thiago Ferreira",
     role: "Gestor de Tráfego",
   },
   {
     img: avatarFromInitial("J"),
     quote:
-      "Conseguir enxergar o dado completo da operação mudou a forma como escalamos campanhas. O resultado foi imediato.",
+      "O Meta parou de jogar verba em público errado. O CPL caiu e o ROAS subiu em menos de 30 dias.",
     name: "Juliana Costa",
     role: "Criadora de Cursos",
   },
   {
     img: avatarFromInitial("M"),
     quote:
-      "A confiabilidade da plataforma me deu segurança para investir mais em tráfego sem medo de tomar decisão no escuro.",
+      "Pela primeira vez eu sabia exatamente de onde vinha cada venda. Dobrei o investimento com confiança — e o resultado acompanhou.",
     name: "Marcos Vinícius",
     role: "Investidor em Tráfego",
   },
@@ -82,7 +82,7 @@ export default function Testimonials() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-28 bg-surface-subdued" id="cases">
+    <section ref={sectionRef} className="py-28 bg-[#050505]" id="cases">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -93,12 +93,12 @@ export default function Testimonials() {
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-badge bg-orange-50 border border-orange-200 text-orange-600 text-sm font-semibold">
             💬 Depoimentos Reais
           </div>
-          <h2 className="text-4xl lg:text-5xl font-black text-text-primary leading-tight">
+          <h2 className="text-4xl lg:text-5xl font-black text-white leading-tight">
             Quem{" "}
             <span className="text-orange-600">domina o tráfego</span>, confia na Ratoeira
           </h2>
-          <p className="text-text-secondary text-xl max-w-xl mx-auto">
-            Veja o que mentores e afiliados do mercado de infoprodutos dizem sobre os resultados.
+          <p className="text-white/70 text-xl max-w-xl mx-auto">
+            Veja o que anunciantes de Google Ads, Meta Ads e gestores de tráfego dizem sobre operar com dado real.
           </p>
         </motion.div>
 

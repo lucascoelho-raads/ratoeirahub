@@ -12,7 +12,7 @@ export default function CTA() {
   return (
     <section
       ref={ref}
-      className="py-28 relative overflow-hidden bg-white"
+      className="py-28 relative overflow-hidden bg-[#050505]"
       id="parcerias"
     >
       {/* Background decoration */}
@@ -28,7 +28,7 @@ export default function CTA() {
         />
       </div>
 
-      <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -39,26 +39,30 @@ export default function CTA() {
           
 
           {/* Title */}
-          <h2 className="text-4xl lg:text-5xl font-black text-gray-900 leading-tight">
-            Pronto para acabar com o desperdício de verba e{" "}
-            <span className="text-orange-700">multiplicar suas vendas</span>?
+          <h2 className="text-4xl lg:text-5xl font-black text-white leading-tight">
+            <span className="block text-white">Pare de operar no escuro.</span>
+            <span className="block text-2xl lg:text-3xl font-black text-brand-primary whitespace-normal sm:whitespace-nowrap">
+              Cada real investido merece uma origem rastreada.
+            </span>
           </h2>
 
           {/* Subtitle */}
-          <p className="text-gray-700 text-lg max-w-2xl mx-auto leading-relaxed">
-            Comece a usar a Ratoeira Hub hoje. Configure sua estrutura em minutos e veja a diferença que uma plataforma orientada a conversão faz no seu bolso.
+          <p className="text-white text-lg max-w-2xl mx-auto leading-relaxed">
+            Configure em minutos. Veja cada venda, cada lead, cada clique — no Google e no Meta. E tome a decisão que a
+            maioria adia.
           </p>
 
           {/* Garantia */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/70 border border-orange-200 rounded-full text-orange-800 text-sm">
-            <span className="text-green-400">✓</span> Risco Zero. Teste por 7 dias e, se não gostar, devolvemos seu dinheiro.
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 border border-brand-primary/30 rounded-full text-brand-primary text-sm">
+            <span className="text-green-400">✓</span> Risco Zero. Comece no plano gratuito. Sem compromisso, sem cartão.
+            Upgrade quando quiser.
           </div>
 
           {/* CTA */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Link
               href="#fale-conosco"
-              className="inline-flex items-center gap-2.5 px-10 py-5 bg-gray-900 text-white font-black rounded-button text-lg hover:bg-orange-700 transition-all duration-200 shadow-2xl shadow-orange-900/25 hover:-translate-y-0.5 group"
+              className="inline-flex items-center gap-2.5 px-10 py-5 bg-brand-primary text-white font-black rounded-button text-lg hover:bg-brand-primary-hover transition-all duration-200 shadow-2xl shadow-orange-900/25 hover:-translate-y-0.5 group"
             >
               Quero Acessar a Ratoeira Hub
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />

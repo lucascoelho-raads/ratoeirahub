@@ -19,15 +19,15 @@ const benefits = [
     label: "Benefício 1",
     title: "Pare de Perder Vendas Invisíveis",
     description:
-      "Afiliados que migram do pixel padrão para o tracking server-side do Ratoeira Ads recuperam em média 25-40% de conversões que estavam invisíveis. Cada venda recuperada é dinheiro que volta para o seu bolso.",
+      "Anunciantes que migram para tracking server-side recuperam em média 25% a 40% de conversões que estavam invisíveis. Cada venda recuperada é lucro que você já tinha gerado — e não sabia.",
     imageLeft: false,
     icon: BarChart3,
   },
   {
     label: "Benefício 2",
-    title: "Proteja Seu Orçamento de Bots e Concorrentes",
+    title: "Proteja Seu Orçamento no Google Ads",
     description:
-      "O bloqueio automático de tráfego fraudulento economiza em média R$4.000 a R$5.000 por mês. Cada real do seu investimento vai para quem tem chance real de comprar.",
+      "Para quem anuncia no Google Ads, o bloqueio automático de IPs inválidos elimina cliques que nunca vão converter. Na maioria dos casos, o que você economiza já cobre o custo do plano inteiro.",
     imageLeft: true,
     icon: Bot,
   },
@@ -35,7 +35,7 @@ const benefits = [
     label: "Benefício 3",
     title: "Publique Páginas em Minutos, Não Dias",
     description:
-      "Templates prontos, editor visual e integração automática de tracking. O que antes levava horas agora leva minutos. E cada página já nasce rastreada.",
+      "Templates prontos, carregamento ultra-rápido e integração automática com o tracking. Sua página no ar antes do próximo anúncio subir — e cada clique já rastreado desde o início.",
     imageLeft: false,
     icon: LayoutTemplate,
   },
@@ -43,7 +43,7 @@ const benefits = [
     label: "Benefício 4",
     title: "Tome Decisões Com Dados Reais, Não Intuição",
     description:
-      "Dashboard consolidado com +50 métricas do Google Ads, plataformas de vendas e anti-fraude. Tudo em uma tela. Escalar campanhas vira estratégia, não aposta.",
+      "Dashboard consolidado com métricas do Google Ads, Meta Ads e plataformas de vendas. Tudo numa tela. Você sabe qual campanha escalar, qual pausar — sem achismo, sem esperar o algoritmo descobrir.",
     imageLeft: true,
     icon: FileBarChart,
   },
@@ -51,7 +51,7 @@ const benefits = [
     label: "Benefício 5",
     title: "Acompanhe De Qualquer Lugar",
     description:
-      "App próprio para iOS e Android. Notificações de vendas e bloqueio de bots em tempo real. Seu negócio na palma da mão, onde quer que você esteja.",
+      "App próprio para iOS e Android. Notificação de venda em tempo real, acompanhamento de campanhas e alertas — onde quer que você esteja. Sua operação na palma da mão.",
     imageLeft: false,
     icon: BellRing,
   },
@@ -95,7 +95,7 @@ export default function Benefits() {
   }, [activeIndex]);
 
   return (
-    <section ref={ref} className="relative pt-28 pb-0 bg-gray-900" id="solucoes">
+    <section ref={ref} className="relative pt-28 pb-0 bg-[#050505]" id="solucoes">
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
@@ -105,11 +105,12 @@ export default function Benefits() {
           className="text-center mb-20 space-y-6"
         >
           <h2 className="text-4xl lg:text-5xl font-black text-text-inverse leading-tight">
-            Por Que <span style={{ color: "var(--color-brand-primary)" }}>+2.600 Afiliados</span> Escolheram o{" "}
+            Por que <span style={{ color: "var(--color-brand-primary)" }}>+2.600 anunciantes</span> escolheram a{" "}
             <span className="whitespace-nowrap">Ratoeira Hub</span>
           </h2>
           <p className="text-white/80 text-lg max-w-2xl mx-auto">
-            Ferramentas integradas para dominar o tráfego pago, aumentar a conversão e escalar sua operação com dados reais.
+            Do anunciante que não quer perder a primeira venda ao gestor que escala múltiplos clientes — uma plataforma
+            para cada momento da sua operação.
           </p>
         </motion.div>
 

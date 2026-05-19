@@ -96,12 +96,12 @@ export default function Footer() {
                 <h2 className={`text-5xl sm:text-6xl lg:text-7xl font-black tracking-tight leading-[0.98] ${titleBaseClassName}`}>
                   Vamos
                   <br />
-                  <span className="text-orange-500">Transformar</span>
+                  <span className="text-orange-500">estruturar</span>
                   <br />
                   sua operação?
                 </h2>
                 <p className={`mt-7 text-base sm:text-lg leading-relaxed ${subtitleClassName}`}>
-                  Pare de perder dinheiro com cliques desqualificados. Dê o próximo passo na sua jornada de escala.
+                  Fale com a equipe e descubra qual configuração faz sentido para o seu momento.
                 </p>
               </div>
 
@@ -262,7 +262,7 @@ export default function Footer() {
                 <span className="text-xl font-black text-white">Ratoeira Hub</span>
               </Link>
               <p className="text-sm text-gray-500 leading-relaxed mb-6 max-w-xs">
-                A plataforma completa de atendimento inteligente para empresas que querem crescer.
+                A plataforma completa de rastreamento e páginas para anunciantes que querem escalar com dado real.
               </p>
               {/* Social */}
               <div className="flex items-center gap-3">

@@ -42,19 +42,19 @@ const tabHighlights = {
 
 const contents = {
   rastreamento: {
-    title: "Rastreie Cada Venda. Bloqueie Cada Bot. Saiba Tudo.",
+    title: "Rastreie cada venda. Bloqueie cada fraude. Decida mais rápido.",
     description:
-      "O pixel padrão do Google captura entre 60% e 75% das conversões reais de afiliados. O Ratoeira Ads utiliza tracking server-side com validação cruzada, chegando a ~100% de conversões rastreadas. Cada venda confirmada na plataforma aparece no Google Ads — sem gaps, sem dados perdidos, sem “o pixel não pegou essa.”\n\nAlém disso, o sistema identifica e bloqueia automaticamente cliques de bots, concorrentes e IPs fraudulentos na lista de exclusão do Google Ads. Usuários reportam bloqueio médio de R$4.000 a R$5.000 por mês em tráfego fraudulento. Cada real do seu orçamento vai para quem realmente compra.",
+      "O pixel padrão captura entre 60% e 75% das suas conversões reais. A Ratoeira usa tracking server-side com envio enriquecido via browser e API — chegando a ~100%. Cada venda confirmada sobe para o Google Ads e para o Meta com qualidade máxima. Sem gaps. Sem \"o pixel não pegou essa.\"\n\nPara anunciantes no Google Ads, o sistema identifica e bloqueia automaticamente IPs que excedem o limite de cliques definido por você — protegendo seu orçamento de concorrentes e tráfego inválido. Na maioria dos casos, o que você economiza com bloqueio já cobre o custo do plano inteiro.",
   },
   paginas: {
-    title: "Construa Páginas Que Vendem Em Minutos. Sem Código.",
+    title: "Construa páginas que vendem em minutos. Sem código.",
     description:
-      "A Ratoeira Pages é o construtor de landing pages integrado ao Hub. Templates profissionais testados para conversão, editor visual drag-and-drop, Flash Pages (páginas ultra-rápidas) e geração por IA. O diferencial? Cada página já nasce com o script de tracking do Ratoeira Ads embutido nativamente — zero configuração, zero gaps de rastreamento.",
+      "A Ratoeira Pages é o construtor de landing pages nativo do ecossistema. Templates testados para conversão, editor drag-and-drop, Flash Pages com carregamento ultra-rápido e geração por IA. O diferencial: cada página já nasce com o tracking integrado — sem scripts avulsos, sem configuração manual, sem dados perdidos entre a página e a campanha.",
   },
   ecossistema: {
-    title: "Ads + Pages Juntos. Seus Dados Conversam Entre Si.",
+    title: "Ads + Pages juntos. Um login. Zero fricção.",
     description:
-      "O verdadeiro poder do Ratoeira Hub está na integração nativa entre tracking e páginas. Enquanto outros afiliados usam três ou mais ferramentas separadas que não conversam entre si, você tem tudo consolidado em um único dashboard. O Google Ads recebe dados corretos, o algoritmo otimiza para compradores reais, e você escala sabendo exatamente o que está multiplicando.",
+      "O verdadeiro poder do Hub está na integração nativa. Enquanto outros anunciantes operam com três ou mais ferramentas que não conversam entre si, você tem tudo consolidado em um único dashboard. O Google Ads e o Meta recebem dados corretos, o algoritmo otimiza para compradores reais, e você escala sabendo exatamente o que está multiplicando.",
   },
 };
 
@@ -86,21 +86,14 @@ export default function ProblemSolution() {
           className="text-center mb-16 space-y-6"
         >
           <h2 className="text-4xl lg:text-5xl font-black text-white leading-tight">
-            Tudo o Que Você Precisa Para Escalar sua Operação — Em Um Só Lugar
+            Tudo que você precisa para dominar o tráfego pago. Em um só lugar.
           </h2>
           <p className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
-            <span className="block whitespace-nowrap">
-              O afiliado que escala no Google Ads não trabalha com ferramentas soltas. Ele
-            </span>
-            <span className="block whitespace-nowrap">
-              usa um ecossistema integrado onde tracking, páginas e dados conversam entre si.
-            </span>
-            <span className="block whitespace-nowrap">
-              Conheça os três pilares do Ratoeira Hub.
-            </span>
+            Quem escala no Google e no Meta não usa ferramentas soltas. Usa um ecossistema onde tracking, páginas e
+            dados conversam entre si — e cada real investido tem uma origem rastreada.
           </p>
           <p className="text-lg text-orange-400 font-semibold">
-            Escolha a ferramenta que falta na sua operação ou integre ambas para resultados explosivos.
+            Conheça as ferramentas ou combine tudo no Hub para resultado máximo.
           </p>
         </motion.div>
 

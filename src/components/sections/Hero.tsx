@@ -15,6 +15,7 @@ import {
   Filter,
   Search,
 } from "lucide-react";
+import SpotlightBackground from "@/components/ui/spotlight-background";
 
 function HeroVideoMockup() {
   const videoRef = useRef<HTMLVideoElement | null>(null);
@@ -111,9 +112,9 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative min-h-[100svh] bg-surface-default z-0 overflow-hidden">
+    <section className="relative min-h-[100svh] bg-[#050505] z-0 overflow-hidden">
       {/* Slider Controls - Absolute positioned at bottom center */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-50 flex items-center gap-3 bg-black/80 backdrop-blur-md px-4 py-2 rounded-full border border-white/10">
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-50 flex items-center gap-3 bg-black/80 backdrop-blur-md px-4 py-2 rounded-full border border-brand-primary/50">
         <button 
           onClick={() => setActivePanel((prev) => (prev === 0 ? 1 : 0))}
           className="w-8 h-8 rounded-full bg-white flex items-center justify-center hover:bg-neutral-200 transition-colors"
@@ -153,25 +154,18 @@ export default function Hero() {
           animate={{ x: 0 }}
           exit={{ x: "-100%" }}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          className="absolute inset-0 bg-white flex items-center justify-center"
+          className="absolute inset-0 bg-[#050505] flex items-center justify-center"
         >
           {activePanel === 0 ? (
-            <>
+            <SpotlightBackground className="absolute inset-0">
               <div
                 className="absolute inset-0 pointer-events-none"
                 style={{
-                  backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Crect x='4' y='4' width='112' height='112' rx='20' ry='20' fill='none' stroke='%23000000' stroke-width='1' stroke-opacity='0.04'/%3E%3C/svg%3E")`,
+                  backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Crect x='4' y='4' width='112' height='112' rx='20' ry='20' fill='none' stroke='%23FFFFFF' stroke-width='1' stroke-opacity='0.05'/%3E%3C/svg%3E")`,
                   backgroundSize: "120px 120px",
                 }}
               />
-              <div
-                className="absolute inset-0 pointer-events-none"
-                style={{
-                  background:
-                    "radial-gradient(ellipse 100% 80% at 50% 50%, transparent 30%, rgba(255,255,255,0.6) 100%)",
-                }}
-              />
-              <div className="relative w-full max-w-7xl mx-auto px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+              <div className="relative w-full h-full max-w-7xl mx-auto px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                 <motion.div
                   variants={containerVariants}
                   initial="hidden"
@@ -182,14 +176,14 @@ export default function Hero() {
                     variants={itemVariants}
                     className="text-[clamp(2.75rem,3.8vw,5.25rem)] font-extrabold tracking-tight leading-[1.04]"
                   >
-                    <span className="text-text-primary">Cada venda tem uma origem.</span>
+                    <span className="text-white">Cada venda tem uma origem.</span>
                     <br />
                     <span className="text-[#FFB800]">A Ratoeira te mostra qual é.</span>
                   </motion.h1>
 
                   <motion.p
                     variants={itemVariants}
-                    className="text-[clamp(1rem,1.15vw,1.125rem)] text-text-secondary leading-relaxed max-w-xl"
+                    className="text-[clamp(1rem,1.15vw,1.125rem)] text-white/70 leading-relaxed max-w-xl"
                   >
                     Rastreamento ~100% para Google Ads e Meta Ads. Visitas, leads e vendas num único dashboard — em tempo
                     real.
@@ -198,11 +192,11 @@ export default function Hero() {
                   <motion.div variants={itemVariants} className="flex flex-col gap-2 pt-2">
                     <Link
                       href="#demo"
-                      className="inline-flex self-start items-center justify-center px-6 py-3 bg-brand-primary text-black font-semibold text-sm rounded-button hover:bg-brand-primary-hover transition-colors duration-200 text-center"
+                      className="inline-flex self-start items-center justify-center px-6 py-3 bg-brand-primary text-white font-semibold text-sm rounded-button hover:bg-brand-primary-hover transition-colors duration-200 text-center"
                     >
                       Começar grátis
                     </Link>
-                    <span className="text-text-secondary text-sm">Plano gratuito disponível. Sem cartão.</span>
+                    <span className="text-white/60 text-sm">Plano gratuito disponível. Sem cartão.</span>
                   </motion.div>
                 </motion.div>
 
@@ -293,40 +287,35 @@ export default function Hero() {
                   </motion.div>
                 </motion.div>
               </div>
-            </>
+            </SpotlightBackground>
           ) : (
-            <>
+            <SpotlightBackground className="absolute inset-0">
               <div
                 className="absolute inset-0 pointer-events-none"
                 style={{
-                  backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Crect x='4' y='4' width='112' height='112' rx='20' ry='20' fill='none' stroke='%23000000' stroke-width='1' stroke-opacity='0.04'/%3E%3C/svg%3E")`,
+                  backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Crect x='4' y='4' width='112' height='112' rx='20' ry='20' fill='none' stroke='%23FFFFFF' stroke-width='1' stroke-opacity='0.05'/%3E%3C/svg%3E")`,
                   backgroundSize: "120px 120px",
                 }}
               />
-              <div
-                className="absolute inset-0 pointer-events-none"
-                style={{
-                  background:
-                    "radial-gradient(ellipse 100% 80% at 50% 50%, transparent 30%, rgba(255,255,255,0.6) 100%)",
-                }}
-              />
-              <div className="relative w-full max-w-7xl mx-auto px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+              <div className="relative w-full h-full max-w-7xl mx-auto px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
               <div className="flex flex-col gap-6">
-                <h2 className="text-[clamp(2.75rem,3.8vw,5.25rem)] font-extrabold tracking-tight leading-[1.04] text-black">
-                  Sua Página Está Pronta{" "}
-                  <span style={{ color: "var(--color-brand-primary)" }}>Para O Próximo Clique?</span>
+                <h2 className="text-[clamp(2.75rem,3.8vw,5.25rem)] font-extrabold tracking-tight leading-[1.04] text-white">
+                  Páginas que convertem.{" "}
+                  <span style={{ color: "var(--color-brand-primary)" }}>
+                    Integradas ao seu tracking desde o primeiro clique.
+                  </span>
                 </h2>
-                <p className="text-[clamp(1rem,1.15vw,1.125rem)] text-neutral-700 leading-relaxed max-w-2xl">
-                  Enquanto você rastreia com precisão cada origem de venda, o
-                  Ratoeira Pages entrega templates prontos para publicação com foco
-                  em conversão, velocidade e experiência mobile.
+                <p className="text-[clamp(1rem,1.15vw,1.125rem)] text-white/70 leading-relaxed max-w-2xl">
+                  Construtor visual com templates prontos, Flash Pages ultra-rápidas e geração por IA. Cada página já
+                  nasce com o tracking integrado — sem scripts avulsos, sem configuração manual, sem dados perdidos
+                  entre a página e a campanha.
                 </p>
                 <div className="flex items-center gap-3 pt-2">
                   <Link
-                    href="#planos"
-                    className="inline-flex items-center gap-2 px-6 py-3 bg-brand-primary text-black font-semibold text-sm rounded-button hover:bg-brand-primary-hover transition-colors duration-200"
+                    href="/solucoes/ratoeira-pages"
+                    className="inline-flex items-center gap-2 px-6 py-3 bg-brand-primary text-white font-semibold text-sm rounded-button hover:bg-brand-primary-hover transition-colors duration-200"
                   >
-                    Quero Conhecer o Hub
+                    Conhecer o Ratoeira Pages →
                   </Link>
                 </div>
               </div>
@@ -359,7 +348,7 @@ export default function Hero() {
                 </div>
               </div>
               </div>
-            </>
+            </SpotlightBackground>
           )}
         </motion.div>
       </AnimatePresence>
