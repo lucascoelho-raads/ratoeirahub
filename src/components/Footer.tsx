@@ -94,11 +94,7 @@ export default function Footer() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-20 items-center">
               <div className="max-w-xl">
                 <h2 className={`text-5xl sm:text-6xl lg:text-7xl font-black tracking-tight leading-[0.98] ${titleBaseClassName}`}>
-                  Vamos
-                  <br />
-                  <span className="text-orange-500">estruturar</span>
-                  <br />
-                  sua operação?
+                  Vamos <span className="text-orange-500">estruturar</span> sua operação?
                 </h2>
                 <p className={`mt-7 text-base sm:text-lg leading-relaxed ${subtitleClassName}`}>
                   Fale com a equipe e descubra qual configuração faz sentido para o seu momento.

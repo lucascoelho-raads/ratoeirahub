@@ -11,32 +11,38 @@ const features = [
   {
     icon: Server,
     title: "Tracking Server-Side",
-    description: "Seus dados não dependem mais de cookies no navegador. Enviamos as conversões direto para as APIs do Facebook e Google.",
+    description:
+      "Seus dados não dependem mais de cookies ou do pixel nativo. Enviamos as conversões direto para as APIs do Google e do Meta com envio enriquecido via browser e API — chegando a ~100% de rastreamento. O que o pixel padrão perde entre 25% e 40% das vezes, a Ratoeira registra.",
   },
   {
     icon: Bot,
-    title: "Bloqueio Anti-Fraude",
-    description: "Identificamos e bloqueamos IPs maliciosos, bots e cliques concorrentes que drenam o seu orçamento diário.",
+    title: "Bloqueio Automático de IP",
+    description:
+      "Exclusivo para Google Ads. Você define o limite de cliques aceitos por IP — a Ratoeira bloqueia automaticamente quem ultrapassa. Concorrentes que clicam nos seus anúncios, tráfego inválido e bots são eliminados antes de consumir seu orçamento. Na maioria dos casos, o que você economiza já paga o plano inteiro.",
   },
   {
     icon: Ghost,
-    title: "Recuperação de Vendas Invisíveis",
-    description: "Rastreamos as vendas que o pixel normal perde por causa de AdBlockers e atualizações do iOS 14+.",
+    title: "Pixel de Qualidade Máxima",
+    description:
+      "Para Meta Ads. Enviamos suas conversões com deduplicação e dados enriquecidos — via browser e API ao mesmo tempo. Isso eleva o Pixel Quality Score do Meta, que passa a encontrar pessoas com perfil real de compra, não só de clique. CPL cai. ROAS sobe. O algoritmo finalmente trabalha com dado verdadeiro.",
   },
   {
     icon: Target,
-    title: "GCLID e UTMs 100% Salvos",
-    description: "Nunca mais perca o rastreio da origem da venda. Mapeamos toda a jornada do clique até o checkout.",
+    title: "Recuperação de Conversões Invisíveis",
+    description:
+      "Anunciantes que migram do pixel padrão para o tracking server-side da Ratoeira recuperam em média 25% a 40% de conversões que estavam sumindo. Cada venda recuperada é lucro que você já tinha gerado — sem saber. Com mais conversões subindo para o Google e para o Meta, o algoritmo otimiza mais rápido e sua campanha escala com mais segurança.",
   },
   {
     icon: Zap,
-    title: "Velocidade Extrema",
-    description: "O script de rastreamento mais leve do mercado, que não atrasa o carregamento da sua página.",
+    title: "Dados em Tempo Real",
+    description:
+      "O Meta Ads demora para consolidar conversões e muitas vezes otimiza para o público errado antes de corrigir. A Ratoeira mostra seus dados integrados — visitas, leads e vendas — mais rápido do que o próprio Ads Manager. Você toma a decisão certa antes que o algoritmo tome a errada.",
   },
   {
     icon: LineChart,
-    title: "Dashboard em Tempo Real",
-    description: "Tome decisões com base em dados reais e atualizados segundo a segundo no seu painel.",
+    title: "Funil Completo Visível",
+    description:
+      "Enquanto outras ferramentas mostram apenas de onde vieram os cliques, a Ratoeira mostra de onde vieram as vendas — com visitas, leads e conversões integradas num só lugar. Mais dados reais no pixel significa públicos melhores, criativos mais inteligentes e um custo por aquisição que cai enquanto o lucro sobe.",
   },
 ];
 
@@ -48,7 +54,7 @@ export default function FeaturesAds() {
 
     const imageSrc =
       feature.title === "Tracking Server-Side"
-        ? "/serveraside.png"
+        ? null
         : feature.title === "Bloqueio Anti-Fraude"
           ? "/ip_bloqueado.png"
           : feature.title === "Recuperação de Vendas Invisíveis"
@@ -79,10 +85,11 @@ export default function FeaturesAds() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16 max-w-3xl mx-auto">
           <h2 className="text-3xl md:text-5xl font-black text-white mb-6">
-            O fim do <span className="text-brand-primary">achismo</span> no tráfego.
+            O fim do <span className="text-brand-primary">achismo</span> no tráfego pago.
           </h2>
           <p className="text-gray-400 text-lg">
-            Nossa tecnologia atua em 6 frentes para garantir que você saiba exatamente qual anúncio gerou cada centavo de lucro.
+            A Ratoeira Ads atua em 6 frentes para garantir que você saiba exatamente qual anúncio gerou cada centavo de
+            resultado — no Google Ads e no Meta Ads.
           </p>
         </div>
 
@@ -96,41 +103,56 @@ export default function FeaturesAds() {
               transition={{ duration: 0.35, ease: "easeOut" }}
               className="space-y-10"
             >
-              <div className="relative -mx-4 rounded-3xl p-3 md:-mx-12">
-                <div className="[perspective:800px]">
-                  <div className="[transform:skewY(-2deg)skewX(-2deg)rotateX(6deg)]">
-                    <BorderRotate
-                      animationSpeed={7}
-                      gradientColors={{ primary: "#FFB800", secondary: "#FF7E4A", accent: "#E6A600" }}
-                      backgroundColor="#111111"
-                      borderWidth={2}
-                      borderRadius={24}
-                      className="relative h-[320px] sm:h-[380px] md:h-[460px] lg:h-[520px] 2xl:h-[720px] overflow-hidden"
-                    >
-                      <div className="pointer-events-none absolute inset-0 bg-brand-primary/10 blur-[80px]" />
+              <div className="mx-auto w-full max-w-5xl">
+                <BorderRotate
+                  animationMode="stop-rotate-on-hover"
+                  animationSpeed={3}
+                  gradientColors={{ primary: "#FFB800", secondary: "#FF7E4A", accent: "#E6A600" }}
+                  backgroundColor="#111111"
+                  borderWidth={2}
+                  borderRadius={24}
+                  className="relative h-[320px] sm:h-[380px] md:h-[460px] lg:h-[520px] 2xl:h-[720px] overflow-hidden shadow-[0_40px_80px_-40px_rgba(0,0,0,0.9)]"
+                >
+                  <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(80%_70%_at_50%_40%,rgba(255,184,0,0.12)_0%,rgba(0,0,0,0)_70%)]" />
 
-                      {activeSlide.imageSrc ? (
-                        <Image
-                          src={activeSlide.imageSrc}
-                          alt={activeSlide.title}
-                          fill
-                          sizes="(min-width: 1024px) 900px, 100vw"
-                          className={`relative z-10 ${activeSlide.imageClassName}`}
-                          priority={activeSlide.title === "Tracking Server-Side"}
-                        />
-                      ) : (
-                        <div className="absolute inset-0 flex items-center justify-center">
-                          <div className="text-center text-white/35">
-                            <activeSlide.icon className="w-16 h-16 mx-auto mb-4 opacity-50" />
-                            <p className="font-bold uppercase tracking-wider text-sm">Espaço para Imagem/Mockup</p>
+                  {activeSlide.title === "Tracking Server-Side" ? (
+                    <div className="relative z-10 flex h-full items-center justify-center px-4 sm:px-8">
+                      <div className="w-full max-w-3xl">
+                        <div className="grid grid-cols-2 gap-4 sm:gap-8">
+                          <div>
+                            <div className="relative h-44 rounded-2xl bg-white/10 overflow-hidden">
+                              <div className="absolute inset-x-0 bottom-0 h-[72%] bg-white/25" />
+                            </div>
+                            <p className="mt-3 text-sm font-semibold text-white/70">Pixel padrão (60–75%)</p>
+                          </div>
+                          <div>
+                            <div className="relative h-44 rounded-2xl bg-brand-primary/15 overflow-hidden">
+                              <div className="absolute inset-x-0 bottom-0 h-[98%] bg-brand-primary/45" />
+                            </div>
+                            <p className="mt-3 text-sm font-semibold text-white/70">Ratoeira Ads (~100%)</p>
                           </div>
                         </div>
-                      )}
+                      </div>
+                    </div>
+                  ) : activeSlide.imageSrc ? (
+                    <Image
+                      src={activeSlide.imageSrc}
+                      alt={activeSlide.title}
+                      fill
+                      sizes="(min-width: 1024px) 900px, 100vw"
+                      className={`relative z-10 ${activeSlide.imageClassName}`}
+                    />
+                  ) : (
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="text-center text-white/35">
+                        <activeSlide.icon className="w-16 h-16 mx-auto mb-4 opacity-50" />
+                        <p className="font-bold uppercase tracking-wider text-sm">Espaço para Imagem/Mockup</p>
+                      </div>
+                    </div>
+                  )}
 
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-black/15 to-transparent" />
-                    </BorderRotate>
-                  </div>
-                </div>
+                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/45 via-black/15 to-transparent" />
+                </BorderRotate>
               </div>
 
               <BorderRotate

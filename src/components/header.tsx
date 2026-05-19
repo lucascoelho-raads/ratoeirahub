@@ -4,6 +4,7 @@ import { useState, useRef, useCallback, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, ChevronDown, ChevronLeft, Menu, X, Zap } from "lucide-react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { NAV_LINKS, type NavMenu } from "./header/nav-data";
 import { MegaMenu } from "./header/mega-menu";
 import { cn } from "@/lib/utils";
@@ -96,6 +97,10 @@ function HeaderActions({
   mobile?: boolean;
   onAction?: () => void;
 }) {
+  const pathname = usePathname();
+  const primaryLabel =
+    pathname === "/solucoes/ratoeira-ads" ? "Começar grátis" : "Teste gratis";
+
   return (
     <div
       className={cn(
@@ -123,7 +128,7 @@ function HeaderActions({
           mobile ? "min-h-14 text-lg" : "px-5 py-2 text-sm",
         )}
       >
-        Teste gratis
+        {primaryLabel}
         <ArrowRight
           className="size-3.5 shrink-0 text-text-primary"
           strokeWidth={1.6}

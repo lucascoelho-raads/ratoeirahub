@@ -8,6 +8,7 @@ import { Canvas, useFrame } from "@react-three/fiber"
 import { PerspectiveCamera } from "@react-three/drei"
 import { degToRad } from "three/src/math/MathUtils.js"
 import { ArrowRight, Github, Star } from "lucide-react"
+import Image from "next/image"
 
 // ============================================================================
 // BEAMS COMPONENT (3D Background)
@@ -461,7 +462,7 @@ export default function EtherealBeamsHero() {
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 transition-colors"
           >
             <Star className="w-4 h-4 text-[#E6A600]" />
-            <span className="text-sm text-neutral-300">Nova atualização disponível</span>
+            <span className="text-sm text-neutral-300">Nova era do tracking chegou</span>
             <ArrowRight className="w-4 h-4 text-neutral-400" />
           </a>
         </motion.div>
@@ -474,7 +475,9 @@ export default function EtherealBeamsHero() {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="text-[clamp(2.75rem,4.2vw,6rem)] font-black text-white tracking-tight leading-[1.04] mb-8"
           >
-            A única ferramenta brasileira que <span className="text-[#E6A600]">rastreia</span>, <span className="text-[#E6A600]">protege</span> e dá visão total da suas operações no <span className="text-white">Google Ads</span> e <span className="text-white">Meta Ads</span>.
+            Rastreamento <span className="text-[#E6A600]">~100%</span>.{" "}
+            <span className="text-[#E6A600]">Anti-fraude automático.</span>{" "}
+            Dados que o Google e o Meta não te dão sozinhos.
           </motion.h1>
 
           <motion.p
@@ -483,7 +486,8 @@ export default function EtherealBeamsHero() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="text-[clamp(1.05rem,1.25vw,1.35rem)] text-neutral-400 mb-12 max-w-3xl mx-auto"
           >
-            A tecnologia de tracking mais avançada do mercado para quem não tem margem para perder dinheiro com cliques falsos e dados imprecisos.
+            Para anunciantes no Google Ads e Meta Ads que precisam de clareza total — não de estimativas. Cada venda rastreada,
+            cada fraude bloqueada, cada decisão tomada com dado real.
           </motion.p>
 
           <motion.div
@@ -496,7 +500,7 @@ export default function EtherealBeamsHero() {
               href="/planos"
               className="inline-flex items-center gap-2 px-8 py-4 2xl:px-10 2xl:py-5 rounded-full bg-yellow-500 text-black font-semibold hover:bg-yellow-400 transition-colors"
             >
-              Começar agora
+              Começar grátis
               <ArrowRight className="w-4 h-4" />
             </a>
             <a
@@ -506,6 +510,33 @@ export default function EtherealBeamsHero() {
               <Github className="w-4 h-4" />
               Como Funciona
             </a>
+          </motion.div>
+
+          <motion.p
+            initial={{ opacity: 0, y: 14 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.38 }}
+            className="mt-4 text-sm text-neutral-400"
+          >
+            Plano gratuito disponível. Sem cartão.
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.45 }}
+            className="mx-auto mt-12 w-full max-w-6xl"
+          >
+            <div className="relative mx-auto h-[clamp(14rem,30vw,28rem)] w-full max-w-5xl rounded-2xl border border-white/10 bg-black/20 shadow-2xl shadow-black/60 overflow-hidden">
+              <Image
+                src="/dashboard.png"
+                alt="Dashboard da Ratoeira Ads"
+                fill
+                priority
+                sizes="(min-width: 1024px) 900px, 100vw"
+                className="object-cover object-top"
+              />
+            </div>
           </motion.div>
         </div>
       </div>

@@ -102,19 +102,19 @@ export default function CTAAds() {
           className="flex flex-col items-center w-full max-w-6xl mx-auto"
         >
           <h2 className="text-[clamp(2.25rem,3.2vw,4.5rem)] font-black text-white mb-6 tracking-tight drop-shadow-[0_0_15px_rgba(0,0,0,0.8)]">
-            Pare de jogar dinheiro no <span className="text-brand-primary">lixo</span>.
+            Pare de tomar decisão com dado <span className="text-brand-primary">incompleto</span>.
           </h2>
           <p className="text-[clamp(1.1rem,1.25vw,1.5rem)] text-gray-300 max-w-3xl mx-auto drop-shadow-[0_0_10px_rgba(0,0,0,0.8)] leading-relaxed">
-            Integre a <span className="text-brand-primary font-semibold">Ratoeira Ads</span> hoje mesmo e descubra o verdadeiro <span className="text-brand-primary font-semibold">ROI</span> das suas campanhas com proteção em tempo real.
+            Configure a <span className="text-brand-primary font-semibold">Ratoeira Ads</span> em minutos e descubra o ROI real das suas campanhas com rastreamento ~100% e proteção automática no Google Ads.
           </p>
         </motion.div>
 
         <div className="mt-16">
           <Link
             href="/planos"
-            className="inline-flex items-center gap-2 px-8 py-4 sm:px-10 sm:py-5 bg-brand-primary text-black font-black rounded-full hover:bg-brand-primary-hover transition-all text-lg sm:text-xl shadow-xl shadow-brand-primary/20 hover:scale-105 active:scale-95"
+            className="inline-flex items-center gap-2 px-8 py-4 sm:px-10 sm:py-5 bg-brand-primary text-white font-black rounded-full hover:bg-brand-primary-hover transition-all text-lg sm:text-xl shadow-xl shadow-brand-primary/20 hover:scale-105 active:scale-95"
           >
-            Escolher Meu Plano
+            Começar grátis — ver planos
             <ArrowRight className="w-6 h-6" />
           </Link>
         </div>

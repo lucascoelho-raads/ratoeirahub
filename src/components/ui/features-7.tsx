@@ -78,7 +78,7 @@ export function Features() {
       <div className="mx-auto max-w-7xl space-y-10 px-4 sm:px-6 lg:px-8">
         <div className="relative z-10 mx-auto max-w-2xl text-center">
           <h2 className="text-4xl font-black tracking-tight text-white md:text-5xl">
-            <span className="text-[#FF7E4A]">Liberdade</span> para criar
+            <span className="text-brand-primary">Liberdade</span> para criar
           </h2>
           <p className="mt-6 text-lg leading-relaxed text-gray-400">
             Uma plataforma completa para construir, hospedar e otimizar as páginas da sua operação de tráfego pago.
@@ -95,48 +95,45 @@ export function Features() {
               transition={{ duration: 0.35, ease: "easeOut" }}
               className="space-y-10"
             >
-              <div className="relative -mx-4 rounded-3xl p-3 md:-mx-12">
-                <div className="[perspective:800px]">
-                  <div className="[transform:skewY(-2deg)skewX(-2deg)rotateX(6deg)]">
-                    <BorderRotate
-                      animationSpeed={7}
-                      gradientColors={{ primary: "#FF7E4A", secondary: "#FFB800", accent: "#E6A600" }}
-                      backgroundColor="#111111"
-                      borderWidth={2}
-                      borderRadius={24}
-                      className="relative h-[320px] sm:h-[380px] md:h-[460px] lg:h-[520px] 2xl:h-[720px] overflow-hidden"
-                    >
-                      <div className="pointer-events-none absolute inset-0 bg-[#FF7E4A]/10 blur-[80px]" />
-                      <Image
-                        src={activeSlide.imageSrc}
-                        alt={activeSlide.imageAlt}
-                        fill
-                        sizes="(min-width: 1024px) 900px, 100vw"
-                        className="relative z-10 object-cover object-top"
-                        priority={activeSlide.key === "flash-pages"}
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-black/15 to-transparent" />
-                    </BorderRotate>
-                  </div>
-                </div>
+              <div className="mx-auto w-full max-w-5xl">
+                <BorderRotate
+                  animationMode="stop-rotate-on-hover"
+                  animationSpeed={3}
+                  gradientColors={{ primary: "#FFB800", secondary: "#FF7E4A", accent: "#E6A600" }}
+                  backgroundColor="#111111"
+                  borderWidth={2}
+                  borderRadius={24}
+                  className="relative h-[320px] sm:h-[380px] md:h-[460px] lg:h-[520px] 2xl:h-[720px] overflow-hidden shadow-[0_40px_80px_-40px_rgba(0,0,0,0.9)]"
+                >
+                  <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(80%_70%_at_50%_40%,rgba(255,184,0,0.12)_0%,rgba(0,0,0,0)_70%)]" />
+                  <Image
+                    src={activeSlide.imageSrc}
+                    alt={activeSlide.imageAlt}
+                    fill
+                    sizes="(min-width: 1024px) 900px, 100vw"
+                    className="relative z-10 object-cover object-top"
+                    priority={activeSlide.key === "flash-pages"}
+                  />
+                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/45 via-black/15 to-transparent" />
+                </BorderRotate>
               </div>
 
               <BorderRotate
                 animationMode="stop-rotate-on-hover"
                 animationSpeed={3}
-                gradientColors={{ primary: "#FF7E4A", secondary: "#FFB800", accent: "#E6A600" }}
+                gradientColors={{ primary: "#FFB800", secondary: "#FF7E4A", accent: "#E6A600" }}
                 backgroundColor="#0B0B0B"
                 borderWidth={2}
                 borderRadius={24}
                 className="mx-auto max-w-4xl p-6 sm:p-8"
               >
                 <div className="flex items-start gap-3">
-                  <div className="mt-1 flex h-9 w-9 items-center justify-center rounded-xl bg-[#FF7E4A]/10">
-                    <Zap className="h-4 w-4 text-[#FF7E4A]" />
+                  <div className="mt-1 flex h-9 w-9 items-center justify-center rounded-xl bg-brand-primary/10">
+                    <Zap className="h-4 w-4 text-brand-primary" />
                   </div>
                   <div className="flex-1">
                     <h3 className="text-xl font-black leading-tight text-white sm:text-2xl">
-                      {activeSlide.titlePrefix} <span className="text-[#FF7E4A]">{activeSlide.titleHighlight}</span>
+                      {activeSlide.titlePrefix} <span className="text-brand-primary">{activeSlide.titleHighlight}</span>
                     </h3>
                     <p className="mt-4 text-base leading-relaxed text-gray-400 sm:text-lg">{activeSlide.description}</p>
                   </div>
@@ -162,7 +159,7 @@ export function Features() {
                   type="button"
                   onClick={() => setActiveIndex(i)}
                   className={`h-2.5 rounded-full transition-all ${
-                    i === activeIndex ? "w-8 bg-[#FF7E4A]" : "w-2.5 bg-white/20 hover:bg-white/35"
+                    i === activeIndex ? "w-8 bg-brand-primary" : "w-2.5 bg-white/20 hover:bg-white/35"
                   }`}
                   aria-label={`Ir para ${i + 1}`}
                 />
