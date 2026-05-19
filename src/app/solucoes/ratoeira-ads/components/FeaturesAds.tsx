@@ -1,11 +1,8 @@
 "use client";
 
-import { AnimatePresence, motion } from "framer-motion";
-import { Bot, ChevronLeft, ChevronRight, Ghost, LineChart, Server, Target, Zap } from "lucide-react";
+import { Bot, Ghost, LineChart, Server, Target, Zap } from "lucide-react";
 import { BlurTextEffect } from "@/components/ui/blur-text-effect";
 import Image from "next/image";
-import { useState } from "react";
-import { BorderRotate } from "@/components/ui/animated-gradient-border";
 
 const features = [
   {
@@ -48,38 +45,21 @@ const features = [
 
 export default function FeaturesAds() {
   const slides = features.map((feature) => {
-    const isAntiFraude = feature.title === "Bloqueio Anti-Fraude";
-    const isEconomizometro = feature.title === "Recuperação de Vendas Invisíveis";
-    const isDashboard = feature.title === "Dashboard em Tempo Real";
-
     const imageSrc =
       feature.title === "Tracking Server-Side"
         ? null
-        : feature.title === "Bloqueio Anti-Fraude"
+        : feature.title === "Bloqueio Automático de IP"
           ? "/ip_bloqueado.png"
-          : feature.title === "Recuperação de Vendas Invisíveis"
+          : feature.title === "Recuperação de Conversões Invisíveis"
             ? "/economizometro.png"
-            : feature.title === "Dashboard em Tempo Real"
+            : feature.title === "Dados em Tempo Real"
               ? "/dash.png"
               : null;
 
-    const imageClassName =
-      isAntiFraude || isEconomizometro || isDashboard ? "object-cover object-top" : "object-contain object-center";
+    const imageClassName = imageSrc ? "object-cover object-top" : null;
 
     return { ...feature, imageSrc, imageClassName } as const;
   });
-
-  const [activeIndex, setActiveIndex] = useState(0);
-  const activeSlide = slides[activeIndex];
-  const isReversed = activeIndex % 2 === 1;
-
-  function goPrev() {
-    setActiveIndex((prev) => (prev - 1 + slides.length) % slides.length);
-  }
-
-  function goNext() {
-    setActiveIndex((prev) => (prev + 1) % slides.length);
-  }
 
   return (
     <section id="como-funciona" className="py-24 bg-[#0a0a0a]">
@@ -94,129 +74,75 @@ export default function FeaturesAds() {
           </p>
         </div>
 
-        <div className="relative">
-          <AnimatePresence mode="wait" initial={false}>
-            <motion.div
-              key={activeSlide.title}
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
-              transition={{ duration: 0.35, ease: "easeOut" }}
-              className="grid gap-10 lg:grid-cols-2 lg:items-center"
-            >
-              <div className={isReversed ? "w-full lg:order-2" : "w-full lg:order-1"}>
-                <BorderRotate
-                  animationMode="stop-rotate-on-hover"
-                  animationSpeed={3}
-                  gradientColors={{ primary: "#FFB800", secondary: "#FF7E4A", accent: "#E6A600" }}
-                  backgroundColor="#0B0B0B"
-                  borderWidth={2}
-                  borderRadius={24}
-                  className="p-6 sm:p-8"
-                >
-                  <div className="flex items-start gap-3">
-                    <div className="mt-1 flex h-9 w-9 items-center justify-center rounded-xl bg-brand-primary/10">
-                      <activeSlide.icon className="h-4 w-4 text-brand-primary" />
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="text-xl font-black leading-tight text-white sm:text-2xl">
-                        <BlurTextEffect key={activeSlide.title}>{activeSlide.title}</BlurTextEffect>
-                      </h3>
-                      <p className="mt-4 text-base leading-relaxed text-gray-400 sm:text-lg">
-                        <BlurTextEffect key={`${activeSlide.title}-desc`}>{activeSlide.description}</BlurTextEffect>
-                      </p>
-                    </div>
+        <div className="space-y-24">
+          {slides.map((slide, index) => {
+            const isReversed = index % 2 === 1;
+            const Icon = slide.icon;
+
+            return (
+              <div
+                key={slide.title}
+                className={`flex flex-col ${isReversed ? "md:flex-row-reverse" : "md:flex-row"} items-center gap-12 md:gap-24`}
+              >
+                <div className="flex-1 space-y-6 w-full">
+                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-yellow-500/15 to-orange-500/15 flex items-center justify-center border border-white/10">
+                    <Icon className="w-8 h-8 text-orange-400" />
                   </div>
-                </BorderRotate>
-              </div>
+                  <h3 className="text-3xl md:text-4xl font-black leading-tight text-white">
+                    <BlurTextEffect key={slide.title}>{slide.title}</BlurTextEffect>
+                  </h3>
+                  <p className="text-xl text-gray-400 leading-relaxed">
+                    <BlurTextEffect key={`${slide.title}-desc`}>{slide.description}</BlurTextEffect>
+                  </p>
+                </div>
 
-              <div className={isReversed ? "w-full lg:order-1" : "w-full lg:order-2"}>
-                <BorderRotate
-                  animationMode="stop-rotate-on-hover"
-                  animationSpeed={3}
-                  gradientColors={{ primary: "#FFB800", secondary: "#FF7E4A", accent: "#E6A600" }}
-                  backgroundColor="#111111"
-                  borderWidth={2}
-                  borderRadius={24}
-                  className="relative h-[320px] sm:h-[380px] md:h-[460px] lg:h-[520px] 2xl:h-[720px] overflow-hidden shadow-[0_40px_80px_-40px_rgba(0,0,0,0.9)]"
-                >
-                  <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(80%_70%_at_50%_40%,rgba(255,184,0,0.12)_0%,rgba(0,0,0,0)_70%)]" />
+                <div className="flex-1 w-full">
+                  <div className="relative aspect-video rounded-2xl border border-white/10 bg-[#111111] overflow-hidden">
+                    <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(80%_70%_at_50%_40%,rgba(255,184,0,0.12)_0%,rgba(0,0,0,0)_70%)]" />
 
-                  {activeSlide.title === "Tracking Server-Side" ? (
-                    <div className="relative z-10 flex h-full items-center justify-center px-4 sm:px-8">
-                      <div className="w-full max-w-3xl">
-                        <div className="grid grid-cols-2 gap-4 sm:gap-8">
-                          <div>
-                            <div className="relative h-44 rounded-2xl bg-white/10 overflow-hidden">
-                              <div className="absolute inset-x-0 bottom-0 h-[72%] bg-white/25" />
+                    {slide.title === "Tracking Server-Side" ? (
+                      <div className="absolute inset-0 flex items-center justify-center px-6">
+                        <div className="w-full max-w-2xl">
+                          <div className="grid grid-cols-2 gap-4 sm:gap-8">
+                            <div>
+                              <div className="relative h-36 sm:h-44 rounded-2xl bg-white/10 overflow-hidden">
+                                <div className="absolute inset-x-0 bottom-0 h-[72%] bg-white/25" />
+                              </div>
+                              <p className="mt-3 text-sm font-semibold text-white/70">Pixel padrão (60–75%)</p>
                             </div>
-                            <p className="mt-3 text-sm font-semibold text-white/70">Pixel padrão (60–75%)</p>
-                          </div>
-                          <div>
-                            <div className="relative h-44 rounded-2xl bg-brand-primary/15 overflow-hidden">
-                              <div className="absolute inset-x-0 bottom-0 h-[98%] bg-brand-primary/45" />
+                            <div>
+                              <div className="relative h-36 sm:h-44 rounded-2xl bg-brand-primary/15 overflow-hidden">
+                                <div className="absolute inset-x-0 bottom-0 h-[98%] bg-brand-primary/45" />
+                              </div>
+                              <p className="mt-3 text-sm font-semibold text-white/70">Ratoeira Ads (~100%)</p>
                             </div>
-                            <p className="mt-3 text-sm font-semibold text-white/70">Ratoeira Ads (~100%)</p>
                           </div>
                         </div>
                       </div>
-                    </div>
-                  ) : activeSlide.imageSrc ? (
-                    <Image
-                      src={activeSlide.imageSrc}
-                      alt={activeSlide.title}
-                      fill
-                      sizes="(min-width: 1024px) 900px, 100vw"
-                      className={`relative z-10 ${activeSlide.imageClassName}`}
-                    />
-                  ) : (
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="text-center text-white/35">
-                        <activeSlide.icon className="w-16 h-16 mx-auto mb-4 opacity-50" />
-                        <p className="font-bold uppercase tracking-wider text-sm">Espaço para Imagem/Mockup</p>
+                    ) : slide.imageSrc ? (
+                      <Image
+                        src={slide.imageSrc}
+                        alt={slide.title}
+                        fill
+                        sizes="(min-width: 1024px) 900px, 100vw"
+                        className={slide.imageClassName ?? undefined}
+                        priority={index === 0}
+                      />
+                    ) : (
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <div className="text-center text-white/35">
+                          <Icon className="w-16 h-16 mx-auto mb-4 opacity-50" />
+                          <p className="font-bold uppercase tracking-wider text-sm">Espaço para Imagem/Mockup</p>
+                        </div>
                       </div>
-                    </div>
-                  )}
+                    )}
 
-                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/45 via-black/15 to-transparent" />
-                </BorderRotate>
+                    <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/45 via-black/15 to-transparent" />
+                  </div>
+                </div>
               </div>
-            </motion.div>
-          </AnimatePresence>
-
-          <div className="mt-8 flex items-center justify-center gap-3">
-            <button
-              type="button"
-              onClick={goPrev}
-              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/[0.03] text-white transition-colors hover:bg-white/[0.06]"
-              aria-label="Anterior"
-            >
-              <ChevronLeft className="h-5 w-5" />
-            </button>
-
-            <div className="flex items-center gap-2">
-              {slides.map((s, i) => (
-                <button
-                  key={s.title}
-                  type="button"
-                  onClick={() => setActiveIndex(i)}
-                  className={`h-2.5 rounded-full transition-all ${
-                    i === activeIndex ? "w-8 bg-brand-primary" : "w-2.5 bg-white/20 hover:bg-white/35"
-                  }`}
-                  aria-label={`Ir para ${i + 1}`}
-                />
-              ))}
-            </div>
-
-            <button
-              type="button"
-              onClick={goNext}
-              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/[0.03] text-white transition-colors hover:bg-white/[0.06]"
-              aria-label="Próximo"
-            >
-              <ChevronRight className="h-5 w-5" />
-            </button>
-          </div>
+            );
+          })}
         </div>
       </div>
     </section>
