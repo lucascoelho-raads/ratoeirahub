@@ -190,7 +190,7 @@ export default function Footer() {
                           <option value="" disabled>
                             Selecione uma opção
                           </option>
-                          <option value="Afiliado">Afiliado</option>
+                          <option value="Anunciante">Anunciante</option>
                           <option value="Infoprodutor">Infoprodutor</option>
                           <option value="Gestor de Tráfego">Gestor de Tráfego</option>
                           <option value="Agência">Agência</option>

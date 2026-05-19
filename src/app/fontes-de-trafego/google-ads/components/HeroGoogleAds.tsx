@@ -19,18 +19,27 @@ export const HeroGoogleAds = () => {
         <div className="relative mx-auto max-w-6xl px-6 pt-[clamp(7rem,12vh,10rem)] pb-10">
           <div className="relative z-10 mx-auto max-w-3xl text-center">
             <h1 className="text-balance text-[clamp(2.5rem,3.6vw,5.25rem)] font-black text-white tracking-tight leading-[1.04] mb-6">
-              Escale no <span className="text-brand-primary">Google Ads</span> com dados limpos
+              Pare de otimizar com conversão incompleta. A Ratoeira fecha o gap do{" "}
+              <span className="text-brand-primary">Google Ads</span>.
             </h1>
             <p className="mx-auto my-8 max-w-3xl text-[clamp(1.1rem,1.25vw,1.4rem)] text-gray-300 leading-relaxed">
-              A Ratoeira Hub integra nativamente com a API de Conversões do Google, enviando 100% dos eventos reais e bloqueando cliques inválidos antes que eles consumam seu orçamento.
+              Tracking server-side via API de Conversões do Google com ~100% de cobertura. Bloqueio automático de IPs
+              inválidos. GCLID e UTMs preservados. Tudo que o algoritmo precisa para otimizar para quem realmente compra.
             </p>
 
-            <Button asChild size="lg" className="h-14 px-8 2xl:h-16 2xl:px-10 2xl:text-xl font-bold">
+            <Button
+              asChild
+              size="lg"
+              className="h-14 px-8 2xl:h-16 2xl:px-10 2xl:text-xl font-bold text-white"
+            >
               <Link href="/planos">
-                Começar a Otimizar
+                Começar grátis
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Link>
             </Button>
+            <div className="mt-3 text-sm text-white/60 font-semibold">
+              Plano gratuito disponível. Sem cartão.
+            </div>
           </div>
         </div>
 

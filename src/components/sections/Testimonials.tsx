@@ -30,7 +30,7 @@ const testimonials: Testimonial[] = [
     quote:
       "Economizei mais de R$X no primeiro mês só com o bloqueio. Isso já pagou a ferramenta.",
     name: "Carla Mendes",
-    role: "Afiliada Top",
+    role: "Anunciante Top",
   },
   {
     img: avatarFromInitial("T"),

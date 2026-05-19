@@ -21,7 +21,7 @@ export default function Mais70Hero() {
   return (
     <FloatingIconsHero
       title={<span className="text-[#FFB800]">Mais de 70 plataformas</span>}
-        subtitle="Seus checkouts, plataformas de afiliados e redes conectados de uma vez. Uma configuração, rastreamento de tudo."
+        subtitle="Seus checkouts, plataformas de afiliação e redes conectados de uma vez. Uma configuração, rastreamento de tudo."
       ctaText="Veja as Plataformas"
       ctaHref="#explore-section"
         icons={[...logos]}

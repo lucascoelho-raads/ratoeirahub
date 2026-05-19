@@ -71,6 +71,7 @@ export default function FeaturesAds() {
 
   const [activeIndex, setActiveIndex] = useState(0);
   const activeSlide = slides[activeIndex];
+  const isReversed = activeIndex % 2 === 1;
 
   function goPrev() {
     setActiveIndex((prev) => (prev - 1 + slides.length) % slides.length);
@@ -101,9 +102,35 @@ export default function FeaturesAds() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
               transition={{ duration: 0.35, ease: "easeOut" }}
-              className="space-y-10"
+              className="grid gap-10 lg:grid-cols-2 lg:items-center"
             >
-              <div className="mx-auto w-full max-w-5xl">
+              <div className={isReversed ? "w-full lg:order-2" : "w-full lg:order-1"}>
+                <BorderRotate
+                  animationMode="stop-rotate-on-hover"
+                  animationSpeed={3}
+                  gradientColors={{ primary: "#FFB800", secondary: "#FF7E4A", accent: "#E6A600" }}
+                  backgroundColor="#0B0B0B"
+                  borderWidth={2}
+                  borderRadius={24}
+                  className="p-6 sm:p-8"
+                >
+                  <div className="flex items-start gap-3">
+                    <div className="mt-1 flex h-9 w-9 items-center justify-center rounded-xl bg-brand-primary/10">
+                      <activeSlide.icon className="h-4 w-4 text-brand-primary" />
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-xl font-black leading-tight text-white sm:text-2xl">
+                        <BlurTextEffect key={activeSlide.title}>{activeSlide.title}</BlurTextEffect>
+                      </h3>
+                      <p className="mt-4 text-base leading-relaxed text-gray-400 sm:text-lg">
+                        <BlurTextEffect key={`${activeSlide.title}-desc`}>{activeSlide.description}</BlurTextEffect>
+                      </p>
+                    </div>
+                  </div>
+                </BorderRotate>
+              </div>
+
+              <div className={isReversed ? "w-full lg:order-1" : "w-full lg:order-2"}>
                 <BorderRotate
                   animationMode="stop-rotate-on-hover"
                   animationSpeed={3}
@@ -154,30 +181,6 @@ export default function FeaturesAds() {
                   <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/45 via-black/15 to-transparent" />
                 </BorderRotate>
               </div>
-
-              <BorderRotate
-                animationMode="stop-rotate-on-hover"
-                animationSpeed={3}
-                gradientColors={{ primary: "#FFB800", secondary: "#FF7E4A", accent: "#E6A600" }}
-                backgroundColor="#0B0B0B"
-                borderWidth={2}
-                borderRadius={24}
-                className="mx-auto max-w-4xl p-6 sm:p-8"
-              >
-                <div className="flex items-start gap-3">
-                  <div className="mt-1 flex h-9 w-9 items-center justify-center rounded-xl bg-brand-primary/10">
-                    <activeSlide.icon className="h-4 w-4 text-brand-primary" />
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="text-xl font-black leading-tight text-white sm:text-2xl">
-                      <BlurTextEffect key={activeSlide.title}>{activeSlide.title}</BlurTextEffect>
-                    </h3>
-                    <p className="mt-4 text-base leading-relaxed text-gray-400 sm:text-lg">
-                      <BlurTextEffect key={`${activeSlide.title}-desc`}>{activeSlide.description}</BlurTextEffect>
-                    </p>
-                  </div>
-                </div>
-              </BorderRotate>
             </motion.div>
           </AnimatePresence>
 

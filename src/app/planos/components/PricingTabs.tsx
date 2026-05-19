@@ -66,7 +66,7 @@ const plansData = {
     },
     {
       name: "Ratazana",
-      description: "Para afiliados que já escalam com consistência.",
+      description: "Para anunciantes que já escalam com consistência.",
       price: {
         monthly: "397",
         semiannual: "357",

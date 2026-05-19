@@ -36,10 +36,10 @@ const casesData: Record<
   },
   "metodo-escala": {
     name: "Método Escala",
-    role: "Afiliado Top Player",
+    role: "Anunciante Top Player",
     photo: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80",
     results: ["~100% Tracking", "Setup em 1 Clique", "Múltiplos 7 Dígitos"],
-    challenge: "A dependência de múltiplas ferramentas desconexas causava divergências constantes nos relatórios. O afiliado não sabia exatamente qual anúncio gerava vendas reais, o que impedia uma escala agressiva e segura das ofertas no Meta e no Google.",
+    challenge: "A dependência de múltiplas ferramentas desconexas causava divergências constantes nos relatórios. O anunciante não sabia exatamente qual anúncio gerava vendas reais, o que impedia uma escala agressiva e segura das ofertas no Meta e no Google.",
     solution: "A adoção do Ratoeira Hub unificou a criação de páginas e o tracking server-side. Com um dashboard único exibindo o ROI real cruzado com as vendas aprovadas, o Método Escala passou a escalar com dados 100% precisos e confiáveis.",
     testimonial: "Parei de operar às cegas. Hoje, cada centavo investido é rastreado, validado e otimizado para gerar lucro de verdade. Foi a melhor decisão que já tomei para a minha operação.",
   },

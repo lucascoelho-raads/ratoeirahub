@@ -131,7 +131,7 @@ export default function CasesSocialProof() {
                 <Star key={i} className="w-5 h-5 text-brand-primary fill-brand-primary" />
               ))}
             </div>
-            <p className="relative z-10 text-gray-400 text-sm font-medium leading-snug">Aprovado por +2.600 afiliados.</p>
+            <p className="relative z-10 text-gray-400 text-sm font-medium leading-snug">Aprovado por +2.600 anunciantes.</p>
           </motion.div>
 
           {/* Card 5: Wide Text Quote (2x1) */}
@@ -159,7 +159,7 @@ export default function CasesSocialProof() {
                   <p className="text-white font-bold text-sm">Thiago Rocha</p>
                   <p className="text-gray-500 text-xs flex items-center gap-1">
                     <CheckCircle2 className="w-3 h-3 text-emerald-500" />
-                    Afiliado Top Player
+                    Anunciante Top Player
                   </p>
                 </div>
               </div>

@@ -52,7 +52,7 @@ export default function TermosDeUsoAdsPage() {
 
           <section>
             <h2 className="text-2xl font-bold text-white mb-4">DO OBJETO</h2>
-            <p>O presente contrato tem por objeto a contratação e afiliação aos serviços da RATOEIRA ADS, uma plataforma tecnológica especializada na detecção e bloqueio de cliques fraudulentos e afiliados mal-intencionados, garantindo a proteção e otimização do orçamento de tráfego.</p>
+            <p>O presente contrato tem por objeto a contratação e afiliação aos serviços da RATOEIRA ADS, uma plataforma tecnológica especializada na detecção e bloqueio de cliques fraudulentos e agentes mal-intencionados, garantindo a proteção e otimização do orçamento de tráfego.</p>
           </section>
 
           <section>
@@ -62,8 +62,8 @@ export default function TermosDeUsoAdsPage() {
               {[
                 { term: "Chargeback", desc: "Procedimento pelo qual o titular do cartão de crédito não reconhece e/ou contesta, junto ao emissor de seu cartão de crédito, uma despesa efetuada com o cartão de que é titular." },
                 { term: "Código de Acesso", desc: "É a senha utilizada por VOCÊ para acessar sua conta virtual;" },
-                { term: "Cookie Stuffing", desc: "Extensões de navegador maliciosas, concebidas para inserir a identidade ou dados de identificação de um Usuário Afiliado em detrimento de outro." },
-                { term: "Comissões", desc: "Percentual pago sobre as vendas realizadas pelos afiliados. Os valores serão repassados diretamente pela empresa responsável pelo processamento dos pagamentos." },
+                { term: "Cookie Stuffing", desc: "Extensões de navegador maliciosas, concebidas para inserir a identidade ou dados de identificação de um Usuário em detrimento de outro." },
+                { term: "Comissões", desc: "Percentual pago sobre as vendas realizadas por parceiros. Os valores serão repassados diretamente pela empresa responsável pelo processamento dos pagamentos." },
                 { term: "Gateway de pagamentos", desc: "Empresa responsável pelo processamento dos pagamentos das mensalidades dos planos devidos à RATOEIRA ADS, e também pela distribuição das comissões sobre as vendas." },
                 { term: "E-BOOK", desc: "Livro digital com informações e atualizações a respeito dos serviços da RATOEIRA ADS que será enviado mensalmente a VOCÊ." },
                 { term: "IP do Computador", desc: "Endereço numérico único atribuído ao dispositivo utilizado para acessar a internet." },
@@ -132,7 +132,7 @@ export default function TermosDeUsoAdsPage() {
 
           <section>
             <h2 className="text-2xl font-bold text-white mb-4">DO PRAZO E DA RESCISÃO</h2>
-            <p>O contrato vigora conforme o plano escolhido. A RATOEIRA ADS reserva-se o direito de rescindir o contrato em caso de descumprimento das cláusulas, uso indevido de links de afiliado ou práticas fraudulentas.</p>
+            <p>O contrato vigora conforme o plano escolhido. A RATOEIRA ADS reserva-se o direito de rescindir o contrato em caso de descumprimento das cláusulas, uso indevido de links de referência ou práticas fraudulentas.</p>
           </section>
 
           <section>

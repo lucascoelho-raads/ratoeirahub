@@ -24,7 +24,7 @@ const caseStudies = [
   {
     id: "metodo-escala",
     name: "Método Escala",
-    role: "Afiliado Top Player",
+    role: "Anunciante Top Player",
     photo: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     summary: "A união do Ratoeira Ads com o Pages permitiu ao Método Escala trackear 100% das vendas server-side e automatizar a criação de funis de alta performance.",
     results: ["~100% Tracking", "Setup em 1 Clique", "Múltiplos 7 Dígitos"],

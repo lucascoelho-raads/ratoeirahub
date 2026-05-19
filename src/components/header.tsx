@@ -101,7 +101,10 @@ function HeaderActions({
   const primaryLabel =
     pathname === "/solucoes/ratoeira-ads" ||
     pathname === "/solucoes/ratoeira-pages" ||
-    pathname === "/solucoes/ratoeira-hub"
+    pathname === "/solucoes/ratoeira-hub" ||
+    pathname === "/integracoes/conexoes-com-ia" ||
+    pathname === "/fontes-de-trafego/google-ads" ||
+    pathname === "/fontes-de-trafego/meta-ads"
       ? "Começar grátis"
       : "Teste gratis";
 

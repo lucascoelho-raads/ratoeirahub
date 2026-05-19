@@ -17,7 +17,7 @@ const faqs: FAQItem[] = [
   },
   {
     question: "Como funciona a proteção contra fraudes?",
-    answer: "Nossa tecnologia utiliza algoritmos de inteligência artificial e bloqueio de IPs dinâmicos em tempo real para identificar e barrar tráfego de bots, cliques fraudulentos e afiliados mal-intencionados antes que eles consumam seu orçamento.",
+    answer: "Nossa tecnologia utiliza algoritmos de inteligência artificial e bloqueio de IPs dinâmicos em tempo real para identificar e barrar tráfego de bots, cliques fraudulentos e agentes mal-intencionados antes que eles consumam seu orçamento.",
   },
   {
     question: "Posso usar meus próprios domínios?",

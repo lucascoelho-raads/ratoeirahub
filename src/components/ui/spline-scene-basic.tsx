@@ -1,29 +1,30 @@
 "use client"
 
 import { SplineScene } from "@/components/ui/splite"
-import { Card } from "@/components/ui/card"
 import { Spotlight } from "@/components/ui/spotlight"
 
 export function SplineSceneBasic() {
   return (
-    <Card className="w-full bg-black/[0.96] relative overflow-hidden border-white/10">
+    <div className="relative w-full min-h-[100svh] overflow-hidden">
       <Spotlight className="-top-40 left-0 md:left-60 md:-top-20" fill="#FFB800" />
 
-      <div className="flex flex-col lg:flex-row min-h-[560px]">
-        <div className="flex-1 p-8 relative z-10 flex flex-col justify-center">
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(70%_80%_at_35%_45%,rgba(255,184,0,0.12)_0%,rgba(0,0,0,0)_70%)]" />
+
+      <div className="relative z-10 mx-auto flex min-h-[100svh] max-w-7xl flex-col px-4 py-[clamp(5.5rem,10vh,8.5rem)] sm:px-6 lg:flex-row lg:items-center lg:gap-12 lg:px-8 lg:py-[clamp(6.5rem,10vh,9rem)]">
+        <div className="flex-1 flex flex-col justify-center">
           <h1 className="text-4xl md:text-5xl font-black bg-clip-text text-transparent bg-gradient-to-b from-[#FFB800] to-neutral-300">
             Conexões com IA
           </h1>
           <p className="mt-4 text-neutral-300 max-w-lg">
-            Integre dados com ferramentas de inteligência artificial para automatizar análises e dar mais velocidade à
-            sua operação.
+            Sua operação de anúncios, acessível para o Claude e o ChatGPT. Consulte, decida e execute — sem abrir o painel.
           </p>
+          <p className="mt-3 text-sm text-neutral-400">Plano gratuito disponível. Sem cartão.</p>
         </div>
 
-        <div className="flex-1 relative min-h-[360px] lg:min-h-0">
+        <div className="flex-1 relative h-[420px] sm:h-[520px] lg:h-[620px]">
           <SplineScene scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode" className="w-full h-full" />
         </div>
       </div>
-    </Card>
+    </div>
   )
 }

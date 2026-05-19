@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 const tiers = [
   {
-    name: "Afiliado",
+    name: "Parceiro",
     req: "1 a 10 clientes ativos",
     comission: "20%",
     perks: ["Dashboard Básico", "Material de Apoio", "Suporte por Email"],
