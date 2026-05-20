@@ -40,6 +40,8 @@ export interface BentoItem {
 interface BentoGridProps {
   items?: BentoItem[];
   className?: string;
+  hideStatus?: boolean;
+  hideCta?: boolean;
 }
 
 function BentoItemIcon({ item }: { item: BentoItem }) {
@@ -106,7 +108,7 @@ const itemsSample: BentoItem[] = [
   },
 ];
 
-function BentoGrid({ items = itemsSample, className }: BentoGridProps) {
+function BentoGrid({ items = itemsSample, className, hideStatus = false, hideCta = false }: BentoGridProps) {
   return (
     <div className={cn("grid grid-cols-1 sm:grid-cols-2 gap-4", className)}>
       {items.map((item, index) => (
@@ -144,15 +146,17 @@ function BentoGrid({ items = itemsSample, className }: BentoGridProps) {
               <div className="h-9 w-9 rounded-xl flex items-center justify-center bg-white/5 transition-colors duration-300 group-hover:bg-brand-primary/15">
                 <BentoItemIcon item={item} />
               </div>
-              <span
-                className={cn(
-                  "text-[11px] font-black uppercase tracking-widest px-2.5 py-1 rounded-full backdrop-blur-sm",
-                  "bg-white/10 text-white/70 transition-colors duration-300",
-                  "group-hover:bg-brand-primary/15 group-hover:text-brand-primary"
-                )}
-              >
-                {item.status ?? "Ativo"}
-              </span>
+              {hideStatus ? null : (
+                <span
+                  className={cn(
+                    "text-[11px] font-black uppercase tracking-widest px-2.5 py-1 rounded-full backdrop-blur-sm",
+                    "bg-white/10 text-white/70 transition-colors duration-300",
+                    "group-hover:bg-brand-primary/15 group-hover:text-brand-primary"
+                  )}
+                >
+                  {item.status ?? "Ativo"}
+                </span>
+              )}
             </div>
 
             <div className="space-y-2">
@@ -176,9 +180,11 @@ function BentoGrid({ items = itemsSample, className }: BentoGridProps) {
                   </span>
                 ))}
               </div>
-              <span className="text-xs text-brand-primary/90 opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
-                {item.cta ?? "Ver →"}
-              </span>
+              {hideCta ? null : (
+                <span className="text-xs text-brand-primary/90 opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+                  {item.cta ?? "Ver →"}
+                </span>
+              )}
             </div>
           </div>
 

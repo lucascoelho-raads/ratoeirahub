@@ -143,7 +143,7 @@ export default function ConexoesComIAPage() {
                   em linguagem natural — eles consultam, analisam e executam em tempo real.
                 </p>
 
-                <BentoGrid className="mt-2" items={mcpAdsItems} />
+                <BentoGrid className="mt-2" items={mcpAdsItems} hideStatus hideCta />
 
                 <div className="pt-2">
                   <Link
@@ -237,7 +237,7 @@ export default function ConexoesComIAPage() {
                   em tempo real. Analytics, domínios e clones na palma da sua mão.
                 </p>
 
-                <BentoGrid className="mt-2" items={mcpPagesItems} />
+                <BentoGrid className="mt-2" items={mcpPagesItems} hideStatus hideCta />
 
                 <div className="pt-2">
                   <Link
