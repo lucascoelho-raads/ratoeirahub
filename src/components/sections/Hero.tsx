@@ -144,7 +144,7 @@ export default function Hero() {
         initial={false}
         animate={{ x: activePanel === 0 ? "0%" : "-50%" }}
         transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-        className="absolute inset-0 flex w-[200%] bg-[#050505]"
+        className="absolute inset-0 flex w-[200%] bg-[#050505] overflow-hidden"
       >
         <div className="relative w-1/2 h-full flex items-center justify-center">
           <SpotlightBackground className="absolute inset-0">
@@ -155,7 +155,7 @@ export default function Hero() {
                   backgroundSize: "120px 120px",
                 }}
               />
-              <div className="relative w-full h-full max-w-7xl 2xl:max-w-[90rem] mx-auto px-6 lg:px-12 2xl:px-16 grid grid-cols-1 lg:grid-cols-[1fr_1.1fr] 2xl:grid-cols-[1fr_1.25fr] gap-16 2xl:gap-20 items-center">
+              <div className="relative w-full h-full max-w-7xl 2xl:max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-12 2xl:px-16 grid grid-cols-1 lg:grid-cols-[1fr_1.1fr] 2xl:grid-cols-[1fr_1.25fr] gap-8 lg:gap-16 2xl:gap-20 items-center min-w-0">
                 <motion.div
                   variants={containerVariants}
                   initial="hidden"
@@ -164,7 +164,7 @@ export default function Hero() {
                 >
                   <motion.h1
                     variants={itemVariants}
-                    className="text-[clamp(2.75rem,3.8vw,5.25rem)] font-extrabold tracking-tight leading-[1.04]"
+                    className="text-[clamp(2.75rem,3.8vw,5.25rem)] font-extrabold tracking-tight leading-[1.04] break-words"
                   >
                     <span className="text-white">Cada venda tem uma origem.</span>
                     <br />
@@ -277,7 +277,7 @@ export default function Hero() {
             </SpotlightBackground>
         </div>
 
-        <div className="relative w-1/2 h-full flex items-center justify-center">
+        <div className="relative w-1/2 h-full flex items-center justify-center overflow-hidden">
           <SpotlightBackground className="absolute inset-0">
               <div
                 className="absolute inset-0 pointer-events-none"
@@ -286,15 +286,15 @@ export default function Hero() {
                   backgroundSize: "120px 120px",
                 }}
               />
-              <div className="relative w-full h-full max-w-7xl 2xl:max-w-[90rem] mx-auto px-6 lg:px-12 2xl:px-16 grid grid-cols-1 lg:grid-cols-[1fr_1.1fr] 2xl:grid-cols-[1fr_1.25fr] gap-16 2xl:gap-20 items-center">
+              <div className="relative w-full h-full max-w-7xl 2xl:max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-12 2xl:px-16 grid grid-cols-1 lg:grid-cols-[1fr_1.1fr] 2xl:grid-cols-[1fr_1.25fr] gap-8 lg:gap-16 2xl:gap-20 items-center min-w-0">
               <div className="flex flex-col gap-6">
-                <h2 className="text-[clamp(2.75rem,3.8vw,5.25rem)] font-extrabold tracking-tight leading-[1.04] text-white">
+                <h2 className="text-[clamp(1.75rem,6vw,3.5rem)] sm:text-[clamp(2.25rem,5vw,4rem)] lg:text-[clamp(2.75rem,3.8vw,5.25rem)] font-extrabold tracking-tight leading-tight lg:leading-[1.04] text-white break-words">
                   Páginas que convertem.{" "}
                   <span style={{ color: "var(--color-brand-primary)" }}>
                     Integradas ao seu tracking desde o primeiro clique.
                   </span>
                 </h2>
-                <p className="text-[clamp(1rem,1.15vw,1.125rem)] text-white/70 leading-relaxed max-w-2xl">
+                <p className="text-[clamp(0.875rem,3vw,1.125rem)] sm:text-[clamp(1rem,2vw,1.125rem)] text-white/70 leading-relaxed max-w-2xl">
                   Construtor visual com templates prontos, Flash Pages ultra-rápidas e geração por IA. Cada página já
                   nasce com o tracking integrado — sem scripts avulsos, sem configuração manual, sem dados perdidos
                   entre a página e a campanha.

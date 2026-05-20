@@ -106,7 +106,7 @@ export default function Benefits() {
         >
           <h2 className="text-4xl lg:text-5xl font-black text-text-inverse leading-tight">
             Por que <span style={{ color: "var(--color-brand-primary)" }}>+2.600 anunciantes</span> escolheram a{" "}
-            <span className="whitespace-nowrap">Ratoeira Hub</span>
+            <span className="whitespace-normal sm:whitespace-nowrap">Ratoeira Hub</span>
           </h2>
           <p className="text-white/80 text-lg max-w-2xl mx-auto">
             Do anunciante que não quer perder a primeira venda ao gestor que escala múltiplos clientes — uma plataforma
@@ -116,7 +116,7 @@ export default function Benefits() {
 
       </div>
 
-      <div className="relative z-10 h-screen overflow-hidden flex items-center">
+      <div className="relative z-10 min-h-[100dvh] sm:h-screen overflow-hidden flex items-center">
         <div className="relative w-full h-full">
           <AnimatePresence mode="sync" initial={false}>
             <motion.article

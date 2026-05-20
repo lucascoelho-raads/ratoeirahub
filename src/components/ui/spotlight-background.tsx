@@ -13,7 +13,7 @@ type SpotlightBackgroundProps = PropsWithChildren<{
 
 export default function SpotlightBackground({ children, className }: SpotlightBackgroundProps) {
   return (
-    <div className={["relative", className].filter(Boolean).join(" ")}>
+    <div className={["relative overflow-hidden", className].filter(Boolean).join(" ")}>
       <div className="absolute inset-0 pointer-events-none">
         <MotionSpotlight
           initial={{ x: "-50%", y: "-50%", rotate: "0deg" }}

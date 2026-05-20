@@ -164,7 +164,7 @@ export default function Testimonials() {
             {testimonials.map((testimonial, index) => (
               <button
                 key={index}
-                className={`m-1.5 inline-flex justify-center whitespace-nowrap rounded-badge px-3 py-1.5 text-xs shadow-sm transition-colors duration-150 focus-visible:outline-none focus-visible:ring focus-visible:ring-orange-300 ${
+                className={`m-1.5 inline-flex justify-center whitespace-normal sm:whitespace-nowrap rounded-badge px-3 py-1.5 text-xs shadow-sm transition-colors duration-150 focus-visible:outline-none focus-visible:ring focus-visible:ring-orange-300 ${
                   active === index
                     ? "bg-orange-600 text-white shadow-orange-950/10"
                     : "bg-white text-orange-600 hover:bg-orange-100"
