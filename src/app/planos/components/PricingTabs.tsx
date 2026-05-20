@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Check, Radar, LayoutTemplate, Link2, X } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -12,7 +12,7 @@ type PlanFeatureValue = boolean | string | null;
 type FeatureRow = {
   label: string;
   tooltip?: string;
-  values: [PlanFeatureValue, PlanFeatureValue, PlanFeatureValue];
+  values: PlanFeatureValue[];
 };
 
 type FeatureGroup = {
@@ -24,6 +24,7 @@ const ADS_LIMITS_BY_PLAN: Record<
   string,
   { googleAdsProfiles: string; automaticTraps: string; integrations: string }
 > = {
+  Gratuito: { googleAdsProfiles: "1", automaticTraps: "1", integrations: "1" },
   Rato: { googleAdsProfiles: "3", automaticTraps: "5", integrations: "Ilimitadas" },
   Ratazana: { googleAdsProfiles: "10", automaticTraps: "50", integrations: "Ilimitadas" },
   "Ratazana Plus": { googleAdsProfiles: "30", automaticTraps: "300", integrations: "Ilimitadas" },
@@ -33,6 +34,7 @@ const PAGES_LIMITS_BY_PLAN: Record<
   string,
   { monthlyAccesses: string; connectedDomains: string; unlimitedPages: string }
 > = {
+  Gratuito: { monthlyAccesses: "5.000", connectedDomains: "1", unlimitedPages: "2" },
   Rato: { monthlyAccesses: "200.000", connectedDomains: "10", unlimitedPages: "Ilimitadas" },
   Ratazana: { monthlyAccesses: "500.000", connectedDomains: "20", unlimitedPages: "Ilimitadas" },
   "Ratazana Plus": { monthlyAccesses: "1.000.000", connectedDomains: "40", unlimitedPages: "Ilimitadas" },
@@ -158,6 +160,24 @@ const plansData = {
     },
   ],
   hub: [
+    {
+      name: "Gratuito",
+      description: "Conheça o ecossistema Ratoeira sem compromisso.",
+      price: {
+        monthly: "0",
+        semiannual: "0",
+        annual: "0",
+      },
+      features: [
+        "1 perfil Google Ads",
+        "1.000 eventos/mês",
+        "1 domínio customizado",
+        "Templates limitados",
+        "Suporte por e-mail",
+      ],
+      cta: "Começar Grátis",
+      popular: false,
+    },
     {
       name: "Rato",
       description: "O combo ideal para iniciar sua escala integrada.",
@@ -297,24 +317,24 @@ const featureGroupsByTab: Record<PlanType, FeatureGroup[]> = {
     {
       group: "Ecossistema Completo",
       features: [
-        { label: "Tracking + Pages", tooltip: "Integração nativa entre Ads e Pages", values: [true, true, true] },
-        { label: "Dashboard unificado", tooltip: "ROI real em um só lugar", values: [true, true, true] },
-        { label: "Integrações", tooltip: "Conexões com plataformas e CRMs", values: [true, true, true] },
+        { label: "Tracking + Pages", tooltip: "Integração nativa entre Ads e Pages", values: [true, true, true, true] },
+        { label: "Dashboard unificado", tooltip: "ROI real em um só lugar", values: [null, true, true, true] },
+        { label: "Integrações", tooltip: "Conexões com plataformas e CRMs", values: [null, true, true, true] },
       ],
     },
     {
       group: "Limites",
       features: [
-        { label: "Eventos por mês", tooltip: "Volume de eventos do tracking", values: ["10.000", "50.000", "Custom"] },
-        { label: "Visitas por mês", tooltip: "Tráfego total das páginas", values: ["5.000", "25.000", "Custom"] },
-        { label: "Domínios", tooltip: "Domínios para tracking + páginas", values: ["2", "Ilimitado", "Ilimitado"] },
+        { label: "Eventos por mês", tooltip: "Volume de eventos do tracking", values: ["1.000", "10.000", "50.000", "Custom"] },
+        { label: "Visitas por mês", tooltip: "Tráfego total das páginas", values: ["1.000", "5.000", "25.000", "Custom"] },
+        { label: "Domínios", tooltip: "Domínios para tracking + páginas", values: ["1", "2", "Ilimitado", "Ilimitado"] },
       ],
     },
     {
       group: "Suporte",
       features: [
-        { label: "Suporte", tooltip: "Canal de atendimento", values: ["Padrão", "VIP", "SLA + dedicado"] },
-        { label: "Onboarding", tooltip: "Implantação com especialista", values: [true, true, true] },
+        { label: "Suporte", tooltip: "Canal de atendimento", values: ["E-mail", "Padrão", "VIP", "SLA + dedicado"] },
+        { label: "Onboarding", tooltip: "Implantação com especialista", values: [null, true, true, true] },
       ],
     },
   ],
@@ -348,8 +368,17 @@ export default function PricingTabs() {
   const [billingCycle, setBillingCycle] = useState<BillingCycle>("annual");
   const [activePlanIndex, setActivePlanIndex] = useState<number>(() => getFeaturedIndex("hub"));
 
-  const plans = plansData[activeTab];
+  const rawPlans = plansData[activeTab];
+  const plans = activeTab === "hub" && billingCycle !== "monthly"
+    ? rawPlans.filter((p) => p.name !== "Gratuito")
+    : rawPlans;
   const comparisonGroups = featureGroupsByTab[activeTab];
+
+  useEffect(() => {
+    if (activePlanIndex >= plans.length) {
+      setActivePlanIndex(getFeaturedIndex(activeTab));
+    }
+  }, [plans.length, activeTab]);
 
   return (
     <section className="py-24 bg-black">
@@ -445,7 +474,7 @@ export default function PricingTabs() {
               >
                 {plan.popular && (
                   <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 px-4 py-1 bg-brand-primary text-black text-xs font-black uppercase tracking-widest rounded-full">
-                    Mais Escolhido
+                    <span className="whitespace-nowrap">Mais Escolhido</span>
                   </div>
                 )}
                 <div className="mb-6">
@@ -453,11 +482,11 @@ export default function PricingTabs() {
                   <p className="text-gray-400 text-sm">{plan.description}</p>
                 </div>
                 <div className="mb-6 flex items-baseline gap-1">
-                  {plan.price.monthly !== "Custom" && <span className="text-gray-400">R$</span>}
+                  {plan.price.monthly !== "Custom" && plan.price.monthly !== "0" && <span className="text-gray-400">R$</span>}
                   <span className="text-4xl font-black text-white">
-                    {plan.price[billingCycle as keyof typeof plan.price]}
+                    {plan.price[billingCycle as keyof typeof plan.price] === "0" ? "Grátis" : plan.price[billingCycle as keyof typeof plan.price]}
                   </span>
-                  {plan.price.monthly !== "Custom" && (
+                  {plan.price.monthly !== "Custom" && plan.price.monthly !== "0" && (
                     <span className="text-gray-400 text-sm">
                       {billingCycle === "monthly" ? "/mês" : billingCycle === "semiannual" ? "/semestre" : "/ano"}
                     </span>
@@ -468,24 +497,24 @@ export default function PricingTabs() {
                   <div className="mb-6">
                     <div className="h-px w-full bg-brand-primary" />
                     <div className="mt-4 space-y-2">
-                      <div className="text-xs font-black uppercase tracking-widest text-brand-primary">
+                      <div className="text-xs font-black uppercase tracking-widest gradient-text-animated">
                         Limites do Plano
                       </div>
-                      <div className="flex items-center justify-between gap-4 text-xs">
-                        <span className="text-gray-300">Perfis Google Ads Conectados</span>
-                        <span className="font-bold text-white tabular-nums">
+                      <div className="flex items-center justify-between gap-2 text-xs">
+                        <span className="text-gray-300 truncate">Perfis Google Ads</span>
+                        <span className="font-bold text-white tabular-nums flex-shrink-0">
                           {ADS_LIMITS_BY_PLAN[plan.name].googleAdsProfiles}
                         </span>
                       </div>
-                      <div className="flex items-center justify-between gap-4 text-xs">
-                        <span className="text-gray-300">Ratoeiras Automáticas</span>
-                        <span className="font-bold text-white tabular-nums">
+                      <div className="flex items-center justify-between gap-2 text-xs">
+                        <span className="text-gray-300 truncate">Ratoeiras Automáticas</span>
+                        <span className="font-bold text-white tabular-nums flex-shrink-0">
                           {ADS_LIMITS_BY_PLAN[plan.name].automaticTraps}
                         </span>
                       </div>
-                      <div className="flex items-center justify-between gap-4 text-xs">
-                        <span className="text-gray-300">Integrações/Plataformas Ilimitadas</span>
-                        <span className="font-bold text-white">
+                      <div className="flex items-center justify-between gap-2 text-xs">
+                        <span className="text-gray-300 truncate">Integrações</span>
+                        <span className="font-bold text-white flex-shrink-0">
                           {ADS_LIMITS_BY_PLAN[plan.name].integrations}
                         </span>
                       </div>
@@ -497,24 +526,24 @@ export default function PricingTabs() {
                   <div className="mb-6">
                     <div className="h-px w-full bg-brand-primary" />
                     <div className="mt-4 space-y-2">
-                      <div className="text-xs font-black uppercase tracking-widest text-brand-primary">
+                      <div className="text-xs font-black uppercase tracking-widest gradient-text-animated">
                         Limites do Plano
                       </div>
-                      <div className="flex items-center justify-between gap-4 text-xs">
-                        <span className="text-gray-300">Acessos mensais</span>
-                        <span className="font-bold text-white tabular-nums">
+                      <div className="flex items-center justify-between gap-2 text-xs">
+                        <span className="text-gray-300 truncate">Acessos mensais</span>
+                        <span className="font-bold text-white tabular-nums flex-shrink-0">
                           {PAGES_LIMITS_BY_PLAN[plan.name].monthlyAccesses}
                         </span>
                       </div>
-                      <div className="flex items-center justify-between gap-4 text-xs">
-                        <span className="text-gray-300">Domínios conectados</span>
-                        <span className="font-bold text-white tabular-nums">
+                      <div className="flex items-center justify-between gap-2 text-xs">
+                        <span className="text-gray-300 truncate">Domínios</span>
+                        <span className="font-bold text-white tabular-nums flex-shrink-0">
                           {PAGES_LIMITS_BY_PLAN[plan.name].connectedDomains}
                         </span>
                       </div>
-                      <div className="flex items-center justify-between gap-4 text-xs">
-                        <span className="text-gray-300">Páginas ilimitadas</span>
-                        <span className="font-bold text-white">
+                      <div className="flex items-center justify-between gap-2 text-xs">
+                        <span className="text-gray-300 truncate">Páginas</span>
+                        <span className="font-bold text-white flex-shrink-0">
                           {PAGES_LIMITS_BY_PLAN[plan.name].unlimitedPages}
                         </span>
                       </div>
@@ -526,53 +555,53 @@ export default function PricingTabs() {
                   <div className="mb-6">
                     <div className="h-px w-full bg-brand-primary" />
                     <div className="mt-4 space-y-4">
-                      <div className="text-xs font-black uppercase tracking-widest text-brand-primary">
+                      <div className="text-xs font-black uppercase tracking-widest gradient-text-animated">
                         Limites do Plano
                       </div>
 
                       <div className="space-y-2">
-                        <div className="text-[11px] font-black uppercase tracking-widest text-gray-400">
+                        <div className="text-[11px] font-black uppercase tracking-widest text-[#FFB800]">
                           Ratoeira Ads
                         </div>
-                        <div className="flex items-center justify-between gap-4 text-xs">
-                          <span className="text-gray-300">Perfis Google Ads Conectados</span>
-                          <span className="font-bold text-white tabular-nums">
+                        <div className="flex items-center justify-between gap-2 text-xs">
+                          <span className="text-gray-300 truncate">Perfis Google Ads</span>
+                          <span className="font-bold text-white tabular-nums flex-shrink-0">
                             {ADS_LIMITS_BY_PLAN[plan.name].googleAdsProfiles}
                           </span>
                         </div>
-                        <div className="flex items-center justify-between gap-4 text-xs">
-                          <span className="text-gray-300">Ratoeiras Automáticas</span>
-                          <span className="font-bold text-white tabular-nums">
+                        <div className="flex items-center justify-between gap-2 text-xs">
+                          <span className="text-gray-300 truncate">Ratoeiras Automáticas</span>
+                          <span className="font-bold text-white tabular-nums flex-shrink-0">
                             {ADS_LIMITS_BY_PLAN[plan.name].automaticTraps}
                           </span>
                         </div>
-                        <div className="flex items-center justify-between gap-4 text-xs">
-                          <span className="text-gray-300">Integrações/Plataformas Ilimitadas</span>
-                          <span className="font-bold text-white">
+                        <div className="flex items-center justify-between gap-2 text-xs">
+                          <span className="text-gray-300 truncate">Integrações</span>
+                          <span className="font-bold text-white flex-shrink-0">
                             {ADS_LIMITS_BY_PLAN[plan.name].integrations}
                           </span>
                         </div>
                       </div>
 
                       <div className="space-y-2">
-                        <div className="text-[11px] font-black uppercase tracking-widest text-gray-400">
+                        <div className="text-[11px] font-black uppercase tracking-widest text-[#FF7E4A]">
                           Ratoeira Pages
                         </div>
-                        <div className="flex items-center justify-between gap-4 text-xs">
-                          <span className="text-gray-300">Acessos mensais</span>
-                          <span className="font-bold text-white tabular-nums">
+                        <div className="flex items-center justify-between gap-2 text-xs">
+                          <span className="text-gray-300 truncate">Acessos mensais</span>
+                          <span className="font-bold text-white tabular-nums flex-shrink-0">
                             {PAGES_LIMITS_BY_PLAN[plan.name].monthlyAccesses}
                           </span>
                         </div>
-                        <div className="flex items-center justify-between gap-4 text-xs">
-                          <span className="text-gray-300">Domínios conectados</span>
-                          <span className="font-bold text-white tabular-nums">
+                        <div className="flex items-center justify-between gap-2 text-xs">
+                          <span className="text-gray-300 truncate">Domínios</span>
+                          <span className="font-bold text-white tabular-nums flex-shrink-0">
                             {PAGES_LIMITS_BY_PLAN[plan.name].connectedDomains}
                           </span>
                         </div>
-                        <div className="flex items-center justify-between gap-4 text-xs">
-                          <span className="text-gray-300">Páginas ilimitadas</span>
-                          <span className="font-bold text-white">
+                        <div className="flex items-center justify-between gap-2 text-xs">
+                          <span className="text-gray-300 truncate">Páginas</span>
+                          <span className="font-bold text-white flex-shrink-0">
                             {PAGES_LIMITS_BY_PLAN[plan.name].unlimitedPages}
                           </span>
                         </div>
@@ -648,7 +677,7 @@ export default function PricingTabs() {
         </div>
 
         {/* Desktop View: Cards & Features Separated */}
-        <div className="hidden md:block w-full max-w-6xl mx-auto">
+        <div className="hidden md:block w-full max-w-7xl mx-auto">
           {/* Cards Row */}
           <AnimatePresence mode="wait">
             <motion.div
@@ -657,37 +686,39 @@ export default function PricingTabs() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.4 }}
-              className="grid grid-cols-3 gap-8 mb-16"
+              className={cn("grid mb-16", plans.length === 4 ? "grid-cols-4 gap-5" : "grid-cols-3 gap-8")}
             >
               {/* Pricing Cards */}
               {plans.map((plan) => (
                 <div
                   key={plan.name}
                   className={cn(
-                    "relative flex flex-col rounded-3xl p-8 transition-all duration-300",
+                    "relative flex flex-col rounded-3xl transition-all duration-300",
+                    plans.length === 4 ? "p-5" : "p-8",
                     plan.popular
-                      ? "bg-[#161616] border-2 border-brand-primary shadow-2xl shadow-brand-primary/10 scale-105 z-10"
+                      ? "bg-[#161616] border-2 border-brand-primary shadow-2xl shadow-brand-primary/10 z-10"
                       : "bg-[#111111] border border-white/10 hover:border-white/20"
                   )}
                 >
                   {plan.popular && (
                     <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 px-4 py-1 bg-brand-primary text-black text-xs font-black uppercase tracking-widest rounded-full">
-                      Mais Escolhido
+                      <span className="whitespace-nowrap">Mais Escolhido</span>
                     </div>
                   )}
 
-                  <div className="mb-8">
-                    <h3 className="text-2xl font-bold text-white mb-2">{plan.name}</h3>
-                    <p className="text-gray-400 text-sm h-10">{plan.description}</p>
-                  </div>
+                  <div className="flex-1 flex flex-col">
+                    <div className="mb-8">
+                      <h3 className="text-2xl font-bold text-white mb-2">{plan.name}</h3>
+                      <p className="text-gray-400 text-sm h-10">{plan.description}</p>
+                    </div>
 
                   <div className="mb-8">
                     <div className="flex items-baseline gap-1">
-                      {plan.price.monthly !== "Custom" && <span className="text-gray-400 text-lg">R$</span>}
+                      {plan.price.monthly !== "Custom" && plan.price.monthly !== "0" && <span className="text-gray-400 text-lg">R$</span>}
                       <span className="text-5xl font-black text-white">
-                        {plan.price[billingCycle as keyof typeof plan.price]}
+                        {plan.price[billingCycle as keyof typeof plan.price] === "0" ? "Grátis" : plan.price[billingCycle as keyof typeof plan.price]}
                       </span>
-                      {plan.price.monthly !== "Custom" && (
+                      {plan.price.monthly !== "Custom" && plan.price.monthly !== "0" && (
                         <span className="text-gray-400">
                           {billingCycle === "monthly" ? "/mês" : billingCycle === "semiannual" ? "/semestre" : "/ano"}
                         </span>
@@ -699,24 +730,24 @@ export default function PricingTabs() {
                     <div className="mb-8">
                       <div className="h-px w-full bg-brand-primary" />
                       <div className="mt-5 space-y-3">
-                        <div className="text-xs font-black uppercase tracking-widest text-brand-primary">
+                        <div className="text-xs font-black uppercase tracking-widest gradient-text-animated">
                           Limites do Plano
                         </div>
-                        <div className="flex items-center justify-between gap-6 text-sm">
-                          <span className="text-gray-300">Perfis Google Ads Conectados</span>
-                          <span className="font-bold text-white tabular-nums">
+                        <div className="flex items-center justify-between gap-2 text-sm">
+                          <span className="text-gray-300 truncate">Perfis Google Ads</span>
+                          <span className="font-bold text-white tabular-nums flex-shrink-0">
                             {ADS_LIMITS_BY_PLAN[plan.name].googleAdsProfiles}
                           </span>
                         </div>
-                        <div className="flex items-center justify-between gap-6 text-sm">
-                          <span className="text-gray-300">Ratoeiras Automáticas</span>
-                          <span className="font-bold text-white tabular-nums">
+                        <div className="flex items-center justify-between gap-2 text-sm">
+                          <span className="text-gray-300 truncate">Ratoeiras Automáticas</span>
+                          <span className="font-bold text-white tabular-nums flex-shrink-0">
                             {ADS_LIMITS_BY_PLAN[plan.name].automaticTraps}
                           </span>
                         </div>
-                        <div className="flex items-center justify-between gap-6 text-sm">
-                          <span className="text-gray-300">Integrações/Plataformas Ilimitadas</span>
-                          <span className="font-bold text-white">
+                        <div className="flex items-center justify-between gap-2 text-sm">
+                          <span className="text-gray-300 truncate">Integrações</span>
+                          <span className="font-bold text-white flex-shrink-0">
                             {ADS_LIMITS_BY_PLAN[plan.name].integrations}
                           </span>
                         </div>
@@ -728,24 +759,24 @@ export default function PricingTabs() {
                     <div className="mb-8">
                       <div className="h-px w-full bg-brand-primary" />
                       <div className="mt-5 space-y-3">
-                        <div className="text-xs font-black uppercase tracking-widest text-brand-primary">
+                        <div className="text-xs font-black uppercase tracking-widest gradient-text-animated">
                           Limites do Plano
                         </div>
-                        <div className="flex items-center justify-between gap-6 text-sm">
-                          <span className="text-gray-300">Acessos mensais</span>
-                          <span className="font-bold text-white tabular-nums">
+                        <div className="flex items-center justify-between gap-2 text-sm">
+                          <span className="text-gray-300 truncate">Acessos mensais</span>
+                          <span className="font-bold text-white tabular-nums flex-shrink-0">
                             {PAGES_LIMITS_BY_PLAN[plan.name].monthlyAccesses}
                           </span>
                         </div>
-                        <div className="flex items-center justify-between gap-6 text-sm">
-                          <span className="text-gray-300">Domínios conectados</span>
-                          <span className="font-bold text-white tabular-nums">
+                        <div className="flex items-center justify-between gap-2 text-sm">
+                          <span className="text-gray-300 truncate">Domínios</span>
+                          <span className="font-bold text-white tabular-nums flex-shrink-0">
                             {PAGES_LIMITS_BY_PLAN[plan.name].connectedDomains}
                           </span>
                         </div>
-                        <div className="flex items-center justify-between gap-6 text-sm">
-                          <span className="text-gray-300">Páginas ilimitadas</span>
-                          <span className="font-bold text-white">
+                        <div className="flex items-center justify-between gap-2 text-sm">
+                          <span className="text-gray-300 truncate">Páginas</span>
+                          <span className="font-bold text-white flex-shrink-0">
                             {PAGES_LIMITS_BY_PLAN[plan.name].unlimitedPages}
                           </span>
                         </div>
@@ -757,53 +788,53 @@ export default function PricingTabs() {
                     <div className="mb-8">
                       <div className="h-px w-full bg-brand-primary" />
                       <div className="mt-5 space-y-5">
-                        <div className="text-xs font-black uppercase tracking-widest text-brand-primary">
+                        <div className="text-xs font-black uppercase tracking-widest gradient-text-animated">
                           Limites do Plano
                         </div>
 
                         <div className="space-y-3">
-                          <div className="text-[11px] font-black uppercase tracking-widest text-gray-400">
+                          <div className="text-[11px] font-black uppercase tracking-widest text-[#FFB800]">
                             Ratoeira Ads
                           </div>
-                          <div className="flex items-center justify-between gap-6 text-sm">
-                            <span className="text-gray-300">Perfis Google Ads Conectados</span>
-                            <span className="font-bold text-white tabular-nums">
+                          <div className="flex items-center justify-between gap-2 text-sm">
+                            <span className="text-gray-300 truncate">Perfis Google Ads</span>
+                            <span className="font-bold text-white tabular-nums flex-shrink-0">
                               {ADS_LIMITS_BY_PLAN[plan.name].googleAdsProfiles}
                             </span>
                           </div>
-                          <div className="flex items-center justify-between gap-6 text-sm">
-                            <span className="text-gray-300">Ratoeiras Automáticas</span>
-                            <span className="font-bold text-white tabular-nums">
+                          <div className="flex items-center justify-between gap-2 text-sm">
+                            <span className="text-gray-300 truncate">Ratoeiras Automáticas</span>
+                            <span className="font-bold text-white tabular-nums flex-shrink-0">
                               {ADS_LIMITS_BY_PLAN[plan.name].automaticTraps}
                             </span>
                           </div>
-                          <div className="flex items-center justify-between gap-6 text-sm">
-                            <span className="text-gray-300">Integrações/Plataformas Ilimitadas</span>
-                            <span className="font-bold text-white">
+                          <div className="flex items-center justify-between gap-2 text-sm">
+                            <span className="text-gray-300 truncate">Integrações</span>
+                            <span className="font-bold text-white flex-shrink-0">
                               {ADS_LIMITS_BY_PLAN[plan.name].integrations}
                             </span>
                           </div>
                         </div>
 
                         <div className="space-y-3">
-                          <div className="text-[11px] font-black uppercase tracking-widest text-gray-400">
+                          <div className="text-[11px] font-black uppercase tracking-widest text-[#FF7E4A]">
                             Ratoeira Pages
                           </div>
-                          <div className="flex items-center justify-between gap-6 text-sm">
-                            <span className="text-gray-300">Acessos mensais</span>
-                            <span className="font-bold text-white tabular-nums">
+                          <div className="flex items-center justify-between gap-2 text-sm">
+                            <span className="text-gray-300 truncate">Acessos mensais</span>
+                            <span className="font-bold text-white tabular-nums flex-shrink-0">
                               {PAGES_LIMITS_BY_PLAN[plan.name].monthlyAccesses}
                             </span>
                           </div>
-                          <div className="flex items-center justify-between gap-6 text-sm">
-                            <span className="text-gray-300">Domínios conectados</span>
-                            <span className="font-bold text-white tabular-nums">
+                          <div className="flex items-center justify-between gap-2 text-sm">
+                            <span className="text-gray-300 truncate">Domínios</span>
+                            <span className="font-bold text-white tabular-nums flex-shrink-0">
                               {PAGES_LIMITS_BY_PLAN[plan.name].connectedDomains}
                             </span>
                           </div>
-                          <div className="flex items-center justify-between gap-6 text-sm">
-                            <span className="text-gray-300">Páginas ilimitadas</span>
-                            <span className="font-bold text-white">
+                          <div className="flex items-center justify-between gap-2 text-sm">
+                            <span className="text-gray-300 truncate">Páginas</span>
+                            <span className="font-bold text-white flex-shrink-0">
                               {PAGES_LIMITS_BY_PLAN[plan.name].unlimitedPages}
                             </span>
                           </div>
@@ -811,9 +842,10 @@ export default function PricingTabs() {
                       </div>
                     </div>
                   )}
+                  </div>
                   <button
                     className={cn(
-                      "w-full py-4 rounded-button font-bold text-sm transition-colors",
+                      "w-full py-4 rounded-button font-bold text-sm transition-colors mt-auto",
                       plan.popular
                         ? "bg-brand-primary text-black hover:bg-brand-primary-hover shadow-lg shadow-brand-primary/20"
                         : "bg-white/10 text-white hover:bg-white/20"
@@ -834,7 +866,7 @@ export default function PricingTabs() {
           {/* Features Table */}
           <div className="mt-16">
             <div className="sticky top-20 z-20 -mt-6 mb-6">
-              <div className="relative grid grid-cols-3 gap-8 items-center py-3 border-b border-white/10 bg-black/80 backdrop-blur-md">
+              <div className={cn("relative grid gap-8 items-center py-3 border-b border-white/10 bg-black/80 backdrop-blur-md", plans.length === 4 ? "grid-cols-4" : "grid-cols-3")}>
                 <div className="absolute left-0 w-[180px] h-full" />
                 {plans.map((plan) => (
                   <div
@@ -856,7 +888,7 @@ export default function PricingTabs() {
                   {group.features.map((feature, fi) => (
                     <div 
                       key={feature.label} 
-                      className="relative grid grid-cols-3 gap-8 items-center py-6 border-b border-white/5 last:border-0 hover:bg-white/[0.02] transition-colors group/row"
+                      className={cn("relative grid gap-8 items-center py-6 border-b border-white/5 last:border-0 hover:bg-white/[0.02] transition-colors group/row", plans.length === 4 ? "grid-cols-4" : "grid-cols-3")}
                     >
                       <div className="absolute left-0 flex items-center gap-2 text-sm text-gray-300 font-medium w-[180px] z-10 bg-[#050505]/80 md:bg-transparent backdrop-blur-sm md:backdrop-blur-none py-1">
                         {feature.label}
