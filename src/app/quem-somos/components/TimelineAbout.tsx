@@ -1,51 +1,76 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 const milestones = [
   {
-    year: "2021",
-    title: "O Início da Revolução",
-    description: "Nascemos de uma dor real: o desperdício de verba. Nossa primeira versão focava exclusivamente em rastreamento cirúrgico para pequenos negócios locais que precisavam maximizar cada centavo no Google Ads.",
+    year: "Dez 2022",
+    title: "A Descoberta",
+    description: "Eitor Guimarães, com background em analytics corporativo e Lean Six Sigma, começa a anunciar como afiliado de Google Ads e sistematiza um método inédito no Brasil: capturar o dado do clique, cruzar com a conversão e alimentar o algoritmo com sinal limpo. O que antes parecia impossível para afiliados começa a funcionar.",
     align: "left",
   },
   {
-    year: "2022",
-    title: "Expansão do Ecossistema",
-    description: "Com mais de 500 usuários ativos, entendemos que o rastreamento não era suficiente. Lançamos nosso construtor de páginas nativo, unindo a velocidade de carregamento com a precisão dos nossos pixels.",
+    year: "Out 2023",
+    title: "O mercado descobre o método",
+    description: "Eitor publica um vídeo no YouTube explicando o método. Explode em visualizações. Afiliados que faziam 300 a 500 mil reais passam a enxergar — e a atingir — resultados acima de um milhão. Eitor se torna referência nacional no assunto.",
     align: "right",
   },
   {
-    year: "2023",
-    title: "Reconhecimento do Mercado",
-    description: "Fomos reconhecidos como a plataforma de maior crescimento no nicho de infoprodutos. Nossa arquitetura passou a suportar lançamentos de múltiplos sete dígitos sem um único segundo de instabilidade.",
+    year: "Jan 2024",
+    title: "Paulo encontra Eitor",
+    description: "Paulo Furtado, desenvolvedor com mais de dez anos de experiência incluindo passagem pela Localiza, assiste ao vídeo e vai direto ao Instagram de Eitor propor transformar o método em software. A parceria começa.",
     align: "left",
   },
   {
-    year: "2024",
-    title: "Inteligência Artificial Nativa",
-    description: "Integramos IA diretamente no core da plataforma. Agora, o Ratoeira Hub não apenas rastreia, mas prevê o comportamento do usuário e otimiza as páginas em tempo real para aniquilar qualquer objeção de compra.",
+    year: "Abr 2024",
+    title: "Ratoeira Ads vai ao ar",
+    description: "Em 15 de abril de 2024, a Ratoeira Ads é lançada — focada em afiliados de Google Ads. Tracking server-side via API de Conversões, bloqueio automático de IPs inválidos e atribuição real do clique à venda. O que Eitor sistematizou como método, Paulo transformou em plataforma.",
+    align: "right",
+  },
+  {
+    year: "2025",
+    title: "Expansão do ecossistema",
+    description: "A Ratoeira expande para Meta Ads com envio enriquecido via browser + CAPI. Nasce o Ratoeira Pages — construtor de páginas com hospedagem inclusa e tracking já integrado. Os dois produtos se tornam Ratoeira Hub: quando conectados, rastreiam além do que cada um entrega separado.",
+    align: "left",
+  },
+  {
+    year: "2026",
+    title: "IA e novos canais",
+    description: "MCP do Ratoeira Ads e do Ratoeira Pages: o Claude e o ChatGPT passam a consultar, analisar e executar ações diretamente nas contas dos anunciantes. A plataforma expande para atender produtores, infoprodutores, gestores de tráfego e agências — com mais de 2.500 assinantes ativos.",
     align: "right",
   }
 ];
 
 export default function TimelineAbout() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start center", "end center"],
+  });
+
+  const height = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
+
   return (
-    <section className="py-32 bg-gray-50 relative overflow-hidden">
+    <section className="py-32 bg-[#050505] relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         <div className="text-center mb-20">
-          <h2 className="text-4xl lg:text-5xl font-black text-gray-900 tracking-tight">
-            Nossa Trajetória
-          </h2>
-          <p className="mt-4 text-xl text-gray-600 max-w-2xl mx-auto">
-            A evolução contínua da plataforma que está redefinindo o tráfego pago.
+          <h2 className="text-4xl lg:text-5xl font-black text-white tracking-tight">Dois anos. O mercado não é mais o mesmo.</h2>
+          <p className="mt-4 text-xl text-gray-400 max-w-2xl mx-auto">
+            De uma descoberta individual a mais de 2.500 anunciantes que escalam com dado real.
           </p>
         </div>
 
-        <div className="relative">
-          {/* Central Line */}
-          <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-1 bg-amber-200 -translate-x-1/2 rounded-full" />
+        <div ref={containerRef} className="relative">
+          {/* Static Central Line */}
+          <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-1 bg-white/10 -translate-x-1/2 rounded-full" />
+
+          {/* Animated Glow Line */}
+          <motion.div 
+            style={{ height }}
+            className="absolute left-4 md:left-1/2 top-0 w-1 bg-gradient-to-b from-amber-500 to-orange-600 -translate-x-1/2 rounded-full shadow-[0_0_15px_rgba(245,158,11,0.6)] origin-top z-10" 
+          />
 
           <div className="space-y-24">
             {milestones.map((item, index) => {
@@ -54,7 +79,7 @@ export default function TimelineAbout() {
                 <div key={item.year} className="relative flex flex-col md:flex-row items-center justify-center">
                   
                   {/* Timeline Dot */}
-                  <div className="absolute left-4 md:left-1/2 w-6 h-6 bg-amber-500 rounded-full border-4 border-white transform -translate-x-1/2 shadow-md z-20" />
+                  <div className="absolute left-4 md:left-1/2 w-6 h-6 bg-amber-500 rounded-full border-4 border-[#050505] transform -translate-x-1/2 shadow-md z-20" />
                   
                   {/* Content Left */}
                   <motion.div
@@ -64,16 +89,16 @@ export default function TimelineAbout() {
                     transition={{ duration: 0.6 }}
                     className={`w-full md:w-1/2 pl-12 md:pl-0 ${isLeft ? "md:pr-20 md:text-right" : "md:pl-20 md:order-2"}`}
                   >
-                    <div className="bg-white p-8 rounded-3xl shadow-lg border border-gray-100 hover:shadow-xl transition-shadow relative group">
-                      <div className={`absolute top-8 ${isLeft ? "-right-3" : "-left-3"} w-6 h-6 bg-white transform rotate-45 border-t border-r border-gray-100 hidden md:block ${isLeft ? "" : "rotate-[-135deg]"}`} />
+                    <div className="bg-[#111111] p-8 rounded-3xl shadow-lg border border-white/10 hover:shadow-xl transition-shadow relative group">
+                      <div className={`absolute top-8 ${isLeft ? "-right-3" : "-left-3"} w-6 h-6 bg-[#111111] transform rotate-45 border-t border-r border-white/10 hidden md:block ${isLeft ? "" : "rotate-[-135deg]"}`} />
                       
-                      <span className="inline-block px-4 py-1.5 rounded-full bg-orange-100 text-orange-600 font-bold text-sm mb-4">
+                      <span className="inline-block px-4 py-1.5 rounded-full bg-orange-500/15 border border-orange-500/20 text-orange-300 font-bold text-sm mb-4">
                         {item.year}
                       </span>
-                      <h3 className="text-2xl font-bold text-gray-900 mb-3 tracking-tight">
+                      <h3 className="text-2xl font-bold text-white mb-3 tracking-tight">
                         {item.title}
                       </h3>
-                      <p className="text-gray-600 leading-relaxed">
+                      <p className="text-gray-400 leading-relaxed">
                         {item.description}
                       </p>
                     </div>

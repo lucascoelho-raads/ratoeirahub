@@ -104,7 +104,8 @@ function HeaderActions({
     pathname === "/solucoes/ratoeira-hub" ||
     pathname === "/integracoes/conexoes-com-ia" ||
     pathname === "/fontes-de-trafego/google-ads" ||
-    pathname === "/fontes-de-trafego/meta-ads"
+    pathname === "/fontes-de-trafego/meta-ads" ||
+    pathname === "/quem-somos"
       ? "Começar grátis"
       : "Teste gratis";
 

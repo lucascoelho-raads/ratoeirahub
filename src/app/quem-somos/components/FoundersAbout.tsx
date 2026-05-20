@@ -10,7 +10,7 @@ export default function FoundersAbout() {
         
         <div className="text-center mb-24">
           <h2 className="text-4xl lg:text-5xl font-black text-white tracking-tight">
-            Conheça Nossos <span className="text-brand-primary">Fundadores</span>
+            Duas pessoas. Um problema real. Uma plataforma.
           </h2>
           <p className="mt-4 text-xl text-gray-400 max-w-2xl mx-auto">
             As mentes por trás do ecossistema que está revolucionando o tráfego pago.
@@ -44,10 +44,13 @@ export default function FoundersAbout() {
               
               <div className="space-y-4 text-gray-400 leading-relaxed text-lg">
                 <p>
-                  Com anos de experiência em gestão de tráfego e escala de negócios digitais, Eitor percebeu que as ferramentas disponíveis no mercado limitavam o potencial das operações.
-                </p>
-                <p>
-                  Sua visão estratégica foi fundamental para criar um ecossistema focado não apenas em métricas, mas em resultados reais e tangíveis. Eitor lidera a inovação do Ratoeira Hub, garantindo que a plataforma esteja sempre um passo à frente das necessidades do mercado.
+                  Formado pela UNICAMP, Eitor construiu sua carreira em analytics e inteligência de mercado — passando por
+                  3M (onde se certificou como Lean Six Sigma Green Belt) e PepsiCo, onde liderou times de Business
+                  Intelligence e Data & Analytics para a América Latina. Em 2022, levou esse repertório para o tráfego
+                  pago e descobriu o que o mercado brasileiro ainda não havia sistematizado: como usar o tracking
+                  server-side para que o Google Ads otimize para compradores reais. O método mudou o patamar do mercado
+                  de afiliados no Brasil. Em abril de 2024, junto com Paulo, transformou a descoberta em produto. Hoje
+                  lidera a Ratoeira como CEO.
                 </p>
               </div>
               
@@ -88,10 +91,12 @@ export default function FoundersAbout() {
               
               <div className="space-y-4 text-gray-400 leading-relaxed text-lg">
                 <p>
-                  O cérebro por trás da arquitetura robusta do Ratoeira Hub. Paulo trouxe sua vasta experiência em engenharia de software para construir uma plataforma capaz de processar milhões de eventos sem latência.
-                </p>
-                <p>
-                  Ele é o responsável por garantir que a tecnologia de rastreamento server-side e o bloqueio de fraudes operem com precisão cirúrgica, proporcionando segurança e velocidade incomparáveis para todos os nossos usuários.
+                  Formado em análise de sistemas em 2012, Paulo passou mais de uma década construindo sistemas robustos e
+                  trabalhando em grandes empresas — incluindo a Localiza. Em janeiro de 2024, assistiu ao vídeo de Eitor
+                  sobre tracking para afiliados de Google Ads e enxergou o produto que ainda não existia. Foi direto ao
+                  Instagram propor a parceria. Como CTO da Ratoeira, Paulo é responsável pela arquitetura que garante
+                  rastreamento ~100%, processamento de eventos em tempo real e as integrações via API com Google Ads,
+                  Meta e plataformas de IA.
                 </p>
               </div>
               
