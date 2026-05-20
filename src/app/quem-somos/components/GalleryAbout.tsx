@@ -26,7 +26,7 @@ export default function GalleryAbout() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl lg:text-5xl font-black text-white tracking-tight">
-            O time por trás da plataforma.
+            O <span className="text-brand-primary">time</span> por trás da <span className="text-brand-primary">plataforma</span>.
           </h2>
           <p className="mt-4 text-xl text-gray-400 max-w-2xl mx-auto">
             Um time técnico, direto e obcecado com o problema do anunciante. A Ratoeira não foi construída em sala de reunião — foi construída por quem viveu o problema por dentro.

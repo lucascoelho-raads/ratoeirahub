@@ -2,6 +2,7 @@
 
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
+import { GradientText } from "@/components/ui/gradient-text";
 
 const milestones = [
   {
@@ -56,7 +57,7 @@ export default function TimelineAbout() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         <div className="text-center mb-20">
-          <h2 className="text-4xl lg:text-5xl font-black text-white tracking-tight">Dois anos. O mercado não é mais o mesmo.</h2>
+          <h2 className="text-4xl lg:text-5xl font-black text-white tracking-tight">Dois anos. O <span className="text-[#FFB800]">mercado</span> não é mais o <span className="text-[#FFB800]">mesmo</span></h2>
           <p className="mt-4 text-xl text-gray-400 max-w-2xl mx-auto">
             De uma descoberta individual a mais de 2.500 anunciantes que escalam com dado real.
           </p>
@@ -87,7 +88,7 @@ export default function TimelineAbout() {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true, margin: "-100px" }}
                     transition={{ duration: 0.6 }}
-                    className={`w-full md:w-1/2 pl-12 md:pl-0 ${isLeft ? "md:pr-20 md:text-right" : "md:pl-20 md:order-2"}`}
+                    className={`w-full md:w-1/2 pl-12 md:pl-0 ${isLeft ? "md:pr-20 text-left" : "md:pl-20 md:order-2 text-left"}`}
                   >
                     <div className="bg-[#111111] p-8 rounded-3xl shadow-lg border border-white/10 hover:shadow-xl transition-shadow relative group">
                       <div className={`absolute top-8 ${isLeft ? "-right-3" : "-left-3"} w-6 h-6 bg-[#111111] transform rotate-45 border-t border-r border-white/10 hidden md:block ${isLeft ? "" : "rotate-[-135deg]"}`} />
@@ -96,7 +97,9 @@ export default function TimelineAbout() {
                         {item.year}
                       </span>
                       <h3 className="text-2xl font-bold text-white mb-3 tracking-tight">
-                        {item.title}
+                        <GradientText className="font-bold">
+                          {item.title}
+                        </GradientText>
                       </h3>
                       <p className="text-gray-400 leading-relaxed">
                         {item.description}

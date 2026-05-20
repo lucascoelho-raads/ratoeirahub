@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Target, Eye, ShieldCheck } from "lucide-react";
+import { GradientText } from "@/components/ui/gradient-text";
 
 const mvvData = [
   {
@@ -77,7 +78,7 @@ export default function MVVAbout() {
               <Target className="w-7 h-7 text-orange-300" />
             </div>
             <h2 className="text-3xl font-black text-white tracking-tight mb-4">
-              Missão
+              <GradientText className="font-black">Missão</GradientText>
             </h2>
             <p className="text-gray-400 font-medium leading-relaxed">
               {mvvData[0].content}
@@ -96,7 +97,7 @@ export default function MVVAbout() {
               <Eye className="w-7 h-7 text-amber-300" />
             </div>
             <h2 className="text-3xl font-black text-white tracking-tight mb-4">
-              Visão
+              <GradientText className="font-black">Visão</GradientText>
             </h2>
             <p className="text-gray-400 font-medium leading-relaxed">
               {mvvData[1].content}
@@ -115,7 +116,7 @@ export default function MVVAbout() {
               <ShieldCheck className="w-7 h-7 text-white/80" />
             </div>
             <h2 className="text-3xl font-black text-white tracking-tight mb-4">
-              Valores
+              <GradientText className="font-black">Valores</GradientText>
             </h2>
             <div className="relative min-h-[120px]">
               <AnimatePresence mode="wait">

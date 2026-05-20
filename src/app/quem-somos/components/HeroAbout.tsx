@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { GradientText } from "@/components/ui/gradient-text";
 
 export default function HeroAbout() {
   return (
@@ -26,11 +27,9 @@ export default function HeroAbout() {
             </div>
 
             <h1 className="text-[clamp(2.75rem,4.2vw,6rem)] font-black text-white leading-[1.04] tracking-tight">
-              A Ratoeira nasceu de dentro do mercado.
+              <GradientText className="font-black">A Ratoeira nasceu de dentro do mercado.</GradientText>
               <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-amber-500">
-                Não de fora.
-              </span>
+              <GradientText className="font-black">Não de fora.</GradientText>
             </h1>
 
             <div className="space-y-6 text-white/70 font-medium leading-relaxed max-w-xl text-[clamp(1rem,1.1vw,1.125rem)]">

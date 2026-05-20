@@ -10,9 +10,9 @@ export default function FoundersAbout() {
         
         <div className="text-center mb-24">
           <h2 className="text-4xl lg:text-5xl font-black text-white tracking-tight">
-            Duas pessoas. Um problema real. Uma plataforma.
+            <span className="text-brand-primary">Duas</span> pessoas. Um <span className="text-brand-primary">problema</span> real. Uma <span className="text-brand-primary">plataforma</span>
           </h2>
-          <p className="mt-4 text-xl text-gray-400 max-w-2xl mx-auto">
+          <p className="mt-4 text-xl text-gray-400 mx-auto whitespace-nowrap">
             As mentes por trás do ecossistema que está revolucionando o tráfego pago.
           </p>
         </div>
