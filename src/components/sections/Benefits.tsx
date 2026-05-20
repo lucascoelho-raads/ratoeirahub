@@ -13,6 +13,7 @@ import {
   ShieldCheck,
 } from "lucide-react";
 import { ShineBorder } from "@/components/ui/ShineBorder";
+import { BackgroundPaths } from "@/components/ui/background-paths";
 
 const benefits = [
   {
@@ -145,13 +146,14 @@ export default function Benefits() {
                       ]}
                       className="h-[78vh] min-h-[520px] w-full"
                     >
-                      <div className="h-full rounded-card border border-border-default bg-surface-default shadow-card-resting p-6 md:p-10 lg:p-12">
-                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center h-full">
+                      <div className="relative h-full rounded-card border border-white/10 bg-[#050505] shadow-card-resting p-6 md:p-10 lg:p-12 overflow-hidden">
+                        <BackgroundPaths reverse={benefit.imageLeft} />
+                        <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center h-full">
                           <div className={benefit.imageLeft ? "order-2" : "order-1"}>
-                            <h3 className="mt-6 text-3xl lg:text-4xl font-black text-text-primary leading-tight">
+                            <h3 className="mt-6 text-3xl lg:text-4xl font-black text-gray-50 leading-tight">
                               {benefit.title}
                             </h3>
-                            <p className="mt-5 text-lg text-text-secondary leading-relaxed">
+                            <p className="mt-5 text-lg text-gray-200 leading-relaxed">
                               {benefit.description}
                             </p>
                           </div>
@@ -167,10 +169,10 @@ export default function Benefits() {
                             >
                               <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.9),rgba(255,255,255,0.15))]" />
                               <div className="relative z-10 flex flex-col items-center text-center px-6">
-                                <div className="w-20 h-20 rounded-card bg-surface-default border border-border-default flex items-center justify-center">
+                                <div className="w-20 h-20 rounded-card bg-white/5 border border-white/10 flex items-center justify-center">
                                   <Icon className="w-10 h-10 text-brand-primary" />
                                 </div>
-                                <p className="mt-4 text-sm font-semibold text-text-secondary">
+                                <p className="mt-4 text-sm font-semibold text-gray-200">
                                   Imagem ilustrativa do {benefit.label.toLowerCase()}
                                 </p>
                               </div>

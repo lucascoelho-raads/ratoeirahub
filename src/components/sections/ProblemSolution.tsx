@@ -86,7 +86,7 @@ export default function ProblemSolution() {
           className="text-center mb-16 space-y-6"
         >
           <h2 className="text-4xl lg:text-5xl font-black text-white leading-tight">
-            Tudo que você precisa para dominar o tráfego pago. Em um só lugar.
+            <span className="bg-gradient-to-r from-yellow-500 to-orange-500 bg-clip-text text-transparent">Tudo</span> que você precisa para dominar o <span className="bg-gradient-to-r from-yellow-500 to-orange-500 bg-clip-text text-transparent">tráfego pago</span>. Em um só <span className="bg-gradient-to-r from-yellow-500 to-orange-500 bg-clip-text text-transparent">lugar</span>.
           </h2>
           <p className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
             Quem escala no Google e no Meta não usa ferramentas soltas. Usa um ecossistema onde tracking, páginas e
