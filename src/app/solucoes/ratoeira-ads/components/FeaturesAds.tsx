@@ -2,6 +2,7 @@
 
 import { Bot, Ghost, LineChart, Server, Target, Zap } from "lucide-react";
 import { BlurTextEffect } from "@/components/ui/blur-text-effect";
+import { GradientText } from "@/components/ui/gradient-text";
 import Image from "next/image";
 
 const features = [
@@ -64,11 +65,11 @@ export default function FeaturesAds() {
   return (
     <section id="como-funciona" className="py-24 bg-[#0a0a0a]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16 max-w-3xl mx-auto">
-          <h2 className="text-3xl md:text-5xl font-black text-white mb-6">
+        <div className="text-center mb-16 max-w-4xl mx-auto">
+          <h2 className="text-3xl md:text-5xl font-black text-white mb-6 whitespace-nowrap">
             O fim do <span className="text-brand-primary">achismo</span> no tráfego pago.
           </h2>
-          <p className="text-gray-400 text-lg">
+          <p className="text-gray-400 text-lg max-w-3xl mx-auto">
             A Ratoeira Ads atua em 6 frentes para garantir que você saiba exatamente qual anúncio gerou cada centavo de
             resultado — no Google Ads e no Meta Ads.
           </p>
@@ -86,10 +87,12 @@ export default function FeaturesAds() {
               >
                 <div className="flex-1 space-y-6 w-full">
                   <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-yellow-500/15 to-orange-500/15 flex items-center justify-center border border-white/10">
-                    <Icon className="w-8 h-8 text-orange-400" />
+                    <Icon className="w-8 h-8 text-brand-primary" />
                   </div>
-                  <h3 className="text-3xl md:text-4xl font-black leading-tight text-white">
-                    <BlurTextEffect key={slide.title}>{slide.title}</BlurTextEffect>
+                  <h3 className="text-3xl md:text-4xl font-black leading-tight">
+                    <GradientText className="font-black">
+                      {slide.title}
+                    </GradientText>
                   </h3>
                   <p className="text-xl text-gray-400 leading-relaxed">
                     <BlurTextEffect key={`${slide.title}-desc`}>{slide.description}</BlurTextEffect>

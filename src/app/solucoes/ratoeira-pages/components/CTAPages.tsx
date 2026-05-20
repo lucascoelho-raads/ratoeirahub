@@ -17,7 +17,7 @@ export default function CTAPages() {
           className="flex flex-col items-center w-full max-w-6xl mx-auto"
         >
           <h2 className="text-[clamp(2.25rem,3.2vw,4.5rem)] font-black text-white mb-6 tracking-tight drop-shadow-xl">
-            Sua próxima página já poderia estar no ar.
+            Sua <span className="text-orange-500">próxima página</span> já poderia estar no ar.
           </h2>
           <p className="text-[clamp(1.1rem,1.25vw,1.5rem)] text-gray-300 max-w-3xl mx-auto drop-shadow-md mb-12 leading-relaxed">
             Pare de perder tempo com ferramentas que não integram entre si. Com o{" "}

@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { Zap } from "lucide-react";
+import { GradientText } from "@/components/ui/gradient-text";
 
 export function Features() {
   const slides = [
@@ -85,8 +86,10 @@ export function Features() {
                   <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#FF7E4A]/20 to-[#FF7E4A]/8 flex items-center justify-center border border-white/10">
                     <Zap className="w-8 h-8 text-[#FF7E4A]" />
                   </div>
-                  <h3 className="text-3xl md:text-4xl font-black leading-tight text-white">
-                    {slide.titlePrefix} <span className="text-[#FF7E4A]">{slide.titleHighlight}</span>
+                  <h3 className="text-3xl md:text-4xl font-black leading-tight">
+                    <GradientText variant="orange" className="font-black">
+                      {slide.titlePrefix} {slide.titleHighlight}
+                    </GradientText>
                   </h3>
                   <p className="text-xl text-gray-400 leading-relaxed">{slide.description}</p>
                 </div>
