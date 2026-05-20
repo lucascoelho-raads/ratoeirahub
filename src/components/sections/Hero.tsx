@@ -18,102 +18,41 @@ import {
 import SpotlightBackground from "@/components/ui/spotlight-background";
 
 function HeroVideoMockup({ onReady }: { onReady?: () => void }) {
-  const videoRef = useRef<HTMLVideoElement | null>(null);
   const [isReady, setIsReady] = useState(false);
-  const [retryCount, setRetryCount] = useState(0);
-  const readyNotifiedRef = useRef(false);
+  const [hasError, setHasError] = useState(false);
 
-  useEffect(() => {
-    const video = videoRef.current;
-    if (!video) return;
-
-    const tryPlay = async () => {
-      try {
-        await video.play();
-      } catch {
-        // autoplay bloqueado é OK — o vídeo ainda pode estar carregado
-      }
-    };
-
-    tryPlay();
-  }, [retryCount]);
-
-  // Timeout de segurança: sempre remove o spinner após 5s
   useEffect(() => {
     const timer = window.setTimeout(() => {
-      console.log("[HeroVideo] Safety timeout fired — forcing ready state");
       setIsReady(true);
-      if (!readyNotifiedRef.current) {
-        readyNotifiedRef.current = true;
-        onReady?.();
-      }
-    }, 5000);
+      onReady?.();
+    }, 1500);
     return () => clearTimeout(timer);
-  }, [retryCount, onReady]);
-
-  const notifyReady = () => {
-    if (readyNotifiedRef.current) return;
-    readyNotifiedRef.current = true;
-    onReady?.();
-  };
-
-  const markReady = () => {
-    console.log("[HeroVideo] markReady called");
-    setIsReady(true);
-    notifyReady();
-  };
-
-  const handleError = () => {
-    console.error("[HeroVideo] Video error event fired");
-    setIsReady(false);
-    if (retryCount < 2) {
-      setRetryCount((v) => v + 1);
-    } else {
-      // Depois de 3 tentativas, desistimos e escondemos o spinner
-      console.warn("[HeroVideo] Max retries reached — hiding spinner");
-      setIsReady(true);
-      notifyReady();
-    }
-  };
+  }, [onReady]);
 
   return (
     <div className="w-full h-full bg-black rounded-xl overflow-hidden relative">
-      <video
-        key={retryCount}
-        ref={videoRef}
-        autoPlay
-        muted
-        loop
-        playsInline
-        preload="auto"
-        className="w-full h-full object-cover"
-        onLoadedMetadata={(event) => {
-          console.log("[HeroVideo] onLoadedMetadata");
-          try {
-            event.currentTarget.currentTime = 0.1;
-          } catch {
-            // ignore
-          }
-          markReady();
-        }}
-        onCanPlay={(event) => {
-          console.log("[HeroVideo] onCanPlay — readyState:", event.currentTarget.readyState);
-          markReady();
-        }}
-        onLoadedData={(event) => {
-          console.log("[HeroVideo] onLoadedData");
-          markReady();
-        }}
-        onPlaying={() => {
-          console.log("[HeroVideo] onPlaying");
-          markReady();
-        }}
-        onError={handleError}
-      >
-        <source src={`/videos/video1.mp4?v=${retryCount}`} type="video/mp4" />
-      </video>
+      {hasError ? (
+        <img
+          src="/videos/video1-poster.jpg"
+          alt="Dashboard Preview"
+          className="w-full h-full object-cover"
+        />
+      ) : (
+        <video
+          src="/videos/video1.mp4"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+          poster="/videos/video1-poster.jpg"
+          className="w-full h-full object-cover"
+          onLoadedData={() => setIsReady(true)}
+          onError={() => setHasError(true)}
+        />
+      )}
 
-      {!isReady && (
+      {!isReady && !hasError && (
         <div className="absolute inset-0 flex items-center justify-center bg-black/60">
           <div className="h-9 w-9 rounded-full border-2 border-[#FFB800]/30 border-t-[#FFB800] animate-spin" />
         </div>
