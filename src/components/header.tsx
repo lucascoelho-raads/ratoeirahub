@@ -29,7 +29,7 @@ function Logo() {
       <span className="inline-flex h-9 w-9 items-center justify-center rounded-button bg-brand-primary text-text-primary shadow-btn-primary">
         <Zap className="w-4 h-4" strokeWidth={2.2} />
       </span>
-      <span className="text-lg font-black tracking-tight text-text-primary">Ratoeira Hub</span>
+      <span className="text-lg font-black tracking-tight text-gray-100">Ratoeira Hub</span>
     </Link>
   );
 }
@@ -120,10 +120,10 @@ function HeaderActions({
         href="/design-system"
         onClick={onAction}
         className={cn(
-          "select-none rounded-button border font-semibold text-text-primary transition-colors duration-150 hover:bg-surface-subdued",
+          "select-none rounded-button border font-semibold text-gray-100 transition-colors duration-150 hover:bg-white/10",
           mobile
-            ? "flex min-h-14 items-center justify-center border-border-default text-lg"
-            : "border-border-default px-5 py-2 text-sm",
+            ? "flex min-h-14 items-center justify-center border-white/10 text-lg"
+            : "border-white/10 px-5 py-2 text-sm",
         )}
       >
         Design System
@@ -200,14 +200,14 @@ export default function Header() {
   return (
     <header
       ref={navRef}
-      className="fixed inset-x-0 top-0 z-50 border-b border-border-default bg-surface-default/95 backdrop-blur supports-[backdrop-filter]:bg-surface-default/90"
+      className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-[#0a0a0a]/92 backdrop-blur-xl supports-[backdrop-filter]:bg-[#0a0a0a]/88"
     >
       <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           <Logo />
 
           <nav className="relative hidden items-center lg:flex">
-            <div className="flex items-center rounded-button border border-border-default bg-surface-default px-2 py-1">
+            <div className="flex items-center rounded-button border border-white/10 bg-white/5 px-2 py-1">
               {NAV_LINKS.map((link, index) => {
                 const open = activeIndex === index && !!link.menu;
                 return (
@@ -234,8 +234,8 @@ export default function Header() {
                       className={cn(
                         "inline-flex items-center gap-1.5 rounded-button px-3 py-2 text-sm font-semibold transition-colors",
                         open
-                          ? "bg-brand-100 text-text-primary"
-                          : "text-text-secondary hover:bg-surface-subdued hover:text-text-primary",
+                          ? "bg-brand-100 text-gray-900"
+                          : "text-gray-200 hover:bg-white/10 hover:text-gray-100",
                       )}
                     >
                       {link.label}
@@ -272,7 +272,7 @@ export default function Header() {
                 return next;
               })
             }
-            className="inline-flex h-10 w-10 items-center justify-center rounded-button border border-border-default text-text-secondary transition-colors hover:bg-surface-subdued lg:hidden"
+            className="inline-flex h-10 w-10 items-center justify-center rounded-button border border-white/10 text-gray-200 transition-colors hover:bg-white/10 lg:hidden"
           >
             {mobileOpen ? (
               <X className="size-5" strokeWidth={1.9} />
@@ -291,7 +291,7 @@ export default function Header() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.22, ease: SHELL_EASE }}
-            className="border-t border-border-default bg-surface-default lg:hidden"
+            className="border-t border-white/10 bg-[#0a0a0a]/95 backdrop-blur-xl lg:hidden"
           >
             <div className="mx-auto max-w-7xl px-4 pb-6 pt-4 sm:px-6">
               <AnimatePresence mode="wait" initial={false}>
@@ -307,7 +307,7 @@ export default function Header() {
                     <button
                       type="button"
                       onClick={() => setMobileStack((prev) => prev.slice(0, -1))}
-                      className="inline-flex items-center gap-2 rounded-button px-2 py-1 text-sm font-semibold text-text-secondary hover:bg-surface-subdued"
+                      className="inline-flex items-center gap-2 rounded-button px-2 py-1 text-sm font-semibold text-gray-200 hover:bg-white/10"
                     >
                       <ChevronLeft className="size-4" />
                       Voltar
@@ -322,7 +322,7 @@ export default function Header() {
                             column.accent && "bg-surface-subdued",
                           )}
                         >
-                          <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-text-muted">
+                          <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-gray-100">
                             {column.heading}
                           </p>
                           <div className="space-y-1">
@@ -332,11 +332,11 @@ export default function Header() {
                                 href={item.href || "#"}
                                 className="block w-full rounded-button px-2 py-2 text-left hover:bg-brand-100/30"
                               >
-                                <span className="block text-sm font-semibold text-text-primary">
+                                <span className="block text-sm font-semibold text-gray-100">
                                   {item.label}
                                 </span>
                                 {item.description ? (
-                                  <span className="text-xs text-text-secondary">
+                                  <span className="text-xs text-gray-200">
                                     {item.description}
                                   </span>
                                 ) : null}
@@ -374,13 +374,13 @@ export default function Header() {
                         }}
                         className="flex w-full items-center justify-between rounded-button border border-border-default px-4 py-3 text-left"
                       >
-                        <span className="text-sm font-semibold text-text-primary">
+                        <span className="text-sm font-semibold text-gray-100">
                           {link.label}
                         </span>
                         {link.menu ? (
-                          <ChevronDown className="size-4 text-text-muted" />
+                          <ChevronDown className="size-4 text-gray-200" />
                         ) : (
-                          <ArrowRight className="size-4 text-text-muted" />
+                          <ArrowRight className="size-4 text-gray-200" />
                         )}
                       </motion.button>
                     ))}

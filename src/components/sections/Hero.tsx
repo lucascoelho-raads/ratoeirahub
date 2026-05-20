@@ -144,9 +144,9 @@ export default function Hero() {
         initial={false}
         animate={{ x: activePanel === 0 ? "0%" : "-50%" }}
         transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-        className="absolute inset-0 flex w-[200%] bg-[#050505] overflow-hidden"
+        className="absolute inset-0 flex w-[200%] bg-[#050505]"
       >
-        <div className="relative w-1/2 h-full flex items-center justify-center">
+        <div className="relative w-1/2 h-full flex items-start justify-center pt-[4.5rem]">
           <SpotlightBackground className="absolute inset-0">
               <div
                 className="absolute inset-0 pointer-events-none"
@@ -155,7 +155,8 @@ export default function Hero() {
                   backgroundSize: "120px 120px",
                 }}
               />
-              <div className="relative w-full h-full max-w-7xl 2xl:max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-12 2xl:px-16 grid grid-cols-1 lg:grid-cols-[1fr_1.1fr] 2xl:grid-cols-[1fr_1.25fr] gap-8 lg:gap-16 2xl:gap-20 items-center min-w-0">
+              <div className="absolute -bottom-[30%] left-1/2 -translate-x-1/2 w-[800px] h-[600px] rounded-full bg-[radial-gradient(circle_at_center,rgba(255,184,0,0.18),transparent_70%)] blur-3xl pointer-events-none" />
+              <div className="relative w-full h-full max-w-7xl 2xl:max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-12 2xl:px-16 grid grid-cols-1 lg:grid-cols-[1fr_1.1fr] 2xl:grid-cols-[1fr_1.25fr] gap-8 lg:gap-16 2xl:gap-20 items-start min-w-0 pt-[4.5rem] pb-8">
                 <motion.div
                   variants={containerVariants}
                   initial="hidden"
@@ -277,7 +278,7 @@ export default function Hero() {
             </SpotlightBackground>
         </div>
 
-        <div className="relative w-1/2 h-full flex items-center justify-center overflow-hidden">
+        <div className="relative w-1/2 h-full flex items-start justify-center overflow-hidden pt-[4.5rem]">
           <SpotlightBackground className="absolute inset-0">
               <div
                 className="absolute inset-0 pointer-events-none"
@@ -286,7 +287,7 @@ export default function Hero() {
                   backgroundSize: "120px 120px",
                 }}
               />
-              <div className="relative w-full h-full max-w-7xl 2xl:max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-12 2xl:px-16 grid grid-cols-1 lg:grid-cols-[1fr_1.1fr] 2xl:grid-cols-[1fr_1.25fr] gap-8 lg:gap-16 2xl:gap-20 items-center min-w-0">
+              <div className="relative w-full h-full max-w-7xl 2xl:max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-12 2xl:px-16 grid grid-cols-1 lg:grid-cols-[1fr_1.1fr] 2xl:grid-cols-[1fr_1.25fr] gap-8 lg:gap-16 2xl:gap-20 items-start min-w-0 pt-[4.5rem] pb-8">
               <div className="flex flex-col gap-6">
                 <h2 className="text-[clamp(1.75rem,6vw,3.5rem)] sm:text-[clamp(2.25rem,5vw,4rem)] lg:text-[clamp(2.75rem,3.8vw,5.25rem)] font-extrabold tracking-tight leading-tight lg:leading-[1.04] text-white break-words">
                   Páginas que convertem.{" "}

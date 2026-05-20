@@ -51,7 +51,7 @@ function MegaMenuPanel({
       onKeyDown={(event) => {
         if (event.key === "Escape") onEscape();
       }}
-      className="absolute left-0 top-full mt-3 w-full rounded-card border border-border-default bg-surface-default p-4 shadow-card-resting"
+      className="absolute left-0 top-full mt-3 w-full rounded-card border border-white/30 bg-[#0a0a0a]/95 backdrop-blur-xl p-4 shadow-[0_0_60px_rgba(255,255,255,0.12)]"
     >
       <div
         className="flex gap-3"
@@ -61,10 +61,10 @@ function MegaMenuPanel({
             key={column.heading}
             className={cn(
               "rounded-card p-4",
-              column.accent ? "bg-surface-subdued border border-border-default min-w-[280px]" : "bg-surface-default flex-1",
+              column.accent ? "bg-white/5 border border-white/10 min-w-[280px]" : "bg-transparent flex-1",
             )}
           >
-            <p className="mb-3 text-[11px] font-semibold uppercase tracking-wide text-text-muted">
+            <p className="mb-3 text-[11px] font-semibold uppercase tracking-wide text-gray-100">
               {column.heading}
             </p>
             <div className="space-y-1">
@@ -85,9 +85,9 @@ function MegaMenuPanel({
                       : "hover:bg-brand-100/20",
                   )}
                 >
-                  <span className="block text-sm font-semibold text-text-primary">{item.label}</span>
+                  <span className="block text-sm font-semibold text-gray-100">{item.label}</span>
                   {item.description && (
-                    <span className="mt-0.5 block text-xs leading-snug text-text-secondary">
+                    <span className="mt-0.5 block text-xs leading-snug text-gray-200">
                       {item.description}
                     </span>
                   )}

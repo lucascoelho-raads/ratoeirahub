@@ -5,6 +5,7 @@ import Link from "next/link";
 import { ArrowRight, Link2, Radar, LayoutTemplate, MousePointerClick, Server, LineChart, ShieldCheck } from "lucide-react";
 import { BeamsBackground } from "@/components/ui/ethereal-beams-hero";
 import { AuroraBackground } from "@/components/ui/animated-background";
+import { GradientText } from "@/components/ui/gradient-text";
 
 export const metadata = {
   title: "Ratoeira Hub | Ads + Pages em um único dashboard",
@@ -155,8 +156,10 @@ export default function RatoeiraHubPage() {
                     <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-yellow-500/15 to-orange-500/15 flex items-center justify-center mb-6 border border-white/10">
                       <Icon className="w-8 h-8 text-orange-400" />
                     </div>
-                    <h3 className="text-3xl md:text-4xl font-black leading-tight text-white">
-                      {feature.title}
+                    <h3 className="text-3xl md:text-4xl font-black leading-tight">
+                      <GradientText variant="orange" className="font-black">
+                        {feature.title}
+                      </GradientText>
                     </h3>
                     <p className="text-xl text-gray-400 leading-relaxed">
                       {feature.description}
