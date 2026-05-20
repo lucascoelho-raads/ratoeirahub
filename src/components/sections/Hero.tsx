@@ -31,11 +31,25 @@ function HeroVideoMockup({ onReady }: { onReady?: () => void }) {
       try {
         await video.play();
       } catch {
+        // autoplay bloqueado é OK — o vídeo ainda pode estar carregado
       }
     };
 
     tryPlay();
   }, [retryCount]);
+
+  // Timeout de segurança: sempre remove o spinner após 5s
+  useEffect(() => {
+    const timer = window.setTimeout(() => {
+      console.log("[HeroVideo] Safety timeout fired — forcing ready state");
+      setIsReady(true);
+      if (!readyNotifiedRef.current) {
+        readyNotifiedRef.current = true;
+        onReady?.();
+      }
+    }, 5000);
+    return () => clearTimeout(timer);
+  }, [retryCount, onReady]);
 
   const notifyReady = () => {
     if (readyNotifiedRef.current) return;
@@ -44,21 +58,22 @@ function HeroVideoMockup({ onReady }: { onReady?: () => void }) {
   };
 
   const markReady = () => {
+    console.log("[HeroVideo] markReady called");
     setIsReady(true);
     notifyReady();
   };
 
-  const requestFirstFrame = (video: HTMLVideoElement) => {
-    const anyVideo = video as unknown as { requestVideoFrameCallback?: (cb: () => void) => void };
-    if (typeof anyVideo.requestVideoFrameCallback === "function") {
-      anyVideo.requestVideoFrameCallback(() => {
-        markReady();
-      });
-      return;
+  const handleError = () => {
+    console.error("[HeroVideo] Video error event fired");
+    setIsReady(false);
+    if (retryCount < 2) {
+      setRetryCount((v) => v + 1);
+    } else {
+      // Depois de 3 tentativas, desistimos e escondemos o spinner
+      console.warn("[HeroVideo] Max retries reached — hiding spinner");
+      setIsReady(true);
+      notifyReady();
     }
-    window.setTimeout(() => {
-      if (video.readyState >= 2 && video.videoWidth > 0) markReady();
-    }, 150);
   };
 
   return (
@@ -73,25 +88,27 @@ function HeroVideoMockup({ onReady }: { onReady?: () => void }) {
         preload="auto"
         className="w-full h-full object-cover"
         onLoadedMetadata={(event) => {
+          console.log("[HeroVideo] onLoadedMetadata");
           try {
             event.currentTarget.currentTime = 0.1;
           } catch {
+            // ignore
           }
-          requestFirstFrame(event.currentTarget);
+          markReady();
         }}
-        onCanPlay={async (event) => {
-          requestFirstFrame(event.currentTarget);
-          try {
-            await event.currentTarget.play();
-          } catch {
-          }
+        onCanPlay={(event) => {
+          console.log("[HeroVideo] onCanPlay — readyState:", event.currentTarget.readyState);
+          markReady();
         }}
-        onLoadedData={(event) => requestFirstFrame(event.currentTarget)}
-        onPlaying={(event) => requestFirstFrame(event.currentTarget)}
-        onError={() => {
-          setIsReady(false);
-          if (retryCount < 2) setRetryCount((v) => v + 1);
+        onLoadedData={(event) => {
+          console.log("[HeroVideo] onLoadedData");
+          markReady();
         }}
+        onPlaying={() => {
+          console.log("[HeroVideo] onPlaying");
+          markReady();
+        }}
+        onError={handleError}
       >
         <source src={`/videos/video1.mp4?v=${retryCount}`} type="video/mp4" />
       </video>
