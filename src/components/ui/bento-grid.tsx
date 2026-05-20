@@ -130,7 +130,13 @@ function BentoGrid({ items = itemsSample, className }: BentoGridProps) {
             )}
           >
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.06)_1px,transparent_1px)] bg-[length:4px_4px]" />
-            <div className="absolute inset-0 bg-[radial-gradient(60%_60%_at_50%_0%,rgba(255,184,0,0.16),rgba(0,0,0,0))]" />
+            <div
+              className="absolute inset-0"
+              style={{
+                background:
+                  "radial-gradient(60% 60% at 50% 0%, color-mix(in srgb, var(--color-brand-primary) 16%, transparent), rgba(0,0,0,0))",
+              }}
+            />
           </div>
 
           <div className="relative flex flex-col gap-3 p-5">

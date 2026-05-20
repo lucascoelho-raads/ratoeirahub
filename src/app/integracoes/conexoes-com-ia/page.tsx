@@ -3,8 +3,9 @@ import Footer from "@/components/Footer"
 import { SplineSceneBasic } from "@/components/ui/spline-scene-basic"
 import { BentoGrid, type BentoItem } from "@/components/ui/bento-grid"
 import { RadialGlowBackground } from "@/components/ui/radial-glow-background"
-import { ArrowRight } from "lucide-react"
+import { ArrowRight, BarChart3, ListChecks, MessageSquareText } from "lucide-react"
 import Link from "next/link"
+import type { CSSProperties } from "react"
 
 export const metadata = {
   title: "Conexões com IA | Ratoeira Hub",
@@ -12,6 +13,11 @@ export const metadata = {
 }
 
 export default function ConexoesComIAPage() {
+  const mcpPagesOrangeStyle = {
+    "--color-brand-primary": "var(--color-brand-secondary)",
+    "--color-brand-primary-hover": "#E86B3B",
+  } as unknown as CSSProperties
+
   const mcpAdsItems: BentoItem[] = [
     {
       status: "01",
@@ -64,6 +70,7 @@ export default function ConexoesComIAPage() {
       title: "Crie páginas em linguagem natural",
       description:
         "“Cria uma Flash Page de presell para suplemento masculino com foco em energia, tom direto e CTA para WhatsApp.” O Claude interpreta, a Ratoeira Pages constrói.",
+      icon: <MessageSquareText className="h-4 w-4 text-brand-secondary" />,
       iconKey: "execute",
       tags: ["Briefing", "Template", "CTA"],
       colSpan: 2,
@@ -74,6 +81,7 @@ export default function ConexoesComIAPage() {
       title: "Analytics das suas páginas",
       description:
         "Quantas visitas, de onde vieram, qual página converte mais. Pergunte e receba os dados diretamente no chat — sem trocar de ferramenta.",
+      icon: <BarChart3 className="h-4 w-4 text-brand-secondary" />,
       iconKey: "analytics",
       tags: ["Visitas", "Fonte", "Conversão"],
     },
@@ -82,6 +90,7 @@ export default function ConexoesComIAPage() {
       title: "Clone páginas em escala",
       description:
         "Precisa de 10 variações do mesmo template para testar ofertas diferentes? Um comando — e estão prontas para publicar.",
+      icon: <ListChecks className="h-4 w-4 text-brand-secondary" />,
       iconKey: "actions",
       tags: ["Variações", "Teste", "Escala"],
     },
@@ -89,6 +98,7 @@ export default function ConexoesComIAPage() {
       status: "04",
       title: "Ações disponíveis via MCP",
       description: "Comandos prontos para criar, clonar, publicar, medir e gerenciar domínios — sem abrir painel.",
+      icon: <ListChecks className="h-4 w-4 text-brand-secondary" />,
       iconKey: "actions",
       tags: [
         "Criar página a partir de descrição",
@@ -205,11 +215,14 @@ export default function ConexoesComIAPage() {
 
       <section className="py-14 sm:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="rounded-3xl border border-white/10 bg-[#0b0b0b] p-8 sm:p-10">
+          <div
+            style={mcpPagesOrangeStyle}
+            className="rounded-3xl border border-white/10 bg-[#0b0b0b] p-8 sm:p-10"
+          >
             <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
               <div className="flex flex-col gap-4 lg:col-span-2">
                 <div className="flex flex-wrap items-center gap-2">
-                  <span className="inline-flex items-center rounded-full bg-[#FFB800]/15 px-3 py-1 text-xs font-semibold tracking-wide text-[#FFB800]">
+                  <span className="inline-flex items-center rounded-full bg-brand-secondary/15 px-3 py-1 text-xs font-semibold tracking-wide text-brand-secondary">
                     MCP RATOEIRA PAGES
                   </span>
                   <span className="text-xs text-white/60">Compatível com Claude</span>
@@ -229,7 +242,7 @@ export default function ConexoesComIAPage() {
                 <div className="pt-2">
                   <Link
                     href="/#fale-conosco"
-                    className="inline-flex items-center justify-center gap-2 rounded-button bg-brand-primary px-8 py-4 font-black text-white transition-colors hover:bg-brand-primary-hover"
+                    className="inline-flex items-center justify-center gap-2 rounded-button bg-brand-secondary px-8 py-4 font-black text-white transition-colors hover:bg-[#E86B3B]"
                   >
                     Conectar Ratoeira Pages com Claude
                     <ArrowRight className="h-5 w-5" />
@@ -252,7 +265,7 @@ export default function ConexoesComIAPage() {
                     cria uma página de presell para produto de emagrecimento
                   </div>
 
-                  <div className="max-w-[92%] rounded-2xl border border-[#FFB800]/20 bg-[#FFB800]/10 px-4 py-3 text-sm text-white/85">
+                  <div className="max-w-[92%] rounded-2xl border border-brand-primary/20 bg-brand-primary/10 px-4 py-3 text-sm text-white/85">
                     Página gerada. Preview:
                     <div className="mt-3 space-y-2">
                       <div className="rounded-xl border border-white/10 bg-black/30 px-3 py-2 text-xs text-white/80">
