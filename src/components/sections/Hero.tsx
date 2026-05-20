@@ -105,41 +105,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative min-h-[100svh] bg-[#050505] z-0 overflow-hidden">
-      {/* Slider Controls - Absolute positioned at bottom center */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-50 flex items-center gap-3 bg-black/80 backdrop-blur-md px-4 py-2 rounded-full border border-brand-primary/50">
-        <button 
-          onClick={() => setActivePanel((prev) => (prev === 0 ? 1 : 0))}
-          className="w-8 h-8 rounded-full bg-white flex items-center justify-center hover:bg-neutral-200 transition-colors"
-        >
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="black" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <polyline points="15 18 9 12 15 6"></polyline>
-          </svg>
-        </button>
-        
-        <div className="flex gap-2 items-center px-2">
-          <button 
-            onClick={() => setActivePanel(0)}
-            className={`transition-all duration-300 rounded-full ${activePanel === 0 ? 'w-8 h-3 bg-[#FFB800]' : 'w-3 h-3 bg-white/40 hover:bg-white/60'}`}
-            aria-label="Slide 1"
-          />
-          <button 
-            onClick={() => setActivePanel(1)}
-            className={`transition-all duration-300 rounded-full ${activePanel === 1 ? 'w-8 h-3 bg-[#FFB800]' : 'w-3 h-3 bg-white/40 hover:bg-white/60'}`}
-            aria-label="Slide 2"
-          />
-        </div>
-
-        <button 
-          onClick={() => setActivePanel((prev) => (prev === 0 ? 1 : 0))}
-          className="w-8 h-8 rounded-full bg-white flex items-center justify-center hover:bg-neutral-200 transition-colors"
-        >
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="black" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <polyline points="9 18 15 12 9 6"></polyline>
-          </svg>
-        </button>
-      </div>
-
+    <section className="relative min-h-[100svh] bg-[#050505] z-0 overflow-hidden flex flex-col">
       <motion.div
         initial={false}
         animate={{ x: activePanel === 0 ? "0%" : "-50%" }}
@@ -341,6 +307,40 @@ export default function Hero() {
             </SpotlightBackground>
         </div>
       </motion.div>
+
+      {/* Slider Controls - Positioned below slides on mobile, absolute on desktop */}
+      <div className="relative lg:absolute lg:bottom-8 lg:left-1/2 lg:-translate-x-1/2 lg:z-50 flex items-center justify-center gap-3 bg-black/80 lg:backdrop-blur-md px-4 py-4 lg:py-2 rounded-full border border-brand-primary/50 mt-auto lg:mt-0 mb-4 lg:mb-0 lg:translate-y-0 translate-y-0 w-fit mx-auto">
+        <button 
+          onClick={() => setActivePanel((prev) => (prev === 0 ? 1 : 0))}
+          className="w-8 h-8 rounded-full bg-white flex items-center justify-center hover:bg-neutral-200 transition-colors"
+        >
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="black" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+        </button>
+        
+        <div className="flex gap-2 items-center px-2">
+          <button 
+            onClick={() => setActivePanel(0)}
+            className={`transition-all duration-300 rounded-full ${activePanel === 0 ? 'w-8 h-3 bg-[#FFB800]' : 'w-3 h-3 bg-white/40 hover:bg-white/60'}`}
+            aria-label="Slide 1"
+          />
+          <button 
+            onClick={() => setActivePanel(1)}
+            className={`transition-all duration-300 rounded-full ${activePanel === 1 ? 'w-8 h-3 bg-[#FFB800]' : 'w-3 h-3 bg-white/40 hover:bg-white/60'}`}
+            aria-label="Slide 2"
+          />
+        </div>
+
+        <button 
+          onClick={() => setActivePanel((prev) => (prev === 0 ? 1 : 0))}
+          className="w-8 h-8 rounded-full bg-white flex items-center justify-center hover:bg-neutral-200 transition-colors"
+        >
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="black" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </button>
+      </div>
     </section>
   );
 }

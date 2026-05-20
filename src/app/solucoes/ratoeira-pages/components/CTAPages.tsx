@@ -26,7 +26,7 @@ export default function CTAPages() {
           
           <Link
             href="/planos"
-            className="inline-flex items-center gap-2 px-8 py-4 sm:px-10 sm:py-5 bg-[#FF7E4A] text-white font-bold rounded-full hover:bg-[#e86b3b] transition-all text-lg sm:text-xl shadow-xl shadow-[#FF7E4A]/20 hover:scale-105 active:scale-95"
+            className="inline-flex items-center gap-2 px-8 py-4 sm:px-10 sm:py-5 bg-[#FF7E4A] text-white font-bold rounded-button hover:bg-[#e86b3b] transition-all text-lg sm:text-xl shadow-xl shadow-[#FF7E4A]/20 hover:scale-105 active:scale-95"
           >
             Começar grátis
             <ArrowRight className="w-6 h-6" />

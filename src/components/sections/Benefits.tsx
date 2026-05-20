@@ -117,7 +117,7 @@ export default function Benefits() {
 
       </div>
 
-      <div className="relative z-10 min-h-[100dvh] sm:h-screen overflow-hidden flex items-center">
+      <div className="relative z-10 min-h-[100dvh] sm:h-screen overflow-visible sm:overflow-hidden flex items-center">
         <div className="relative w-full h-full">
           <AnimatePresence mode="sync" initial={false}>
             <motion.article
@@ -186,43 +186,44 @@ export default function Benefits() {
               })()}
             </motion.article>
           </AnimatePresence>
-
-          <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex items-center gap-3">
-            <button
-              type="button"
-              onClick={goToPrev}
-              aria-label="Card anterior"
-              className="w-10 h-10 rounded-full bg-surface-default/90 border border-border-default text-text-primary hover:bg-surface-default transition-colors flex items-center justify-center"
-            >
-              <ChevronLeft className="w-4 h-4" />
-            </button>
-
-            <div className="flex items-center gap-2">
-              {benefits.map((benefit, index) => (
-                <button
-                  key={benefit.title}
-                  type="button"
-                  onClick={() => goToIndex(index)}
-                  aria-label={`Ir para ${benefit.label}`}
-                  className={`h-2.5 rounded-full transition-all duration-300 ${
-                    index === activeIndex
-                      ? "w-8 bg-brand-primary"
-                      : "w-2.5 bg-white/40 hover:bg-white/70"
-                  }`}
-                />
-              ))}
-            </div>
-
-            <button
-              type="button"
-              onClick={goToNext}
-              aria-label="Próximo card"
-              className="w-10 h-10 rounded-full bg-surface-default/90 border border-border-default text-text-primary hover:bg-surface-default transition-colors flex items-center justify-center"
-            >
-              <ChevronRight className="w-4 h-4" />
-            </button>
-          </div>
         </div>
+      </div>
+
+      {/* Controls - outside card, below it */}
+      <div className="relative z-20 flex items-center justify-center gap-3 mt-6 pb-12 sm:pb-0 sm:absolute sm:bottom-6 sm:left-1/2 sm:-translate-x-1/2">
+        <button
+          type="button"
+          onClick={goToPrev}
+          aria-label="Card anterior"
+          className="w-10 h-10 rounded-full bg-white/10 border border-white/20 text-gray-100 hover:bg-white/20 transition-colors flex items-center justify-center"
+        >
+          <ChevronLeft className="w-4 h-4" />
+        </button>
+
+        <div className="flex items-center gap-2">
+          {benefits.map((benefit, index) => (
+            <button
+              key={benefit.title}
+              type="button"
+              onClick={() => goToIndex(index)}
+              aria-label={`Ir para ${benefit.label}`}
+              className={`h-2.5 rounded-full transition-all duration-300 ${
+                index === activeIndex
+                  ? "w-8 bg-brand-primary"
+                  : "w-2.5 bg-white/40 hover:bg-white/70"
+              }`}
+            />
+          ))}
+        </div>
+
+        <button
+          type="button"
+          onClick={goToNext}
+          aria-label="Próximo card"
+          className="w-10 h-10 rounded-full bg-white/10 border border-white/20 text-gray-100 hover:bg-white/20 transition-colors flex items-center justify-center"
+        >
+          <ChevronRight className="w-4 h-4" />
+        </button>
       </div>
     </section>
   );

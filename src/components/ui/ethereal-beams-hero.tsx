@@ -498,14 +498,14 @@ export default function EtherealBeamsHero() {
           >
             <a
               href="/planos"
-              className="inline-flex items-center gap-2 px-8 py-4 2xl:px-10 2xl:py-5 rounded-full bg-yellow-500 text-black font-semibold hover:bg-yellow-400 transition-colors"
+              className="inline-flex items-center gap-2 px-8 py-4 2xl:px-10 2xl:py-5 rounded-button bg-yellow-500 text-black font-semibold hover:bg-yellow-400 transition-colors"
             >
               Começar grátis
               <ArrowRight className="w-4 h-4" />
             </a>
             <a
               href="#como-funciona"
-              className="inline-flex items-center gap-2 px-8 py-4 2xl:px-10 2xl:py-5 rounded-full bg-white/5 text-yellow-500 font-semibold border border-white/10 hover:bg-white/10 transition-colors"
+              className="inline-flex items-center gap-2 px-8 py-4 2xl:px-10 2xl:py-5 rounded-button bg-white/5 text-yellow-500 font-semibold border border-white/10 hover:bg-white/10 transition-colors"
             >
               <Github className="w-4 h-4" />
               Como Funciona

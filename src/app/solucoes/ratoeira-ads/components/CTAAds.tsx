@@ -112,7 +112,7 @@ export default function CTAAds() {
         <div className="mt-16">
           <Link
             href="/planos"
-            className="inline-flex items-center gap-2 px-8 py-4 sm:px-10 sm:py-5 bg-brand-primary text-white font-black rounded-full hover:bg-brand-primary-hover transition-all text-lg sm:text-xl shadow-xl shadow-brand-primary/20 hover:scale-105 active:scale-95"
+            className="inline-flex items-center gap-2 px-8 py-4 sm:px-10 sm:py-5 bg-brand-primary text-white font-black rounded-button hover:bg-brand-primary-hover transition-all text-lg sm:text-xl shadow-xl shadow-brand-primary/20 hover:scale-105 active:scale-95"
           >
             Começar grátis — ver planos
             <ArrowRight className="w-6 h-6" />

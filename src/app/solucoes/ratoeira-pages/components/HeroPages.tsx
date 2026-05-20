@@ -63,14 +63,14 @@ export default function HeroPages() {
             >
               <a
                 href="/planos"
-                className="inline-flex items-center gap-2 px-8 py-4 2xl:px-10 2xl:py-5 rounded-full bg-[#FF7E4A] text-white font-bold hover:bg-[#e86b3b] transition-colors"
+                className="inline-flex items-center gap-2 px-8 py-4 2xl:px-10 2xl:py-5 rounded-button bg-[#FF7E4A] text-white font-bold hover:bg-[#e86b3b] transition-colors"
               >
                 Começar grátis
                 <ArrowRight className="w-5 h-5" />
               </a>
               <a
                 href="#como-funciona"
-                className="inline-flex items-center gap-2 px-8 py-4 2xl:px-10 2xl:py-5 rounded-full bg-white/5 text-[#FF7E4A] font-semibold border border-white/10 hover:bg-white/10 transition-colors"
+                className="inline-flex items-center gap-2 px-8 py-4 2xl:px-10 2xl:py-5 rounded-button bg-white/5 text-[#FF7E4A] font-semibold border border-white/10 hover:bg-white/10 transition-colors"
               >
                 <MousePointerClick className="w-5 h-5" />
                 Como Funciona

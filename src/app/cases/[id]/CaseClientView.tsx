@@ -354,7 +354,7 @@ export default function CaseClientView({ caseData }: { caseData: CaseData }) {
           </p>
           <Link
             href="/planos"
-            className="relative z-10 inline-flex items-center justify-center px-10 py-5 bg-brand-primary hover:bg-brand-primary-hover text-black font-black rounded-full transition-all duration-300 text-xl shadow-xl shadow-brand-primary/20 hover:scale-105 active:scale-95"
+            className="relative z-10 inline-flex items-center justify-center px-10 py-5 bg-brand-primary hover:bg-brand-primary-hover text-black font-black rounded-button transition-all duration-300 text-xl shadow-xl shadow-brand-primary/20 hover:scale-105 active:scale-95"
           >
             Escolher Meu Plano
           </Link>

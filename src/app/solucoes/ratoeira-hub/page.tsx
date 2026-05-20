@@ -95,14 +95,14 @@ export default function RatoeiraHubPage() {
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <a
                   href="/planos"
-                  className="inline-flex items-center gap-2 px-8 py-4 2xl:px-10 2xl:py-5 rounded-full bg-gradient-to-r from-yellow-500 to-orange-500 text-black font-semibold hover:from-yellow-400 hover:to-orange-400 transition-colors"
+                  className="inline-flex items-center gap-2 px-8 py-4 2xl:px-10 2xl:py-5 rounded-button bg-gradient-to-r from-yellow-500 to-orange-500 text-black font-semibold hover:from-yellow-400 hover:to-orange-400 transition-colors"
                 >
                   Começar grátis
                   <ArrowRight className="w-5 h-5" />
                 </a>
                 <a
                   href="#como-funciona"
-                  className="inline-flex items-center gap-2 px-8 py-4 2xl:px-10 2xl:py-5 rounded-full bg-white/5 text-orange-400 font-semibold border border-white/10 hover:bg-white/10 transition-colors"
+                  className="inline-flex items-center gap-2 px-8 py-4 2xl:px-10 2xl:py-5 rounded-button bg-white/5 text-orange-400 font-semibold border border-white/10 hover:bg-white/10 transition-colors"
                 >
                   <MousePointerClick className="w-5 h-5" />
                   Como Funciona
@@ -548,7 +548,7 @@ export default function RatoeiraHubPage() {
 
           <Link
             href="/planos"
-            className="inline-flex items-center gap-2 px-10 py-5 mt-6 bg-gradient-to-r from-yellow-500 to-orange-500 text-black font-bold rounded-full hover:from-yellow-400 hover:to-orange-400 transition-all text-xl shadow-xl shadow-orange-500/20 hover:scale-105 active:scale-95"
+            className="inline-flex items-center gap-2 px-10 py-5 mt-6 bg-gradient-to-r from-yellow-500 to-orange-500 text-black font-bold rounded-button hover:from-yellow-400 hover:to-orange-400 transition-all text-xl shadow-xl shadow-orange-500/20 hover:scale-105 active:scale-95"
           >
             Ver planos e começar grátis
             <ArrowRight className="w-6 h-6" />
