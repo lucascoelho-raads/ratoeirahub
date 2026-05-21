@@ -58,14 +58,23 @@ export default function AppSection() {
             className="flex-1 flex justify-center"
           >
             <div className="relative">
-              <Image
-                src="/Notificações.png"
-                alt="App Ratoeira Ads - Notificações"
-                width={320}
-                height={640}
-                className="relative z-10 drop-shadow-2xl"
-                priority
-              />
+              {/* Phone frame */}
+              <div className="w-[280px] h-[570px] sm:w-[300px] sm:h-[610px] rounded-[2.5rem] border-[6px] border-[#1a1a1a] bg-[#0d0d0d] shadow-2xl shadow-black/60 overflow-hidden relative">
+                {/* Notch */}
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-28 h-6 bg-[#0d0d0d] rounded-b-2xl z-20" />
+                
+                {/* Screen content — image */}
+                <div className="absolute inset-0 z-10">
+                  <Image
+                    src="/Notificações.png"
+                    alt="App Ratoeira Ads - Notificações"
+                    fill
+                    className="object-cover object-top"
+                    priority
+                  />
+                </div>
+              </div>
+
               {/* Glow effect */}
               <div className="absolute -inset-4 bg-brand-primary/10 rounded-[3rem] blur-2xl -z-10" />
             </div>

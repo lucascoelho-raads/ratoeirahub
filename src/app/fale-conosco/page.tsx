@@ -40,11 +40,11 @@ export default function FaleConoscoPage() {
               <div className="space-y-4">
                 <div className="flex justify-between items-center py-3 border-b border-gray-200">
                   <span className="text-gray-600 font-medium">Segunda a Sexta</span>
-                  <span className="text-gray-900 font-bold">08:00 — 20:00</span>
+                  <span className="text-gray-900 font-bold whitespace-nowrap">08:00 — 20:00</span>
                 </div>
                 <div className="flex justify-between items-center py-3">
                   <span className="text-gray-600 font-medium">Sábado, Domingo e Feriados</span>
-                  <span className="text-gray-900 font-bold">08:00 — 16:00</span>
+                  <span className="text-gray-900 font-bold whitespace-nowrap">08:00 — 16:00</span>
                 </div>
               </div>
             </div>
@@ -55,11 +55,11 @@ export default function FaleConoscoPage() {
               <div className="space-y-4">
                 <div className="flex justify-between items-center py-3 border-b border-gray-200">
                   <span className="text-gray-600 font-medium">Segunda a Sexta</span>
-                  <span className="text-gray-900 font-bold">08:00 — 17:00</span>
+                  <span className="text-gray-900 font-bold whitespace-nowrap">08:00 — 17:00</span>
                 </div>
                 <div className="flex justify-between items-center py-3">
                   <span className="text-gray-600 font-medium">Sábado</span>
-                  <span className="text-gray-900 font-bold">08:00 — 16:00</span>
+                  <span className="text-gray-900 font-bold whitespace-nowrap">08:00 — 12:00</span>
                 </div>
               </div>
             </div>
