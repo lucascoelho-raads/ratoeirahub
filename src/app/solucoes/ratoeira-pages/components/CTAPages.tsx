@@ -3,11 +3,11 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import { AuroraBackground } from "@/components/ui/animated-background";
+
 
 export default function CTAPages() {
   return (
-    <AuroraBackground className="flex items-center justify-center min-h-[auto] md:min-h-[clamp(600px,70vh,900px)] py-16 md:py-24">
+    <section className="flex items-center justify-center min-h-[auto] md:min-h-[clamp(600px,70vh,900px)] py-16 md:py-24 bg-white">
       <div className="max-w-4xl mx-auto px-4 relative z-20 text-center w-full">
         <motion.div
           initial={{ opacity: 0, scale: 0.95, y: 20 }}
@@ -16,10 +16,10 @@ export default function CTAPages() {
           transition={{ duration: 0.7, ease: "easeOut" }}
           className="flex flex-col items-center w-full max-w-6xl mx-auto"
         >
-          <h2 className="text-[clamp(2.25rem,3.2vw,4.5rem)] font-black text-white mb-6 tracking-tight drop-shadow-xl">
-            Sua <span className="text-orange-500">próxima página</span> já poderia estar no ar.
+          <h2 className="text-[clamp(2.25rem,3.2vw,4.5rem)] font-black text-[#111827] mb-6 tracking-tight">
+            Sua <span className="text-orange-500">próxima página</span> já poderia<br />estar no ar.
           </h2>
-          <p className="text-[clamp(1.1rem,1.25vw,1.5rem)] text-gray-300 max-w-3xl mx-auto drop-shadow-md mb-12 leading-relaxed">
+          <p className="text-[clamp(1.1rem,1.25vw,1.5rem)] text-[#4b5563] max-w-3xl mx-auto mb-12 leading-relaxed">
             Pare de perder tempo com ferramentas que não integram entre si. Com o{" "}
             <span className="text-[#FF7E4A] font-semibold">Ratoeira Pages</span>, você cria, publica e já começa a rastrear — tudo em um lugar, tudo conectado.
           </p>
@@ -33,6 +33,6 @@ export default function CTAPages() {
           </Link>
         </motion.div>
       </div>
-    </AuroraBackground>
+    </section>
   );
 }

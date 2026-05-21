@@ -76,14 +76,15 @@ export function Features() {
         <div className="space-y-24">
           {slides.map((slide, index) => {
             const isReversed = index % 2 === 1;
+            const isLight = index % 2 === 0;
 
             return (
               <div
                 key={slide.key}
-                className={`flex flex-col ${isReversed ? "md:flex-row-reverse" : "md:flex-row"} items-center gap-12 md:gap-24`}
+                className={`flex flex-col ${isReversed ? "md:flex-row-reverse" : "md:flex-row"} items-center gap-12 md:gap-24 rounded-3xl border p-8 md:p-12 ${isLight ? "bg-white border-black/10" : "bg-[#111111] border-white/10"}`}
               >
                 <div className="flex-1 space-y-6 w-full">
-                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#FF7E4A]/20 to-[#FF7E4A]/8 flex items-center justify-center border border-white/10">
+                  <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br from-[#FF7E4A]/20 to-[#FF7E4A]/8 flex items-center justify-center border ${isLight ? "border-black/10" : "border-white/10"}`}>
                     <Zap className="w-8 h-8 text-[#FF7E4A]" />
                   </div>
                   <h3 className="text-3xl md:text-4xl font-black leading-tight">
@@ -91,11 +92,11 @@ export function Features() {
                       {slide.titlePrefix} {slide.titleHighlight}
                     </GradientText>
                   </h3>
-                  <p className="text-xl text-gray-400 leading-relaxed">{slide.description}</p>
+                  <p className={`text-xl leading-relaxed ${isLight ? "text-[#4b5563]" : "text-gray-400"}`}>{slide.description}</p>
                 </div>
 
                 <div className="flex-1 w-full">
-                  <div className="relative aspect-video rounded-2xl border border-white/10 bg-[#111111] overflow-hidden">
+                  <div className={`relative aspect-video rounded-2xl border overflow-hidden ${isLight ? "border-black/10 bg-[#f3f4f6]" : "border-white/10 bg-[#111111]"}`}>
                     <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(80%_70%_at_50%_40%,rgba(255,126,74,0.14)_0%,rgba(0,0,0,0)_70%)]" />
                     <Image
                       src={slide.imageSrc}

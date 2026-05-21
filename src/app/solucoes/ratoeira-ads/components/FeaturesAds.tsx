@@ -83,10 +83,10 @@ export default function FeaturesAds() {
             return (
               <div
                 key={slide.title}
-                className={`flex flex-col ${isReversed ? "md:flex-row-reverse" : "md:flex-row"} items-center gap-8 md:gap-12 lg:gap-24`}
+                className={`flex flex-col ${isReversed ? "md:flex-row-reverse" : "md:flex-row"} items-center gap-8 md:gap-12 lg:gap-24 rounded-3xl p-6 sm:p-8 ${index % 2 === 0 ? "bg-white" : "bg-[#0a0a0a]"}`}
               >
                 <div className="flex-1 space-y-6 w-full text-center md:text-left">
-                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-yellow-500/15 to-orange-500/15 flex items-center justify-center border border-white/10">
+                  <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br from-yellow-500/15 to-orange-500/15 flex items-center justify-center border ${index % 2 === 0 ? "border-black/10" : "border-white/10"}`}>
                     <Icon className="w-8 h-8 text-brand-primary" />
                   </div>
                   <h3 className="text-2xl sm:text-3xl md:text-4xl font-black leading-tight">
@@ -94,13 +94,13 @@ export default function FeaturesAds() {
                       {slide.title}
                     </GradientText>
                   </h3>
-                  <p className="text-base sm:text-xl text-gray-400 leading-relaxed">
+                  <p className={`text-base sm:text-xl leading-relaxed ${index % 2 === 0 ? "text-[#4b5563]" : "text-gray-400"}`}>
                     <BlurTextEffect key={`${slide.title}-desc`}>{slide.description}</BlurTextEffect>
                   </p>
                 </div>
 
                 <div className="flex-1 w-full">
-                  <div className="relative aspect-video rounded-2xl border border-white/10 bg-[#111111] overflow-hidden">
+                  <div className={`relative aspect-video rounded-2xl border overflow-hidden ${index % 2 === 0 ? "border-gray-200 bg-gray-50" : "border-white/10 bg-[#111111]"}`}>
                     <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(80%_70%_at_50%_40%,rgba(255,184,0,0.12)_0%,rgba(0,0,0,0)_70%)]" />
 
                     {slide.title === "Tracking Server-Side" ? (
