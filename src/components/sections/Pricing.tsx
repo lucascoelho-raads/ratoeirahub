@@ -71,7 +71,7 @@ export default function Pricing() {
   const [yearly, setYearly] = useState(false);
 
   return (
-    <section ref={ref} className="py-28 bg-gray-50/50" id="planos">
+    <section ref={ref} className="py-16 md:py-28 bg-gray-50/50" id="planos">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
@@ -83,7 +83,7 @@ export default function Pricing() {
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-yellow-50 border border-yellow-200 text-orange-700 text-sm font-semibold">
             💰 Preços
           </div>
-          <h2 className="text-4xl lg:text-5xl font-black text-gray-900 leading-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-gray-900 leading-tight">
             Simples, transparente,{" "}
             <span className="gradient-text">sem surpresas</span>
           </h2>

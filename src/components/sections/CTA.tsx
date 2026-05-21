@@ -12,7 +12,7 @@ export default function CTA() {
   return (
     <section
       ref={ref}
-      className="py-28 relative overflow-hidden bg-[#050505]"
+      className="py-16 md:py-28 relative overflow-hidden bg-[#050505]"
       id="parcerias"
     >
       {/* Background decoration */}
@@ -39,15 +39,15 @@ export default function CTA() {
           
 
           {/* Title */}
-          <h2 className="text-4xl lg:text-5xl font-black text-white leading-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white leading-tight">
             <span className="block text-white">Pare de operar no escuro.</span>
-            <span className="block text-2xl lg:text-3xl font-black text-brand-primary whitespace-normal sm:whitespace-nowrap">
+            <span className="block text-xl sm:text-2xl lg:text-3xl font-black text-brand-primary">
               Cada real investido merece uma origem rastreada.
             </span>
           </h2>
 
           {/* Subtitle */}
-          <p className="text-white text-lg max-w-2xl mx-auto leading-relaxed">
+          <p className="text-white text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
             Configure em minutos. Veja cada venda, cada lead, cada clique — no Google e no Meta. E tome a decisão que a
             maioria adia.
           </p>

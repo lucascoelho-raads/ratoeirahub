@@ -5,26 +5,26 @@ import { Linkedin, Instagram } from "lucide-react";
 
 export default function FoundersAbout() {
   return (
-    <section className="py-32 bg-[#050505] relative overflow-hidden">
+    <section className="py-16 md:py-32 bg-[#050505] relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         <div className="text-center mb-24">
-          <h2 className="text-4xl lg:text-5xl font-black text-white tracking-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight">
             <span className="text-brand-primary">Duas</span> pessoas. Um <span className="text-brand-primary">problema</span> real. Uma <span className="text-brand-primary">plataforma</span>
           </h2>
-          <p className="mt-4 text-xl text-gray-400 mx-auto whitespace-nowrap">
+          <p className="mt-4 text-base sm:text-xl text-gray-400 mx-auto text-center px-4">
             As mentes por trás do ecossistema que está revolucionando o tráfego pago.
           </p>
         </div>
 
-        <div className="space-y-24">
+        <div className="space-y-16 md:space-y-24">
           {/* Eitor Guimarães */}
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8 }}
-            className="flex flex-col md:flex-row items-center gap-12"
+            className="flex flex-col md:flex-row items-center gap-8 md:gap-12"
           >
             <div className="w-full md:w-5/12">
               <div className="relative aspect-[4/5] rounded-3xl overflow-hidden bg-[#111111] border border-white/10 group">
@@ -36,13 +36,13 @@ export default function FoundersAbout() {
               </div>
             </div>
             
-            <div className="w-full md:w-7/12 space-y-6">
+            <div className="w-full md:w-7/12 space-y-6 text-center md:text-left">
               <div>
-                <h3 className="text-3xl font-black text-white mb-2">Eitor Guimarães</h3>
+                <h3 className="text-2xl sm:text-3xl font-black text-white mb-2">Eitor Guimarães</h3>
                 <p className="text-brand-primary font-bold tracking-widest uppercase text-sm">Co-Fundador & CEO</p>
               </div>
               
-              <div className="space-y-4 text-gray-400 leading-relaxed text-lg">
+              <div className="space-y-4 text-gray-400 leading-relaxed text-base sm:text-lg text-center md:text-left">
                 <p>
                   Formado pela UNICAMP, Eitor construiu sua carreira em analytics e inteligência de mercado — passando por
                   3M (onde se certificou como Lean Six Sigma Green Belt) e PepsiCo, onde liderou times de Business
@@ -54,7 +54,7 @@ export default function FoundersAbout() {
                 </p>
               </div>
               
-              <div className="flex items-center gap-4 pt-4">
+              <div className="flex items-center gap-4 pt-4 justify-center md:justify-start">
                 <a href="#" className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:text-white hover:border-brand-primary transition-colors">
                   <Linkedin className="w-5 h-5" />
                 </a>
@@ -71,7 +71,7 @@ export default function FoundersAbout() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8 }}
-            className="flex flex-col md:flex-row-reverse items-center gap-12"
+            className="flex flex-col md:flex-row-reverse items-center gap-8 md:gap-12"
           >
             <div className="w-full md:w-5/12">
               <div className="relative aspect-[4/5] rounded-3xl overflow-hidden bg-[#111111] border border-white/10 group">
@@ -83,7 +83,7 @@ export default function FoundersAbout() {
               </div>
             </div>
             
-            <div className="w-full md:w-7/12 space-y-6 md:text-right">
+            <div className="w-full md:w-7/12 space-y-6 text-center md:text-right">
               <div>
                 <h3 className="text-3xl font-black text-white mb-2">Paulo Furtado</h3>
                 <p className="text-brand-primary font-bold tracking-widest uppercase text-sm">Co-Fundador & CTO</p>
@@ -100,7 +100,7 @@ export default function FoundersAbout() {
                 </p>
               </div>
               
-              <div className="flex items-center gap-4 pt-4 md:justify-end">
+              <div className="flex items-center gap-4 pt-4 justify-center md:justify-end">
                 <a href="#" className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:text-white hover:border-brand-primary transition-colors">
                   <Linkedin className="w-5 h-5" />
                 </a>

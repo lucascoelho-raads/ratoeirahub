@@ -15,7 +15,7 @@ export default function CTAAds() {
   });
 
   return (
-    <section className="py-32 bg-[#050505] relative overflow-hidden flex flex-col items-center justify-center min-h-[clamp(700px,90vh,1100px)]">
+    <section className="py-16 md:py-32 bg-[#050505] relative overflow-hidden flex flex-col items-center justify-center min-h-[auto] md:min-h-[clamp(700px,90vh,1100px)]">
       
       {/* Background glow para o Radar */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-brand-primary/10 rounded-full blur-[150px] pointer-events-none z-0" />
@@ -101,10 +101,10 @@ export default function CTAAds() {
           transition={{ duration: 0.7, ease: "easeOut" }}
           className="flex flex-col items-center w-full max-w-6xl mx-auto"
         >
-          <h2 className="text-[clamp(2.25rem,3.2vw,4.5rem)] font-black text-white mb-6 tracking-tight drop-shadow-[0_0_15px_rgba(0,0,0,0.8)]">
+          <h2 className="text-[clamp(1.75rem,6vw,4.5rem)] font-black text-white mb-6 tracking-tight drop-shadow-[0_0_15px_rgba(0,0,0,0.8)] px-4">
             Pare de tomar decisão com dado <span className="text-brand-primary">incompleto</span>.
           </h2>
-          <p className="text-[clamp(1.1rem,1.25vw,1.5rem)] text-gray-300 max-w-3xl mx-auto drop-shadow-[0_0_10px_rgba(0,0,0,0.8)] leading-relaxed">
+          <p className="text-base sm:text-[clamp(1.1rem,1.25vw,1.5rem)] text-gray-300 max-w-3xl mx-auto drop-shadow-[0_0_10px_rgba(0,0,0,0.8)] leading-relaxed px-4">
             Configure a <span className="text-brand-primary font-semibold">Ratoeira Ads</span> em minutos e descubra o ROI real das suas campanhas com rastreamento ~100% e proteção automática no Google Ads.
           </p>
         </motion.div>

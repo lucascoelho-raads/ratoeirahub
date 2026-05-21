@@ -63,19 +63,19 @@ export default function FeaturesAds() {
   });
 
   return (
-    <section id="como-funciona" className="py-24 bg-[#0a0a0a]">
+    <section id="como-funciona" className="py-16 md:py-24 bg-[#0a0a0a]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16 max-w-4xl mx-auto">
-          <h2 className="text-3xl md:text-5xl font-black text-white mb-6 whitespace-nowrap">
+          <h2 className="text-2xl sm:text-3xl md:text-5xl font-black text-white mb-6 text-center md:text-left">
             O fim do <span className="text-brand-primary">achismo</span> no tráfego pago.
           </h2>
-          <p className="text-gray-400 text-lg max-w-3xl mx-auto">
+          <p className="text-gray-400 text-base sm:text-lg max-w-3xl mx-auto text-center md:text-left">
             A Ratoeira Ads atua em 6 frentes para garantir que você saiba exatamente qual anúncio gerou cada centavo de
             resultado — no Google Ads e no Meta Ads.
           </p>
         </div>
 
-        <div className="space-y-24">
+        <div className="space-y-16 md:space-y-24">
           {slides.map((slide, index) => {
             const isReversed = index % 2 === 1;
             const Icon = slide.icon;
@@ -83,18 +83,18 @@ export default function FeaturesAds() {
             return (
               <div
                 key={slide.title}
-                className={`flex flex-col ${isReversed ? "md:flex-row-reverse" : "md:flex-row"} items-center gap-12 md:gap-24`}
+                className={`flex flex-col ${isReversed ? "md:flex-row-reverse" : "md:flex-row"} items-center gap-8 md:gap-12 lg:gap-24`}
               >
-                <div className="flex-1 space-y-6 w-full">
+                <div className="flex-1 space-y-6 w-full text-center md:text-left">
                   <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-yellow-500/15 to-orange-500/15 flex items-center justify-center border border-white/10">
                     <Icon className="w-8 h-8 text-brand-primary" />
                   </div>
-                  <h3 className="text-3xl md:text-4xl font-black leading-tight">
+                  <h3 className="text-2xl sm:text-3xl md:text-4xl font-black leading-tight">
                     <GradientText className="font-black">
                       {slide.title}
                     </GradientText>
                   </h3>
-                  <p className="text-xl text-gray-400 leading-relaxed">
+                  <p className="text-base sm:text-xl text-gray-400 leading-relaxed">
                     <BlurTextEffect key={`${slide.title}-desc`}>{slide.description}</BlurTextEffect>
                   </p>
                 </div>

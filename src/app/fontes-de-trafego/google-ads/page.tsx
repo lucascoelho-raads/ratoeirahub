@@ -16,19 +16,19 @@ export default function GoogleAdsPage() {
       <Navbar />
       <HeroGoogleAds />
 
-      <section className="py-24 bg-[#050505]">
+      <section className="py-16 md:py-24 bg-[#050505]">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-20 max-w-3xl mx-auto">
-            <h2 className="text-4xl md:text-5xl font-black text-white mb-6 tracking-tight">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white mb-6 tracking-tight">
               O <span className="text-brand-primary">Google Ads</span> só otimiza tão bem quanto o dado que recebe.
             </h2>
-            <p className="text-xl text-gray-300">
+            <p className="text-base sm:text-xl text-gray-300 px-4 sm:px-0">
               Quando o sinal é incompleto, o algoritmo aprende errado — e você paga por isso. A Ratoeira garante que cada
               conversão real chegue ao Google Ads com qualidade máxima, do clique ao pagamento.
             </p>
           </div>
 
-          <div className="space-y-24">
+          <div className="space-y-16 md:space-y-24">
             {[
               {
                 icon: Timer,
@@ -87,10 +87,10 @@ export default function GoogleAdsPage() {
                   <div className="w-16 h-16 rounded-2xl bg-brand-primary/10 flex items-center justify-center">
                     <feature.icon className="w-8 h-8 text-brand-primary" />
                   </div>
-                  <h3 className="text-3xl md:text-4xl font-black leading-tight text-white">
+                  <h3 className="text-2xl sm:text-3xl md:text-4xl font-black leading-tight text-white">
                     {feature.title}
                   </h3>
-                  <p className="text-xl text-gray-300 leading-relaxed">{feature.description}</p>
+                  <p className="text-base sm:text-xl text-gray-300 leading-relaxed">{feature.description}</p>
                 </div>
 
                 <div className={index % 2 === 1 ? "w-full lg:order-1" : "w-full lg:order-2"}>
@@ -118,7 +118,7 @@ export default function GoogleAdsPage() {
         </div>
       </section>
 
-      <section id="como-funciona" className="py-24 bg-[#0a0a0a]">
+      <section id="como-funciona" className="py-16 md:py-24 bg-[#0a0a0a]">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16 max-w-3xl mx-auto">
             <h2 className="text-4xl md:text-5xl font-black text-white mb-6 tracking-tight">

@@ -10,7 +10,7 @@ export default function MentorsRecommend() {
   const inView = useInView(sectionRef, { once: true, margin: "-80px" });
 
   return (
-    <section ref={sectionRef} className="py-24 bg-[#050505] relative overflow-hidden">
+    <section ref={sectionRef} className="py-16 md:py-24 bg-[#050505] relative overflow-hidden">
       <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-brand-primary/5 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -20,14 +20,14 @@ export default function MentorsRecommend() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl lg:text-6xl font-black text-white leading-tight tracking-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-6xl font-black text-white leading-tight tracking-tight">
             Os Maiores Mentores <br />
             <span className="text-brand-primary">Indicam a Ratoeira Hub</span>
           </h2>
         </motion.div>
 
         {/* Bento Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-6 auto-rows-[280px] md:auto-rows-[240px]">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 auto-rows-[240px] sm:auto-rows-[280px] md:auto-rows-[240px]">
           
           {/* Card 1: Large Video/Photo (2x2) */}
           <motion.div
@@ -46,9 +46,9 @@ export default function MentorsRecommend() {
             
             <div className="absolute bottom-0 left-0 w-full p-8">
               <BadgeCheck className="w-10 h-10 text-brand-primary mb-4" />
-              <h3 className="text-white text-3xl md:text-4xl font-black mb-2 leading-tight">Rafael Cardoso</h3>
+              <h3 className="text-white text-2xl sm:text-3xl md:text-4xl font-black mb-2 leading-tight">Rafael Cardoso</h3>
               <p className="text-brand-primary font-bold uppercase tracking-widest text-xs mb-6">Mentor de Agências</p>
-              <p className="text-gray-300 text-lg md:text-xl leading-relaxed font-medium">
+              <p className="text-gray-300 text-base sm:text-lg md:text-xl leading-relaxed font-medium">
                 &quot;Escalar tráfego sem a Ratoeira Hub é voar às cegas. A ferramenta é o diferencial competitivo das agências que faturam alto.&quot;
               </p>
             </div>
@@ -65,7 +65,7 @@ export default function MentorsRecommend() {
             <Quote className="absolute top-6 right-6 w-20 h-20 text-brand-primary/5 -rotate-12 group-hover:text-brand-primary/10 transition-colors duration-500" />
             
             <div className="relative z-10">
-              <p className="text-xl text-white font-medium mb-6 leading-snug line-clamp-3">
+              <p className="text-lg sm:text-xl text-white font-medium mb-6 leading-snug line-clamp-3">
                 &quot;A única plataforma de tracking que recomendo para meus alunos. Simples, robusta e não perde dados.&quot;
               </p>
               <div className="flex items-center gap-4">
@@ -128,7 +128,7 @@ export default function MentorsRecommend() {
             <div className="absolute inset-0 bg-gradient-to-b from-white/20 to-transparent" />
             <div className="relative z-10">
               <Users className="w-8 h-8 text-black mx-auto mb-3 opacity-80" />
-              <h3 className="text-5xl font-black text-black mb-1">+50</h3>
+              <h3 className="text-4xl sm:text-5xl font-black text-black mb-1">+50</h3>
               <p className="text-black/80 font-bold uppercase tracking-widest text-xs mb-3">Masterminds</p>
               <p className="text-black/70 text-xs font-semibold leading-tight px-2">
                 Recomendado oficialmente nas maiores imersões do Brasil.

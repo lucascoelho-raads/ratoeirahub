@@ -15,7 +15,7 @@ const galleryImages = [
 
 export default function GalleryAbout() {
   return (
-    <section className="py-32 bg-[#050505]">
+    <section className="py-16 md:py-32 bg-[#050505]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <motion.div
@@ -25,16 +25,16 @@ export default function GalleryAbout() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl lg:text-5xl font-black text-white tracking-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight">
             O <span className="text-brand-primary">time</span> por trás da <span className="text-brand-primary">plataforma</span>.
           </h2>
-          <p className="mt-4 text-xl text-gray-400 max-w-2xl mx-auto">
+          <p className="mt-4 text-base sm:text-xl text-gray-400 max-w-2xl mx-auto px-4 sm:px-0">
             Um time técnico, direto e obcecado com o problema do anunciante. A Ratoeira não foi construída em sala de reunião — foi construída por quem viveu o problema por dentro.
           </p>
         </motion.div>
 
         {/* Masonry-like Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
+        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-6">
           {galleryImages.map((img, index) => (
             <motion.div
               key={img.id}

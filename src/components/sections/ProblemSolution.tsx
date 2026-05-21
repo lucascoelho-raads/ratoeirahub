@@ -76,7 +76,7 @@ export default function ProblemSolution() {
   }, [activeHighlights, activeTab]);
 
   return (
-    <section ref={ref} className="py-24 bg-black" id="solucoes">
+    <section ref={ref} className="py-16 md:py-24 bg-black" id="solucoes">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
@@ -192,7 +192,7 @@ export default function ProblemSolution() {
               {contentParts.slice(1).map((part, index) => (
                 <p
                   key={`${activeTab}-remaining-${index}`}
-                  className="text-lg text-gray-300 leading-relaxed whitespace-pre-line text-left"
+                  className="text-lg text-gray-300 leading-relaxed whitespace-pre-line text-center sm:text-left"
                 >
                   {part}
                 </p>

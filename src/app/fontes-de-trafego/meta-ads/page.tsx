@@ -119,7 +119,7 @@ export default function MetaAdsTrafficSourcePage() {
 
       <section className="py-20 border-t border-white/5">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <div className="rounded-[32px] border border-white/10 bg-[#0A0A0A] p-10 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
+          <div className="rounded-[32px] border border-white/10 bg-[#0A0A0A] p-6 sm:p-10 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 sm:gap-8">
             <div>
               <h3 className="text-2xl sm:text-3xl font-black text-white tracking-tight">
                 Pronto para escalar{" "}

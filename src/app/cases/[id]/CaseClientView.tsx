@@ -64,7 +64,7 @@ export default function CaseClientView({ caseData }: { caseData: CaseData }) {
   return (
     <article ref={containerRef} className="relative bg-[#050505]">
       {/* 1. HERO PARALLAX */}
-      <div className="relative h-[80vh] min-h-[600px] w-full overflow-hidden flex items-center justify-center">
+      <div className="relative h-[60vh] sm:h-[80vh] min-h-[400px] sm:min-h-[600px] w-full overflow-hidden flex items-center justify-center">
         {/* Imagem de Fundo Parallax */}
         <motion.div 
           style={{ y: yHero, opacity: opacityHero, scale: scaleHero }}
@@ -117,7 +117,7 @@ export default function CaseClientView({ caseData }: { caseData: CaseData }) {
                 transition: { staggerChildren: 0.1, delayChildren: 0.3 },
               },
             }}
-            className="text-6xl md:text-8xl font-black mb-12 tracking-tight text-white drop-shadow-2xl flex flex-wrap justify-center gap-x-4"
+            className="text-4xl sm:text-6xl md:text-8xl font-black mb-8 sm:mb-12 tracking-tight text-white drop-shadow-2xl flex flex-wrap justify-center gap-x-4 px-4"
           >
             {caseData.name.split(" ").map((word, i) => (
               <motion.span
@@ -136,7 +136,7 @@ export default function CaseClientView({ caseData }: { caseData: CaseData }) {
       </div>
 
       {/* 2. OVERLAPPING RESULTS BAR */}
-      <div className="relative z-20 max-w-5xl mx-auto px-4 -mt-24 mb-32">
+      <div className="relative z-20 max-w-5xl mx-auto px-4 -mt-16 sm:-mt-24 mb-16 sm:mb-32">
         <motion.div 
           initial="hidden"
           whileInView="visible"
@@ -149,7 +149,7 @@ export default function CaseClientView({ caseData }: { caseData: CaseData }) {
               transition: { duration: 0.8, ease: "easeOut", staggerChildren: 0.15 } 
             }
           }}
-          className="flex flex-wrap justify-center gap-4 md:gap-6 bg-[#111111]/80 backdrop-blur-xl border border-white/10 p-6 md:p-8 rounded-[32px] shadow-2xl"
+          className="flex flex-wrap justify-center gap-3 sm:gap-4 md:gap-6 bg-[#111111]/80 backdrop-blur-xl border border-white/10 p-4 sm:p-6 md:p-8 rounded-[32px] shadow-2xl"
         >
           {caseData.results.map((res, i) => (
             <motion.div 
@@ -159,17 +159,17 @@ export default function CaseClientView({ caseData }: { caseData: CaseData }) {
                 visible: { opacity: 1, scale: 1, transition: { type: "spring", stiffness: 100 } }
               }}
               whileHover={{ scale: 1.05, backgroundColor: "rgba(255,255,255,0.1)" }}
-              className="flex items-center gap-3 bg-white/5 border border-white/5 px-6 py-4 rounded-2xl cursor-default transition-colors duration-300"
+              className="flex items-center gap-2 sm:gap-3 bg-white/5 border border-white/5 px-4 sm:px-6 py-3 sm:py-4 rounded-2xl cursor-default transition-colors duration-300"
             >
               <TrendingUp className="w-6 h-6 text-brand-primary" />
-              <span className="font-bold text-xl text-white">{res}</span>
+              <span className="font-bold text-sm sm:text-xl text-white">{res}</span>
             </motion.div>
           ))}
         </motion.div>
       </div>
 
       {/* 3. CONTEÚDO PRINCIPAL (Editorial Style) */}
-      <div className="max-w-4xl mx-auto px-4 pb-32">
+      <div className="max-w-4xl mx-auto px-4 pb-16 sm:pb-32">
         
         {/* O Desafio */}
         <motion.section 
@@ -187,11 +187,11 @@ export default function CaseClientView({ caseData }: { caseData: CaseData }) {
             >
               <Target className="w-6 h-6 text-red-500" />
             </motion.div>
-            <h2 className="text-4xl font-black text-white">O Desafio</h2>
+            <h2 className="text-3xl sm:text-4xl font-black text-white">O Desafio</h2>
           </div>
           <AnimatedText 
             text={caseData.challenge} 
-            className="text-2xl text-gray-400 leading-relaxed font-medium" 
+            className="text-lg sm:text-2xl text-gray-400 leading-relaxed font-medium" 
           />
         </motion.section>
 
@@ -251,11 +251,11 @@ export default function CaseClientView({ caseData }: { caseData: CaseData }) {
             >
               <CheckCircle className="w-6 h-6 text-emerald-500" />
             </motion.div>
-            <h2 className="text-4xl font-black text-white">A Solução Ratoeira</h2>
+            <h2 className="text-3xl sm:text-4xl font-black text-white">A Solução Ratoeira</h2>
           </div>
           <AnimatedText 
             text={caseData.solution} 
-            className="text-2xl text-gray-300 leading-relaxed font-medium" 
+            className="text-lg sm:text-2xl text-gray-300 leading-relaxed font-medium" 
           />
         </motion.section>
 
@@ -306,7 +306,7 @@ export default function CaseClientView({ caseData }: { caseData: CaseData }) {
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.8 }}
           whileHover={{ scale: 1.01 }}
-          className="relative p-10 md:p-16 bg-gradient-to-br from-[#111111] to-[#050505] border border-brand-primary/20 rounded-[40px] mb-32 shadow-2xl shadow-brand-primary/5 overflow-hidden group"
+          className="relative p-6 sm:p-10 md:p-16 bg-gradient-to-br from-[#111111] to-[#050505] border border-brand-primary/20 rounded-[32px] sm:rounded-[40px] mb-16 sm:mb-32 shadow-2xl shadow-brand-primary/5 overflow-hidden group"
         >
           {/* Efeito Glow Interno */}
           <div className="absolute top-0 right-0 w-64 h-64 bg-brand-primary/10 rounded-full blur-[80px] opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
@@ -319,7 +319,7 @@ export default function CaseClientView({ caseData }: { caseData: CaseData }) {
             <Quote className="absolute top-10 left-10 w-20 h-20 text-brand-primary/10 group-hover:text-brand-primary/20 transition-colors duration-500" />
           </motion.div>
 
-          <p className="relative z-10 text-3xl md:text-5xl font-bold text-white leading-tight italic mt-8 mb-12">
+          <p className="relative z-10 text-xl sm:text-3xl md:text-5xl font-bold text-white leading-tight italic mt-6 sm:mt-8 mb-8 sm:mb-12">
             &quot;{caseData.testimonial}&quot;
           </p>
           
@@ -331,8 +331,8 @@ export default function CaseClientView({ caseData }: { caseData: CaseData }) {
               <img src={caseData.photo} alt={caseData.name} className="w-full h-full object-cover" />
             </motion.div>
             <div>
-              <p className="font-black text-2xl text-white">{caseData.name}</p>
-              <p className="text-brand-primary text-lg font-semibold">{caseData.role}</p>
+              <p className="font-black text-xl sm:text-2xl text-white">{caseData.name}</p>
+              <p className="text-brand-primary text-base sm:text-lg font-semibold">{caseData.role}</p>
             </div>
           </div>
         </motion.blockquote>
@@ -343,18 +343,18 @@ export default function CaseClientView({ caseData }: { caseData: CaseData }) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.8 }}
-          className="text-center p-16 bg-gradient-to-b from-[#111111] to-[#0a0a0a] border border-white/10 rounded-[40px] relative overflow-hidden group"
+          className="text-center p-8 sm:p-16 bg-gradient-to-b from-[#111111] to-[#0a0a0a] border border-white/10 rounded-[32px] sm:rounded-[40px] relative overflow-hidden group"
         >
           {/* Efeito hover background */}
           <div className="absolute inset-0 bg-brand-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
           
-          <h3 className="text-4xl md:text-5xl font-black mb-6 relative z-10">Pronto para ser o próximo case de sucesso?</h3>
-          <p className="text-xl text-gray-400 mb-10 max-w-2xl mx-auto relative z-10">
+          <h3 className="text-2xl sm:text-4xl md:text-5xl font-black mb-4 sm:mb-6 relative z-10">Pronto para ser o próximo case de sucesso?</h3>
+          <p className="text-base sm:text-xl text-gray-400 mb-8 sm:mb-10 max-w-2xl mx-auto relative z-10">
             Pare de perder dinheiro com tráfego sujo e páginas lentas. Venha para o ecossistema Ratoeira Hub.
           </p>
           <Link
             href="/planos"
-            className="relative z-10 inline-flex items-center justify-center px-10 py-5 bg-brand-primary hover:bg-brand-primary-hover text-black font-black rounded-button transition-all duration-300 text-xl shadow-xl shadow-brand-primary/20 hover:scale-105 active:scale-95"
+            className="relative z-10 inline-flex items-center justify-center px-6 sm:px-10 py-4 sm:py-5 bg-brand-primary hover:bg-brand-primary-hover text-black font-black rounded-button transition-all duration-300 text-base sm:text-xl shadow-xl shadow-brand-primary/20 hover:scale-105 active:scale-95"
           >
             Escolher Meu Plano
           </Link>

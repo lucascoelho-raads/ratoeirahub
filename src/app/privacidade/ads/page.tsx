@@ -13,7 +13,7 @@ export default function PrivacidadeAdsPage() {
     <main className="flex flex-col flex-1 min-h-screen bg-[#050505] text-white">
       <Navbar />
 
-      <div className="flex-1 py-32 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto w-full">
+      <div className="flex-1 py-20 md:py-32 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto w-full">
         <div className="mb-12">
           <Link
             href="/"
@@ -22,7 +22,7 @@ export default function PrivacidadeAdsPage() {
             <ArrowLeft className="w-4 h-4" />
             Voltar para a Home
           </Link>
-          <h1 className="text-4xl md:text-5xl font-black text-white mb-4 tracking-tight">Política de Privacidade</h1>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-black text-white mb-4 tracking-tight">Política de Privacidade</h1>
           <p className="text-brand-primary font-bold uppercase tracking-widest text-sm mb-4">Ratoeira Ads</p>
           <p className="text-gray-400 text-lg">Sua segurança e privacidade são nossa prioridade.</p>
         </div>

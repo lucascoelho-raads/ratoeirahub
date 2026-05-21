@@ -4,26 +4,26 @@ import { motion } from "framer-motion";
 
 export default function CTAPartnerships() {
   return (
-    <section id="formulario-parceria" className="py-24 bg-[#050505] relative scroll-mt-20">
+    <section id="formulario-parceria" className="py-16 md:py-24 bg-[#050505] relative scroll-mt-20">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="bg-gradient-to-br from-[#161616] to-[#111111] border border-white/10 rounded-[40px] p-10 md:p-16 text-center relative overflow-hidden shadow-2xl"
+          className="bg-gradient-to-br from-[#161616] to-[#111111] border border-white/10 rounded-[32px] sm:rounded-[40px] p-6 sm:p-10 md:p-16 text-center relative overflow-hidden shadow-2xl"
         >
           {/* Decorative glow */}
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[80%] h-32 bg-brand-primary/20 blur-[80px] rounded-full pointer-events-none" />
           
-          <h2 className="text-3xl md:text-5xl font-black text-white mb-6 tracking-tight relative z-10">
+          <h2 className="text-2xl sm:text-3xl md:text-5xl font-black text-white mb-6 tracking-tight relative z-10">
             Pronto para multiplicar seus ganhos?
           </h2>
-          <p className="text-gray-400 text-lg mb-10 max-w-xl mx-auto relative z-10">
+          <p className="text-gray-400 text-base sm:text-lg mb-8 sm:mb-10 max-w-xl mx-auto relative z-10">
             Preencha o formulário rápido abaixo. Nosso time de parcerias analisará seu perfil e entrará em contato com os próximos passos.
           </p>
 
-          <div className="bg-[#050505] border border-white/5 rounded-3xl p-8 relative z-10">
+          <div className="bg-[#050505] border border-white/5 rounded-3xl p-4 sm:p-8 relative z-10">
             <p className="text-gray-500 font-medium text-sm mb-4 uppercase tracking-widest">
               Formulário de Aplicação
             </p>

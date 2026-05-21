@@ -13,7 +13,7 @@ export default function FAQPage() {
       <Navbar />
 
       {/* Hero Section */}
-      <section className="relative pt-40 pb-20 overflow-hidden">
+      <section className="relative pt-28 sm:pt-40 pb-16 sm:pb-20 overflow-hidden">
         {/* Background Gradients */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-brand-primary/10 blur-[120px] rounded-full pointer-events-none" />
         <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
@@ -24,7 +24,7 @@ export default function FAQPage() {
             Central de Ajuda
           </div>
           
-          <h1 className="text-5xl md:text-7xl font-black text-white mb-6 tracking-tight">
+          <h1 className="text-4xl sm:text-5xl md:text-7xl font-black text-white mb-6 tracking-tight">
             Como podemos <span className="text-brand-primary">ajudar?</span>
           </h1>
           
@@ -35,11 +35,11 @@ export default function FAQPage() {
       </section>
 
       {/* Accordion Section */}
-      <section className="relative z-10 pb-32 px-4 sm:px-6 lg:px-8">
+      <section className="relative z-10 pb-16 md:pb-32 px-4 sm:px-6 lg:px-8">
         <FAQAccordion />
         
         {/* CTA Support */}
-        <div className="mt-20 max-w-3xl mx-auto text-center bg-[#111111] border border-white/10 rounded-[32px] p-10 md:p-16">
+        <div className="mt-12 md:mt-20 max-w-3xl mx-auto text-center bg-[#111111] border border-white/10 rounded-[32px] p-6 sm:p-10 md:p-16">
           <h3 className="text-2xl font-bold text-white mb-4">Ainda tem dúvidas?</h3>
           <p className="text-gray-400 mb-8 max-w-md mx-auto">
             Nossa equipe de especialistas está pronta para ajudar você a escalar suas operações com segurança.

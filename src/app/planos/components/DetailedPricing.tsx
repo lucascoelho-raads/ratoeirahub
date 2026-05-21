@@ -46,12 +46,12 @@ export default function DetailedPricing() {
   const isMonthly = subscriptionType === "MONTHLY";
 
   return (
-    <section className="py-24 bg-[#050505] relative overflow-hidden">
+    <section className="py-16 md:py-24 bg-[#050505] relative overflow-hidden">
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-brand-primary/5 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="mb-12 text-center sm:mb-16">
-          <h2 className="mb-4 text-3xl font-black tracking-tight sm:text-5xl text-white">
+          <h2 className="mb-4 text-2xl sm:text-3xl font-black tracking-tight md:text-5xl text-white">
             Compare os planos em detalhes
           </h2>
           <p className="text-sm text-gray-400 sm:text-base max-w-2xl mx-auto">
@@ -108,7 +108,7 @@ export default function DetailedPricing() {
           <div className="p-6 border-b border-white/10 text-center">
             <div className="mb-4 flex items-end justify-center gap-1">
               <span className="text-gray-400 text-lg">R$</span>
-              <span className="text-5xl font-black text-white">
+              <span className="text-4xl sm:text-5xl font-black text-white">
                 <NumberFlow
                   value={isMonthly ? PRICING_PAGE_PLANS[activePlanIndex].monthlyPrice : PRICING_PAGE_PLANS[activePlanIndex].yearlyPrice}
                 />

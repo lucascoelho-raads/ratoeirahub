@@ -6,7 +6,7 @@ import { ArrowRight, Zap, BarChart3, ShieldCheck } from "lucide-react";
 
 export default function PlatformCTAAbout() {
   return (
-    <section className="py-32 bg-gray-50 relative overflow-hidden">
+    <section className="py-16 md:py-32 bg-gray-50 relative overflow-hidden">
       {/* Background Accent */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-orange-100 blur-[120px] rounded-full opacity-50 pointer-events-none" />
 
@@ -18,7 +18,7 @@ export default function PlatformCTAAbout() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="bg-white p-12 lg:p-16 rounded-3xl shadow-xl border border-gray-100 mb-32 relative overflow-hidden"
+          className="bg-white p-6 sm:p-12 lg:p-16 rounded-3xl shadow-xl border border-gray-100 mb-16 md:mb-32 relative overflow-hidden"
         >
           {/* Decorative Corner */}
           <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-bl from-orange-50 to-transparent rounded-bl-full" />
@@ -43,11 +43,11 @@ export default function PlatformCTAAbout() {
             </div>
 
             <div className="space-y-6">
-              <h2 className="text-3xl lg:text-5xl font-black text-gray-900 tracking-tight leading-tight">
+              <h2 className="text-2xl sm:text-3xl lg:text-5xl font-black text-gray-900 tracking-tight leading-tight text-center lg:text-left">
                 Somos o ecossistema <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-amber-500">definitivo</span> para escala.
               </h2>
-              <p className="text-gray-600 leading-relaxed text-lg">
+              <p className="text-gray-600 leading-relaxed text-base sm:text-lg text-center lg:text-left">
                 Projetamos a Ratoeira Hub para aniquilar o desperdício de verba e a complexidade técnica. 
                 Oferecemos uma solução segura, rápida e abrangente que une rastreamento cirúrgico e páginas 
                 de altíssima conversão em um único lugar.
@@ -65,14 +65,14 @@ export default function PlatformCTAAbout() {
             transition={{ duration: 0.8 }}
             className="space-y-8"
           >
-            <h2 className="text-5xl lg:text-7xl font-black text-gray-900 tracking-tight leading-tight">
+            <h2 className="text-4xl sm:text-5xl lg:text-7xl font-black text-gray-900 tracking-tight leading-tight text-center lg:text-left">
               Vamos <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-amber-500">
                 Transformar
               </span><br />
               sua operação?
             </h2>
-            <p className="text-gray-600 text-xl max-w-md leading-relaxed">
+            <p className="text-gray-600 text-lg sm:text-xl max-w-md leading-relaxed text-center lg:text-left mx-auto lg:mx-0">
               Pare de perder dinheiro com cliques desqualificados. Dê o próximo passo na sua jornada de escala.
             </p>
           </motion.div>

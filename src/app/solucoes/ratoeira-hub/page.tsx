@@ -83,11 +83,11 @@ export default function RatoeiraHubPage() {
             </div>
 
             <div className="max-w-6xl text-center">
-              <h1 className="text-[clamp(2.75rem,4.2vw,6rem)] font-black text-white tracking-tight leading-[1.04] mb-8">
+              <h1 className="text-[clamp(2rem,8vw,6rem)] font-black text-white tracking-tight leading-[1.04] mb-8">
                 Quando Ads e Pages trabalham juntos, sua operação chega onde nenhuma ferramenta sozinha chega.
               </h1>
 
-              <p className="text-[clamp(1.05rem,1.25vw,1.35rem)] text-neutral-400 mb-12 max-w-3xl mx-auto">
+              <p className="text-base sm:text-[clamp(1.05rem,1.25vw,1.35rem)] text-neutral-400 mb-12 max-w-3xl mx-auto px-4 sm:px-0">
                 Rastreamento ~100%. Páginas que carregam em menos de 1 segundo. Bloqueio automático de fraude. Tudo integrado
                 via API — e funcionando melhor do que a soma das partes.
               </p>
@@ -128,40 +128,40 @@ export default function RatoeiraHubPage() {
         </BeamsBackground>
       </section>
 
-      <section id="como-funciona" className="py-24 bg-[#050505] relative border-t border-white/5">
+      <section id="como-funciona" className="py-16 md:py-24 bg-[#050505] relative border-t border-white/5">
         <div className="max-w-7xl mx-auto px-4 relative z-10">
           <div className="text-center mb-20">
-            <h2 className="text-4xl md:text-5xl font-black text-white mb-6">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white mb-6">
               Integrado é diferente de{" "}
               <span className="bg-gradient-to-r from-yellow-400 to-orange-500 bg-clip-text text-transparent">
                 conectado
               </span>
               .
             </h2>
-            <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+            <p className="text-base sm:text-xl text-gray-400 max-w-2xl mx-auto px-4 sm:px-0">
               A maioria das ferramentas se conecta. O Ratoeira Hub se integra — via API, em tempo real, sem gap entre o
               clique na página e o dado na campanha.
             </p>
           </div>
 
-          <div className="space-y-32">
+          <div className="space-y-16 md:space-y-32">
             {features.map((feature, index) => {
               const Icon = feature.icon;
               return (
                 <div
                   key={feature.title}
-                  className={`flex flex-col ${index % 2 === 1 ? "md:flex-row-reverse" : "md:flex-row"} items-center gap-12 md:gap-24`}
+                  className={`flex flex-col ${index % 2 === 1 ? "md:flex-row-reverse" : "md:flex-row"} items-center gap-8 md:gap-12 lg:gap-24`}
                 >
-                  <div className="flex-1 space-y-6">
+                  <div className="flex-1 space-y-6 text-center md:text-left">
                     <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-yellow-500/15 to-orange-500/15 flex items-center justify-center mb-6 border border-white/10">
                       <Icon className="w-8 h-8 text-orange-400" />
                     </div>
-                    <h3 className="text-3xl md:text-4xl font-black leading-tight">
+                    <h3 className="text-2xl sm:text-3xl md:text-4xl font-black leading-tight">
                       <GradientText variant="orange" className="font-black">
                         {feature.title}
                       </GradientText>
                     </h3>
-                    <p className="text-xl text-gray-400 leading-relaxed">
+                    <p className="text-base sm:text-xl text-gray-400 leading-relaxed">
                       {feature.description}
                     </p>
                   </div>
@@ -190,7 +190,7 @@ export default function RatoeiraHubPage() {
                                 </div>
                               </div>
 
-                              <div className="mt-7 grid grid-cols-3 items-center gap-3">
+                              <div className="mt-7 grid grid-cols-1 sm:grid-cols-3 items-center gap-3">
                                 <div className="rounded-xl border border-white/10 bg-black/30 p-3">
                                   <p className="text-[11px] font-semibold text-white/60">Página</p>
                                   <p className="mt-1 text-xs font-bold text-white">Click</p>
@@ -263,7 +263,7 @@ export default function RatoeiraHubPage() {
 
                           <div className="absolute inset-0 flex items-center justify-center px-6">
                             <div className="w-full max-w-xl rounded-2xl border border-white/10 bg-black/55 backdrop-blur-md p-5">
-                              <div className="grid grid-cols-3 gap-4 sm:gap-6">
+                              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
                                 <div>
                                   <p className="text-[11px] font-semibold text-white/60">Ads (isolado)</p>
                                   <div className="mt-2 relative h-28 rounded-xl bg-white/10 overflow-hidden">
@@ -307,7 +307,7 @@ export default function RatoeiraHubPage() {
                                 </span>
                               </div>
 
-                              <div className="grid grid-cols-2 gap-0">
+                              <div className="grid grid-cols-1 sm:grid-cols-2 gap-0">
                                 <div className="p-5 border-r border-white/10">
                                   <p className="text-[11px] font-semibold text-white/60">Uso isolado (Ads)</p>
                                   <p className="mt-2 text-2xl font-black text-white">
@@ -356,7 +356,7 @@ export default function RatoeiraHubPage() {
 
                           <div className="absolute inset-0 flex items-center justify-center px-6">
                             <div className="w-full max-w-2xl rounded-2xl border border-white/10 bg-black/55 backdrop-blur-md p-5">
-                              <div className="grid grid-cols-1 sm:grid-cols-4 gap-3">
+                              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
                                 {[
                                   { step: "1", label: "Criar página", badge: "Pages" },
                                   { step: "2", label: "Tracking ativo", badge: "API" },
@@ -412,12 +412,12 @@ export default function RatoeiraHubPage() {
         </div>
       </section>
 
-      <AuroraBackground className="flex items-center justify-center min-h-[clamp(600px,70vh,900px)] py-24">
+      <AuroraBackground className="flex items-center justify-center min-h-[auto] md:min-h-[clamp(600px,70vh,900px)] py-16 md:py-24">
         <div className="max-w-6xl mx-auto px-4 relative z-20 text-center w-full">
-          <h2 className="text-[clamp(2.25rem,3.2vw,4.5rem)] font-black text-white mb-6 tracking-tight drop-shadow-xl">
+          <h2 className="text-[clamp(1.75rem,6vw,4.5rem)] font-black text-white mb-6 tracking-tight drop-shadow-xl px-4">
             O ecossistema completo do tráfego pago. Em um lugar.
           </h2>
-          <p className="text-[clamp(1.1rem,1.25vw,1.5rem)] text-gray-300 max-w-3xl mx-auto drop-shadow-md mb-10 leading-relaxed">
+          <p className="text-base sm:text-[clamp(1.1rem,1.25vw,1.5rem)] text-gray-300 max-w-3xl mx-auto drop-shadow-md mb-10 leading-relaxed px-4">
             Ads + Pages integrados via API. Rastreamento ~100%. Páginas abaixo de 1 segundo. Bloqueio automático de fraude.
             Tudo que você precisa para escalar com dado real.
           </p>

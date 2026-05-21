@@ -20,9 +20,9 @@ export default function HeroAbout() {
             initial={{ opacity: 0, x: -40 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="space-y-8"
+            className="space-y-8 text-center lg:text-left"
           >
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-white/80">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-white/80 mx-auto lg:mx-0">
               <span className="text-sm font-semibold">NOSSA HISTÓRIA</span>
             </div>
 
@@ -32,7 +32,7 @@ export default function HeroAbout() {
               <GradientText className="font-black">Não de fora.</GradientText>
             </h1>
 
-            <div className="space-y-6 text-white/70 font-medium leading-relaxed max-w-xl text-[clamp(1rem,1.1vw,1.125rem)]">
+            <div className="space-y-6 text-white/70 font-medium leading-relaxed max-w-xl text-[clamp(1rem,1.1vw,1.125rem)] mx-auto lg:mx-0">
               <p>
                 Em dezembro de 2022, Eitor Guimarães anunciava como afiliado de Google Ads e aplicava o que sabia de
                 analytics corporativo a um problema que o mercado brasileiro ainda não havia resolvido: como capturar os

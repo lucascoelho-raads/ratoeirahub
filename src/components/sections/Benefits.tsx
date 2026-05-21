@@ -96,7 +96,7 @@ export default function Benefits() {
   }, [activeIndex]);
 
   return (
-    <section ref={ref} className="relative pt-28 pb-0 bg-[#050505]" id="solucoes">
+    <section ref={ref} className="relative pt-16 md:pt-28 pb-0 bg-[#050505]" id="solucoes">
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
@@ -105,7 +105,7 @@ export default function Benefits() {
           transition={{ duration: 0.7 }}
           className="text-center mb-20 space-y-6"
         >
-          <h2 className="text-4xl lg:text-5xl font-black text-text-inverse leading-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-text-inverse leading-tight">
             Por que <span style={{ color: "var(--color-brand-primary)" }}>+2.600 anunciantes</span> escolheram a{" "}
             <span className="whitespace-normal sm:whitespace-nowrap">Ratoeira Hub</span>
           </h2>
@@ -117,7 +117,7 @@ export default function Benefits() {
 
       </div>
 
-      <div className="relative z-10 min-h-[100dvh] sm:h-screen overflow-visible sm:overflow-hidden flex items-center">
+      <div className="relative z-10 min-h-[auto] sm:h-screen overflow-visible sm:overflow-hidden flex items-center">
         <div className="relative w-full h-full">
           <AnimatePresence mode="sync" initial={false}>
             <motion.article
@@ -144,23 +144,23 @@ export default function Benefits() {
                         "var(--color-brand-secondary)",
                         "var(--color-brand-primary-hover)",
                       ]}
-                      className="h-[78vh] min-h-[520px] w-full"
+                      className="h-auto min-h-[420px] sm:h-[78vh] sm:min-h-[520px] w-full"
                     >
-                      <div className="relative h-full rounded-card border border-white/10 bg-[#050505] shadow-card-resting p-6 md:p-10 lg:p-12 overflow-hidden">
+                      <div className="relative h-full rounded-card border border-white/10 bg-[#050505] shadow-card-resting p-5 sm:p-6 md:p-10 lg:p-12 overflow-hidden">
                         <BackgroundPaths reverse={benefit.imageLeft} />
                         <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center h-full">
                           <div className={benefit.imageLeft ? "order-2" : "order-1"}>
-                            <h3 className="mt-6 text-3xl lg:text-4xl font-black text-gray-50 leading-tight">
+                            <h3 className="mt-4 sm:mt-6 text-2xl sm:text-3xl lg:text-4xl font-black text-gray-50 leading-tight text-center lg:text-left">
                               {benefit.title}
                             </h3>
-                            <p className="mt-5 text-lg text-gray-200 leading-relaxed">
+                            <p className="mt-4 sm:mt-5 text-base sm:text-lg text-gray-200 leading-relaxed text-center lg:text-left">
                               {benefit.description}
                             </p>
                           </div>
 
                           <div className={benefit.imageLeft ? "order-1" : "order-2"}>
                             <div
-                              className="relative h-[320px] md:h-[380px] rounded-card border border-border-default overflow-hidden flex items-center justify-center"
+                              className="relative h-[220px] sm:h-[280px] md:h-[380px] rounded-card border border-border-default overflow-hidden flex items-center justify-center"
                               style={{
                                 background: benefit.imageLeft
                                   ? "linear-gradient(135deg, var(--color-brand-100) 0%, var(--color-brand-50) 100%)"
@@ -190,7 +190,7 @@ export default function Benefits() {
       </div>
 
       {/* Controls - outside card, below it */}
-      <div className="relative z-20 flex items-center justify-center gap-3 mt-6 pb-12 sm:pb-0 sm:absolute sm:bottom-6 sm:left-1/2 sm:-translate-x-1/2">
+      <div className="relative z-20 flex items-center justify-center gap-3 mt-4 pb-8 sm:pb-0 sm:absolute sm:bottom-6 sm:left-1/2 sm:-translate-x-1/2">
         <button
           type="button"
           onClick={goToPrev}

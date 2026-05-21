@@ -10,7 +10,7 @@ export default function CasesSocialProof() {
   const inView = useInView(sectionRef, { once: true, margin: "-80px" });
 
   return (
-    <section ref={sectionRef} className="pt-32 pb-24 bg-[#050505] relative overflow-hidden">
+    <section ref={sectionRef} className="pt-16 md:pt-32 pb-12 md:pb-24 bg-[#050505] relative overflow-hidden">
       {/* Background glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-brand-primary/5 rounded-full blur-[100px] pointer-events-none" />
 
@@ -25,17 +25,17 @@ export default function CasesSocialProof() {
           <div className="inline-flex items-center gap-2 px-4 py-2 mb-6 rounded-full bg-brand-primary/10 border border-brand-primary/20 text-brand-primary text-sm font-bold uppercase tracking-widest">
             Cases de Sucesso
           </div>
-          <h1 className="text-5xl lg:text-7xl font-black text-white leading-tight mb-6 tracking-tight">
+          <h1 className="text-3xl sm:text-5xl lg:text-7xl font-black text-white leading-tight mb-6 tracking-tight">
             Eles confiaram. <br />
             <span className="text-brand-primary">Eles escalaram.</span>
           </h1>
-          <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+          <p className="text-base sm:text-xl text-gray-400 max-w-2xl mx-auto">
             Não acredite apenas em nós. Veja o que os maiores players do mercado estão falando sobre o ecossistema Ratoeira Hub.
           </p>
         </motion.div>
 
         {/* Bento Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-6 auto-rows-[280px] md:auto-rows-[240px]">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 auto-rows-[240px] sm:auto-rows-[280px] md:auto-rows-[240px]">
           
           {/* Card 1: Award (1x1) */}
           <motion.div 
@@ -74,8 +74,8 @@ export default function CasesSocialProof() {
 
             <div className="absolute bottom-0 left-0 w-full p-8">
               <p className="text-brand-primary font-bold text-xs uppercase tracking-widest mb-3">Customer Story</p>
-              <h3 className="text-white text-3xl md:text-4xl font-black leading-tight mb-2">Michel Pogne</h3>
-              <p className="text-gray-300 text-lg">Especialista em Tráfego Pago</p>
+              <h3 className="text-white text-2xl sm:text-3xl md:text-4xl font-black leading-tight mb-2">Michel Pogne</h3>
+              <p className="text-gray-300 text-base sm:text-lg">Especialista em Tráfego Pago</p>
             </div>
           </motion.div>
 
@@ -125,7 +125,7 @@ export default function CasesSocialProof() {
             className="col-span-1 md:col-span-1 row-span-1 bg-[#111111] border border-white/5 rounded-[32px] p-6 flex flex-col items-center justify-center text-center group hover:border-brand-primary/30 transition-colors relative overflow-hidden"
           >
             <div className="absolute inset-0 bg-gradient-to-b from-transparent to-brand-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-            <h3 className="relative z-10 text-6xl font-black text-white mb-2">4.9</h3>
+            <h3 className="relative z-10 text-5xl sm:text-6xl font-black text-white mb-2">4.9</h3>
             <div className="relative z-10 flex gap-1 mb-3">
               {[...Array(5)].map((_, i) => (
                 <Star key={i} className="w-5 h-5 text-brand-primary fill-brand-primary" />
@@ -148,7 +148,7 @@ export default function CasesSocialProof() {
                   <Star key={i} className="w-4 h-4 text-brand-primary fill-brand-primary" />
                 ))}
               </div>
-              <p className="text-xl text-white font-medium mb-6 leading-snug line-clamp-3">
+              <p className="text-lg sm:text-xl text-white font-medium mb-6 leading-snug line-clamp-3">
                 &quot;ROI triplicou no primeiro mês bloqueando bots e com páginas voando de tão rápidas. Sem explicação!&quot;
               </p>
               <div className="flex items-center gap-3">

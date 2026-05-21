@@ -26,13 +26,13 @@ const tiers = [
 
 export default function CommissionStructure() {
   return (
-    <section className="py-24 bg-[#050505]">
+    <section className="py-16 md:py-24 bg-[#050505]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-black text-white mb-4 tracking-tight">
+          <h2 className="text-2xl sm:text-3xl md:text-5xl font-black text-white mb-4 tracking-tight">
             Estrutura de <span className="text-brand-primary">Comissionamento</span>
           </h2>
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+          <p className="text-gray-400 text-base sm:text-lg max-w-2xl mx-auto px-4 sm:px-0">
             Seu esforço é recompensado. Quanto mais clientes você traz para o ecossistema, maior é a sua porcentagem de participação na receita.
           </p>
         </div>
@@ -63,7 +63,7 @@ export default function CommissionStructure() {
               </div>
 
               <div className="text-center mb-8">
-                <div className="text-5xl font-black text-white mb-2">{tier.comission}</div>
+                <div className="text-4xl sm:text-5xl font-black text-white mb-2">{tier.comission}</div>
                 <p className="text-brand-primary font-bold text-sm uppercase tracking-widest">Recorrente</p>
               </div>
 

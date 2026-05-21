@@ -381,7 +381,7 @@ export default function PricingTabs() {
   }, [plans.length, activeTab]);
 
   return (
-    <section className="py-24 bg-black">
+    <section className="py-16 md:py-24 bg-black">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Tabs and Billing Toggle */}
         <div className="flex flex-col items-center gap-8 mb-16">
@@ -474,7 +474,7 @@ export default function PricingTabs() {
               >
                 {plan.popular && (
                   <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 px-4 py-1 bg-brand-primary text-black text-xs font-black uppercase tracking-widest rounded-full">
-                    <span className="whitespace-nowrap">Mais Escolhido</span>
+                    <span className="whitespace-normal sm:whitespace-nowrap">Mais Escolhido</span>
                   </div>
                 )}
                 <div className="mb-6">
@@ -702,7 +702,7 @@ export default function PricingTabs() {
                 >
                   {plan.popular && (
                     <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 px-4 py-1 bg-brand-primary text-black text-xs font-black uppercase tracking-widest rounded-full">
-                      <span className="whitespace-nowrap">Mais Escolhido</span>
+                      <span className="whitespace-normal sm:whitespace-nowrap">Mais Escolhido</span>
                     </div>
                   )}
 

@@ -33,14 +33,14 @@ const caseStudies = [
 
 export default function CasesList() {
   return (
-    <section className="py-24 bg-[#050505] relative">
+    <section className="py-16 md:py-24 bg-[#050505] relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        <div className="mb-16">
-          <h2 className="text-4xl font-black text-white mb-4">
+        <div className="mb-12 md:mb-16 text-center md:text-left">
+          <h2 className="text-3xl sm:text-4xl font-black text-white mb-4">
             Aprofunde-se nos <span className="text-brand-primary">Resultados</span>
           </h2>
-          <p className="text-gray-400 text-lg">
+          <p className="text-gray-400 text-base sm:text-lg">
             Estudos de caso detalhados com estratégias, métricas e setups completos.
           </p>
         </div>
@@ -66,14 +66,14 @@ export default function CasesList() {
                 
                 {/* Nome e Role sobre a imagem */}
                 <div className="absolute bottom-6 left-8">
-                  <p className="text-white font-black text-2xl">{caseStudy.name}</p>
+                  <p className="text-white font-black text-xl sm:text-2xl">{caseStudy.name}</p>
                   <p className="text-brand-primary font-semibold text-sm">{caseStudy.role}</p>
                 </div>
               </div>
 
               {/* Conteúdo Textual */}
               <div className="flex flex-col flex-1 p-8 pt-4">
-                <p className="text-gray-400 text-sm leading-relaxed mb-8 flex-1">
+                <p className="text-gray-400 text-sm leading-relaxed mb-6 md:mb-8 flex-1">
                   {caseStudy.summary}
                 </p>
 

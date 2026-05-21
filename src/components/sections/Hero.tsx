@@ -131,7 +131,7 @@ export default function Hero() {
                 >
                   <motion.h1
                     variants={itemVariants}
-                    className="text-[clamp(2.75rem,3.8vw,5.25rem)] font-extrabold tracking-tight leading-[1.04] break-words"
+                    className="text-[clamp(2rem,8vw,5.25rem)] font-extrabold tracking-tight leading-[1.04] break-words text-center lg:text-left"
                   >
                     <span className="text-white">Cada venda tem uma origem.</span>
                     <br />
@@ -140,7 +140,7 @@ export default function Hero() {
 
                   <motion.p
                     variants={itemVariants}
-                    className="text-[clamp(1rem,1.15vw,1.125rem)] text-white/70 leading-relaxed max-w-xl"
+                    className="text-[clamp(1rem,1.15vw,1.125rem)] text-white/70 leading-relaxed max-w-xl text-center lg:text-left"
                   >
                     Rastreamento ~100% para Google Ads e Meta Ads. Visitas, leads e vendas num único dashboard — em tempo
                     real.
@@ -149,11 +149,11 @@ export default function Hero() {
                   <motion.div variants={itemVariants} className="flex flex-col gap-2 pt-2">
                     <Link
                       href="#demo"
-                      className="inline-flex self-start items-center justify-center px-6 py-3 bg-brand-primary text-white font-semibold text-sm rounded-button hover:bg-brand-primary-hover transition-colors duration-200 text-center"
+                      className="inline-flex self-center lg:self-start items-center justify-center px-6 py-3 bg-brand-primary text-white font-semibold text-sm rounded-button hover:bg-brand-primary-hover transition-colors duration-200 text-center"
                     >
                       Começar grátis
                     </Link>
-                    <span className="text-white/60 text-sm">Plano gratuito disponível. Sem cartão.</span>
+                    <span className="text-white/60 text-sm text-center lg:text-left">Plano gratuito disponível. Sem cartão.</span>
                   </motion.div>
                 </motion.div>
 
@@ -255,18 +255,18 @@ export default function Hero() {
               />
               <div className="relative w-full h-full max-w-7xl 2xl:max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-12 2xl:px-16 grid grid-cols-1 lg:grid-cols-[1fr_1.1fr] 2xl:grid-cols-[1fr_1.25fr] gap-8 lg:gap-16 2xl:gap-20 items-start min-w-0 pt-[4.5rem] pb-8">
               <div className="flex flex-col gap-6">
-                <h2 className="text-[clamp(1.75rem,6vw,3.5rem)] sm:text-[clamp(2.25rem,5vw,4rem)] lg:text-[clamp(2.75rem,3.8vw,5.25rem)] font-extrabold tracking-tight leading-tight lg:leading-[1.04] text-white break-words">
+                <h2 className="text-[clamp(1.75rem,6vw,3.5rem)] sm:text-[clamp(2.25rem,5vw,4rem)] lg:text-[clamp(2.75rem,3.8vw,5.25rem)] font-extrabold tracking-tight leading-tight lg:leading-[1.04] text-white break-words text-center lg:text-left">
                   Páginas que convertem.{" "}
                   <span style={{ color: "var(--color-brand-primary)" }}>
                     Integradas ao seu tracking desde o primeiro clique.
                   </span>
                 </h2>
-                <p className="text-[clamp(0.875rem,3vw,1.125rem)] sm:text-[clamp(1rem,2vw,1.125rem)] text-white/70 leading-relaxed max-w-2xl">
+                <p className="text-[clamp(0.875rem,3vw,1.125rem)] sm:text-[clamp(1rem,2vw,1.125rem)] text-white/70 leading-relaxed max-w-2xl text-center lg:text-left">
                   Construtor visual com templates prontos, Flash Pages ultra-rápidas e geração por IA. Cada página já
                   nasce com o tracking integrado — sem scripts avulsos, sem configuração manual, sem dados perdidos
                   entre a página e a campanha.
                 </p>
-                <div className="flex items-center gap-3 pt-2">
+                <div className="flex items-center justify-center lg:justify-start gap-3 pt-2">
                   <Link
                     href="/solucoes/ratoeira-pages"
                     className="inline-flex items-center gap-2 px-6 py-3 bg-brand-primary text-white font-semibold text-sm rounded-button hover:bg-brand-primary-hover transition-colors duration-200"

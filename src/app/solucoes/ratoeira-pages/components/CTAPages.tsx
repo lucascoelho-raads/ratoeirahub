@@ -7,7 +7,7 @@ import { AuroraBackground } from "@/components/ui/animated-background";
 
 export default function CTAPages() {
   return (
-    <AuroraBackground className="flex items-center justify-center min-h-[clamp(600px,70vh,900px)] py-24">
+    <AuroraBackground className="flex items-center justify-center min-h-[auto] md:min-h-[clamp(600px,70vh,900px)] py-16 md:py-24">
       <div className="max-w-4xl mx-auto px-4 relative z-20 text-center w-full">
         <motion.div
           initial={{ opacity: 0, scale: 0.95, y: 20 }}

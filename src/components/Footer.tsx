@@ -90,10 +90,10 @@ export default function Footer() {
     <>
       {showTransformSection && (
         <section id="vamos-transformar" className={sectionClassName}>
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-24">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20 lg:py-24">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-20 items-center">
-              <div className="max-w-xl">
-                <h2 className={`text-5xl sm:text-6xl lg:text-7xl font-black tracking-tight leading-[0.98] ${titleBaseClassName}`}>
+              <div className="max-w-xl text-center lg:text-left mx-auto lg:mx-0">
+                <h2 className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tight leading-[0.98] ${titleBaseClassName}`}>
                   Vamos <span className="text-orange-500">estruturar</span> sua operação?
                 </h2>
                 <p className={`mt-7 text-base sm:text-lg leading-relaxed ${subtitleClassName}`}>
@@ -248,20 +248,20 @@ export default function Footer() {
       <footer className="bg-gray-950 text-gray-400">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Main footer */}
-          <div className="py-16 grid grid-cols-2 md:grid-cols-6 gap-8">
+          <div className="py-12 md:py-16 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-6 gap-8 text-center sm:text-left">
             {/* Brand column */}
-            <div className="col-span-2">
-              <Link href="/" className="flex items-center gap-2.5 group mb-5 w-fit">
+            <div className="col-span-1 sm:col-span-2">
+              <Link href="/" className="flex items-center gap-2.5 group mb-5 w-fit mx-auto sm:mx-0">
                 <div className="w-9 h-9 rounded-button bg-linear-to-br from-yellow-500 to-orange-500 flex items-center justify-center shadow-lg shadow-yellow-500/20">
                   <Zap className="w-5 h-5 text-white" />
                 </div>
                 <span className="text-xl font-black text-white">Ratoeira Hub</span>
               </Link>
-              <p className="text-sm text-gray-500 leading-relaxed mb-6 max-w-xs">
+              <p className="text-sm text-gray-500 leading-relaxed mb-6 max-w-xs mx-auto sm:mx-0">
                 A plataforma completa de rastreamento e páginas para anunciantes que querem escalar com dado real.
               </p>
               {/* Social */}
-              <div className="flex items-center gap-3">
+              <div className="flex items-center gap-3 justify-center sm:justify-start">
                 {socialLinks.map((social) => (
                   <a
                     key={social.label}

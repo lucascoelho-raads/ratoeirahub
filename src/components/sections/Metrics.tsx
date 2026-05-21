@@ -92,7 +92,7 @@ export default function Metrics() {
     <section
       ref={sectionRef}
       id="empresa"
-      className="relative py-24 overflow-hidden bg-black text-white"
+      className="relative py-16 md:py-24 overflow-hidden bg-black text-white"
     >
       {/* Background decoration */}
       <div
@@ -181,7 +181,7 @@ export default function Metrics() {
               </div>
 
               {/* Number */}
-              <div className="text-5xl lg:text-6xl font-black text-white mb-2 tabular-nums">
+              <div className="text-4xl sm:text-5xl lg:text-6xl font-black text-white mb-2 tabular-nums text-center sm:text-left">
                 {metric.value === 1 ? (
                   <span>
                     1<span className="text-yellow-500">B+</span>
@@ -195,8 +195,8 @@ export default function Metrics() {
               </div>
 
               {/* Label */}
-              <p className="text-white font-bold text-lg leading-tight">{metric.label}</p>
-              <p className="text-yellow-200/70 text-sm mt-1">{metric.description}</p>
+              <p className="text-white font-bold text-lg leading-tight text-center sm:text-left">{metric.label}</p>
+              <p className="text-yellow-200/70 text-sm mt-1 text-center sm:text-left">{metric.description}</p>
 
               {/* Hover glow */}
               <div className={`absolute inset-0 rounded-3xl bg-gradient-to-br ${metric.color} opacity-0 group-hover:opacity-10 transition-opacity duration-300`} />

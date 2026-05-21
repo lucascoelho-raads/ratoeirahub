@@ -53,12 +53,12 @@ export default function TimelineAbout() {
   const height = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
 
   return (
-    <section className="py-32 bg-[#050505] relative overflow-hidden">
+    <section className="py-16 md:py-32 bg-[#050505] relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         <div className="text-center mb-20">
-          <h2 className="text-4xl lg:text-5xl font-black text-white tracking-tight">Dois anos. O <span className="text-[#FFB800]">mercado</span> não é mais o <span className="text-[#FFB800]">mesmo</span></h2>
-          <p className="mt-4 text-xl text-gray-400 max-w-2xl mx-auto">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight">Dois anos. O <span className="text-[#FFB800]">mercado</span> não é mais o <span className="text-[#FFB800]">mesmo</span></h2>
+          <p className="mt-4 text-base sm:text-xl text-gray-400 max-w-2xl mx-auto px-4 sm:px-0">
             De uma descoberta individual a mais de 2.500 anunciantes que escalam com dado real.
           </p>
         </div>
@@ -73,7 +73,7 @@ export default function TimelineAbout() {
             className="absolute left-4 md:left-1/2 top-0 w-1 bg-gradient-to-b from-amber-500 to-orange-600 -translate-x-1/2 rounded-full shadow-[0_0_15px_rgba(245,158,11,0.6)] origin-top z-10" 
           />
 
-          <div className="space-y-24">
+          <div className="space-y-12 md:space-y-24">
             {milestones.map((item, index) => {
               const isLeft = item.align === "left";
               return (
@@ -90,18 +90,18 @@ export default function TimelineAbout() {
                     transition={{ duration: 0.6 }}
                     className={`w-full md:w-1/2 pl-12 md:pl-0 ${isLeft ? "md:pr-20 text-left" : "md:pl-20 md:order-2 text-left"}`}
                   >
-                    <div className="bg-[#111111] p-8 rounded-3xl shadow-lg border border-white/10 hover:shadow-xl transition-shadow relative group">
+                    <div className="bg-[#111111] p-5 sm:p-8 rounded-3xl shadow-lg border border-white/10 hover:shadow-xl transition-shadow relative group">
                       <div className={`absolute top-8 ${isLeft ? "-right-3" : "-left-3"} w-6 h-6 bg-[#111111] transform rotate-45 border-t border-r border-white/10 hidden md:block ${isLeft ? "" : "rotate-[-135deg]"}`} />
                       
                       <span className="inline-block px-4 py-1.5 rounded-full bg-orange-500/15 border border-orange-500/20 text-orange-300 font-bold text-sm mb-4">
                         {item.year}
                       </span>
-                      <h3 className="text-2xl font-bold text-white mb-3 tracking-tight">
+                      <h3 className="text-xl sm:text-2xl font-bold text-white mb-3 tracking-tight">
                         <GradientText className="font-bold">
                           {item.title}
                         </GradientText>
                       </h3>
-                      <p className="text-gray-400 leading-relaxed">
+                      <p className="text-gray-400 leading-relaxed text-sm sm:text-base">
                         {item.description}
                       </p>
                     </div>
