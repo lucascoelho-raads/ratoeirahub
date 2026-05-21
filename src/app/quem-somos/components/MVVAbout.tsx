@@ -59,9 +59,9 @@ export default function MVVAbout() {
   }, [valoresItems.length]);
 
   return (
-    <section id="manifesto" className="py-16 md:py-32 bg-[#050505] relative overflow-hidden">
+    <section id="manifesto" className="py-16 md:py-32 bg-white relative overflow-hidden">
       {/* Background Accent */}
-      <div className="absolute top-0 right-0 w-full h-full bg-gradient-to-b from-white/5 to-transparent pointer-events-none" />
+      <div className="absolute top-0 right-0 w-full h-full bg-gradient-to-b from-gray-100/50 to-transparent pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -112,8 +112,8 @@ export default function MVVAbout() {
             transition={{ duration: 0.6, delay: 0.4 }}
             className="bg-[#111111] p-8 rounded-3xl shadow-xl border border-white/10 hover:-translate-y-2 transition-transform duration-300 overflow-hidden"
           >
-            <div className="w-14 h-14 bg-white/5 border border-white/10 rounded-2xl flex items-center justify-center mb-5 mx-auto sm:mx-0">
-              <ShieldCheck className="w-7 h-7 text-white/80" />
+            <div className="w-14 h-14 bg-orange-500/15 border border-orange-500/20 rounded-2xl flex items-center justify-center mb-5 mx-auto sm:mx-0">
+              <ShieldCheck className="w-7 h-7 text-orange-300" />
             </div>
             <h2 className="text-3xl font-black text-white tracking-tight mb-4">
               <GradientText className="font-black">Valores</GradientText>
