@@ -59,7 +59,7 @@ export default function AppSection() {
           >
             <div className="relative">
               {/* Phone frame */}
-              <div className="w-[280px] h-[570px] sm:w-[300px] sm:h-[610px] rounded-[2.5rem] border-[6px] border-[#1a1a1a] bg-[#0d0d0d] shadow-2xl shadow-black/60 overflow-hidden relative">
+              <div className="w-[280px] h-[600px] sm:w-[300px] sm:h-[640px] rounded-[2.5rem] border-[6px] border-[#1a1a1a] bg-[#0d0d0d] shadow-2xl shadow-black/60 overflow-hidden relative">
                 {/* Notch */}
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 w-28 h-6 bg-[#0d0d0d] rounded-b-2xl z-20" />
                 
@@ -69,7 +69,7 @@ export default function AppSection() {
                     src="/Notificações.png"
                     alt="App Ratoeira Ads - Notificações"
                     fill
-                    className="object-cover object-top"
+                    className="object-contain"
                     priority
                   />
                 </div>
