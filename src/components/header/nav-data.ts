@@ -125,7 +125,7 @@ export const NAV_LINKS: NavLink[] = [
             { label: "Ver Benefícios", href: "#solucoes" },
             { label: "Ver Números", href: "#empresa" },
             { label: "Ver Cases", href: "#cases" },
-            { label: "Falar com Time", href: "#fale-conosco" },
+            { label: "Falar com Time", href: "/fale-conosco" },
           ],
         },
       ],
@@ -205,6 +205,6 @@ export const NAV_LINKS: NavLink[] = [
   },
   {
     label: "Fale Conosco",
-    href: "#fale-conosco",
+    href: "/fale-conosco",
   },
 ];

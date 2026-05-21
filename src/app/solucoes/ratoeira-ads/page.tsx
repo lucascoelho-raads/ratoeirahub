@@ -2,6 +2,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import HeroAds from "./components/HeroAds";
 import FeaturesAds from "./components/FeaturesAds";
+import AppSection from "./components/AppSection";
 import CTAAds from "./components/CTAAds";
 
 export const metadata = {
@@ -15,6 +16,7 @@ export default function RatoeiraAdsPage() {
       <Navbar />
       <HeroAds />
       <FeaturesAds />
+      <AppSection />
       <CTAAds />
       <Footer />
     </main>

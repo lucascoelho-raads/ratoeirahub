@@ -45,7 +45,7 @@ export default function FAQPage() {
             Nossa equipe de especialistas está pronta para ajudar você a escalar suas operações com segurança.
           </p>
           <a 
-            href="#fale-conosco" 
+            href="/fale-conosco" 
             className="inline-flex items-center justify-center px-8 py-4 rounded-button font-bold text-black bg-brand-primary hover:bg-brand-primary-hover transition-colors shadow-lg shadow-brand-primary/20"
           >
             Falar com Suporte
