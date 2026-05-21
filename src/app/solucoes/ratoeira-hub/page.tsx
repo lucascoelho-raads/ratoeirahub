@@ -4,7 +4,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Link2, Radar, LayoutTemplate, MousePointerClick, Server, LineChart, ShieldCheck } from "lucide-react";
 import { BeamsBackground } from "@/components/ui/ethereal-beams-hero";
-import { AuroraBackground } from "@/components/ui/animated-background";
 import { GradientText } from "@/components/ui/gradient-text";
 
 export const metadata = {
@@ -94,7 +93,7 @@ export default function RatoeiraHubPage() {
 
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <a
-                  href="/planos"
+                  href="/planos#fale-conosco"
                   className="inline-flex items-center gap-2 px-8 py-4 2xl:px-10 2xl:py-5 rounded-button bg-gradient-to-r from-yellow-500 to-orange-500 text-black font-semibold hover:from-yellow-400 hover:to-orange-400 transition-colors"
                 >
                   Começar grátis
@@ -412,12 +411,12 @@ export default function RatoeiraHubPage() {
         </div>
       </section>
 
-      <AuroraBackground className="flex items-center justify-center min-h-[auto] md:min-h-[clamp(600px,70vh,900px)] py-16 md:py-24">
+      <section className="bg-[#f9fafb] flex items-center justify-center min-h-[auto] md:min-h-[clamp(600px,70vh,900px)] py-16 md:py-24">
         <div className="max-w-6xl mx-auto px-4 relative z-20 text-center w-full">
-          <h2 className="text-[clamp(1.75rem,6vw,4.5rem)] font-black text-white mb-6 tracking-tight drop-shadow-xl px-4">
+          <h2 className="text-[clamp(1.75rem,6vw,4.5rem)] font-black text-[#111827] mb-6 tracking-tight px-4">
             O ecossistema completo do tráfego pago. Em um lugar.
           </h2>
-          <p className="text-base sm:text-[clamp(1.1rem,1.25vw,1.5rem)] text-gray-300 max-w-3xl mx-auto drop-shadow-md mb-10 leading-relaxed px-4">
+          <p className="text-base sm:text-[clamp(1.1rem,1.25vw,1.5rem)] text-[#4b5563] max-w-3xl mx-auto mb-10 leading-relaxed px-4">
             Ads + Pages integrados via API. Rastreamento ~100%. Páginas abaixo de 1 segundo. Bloqueio automático de fraude.
             Tudo que você precisa para escalar com dado real.
           </p>
@@ -554,7 +553,7 @@ export default function RatoeiraHubPage() {
             <ArrowRight className="w-6 h-6" />
           </Link>
         </div>
-      </AuroraBackground>
+      </section>
 
       <Footer />
     </main>

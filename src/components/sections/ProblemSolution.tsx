@@ -76,7 +76,7 @@ export default function ProblemSolution() {
   }, [activeHighlights, activeTab]);
 
   return (
-    <section ref={ref} className="py-16 md:py-24 bg-black" id="solucoes">
+    <section ref={ref} className="py-16 md:py-24 bg-[#f9fafb]" id="solucoes">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
@@ -85,10 +85,10 @@ export default function ProblemSolution() {
           transition={{ duration: 0.7 }}
           className="text-center mb-16 space-y-6"
         >
-          <h2 className="text-4xl lg:text-5xl font-black text-white leading-tight">
+          <h2 className="text-4xl lg:text-5xl font-black text-[#111827] leading-tight">
             <span className="bg-gradient-to-r from-yellow-500 to-orange-500 bg-clip-text text-transparent">Tudo</span> que você precisa para dominar o <span className="bg-gradient-to-r from-yellow-500 to-orange-500 bg-clip-text text-transparent">tráfego pago</span>. Em um só <span className="bg-gradient-to-r from-yellow-500 to-orange-500 bg-clip-text text-transparent">lugar</span>.
           </h2>
-          <p className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
+          <p className="text-xl text-[#4b5563] max-w-4xl mx-auto leading-relaxed">
             Quem escala no Google e no Meta não usa ferramentas soltas. Usa um ecossistema onde tracking, páginas e
             dados conversam entre si — e cada real investido tem uma origem rastreada.
           </p>
@@ -117,7 +117,7 @@ export default function ProblemSolution() {
                 className={`inline-flex items-center gap-2 px-5 py-3 rounded-button font-semibold text-sm transition-all duration-300 ${
                   isActive
                     ? "bg-linear-to-r from-yellow-500 to-orange-500 text-white shadow-lg shadow-yellow-500/30"
-                    : "bg-white/10 text-gray-100 border border-white/20 hover:border-orange-400 hover:bg-white/15"
+                    : "bg-black/5 text-[#374151] border border-black/10 hover:border-orange-400 hover:bg-black/10"
                 }`}
               >
                 <Icon className="w-4 h-4" />
@@ -135,7 +135,7 @@ export default function ProblemSolution() {
           transition={{ duration: 0.5 }}
           className="flex flex-col items-center gap-10"
         >
-          <h3 className="text-3xl font-bold text-white text-center">
+          <h3 className="text-3xl font-bold text-[#111827] text-center">
             {activeContent.title}
           </h3>
 
@@ -145,7 +145,7 @@ export default function ProblemSolution() {
               activeTab === "rastreamento" ? "max-w-5xl" : "max-w-4xl"
             }`}
           >
-            <p className="text-lg text-gray-300 leading-relaxed whitespace-pre-line text-center">
+            <p className="text-lg text-[#4b5563] leading-relaxed whitespace-pre-line text-center">
               {contentParts[0]}
             </p>
           </div>
@@ -192,7 +192,7 @@ export default function ProblemSolution() {
               {contentParts.slice(1).map((part, index) => (
                 <p
                   key={`${activeTab}-remaining-${index}`}
-                  className="text-lg text-gray-300 leading-relaxed whitespace-pre-line text-center sm:text-left"
+                  className="text-lg text-[#4b5563] leading-relaxed whitespace-pre-line text-center sm:text-left"
                 >
                   {part}
                 </p>

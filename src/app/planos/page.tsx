@@ -2,6 +2,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import PricingHero from "./components/PricingHero";
 import PricingTabs from "./components/PricingTabs";
+import Contact from "@/components/sections/Contact";
 
 export const metadata = {
   title: "Planos | Ratoeira Hub",
@@ -16,6 +17,8 @@ export default function PlanosPage() {
       <PricingHero />
       
       <PricingTabs />
+
+      <Contact />
 
       <Footer />
     </main>

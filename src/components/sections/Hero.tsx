@@ -105,7 +105,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative min-h-[100svh] bg-[#050505] z-0 overflow-hidden flex flex-col">
+    <section className="relative min-h-[100svh] lg:min-h-[120svh] bg-[#050505] z-0 overflow-hidden flex flex-col">
       <motion.div
         initial={false}
         animate={{ x: activePanel === 0 ? "0%" : "-50%" }}
@@ -122,8 +122,8 @@ export default function Hero() {
                 }}
               />
               <div className="absolute -bottom-[30%] left-1/2 -translate-x-1/2 w-[800px] h-[600px] rounded-full bg-[radial-gradient(circle_at_center,rgba(255,184,0,0.18),transparent_70%)] blur-3xl pointer-events-none" />
-              <div className="relative w-full h-full max-w-7xl 2xl:max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-12 2xl:px-16 flex flex-col lg:grid lg:grid-cols-[1fr_1.1fr] 2xl:grid-cols-[1fr_1.25fr] gap-6 lg:gap-16 2xl:gap-20 lg:items-start min-w-0 pt-[4.5rem] pb-8">
-                {/* Texto */}
+              <div className="relative w-full h-full max-w-7xl 2xl:max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-12 2xl:px-16 flex flex-col lg:grid lg:grid-cols-[1fr_1.1fr] 2xl:grid-cols-[1fr_1.25fr] gap-6 lg:gap-10 2xl:gap-14 lg:items-start min-w-0 pt-[4.5rem] pb-8 lg:pb-20">
+                {/* Texto + CTA */}
                 <motion.div
                   variants={containerVariants}
                   initial="hidden"
@@ -132,7 +132,7 @@ export default function Hero() {
                 >
                   <motion.h1
                     variants={itemVariants}
-                    className="text-[clamp(2rem,8vw,5.25rem)] font-extrabold tracking-tight leading-[1.04] break-words text-center lg:text-left"
+                    className="text-[clamp(2rem,8vw,5.25rem)] lg:text-[clamp(2.75rem,3.8vw,5.25rem)] font-extrabold tracking-tight leading-[1.04] break-words text-center lg:text-left"
                   >
                     <span className="text-white">Cada venda tem uma origem.</span>
                     <br />
@@ -146,6 +146,16 @@ export default function Hero() {
                     Rastreamento ~100% para Google Ads e Meta Ads. Visitas, leads e vendas num único dashboard — em tempo
                     real.
                   </motion.p>
+
+                  <motion.div variants={itemVariants} className="flex flex-col gap-2 pt-2">
+                    <Link
+                      href="/planos#fale-conosco"
+                      className="inline-flex self-center lg:self-start items-center justify-center px-6 py-3 bg-brand-primary text-white font-semibold text-sm rounded-button hover:bg-brand-primary-hover transition-colors duration-200 text-center"
+                    >
+                      Começar grátis
+                    </Link>
+                    <span className="text-white/60 text-sm text-center lg:text-left">Plano gratuito disponível. Sem cartão.</span>
+                  </motion.div>
                 </motion.div>
 
                 {/* Mockup - visível em todas as telas */}
@@ -234,16 +244,39 @@ export default function Hero() {
                   </motion.div>
                 </motion.div>
 
-                {/* CTA - separado, abaixo do mockup no mobile */}
-                <motion.div variants={itemVariants} className="flex flex-col gap-2 pt-2 lg:col-start-1">
-                  <Link
-                    href="#demo"
-                    className="inline-flex self-center lg:self-start items-center justify-center px-6 py-3 bg-brand-primary text-white font-semibold text-sm rounded-button hover:bg-brand-primary-hover transition-colors duration-200 text-center"
+                {/* Slider Controls */}
+                <div className="relative z-30 flex items-center justify-center gap-3 bg-black/80 backdrop-blur-md px-4 py-2 rounded-full border border-brand-primary/50 mt-8 w-fit mx-auto lg:col-span-2">
+                  <button 
+                    onClick={() => setActivePanel((prev) => (prev === 0 ? 1 : 0))}
+                    className="w-8 h-8 rounded-full bg-white flex items-center justify-center hover:bg-neutral-200 transition-colors"
                   >
-                    Começar grátis
-                  </Link>
-                  <span className="text-white/60 text-sm text-center lg:text-left">Plano gratuito disponível. Sem cartão.</span>
-                </motion.div>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="black" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <polyline points="15 18 9 12 15 6"></polyline>
+                    </svg>
+                  </button>
+                  
+                  <div className="flex gap-2 items-center px-2">
+                    <button 
+                      onClick={() => setActivePanel(0)}
+                      className={`transition-all duration-300 rounded-full ${activePanel === 0 ? 'w-8 h-3 bg-[#FFB800]' : 'w-3 h-3 bg-white/40 hover:bg-white/60'}`}
+                      aria-label="Slide 1"
+                    />
+                    <button 
+                      onClick={() => setActivePanel(1)}
+                      className={`transition-all duration-300 rounded-full ${activePanel === 1 ? 'w-8 h-3 bg-[#FFB800]' : 'w-3 h-3 bg-white/40 hover:bg-white/60'}`}
+                      aria-label="Slide 2"
+                    />
+                  </div>
+
+                  <button 
+                    onClick={() => setActivePanel((prev) => (prev === 0 ? 1 : 0))}
+                    className="w-8 h-8 rounded-full bg-white flex items-center justify-center hover:bg-neutral-200 transition-colors"
+                  >
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="black" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <polyline points="9 18 15 12 9 6"></polyline>
+                    </svg>
+                  </button>
+                </div>
               </div>
             </SpotlightBackground>
         </div>
@@ -257,7 +290,7 @@ export default function Hero() {
                   backgroundSize: "120px 120px",
                 }}
               />
-              <div className="relative w-full h-full max-w-7xl 2xl:max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-12 2xl:px-16 flex flex-col lg:grid lg:grid-cols-[1fr_1.1fr] 2xl:grid-cols-[1fr_1.25fr] gap-6 lg:gap-16 2xl:gap-20 lg:items-start min-w-0 pt-[4.5rem] pb-8">
+              <div className="relative w-full h-full max-w-7xl 2xl:max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-12 2xl:px-16 flex flex-col lg:grid lg:grid-cols-[1fr_1.1fr] 2xl:grid-cols-[1fr_1.25fr] gap-6 lg:gap-10 2xl:gap-14 lg:items-start min-w-0 pt-[4.5rem] pb-8 lg:pb-20">
                 {/* Texto */}
                 <div className="flex flex-col gap-6">
                   <h2 className="text-[clamp(1.75rem,6vw,3.5rem)] sm:text-[clamp(2.25rem,5vw,4rem)] lg:text-[clamp(2.75rem,3.8vw,5.25rem)] font-extrabold tracking-tight leading-tight lg:leading-[1.04] text-white break-words text-center lg:text-left">
@@ -311,44 +344,44 @@ export default function Hero() {
                     Conhecer o Ratoeira Pages →
                   </Link>
                 </div>
+
+                {/* Slider Controls */}
+                <div className="relative z-30 flex items-center justify-center gap-3 bg-black/80 backdrop-blur-md px-4 py-2 rounded-full border border-brand-primary/50 mt-8 w-fit mx-auto lg:col-span-2">
+                  <button 
+                    onClick={() => setActivePanel((prev) => (prev === 0 ? 1 : 0))}
+                    className="w-8 h-8 rounded-full bg-white flex items-center justify-center hover:bg-neutral-200 transition-colors"
+                  >
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="black" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <polyline points="15 18 9 12 15 6"></polyline>
+                    </svg>
+                  </button>
+                  
+                  <div className="flex gap-2 items-center px-2">
+                    <button 
+                      onClick={() => setActivePanel(0)}
+                      className={`transition-all duration-300 rounded-full ${activePanel === 0 ? 'w-8 h-3 bg-[#FFB800]' : 'w-3 h-3 bg-white/40 hover:bg-white/60'}`}
+                      aria-label="Slide 1"
+                    />
+                    <button 
+                      onClick={() => setActivePanel(1)}
+                      className={`transition-all duration-300 rounded-full ${activePanel === 1 ? 'w-8 h-3 bg-[#FFB800]' : 'w-3 h-3 bg-white/40 hover:bg-white/60'}`}
+                      aria-label="Slide 2"
+                    />
+                  </div>
+
+                  <button 
+                    onClick={() => setActivePanel((prev) => (prev === 0 ? 1 : 0))}
+                    className="w-8 h-8 rounded-full bg-white flex items-center justify-center hover:bg-neutral-200 transition-colors"
+                  >
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="black" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <polyline points="9 18 15 12 9 6"></polyline>
+                    </svg>
+                  </button>
+                </div>
               </div>
             </SpotlightBackground>
         </div>
       </motion.div>
-
-      {/* Slider Controls - Positioned below slides on mobile, absolute on desktop */}
-      <div className="relative lg:absolute lg:bottom-8 lg:left-1/2 lg:-translate-x-1/2 lg:z-50 flex items-center justify-center gap-3 bg-black/80 lg:backdrop-blur-md px-4 py-4 lg:py-2 rounded-full border border-brand-primary/50 mt-auto lg:mt-0 mb-4 lg:mb-0 lg:translate-y-0 translate-y-0 w-fit mx-auto">
-        <button 
-          onClick={() => setActivePanel((prev) => (prev === 0 ? 1 : 0))}
-          className="w-8 h-8 rounded-full bg-white flex items-center justify-center hover:bg-neutral-200 transition-colors"
-        >
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="black" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <polyline points="15 18 9 12 15 6"></polyline>
-          </svg>
-        </button>
-        
-        <div className="flex gap-2 items-center px-2">
-          <button 
-            onClick={() => setActivePanel(0)}
-            className={`transition-all duration-300 rounded-full ${activePanel === 0 ? 'w-8 h-3 bg-[#FFB800]' : 'w-3 h-3 bg-white/40 hover:bg-white/60'}`}
-            aria-label="Slide 1"
-          />
-          <button 
-            onClick={() => setActivePanel(1)}
-            className={`transition-all duration-300 rounded-full ${activePanel === 1 ? 'w-8 h-3 bg-[#FFB800]' : 'w-3 h-3 bg-white/40 hover:bg-white/60'}`}
-            aria-label="Slide 2"
-          />
-        </div>
-
-        <button 
-          onClick={() => setActivePanel((prev) => (prev === 0 ? 1 : 0))}
-          className="w-8 h-8 rounded-full bg-white flex items-center justify-center hover:bg-neutral-200 transition-colors"
-        >
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="black" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <polyline points="9 18 15 12 9 6"></polyline>
-          </svg>
-        </button>
-      </div>
     </section>
   );
 }

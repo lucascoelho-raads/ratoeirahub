@@ -32,7 +32,7 @@ export const HeroGoogleAds = () => {
               size="lg"
               className="h-14 px-8 2xl:h-16 2xl:px-10 2xl:text-xl font-bold text-white"
             >
-              <Link href="/planos">
+              <Link href="/planos#fale-conosco">
                 Começar grátis
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Link>

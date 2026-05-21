@@ -106,8 +106,8 @@ function HeaderActions({
     pathname === "/fontes-de-trafego/google-ads" ||
     pathname === "/fontes-de-trafego/meta-ads" ||
     pathname === "/quem-somos"
-      ? "Começar grátis"
-      : "Teste gratis";
+      ? "Começar Grátis"
+      : "Começar Grátis";
 
   return (
     <div
@@ -128,20 +128,20 @@ function HeaderActions({
       >
         Design System
       </Link>
-      <button
-        type="button"
+      <Link
+        href="/planos#fale-conosco"
         onClick={onAction}
         className={cn(
-          "flex select-none items-center justify-center gap-1.5 rounded-button bg-brand-primary text-text-primary font-black transition-colors duration-150 hover:bg-brand-primary-hover",
+          "flex select-none items-center justify-center gap-1.5 rounded-button bg-brand-primary text-gray-50 font-black transition-colors duration-150 hover:bg-brand-primary-hover",
           mobile ? "min-h-14 text-lg" : "px-5 py-2 text-sm",
         )}
       >
         {primaryLabel}
         <ArrowRight
-          className="size-3.5 shrink-0 text-text-primary"
+          className="size-3.5 shrink-0 text-gray-50"
           strokeWidth={1.6}
         />
-      </button>
+      </Link>
     </div>
   );
 }

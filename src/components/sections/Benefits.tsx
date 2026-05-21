@@ -117,7 +117,7 @@ export default function Benefits() {
 
       </div>
 
-      <div className="relative z-10 min-h-[auto] sm:h-screen overflow-visible sm:overflow-hidden flex items-center">
+      <div className="relative z-10 h-[520px] sm:h-screen overflow-visible sm:overflow-hidden flex items-center">
         <div className="relative w-full h-full">
           <AnimatePresence mode="sync" initial={false}>
             <motion.article

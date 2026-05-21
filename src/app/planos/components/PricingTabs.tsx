@@ -609,16 +609,17 @@ export default function PricingTabs() {
                     </div>
                   </div>
                 )}
-                <button
+                <a
+                  href="/planos#fale-conosco"
                   className={cn(
-                    "w-full py-4 rounded-button font-bold text-sm transition-colors",
+                    "w-full py-4 rounded-button font-bold text-sm transition-colors text-center block",
                     plan.popular
                       ? "bg-brand-primary text-black hover:bg-brand-primary-hover shadow-lg shadow-brand-primary/20"
                       : "bg-white/10 text-white hover:bg-white/20"
                   )}
                 >
                   {plan.cta}
-                </button>
+                </a>
               </div>
             ))}
           </div>
@@ -843,16 +844,17 @@ export default function PricingTabs() {
                     </div>
                   )}
                   </div>
-                  <button
+                  <a
+                    href="/planos#fale-conosco"
                     className={cn(
-                      "w-full py-4 rounded-button font-bold text-sm transition-colors mt-auto",
+                      "w-full py-4 rounded-button font-bold text-sm transition-colors mt-auto text-center block",
                       plan.popular
                         ? "bg-brand-primary text-black hover:bg-brand-primary-hover shadow-lg shadow-brand-primary/20"
                         : "bg-white/10 text-white hover:bg-white/20"
                     )}
                   >
                     {plan.cta}
-                  </button>
+                  </a>
                 </div>
               ))}
             </motion.div>

@@ -69,10 +69,10 @@ export default function Header() {
               Entrar
             </Link>
             <Link
-              href="#demo"
-              className="text-sm font-semibold text-[#0a0a0a] bg-[#ffb800] hover:bg-[#e6a600] px-5 py-2.5 rounded-button transition-all duration-200 shadow-lg shadow-amber-500/30 hover:shadow-amber-500/50 hover:-translate-y-0.5"
+              href="/planos#fale-conosco"
+              className="text-sm font-semibold text-gray-50 bg-[#ffb800] hover:bg-[#e6a600] px-5 py-2.5 rounded-button transition-all duration-200 shadow-lg shadow-amber-500/30 hover:shadow-amber-500/50 hover:-translate-y-0.5"
             >
-              Teste grátis
+              Começar Grátis
             </Link>
           </div>
 
@@ -122,10 +122,10 @@ export default function Header() {
                   Entrar
                 </Link>
                 <Link
-                  href="#demo"
-                  className="text-center text-sm font-semibold text-[#0a0a0a] bg-[#ffb800] rounded-button py-2.5 hover:bg-[#e6a600] transition-colors"
+                  href="/planos#fale-conosco"
+                  className="text-center text-sm font-semibold text-gray-50 bg-[#ffb800] rounded-button py-2.5 hover:bg-[#e6a600] transition-colors"
                 >
-                  Teste grátis
+                  Começar Grátis
                 </Link>
               </div>
             </div>

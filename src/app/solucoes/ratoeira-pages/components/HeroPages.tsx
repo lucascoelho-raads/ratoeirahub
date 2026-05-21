@@ -62,7 +62,7 @@ export default function HeroPages() {
               className="flex flex-col sm:flex-row items-center justify-center gap-4"
             >
               <a
-                href="/planos"
+                href="/planos#fale-conosco"
                 className="inline-flex items-center gap-2 px-8 py-4 2xl:px-10 2xl:py-5 rounded-button bg-[#FF7E4A] text-white font-bold hover:bg-[#e86b3b] transition-colors"
               >
                 Começar grátis
