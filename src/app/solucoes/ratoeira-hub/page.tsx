@@ -82,7 +82,7 @@ export default function RatoeiraHubPage() {
             </div>
 
             <div className="max-w-6xl text-center">
-              <h1 className="text-[clamp(2rem,8vw,6rem)] font-black text-white tracking-tight leading-[1.04] mb-8">
+              <h1 className="text-[clamp(2.75rem,4.2vw,6rem)] font-black text-white tracking-tight leading-[1.04] mb-8">
                 Quando Ads e Pages trabalham juntos, sua operação chega onde nenhuma ferramenta sozinha chega.
               </h1>
 
@@ -149,10 +149,10 @@ export default function RatoeiraHubPage() {
               return (
                 <div
                   key={feature.title}
-                  className={`flex flex-col ${index % 2 === 1 ? "md:flex-row-reverse" : "md:flex-row"} items-center gap-8 md:gap-12 lg:gap-24`}
+                  className={`flex flex-col ${index % 2 === 1 ? "md:flex-row-reverse" : "md:flex-row"} items-center gap-8 md:gap-12 lg:gap-24 rounded-3xl border p-8 md:p-12 ${index % 2 === 1 ? "bg-white border-black/10" : "bg-[#111111] border-white/10"}`}
                 >
                   <div className="flex-1 space-y-6 text-center md:text-left">
-                    <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-yellow-500/15 to-orange-500/15 flex items-center justify-center mb-6 border border-white/10">
+                    <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br from-yellow-500/15 to-orange-500/15 flex items-center justify-center mb-6 border ${index % 2 === 1 ? "border-black/10" : "border-white/10"}`}>
                       <Icon className="w-8 h-8 text-orange-400" />
                     </div>
                     <h3 className="text-2xl sm:text-3xl md:text-4xl font-black leading-tight">
@@ -160,13 +160,13 @@ export default function RatoeiraHubPage() {
                         {feature.title}
                       </GradientText>
                     </h3>
-                    <p className="text-base sm:text-xl text-gray-400 leading-relaxed">
+                    <p className={`text-base sm:text-xl leading-relaxed ${index % 2 === 1 ? "text-[#4b5563]" : "text-gray-400"}`}>
                       {feature.description}
                     </p>
                   </div>
 
                   <div className="flex-1 w-full">
-                    <div className="relative aspect-video rounded-2xl border border-white/10 bg-[#111111] overflow-hidden group">
+                    <div className={`relative aspect-video rounded-2xl border overflow-hidden group ${index % 2 === 1 ? "border-black/10 bg-[#f3f4f6]" : "border-white/10 bg-[#111111]"}`}>
                       {feature.title === "Integração nativa via API" ? (
                         <div className="absolute inset-0">
                           <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-yellow-500/15 via-orange-500/10 to-transparent" />
@@ -411,12 +411,12 @@ export default function RatoeiraHubPage() {
         </div>
       </section>
 
-      <section className="bg-[#f9fafb] flex items-center justify-center min-h-[auto] md:min-h-[clamp(600px,70vh,900px)] py-16 md:py-24">
+      <section className="bg-[#050505] flex items-center justify-center min-h-[auto] md:min-h-[clamp(600px,70vh,900px)] py-16 md:py-24">
         <div className="max-w-6xl mx-auto px-4 relative z-20 text-center w-full">
-          <h2 className="text-[clamp(1.75rem,6vw,4.5rem)] font-black text-[#111827] mb-6 tracking-tight px-4">
-            O ecossistema completo do tráfego pago. Em um lugar.
+          <h2 className="text-[clamp(1.75rem,6vw,4.5rem)] font-black text-white mb-6 tracking-tight px-4">
+            O <GradientText variant="orange" className="font-black">ecossistema completo</GradientText> do tráfego pago. Em um lugar.
           </h2>
-          <p className="text-base sm:text-[clamp(1.1rem,1.25vw,1.5rem)] text-[#4b5563] max-w-3xl mx-auto mb-10 leading-relaxed px-4">
+          <p className="text-base sm:text-[clamp(1.1rem,1.25vw,1.5rem)] text-gray-400 max-w-3xl mx-auto mb-10 leading-relaxed px-4">
             Ads + Pages integrados via API. Rastreamento ~100%. Páginas abaixo de 1 segundo. Bloqueio automático de fraude.
             Tudo que você precisa para escalar com dado real.
           </p>
