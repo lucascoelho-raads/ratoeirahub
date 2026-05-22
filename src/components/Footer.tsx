@@ -97,7 +97,7 @@ export default function Footer() {
                   Vamos <span className="text-orange-500">estruturar</span> sua operação?
                 </h2>
                 <p className={`mt-7 text-base sm:text-lg leading-relaxed ${subtitleClassName}`}>
-                  Fale com a equipe e descubra qual configuração faz sentido para o seu momento.
+                  Preencha seu cadastro ative agora mesmo seu plano <span className="text-orange-500 font-bold">GRATUITO</span>. Sem cartão, sem pix. Apenas cadastre-se e receba o acesso.
                 </p>
               </div>
 
@@ -173,7 +173,7 @@ export default function Footer() {
                         onClick={() => setStep(2)}
                         className="w-full rounded-2xl bg-orange-500 text-white font-bold text-lg py-5 shadow-xl shadow-orange-500/20 hover:bg-orange-400 transition-colors flex items-center justify-center gap-3"
                       >
-                        Continuar <ArrowRight className="w-5 h-5" />
+                        Começar Grátis <ArrowRight className="w-5 h-5" />
                       </button>
                     </>
                   )}
