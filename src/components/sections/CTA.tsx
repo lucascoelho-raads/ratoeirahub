@@ -28,7 +28,7 @@ export default function CTA() {
         />
       </div>
 
-      <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div className="relative max-w-6xl 3xl:max-w-[90rem] 4xl:max-w-[110rem] mx-auto px-4 sm:px-6 lg:px-8 3xl:px-12 4xl:px-20 text-center">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -39,7 +39,7 @@ export default function CTA() {
           
 
           {/* Title */}
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#111827] leading-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl 3xl:text-6xl font-black text-[#111827] leading-tight">
             <span className="block text-[#111827]">Pare de operar no escuro.</span>
             <span className="block text-xl sm:text-2xl lg:text-3xl font-black text-brand-primary">
               Cada real investido merece uma origem rastreada.
@@ -47,7 +47,7 @@ export default function CTA() {
           </h2>
 
           {/* Subtitle */}
-          <p className="text-[#4b5563] text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
+          <p className="text-[#4b5563] text-base sm:text-lg max-w-2xl 3xl:max-w-[50rem] 4xl:max-w-[70rem] mx-auto leading-relaxed">
             Configure em minutos. Veja cada venda, cada lead, cada clique — no Google e no Meta. E tome a decisão que a
             maioria adia.
           </p>

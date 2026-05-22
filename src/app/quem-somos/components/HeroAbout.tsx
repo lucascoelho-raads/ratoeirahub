@@ -12,7 +12,7 @@ export default function HeroAbout() {
         <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-brand-secondary/5 blur-[120px] rounded-full" />
       </div>
 
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-[clamp(5rem,10vh,9rem)]">
+      <div className="relative z-10 w-full max-w-7xl 3xl:max-w-[100rem] 4xl:max-w-[120rem] mx-auto px-4 sm:px-6 lg:px-8 3xl:px-12 4xl:px-20 py-[clamp(5rem,10vh,9rem)]">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           
           {/* Left: Text Content */}
@@ -32,7 +32,7 @@ export default function HeroAbout() {
               <GradientText className="font-black">Não de fora.</GradientText>
             </h1>
 
-            <div className="space-y-6 text-[#4b5563] font-medium leading-relaxed max-w-xl text-[clamp(1rem,1.1vw,1.125rem)] mx-auto lg:mx-0">
+            <div className="space-y-6 text-[#4b5563] font-medium leading-relaxed max-w-xl 3xl:max-w-[40rem] 4xl:max-w-[60rem] text-[clamp(1rem,1.1vw,1.125rem)] mx-auto lg:mx-0">
               <p>
                 Em dezembro de 2022, Eitor Guimarães anunciava como afiliado de Google Ads e aplicava o que sabia de
                 analytics corporativo a um problema que o mercado brasileiro ainda não havia resolvido: como capturar os

@@ -29,13 +29,13 @@ const benefits = [
 export default function BenefitsPartnerships() {
   return (
     <section id="beneficios" className="py-16 md:py-24 bg-[#0a0a0a] relative scroll-mt-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl 3xl:max-w-[100rem] 4xl:max-w-[120rem] mx-auto px-4 sm:px-6 lg:px-8 3xl:px-12 4xl:px-20">
         
         <div className="text-center mb-16">
           <h2 className="text-2xl sm:text-3xl md:text-5xl font-black text-white mb-4 tracking-tight">
             Por que ser um parceiro <span className="text-brand-primary">Ratoeira Hub?</span>
           </h2>
-          <p className="text-gray-400 text-base sm:text-lg max-w-2xl mx-auto px-4 sm:px-0">
+          <p className="text-gray-400 text-base sm:text-lg max-w-2xl 3xl:max-w-[50rem] 4xl:max-w-[70rem] 3xl:max-w-[50rem] 4xl:max-w-[70rem] mx-auto px-4 sm:px-0">
             Criamos um programa desenhado para maximizar seus ganhos e facilitar sua indicação, com todo o suporte que você precisa.
           </p>
         </div>

@@ -122,7 +122,7 @@ export default function Hero() {
                 }}
               />
               <div className="absolute -bottom-[30%] left-1/2 -translate-x-1/2 w-[800px] h-[600px] rounded-full bg-[radial-gradient(circle_at_center,rgba(255,184,0,0.18),transparent_70%)] blur-3xl pointer-events-none" />
-              <div className="relative w-full h-full max-w-7xl 2xl:max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-12 2xl:px-16 flex flex-col lg:grid lg:grid-cols-[1fr_1.1fr] 2xl:grid-cols-[1fr_1.25fr] gap-6 lg:gap-10 2xl:gap-14 lg:items-start min-w-0 pt-[4.5rem] pb-8 lg:pb-20">
+              <div className="relative w-full h-full max-w-7xl 2xl:max-w-[90rem] 3xl:max-w-[120rem] 4xl:max-w-[140rem] mx-auto px-4 sm:px-6 lg:px-12 2xl:px-16 3xl:px-20 4xl:px-28 flex flex-col lg:grid lg:grid-cols-[1fr_1.1fr] 2xl:grid-cols-[1fr_1.25fr] 3xl:grid-cols-[1fr_1.35fr] gap-6 lg:gap-10 2xl:gap-14 3xl:gap-20 lg:items-start min-w-0 pt-[4.5rem] pb-8 lg:pb-20">
                 {/* Texto + CTA */}
                 <motion.div
                   variants={containerVariants}
@@ -132,7 +132,7 @@ export default function Hero() {
                 >
                   <motion.h1
                     variants={itemVariants}
-                    className="text-[clamp(2rem,8vw,5.25rem)] lg:text-[clamp(2.75rem,3.8vw,5.25rem)] font-extrabold tracking-tight leading-[1.04] break-words text-center lg:text-left"
+                    className="text-[clamp(2rem,8vw,5.25rem)] lg:text-[clamp(2.75rem,3.8vw,5.25rem)] 3xl:text-[clamp(3.5rem,4.2vw,7rem)] font-extrabold tracking-tight leading-[1.04] break-words text-center lg:text-left"
                   >
                     <span className="text-white">Cada venda tem uma origem.</span>
                     <br />
@@ -141,7 +141,7 @@ export default function Hero() {
 
                   <motion.p
                     variants={itemVariants}
-                    className="text-[clamp(1rem,1.15vw,1.125rem)] text-white/70 leading-relaxed max-w-xl text-center lg:text-left"
+                    className="text-[clamp(1rem,1.15vw,1.125rem)] 3xl:text-[clamp(1.125rem,1.2vw,1.5rem)] text-white/70 leading-relaxed max-w-xl 3xl:max-w-[40rem] 4xl:max-w-[50rem] text-center lg:text-left"
                   >
                     Rastreamento ~100% para Google Ads e Meta Ads. Visitas, leads e vendas num único dashboard — em tempo
                     real.
@@ -165,7 +165,7 @@ export default function Hero() {
                   transition={{ duration: 0.9, delay: 0.4, ease: [0.215, 0.61, 0.355, 1] }}
                   className="relative lg:col-start-2 lg:row-start-1"
                 >
-                  <div className="relative rounded-2xl overflow-hidden border border-neutral-200 bg-[#0d0d0d] shadow-card-resting h-[clamp(280px,55vw,420px)] lg:h-[clamp(420px,46vh,640px)] 2xl:h-[clamp(520px,22vw,820px)]">
+                  <div className="relative rounded-2xl overflow-hidden border border-neutral-200 bg-[#0d0d0d] shadow-card-resting h-[clamp(280px,55vw,420px)] lg:h-[clamp(420px,46vh,640px)] 2xl:h-[clamp(520px,22vw,820px)] 3xl:h-[clamp(600px,24vw,900px)]">
                     <div className="bg-[#161616] border-b border-white/5 px-4 py-3 flex items-center justify-between">
                       <div className="flex gap-1.5">
                         <div className="w-2.5 h-2.5 rounded-full bg-red-500/40" />
@@ -290,16 +290,16 @@ export default function Hero() {
                   backgroundSize: "120px 120px",
                 }}
               />
-              <div className="relative w-full h-full max-w-7xl 2xl:max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-12 2xl:px-16 flex flex-col lg:grid lg:grid-cols-[1fr_1.1fr] 2xl:grid-cols-[1fr_1.25fr] gap-6 lg:gap-10 2xl:gap-14 lg:items-start min-w-0 pt-[4.5rem] pb-8 lg:pb-20">
+              <div className="relative w-full h-full max-w-7xl 2xl:max-w-[90rem] 3xl:max-w-[120rem] 4xl:max-w-[140rem] mx-auto px-4 sm:px-6 lg:px-12 2xl:px-16 3xl:px-20 4xl:px-28 flex flex-col lg:grid lg:grid-cols-[1fr_1.1fr] 2xl:grid-cols-[1fr_1.25fr] 3xl:grid-cols-[1fr_1.35fr] gap-6 lg:gap-10 2xl:gap-14 3xl:gap-20 lg:items-start min-w-0 pt-[4.5rem] pb-8 lg:pb-20">
                 {/* Texto */}
                 <div className="flex flex-col gap-6">
-                  <h2 className="text-[clamp(1.75rem,6vw,3.5rem)] sm:text-[clamp(2.25rem,5vw,4rem)] lg:text-[clamp(2.75rem,3.8vw,5.25rem)] font-extrabold tracking-tight leading-tight lg:leading-[1.04] text-white break-words text-center lg:text-left">
+                  <h2 className="text-[clamp(1.75rem,6vw,3.5rem)] sm:text-[clamp(2.25rem,5vw,4rem)] lg:text-[clamp(2.75rem,3.8vw,5.25rem)] 3xl:text-[clamp(3.5rem,4.2vw,7rem)] font-extrabold tracking-tight leading-tight lg:leading-[1.04] text-white break-words text-center lg:text-left">
                     Páginas que convertem.{" "}
                     <span style={{ color: "var(--color-brand-primary)" }}>
                       Integradas ao seu tracking desde o primeiro clique.
                     </span>
                   </h2>
-                  <p className="text-[clamp(0.875rem,3vw,1.125rem)] sm:text-[clamp(1rem,2vw,1.125rem)] text-white/70 leading-relaxed max-w-2xl text-center lg:text-left">
+                  <p className="text-[clamp(0.875rem,3vw,1.125rem)] sm:text-[clamp(1rem,2vw,1.125rem)] 3xl:text-[clamp(1.125rem,1.2vw,1.5rem)] text-white/70 leading-relaxed max-w-2xl 3xl:max-w-[40rem] 4xl:max-w-[50rem] text-center lg:text-left">
                     Construtor visual com templates prontos, Flash Pages ultra-rápidas e geração por IA. Cada página já
                     nasce com o tracking integrado — sem scripts avulsos, sem configuração manual, sem dados perdidos
                     entre a página e a campanha.
@@ -308,7 +308,7 @@ export default function Hero() {
 
                 {/* Mockup Pages - visível em todas as telas */}
                 <div className="relative lg:col-start-2 lg:row-start-1">
-                  <div className="relative h-[clamp(280px,55vw,420px)] lg:h-[clamp(420px,46vh,640px)] 2xl:h-[clamp(520px,22vw,820px)] rounded-3xl overflow-hidden border border-neutral-200 bg-gradient-to-br from-[#FFF8E6] via-white to-orange-50 shadow-card-resting">
+                  <div className="relative h-[clamp(280px,55vw,420px)] lg:h-[clamp(420px,46vh,640px)] 2xl:h-[clamp(520px,22vw,820px)] 3xl:h-[clamp(600px,24vw,900px)] rounded-3xl overflow-hidden border border-neutral-200 bg-gradient-to-br from-[#FFF8E6] via-white to-orange-50 shadow-card-resting">
                     <div className="absolute top-4 left-4 right-4 sm:top-6 sm:left-6 sm:right-6 h-10 sm:h-12 rounded-xl bg-white/90 border border-neutral-200 flex items-center px-3 sm:px-4">
                       <div className="w-2.5 h-2.5 rounded-full bg-red-400/60 mr-1.5" />
                       <div className="w-2.5 h-2.5 rounded-full bg-amber-400/60 mr-1.5" />

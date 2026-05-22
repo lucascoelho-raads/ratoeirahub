@@ -15,7 +15,7 @@ export default function AppSection() {
       <div className="absolute top-0 right-0 w-96 h-96 bg-brand-primary/10 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-72 h-72 bg-brand-secondary/10 rounded-full blur-[100px] pointer-events-none" />
 
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-6xl 3xl:max-w-[90rem] 4xl:max-w-[110rem] mx-auto px-4 sm:px-6 lg:px-8 3xl:px-12 4xl:px-20">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -28,7 +28,7 @@ export default function AppSection() {
               Que tal uma ratoeira no seu{" "}
               <span className="text-brand-primary">bolso</span>?
             </h2>
-            <p className="text-base sm:text-lg text-[#4b5563] leading-relaxed max-w-xl mx-auto lg:mx-0">
+            <p className="text-base sm:text-lg text-[#4b5563] leading-relaxed max-w-xl 3xl:max-w-[40rem] 4xl:max-w-[60rem] 3xl:max-w-[40rem] 4xl:max-w-[60rem] mx-auto lg:mx-0">
               Com o APP da Ratoeira Ads, você recebe as notificações e tem acesso ao seu
               Dashboard de vendas, tudo em tempo real.
             </p>

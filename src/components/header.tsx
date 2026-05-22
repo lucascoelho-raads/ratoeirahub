@@ -202,7 +202,7 @@ export default function Header() {
       ref={navRef}
       className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-[#0a0a0a]/92 backdrop-blur-xl supports-[backdrop-filter]:bg-[#0a0a0a]/88"
     >
-      <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto w-full max-w-7xl 3xl:max-w-[100rem] 4xl:max-w-[120rem] px-4 sm:px-6 lg:px-8 3xl:px-12 4xl:px-20">
         <div className="flex h-16 items-center justify-between">
           <Logo />
 
@@ -293,7 +293,7 @@ export default function Header() {
             transition={{ duration: 0.22, ease: SHELL_EASE }}
             className="border-t border-white/10 bg-[#0a0a0a]/95 backdrop-blur-xl lg:hidden"
           >
-            <div className="mx-auto max-w-7xl px-4 pb-6 pt-4 sm:px-6">
+            <div className="mx-auto max-w-7xl 3xl:max-w-[100rem] 4xl:max-w-[120rem] px-4 pb-6 pt-4 sm:px-6 3xl:px-12 4xl:px-20">
               <AnimatePresence mode="wait" initial={false}>
                 {activeMobileLink?.menu ? (
                   <motion.div

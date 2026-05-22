@@ -83,7 +83,7 @@ export default function Testimonials() {
 
   return (
     <section ref={sectionRef} className="py-16 md:py-28 bg-[#050505]" id="cases">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl 3xl:max-w-[100rem] 4xl:max-w-[120rem] mx-auto px-4 sm:px-6 lg:px-8 3xl:px-12 4xl:px-20">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -97,7 +97,7 @@ export default function Testimonials() {
             Quem{" "}
             <span className="text-orange-600">domina o tráfego</span>, confia na Ratoeira
           </h2>
-          <p className="text-white/70 text-lg sm:text-xl max-w-xl mx-auto">
+          <p className="text-white/70 text-lg sm:text-xl max-w-xl 3xl:max-w-[40rem] 4xl:max-w-[60rem] mx-auto">
             Veja o que anunciantes de Google Ads, Meta Ads e gestores de tráfego dizem sobre operar com dado real.
           </p>
         </motion.div>
@@ -106,7 +106,7 @@ export default function Testimonials() {
           initial={{ opacity: 0, y: 40 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7, delay: 0.2 }}
-          className="mx-auto w-full max-w-3xl text-center"
+          className="mx-auto w-full max-w-3xl 3xl:max-w-[60rem] 4xl:max-w-[80rem] text-center"
         >
           <div className="relative h-32">
             <div className="pointer-events-none absolute left-1/2 top-0 h-[480px] w-[480px] -translate-x-1/2 before:absolute before:inset-0 before:-z-10 before:rounded-full before:bg-gradient-to-b before:from-orange-600/25 before:via-orange-600/5 before:via-25% before:to-orange-600/0 before:to-75%">

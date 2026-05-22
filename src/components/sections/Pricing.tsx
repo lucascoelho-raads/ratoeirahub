@@ -72,7 +72,7 @@ export default function Pricing() {
 
   return (
     <section ref={ref} className="py-16 md:py-28 bg-gray-50/50" id="planos">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl 3xl:max-w-[100rem] 4xl:max-w-[120rem] mx-auto px-4 sm:px-6 lg:px-8 3xl:px-12 4xl:px-20">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -87,7 +87,7 @@ export default function Pricing() {
             Simples, transparente,{" "}
             <span className="gradient-text">sem surpresas</span>
           </h2>
-          <p className="text-gray-500 text-xl max-w-xl mx-auto">
+          <p className="text-gray-500 text-xl max-w-xl 3xl:max-w-[40rem] 4xl:max-w-[60rem] mx-auto">
             Comece gratuitamente. Escale conforme seus resultados.
           </p>
 

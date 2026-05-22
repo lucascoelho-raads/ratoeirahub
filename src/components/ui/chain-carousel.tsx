@@ -146,9 +146,9 @@ export default function ChainCarousel({
 
   return (
     <div id="explore-section" className={cn("space-y-14", className)}>
-      <div className="flex flex-col xl:flex-row max-w-7xl mx-auto px-4 md:px-8 gap-12 justify-center items-center">
+      <div className="flex flex-col xl:flex-row max-w-7xl 3xl:max-w-[100rem] 4xl:max-w-[120rem] mx-auto px-4 md:px-8 3xl:px-12 4xl:px-20 gap-12 justify-center items-center">
         <motion.div
-          className="relative w-full max-w-md xl:max-w-2xl h-[450px] flex items-center justify-center hidden xl:flex"
+          className="relative w-full max-w-md xl:max-w-2xl 3xl:max-w-[40rem] 4xl:max-w-[50rem] h-[450px] flex items-center justify-center hidden xl:flex"
           onMouseEnter={() => !searchTerm && setIsPaused(true)}
           onMouseLeave={() => !searchTerm && setIsPaused(false)}
           initial={{ x: "-100%", opacity: 0 }}
@@ -253,7 +253,7 @@ export default function ChainCarousel({
 
         <motion.div
           ref={rightSectionRef}
-          className="relative w-full max-w-md xl:max-w-2xl h-[450px] flex items-center justify-center"
+          className="relative w-full max-w-md xl:max-w-2xl 3xl:max-w-[40rem] 4xl:max-w-[50rem] h-[450px] flex items-center justify-center"
           onMouseEnter={() => !searchTerm && setIsPaused(true)}
           onMouseLeave={() => !searchTerm && setIsPaused(false)}
           initial={{ x: "100%", opacity: 0 }}

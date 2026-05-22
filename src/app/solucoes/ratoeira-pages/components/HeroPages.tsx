@@ -36,7 +36,7 @@ export default function HeroPages() {
           </motion.div>
 
           {/* Hero Content */}
-          <div className="max-w-6xl text-center">
+          <div className="max-w-6xl 3xl:max-w-[90rem] 4xl:max-w-[110rem] text-center">
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -50,7 +50,7 @@ export default function HeroPages() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="text-[clamp(1.05rem,1.25vw,1.35rem)] text-neutral-400 mb-12 max-w-3xl mx-auto"
+              className="text-[clamp(1.05rem,1.25vw,1.35rem)] text-neutral-400 mb-12 max-w-3xl 3xl:max-w-[60rem] 4xl:max-w-[80rem] mx-auto"
             >
               Construtor visual com templates testados para conversão, Flash Pages ultra-rápidas e geração por IA. Cada página já nasce com o tracking do Ratoeira Ads integrado — sem scripts avulsos, sem configuração manual.
             </motion.p>
@@ -90,9 +90,9 @@ export default function HeroPages() {
               initial={{ opacity: 0, y: 18 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.45 }}
-              className="mx-auto mt-12 w-full max-w-6xl"
+              className="mx-auto mt-12 w-full max-w-6xl 3xl:max-w-[90rem] 4xl:max-w-[110rem]"
             >
-              <div className="relative mx-auto h-[clamp(14rem,30vw,28rem)] w-full max-w-5xl rounded-2xl border border-white/10 bg-black/20 shadow-2xl shadow-black/60 overflow-hidden">
+              <div className="relative mx-auto h-[clamp(14rem,30vw,28rem)] w-full max-w-5xl 3xl:max-w-[80rem] 4xl:max-w-[100rem] rounded-2xl border border-white/10 bg-black/20 shadow-2xl shadow-black/60 overflow-hidden">
                 <Image
                   src="/imagem pages/draganddrop.png"
                   alt="Editor visual em uso"

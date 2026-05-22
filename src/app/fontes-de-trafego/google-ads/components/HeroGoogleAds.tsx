@@ -16,13 +16,13 @@ export const HeroGoogleAds = () => {
       </div>
 
       <section className="relative">
-        <div className="relative mx-auto max-w-6xl px-6 pt-[clamp(7rem,12vh,10rem)] pb-10">
-          <div className="relative z-10 mx-auto max-w-3xl text-center">
+        <div className="relative mx-auto max-w-6xl 3xl:max-w-[90rem] 4xl:max-w-[110rem] px-6 pt-[clamp(7rem,12vh,10rem)] pb-10">
+          <div className="relative z-10 mx-auto max-w-3xl 3xl:max-w-[60rem] 4xl:max-w-[80rem] text-center">
             <h1 className="text-balance text-[clamp(2.5rem,3.6vw,5.25rem)] font-black text-white tracking-tight leading-[1.04] mb-6">
               Pare de otimizar com conversão incompleta. A Ratoeira fecha o gap do{" "}
               <span className="text-brand-primary">Google Ads</span>.
             </h1>
-            <p className="mx-auto my-8 max-w-3xl text-[clamp(1.1rem,1.25vw,1.4rem)] text-gray-300 leading-relaxed">
+            <p className="mx-auto my-8 max-w-3xl 3xl:max-w-[60rem] 4xl:max-w-[80rem] text-[clamp(1.1rem,1.25vw,1.4rem)] text-gray-300 leading-relaxed">
               Tracking server-side via API de Conversões do Google com ~100% de cobertura. Bloqueio automático de IPs
               inválidos. GCLID e UTMs preservados. Tudo que o algoritmo precisa para otimizar para quem realmente compra.
             </p>
@@ -43,7 +43,7 @@ export const HeroGoogleAds = () => {
           </div>
         </div>
 
-        <div className="mx-auto -mt-16 2xl:-mt-24 max-w-7xl [mask-image:linear-gradient(to_bottom,black_50%,transparent_100%)]">
+        <div className="mx-auto -mt-16 2xl:-mt-24 max-w-7xl 3xl:max-w-[100rem] 4xl:max-w-[120rem] [mask-image:linear-gradient(to_bottom,black_50%,transparent_100%)]">
           <div className="[perspective:1200px] [mask-image:linear-gradient(to_right,black_50%,transparent_100%)] -mr-16 pl-16 lg:-mr-56 lg:pl-56">
             <div className="[transform:rotateX(20deg);]">
               <div className="h-[clamp(16rem,34vw,52rem)] relative skew-x-[.36rad]">

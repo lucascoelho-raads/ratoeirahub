@@ -77,7 +77,7 @@ export default function ProblemSolution() {
 
   return (
     <section ref={ref} className="py-16 md:py-24 bg-[#f9fafb]" id="solucoes">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-6xl 3xl:max-w-[90rem] 4xl:max-w-[110rem] mx-auto px-4 sm:px-6 lg:px-8 3xl:px-12 4xl:px-20">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -88,7 +88,7 @@ export default function ProblemSolution() {
           <h2 className="text-4xl lg:text-5xl font-black text-[#111827] leading-tight">
             <span className="bg-gradient-to-r from-yellow-500 to-orange-500 bg-clip-text text-transparent">Tudo</span> que você precisa para dominar o <span className="bg-gradient-to-r from-yellow-500 to-orange-500 bg-clip-text text-transparent">tráfego pago</span>. Em um só <span className="bg-gradient-to-r from-yellow-500 to-orange-500 bg-clip-text text-transparent">lugar</span>.
           </h2>
-          <p className="text-xl text-[#4b5563] max-w-4xl mx-auto leading-relaxed">
+          <p className="text-xl text-[#4b5563] max-w-4xl 3xl:max-w-[70rem] 4xl:max-w-[90rem] mx-auto leading-relaxed">
             Quem escala no Google e no Meta não usa ferramentas soltas. Usa um ecossistema onde tracking, páginas e
             dados conversam entre si — e cada real investido tem uma origem rastreada.
           </p>
@@ -142,7 +142,7 @@ export default function ProblemSolution() {
           {/* First paragraph */}
           <div
             className={`w-full ${
-              activeTab === "rastreamento" ? "max-w-5xl" : "max-w-4xl"
+              activeTab === "rastreamento" ? "max-w-5xl 3xl:max-w-[80rem] 4xl:max-w-[100rem]" : "max-w-4xl 3xl:max-w-[70rem] 4xl:max-w-[90rem]"
             }`}
           >
             <p className="text-lg text-[#4b5563] leading-relaxed whitespace-pre-line text-center">
@@ -151,7 +151,7 @@ export default function ProblemSolution() {
           </div>
 
           {/* Visual (immediately below first paragraph) */}
-          <div className="relative w-full max-w-3xl">
+          <div className="relative w-full max-w-3xl 3xl:max-w-[60rem] 4xl:max-w-[80rem]">
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -188,7 +188,7 @@ export default function ProblemSolution() {
 
           {/* Remaining paragraphs */}
           {contentParts.length > 1 && (
-            <div className="w-full max-w-4xl space-y-4">
+            <div className="w-full max-w-4xl 3xl:max-w-[70rem] 4xl:max-w-[90rem] space-y-4">
               {contentParts.slice(1).map((part, index) => (
                 <p
                   key={`${activeTab}-remaining-${index}`}

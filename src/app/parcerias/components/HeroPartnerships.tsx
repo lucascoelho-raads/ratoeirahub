@@ -10,8 +10,8 @@ export default function HeroPartnerships() {
       <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-brand-primary/10 blur-[150px] rounded-full pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-orange-500/5 blur-[150px] rounded-full pointer-events-none" />
 
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-[clamp(5rem,10vh,9rem)]">
-        <div className="text-center max-w-4xl mx-auto">
+      <div className="relative z-10 w-full max-w-7xl 3xl:max-w-[100rem] 4xl:max-w-[120rem] mx-auto px-4 sm:px-6 lg:px-8 3xl:px-12 4xl:px-20 py-[clamp(5rem,10vh,9rem)]">
+        <div className="text-center max-w-4xl 3xl:max-w-[70rem] 4xl:max-w-[90rem] 3xl:max-w-[70rem] 4xl:max-w-[90rem] mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -30,7 +30,7 @@ export default function HeroPartnerships() {
               </span>
             </h1>
             
-            <p className="text-[clamp(1.05rem,1.25vw,1.35rem)] text-gray-400 leading-relaxed mb-10 max-w-3xl mx-auto">
+            <p className="text-[clamp(1.05rem,1.25vw,1.35rem)] text-gray-400 leading-relaxed mb-10 max-w-3xl 3xl:max-w-[60rem] 4xl:max-w-[80rem] 3xl:max-w-[60rem] 4xl:max-w-[80rem] mx-auto">
               Indique o ecossistema Ratoeira Hub para sua audiência ou clientes de agência e garanta comissões recorrentes enquanto eles escalam com segurança.
             </p>
 

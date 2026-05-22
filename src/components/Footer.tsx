@@ -90,9 +90,9 @@ export default function Footer() {
     <>
       {showTransformSection && (
         <section id="vamos-transformar" className={sectionClassName}>
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20 lg:py-24">
+          <div className="max-w-7xl 3xl:max-w-[100rem] 4xl:max-w-[120rem] mx-auto px-4 sm:px-6 lg:px-8 3xl:px-12 4xl:px-20 py-16 md:py-20 lg:py-24">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-20 items-center">
-              <div className="max-w-xl text-center lg:text-left mx-auto lg:mx-0">
+              <div className="max-w-xl 3xl:max-w-[40rem] 4xl:max-w-[60rem] text-center lg:text-left mx-auto lg:mx-0">
                 <h2 className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tight leading-[0.98] ${titleBaseClassName}`}>
                   Vamos <span className="text-orange-500">estruturar</span> sua operação?
                 </h2>
@@ -101,7 +101,7 @@ export default function Footer() {
                 </p>
               </div>
 
-              <div className={`mx-auto w-full max-w-xl rounded-[28px] p-8 sm:p-10 ${cardClassName}`}>
+              <div className={`mx-auto w-full max-w-xl 3xl:max-w-[40rem] 4xl:max-w-[60rem] rounded-[28px] p-8 sm:p-10 ${cardClassName}`}>
                 <form
                   noValidate
                   onSubmit={(e) => {
@@ -246,7 +246,7 @@ export default function Footer() {
       )}
 
       <footer className="bg-gray-950 text-gray-400">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl 3xl:max-w-[100rem] 4xl:max-w-[120rem] mx-auto px-4 sm:px-6 lg:px-8 3xl:px-12 4xl:px-20">
           {/* Main footer */}
           <div className="py-12 md:py-16 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-6 gap-8 text-center sm:text-left">
             {/* Brand column */}

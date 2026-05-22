@@ -61,7 +61,7 @@ export default function TypographySection() {
         <h2 className="text-heading-section text-text-primary mb-4">
           Tipografia
         </h2>
-        <p className="text-body-base text-text-secondary max-w-2xl">
+        <p className="text-body-base text-text-secondary max-w-2xl 3xl:max-w-[50rem] 4xl:max-w-[70rem] ">
           Sistema tipográfico baseado na família Inter. Cada estilo possui uma intenção clara de uso e escala definida.
         </p>
       </div>

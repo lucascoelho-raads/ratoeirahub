@@ -22,9 +22,9 @@ export default function CTAAds() {
 
       {/* Radar Effect Section (Agora como Background Absoluto) */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-10 opacity-60">
-        <div className="relative flex h-[800px] w-full max-w-5xl flex-col items-center justify-center space-y-4 overflow-visible px-4">
+        <div className="relative flex h-[800px] w-full max-w-5xl 3xl:max-w-[80rem] 4xl:max-w-[100rem] flex-col items-center justify-center space-y-4 overflow-visible px-4">
           {/* Row 1 */}
-          <div className="mx-auto w-full max-w-4xl absolute top-16">
+          <div className="mx-auto w-full max-w-4xl 3xl:max-w-[70rem] 4xl:max-w-[90rem] absolute top-16">
             <div className="flex w-full items-center justify-center space-x-10 md:justify-between md:space-x-0">
               <IconContainer
                 text="Server-Side"
@@ -50,7 +50,7 @@ export default function CTAAds() {
             </div>
           </div>
           {/* Row 2 */}
-          <div className="mx-auto w-full max-w-5xl absolute top-1/2 -translate-y-1/2">
+          <div className="mx-auto w-full max-w-5xl 3xl:max-w-[80rem] 4xl:max-w-[100rem] absolute top-1/2 -translate-y-1/2">
             <div className="flex w-full items-center justify-between">
               <IconContainer
                 text="Recuperação"
@@ -69,7 +69,7 @@ export default function CTAAds() {
             </div>
           </div>
           {/* Row 3 */}
-          <div className="mx-auto w-full max-w-4xl absolute bottom-16">
+          <div className="mx-auto w-full max-w-4xl 3xl:max-w-[70rem] 4xl:max-w-[90rem] absolute bottom-16">
             <div className="flex w-full items-center justify-center space-x-10 md:justify-between md:space-x-0">
               <IconContainer
                 delay={0.6}
@@ -99,12 +99,12 @@ export default function CTAAds() {
           whileInView={{ opacity: 1, scale: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7, ease: "easeOut" }}
-          className="flex flex-col items-center w-full max-w-6xl mx-auto"
+          className="flex flex-col items-center w-full max-w-6xl 3xl:max-w-[90rem] 4xl:max-w-[110rem] mx-auto"
         >
           <h2 className="text-[clamp(1.75rem,6vw,4.5rem)] font-black text-white mb-6 tracking-tight drop-shadow-[0_0_15px_rgba(0,0,0,0.8)] px-4">
             Pare de tomar decisão com dado <span className="text-brand-primary">incompleto</span>.
           </h2>
-          <p className="text-base sm:text-[clamp(1.1rem,1.25vw,1.5rem)] text-gray-300 max-w-3xl mx-auto drop-shadow-[0_0_10px_rgba(0,0,0,0.8)] leading-relaxed px-4">
+          <p className="text-base sm:text-[clamp(1.1rem,1.25vw,1.5rem)] text-gray-300 max-w-3xl 3xl:max-w-[60rem] 4xl:max-w-[80rem] 3xl:max-w-[60rem] 4xl:max-w-[80rem] mx-auto drop-shadow-[0_0_10px_rgba(0,0,0,0.8)] leading-relaxed px-4">
             Configure a <span className="text-brand-primary font-semibold">Ratoeira Ads</span> em minutos e descubra o ROI real das suas campanhas com rastreamento ~100% e proteção automática no Google Ads.
           </p>
         </motion.div>

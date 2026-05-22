@@ -97,7 +97,7 @@ export default function Benefits() {
 
   return (
     <section ref={ref} className="relative pt-16 md:pt-28 pb-0 bg-[#050505]" id="solucoes">
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative z-10 max-w-7xl 3xl:max-w-[100rem] 4xl:max-w-[120rem] mx-auto px-4 sm:px-6 lg:px-8 3xl:px-12 4xl:px-20">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -109,7 +109,7 @@ export default function Benefits() {
             Por que <span style={{ color: "var(--color-brand-primary)" }}>+2.600 anunciantes</span> escolheram a{" "}
             <span className="whitespace-normal sm:whitespace-nowrap">Ratoeira Hub</span>
           </h2>
-          <p className="text-white/80 text-lg max-w-2xl mx-auto">
+          <p className="text-white/80 text-lg max-w-2xl 3xl:max-w-[50rem] 4xl:max-w-[70rem] mx-auto">
             Do anunciante que não quer perder a primeira venda ao gestor que escala múltiplos clientes — uma plataforma
             para cada momento da sua operação.
           </p>
@@ -133,7 +133,7 @@ export default function Benefits() {
                 const Icon = benefit.icon;
 
                 return (
-                  <div className="w-full max-w-7xl mx-auto">
+                  <div className="w-full max-w-7xl 3xl:max-w-[100rem] 4xl:max-w-[120rem] mx-auto">
                     <ShineBorder
                       borderRadius={24}
                       borderWidth={5.5}

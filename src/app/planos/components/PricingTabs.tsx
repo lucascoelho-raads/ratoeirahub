@@ -382,7 +382,7 @@ export default function PricingTabs() {
 
   return (
     <section className="py-16 md:py-24 bg-black">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl 3xl:max-w-[100rem] 4xl:max-w-[120rem] mx-auto px-4 sm:px-6 lg:px-8 3xl:px-12 4xl:px-20">
         {/* Tabs and Billing Toggle */}
         <div className="flex flex-col items-center gap-8 mb-16">
           {/* Tabs */}
@@ -678,7 +678,7 @@ export default function PricingTabs() {
         </div>
 
         {/* Desktop View: Cards & Features Separated */}
-        <div className="hidden md:block w-full max-w-7xl mx-auto">
+        <div className="hidden md:block w-full max-w-7xl 3xl:max-w-[100rem] 4xl:max-w-[120rem] 3xl:max-w-[100rem] 4xl:max-w-[120rem] mx-auto">
           {/* Cards Row */}
           <AnimatePresence mode="wait">
             <motion.div

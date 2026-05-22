@@ -259,7 +259,7 @@ function InputAnatomy({ mode }: { mode: InspectionMode }) {
     <div className="space-y-4">
       <h3 className="text-heading-subtitle text-text-primary">Text Input</h3>
       <AnatomyCanvas>
-        <div className="relative max-w-xl mx-auto">
+        <div className="relative max-w-xl 3xl:max-w-[40rem] 4xl:max-w-[60rem] mx-auto">
           <label className="text-body-label text-text-primary mb-1 block">E-mail de Trabalho</label>
           <input
             placeholder="nome@empresa.com"
@@ -304,11 +304,11 @@ export default function DesignSystem() {
     <div className="min-h-screen">
       <div className="grid lg:grid-cols-[260px_1fr]">
         <SideNavigation />
-        <main className="max-w-5xl mx-auto px-10 py-12 w-full space-y-14">
+        <main className="max-w-5xl 3xl:max-w-[80rem] 4xl:max-w-[100rem] mx-auto px-10 py-12 w-full space-y-14">
           <section id="overview" className="space-y-4">
             <p className="text-body-label text-brand-secondary font-mono">Ratoeira Hub · Documentation</p>
             <h1 className="text-heading-section text-text-primary">Design System</h1>
-            <p className="text-body-description text-text-secondary max-w-3xl">
+            <p className="text-body-description text-text-secondary max-w-3xl 3xl:max-w-[60rem] 4xl:max-w-[80rem]">
               Interface técnica para tokens, escalas e anatomia de componentes. Estruturado para consulta rápida por produto, design e engenharia.
             </p>
           </section>

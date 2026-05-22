@@ -21,7 +21,7 @@ export default function CasesPage() {
       <MentorsRecommend />
       
       {/* Divider */}
-      <div className="w-full max-w-7xl mx-auto h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+      <div className="w-full max-w-7xl 3xl:max-w-[100rem] 4xl:max-w-[120rem] 3xl:max-w-[100rem] 4xl:max-w-[120rem] mx-auto h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
       
       {/* 3. Cards de Cases (Apple Style) */}
       <CasesList />

@@ -34,7 +34,7 @@ export default function Header() {
           : "bg-transparent"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl 3xl:max-w-[100rem] 4xl:max-w-[120rem] mx-auto px-4 sm:px-6 lg:px-8 3xl:px-12 4xl:px-20">
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 group">
@@ -97,7 +97,7 @@ export default function Header() {
             transition={{ duration: 0.3, ease: "easeInOut" }}
             className="lg:hidden overflow-hidden bg-[#0a0a0a]/95 backdrop-blur-xl border-t border-amber-500/10"
           >
-            <div className="max-w-7xl mx-auto px-4 py-4 flex flex-col gap-4">
+            <div className="max-w-7xl 3xl:max-w-[100rem] 4xl:max-w-[120rem] mx-auto px-4 py-4 flex flex-col gap-4">
               {navLinks.map((link, i) => (
                 <motion.div
                   key={link.href}

@@ -60,7 +60,7 @@ export default function ComponentsSection() {
         <h2 className="text-heading-section text-text-primary mb-4">
           Componentes & Anatomia
         </h2>
-        <p className="text-body-base text-text-secondary max-w-2xl">
+        <p className="text-body-base text-text-secondary max-w-2xl 3xl:max-w-[50rem] 4xl:max-w-[70rem] ">
           Especificações técnicas e comportamentais dos elementos base do Ratoeira Hub.
         </p>
       </div>
