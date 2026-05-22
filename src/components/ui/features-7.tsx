@@ -59,6 +59,42 @@ export function Features() {
       description:
         "Suas páginas ficam hospedadas na infraestrutura da Ratoeira com carregamento ultra-rápido. Sem servidor para contratar, sem CDN para configurar. Publique e comece a rastrear imediatamente.",
     },
+    {
+      key: "clonador-url",
+      imageSrc: "/imagem pages/clonepages.png",
+      imageAlt: "Clonador de Páginas",
+      titlePrefix: "Clonador de Páginas:",
+      titleHighlight: "Replice Qualquer Página em Segundos.",
+      description:
+        "Cole a URL da página que deseja replicar e o sistema clona a estrutura, os estilos e os elementos automaticamente. Edite textos, imagens e cores no editor visual — sem precisar construir do zero.",
+    },
+    {
+      key: "teste-ab",
+      imageSrc: "/testab.png",
+      imageAlt: "Testes A/B",
+      titlePrefix: "Testes A/B",
+      titleHighlight: "Nativos na Plataforma.",
+      description:
+        "Crie variações da mesma página e distribua o tráfego entre elas diretamente no Ratoeira Pages. Acompanhe impressões, conversões, taxa de conversão e receita em tempo real — sem ferramentas externas.",
+    },
+    {
+      key: "sites-cod",
+      imageSrc: "/sitecod.png",
+      imageAlt: "Sites COD",
+      titlePrefix: "Sites COD",
+      titleHighlight: "Prontos para Escalar.",
+      description:
+        "Estrutura completa para operações Cash on Delivery com upload de arquivos, validação de pedidos e integração nativa com o tracking. Suba seu site COD em minutos com toda a infraestrutura pronta.",
+    },
+    {
+      key: "templates-nicho",
+      imageSrc: "/templatesprontos.png",
+      imageAlt: "Templates por Nicho",
+      titlePrefix: "Biblioteca de Templates por",
+      titleHighlight: "Nicho.",
+      description:
+        "Mais de 100 templates organizados por categoria: Capture, Forms, Nutra, Presell, Review, Sell, Social Network e Thanks. Cada um testado para conversão e pronto para ser personalizado à sua oferta.",
+    },
   ] as const;
 
   return (
