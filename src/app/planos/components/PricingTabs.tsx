@@ -868,8 +868,8 @@ export default function PricingTabs() {
           {/* Features Table */}
           <div className="mt-16">
             <div className="sticky top-20 z-20 -mt-6 mb-6">
-              <div className={cn("relative grid gap-8 items-center py-3 border-b border-white/10 bg-black/80 backdrop-blur-md", plans.length === 4 ? "grid-cols-4" : "grid-cols-3")}>
-                <div className="absolute left-0 w-[180px] h-full" />
+              <div className={cn("relative grid items-center py-3 border-b border-white/10 bg-black/80 backdrop-blur-md", plans.length === 4 ? "grid-cols-5 gap-6" : "grid-cols-4 gap-8")}>
+                <div className="text-xs font-bold uppercase tracking-widest text-gray-500" />
                 {plans.map((plan) => (
                   <div
                     key={`plan-col-${activeTab}-${plan.name}`}
@@ -888,14 +888,14 @@ export default function PricingTabs() {
 
                 <div className="space-y-0">
                   {group.features.map((feature, fi) => (
-                    <div 
-                      key={feature.label} 
-                      className={cn("relative grid gap-8 items-center py-6 border-b border-white/5 last:border-0 hover:bg-white/[0.02] transition-colors group/row", plans.length === 4 ? "grid-cols-4" : "grid-cols-3")}
+                    <div
+                      key={feature.label}
+                      className={cn("grid items-center py-6 border-b border-white/5 last:border-0 hover:bg-white/[0.02] transition-colors group/row", plans.length === 4 ? "grid-cols-5 gap-6" : "grid-cols-4 gap-8")}
                     >
-                      <div className="absolute left-0 flex items-center gap-2 text-sm text-gray-300 font-medium w-[180px] z-10 bg-[#050505]/80 md:bg-transparent backdrop-blur-sm md:backdrop-blur-none py-1">
+                      <div className="flex items-center gap-2 text-sm text-gray-300 font-medium pr-4">
                         {feature.label}
                       </div>
-                      
+
                       {/* Value Columns (Perfectly aligned with cards) */}
                       {feature.values.map((val, vi) => (
                         <div key={vi} className="flex justify-center text-white">
