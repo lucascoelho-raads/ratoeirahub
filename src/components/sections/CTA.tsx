@@ -53,7 +53,7 @@ export default function CTA() {
           </p>
 
           {/* Garantia */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-black/5 border border-brand-primary/30 rounded-full text-brand-primary text-sm">
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-gray-50 border border-brand-primary/30 rounded-full text-brand-primary text-sm">
             <span className="text-green-600">✓</span> Risco Zero. Comece no plano gratuito. Sem compromisso, sem cartão.
             Upgrade quando quiser.
           </div>
