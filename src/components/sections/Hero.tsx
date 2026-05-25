@@ -149,7 +149,7 @@ export default function Hero() {
 
                   <motion.div variants={itemVariants} className="flex flex-col gap-2 pt-2">
                     <Link
-                      href="/planos#fale-conosco"
+                      href="/planos#vamos-transformar"
                       className="inline-flex self-center lg:self-start items-center justify-center px-6 py-3 bg-brand-primary text-white font-semibold text-sm rounded-button hover:bg-brand-primary-hover transition-colors duration-200 text-center"
                     >
                       Começar grátis

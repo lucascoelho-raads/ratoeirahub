@@ -69,7 +69,7 @@ export default function Header() {
               Entrar
             </Link>
             <Link
-              href="/planos#fale-conosco"
+              href="/planos#vamos-transformar"
               className="text-sm font-semibold text-gray-50 bg-[#ffb800] hover:bg-[#e6a600] px-5 py-2.5 rounded-button transition-all duration-200 shadow-lg shadow-amber-500/30 hover:shadow-amber-500/50 hover:-translate-y-0.5"
             >
               Começar Grátis
@@ -122,7 +122,7 @@ export default function Header() {
                   Entrar
                 </Link>
                 <Link
-                  href="/planos#fale-conosco"
+                  href="/planos#vamos-transformar"
                   className="text-center text-sm font-semibold text-gray-50 bg-[#ffb800] rounded-button py-2.5 hover:bg-[#e6a600] transition-colors"
                 >
                   Começar Grátis

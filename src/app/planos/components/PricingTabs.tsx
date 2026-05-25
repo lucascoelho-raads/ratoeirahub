@@ -372,7 +372,16 @@ export default function PricingTabs() {
   const plans = activeTab === "hub" && billingCycle !== "monthly"
     ? rawPlans.filter((p) => p.name !== "Gratuito")
     : rawPlans;
-  const comparisonGroups = featureGroupsByTab[activeTab];
+  const comparisonGroups =
+    activeTab === "hub" && billingCycle !== "monthly"
+      ? featureGroupsByTab[activeTab].map((group) => ({
+          ...group,
+          features: group.features.map((feature) => ({
+            ...feature,
+            values: feature.values.slice(1),
+          })),
+        }))
+      : featureGroupsByTab[activeTab];
 
   useEffect(() => {
     if (activePlanIndex >= plans.length) {
@@ -610,7 +619,7 @@ export default function PricingTabs() {
                   </div>
                 )}
                 <a
-                  href="/planos#fale-conosco"
+                  href="/planos#vamos-transformar"
                   className={cn(
                     "w-full py-4 rounded-button font-bold text-sm transition-colors text-center block",
                     plan.popular
@@ -845,7 +854,7 @@ export default function PricingTabs() {
                   )}
                   </div>
                   <a
-                    href="/planos#fale-conosco"
+                    href="/planos#vamos-transformar"
                     className={cn(
                       "w-full py-4 rounded-button font-bold text-sm transition-colors mt-auto text-center block",
                       plan.popular

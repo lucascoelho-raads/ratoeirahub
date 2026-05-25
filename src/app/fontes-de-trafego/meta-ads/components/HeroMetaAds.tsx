@@ -29,7 +29,7 @@ export const HeroMetaAds = () => {
 
             <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
               <Button asChild size="lg" className="h-14 px-8 2xl:h-16 2xl:px-10 2xl:text-xl font-bold">
-                <Link href="/planos#fale-conosco">
+                <Link href="/planos#vamos-transformar">
                   Começar grátis
                   <ArrowRight className="w-5 h-5 ml-2" />
                 </Link>

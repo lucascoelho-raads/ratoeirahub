@@ -189,7 +189,7 @@ export default function Pricing() {
 
                 {/* CTA */}
                 <a
-                  href="/planos#fale-conosco"
+                  href="/planos#vamos-transformar"
                   className={`flex items-center justify-center gap-2 px-6 py-3.5 rounded-button font-bold text-sm transition-all duration-200 group ${
                     plan.popular
                       ? "bg-white text-orange-600 hover:bg-orange-50 shadow-lg"

@@ -25,7 +25,7 @@ export default function CTAPages() {
           </p>
           
           <Link
-            href="/planos#fale-conosco"
+            href="/planos#vamos-transformar"
             className="inline-flex items-center gap-2 px-8 py-4 sm:px-10 sm:py-5 bg-[#FF7E4A] text-white font-bold rounded-button hover:bg-[#e86b3b] transition-all text-lg sm:text-xl shadow-xl shadow-[#FF7E4A]/20 hover:scale-105 active:scale-95"
           >
             Começar grátis
