@@ -156,29 +156,57 @@ export default function ProblemSolution() {
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5 }}
-              className="bg-linear-to-b from-gray-100 to-gray-50 rounded-3xl p-8 border border-gray-200 shadow-2xl aspect-video flex items-center justify-center overflow-hidden"
+              className="bg-linear-to-b from-gray-100 to-gray-50 rounded-3xl p-2 sm:p-4 border border-gray-200 shadow-2xl overflow-hidden"
             >
-              <div className="text-center">
-                <div className="w-20 h-20 rounded-2xl mx-auto mb-4 flex items-center justify-center bg-linear-to-r from-yellow-500 to-orange-500">
-                  {activeTab === "rastreamento" && <Radar className="w-10 h-10 text-white" />}
-                  {activeTab === "paginas" && <LayoutTemplate className="w-10 h-10 text-white" />}
-                  {activeTab === "ecossistema" && <Link2 className="w-10 h-10 text-white" />}
+              {activeTab === "rastreamento" ? (
+                <div className="relative rounded-2xl overflow-hidden">
+                  <img
+                    src="/rastreamento inteligente.png"
+                    alt="Rastreamento Inteligente"
+                    className="w-full h-auto"
+                  />
+                  <div className="absolute bottom-[calc(12%+4px)] left-[8%] right-[8%] flex items-center justify-center">
+                    <AnimatePresence mode="wait">
+                      <motion.div
+                        key={`${activeTab}-highlight-${highlightIndex}`}
+                        initial={{ opacity: 0, y: 6 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -6 }}
+                        transition={{ duration: 0.35, ease: "easeOut" }}
+                        className="inline-flex items-center justify-center px-5 py-2.5 rounded-xl"
+                        style={{ backgroundColor: "#fcd34d" }}
+                      >
+                        <p className="font-black text-base md:text-lg lg:text-xl text-center whitespace-nowrap" style={{ color: "#f97316" }}>
+                          {activeHighlights[highlightIndex]}
+                        </p>
+                      </motion.div>
+                    </AnimatePresence>
+                  </div>
                 </div>
-                <div className="min-h-[56px] flex items-center justify-center px-4">
-                  <AnimatePresence mode="wait">
-                    <motion.p
-                      key={`${activeTab}-highlight-${highlightIndex}`}
-                      initial={{ opacity: 0, y: 6 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -6 }}
-                      transition={{ duration: 0.35, ease: "easeOut" }}
-                      className="text-gray-700 font-semibold text-sm md:text-base"
-                    >
-                      • {activeHighlights[highlightIndex]}
-                    </motion.p>
-                  </AnimatePresence>
+              ) : (
+                <div className="aspect-video flex items-center justify-center">
+                  <div className="text-center">
+                    <div className="w-20 h-20 rounded-2xl mx-auto mb-4 flex items-center justify-center bg-linear-to-r from-yellow-500 to-orange-500">
+                      {activeTab === "paginas" && <LayoutTemplate className="w-10 h-10 text-white" />}
+                      {activeTab === "ecossistema" && <Link2 className="w-10 h-10 text-white" />}
+                    </div>
+                    <div className="min-h-[56px] flex items-center justify-center px-4">
+                      <AnimatePresence mode="wait">
+                        <motion.p
+                          key={`${activeTab}-highlight-${highlightIndex}`}
+                          initial={{ opacity: 0, y: 6 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          exit={{ opacity: 0, y: -6 }}
+                          transition={{ duration: 0.35, ease: "easeOut" }}
+                          className="text-gray-700 font-semibold text-sm md:text-base"
+                        >
+                          • {activeHighlights[highlightIndex]}
+                        </motion.p>
+                      </AnimatePresence>
+                    </div>
+                  </div>
                 </div>
-              </div>
+              )}
             </motion.div>
 
             {/* Decorative elements */}
