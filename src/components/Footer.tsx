@@ -100,7 +100,7 @@ export default function Footer() {
                   Vamos <span className="text-orange-500">estruturar</span> sua operação?
                 </h2>
                 <p className={`mt-7 text-base sm:text-lg leading-relaxed ${subtitleClassName}`}>
-                  Preencha seu cadastro ative agora mesmo seu plano <span className="text-orange-500 font-bold">GRATUITO</span>. Sem cartão, sem pix. Apenas cadastre-se e receba o acesso.
+                  Preencha seu cadastro. Ative agora mesmo seu plano <span className="text-orange-500 font-bold">GRATUITO</span>. Sem cartão, sem pix. Apenas cadastre-se e receba o acesso.
                 </p>
               </div>
 
