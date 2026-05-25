@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { useMemo, useState } from "react";
 import { AuroraBackground } from "@/components/ui/aurora-background";
 import SpotlightBackground from "@/components/ui/spotlight-background";
+import { countries } from "@/lib/countries";
 
 const footerLinks = {
   Produto: [
@@ -49,20 +50,7 @@ export default function Footer() {
   const showTransformSection = true;
   const isLightBackground = pathname === "/design-system";
 
-  const countries = useMemo(
-    () => [
-      { code: "BR", name: "Brasil", dial: "+55", flag: "🇧🇷" },
-      { code: "PT", name: "Portugal", dial: "+351", flag: "🇵🇹" },
-      { code: "US", name: "Estados Unidos", dial: "+1", flag: "🇺🇸" },
-      { code: "GB", name: "Reino Unido", dial: "+44", flag: "🇬🇧" },
-      { code: "ES", name: "Espanha", dial: "+34", flag: "🇪🇸" },
-      { code: "MX", name: "México", dial: "+52", flag: "🇲🇽" },
-      { code: "AR", name: "Argentina", dial: "+54", flag: "🇦🇷" },
-      { code: "CL", name: "Chile", dial: "+56", flag: "🇨🇱" },
-      { code: "CO", name: "Colômbia", dial: "+57", flag: "🇨🇴" },
-    ],
-    [],
-  );
+  const countriesList = useMemo(() => countries, []);
 
   const [step, setStep] = useState<1 | 2>(1);
   const [fullName, setFullName] = useState("");
@@ -73,8 +61,8 @@ export default function Footer() {
   const [mainTrafficSource, setMainTrafficSource] = useState("");
 
   const selectedCountry = useMemo(
-    () => countries.find((c) => c.code === countryCode) ?? countries[0],
-    [countries, countryCode],
+    () => countriesList.find((c) => c.code === countryCode) ?? countriesList[0],
+    [countriesList, countryCode],
   );
 
   const sectionClassName = isLightBackground ? "bg-surface-default text-text-primary" : "bg-[#050505] text-white";
@@ -150,7 +138,7 @@ export default function Footer() {
                             onChange={(e) => setCountryCode(e.target.value)}
                             className={`w-[150px] rounded-2xl border px-4 py-4 text-base outline-none focus:ring-2 ${inputClassName}`}
                           >
-                            {countries.map((c) => (
+                            {countriesList.map((c) => (
                               <option key={c.code} value={c.code}>
                                 {c.flag} {c.dial}
                               </option>
