@@ -193,10 +193,13 @@ export default function Footer() {
                           <option value="" disabled>
                             Selecione uma opção
                           </option>
-                          <option value="Anunciante">Anunciante</option>
-                          <option value="Infoprodutor">Infoprodutor</option>
-                          <option value="Gestor de Tráfego">Gestor de Tráfego</option>
+                          <option value="Afiliado">Afiliado</option>
                           <option value="Agência">Agência</option>
+                          <option value="Dono de Negócio Local">Dono de Negócio Local</option>
+                          <option value="Dropshipping">Dropshipping</option>
+                          <option value="E-Commerce">E-Commerce</option>
+                          <option value="Gestor de Tráfego">Gestor de Tráfego</option>
+                          <option value="Infoprodutor">Infoprodutor</option>
                           <option value="Ainda Não Comecei">Ainda Não Comecei</option>
                         </select>
                       </div>
@@ -211,11 +214,16 @@ export default function Footer() {
                           <option value="" disabled>
                             Selecione uma opção
                           </option>
-                          <option value="Google Ads / YouTube">Google Ads/YouTube</option>
+                          <option value="Google Ads">Google Ads</option>
+                          <option value="Kwai Ads">Kwai Ads</option>
+                          <option value="LinkedIn">LinkedIn</option>
                           <option value="Meta Ads (Facebook/Instagram)">Meta Ads (Facebook/Instagram)</option>
                           <option value="Native Ads (Taboola/Outbrain)">Native Ads (Taboola/Outbrain)</option>
-                          <option value="TikTok Ads">Tik Tok Ads</option>
                           <option value="Orgânico">Orgânico</option>
+                          <option value="Outros">Outros</option>
+                          <option value="TikTok Ads">TikTok Ads</option>
+                          <option value="WhatsApp">WhatsApp</option>
+                          <option value="YouTube">YouTube</option>
                         </select>
                       </div>
 
