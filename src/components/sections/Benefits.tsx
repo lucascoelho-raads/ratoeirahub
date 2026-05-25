@@ -91,7 +91,7 @@ export default function Benefits() {
   useEffect(() => {
     const interval = setInterval(() => {
       goToNext();
-    }, 10000);
+    }, 25000);
     return () => clearInterval(interval);
   }, [activeIndex]);
 
@@ -159,24 +159,46 @@ export default function Benefits() {
                           </div>
 
                           <div className={benefit.imageLeft ? "order-1" : "order-2"}>
-                            <div
-                              className="relative h-[220px] sm:h-[280px] md:h-[380px] rounded-card border border-border-default overflow-hidden flex items-center justify-center"
-                              style={{
-                                background: benefit.imageLeft
-                                  ? "linear-gradient(135deg, var(--color-brand-100) 0%, var(--color-brand-50) 100%)"
-                                  : "linear-gradient(135deg, var(--color-brand-50) 0%, var(--color-brand-100) 100%)",
-                              }}
-                            >
-                              <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.9),rgba(255,255,255,0.15))]" />
-                              <div className="relative z-10 flex flex-col items-center text-center px-6">
-                                <div className="w-20 h-20 rounded-card bg-white/5 border border-white/10 flex items-center justify-center">
-                                  <Icon className="w-10 h-10 text-brand-primary" />
-                                </div>
-                                <p className="mt-4 text-sm font-semibold text-gray-200">
-                                  Imagem ilustrativa do {benefit.label.toLowerCase()}
-                                </p>
+                            {activeIndex === 0 || activeIndex === 2 || activeIndex === 3 ? (
+                              <div className="relative rounded-card overflow-hidden">
+                                <img
+                                  src={activeIndex === 0 ? "/slide1home.png" : activeIndex === 2 ? "/slide3home.png" : "/slide4home.png"}
+                                  alt={benefit.title}
+                                  className="w-full h-auto"
+                                />
                               </div>
-                            </div>
+                            ) : activeIndex === 4 ? (
+                              <div className="relative aspect-[9/16] max-w-[260px] sm:max-w-[300px] max-h-full mx-auto">
+                                <video
+                                  src="/slide5home.mp4"
+                                  autoPlay
+                                  muted
+                                  loop
+                                  playsInline
+                                  preload="auto"
+                                  className="w-full h-full object-contain rounded-card border border-border-default"
+                                />
+                              </div>
+                            ) : (
+                              <div
+                                className="relative h-[220px] sm:h-[280px] md:h-[380px] rounded-card border border-border-default overflow-hidden flex items-center justify-center"
+                                style={{
+                                  background: benefit.imageLeft
+                                    ? "linear-gradient(135deg, var(--color-brand-100) 0%, var(--color-brand-50) 100%)"
+                                    : "linear-gradient(135deg, var(--color-brand-50) 0%, var(--color-brand-100) 100%)",
+                                }}
+                              >
+                                <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.9),rgba(255,255,255,0.15))]" />
+                                <div className="relative z-10 flex flex-col items-center text-center px-6">
+                                  <div className="w-20 h-20 rounded-card bg-white/5 border border-white/10 flex items-center justify-center">
+                                    <Icon className="w-10 h-10 text-brand-primary" />
+                                  </div>
+                                  <p className="mt-4 text-sm font-semibold text-gray-200">
+                                    Imagem ilustrativa do {benefit.label.toLowerCase()}
+                                  </p>
+                                </div>
+                              </div>
+                            )}
                           </div>
                         </div>
                       </div>

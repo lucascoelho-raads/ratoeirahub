@@ -308,30 +308,12 @@ export default function Hero() {
 
                 {/* Mockup Pages - visível em todas as telas */}
                 <div className="relative lg:col-start-2 lg:row-start-1">
-                  <div className="relative h-[clamp(280px,55vw,420px)] lg:h-[clamp(420px,46vh,640px)] 2xl:h-[clamp(520px,22vw,820px)] 3xl:h-[clamp(600px,24vw,900px)] rounded-3xl overflow-hidden border border-neutral-200 bg-gradient-to-br from-[#FFF8E6] via-white to-orange-50 shadow-card-resting">
-                    <div className="absolute top-4 left-4 right-4 sm:top-6 sm:left-6 sm:right-6 h-10 sm:h-12 rounded-xl bg-white/90 border border-neutral-200 flex items-center px-3 sm:px-4">
-                      <div className="w-2.5 h-2.5 rounded-full bg-red-400/60 mr-1.5" />
-                      <div className="w-2.5 h-2.5 rounded-full bg-amber-400/60 mr-1.5" />
-                      <div className="w-2.5 h-2.5 rounded-full bg-emerald-400/60 mr-3" />
-                      <span className="text-xs font-semibold text-neutral-500">
-                        Ratoeira Pages Preview
-                      </span>
-                    </div>
-                    <div className="absolute inset-x-4 top-16 bottom-4 sm:inset-x-6 sm:top-24 sm:bottom-6 rounded-2xl bg-white border border-neutral-200 p-3 sm:p-5 shadow-sm">
-                      <div className="h-16 sm:h-24 rounded-xl bg-gradient-to-r from-orange-500 to-amber-500 mb-3 sm:mb-4 flex items-center px-3 sm:px-5">
-                        <span className="text-white text-sm sm:text-lg font-black">
-                          Template de Alta Conversão
-                        </span>
-                      </div>
-                      <div className="grid grid-cols-2 gap-2 sm:gap-3">
-                        <div className="h-14 sm:h-20 rounded-lg bg-neutral-100 border border-neutral-200" />
-                        <div className="h-14 sm:h-20 rounded-lg bg-neutral-100 border border-neutral-200" />
-                        <div className="h-8 sm:h-10 rounded-lg bg-amber-100 border border-amber-200 col-span-2 flex items-center justify-center text-amber-700 text-xs sm:text-sm font-bold">
-                          Publicar em minutos
-                        </div>
-                      </div>
-                    </div>
-                    <div className="absolute -bottom-4 -right-4 w-20 h-20 rounded-full bg-amber-200/70 blur-2xl" />
+                  <div className="relative h-[clamp(280px,55vw,420px)] lg:h-[clamp(420px,46vh,640px)] 2xl:h-[clamp(520px,22vw,820px)] 3xl:h-[clamp(600px,24vw,900px)] rounded-3xl overflow-hidden border border-neutral-200 bg-[#0a0a0a] shadow-card-resting p-2 sm:p-4">
+                    <img
+                      src="/paginasqueconvertem.png"
+                      alt="Ratoeira Pages Preview"
+                      className="w-full h-full object-contain rounded-xl"
+                    />
                   </div>
                 </div>
 
