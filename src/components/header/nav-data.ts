@@ -186,12 +186,12 @@ export const NAV_LINKS: NavLink[] = [
             {
               label: "Privacidade",
               description: "Políticas de privacidade do Pages.",
-              href: "#materiais",
+              href: "/privacidade/pages",
             },
             {
               label: "Termos de Uso",
               description: "Termos de uso do Ratoeira Pages.",
-              href: "#materiais",
+              href: "/termos-de-uso/pages",
             },
             {
               label: "Central de Ajuda",

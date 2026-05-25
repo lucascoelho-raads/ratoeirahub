@@ -10,7 +10,7 @@ export default function MentorsRecommend() {
   const inView = useInView(sectionRef, { once: true, margin: "-80px" });
 
   return (
-    <section ref={sectionRef} className="py-16 md:py-24 bg-[#050505] relative overflow-hidden">
+    <section ref={sectionRef} className="py-16 md:py-24 bg-white relative overflow-hidden">
       <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-brand-primary/5 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="max-w-7xl 3xl:max-w-[100rem] 4xl:max-w-[120rem] mx-auto px-4 sm:px-6 lg:px-8 3xl:px-12 4xl:px-20 relative z-10">
@@ -20,7 +20,7 @@ export default function MentorsRecommend() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl sm:text-4xl lg:text-6xl font-black text-white leading-tight tracking-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-6xl font-black text-[#111111] leading-tight tracking-tight">
             Os Maiores Mentores <br />
             <span className="text-brand-primary">Indicam a Ratoeira Hub</span>
           </h2>
@@ -34,7 +34,7 @@ export default function MentorsRecommend() {
             initial={{ opacity: 0, y: 30 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="col-span-1 md:col-span-2 row-span-2 bg-[#161616] border border-white/5 rounded-[32px] overflow-hidden relative group"
+            className="col-span-1 md:col-span-2 row-span-2 bg-[#161616] border border-black/10 rounded-[32px] overflow-hidden relative group"
           >
             <Image 
               src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" 
@@ -59,7 +59,7 @@ export default function MentorsRecommend() {
             initial={{ opacity: 0, x: 30 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="col-span-1 md:col-span-2 row-span-1 bg-[#111111] border border-white/5 rounded-[32px] p-8 flex flex-col justify-center relative group overflow-hidden hover:border-brand-primary/30 transition-colors"
+            className="col-span-1 md:col-span-2 row-span-1 bg-[#111111] border border-black/10 rounded-[32px] p-8 flex flex-col justify-center relative group overflow-hidden hover:border-brand-primary/30 transition-colors"
           >
             <div className="absolute inset-0 bg-gradient-to-r from-brand-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             <Quote className="absolute top-6 right-6 w-20 h-20 text-brand-primary/5 -rotate-12 group-hover:text-brand-primary/10 transition-colors duration-500" />
@@ -92,7 +92,7 @@ export default function MentorsRecommend() {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={inView ? { opacity: 1, scale: 1 } : {}}
             transition={{ duration: 0.5, delay: 0.3 }}
-            className="col-span-1 md:col-span-1 row-span-1 bg-[#111111] border border-white/5 rounded-[32px] p-6 flex flex-col justify-between group overflow-hidden relative hover:border-brand-primary/30 transition-colors"
+            className="col-span-1 md:col-span-1 row-span-1 bg-[#111111] border border-black/10 rounded-[32px] p-6 flex flex-col justify-between group overflow-hidden relative hover:border-brand-primary/30 transition-colors"
           >
             <div className="relative z-10">
               <Quote className="w-6 h-6 text-brand-primary/40 mb-3 group-hover:text-brand-primary/60 transition-colors" />
@@ -123,7 +123,7 @@ export default function MentorsRecommend() {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={inView ? { opacity: 1, scale: 1 } : {}}
             transition={{ duration: 0.5, delay: 0.4 }}
-            className="col-span-1 md:col-span-1 row-span-1 bg-brand-primary border border-white/5 rounded-[32px] p-6 flex flex-col items-center justify-center text-center relative overflow-hidden group hover:brightness-110 transition-all"
+            className="col-span-1 md:col-span-1 row-span-1 bg-brand-primary border border-black/10 rounded-[32px] p-6 flex flex-col items-center justify-center text-center relative overflow-hidden group hover:brightness-110 transition-all"
           >
             <div className="absolute inset-0 bg-gradient-to-b from-white/20 to-transparent" />
             <div className="relative z-10">

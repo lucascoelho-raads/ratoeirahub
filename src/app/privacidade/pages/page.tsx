@@ -4,11 +4,11 @@ import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 
 export const metadata = {
-  title: "Política de Privacidade | Ratoeira Ads",
-  description: "Política de Privacidade da plataforma Ratoeira Ads.",
+  title: "Política de Privacidade | Ratoeira Pages",
+  description: "Política de Privacidade da plataforma Ratoeira Pages.",
 };
 
-export default function PrivacidadeAdsPage() {
+export default function PrivacidadePagesPage() {
   return (
     <main className="flex flex-col flex-1 min-h-screen bg-[#050505] text-white">
       <Navbar />
@@ -26,7 +26,7 @@ export default function PrivacidadeAdsPage() {
             Política de Privacidade
           </h1>
           <p className="text-brand-primary font-bold uppercase tracking-widest text-sm mb-4">
-            Ratoeira Ads
+            Ratoeira Pages
           </p>
           <p className="text-gray-400 text-lg">
             Sua segurança e privacidade são nossa prioridade.
@@ -39,15 +39,13 @@ export default function PrivacidadeAdsPage() {
               Esta Política de Privacidade (&ldquo;Política&rdquo;) se aplica a
               todos os serviços prestados pela{" "}
               <strong className="text-white">
-                RATOEIRA ADS DIGITAL MARKETING LTDA.
+                RATOEIRA PAGES DIGITAL MARKETING LTDA
               </strong>
               , pessoa jurídica de direito privado, inscrita no CNPJ sob o nº{" "}
-              <strong className="text-white">55.824.986/0001-06</strong>, sediada
+              <strong className="text-white">62.829.447/0001-25</strong>, sediada
               na Alameda Rio Negro, 503, sala 2020, Alphaville, Barueri/SP, CEP:
               06.454-000, doravante denominada (
-              <strong className="text-white">
-                &ldquo;RATOEIRA ADS&rdquo;
-              </strong>
+              <strong className="text-white">&ldquo;RATOEIRA PAGES&rdquo;</strong>
               ).
             </p>
           </section>
@@ -62,7 +60,7 @@ export default function PrivacidadeAdsPage() {
             <div className="space-y-4">
               <p>
                 Visando proteger a sua privacidade, além de garantir a liberdade
-                e o exercício de direitos ao titular de dados, a RATOEIRA ADS
+                e o exercício de direitos ao titular de dados, a RATOEIRA PAGES
                 apresenta a presente Política de Privacidade.
               </p>
               <p>
@@ -74,12 +72,12 @@ export default function PrivacidadeAdsPage() {
               <p>
                 O titular dos dados pessoais declara-se ciente com esta Política
                 e dá expresso consentimento para o Tratamento de suas
-                Informações Pessoais pela RATOEIRA ADS.
+                Informações Pessoais pela RATOEIRA PAGES.
               </p>
               <p>
                 Caso não concorde com o Tratamento de suas Informações Pessoais,
                 na forma prevista nesta Política, deverá se abster de utilizar
-                os serviços da RATOEIRA ADS.
+                os serviços da RATOEIRA PAGES.
               </p>
             </div>
           </section>
@@ -140,7 +138,7 @@ export default function PrivacidadeAdsPage() {
               Dados Tratados e Finalidade
             </h2>
             <p className="mb-4">
-              A RATOEIRA ADS coleta e trata dados pessoais para garantir a
+              A RATOEIRA PAGES coleta e trata dados pessoais para garantir a
               execução dos serviços, segurança, prevenção de fraudes e melhoria
               da experiência:
             </p>
@@ -158,24 +156,15 @@ export default function PrivacidadeAdsPage() {
                 <span>
                   <strong className="text-white">Navegação e Uso:</strong>{" "}
                   Dados de navegação, logs de acesso, padrões de uso da
-                  plataforma, endereço IP, cookies e informações técnicas do
-                  dispositivo.
+                  plataforma, endereço IP e cookies.
                 </span>
               </li>
               <li className="flex items-start gap-3">
                 <span className="w-1.5 h-1.5 rounded-full bg-brand-primary mt-2.5 shrink-0" />
                 <span>
-                  <strong className="text-white">Financeiros:</strong> Dados
-                  bancários e de cartão para processamento de pagamentos e
-                  repasse de comissões.
-                </span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="w-1.5 h-1.5 rounded-full bg-brand-primary mt-2.5 shrink-0" />
-                <span>
-                  <strong className="text-white">Campanhas:</strong> Dados de
-                  campanhas publicitárias, estratégias, relatórios e
-                  configurações de rastreamento inseridas pelo Usuário.
+                  <strong className="text-white">Conteúdo do Usuário:</strong>{" "}
+                  Textos, imagens, vídeos, marcas e demais dados publicados nas
+                  páginas criadas pelo Usuário.
                 </span>
               </li>
               <li className="flex items-start gap-3">
@@ -198,7 +187,7 @@ export default function PrivacidadeAdsPage() {
             </h2>
             <div className="space-y-4">
               <p>
-                O tratamento de dados pessoais realizado pela RATOEIRA ADS
+                O tratamento de dados pessoais realizado pela RATOEIRA PAGES
                 observa integralmente a Lei nº 13.709/2018 (LGPD). As bases
                 legais aplicadas são:
               </p>
@@ -206,11 +195,11 @@ export default function PrivacidadeAdsPage() {
                 {[
                   {
                     base: "Execução de contrato (art. 7º, V)",
-                    desc: "Para dados necessários à prestação do serviço, rastreamento de campanhas, proteção contra fraudes e processamento de pagamentos.",
+                    desc: "Para dados necessários à prestação do serviço, criação de páginas, hospedagem e processamento de pagamentos.",
                   },
                   {
                     base: "Legítimo interesse (art. 7º, IX)",
-                    desc: "Para segurança, monitoramento de uso, prevenção de fraudes, bloqueio de cliques inválidos e proteção da plataforma.",
+                    desc: "Para segurança, monitoramento de uso, prevenção de fraudes e proteção da plataforma contra uso indevido ou concorrencial.",
                   },
                   {
                     base: "Cumprimento de obrigação legal (art. 7º, II)",
@@ -218,7 +207,7 @@ export default function PrivacidadeAdsPage() {
                   },
                   {
                     base: "Consentimento (art. 7º, I)",
-                    desc: "Quando aplicável, para envio de comunicações de marketing, newsletters e novidades sobre a plataforma.",
+                    desc: "Quando aplicável, para envio de comunicações de marketing e novidades sobre a plataforma.",
                   },
                 ].map((item) => (
                   <li
@@ -244,8 +233,8 @@ export default function PrivacidadeAdsPage() {
             </h2>
             <div className="space-y-4">
               <p>
-                A RATOEIRA ADS não comercializa dados pessoais. Os dados podem
-                ser compartilhados nas seguintes hipóteses:
+                A RATOEIRA PAGES não comercializa dados pessoais. Os dados
+                podem ser compartilhados nas seguintes hipóteses:
               </p>
               <ul className="space-y-3 pl-0 list-none">
                 <li className="flex items-start gap-3">
@@ -253,9 +242,8 @@ export default function PrivacidadeAdsPage() {
                   <span>
                     <strong className="text-white">Parceiros e Fornecedores:</strong>{" "}
                     Para garantir a prestação dos serviços contratados
-                    (processamento de pagamentos, hospedagem, serviços de
-                    e-mail, infraestrutura de servidores), sempre exigindo as
-                    mesmas diretrizes de segurança.
+                    (processamento de pagamentos, hospedagem, CDN, serviços de
+                    e-mail), sempre exigindo as mesmas diretrizes de segurança.
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
@@ -278,7 +266,7 @@ export default function PrivacidadeAdsPage() {
                   <span className="w-1.5 h-1.5 rounded-full bg-brand-primary mt-2.5 shrink-0" />
                   <span>
                     <strong className="text-white">Dados Anonimizados:</strong>{" "}
-                    A RATOEIRA ADS poderá utilizar dados anonimizados e
+                    A RATOEIRA PAGES poderá utilizar dados anonimizados e
                     agregados para fins de pesquisa, desenvolvimento de produto
                     e estatísticas de mercado. Tais dados não se sujeitam às
                     restrições da LGPD, nos termos do art. 12 da referida Lei.
@@ -298,9 +286,9 @@ export default function PrivacidadeAdsPage() {
             <div className="space-y-4">
               <p>
                 As informações são armazenadas em servidores seguros com
-                criptografia, firewalls e medidas técnicas de proteção. A
-                RATOEIRA ADS adota medidas rigorosas contra perda, roubo ou
-                acesso não autorizado.
+                criptografia, firewalls e medidas técnicas e organizacionais
+                razoáveis de proteção. A RATOEIRA PAGES adota medidas rigorosas
+                contra perda, roubo ou acesso não autorizado.
               </p>
               <p>
                 Contudo, não se responsabiliza por vazamentos de informações
@@ -329,11 +317,41 @@ export default function PrivacidadeAdsPage() {
               <span className="flex items-center justify-center w-8 h-8 rounded-full bg-brand-primary/10 text-brand-primary text-sm">
                 7
               </span>
+              Uso de Inteligência Artificial
+            </h2>
+            <div className="space-y-4">
+              <p>
+                A Plataforma RATOEIRA PAGES utiliza recursos de Inteligência
+                Artificial (IA) para geração e revisão automatizada de páginas.
+                Esses recursos operam a partir de dados e briefing fornecidos
+                pelo Usuário e de modelos algorítmicos de terceiros (incluindo
+                OpenAI).
+              </p>
+              <p>
+                A RATOEIRA PAGES <strong className="text-white">não garante</strong>{" "}
+                exatidão, completude, originalidade, ausência de vieses ou
+                conformidade do conteúdo gerado por IA com políticas de
+                terceiros. É dever exclusivo do Usuário revisar, aprovar e
+                assumir responsabilidade pelo conteúdo antes de sua publicação.
+              </p>
+              <p>
+                Os dados fornecidos para geração de conteúdo por IA são
+                processados de acordo com esta Política e com os termos dos
+                provedores de serviços de IA utilizados.
+              </p>
+            </div>
+          </section>
+
+          <section>
+            <h2 className="text-2xl font-bold text-white mb-4 flex items-center gap-3">
+              <span className="flex items-center justify-center w-8 h-8 rounded-full bg-brand-primary/10 text-brand-primary text-sm">
+                8
+              </span>
               Cookies e Tecnologias de Rastreamento
             </h2>
             <div className="space-y-4">
               <p>
-                A RATOEIRA ADS utiliza cookies e tecnologias similares para
+                A RATOEIRA PAGES utiliza cookies e tecnologias similares para
                 melhorar a experiência do usuário, analisar tráfego, lembrar
                 preferências e personalizar conteúdo. Os tipos de cookies
                 utilizados incluem:
@@ -343,8 +361,7 @@ export default function PrivacidadeAdsPage() {
                   <span className="w-1.5 h-1.5 rounded-full bg-brand-primary mt-2.5 shrink-0" />
                   <span>
                     <strong className="text-white">Essenciais:</strong>{" "}
-                    Necessários para o funcionamento básico da plataforma e
-                    autenticação.
+                    Necessários para o funcionamento básico da plataforma.
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
@@ -373,7 +390,7 @@ export default function PrivacidadeAdsPage() {
           <section className="bg-[#111111] p-6 md:p-8 rounded-3xl border border-white/10">
             <h2 className="text-2xl font-bold text-white mb-4 flex items-center gap-3">
               <span className="flex items-center justify-center w-8 h-8 rounded-full bg-brand-primary text-black text-sm">
-                8
+                9
               </span>
               Seus Direitos (Art. 18 LGPD)
             </h2>
@@ -404,10 +421,10 @@ export default function PrivacidadeAdsPage() {
                 Para exercer seus direitos, contate nosso DPO/Encarregado:
               </p>
               <a
-                href="mailto:suporte@ratoeiraads.com"
+                href="mailto:suporte@ratoeirapages.com"
                 className="text-brand-primary hover:underline font-medium text-lg"
               >
-                suporte@ratoeiraads.com
+                suporte@ratoeirapages.com
               </a>
               <p className="mt-2 text-sm text-gray-400">
                 O prazo de resposta será de até 15 (quinze) dias úteis.
@@ -418,13 +435,13 @@ export default function PrivacidadeAdsPage() {
           <section>
             <h2 className="text-2xl font-bold text-white mb-4 flex items-center gap-3">
               <span className="flex items-center justify-center w-8 h-8 rounded-full bg-brand-primary/10 text-brand-primary text-sm">
-                9
+                10
               </span>
               Portabilidade de Dados
             </h2>
             <p>
               Em caso de solicitação de portabilidade ou exportação de dados,
-              nos termos do art. 18, V da LGPD, a RATOEIRA ADS
+              nos termos do art. 18, V da LGPD, a RATOEIRA PAGES
               disponibilizará os dados em formato estruturado no prazo de até
               30 (trinta) dias úteis. O custo administrativo da exportação
               poderá ser cobrado do usuário, limitado ao valor equivalente a 1
@@ -437,12 +454,12 @@ export default function PrivacidadeAdsPage() {
           <section>
             <h2 className="text-2xl font-bold text-white mb-4 flex items-center gap-3">
               <span className="flex items-center justify-center w-8 h-8 rounded-full bg-brand-primary/10 text-brand-primary text-sm">
-                10
+                11
               </span>
               Alterações nesta Política
             </h2>
             <p>
-              A RATOEIRA ADS poderá alterar esta Política a qualquer tempo,
+              A RATOEIRA PAGES poderá alterar esta Política a qualquer tempo,
               sendo que a versão mais recente estará sempre disponível nesta
               página. Recomendamos que o usuário a consulte periodicamente.
               Alterações substanciais serão comunicadas por e-mail ou por meio
@@ -453,7 +470,7 @@ export default function PrivacidadeAdsPage() {
           <section className="bg-brand-primary/10 p-6 md:p-8 rounded-3xl border border-brand-primary/20">
             <h2 className="text-2xl font-bold text-white mb-4 flex items-center gap-3">
               <span className="flex items-center justify-center w-8 h-8 rounded-full bg-brand-primary text-black text-sm">
-                11
+                12
               </span>
               Contato
             </h2>
@@ -465,10 +482,10 @@ export default function PrivacidadeAdsPage() {
               <p>
                 <strong className="text-white">E-mail:</strong>{" "}
                 <a
-                  href="mailto:suporte@ratoeiraads.com"
+                  href="mailto:suporte@ratoeirapages.com"
                   className="text-brand-primary hover:underline"
                 >
-                  suporte@ratoeiraads.com
+                  suporte@ratoeirapages.com
                 </a>
               </p>
               <p>
