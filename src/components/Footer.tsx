@@ -5,6 +5,7 @@ import { ArrowRight, Zap, Twitter, Linkedin, Instagram, Github } from "lucide-re
 import { usePathname } from "next/navigation";
 import { useMemo, useState } from "react";
 import { AuroraBackground } from "@/components/ui/aurora-background";
+import SpotlightBackground from "@/components/ui/spotlight-background";
 
 const footerLinks = {
   Produto: [
@@ -248,7 +249,8 @@ export default function Footer() {
         </section>
       )}
 
-      <footer className="bg-gray-950 text-gray-400">
+      <SpotlightBackground>
+      <footer className="text-gray-400">
         <div className="max-w-7xl 3xl:max-w-[100rem] 4xl:max-w-[120rem] mx-auto px-4 sm:px-6 lg:px-8 3xl:px-12 4xl:px-20">
           {/* Main footer */}
           <div className="py-12 md:py-16 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-6 gap-8 text-center sm:text-left">
@@ -310,6 +312,7 @@ export default function Footer() {
           </div>
         </div>
       </footer>
+      </SpotlightBackground>
     </>
   );
 }

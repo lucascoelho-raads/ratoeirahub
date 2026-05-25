@@ -364,6 +364,58 @@ body {
   100% { transform: translate(0, 0) scale(1); }
 }
 
+/* Spotlight background styles */
+.spotlight-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background: #050505;
+}
+
+.spotlight-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.spotlight {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.35;
+  will-change: transform;
+}
+
+.spotlight-left {
+  width: 600px;
+  height: 600px;
+  top: -100px;
+  left: -100px;
+  background: radial-gradient(circle, rgba(251, 191, 36, 0.8) 0%, rgba(245, 158, 11, 0.4) 40%, transparent 70%);
+}
+
+.spotlight-mid {
+  width: 500px;
+  height: 500px;
+  top: 50%;
+  left: 50%;
+  background: radial-gradient(circle, rgba(251, 146, 60, 0.7) 0%, rgba(234, 88, 12, 0.3) 40%, transparent 70%);
+}
+
+.spotlight-right {
+  width: 550px;
+  height: 550px;
+  top: -50px;
+  right: -100px;
+  background: radial-gradient(circle, rgba(252, 211, 77, 0.7) 0%, rgba(251, 191, 36, 0.3) 40%, transparent 70%);
+}
+
+.spotlight-content {
+  position: relative;
+  z-index: 10;
+}
+
 @keyframes loader-spin {
   to {
     transform: rotate(360deg);
