@@ -34,7 +34,7 @@ export default function GoogleAdsPage() {
                 icon: Timer,
                 title: "Conversões Server-Side via API do Google",
                 description:
-                  "O pixel no navegador perde entre 25% e 40% das conversões por bloqueadores de anúncio, restrições de iOS e falhas de conexão. A Ratoeira envia os eventos direto pela API de Conversões do Google — server-side, sem depender do navegador do usuário. Cada venda real sobe para o Google Ads. Sem gap. Sem “o pixel não pegou essa.”",
+                  "O pixel no navegador perde entre 25% e 40% das conversões por bloqueadores de anúncio, restrições de iOS e falhas de conexão. A Ratoeira envia os eventos direto pela API de Conversões do Google — server-side, sem depender do navegador do usuário. Cada venda real sobe para o Google Ads. Sem gap. Sem \"o pixel não pegou essa.\"",
                 image: "/serveraside.png",
               },
               {
@@ -72,48 +72,51 @@ export default function GoogleAdsPage() {
                   "Quando o Google Ads opera junto com o Ratoeira Pages, a taxa de rastreamento sobe além do que cada produto entrega separado. A página confirma o clique. O clique confirma a conversão. O algoritmo recebe o sinal mais limpo possível — e otimiza para compradores reais, não para clicadores.",
                 image: "/dash.png",
               },
-            ].map((feature, index) => (
-              <div
-                key={feature.title}
-                className="grid gap-10 lg:grid-cols-2 lg:items-center"
-              >
+            ].map((feature, index) => {
+              const isDark = index % 2 === 0;
+              return (
                 <div
-                  className={
-                    index % 2 === 1
-                      ? "space-y-6 max-w-2xl 3xl:max-w-[50rem] 4xl:max-w-[70rem] lg:order-2"
-                      : "space-y-6 max-w-2xl 3xl:max-w-[50rem] 4xl:max-w-[70rem] lg:order-1"
-                  }
+                  key={feature.title}
+                  className={`grid gap-10 lg:grid-cols-2 lg:items-center rounded-3xl p-6 sm:p-8 ${isDark ? "bg-[#0a0a0a]" : "bg-white"}`}
                 >
-                  <div className="w-16 h-16 rounded-2xl bg-brand-primary/10 flex items-center justify-center">
-                    <feature.icon className="w-8 h-8 text-brand-primary" />
-                  </div>
-                  <h3 className="text-2xl sm:text-3xl md:text-4xl font-black leading-tight text-white">
-                    {feature.title}
-                  </h3>
-                  <p className="text-base sm:text-xl text-gray-300 leading-relaxed">{feature.description}</p>
-                </div>
-
-                <div className={index % 2 === 1 ? "w-full lg:order-1" : "w-full lg:order-2"}>
-                  <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-black/35">
-                    <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(60%_60%_at_50%_20%,rgba(255,184,0,0.18),rgba(0,0,0,0))]" />
-                    <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(55%_55%_at_70%_55%,rgba(255,126,74,0.10),rgba(0,0,0,0))]" />
-                    <div className="relative z-10 p-6 sm:p-8">
-                      <div className="relative h-[clamp(240px,28vh,420px)]">
-                    <Image
-                      src={feature.image}
-                      alt={feature.title}
-                      fill
-                      sizes="(min-width: 1024px) 50vw, 100vw"
-                      className={feature.image === "/serveraside.png" ? "object-contain object-center" : "object-cover object-center"}
-                      priority={index < 2}
-                    />
-                      </div>
+                  <div
+                    className={
+                      index % 2 === 1
+                        ? "space-y-6 max-w-2xl 3xl:max-w-[50rem] 4xl:max-w-[70rem] lg:order-2"
+                        : "space-y-6 max-w-2xl 3xl:max-w-[50rem] 4xl:max-w-[70rem] lg:order-1"
+                    }
+                  >
+                    <div className="w-16 h-16 rounded-2xl bg-brand-primary/10 flex items-center justify-center">
+                      <feature.icon className="w-8 h-8 text-brand-primary" />
                     </div>
-                    <div className="absolute inset-0 ring-1 ring-white/10" />
+                    <h3 className={`text-2xl sm:text-3xl md:text-4xl font-black leading-tight ${isDark ? "text-white" : "text-[#111111]"}`}>
+                      {feature.title}
+                    </h3>
+                    <p className={`text-base sm:text-xl leading-relaxed ${isDark ? "text-gray-300" : "text-[#4b5563]"}`}>{feature.description}</p>
+                  </div>
+
+                  <div className={index % 2 === 1 ? "w-full lg:order-1" : "w-full lg:order-2"}>
+                    <div className={`relative overflow-hidden rounded-3xl border ${isDark ? "border-white/10 bg-black/35" : "border-black/10 bg-gray-50"}`}>
+                      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(60%_60%_at_50%_20%,rgba(255,184,0,0.18),rgba(0,0,0,0))]" />
+                      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(55%_55%_at_70%_55%,rgba(255,126,74,0.10),rgba(0,0,0,0))]" />
+                      <div className="relative z-10 p-6 sm:p-8">
+                        <div className="relative h-[clamp(240px,28vh,420px)]">
+                          <Image
+                            src={feature.image}
+                            alt={feature.title}
+                            fill
+                            sizes="(min-width: 1024px) 50vw, 100vw"
+                            className={feature.image === "/serveraside.png" ? "object-contain object-center" : "object-cover object-center"}
+                            priority={index < 2}
+                          />
+                        </div>
+                      </div>
+                      <div className={`absolute inset-0 ring-1 ${isDark ? "ring-white/10" : "ring-black/10"}`} />
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>

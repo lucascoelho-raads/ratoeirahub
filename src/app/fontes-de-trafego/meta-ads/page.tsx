@@ -79,25 +79,26 @@ export default function MetaAdsTrafficSourcePage() {
             {pillars.map((p, index) => {
               const Icon = p.icon;
               const isReversed = index % 2 === 1;
+              const isDark = index % 2 === 0;
 
               return (
-                <div key={p.title} className="grid gap-10 lg:grid-cols-2 lg:items-center">
+                <div key={p.title} className={`grid gap-10 lg:grid-cols-2 lg:items-center rounded-3xl p-6 sm:p-8 ${isDark ? "bg-[#0a0a0a]" : "bg-white"}`}>
                   <div className={isReversed ? "space-y-6 max-w-2xl 3xl:max-w-[50rem] 4xl:max-w-[70rem] lg:order-2" : "space-y-6 max-w-2xl 3xl:max-w-[50rem] 4xl:max-w-[70rem] lg:order-1"}>
                     <div className="flex items-center gap-3">
-                      <span className="flex w-12 h-12 items-center justify-center rounded-2xl bg-brand-primary/10 border border-white/10 text-brand-primary">
+                      <span className={`flex w-12 h-12 items-center justify-center rounded-2xl bg-brand-primary/10 border ${isDark ? "border-white/10 text-brand-primary" : "border-black/10 text-brand-primary"}`}>
                         <Icon className="w-6 h-6" />
                       </span>
-                      <div className="text-xl font-black text-white tracking-tight">{p.title}</div>
+                      <div className={`text-xl font-black tracking-tight ${isDark ? "text-white" : "text-[#111111]"}`}>{p.title}</div>
                     </div>
-                    <p className="text-base sm:text-lg text-gray-300 leading-relaxed">{p.description}</p>
+                    <p className={`text-base sm:text-lg leading-relaxed ${isDark ? "text-gray-300" : "text-[#4b5563]"}`}>{p.description}</p>
                   </div>
 
                   <div className={isReversed ? "w-full lg:order-1" : "w-full lg:order-2"}>
-                    <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-black/35">
+                    <div className={`relative overflow-hidden rounded-3xl border ${isDark ? "border-white/10 bg-black/35" : "border-black/10 bg-gray-50"}`}>
                       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(60%_60%_at_50%_20%,rgba(255,184,0,0.18),rgba(0,0,0,0))]" />
                       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(55%_55%_at_70%_55%,rgba(255,126,74,0.10),rgba(0,0,0,0))]" />
                       <div className="relative z-10 p-6 sm:p-8">
-                        <div className="relative h-[clamp(240px,28vh,420px)] overflow-hidden rounded-2xl border border-white/10">
+                        <div className={`relative h-[clamp(240px,28vh,420px)] overflow-hidden rounded-2xl border ${isDark ? "border-white/10" : "border-black/10"}`}>
                           <Image
                             src={p.image}
                             alt={p.title}
@@ -107,7 +108,7 @@ export default function MetaAdsTrafficSourcePage() {
                           />
                         </div>
                       </div>
-                      <div className="absolute inset-0 ring-1 ring-white/10" />
+                      <div className={`absolute inset-0 ring-1 ${isDark ? "ring-white/10" : "ring-black/10"}`} />
                     </div>
                   </div>
                 </div>

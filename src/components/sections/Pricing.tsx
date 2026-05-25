@@ -4,6 +4,7 @@ import { useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
 import { CheckCircle, Zap, ArrowRight, Info } from "lucide-react";
 
+
 const plans = [
   {
     name: "Starter",
