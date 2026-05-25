@@ -4,6 +4,7 @@ import Link from "next/link";
 import { ArrowRight, Zap, Twitter, Linkedin, Instagram, Github } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { useMemo, useState } from "react";
+import { AuroraBackground } from "@/components/ui/aurora-background";
 
 const footerLinks = {
   Produto: [
@@ -90,6 +91,7 @@ export default function Footer() {
     <>
       {showTransformSection && (
         <section id="vamos-transformar" className={sectionClassName}>
+          <AuroraBackground>
           <div className="max-w-7xl 3xl:max-w-[100rem] 4xl:max-w-[120rem] mx-auto px-4 sm:px-6 lg:px-8 3xl:px-12 4xl:px-20 py-16 md:py-20 lg:py-24">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-20 items-center">
               <div className="max-w-xl 3xl:max-w-[40rem] 4xl:max-w-[60rem] text-center lg:text-left mx-auto lg:mx-0">
@@ -242,6 +244,7 @@ export default function Footer() {
               </div>
             </div>
           </div>
+          </AuroraBackground>
         </section>
       )}
 
