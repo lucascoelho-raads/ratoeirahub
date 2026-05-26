@@ -308,11 +308,11 @@ export default function Hero() {
 
                 {/* Mockup Pages - visível em todas as telas */}
                 <div className="relative lg:col-start-2 lg:row-start-1">
-                  <div className="relative h-[clamp(280px,55vw,420px)] lg:h-[clamp(420px,46vh,640px)] 2xl:h-[clamp(520px,22vw,820px)] 3xl:h-[clamp(600px,24vw,900px)] rounded-3xl overflow-hidden border border-neutral-200 bg-[#0a0a0a] shadow-card-resting p-2 sm:p-4">
+                  <div className="relative w-full">
                     <img
                       src="/paginasqueconvertem.png"
                       alt="Ratoeira Pages Preview"
-                      className="w-full h-full object-contain rounded-xl"
+                      className="w-full h-auto rounded-3xl border border-neutral-200 shadow-card-resting"
                     />
                   </div>
                 </div>
