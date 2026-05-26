@@ -23,13 +23,11 @@ function Logo() {
   return (
     <Link
       href="/"
-      className="flex items-center gap-2 select-none"
+      className="flex items-center gap-12 select-none"
       aria-label="Ratoeira Hub"
     >
-      <span className="inline-flex h-9 w-9 items-center justify-center rounded-button bg-brand-primary text-text-primary shadow-btn-primary">
-        <Zap className="w-4 h-4" strokeWidth={2.2} />
-      </span>
-      <span className="text-lg font-black tracking-tight text-gray-100">Ratoeira Hub</span>
+      <img src="/logohub.png" alt="Ratoeira Hub" className="h-[72px] w-[72px] object-contain" />
+      <span className="text-[2.5rem] font-black tracking-tight gradient-text-orange">Ratoeira Hub</span>
     </Link>
   );
 }
@@ -116,18 +114,7 @@ function HeaderActions({
         mobile && "grid w-full grid-cols-2 gap-4",
       )}
     >
-      <Link
-        href="/design-system"
-        onClick={onAction}
-        className={cn(
-          "select-none rounded-button border font-semibold text-gray-100 transition-colors duration-150 hover:bg-white/10",
-          mobile
-            ? "flex min-h-14 items-center justify-center border-white/10 text-lg"
-            : "border-white/10 px-5 py-2 text-sm",
-        )}
-      >
-        Design System
-      </Link>
+      {/* Design System link hidden temporarily */}
       <Link
         href="/planos#vamos-transformar"
         onClick={onAction}

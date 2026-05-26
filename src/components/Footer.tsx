@@ -14,18 +14,15 @@ const footerLinks = {
     { href: "#integracoes", label: "Integrações" },
     { href: "#precos", label: "Preços" },
     { href: "#", label: "Novidades" },
-    { href: "#", label: "API" },
   ],
   Empresa: [
     { href: "#", label: "Sobre nós" },
     { href: "#clientes", label: "Clientes" },
-    { href: "#", label: "Blog" },
     { href: "#", label: "Carreiras" },
     { href: "#", label: "Parceiros" },
   ],
   Suporte: [
     { href: "#", label: "Central de Ajuda" },
-    { href: "#", label: "Status" },
     { href: "#demo", label: "Falar com vendas" },
     { href: "#", label: "Comunidade" },
     { href: "#", label: "Webinars" },
@@ -33,16 +30,11 @@ const footerLinks = {
   Legal: [
     { href: "/privacidade/ads", label: "Privacidade" },
     { href: "/termos-de-uso/ads", label: "Termos de uso" },
-    { href: "#", label: "Cookies" },
-    { href: "#", label: "LGPD" },
   ],
 };
 
 const socialLinks = [
-  { href: "#", icon: Twitter, label: "Twitter" },
-  { href: "#", icon: Linkedin, label: "LinkedIn" },
   { href: "#", icon: Instagram, label: "Instagram" },
-  { href: "#", icon: Github, label: "GitHub" },
 ];
 
 export default function Footer() {
@@ -66,14 +58,14 @@ export default function Footer() {
   );
 
   const sectionClassName = isLightBackground ? "bg-surface-default text-text-primary" : "bg-[#050505] text-white";
-  const subtitleClassName = isLightBackground ? "text-gray-600" : "text-gray-300";
+  const subtitleClassName = isLightBackground ? "text-gray-50" : "text-gray-300";
   const cardClassName = isLightBackground
     ? "bg-white border border-black/5 shadow-2xl shadow-black/10"
     : "bg-[#0B0B0B] border border-white/10 shadow-2xl shadow-black/40";
   const labelClassName = isLightBackground ? "text-gray-800" : "text-gray-200";
   const inputClassName = isLightBackground
     ? "border-gray-200 bg-white text-gray-900 placeholder:text-gray-400 focus:ring-orange-500/40 focus:border-orange-400"
-    : "border-white/10 bg-[#111111] text-white placeholder:text-gray-500 focus:ring-orange-500/30 focus:border-orange-500/60";
+    : "border-white/10 bg-[#111111] text-white placeholder:text-gray-50 focus:ring-orange-500/30 focus:border-orange-500/60";
   const titleBaseClassName = isLightBackground ? "text-gray-900" : "text-white";
 
   return (
@@ -154,7 +146,7 @@ export default function Footer() {
                             className={`flex-1 rounded-2xl border px-5 py-4 text-base outline-none focus:ring-2 ${inputClassName}`}
                           />
                         </div>
-                        <div className={isLightBackground ? "text-xs text-gray-500" : "text-xs text-gray-400"}>
+                        <div className={isLightBackground ? "text-xs text-gray-50" : "text-xs text-gray-400"}>
                           {selectedCountry.flag} {selectedCountry.name} · DDI {selectedCountry.dial}
                         </div>
                       </div>
@@ -252,13 +244,11 @@ export default function Footer() {
           <div className="py-12 md:py-16 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-6 gap-8 text-center sm:text-left">
             {/* Brand column */}
             <div className="col-span-1 sm:col-span-2">
-              <Link href="/" className="flex items-center gap-2.5 group mb-5 w-fit mx-auto sm:mx-0">
-                <div className="w-9 h-9 rounded-button bg-linear-to-br from-yellow-500 to-orange-500 flex items-center justify-center shadow-lg shadow-yellow-500/20">
-                  <Zap className="w-5 h-5 text-white" />
-                </div>
-                <span className="text-xl font-black text-white">Ratoeira Hub</span>
+              <Link href="/" className="flex items-center gap-6 group mb-5 w-fit mx-auto sm:mx-0">
+                <img src="/logohub.png" alt="Ratoeira Hub" className="h-14 w-14 object-contain shadow-lg shadow-yellow-500/20" />
+                <span className="text-xl font-black gradient-text-orange">Ratoeira Hub</span>
               </Link>
-              <p className="text-sm text-gray-500 leading-relaxed mb-6 max-w-xs mx-auto sm:mx-0">
+              <p className="text-sm text-gray-50 leading-relaxed mb-6 max-w-xs mx-auto sm:mx-0">
                 A plataforma completa de rastreamento e páginas para anunciantes que querem escalar com dado real.
               </p>
               {/* Social */}
@@ -285,7 +275,7 @@ export default function Footer() {
                     <li key={link.label}>
                       <a
                         href={link.href}
-                        className="text-sm text-gray-500 hover:text-yellow-400 transition-colors duration-200"
+                        className="text-sm text-gray-50 hover:text-yellow-400 transition-colors duration-200"
                       >
                         {link.label}
                       </a>
@@ -298,12 +288,12 @@ export default function Footer() {
 
           {/* Bottom bar */}
           <div className="border-t border-gray-800 py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-            <p className="text-xs text-gray-600">
+            <p className="text-xs text-gray-50">
               © {new Date().getFullYear()} Ratoeira Hub Technologies. Todos os direitos reservados.
             </p>
             <div className="flex items-center gap-1.5 text-xs">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-              <span className="text-gray-600">Todos os sistemas operacionais</span>
+              <span className="text-gray-50">Todos os sistemas operacionais</span>
             </div>
           </div>
         </div>

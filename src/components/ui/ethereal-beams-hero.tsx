@@ -484,7 +484,7 @@ export default function EtherealBeamsHero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-[clamp(1.05rem,1.25vw,1.35rem)] text-neutral-400 mb-12 max-w-3xl 3xl:max-w-[60rem] 4xl:max-w-[80rem] mx-auto"
+            className="text-[clamp(1.05rem,1.25vw,1.35rem)] text-gray-50 mb-12 max-w-3xl 3xl:max-w-[60rem] 4xl:max-w-[80rem] mx-auto"
           >
             Para anunciantes no Google Ads e Meta Ads que precisam de clareza total — não de estimativas. Cada venda rastreada,
             cada fraude bloqueada, cada decisão tomada com dado real.
@@ -498,7 +498,7 @@ export default function EtherealBeamsHero() {
           >
             <a
               href="/planos#vamos-transformar"
-              className="inline-flex items-center gap-2 px-8 py-4 2xl:px-10 2xl:py-5 rounded-button bg-yellow-500 text-black font-semibold hover:bg-yellow-400 transition-colors"
+              className="inline-flex items-center gap-2 px-8 py-4 2xl:px-10 2xl:py-5 rounded-button bg-yellow-500 text-white font-semibold hover:bg-yellow-400 transition-colors"
             >
               Começar grátis
               <ArrowRight className="w-4 h-4" />
@@ -516,7 +516,7 @@ export default function EtherealBeamsHero() {
             initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.38 }}
-            className="mt-4 text-sm text-neutral-400"
+            className="mt-4 text-sm text-gray-50"
           >
             Plano gratuito disponível. Sem cartão.
           </motion.p>

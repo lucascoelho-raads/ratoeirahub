@@ -43,14 +43,14 @@ export default function HeroPages() {
               transition={{ duration: 0.5, delay: 0.1 }}
               className="text-[clamp(2.75rem,4.2vw,6rem)] font-black text-white tracking-tight leading-[1.04] mb-8"
             >
-              Páginas rápidas, integradas ao seu <span className="text-[#FF7E4A]">tracking</span>. Prontas em minutos.
+              <span className="text-orange-500">Páginas rápidas</span>, integradas ao seu <span className="text-orange-500">tracking</span>. Prontas em minutos.
             </motion.h1>
 
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="text-[clamp(1.05rem,1.25vw,1.35rem)] text-neutral-400 mb-12 max-w-3xl 3xl:max-w-[60rem] 4xl:max-w-[80rem] mx-auto"
+              className="text-[clamp(1.05rem,1.25vw,1.35rem)] text-gray-50 mb-12 max-w-3xl 3xl:max-w-[60rem] 4xl:max-w-[80rem] mx-auto"
             >
               Construtor visual com templates testados para conversão, Flash Pages ultra-rápidas e geração por IA. Cada página já nasce com o tracking do Ratoeira Ads integrado — sem scripts avulsos, sem configuração manual.
             </motion.p>
@@ -81,7 +81,7 @@ export default function HeroPages() {
               initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.38 }}
-              className="mt-4 text-sm text-neutral-400"
+              className="mt-4 text-sm text-gray-50"
             >
               Plano gratuito disponível. Sem cartão.
             </motion.p>
