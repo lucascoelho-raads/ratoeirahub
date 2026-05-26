@@ -82,11 +82,11 @@ export default function RatoeiraHubPage() {
             </div>
 
             <div className="max-w-6xl 3xl:max-w-[90rem] 4xl:max-w-[110rem] text-center">
-              <h1 className="text-[clamp(2.75rem,4.2vw,6rem)] font-black text-white tracking-tight leading-[1.04] mb-8">
+              <h1 className="text-[clamp(2.75rem,4.2vw,6rem)] font-black text-white tracking-tight leading-[1.04] mb-8 text-balance">
                 Quando Ads e Pages trabalham juntos, sua operação chega onde nenhuma ferramenta sozinha chega.
               </h1>
 
-              <p className="text-base sm:text-[clamp(1.05rem,1.25vw,1.35rem)] text-neutral-400 mb-12 max-w-3xl 3xl:max-w-[60rem] 4xl:max-w-[80rem] 3xl:max-w-[60rem] 4xl:max-w-[80rem] mx-auto px-4 sm:px-0">
+              <p className="text-base sm:text-[clamp(1.05rem,1.25vw,1.35rem)] text-neutral-400 mb-12 max-w-3xl 2xl:max-w-[44rem] 3xl:max-w-[60rem] 4xl:max-w-[80rem] mx-auto px-4 sm:px-0 text-balance">
                 Rastreamento ~100%. Páginas que carregam em menos de 1 segundo. Bloqueio automático de fraude. Tudo integrado
                 via API — e funcionando melhor do que a soma das partes.
               </p>
@@ -130,14 +130,14 @@ export default function RatoeiraHubPage() {
       <section id="como-funciona" className="py-16 md:py-24 bg-[#050505] relative border-t border-white/5">
         <div className="max-w-7xl 3xl:max-w-[100rem] 4xl:max-w-[120rem] mx-auto px-4 3xl:px-12 4xl:px-20 relative z-10">
           <div className="text-center mb-20">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white mb-6">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white mb-6 text-balance">
               Integrado é diferente de{" "}
               <span className="bg-gradient-to-r from-yellow-400 to-orange-500 bg-clip-text text-transparent">
                 conectado
               </span>
               .
             </h2>
-            <p className="text-base sm:text-xl text-gray-400 max-w-2xl 3xl:max-w-[50rem] 4xl:max-w-[70rem] 3xl:max-w-[50rem] 4xl:max-w-[70rem] mx-auto px-4 sm:px-0">
+            <p className="text-base sm:text-xl text-gray-400 max-w-2xl 2xl:max-w-[36rem] 3xl:max-w-[50rem] 4xl:max-w-[70rem] mx-auto px-4 sm:px-0 text-balance">
               A maioria das ferramentas se conecta. O Ratoeira Hub se integra — via API, em tempo real, sem gap entre o
               clique na página e o dado na campanha.
             </p>

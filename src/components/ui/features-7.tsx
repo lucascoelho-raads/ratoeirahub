@@ -100,11 +100,11 @@ export function Features() {
   return (
     <section id="como-funciona" className="overflow-hidden bg-[#050505] py-24">
       <div className="mx-auto max-w-7xl 3xl:max-w-[100rem] 4xl:max-w-[120rem] space-y-10 px-4 sm:px-6 lg:px-8 3xl:px-12 4xl:px-20">
-        <div className="relative z-10 mx-auto max-w-2xl 3xl:max-w-[50rem] 4xl:max-w-[70rem] text-center">
-          <h2 className="text-4xl font-black tracking-tight text-white md:text-5xl">
+        <div className="relative z-10 mx-auto max-w-2xl 2xl:max-w-[40rem] 3xl:max-w-[56rem] 4xl:max-w-[72rem] text-center">
+          <h2 className="text-4xl font-black tracking-tight text-white md:text-5xl text-balance">
             Tudo que você precisa para construir páginas que <span className="text-[#FF7E4A]">convertem</span>.
           </h2>
-          <p className="mt-6 text-lg leading-relaxed text-gray-400">
+          <p className="mt-6 text-lg leading-relaxed text-gray-400 text-balance">
             Construtor, hospedagem e tracking numa plataforma só — feita para anunciantes que não têm tempo a perder com configuração.
           </p>
         </div>

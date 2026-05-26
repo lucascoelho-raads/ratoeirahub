@@ -14,19 +14,18 @@ export default function HeroBenefits() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="max-w-4xl 3xl:max-w-[70rem] 4xl:max-w-[90rem] mx-auto"
+          className="max-w-4xl 2xl:max-w-[50rem] 3xl:max-w-[70rem] 4xl:max-w-[90rem] mx-auto"
         >
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-brand-primary mb-8 backdrop-blur-md">
             <Star className="w-4 h-4" />
             <span className="text-sm font-bold tracking-wider uppercase">Vantagens Exclusivas</span>
           </div>
           
-          <h1 className="text-[clamp(2.75rem,4.2vw,6rem)] font-black text-white mb-8 tracking-tight leading-[1.04]">
-            Mais do que comissões. <br />
-            Um <span className="text-brand-primary">Ecossistema de Vantagens.</span>
+          <h1 className="text-[clamp(2.75rem,4.2vw,6rem)] font-black text-white mb-8 tracking-tight leading-[1.04] text-balance">
+            Mais do que comissões. Um <span className="text-brand-primary">Ecossistema de Vantagens.</span>
           </h1>
           
-          <p className="text-[clamp(1.05rem,1.25vw,1.35rem)] text-gray-400 leading-relaxed max-w-3xl 3xl:max-w-[60rem] 4xl:max-w-[80rem] 3xl:max-w-[60rem] 4xl:max-w-[80rem] mx-auto">
+          <p className="text-[clamp(1.05rem,1.25vw,1.35rem)] text-gray-400 leading-relaxed max-w-3xl 2xl:max-w-[44rem] 3xl:max-w-[60rem] 4xl:max-w-[80rem] mx-auto text-balance">
             Descubra por que os maiores players do mercado digital escolhem o programa de parcerias do Ratoeira Hub para monetizar sua influência e autoridade.
           </p>
         </motion.div>

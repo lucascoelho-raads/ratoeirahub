@@ -66,10 +66,10 @@ export default function MetaAdsTrafficSourcePage() {
       <section className="py-20">
         <div className="mx-auto max-w-6xl 3xl:max-w-[90rem] 4xl:max-w-[110rem] px-4 sm:px-6 lg:px-8 3xl:px-12 4xl:px-20">
           <div className="mb-10">
-            <h2 className="text-3xl sm:text-4xl font-black tracking-tight text-white">
+            <h2 className="text-3xl sm:text-4xl font-black tracking-tight text-white text-balance">
               O Meta Ads só otimiza tão bem quanto o dado que recebe.
             </h2>
-            <p className="mt-4 text-gray-300 max-w-3xl 3xl:max-w-[60rem] 4xl:max-w-[80rem]">
+            <p className="mt-4 text-gray-300 max-w-3xl 2xl:max-w-[44rem] 3xl:max-w-[60rem] 4xl:max-w-[80rem] text-balance">
               Quando o pixel perde conversões, o algoritmo aprende errado — e vai buscar o público errado. A Ratoeira garante
               que cada venda real chegue ao Meta com qualidade máxima, do clique ao pagamento.
             </p>

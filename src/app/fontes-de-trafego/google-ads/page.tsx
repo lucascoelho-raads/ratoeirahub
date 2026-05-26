@@ -19,10 +19,10 @@ export default function GoogleAdsPage() {
       <section className="py-16 md:py-24 bg-[#050505]">
         <div className="max-w-7xl 3xl:max-w-[100rem] 4xl:max-w-[120rem] mx-auto px-6 3xl:px-12 4xl:px-20">
           <div className="text-center mb-20 max-w-3xl 3xl:max-w-[60rem] 4xl:max-w-[80rem] 3xl:max-w-[60rem] 4xl:max-w-[80rem] mx-auto">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white mb-6 tracking-tight">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white mb-6 tracking-tight text-balance">
               O <span className="text-brand-primary">Google Ads</span> só otimiza tão bem quanto o dado que recebe.
             </h2>
-            <p className="text-base sm:text-xl text-gray-300 px-4 sm:px-0">
+            <p className="text-base sm:text-xl text-gray-300 px-4 sm:px-0 text-balance">
               Quando o sinal é incompleto, o algoritmo aprende errado — e você paga por isso. A Ratoeira garante que cada
               conversão real chegue ao Google Ads com qualidade máxima, do clique ao pagamento.
             </p>

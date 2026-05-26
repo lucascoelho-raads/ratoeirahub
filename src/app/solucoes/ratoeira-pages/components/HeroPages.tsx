@@ -50,7 +50,7 @@ export default function HeroPages() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="text-[clamp(1.05rem,1.25vw,1.35rem)] text-gray-50 mb-12 max-w-3xl 3xl:max-w-[60rem] 4xl:max-w-[80rem] mx-auto"
+              className="text-[clamp(1.05rem,1.25vw,1.35rem)] text-gray-50 mb-12 max-w-3xl 2xl:max-w-[44rem] 3xl:max-w-[60rem] 4xl:max-w-[80rem] mx-auto text-balance"
             >
               Construtor visual com templates testados para conversão, Flash Pages ultra-rápidas e geração por IA. Cada página já nasce com o tracking do Ratoeira Ads integrado — sem scripts avulsos, sem configuração manual.
             </motion.p>

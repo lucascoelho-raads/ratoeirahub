@@ -51,10 +51,10 @@ export default function DetailedPricing() {
 
       <div className="mx-auto max-w-5xl 3xl:max-w-[80rem] 4xl:max-w-[100rem] px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="mb-12 text-center sm:mb-16">
-          <h2 className="mb-4 text-2xl sm:text-3xl font-black tracking-tight md:text-5xl text-white">
+          <h2 className="mb-4 text-2xl sm:text-3xl font-black tracking-tight md:text-5xl text-white text-balance">
             Compare os planos em detalhes
           </h2>
-          <p className="text-sm text-gray-400 sm:text-base max-w-2xl 3xl:max-w-[50rem] 4xl:max-w-[70rem] mx-auto">
+          <p className="text-sm text-gray-400 sm:text-base max-w-2xl 2xl:max-w-[36rem] 3xl:max-w-[50rem] 4xl:max-w-[70rem] mx-auto text-balance">
             Descubra exatamente o que cada plano oferece e escolha a melhor opção para a escala da sua operação.
           </p>
         </div>

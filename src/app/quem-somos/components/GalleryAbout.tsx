@@ -25,10 +25,10 @@ export default function GalleryAbout() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight text-balance">
             O <span className="text-brand-primary">time</span> por trás da <span className="text-brand-primary">plataforma</span>.
           </h2>
-          <p className="mt-4 text-base sm:text-xl text-gray-400 max-w-2xl 3xl:max-w-[50rem] 4xl:max-w-[70rem] 3xl:max-w-[50rem] 4xl:max-w-[70rem] mx-auto px-4 sm:px-0">
+          <p className="mt-4 text-base sm:text-xl text-gray-400 max-w-2xl 2xl:max-w-[36rem] 3xl:max-w-[50rem] 4xl:max-w-[70rem] mx-auto px-4 sm:px-0 text-balance">
             Um time técnico, direto e obcecado com o problema do anunciante. A Ratoeira não foi construída em sala de reunião — foi construída por quem viveu o problema por dentro.
           </p>
         </motion.div>

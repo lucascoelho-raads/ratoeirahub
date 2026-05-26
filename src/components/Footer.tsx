@@ -74,9 +74,9 @@ export default function Footer() {
         <section id="vamos-transformar" className={sectionClassName}>
           <AuroraBackground>
           <div className="max-w-7xl 3xl:max-w-[100rem] 4xl:max-w-[120rem] mx-auto px-4 sm:px-6 lg:px-8 3xl:px-12 4xl:px-20 py-16 md:py-20 lg:py-24">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-20 items-center">
-              <div className="max-w-xl 3xl:max-w-[40rem] 4xl:max-w-[60rem] text-center lg:text-left mx-auto lg:mx-0">
-                <h2 className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tight leading-[0.98] ${titleBaseClassName}`}>
+            <div className="grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-[1.3fr_1fr] 3xl:grid-cols-[1.4fr_1fr] 4xl:grid-cols-[1.5fr_1fr] gap-14 lg:gap-20 items-center">
+              <div className="max-w-xl 2xl:max-w-[36rem] 3xl:max-w-[48rem] 4xl:max-w-[64rem] text-center lg:text-left mx-auto lg:mx-0">
+                <h2 className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tight leading-[0.98] text-balance ${titleBaseClassName}`}>
                   Vamos <span className="text-orange-500">estruturar</span> sua operação?
                 </h2>
                 <p className={`mt-7 text-base sm:text-lg leading-relaxed ${subtitleClassName}`}>
@@ -245,7 +245,9 @@ export default function Footer() {
             {/* Brand column */}
             <div className="col-span-1 sm:col-span-2">
               <Link href="/" className="flex items-center gap-6 group mb-5 w-fit mx-auto sm:mx-0">
-                <img src="/logohub.png" alt="Ratoeira Hub" className="h-14 w-14 object-contain shadow-lg shadow-yellow-500/20" />
+                <div className="h-[40px] w-14 overflow-hidden">
+                  <img src="/logohub.png" alt="Ratoeira Hub" className="w-full h-auto shadow-lg shadow-yellow-500/20" />
+                </div>
                 <span className="text-xl font-black gradient-text-orange">Ratoeira Hub</span>
               </Link>
               <p className="text-sm text-gray-50 leading-relaxed mb-6 max-w-xs mx-auto sm:mx-0">

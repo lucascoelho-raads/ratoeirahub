@@ -85,14 +85,14 @@ export default function ProblemSolution() {
           transition={{ duration: 0.7 }}
           className="text-center mb-16 space-y-6"
         >
-          <h2 className="text-4xl lg:text-5xl font-black text-[#111827] leading-tight">
+          <h2 className="text-4xl lg:text-5xl font-black text-[#111827] leading-tight text-balance">
             <span className="bg-gradient-to-r from-yellow-500 to-orange-500 bg-clip-text text-transparent">Tudo</span> que você precisa para dominar o <span className="bg-gradient-to-r from-yellow-500 to-orange-500 bg-clip-text text-transparent">tráfego pago</span>. Em um só <span className="bg-gradient-to-r from-yellow-500 to-orange-500 bg-clip-text text-transparent">lugar</span>.
           </h2>
-          <p className="text-xl text-[#4b5563] max-w-4xl 3xl:max-w-[70rem] 4xl:max-w-[90rem] mx-auto leading-relaxed">
+          <p className="text-xl text-[#4b5563] max-w-4xl 2xl:max-w-[56rem] 3xl:max-w-[70rem] 4xl:max-w-[90rem] mx-auto leading-relaxed text-balance">
             Quem escala no Google e no Meta não usa ferramentas soltas. Usa um ecossistema onde tracking, páginas e
             dados conversam entre si — e cada real investido tem uma origem rastreada.
           </p>
-          <p className="text-lg text-orange-400 font-semibold">
+          <p className="text-lg text-orange-400 font-semibold text-balance">
             Conheça as ferramentas ou combine tudo no Hub para resultado máximo.
           </p>
         </motion.div>
@@ -135,7 +135,7 @@ export default function ProblemSolution() {
           transition={{ duration: 0.5 }}
           className="flex flex-col items-center gap-10"
         >
-          <h3 className="text-3xl font-bold text-[#111827] text-center">
+          <h3 className="text-3xl font-bold text-[#111827] text-center text-balance">
             {activeContent.title}
           </h3>
 
@@ -158,12 +158,17 @@ export default function ProblemSolution() {
               transition={{ duration: 0.5 }}
               className="bg-linear-to-b from-gray-100 to-gray-50 rounded-3xl p-2 sm:p-4 border border-gray-200 shadow-2xl overflow-hidden"
             >
-              {
+              {activeTab === "paginas" ? (
+                <img
+                  src="/paginaaltaconversao.png"
+                  alt="Páginas de Alta Conversão"
+                  className="w-full h-auto rounded-2xl"
+                />
+              ) : (
                 <div className="aspect-video flex items-center justify-center">
                   <div className="text-center">
                     <div className="w-20 h-20 rounded-2xl mx-auto mb-4 flex items-center justify-center bg-linear-to-r from-yellow-500 to-orange-500">
                       {activeTab === "rastreamento" && <Radar className="w-10 h-10 text-white" />}
-                      {activeTab === "paginas" && <LayoutTemplate className="w-10 h-10 text-white" />}
                       {activeTab === "ecossistema" && <Link2 className="w-10 h-10 text-white" />}
                     </div>
                     <div className="min-h-[56px] flex items-center justify-center px-4">
@@ -182,7 +187,7 @@ export default function ProblemSolution() {
                     </div>
                   </div>
                 </div>
-              }
+              )}
             </motion.div>
 
             {/* Decorative elements */}

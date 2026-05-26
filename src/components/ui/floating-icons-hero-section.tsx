@@ -152,10 +152,10 @@ const FloatingIconsHero = React.forwardRef<
       </div>
 
       <div className="relative z-10 text-center px-4">
-        <h1 className="text-[clamp(2.75rem,4.5vw,6.5rem)] font-black tracking-tight text-white leading-[1.03]">
+        <h1 className="text-[clamp(2.75rem,4.5vw,6.5rem)] font-black tracking-tight text-white leading-[1.03] text-balance">
           {title}
         </h1>
-        <p className="mt-6 max-w-2xl 3xl:max-w-[50rem] 4xl:max-w-[70rem] 3xl:max-w-[50rem] 4xl:max-w-[70rem] mx-auto text-[clamp(1.05rem,1.2vw,1.35rem)] text-white/70 leading-relaxed">
+        <p className="mt-6 max-w-2xl 2xl:max-w-[36rem] 3xl:max-w-[50rem] 4xl:max-w-[70rem] mx-auto text-[clamp(1.05rem,1.2vw,1.35rem)] text-white/70 leading-relaxed text-balance">
           {subtitle}
         </p>
         <div className="mt-10 flex justify-center">

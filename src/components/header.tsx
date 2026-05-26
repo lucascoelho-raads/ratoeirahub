@@ -26,7 +26,9 @@ function Logo() {
       className="flex items-center gap-12 select-none"
       aria-label="Ratoeira Hub"
     >
-      <img src="/logohub.png" alt="Ratoeira Hub" className="h-[72px] w-[72px] object-contain" />
+      <div className="h-[50px] w-[72px] overflow-hidden">
+        <img src="/logohub.png" alt="Ratoeira Hub" className="w-full h-auto" />
+      </div>
       <span className="text-[2.5rem] font-black tracking-tight gradient-text-orange">Ratoeira Hub</span>
     </Link>
   );

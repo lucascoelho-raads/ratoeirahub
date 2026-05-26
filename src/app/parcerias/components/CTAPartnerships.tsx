@@ -16,10 +16,10 @@ export default function CTAPartnerships() {
           {/* Decorative glow */}
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[80%] h-32 bg-brand-primary/20 blur-[80px] rounded-full pointer-events-none" />
           
-          <h2 className="text-2xl sm:text-3xl md:text-5xl font-black text-white mb-6 tracking-tight relative z-10">
+          <h2 className="text-2xl sm:text-3xl md:text-5xl font-black text-white mb-6 tracking-tight relative z-10 text-balance">
             Pronto para multiplicar seus ganhos?
           </h2>
-          <p className="text-gray-400 text-base sm:text-lg mb-8 sm:mb-10 max-w-xl 3xl:max-w-[40rem] 4xl:max-w-[60rem] 3xl:max-w-[40rem] 4xl:max-w-[60rem] mx-auto relative z-10">
+          <p className="text-gray-400 text-base sm:text-lg mb-8 sm:mb-10 max-w-xl 2xl:max-w-[30rem] 3xl:max-w-[40rem] 4xl:max-w-[60rem] mx-auto relative z-10 text-balance">
             Preencha o formulário rápido abaixo. Nosso time de parcerias analisará seu perfil e entrará em contato com os próximos passos.
           </p>
 

@@ -23,7 +23,7 @@ export default function PlatformCTAAbout() {
           {/* Decorative Corner */}
           <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-bl from-orange-50 to-transparent rounded-bl-full" />
           
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-[1fr_1.2fr] gap-12 items-center relative z-10">
             <div className="relative aspect-square max-w-md mx-auto w-full">
               {/* Abstract Platform Representation */}
               <div className="absolute inset-0 border-2 border-orange-100 rounded-full animate-[spin_20s_linear_infinite]" />
@@ -43,9 +43,8 @@ export default function PlatformCTAAbout() {
             </div>
 
             <div className="space-y-6">
-              <h2 className="text-2xl sm:text-3xl lg:text-5xl font-black text-gray-900 tracking-tight leading-tight text-center lg:text-left">
-                Somos o ecossistema <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-amber-500">definitivo</span> para escala.
+              <h2 className="text-2xl sm:text-3xl lg:text-5xl font-black text-gray-900 tracking-tight leading-tight text-center lg:text-left text-balance">
+                Somos o ecossistema <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-amber-500">definitivo</span> para escala.
               </h2>
               <p className="text-gray-600 leading-relaxed text-base sm:text-lg text-center lg:text-left">
                 Projetamos a Ratoeira Hub para aniquilar o desperdício de verba e a complexidade técnica. 
@@ -57,7 +56,7 @@ export default function PlatformCTAAbout() {
         </motion.div>
 
         {/* Final CTA "Vamos transformar" */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-[1.3fr_1fr] 3xl:grid-cols-[1.4fr_1fr] 4xl:grid-cols-[1.5fr_1fr] gap-16 items-center">
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -65,14 +64,10 @@ export default function PlatformCTAAbout() {
             transition={{ duration: 0.8 }}
             className="space-y-8"
           >
-            <h2 className="text-4xl sm:text-5xl lg:text-7xl font-black text-gray-900 tracking-tight leading-tight text-center lg:text-left">
-              Vamos <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-amber-500">
-                Transformar
-              </span><br />
-              sua operação?
+            <h2 className="text-4xl sm:text-5xl lg:text-7xl font-black text-gray-900 tracking-tight leading-tight text-center lg:text-left text-balance">
+              Vamos <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-amber-500">Transformar</span> sua operação?
             </h2>
-            <p className="text-gray-600 text-lg sm:text-xl max-w-md leading-relaxed text-center lg:text-left mx-auto lg:mx-0">
+            <p className="text-gray-600 text-lg sm:text-xl max-w-md 2xl:max-w-[28rem] 3xl:max-w-[36rem] 4xl:max-w-[44rem] leading-relaxed text-center lg:text-left mx-auto lg:mx-0 text-balance">
               Pare de perder dinheiro com cliques desqualificados. Dê o próximo passo na sua jornada de escala.
             </p>
           </motion.div>

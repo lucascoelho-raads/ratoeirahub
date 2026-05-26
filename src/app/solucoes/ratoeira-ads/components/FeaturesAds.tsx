@@ -65,11 +65,11 @@ export default function FeaturesAds() {
   return (
     <section id="como-funciona" className="py-16 md:py-24 bg-[#0a0a0a]">
       <div className="max-w-7xl 3xl:max-w-[100rem] 4xl:max-w-[120rem] mx-auto px-4 sm:px-6 lg:px-8 3xl:px-12 4xl:px-20">
-        <div className="text-center mb-16 max-w-4xl 3xl:max-w-[70rem] 4xl:max-w-[90rem] 3xl:max-w-[70rem] 4xl:max-w-[90rem] mx-auto">
-          <h2 className="text-2xl sm:text-3xl md:text-5xl font-black text-white mb-6 text-center md:text-left">
+        <div className="text-center mb-16 max-w-4xl 2xl:max-w-[50rem] 3xl:max-w-[70rem] 4xl:max-w-[90rem] mx-auto">
+          <h2 className="text-2xl sm:text-3xl md:text-5xl font-black text-white mb-6 text-center md:text-left text-balance">
             O fim do <span className="text-brand-primary">achismo</span> no tráfego pago.
           </h2>
-          <p className="text-gray-400 text-base sm:text-lg max-w-3xl 3xl:max-w-[60rem] 4xl:max-w-[80rem] 3xl:max-w-[60rem] 4xl:max-w-[80rem] mx-auto text-center md:text-left">
+          <p className="text-gray-400 text-base sm:text-lg max-w-3xl 2xl:max-w-[44rem] 3xl:max-w-[60rem] 4xl:max-w-[80rem] mx-auto text-center md:text-left text-balance">
             A Ratoeira Ads atua em 6 frentes para garantir que você saiba exatamente qual anúncio gerou cada centavo de
             resultado — no Google Ads e no Meta Ads.
           </p>

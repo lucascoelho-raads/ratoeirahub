@@ -93,11 +93,11 @@ export default function Testimonials() {
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-badge bg-orange-50 border border-orange-200 text-orange-600 text-sm font-semibold">
             💬 Depoimentos Reais
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white leading-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white leading-tight text-balance">
             Quem{" "}
             <span className="text-orange-600">domina o tráfego</span>, confia na Ratoeira
           </h2>
-          <p className="text-white/70 text-lg sm:text-xl max-w-xl 3xl:max-w-[40rem] 4xl:max-w-[60rem] mx-auto">
+          <p className="text-white/70 text-lg sm:text-xl max-w-xl 2xl:max-w-[34rem] 3xl:max-w-[48rem] 4xl:max-w-[64rem] mx-auto text-balance">
             Veja o que anunciantes de Google Ads, Meta Ads e gestores de tráfego dizem sobre operar com dado real.
           </p>
         </motion.div>

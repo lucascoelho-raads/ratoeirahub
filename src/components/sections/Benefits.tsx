@@ -105,11 +105,11 @@ export default function Benefits() {
           transition={{ duration: 0.7 }}
           className="text-center mb-20 space-y-6"
         >
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-text-inverse leading-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-text-inverse leading-tight text-balance">
             Por que <span style={{ color: "var(--color-brand-primary)" }}>+2.600 anunciantes</span> escolheram a{" "}
             <span className="whitespace-normal sm:whitespace-nowrap">Ratoeira Hub</span>
           </h2>
-          <p className="text-white/80 text-lg max-w-2xl 3xl:max-w-[50rem] 4xl:max-w-[70rem] mx-auto">
+          <p className="text-white/80 text-lg max-w-2xl 2xl:max-w-[36rem] 3xl:max-w-[50rem] 4xl:max-w-[70rem] mx-auto text-balance">
             Do anunciante que não quer perder a primeira venda ao gestor que escala múltiplos clientes — uma plataforma
             para cada momento da sua operação.
           </p>
@@ -148,21 +148,21 @@ export default function Benefits() {
                     >
                       <div className="relative h-full rounded-card border border-white/10 bg-[#050505] shadow-card-resting p-5 sm:p-6 md:p-10 lg:p-12 overflow-hidden">
                         <BackgroundPaths reverse={benefit.imageLeft} />
-                        <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center h-full">
+                        <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-[1.2fr_1fr] 3xl:grid-cols-[1.3fr_1fr] 4xl:grid-cols-[1.35fr_1fr] gap-10 items-center h-full">
                           <div className={benefit.imageLeft ? "order-2" : "order-1"}>
-                            <h3 className="mt-4 sm:mt-6 text-2xl sm:text-3xl lg:text-4xl font-black text-gray-50 leading-tight text-center lg:text-left">
+                            <h3 className="mt-4 sm:mt-6 text-2xl sm:text-3xl lg:text-4xl font-black text-gray-50 leading-tight text-center lg:text-left text-balance">
                               {benefit.title}
                             </h3>
-                            <p className="mt-4 sm:mt-5 text-base sm:text-lg text-gray-200 leading-relaxed text-center lg:text-left">
+                            <p className="mt-4 sm:mt-5 text-base sm:text-lg text-gray-200 leading-relaxed text-center lg:text-left text-balance">
                               {benefit.description}
                             </p>
                           </div>
 
                           <div className={benefit.imageLeft ? "order-1" : "order-2"}>
                             {activeIndex === 0 || activeIndex === 1 || activeIndex === 2 || activeIndex === 3 || activeIndex === 5 ? (
-                              <div className="relative rounded-card overflow-hidden">
+                              <div className={activeIndex === 2 ? "relative rounded-card overflow-hidden lg:scale-110" : "relative rounded-card overflow-hidden"}>
                                 <img
-                                  src={activeIndex === 0 ? "/slide1home.png" : activeIndex === 1 ? "/rastreamento inteligente.png" : activeIndex === 2 ? "/slide3home.png" : activeIndex === 3 ? "/slide4home.png" : "/slide6home.png"}
+                                  src={activeIndex === 0 ? "/slide1home.png" : activeIndex === 1 ? "/slide2home.png" : activeIndex === 2 ? "/slide3home.png" : activeIndex === 3 ? "/slide4home.png" : "/slide6home.png"}
                                   alt={benefit.title}
                                   className="w-full h-auto"
                                 />
