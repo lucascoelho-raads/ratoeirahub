@@ -159,10 +159,10 @@ export default function Benefits() {
                           </div>
 
                           <div className={benefit.imageLeft ? "order-1" : "order-2"}>
-                            {activeIndex === 0 || activeIndex === 2 || activeIndex === 3 || activeIndex === 5 ? (
+                            {activeIndex === 0 || activeIndex === 1 || activeIndex === 2 || activeIndex === 3 || activeIndex === 5 ? (
                               <div className="relative rounded-card overflow-hidden">
                                 <img
-                                  src={activeIndex === 0 ? "/slide1home.png" : activeIndex === 2 ? "/slide3home.png" : activeIndex === 3 ? "/slide4home.png" : "/slide6home.png"}
+                                  src={activeIndex === 0 ? "/slide1home.png" : activeIndex === 1 ? "/rastreamento inteligente.png" : activeIndex === 2 ? "/slide3home.png" : activeIndex === 3 ? "/slide4home.png" : "/slide6home.png"}
                                   alt={benefit.title}
                                   className="w-full h-auto"
                                 />

@@ -158,35 +158,11 @@ export default function ProblemSolution() {
               transition={{ duration: 0.5 }}
               className="bg-linear-to-b from-gray-100 to-gray-50 rounded-3xl p-2 sm:p-4 border border-gray-200 shadow-2xl overflow-hidden"
             >
-              {activeTab === "rastreamento" ? (
-                <div className="relative rounded-2xl overflow-hidden">
-                  <img
-                    src="/rastreamento inteligente.png"
-                    alt="Rastreamento Inteligente"
-                    className="w-full h-auto"
-                  />
-                  <div className="absolute bottom-[calc(12%+4px)] left-[8%] right-[8%] flex items-center justify-center">
-                    <AnimatePresence mode="wait">
-                      <motion.div
-                        key={`${activeTab}-highlight-${highlightIndex}`}
-                        initial={{ opacity: 0, y: 6 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -6 }}
-                        transition={{ duration: 0.35, ease: "easeOut" }}
-                        className="inline-flex items-center justify-center px-5 py-2.5 rounded-xl"
-                        style={{ backgroundColor: "#fcd34d" }}
-                      >
-                        <p className="font-black text-base md:text-lg lg:text-xl text-center whitespace-nowrap" style={{ color: "#f97316" }}>
-                          {activeHighlights[highlightIndex]}
-                        </p>
-                      </motion.div>
-                    </AnimatePresence>
-                  </div>
-                </div>
-              ) : (
+              {
                 <div className="aspect-video flex items-center justify-center">
                   <div className="text-center">
                     <div className="w-20 h-20 rounded-2xl mx-auto mb-4 flex items-center justify-center bg-linear-to-r from-yellow-500 to-orange-500">
+                      {activeTab === "rastreamento" && <Radar className="w-10 h-10 text-white" />}
                       {activeTab === "paginas" && <LayoutTemplate className="w-10 h-10 text-white" />}
                       {activeTab === "ecossistema" && <Link2 className="w-10 h-10 text-white" />}
                     </div>
@@ -206,7 +182,7 @@ export default function ProblemSolution() {
                     </div>
                   </div>
                 </div>
-              )}
+              }
             </motion.div>
 
             {/* Decorative elements */}
