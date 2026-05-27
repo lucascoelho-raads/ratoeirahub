@@ -8,7 +8,7 @@ const detailedBenefits = [
   {
     icon: Repeat,
     title: "Receita Recorrente Real",
-    description: "Você não ganha apenas na primeira venda. Enquanto seu indicado usar o Ratoeira Hub, você recebe até 30% do valor da assinatura todos os meses.",
+    description: "Enquanto seu indicado usar a Ratoeira, você recebe comissão recorrente sobre o valor da assinatura todos os meses. Comece em 10% e evolua conforme o número de indicados ativos.",
     highlight: true,
   },
   {
@@ -20,25 +20,13 @@ const detailedBenefits = [
   {
     icon: Zap,
     title: "Saques Rápidos",
-    description: "Sem burocracia. Solicite seus saques diretamente pelo dashboard e receba em sua conta com agilidade e transparência.",
-    highlight: false,
-  },
-  {
-    icon: Users,
-    title: "Gerente de Contas Dedicado",
-    description: "Parceiros que atingem o nível Gold ganham um gerente de contas via WhatsApp para ajudar a fechar grandes negociações.",
-    highlight: false,
-  },
-  {
-    icon: GraduationCap,
-    title: "Treinamento de Vendas",
-    description: "Acesso exclusivo à nossa academia de parceiros, com aulas de como abordar, apresentar e converter clientes para a plataforma.",
+    description: "Sem burocracia. Solicite seus saques diretamente pelo dashboard. Pagamentos processados via ASAAS, recebidos na sua conta com agilidade e transparência.",
     highlight: false,
   },
   {
     icon: DollarSign,
     title: "Premiações por Metas",
-    description: "Alcance marcos de faturamento e desbloqueie prêmios físicos, viagens exclusivas e acesso aos nossos masterminds fechados.",
+    description: "Alcance marcos de faturamento e desbloqueie prêmios físicos. O crescimento da sua operação tem recompensas concretas.",
     highlight: true,
   },
 ];

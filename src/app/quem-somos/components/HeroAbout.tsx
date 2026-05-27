@@ -37,12 +37,12 @@ export default function HeroAbout() {
                 Em dezembro de 2022, Eitor Guimarães anunciava como afiliado de Google Ads e aplicava o que sabia de
                 analytics corporativo a um problema que o mercado brasileiro ainda não havia resolvido: como capturar os
                 dados do clique, cruzar com a conversão e devolver esse sinal limpo ao algoritmo do Google para ele
-                otimizar para quem realmente compra. Ferramentas gringas faziam isso. Nenhuma ferramenta brasileira
-                entendia o mercado local — nem o produto, nem a linguagem.
+                otimizar para quem realmente compra. Ferramentas gringas faziam isso — e não afetavam. Chegavam a custar
+                R$1.000 por mês e ainda assim não entendiam o ecossistema brasileiro de afiliados.
               </p>
               <p>
                 Eitor sistematizou o método e publicou um vídeo no YouTube em outubro de 2023. Explodiu. O mercado de
-                afiliados de Google Ads mudou de patamar: operações que antes travavam em 300 a 500 mil reais passaram a
+                afiliados de Google Ads mudou de patamar: operações que antes travavam em só a R$100 mil passaram a
                 escalar além de um milhão. Em janeiro de 2024, Paulo Furtado viu o vídeo e foi direto ao Instagram de
                 Eitor propor construir o software. Em 15 de abril de 2024, a Ratoeira Ads entrava no ar. Hoje, mais de
                 2.500 anunciantes são assinantes ativos — e mais de 10.000 já passaram pela plataforma.

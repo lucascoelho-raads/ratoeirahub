@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { Zap } from "lucide-react";
 import { GradientText } from "@/components/ui/gradient-text";
+import { BlurTextEffect } from "@/components/ui/blur-text-effect";
 
 export function Features() {
   const slides = [
@@ -128,7 +129,9 @@ export function Features() {
                       {slide.titlePrefix} {slide.titleHighlight}
                     </GradientText>
                   </h3>
-                  <p className={`text-xl leading-relaxed ${isLight ? "text-[#4b5563]" : "text-gray-400"}`}>{slide.description}</p>
+                  <p className={`text-xl leading-relaxed ${isLight ? "text-[#4b5563]" : "text-gray-400"}`}>
+                    <BlurTextEffect key={`${slide.key}-desc`}>{slide.description}</BlurTextEffect>
+                  </p>
                 </div>
 
                 <div className="flex-1 w-full">

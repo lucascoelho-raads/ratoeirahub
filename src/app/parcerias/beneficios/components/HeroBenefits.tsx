@@ -26,7 +26,7 @@ export default function HeroBenefits() {
           </h1>
           
           <p className="text-[clamp(1.05rem,1.25vw,1.35rem)] text-gray-400 leading-relaxed max-w-3xl 2xl:max-w-[44rem] 3xl:max-w-[60rem] 4xl:max-w-[80rem] mx-auto text-balance">
-            Descubra por que os maiores players do mercado digital escolhem o programa de parcerias do Ratoeira Hub para monetizar sua influência e autoridade.
+            Todo assinante da Ratoeira pode ser parceiro. Indique, ganhe recorrente e acesse vantagens exclusivas — enquanto sua operação cresce junto.
           </p>
         </motion.div>
       </div>

@@ -8,13 +8,13 @@ const milestones = [
   {
     year: "Dez 2022",
     title: "A Descoberta",
-    description: "Eitor Guimarães, com background em analytics corporativo e Lean Six Sigma, começa a anunciar como afiliado de Google Ads e sistematiza um método inédito no Brasil: capturar o dado do clique, cruzar com a conversão e alimentar o algoritmo com sinal limpo. O que antes parecia impossível para afiliados começa a funcionar.",
+    description: "Eitor Guimarães, com background em analytics corporativo, começa a anunciar como afiliado de Google Ads e sistematiza um método inédito no Brasil: capturar o dado do clique, cruzar com a conversão e alimentar o algoritmo com sinal limpo. O que antes parecia impossível para afiliados começa a funcionar.",
     align: "left",
   },
   {
     year: "Out 2023",
     title: "O mercado descobre o método",
-    description: "Eitor publica um vídeo no YouTube explicando o método. Explode em visualizações. Afiliados que faziam 300 a 500 mil reais passam a enxergar — e a atingir — resultados acima de um milhão. Eitor se torna referência nacional no assunto.",
+    description: "Eitor publica um vídeo no YouTube explicando o método. Explode em visualizações. Afiliados que faziam 50 a 100 mil reais passam a enxergar — e a atingir — resultados acima de um milhão. Eitor se torna referência nacional no assunto.",
     align: "right",
   },
   {
@@ -26,19 +26,19 @@ const milestones = [
   {
     year: "Abr 2024",
     title: "Ratoeira Ads vai ao ar",
-    description: "Em 15 de abril de 2024, a Ratoeira Ads é lançada — focada em afiliados de Google Ads. Tracking server-side via API de Conversões, bloqueio automático de IPs inválidos e atribuição real do clique à venda. O que Eitor sistematizou como método, Paulo transformou em plataforma.",
+    description: "Em 15 de abril de 2024, a Ratoeira Ads é lançada — focada em afiliados de Google Ads. Trackeamento server-side via API de Conversões, bloqueio de IPs inválidos e atribuição real do clique à venda. O sistema ainda era muito manual, mas já revolucionário. O que Eitor sistematizou como método, Paulo transformou em plataforma.",
     align: "right",
   },
   {
     year: "2025",
     title: "Expansão do ecossistema",
-    description: "A Ratoeira expande para Meta Ads com envio enriquecido via browser + CAPI. Nasce o Ratoeira Pages — construtor de páginas com hospedagem inclusa e tracking já integrado. Os dois produtos se tornam Ratoeira Hub: quando conectados, rastreiam além do que cada um entrega separado.",
+    description: "Nasce o Ratoeira Pages — construtor de páginas com hospedagem inclusa e trackeamento já integrado. Os dois produtos se tornam Ratoeira Hub: quando conectados, rastreiam além do que cada um entrega separado. Suas funcionalidades passam a ser ainda mais automáticas e diretas. A Ratoeira consolida sua posição como referência do mercado.",
     align: "left",
   },
   {
     year: "2026",
     title: "IA e novos canais",
-    description: "MCP do Ratoeira Ads e do Ratoeira Pages: o Claude e o ChatGPT passam a consultar, analisar e executar ações diretamente nas contas dos anunciantes. A plataforma expande para atender produtores, infoprodutores, gestores de tráfego e agências — com mais de 2.500 assinantes ativos.",
+    description: "MCP do Ratoeira Ads e do Ratoeira Pages: o Claude e o ChatGPT passam a consultar, analisar e executar ações diretamente nas contas dos anunciantes. Expansão para Meta Ads com envio enriquecido via browser + CAPI. A plataforma expande para atender produtores, infoprodutores, gestores de tráfego e agências — com mais de 2.500 assinantes ativos.",
     align: "right",
   }
 ];

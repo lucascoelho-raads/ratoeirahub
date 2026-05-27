@@ -4,20 +4,21 @@ import { motion } from "framer-motion";
 
 const tiers = [
   {
-    name: "Parceiro",
+    name: "Assinante da Ratoeira",
     req: "1 a 10 clientes ativos",
-    comission: "20%",
-    perks: ["Dashboard Básico", "Material de Apoio", "Suporte por Email"],
+    comission: "10%",
+    perks: ["Dashboard Básico", "Material de Apoio"],
+    note: "Para entrar neste tier, basta entrar em contato pelo WhatsApp e solicitar.",
   },
   {
-    name: "Parceiro Gold",
+    name: "Top10 Parceiro Gold",
     req: "11 a 50 clientes ativos",
-    comission: "25%",
-    perks: ["Gerente Dedicado", "Treinamento Avançado", "Saques Imediatos"],
+    comission: "20%",
+    perks: ["Gerente Dedicado", "Grupo VIP WhatsApp c/ time dedicado", "Prêmios físicos", "Acesso liberado da Ratoeira Ads", "Módulo de trackeamento completo para o seu curso"],
     featured: true,
   },
   {
-    name: "Embaixador",
+    name: "Embaixador Top5",
     req: "51+ clientes ativos",
     comission: "30%",
     perks: ["Mastermind Exclusivo", "Premiações Físicas", "Co-marketing"],
@@ -33,7 +34,7 @@ export default function CommissionStructure() {
             Estrutura de <span className="text-brand-primary">Comissionamento</span>
           </h2>
           <p className="text-gray-400 text-base sm:text-lg max-w-2xl 2xl:max-w-[36rem] 3xl:max-w-[50rem] 4xl:max-w-[70rem] mx-auto px-4 sm:px-0 text-balance">
-            Seu esforço é recompensado. Quanto mais clientes você traz para o ecossistema, maior é a sua porcentagem de participação na receita.
+            Seu esforço é recompensado. Quanto mais clientes você traz para a Ratoeira, maior é a sua participação na receita.
           </p>
         </div>
 
@@ -75,6 +76,9 @@ export default function CommissionStructure() {
                   </li>
                 ))}
               </ul>
+              {tier.note && (
+                <p className="mt-4 text-xs text-gray-500 text-center italic">{tier.note}</p>
+              )}
             </motion.div>
           ))}
         </div>

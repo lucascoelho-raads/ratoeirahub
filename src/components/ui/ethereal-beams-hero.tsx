@@ -462,7 +462,7 @@ export default function EtherealBeamsHero() {
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 transition-colors"
           >
             <Star className="w-4 h-4 text-[#E6A600]" />
-            <span className="text-sm text-neutral-300">Nova era do tracking chegou</span>
+            <span className="text-sm text-neutral-300">Nova era do trackeamento chegou</span>
             <ArrowRight className="w-4 h-4 text-neutral-400" />
           </a>
         </motion.div>

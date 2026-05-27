@@ -41,7 +41,7 @@ export default function CTAAds() {
                 targetAngle={90} // Topo
               />
               <IconContainer
-                text="Tracking"
+                text="Trackeamento"
                 delay={0.3}
                 icon={<Target className="h-6 w-6 text-brand-primary" />}
                 angle={angle}
@@ -73,14 +73,14 @@ export default function CTAAds() {
             <div className="flex w-full items-center justify-center space-x-10 md:justify-between md:space-x-0">
               <IconContainer
                 delay={0.6}
-                text="Velocidade"
+                text="Funil Completo"
                 icon={<Zap className="h-6 w-6 text-brand-primary" />}
                 angle={angle}
                 targetAngle={315} // Inferior Esquerdo
               />
               <IconContainer
                 delay={0.7}
-                text="Dados 100%"
+                text="Dado Real"
                 icon={<Target className="h-6 w-6 text-brand-primary" />}
                 angle={angle}
                 targetAngle={225} // Inferior Direito
@@ -105,17 +105,23 @@ export default function CTAAds() {
             Pare de tomar decisão com dado <span className="text-brand-primary">incompleto</span>.
           </h2>
           <p className="text-base sm:text-[clamp(1.1rem,1.25vw,1.5rem)] text-gray-300 max-w-3xl 2xl:max-w-[44rem] 3xl:max-w-[60rem] 4xl:max-w-[80rem] mx-auto drop-shadow-[0_0_10px_rgba(0,0,0,0.8)] leading-relaxed px-4 text-balance">
-            Configure a <span className="text-brand-primary font-semibold">Ratoeira Ads</span> em minutos e descubra o ROI real das suas campanhas com rastreamento ~100% e proteção automática no Google Ads.
+            Configure a <span className="text-brand-primary font-semibold">Ratoeira Ads</span> em minutos e descubra o ROI real das suas campanhas com trackeamento ~100% e proteção automática no Google Ads.
           </p>
         </motion.div>
 
-        <div className="mt-16">
+        <div className="mt-16 flex flex-col items-center gap-4">
           <Link
             href="/planos#vamos-transformar"
             className="inline-flex items-center gap-2 px-8 py-4 sm:px-10 sm:py-5 bg-brand-primary text-white font-black rounded-button hover:bg-brand-primary-hover transition-all text-lg sm:text-xl shadow-xl shadow-brand-primary/20 hover:scale-105 active:scale-95"
           >
             Começar grátis — ver planos
             <ArrowRight className="w-6 h-6" />
+          </Link>
+          <Link
+            href="/faq"
+            className="inline-flex items-center gap-2 text-brand-primary font-semibold hover:text-brand-primary-hover transition-colors"
+          >
+            Confira nosso tutorial completo →
           </Link>
         </div>
       </div>

@@ -143,8 +143,7 @@ export default function Hero() {
                     variants={itemVariants}
                     className="text-[clamp(1rem,1.15vw,1.125rem)] 3xl:text-[clamp(1.125rem,1.2vw,1.5rem)] text-white/70 leading-relaxed max-w-xl 2xl:max-w-[34rem] 3xl:max-w-[46rem] 4xl:max-w-[56rem] text-center lg:text-left"
                   >
-                    Rastreamento ~100% para Google Ads e Meta Ads. Visitas, leads e vendas num único dashboard — em tempo
-                    real.
+                    Operações reais reportam aumento de lucro em até 60% quando passam a rastrear com dado real. Cada clique, cada lead, cada venda — origem rastreada no Google e no Meta, em tempo real.
                   </motion.p>
 
                   <motion.div variants={itemVariants} className="flex flex-col gap-2 pt-2">
@@ -296,26 +295,72 @@ export default function Hero() {
                   <h2 className="text-[clamp(1.75rem,6vw,3.5rem)] sm:text-[clamp(2.25rem,5vw,4rem)] lg:text-[clamp(2.75rem,3.8vw,5.25rem)] 3xl:text-[clamp(3.5rem,4.2vw,7rem)] font-extrabold tracking-tight leading-tight lg:leading-[1.04] text-white break-words text-center lg:text-left text-balance">
                     Páginas que convertem.{" "}
                     <span style={{ color: "var(--color-brand-primary)" }}>
-                      Integradas ao seu tracking desde o primeiro clique.
+                      Integradas ao seu trackeamento desde o primeiro clique.
                     </span>
                   </h2>
                   <p className="text-[clamp(0.875rem,3vw,1.125rem)] sm:text-[clamp(1rem,2vw,1.125rem)] 3xl:text-[clamp(1.125rem,1.2vw,1.5rem)] text-white/70 leading-relaxed max-w-2xl 2xl:max-w-[34rem] 3xl:max-w-[46rem] 4xl:max-w-[56rem] text-center lg:text-left">
-                    Construtor visual com templates prontos, Flash Pages ultra-rápidas e geração por IA. Cada página já
-                    nasce com o tracking integrado — sem scripts avulsos, sem configuração manual, sem dados perdidos
-                    entre a página e a campanha.
+                    Templates prontos e validados, Flash Pages que abrem em menos de 1 segundo e criação por IA com 1 clique. Cada página já nasce com o trackeamento integrado — sem scripts avulsos, sem configuração manual, sem dado perdido entre a página e a campanha.
                   </p>
                 </div>
 
                 {/* Mockup Pages - visível em todas as telas */}
-                <div className="relative lg:col-start-2 lg:row-start-1">
-                  <div className="relative w-full">
-                    <img
-                      src="/paginasqueconvertem.png"
-                      alt="Ratoeira Pages Preview"
-                      className="w-full h-auto rounded-3xl border border-neutral-200 shadow-card-resting"
-                    />
+                <motion.div
+                  initial={{ opacity: 0, x: 40 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.9, delay: 0.4, ease: [0.215, 0.61, 0.355, 1] }}
+                  className="relative lg:col-start-2 lg:row-start-1"
+                >
+                  <div className="relative rounded-2xl overflow-hidden border border-neutral-200 bg-[#0d0d0d] shadow-card-resting h-[clamp(280px,55vw,420px)] lg:h-[clamp(420px,46vh,640px)] 2xl:h-[clamp(520px,22vw,820px)] 3xl:h-[clamp(600px,24vw,900px)]">
+                    <div className="bg-[#161616] border-b border-white/5 px-4 py-3 flex items-center justify-between">
+                      <div className="flex gap-1.5">
+                        <div className="w-2.5 h-2.5 rounded-full bg-red-500/40" />
+                        <div className="w-2.5 h-2.5 rounded-full bg-amber-500/40" />
+                        <div className="w-2.5 h-2.5 rounded-full bg-emerald-500/40" />
+                      </div>
+                      <AnimatePresence mode="wait">
+                        <motion.span
+                          key={activeSlide}
+                          initial={{ opacity: 0 }}
+                          animate={{ opacity: 1 }}
+                          exit={{ opacity: 0 }}
+                          className="text-neutral-500 text-[10px] font-semibold tracking-widest uppercase absolute left-1/2 -translate-x-1/2"
+                        >
+                          Páginas que Convertem
+                        </motion.span>
+                      </AnimatePresence>
+                      <div className="flex gap-1">
+                        {slides.map((_, i) => (
+                          <button
+                            key={i}
+                            onClick={() => setActiveSlide(i)}
+                            className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${
+                              i === activeSlide ? "bg-[#E6A600]" : "bg-white/20"
+                            }`}
+                          />
+                        ))}
+                      </div>
+                    </div>
+
+                    <div className="relative h-[calc(100%-45px)] p-3">
+                      <AnimatePresence mode="wait">
+                        <motion.div
+                          key={activeSlide}
+                          initial={{ opacity: 0, y: 10 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          exit={{ opacity: 0, y: -10 }}
+                          transition={{ duration: 0.4, ease: "easeInOut" }}
+                          className="absolute inset-3"
+                        >
+                          <img
+                            src="/paginasqueconvertem.png"
+                            alt="Ratoeira Pages Preview"
+                            className="w-full h-full object-cover rounded-xl"
+                          />
+                        </motion.div>
+                      </AnimatePresence>
+                    </div>
                   </div>
-                </div>
+                </motion.div>
 
                 {/* CTA - separado, abaixo do mockup no mobile */}
                 <div className="flex items-center justify-center lg:justify-start gap-3 pt-2 lg:col-start-1">

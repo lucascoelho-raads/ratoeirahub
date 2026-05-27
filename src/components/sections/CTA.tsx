@@ -48,20 +48,19 @@ export default function CTA() {
 
           {/* Subtitle */}
           <p className="text-[#4b5563] text-base sm:text-lg max-w-2xl 2xl:max-w-[40rem] 3xl:max-w-[56rem] 4xl:max-w-[72rem] mx-auto leading-relaxed text-balance">
-            Configure em minutos. Veja cada venda, cada lead, cada clique — no Google e no Meta. E tome a decisão que a
-            maioria adia.
+            Configure em minutos. Rastreie cada venda, cada lead, cada clique — no Google e no Meta. Tome as decisões que a maioria adia por falta de dado real.
           </p>
 
           {/* Garantia */}
+          <h3 className="text-xl font-black text-[#111827]">Risco Zero</h3>
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-gray-50 border border-brand-primary/30 rounded-full text-brand-primary text-sm">
-            <span className="text-green-600">✓</span> Risco Zero. Comece no plano gratuito. Sem compromisso, sem cartão.
-            Upgrade quando quiser.
+            <span className="text-green-600">✓</span> Comece no plano gratuito. Sem compromisso, sem cartão. Faça upgrade quando quiser.
           </div>
 
           {/* CTA */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Link
-              href="/fale-conosco"
+              href="/planos#vamos-transformar"
               className="inline-flex items-center gap-2.5 px-10 py-5 bg-brand-primary text-white font-black rounded-button text-lg hover:bg-brand-primary-hover transition-all duration-200 shadow-2xl shadow-orange-900/25 hover:-translate-y-0.5 group"
             >
               Quero Acessar a Ratoeira Hub

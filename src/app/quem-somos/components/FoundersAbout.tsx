@@ -46,12 +46,12 @@ export default function FoundersAbout() {
               <div className="space-y-4 text-gray-400 leading-relaxed text-base sm:text-lg text-center md:text-left">
                 <p>
                   Formado pela UNICAMP, Eitor construiu sua carreira em analytics e inteligência de mercado — passando por
-                  3M (onde se certificou como Lean Six Sigma Green Belt) e PepsiCo, onde liderou times de Business
-                  Intelligence e Data & Analytics para a América Latina. Em 2022, levou esse repertório para o tráfego
-                  pago e descobriu o que o mercado brasileiro ainda não havia sistematizado: como usar o tracking
-                  server-side para que o Google Ads otimize para compradores reais. O método mudou o patamar do mercado
-                  de afiliados no Brasil. Em abril de 2024, junto com Paulo, transformou a descoberta em produto. Hoje
-                  lidera a Ratoeira como CEO.
+                  3M (certificado como Lean Six Sigma Green Belt) e PepsiCo, onde liderou times de Business Intelligence
+                  e Data & Analytics para a América Latina. Em 2022, levou esse repertório para o tráfego pago e
+                  sistematizou, de forma pioneira no Brasil, o que o mercado de afiliados de Google Ads ainda não tinha:
+                  trackeamento server-side para que o Google Ads otimize para compradores reais. O método mudou o patamar
+                  do mercado — operações que travavam em até R$100 mil passaram a escalar além de um milhão. Em abril de
+                  2024, junto com Paulo, transformou a descoberta em produto. Hoje lidera a Ratoeira como CEO.
                 </p>
               </div>
               
@@ -93,12 +93,11 @@ export default function FoundersAbout() {
               
               <div className="space-y-4 text-gray-400 leading-relaxed text-lg">
                 <p>
-                  Formado em análise de sistemas em 2012, Paulo passou mais de uma década construindo sistemas robustos e
-                  trabalhando em grandes empresas — incluindo a Localiza. Em janeiro de 2024, assistiu ao vídeo de Eitor
-                  sobre tracking para afiliados de Google Ads e enxergou o produto que ainda não existia. Foi direto ao
-                  Instagram propor a parceria. Como CTO da Ratoeira, Paulo é responsável pela arquitetura que garante
-                  rastreamento ~100%, processamento de eventos em tempo real e as integrações via API com Google Ads,
-                  Meta e plataformas de IA.
+                  Formado em análise de sistemas em 2012, Paulo passou mais de uma década construindo sistemas robustos —
+                  incluindo passagem pela Localiza. Em janeiro de 2024, assistiu ao vídeo de Eitor sobre trackeamento para
+                  afiliados de Google Ads e enxergou o produto que ainda não existia. Foi direto ao Instagram propor a
+                  parceria. Como CTO da Ratoeira, Paulo é responsável pela arquitetura que garante trackeamento ~100%,
+                  processamento de eventos em tempo real e as integrações via API com Google Ads, Meta e plataformas de IA.
                 </p>
               </div>
               

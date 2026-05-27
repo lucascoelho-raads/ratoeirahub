@@ -10,7 +10,7 @@ const features = [
     icon: Server,
     title: "Tracking Server-Side",
     description:
-      "Seus dados não dependem mais de cookies ou do pixel nativo. Enviamos as conversões direto para as APIs do Google e do Meta com envio enriquecido via browser e API — chegando a ~100% de rastreamento. O que o pixel padrão perde entre 25% e 40% das vezes, a Ratoeira registra.",
+      "Seus dados não dependem mais de cookies ou do pixel nativo. A Ratoeira envia as conversões direto para as APIs do Google e do Meta com envio enriquecido via browser e API — chegando a ~100% de trackeamento. O que o pixel padrão perde entre 25% e 40% das vezes, a Ratoeira registra. Mais conversões chegando ao Google e ao Meta significa algoritmo otimizando para quem realmente compra.",
   },
   {
     icon: Bot,
@@ -22,19 +22,19 @@ const features = [
     icon: Ghost,
     title: "Pixel de Qualidade Máxima",
     description:
-      "Para Meta Ads. Enviamos suas conversões com deduplicação e dados enriquecidos — via browser e API ao mesmo tempo. Isso eleva o Pixel Quality Score do Meta, que passa a encontrar pessoas com perfil real de compra, não só de clique. CPL cai. ROAS sobe. O algoritmo finalmente trabalha com dado verdadeiro.",
+      "Para Meta Ads. A Ratoeira envia suas conversões com deduplicação e dados enriquecidos — via browser e API ao mesmo tempo. Isso eleva o Pixel Quality Score do Meta, que passa a encontrar pessoas com perfil real de compra, não só de clique. CPL cai. ROAS sobe. O algoritmo finalmente trabalha com dado verdadeiro.",
   },
   {
     icon: Target,
     title: "Recuperação de Conversões Invisíveis",
     description:
-      "Anunciantes que migram do pixel padrão para o tracking server-side da Ratoeira recuperam em média 25% a 40% de conversões que estavam sumindo. Cada venda recuperada é lucro que você já tinha gerado — sem saber. Com mais conversões subindo para o Google e para o Meta, o algoritmo otimiza mais rápido e sua campanha escala com mais segurança.",
+      "Anunciantes que migram para o trackeamento server-side da Ratoeira recuperam em média 25% a 40% de conversões que estavam invisíveis. Cada venda recuperada é lucro que você já tinha gerado — e não sabia. Com mais conversões chegando ao Google e ao Meta, o algoritmo otimiza mais rápido e sua campanha escala com mais segurança.",
   },
   {
     icon: Zap,
     title: "Dados em Tempo Real",
     description:
-      "O Meta Ads demora para consolidar conversões e muitas vezes otimiza para o público errado antes de corrigir. A Ratoeira mostra seus dados integrados — visitas, leads e vendas — mais rápido do que o próprio Ads Manager. Você toma a decisão certa antes que o algoritmo tome a errada.",
+      "O Ads Manager demora para consolidar conversões — e nesse intervalo o algoritmo pode continuar otimizando para o público errado. A Ratoeira mostra seus dados integrados — visitas, leads e vendas — mais rápido do que o próprio painel do Google e do Meta. Você vê o que está funcionando e age antes que o orçamento vá para o lugar errado.",
   },
   {
     icon: LineChart,

@@ -20,7 +20,7 @@ export default function CTAPartnerships() {
             Pronto para multiplicar seus ganhos?
           </h2>
           <p className="text-gray-400 text-base sm:text-lg mb-8 sm:mb-10 max-w-xl 2xl:max-w-[30rem] 3xl:max-w-[40rem] 4xl:max-w-[60rem] mx-auto relative z-10 text-balance">
-            Preencha o formulário rápido abaixo. Nosso time de parcerias analisará seu perfil e entrará em contato com os próximos passos.
+            Já indicou alguém ou quer entrar para o programa? Fale com nosso time agora mesmo.
           </p>
 
           <div className="bg-[#050505] border border-white/5 rounded-3xl p-4 sm:p-8 relative z-10">

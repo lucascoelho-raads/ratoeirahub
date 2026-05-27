@@ -5,6 +5,7 @@ import Link from "next/link";
 import { ArrowRight, Link2, Radar, LayoutTemplate, MousePointerClick, Server, LineChart, ShieldCheck } from "lucide-react";
 import { BeamsBackground } from "@/components/ui/ethereal-beams-hero";
 import { GradientText } from "@/components/ui/gradient-text";
+import { BlurTextEffect } from "@/components/ui/blur-text-effect";
 
 export const metadata = {
   title: "Ratoeira Hub | Ads + Pages em um único dashboard",
@@ -161,7 +162,7 @@ export default function RatoeiraHubPage() {
                       </GradientText>
                     </h3>
                     <p className={`text-base sm:text-xl leading-relaxed ${index % 2 === 1 ? "text-[#4b5563]" : "text-gray-400"}`}>
-                      {feature.description}
+                      <BlurTextEffect key={`${feature.title}-desc`}>{feature.description}</BlurTextEffect>
                     </p>
                   </div>
 

@@ -11,7 +11,7 @@ const tabs = [
 ];
 
 const trackingHighlights = [
-  "Tracking server-side com ~100% de conversões rastreadas",
+  "Trackeamento server-side com ~100% de conversões rastreadas",
   "Bloqueio automático de bots e IPs fraudulentos",
   "Dashboard consolidado: Google Ads + Plataformas + Anti-Fraude",
   "+60 plataformas de vendas conectadas",
@@ -44,17 +44,17 @@ const contents = {
   rastreamento: {
     title: "Rastreie cada venda. Bloqueie cada fraude. Decida mais rápido.",
     description:
-      "O pixel padrão captura entre 60% e 75% das suas conversões reais. A Ratoeira usa tracking server-side com envio enriquecido via browser e API — chegando a ~100%. Cada venda confirmada sobe para o Google Ads e para o Meta com qualidade máxima. Sem gaps. Sem \"o pixel não pegou essa.\"\n\nPara anunciantes no Google Ads, o sistema identifica e bloqueia automaticamente IPs que excedem o limite de cliques definido por você — protegendo seu orçamento de concorrentes e tráfego inválido. Na maioria dos casos, o que você economiza com bloqueio já cobre o custo do plano inteiro.",
+      "O pixel padrão desperdiça entre 25% e 40% das suas vendas — elas acontecem, mas o Google nunca fica sabendo. A Ratoeira usa a tecnologia de trackeamento server-side mais avançada disponível hoje, com envio via browser e API simultaneamente, chegando a ~100% de conversões rastreadas. O algoritmo passa a otimizar para quem realmente compra — e o lucro sobe.\n\nPara quem anuncia no Google Ads: a Ratoeira identifica e bloqueia automaticamente os IPs que clicam no seu anúncio sem intenção de comprar — concorrentes, bots, tráfego inválido. Na maioria das operações, o que você economiza com bloqueio já cobre o custo do plano inteiro no primeiro mês.",
   },
   paginas: {
     title: "Construa páginas que vendem em minutos. Sem código.",
     description:
-      "A Ratoeira Pages é o construtor de landing pages nativo do ecossistema. Templates testados para conversão, editor drag-and-drop, Flash Pages com carregamento ultra-rápido e geração por IA. O diferencial: cada página já nasce com o tracking integrado — sem scripts avulsos, sem configuração manual, sem dados perdidos entre a página e a campanha.",
+      "A Ratoeira Pages é o construtor nativo do ecossistema. Templates prontos e validados, Flash Pages que abrem em menos de 1 segundo, criação por IA com 1 clique e hospedagem inclusa. O diferencial: cada página já nasce com o trackeamento integrado — zero configuração, zero dado perdido entre a página e a campanha.",
   },
   ecossistema: {
     title: "Ads + Pages juntos. Um login. Zero fricção.",
     description:
-      "O verdadeiro poder do Hub está na integração nativa. Enquanto outros anunciantes operam com três ou mais ferramentas que não conversam entre si, você tem tudo consolidado em um único dashboard. O Google Ads e o Meta recebem dados corretos, o algoritmo otimiza para compradores reais, e você escala sabendo exatamente o que está multiplicando.",
+      "O verdadeiro poder da Ratoeira está na integração nativa. Quando o Ads e o Pages operam juntos, o trackeamento vai além do que cada produto entrega separado — porque o dado da página alimenta a campanha em tempo real. Enquanto outros anunciantes operam com três ou mais ferramentas que não conversam entre si, você tem tudo consolidado num único dashboard. Um login. Zero fricção. Resultado máximo.",
   },
 };
 
@@ -89,8 +89,7 @@ export default function ProblemSolution() {
             <span className="bg-gradient-to-r from-yellow-500 to-orange-500 bg-clip-text text-transparent">Tudo</span> que você precisa para dominar o <span className="bg-gradient-to-r from-yellow-500 to-orange-500 bg-clip-text text-transparent">tráfego pago</span>. Em um só <span className="bg-gradient-to-r from-yellow-500 to-orange-500 bg-clip-text text-transparent">lugar</span>.
           </h2>
           <p className="text-xl text-[#4b5563] max-w-4xl 2xl:max-w-[56rem] 3xl:max-w-[70rem] 4xl:max-w-[90rem] mx-auto leading-relaxed text-balance">
-            Quem escala no Google e no Meta não usa ferramentas soltas. Usa um ecossistema onde tracking, páginas e
-            dados conversam entre si — e cada real investido tem uma origem rastreada.
+            Quem escala no Google e no Meta não usa ferramentas soltas. Usa um ecossistema onde trackeamento, páginas e dados conversam entre si — e cada real investido tem uma origem rastreada. Operações que migram para o Hub reportam aumento de lucro em até 60%.
           </p>
           <p className="text-lg text-orange-400 font-semibold text-balance">
             Conheça as ferramentas ou combine tudo no Hub para resultado máximo.
