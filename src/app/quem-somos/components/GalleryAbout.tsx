@@ -2,15 +2,17 @@
 
 import { motion } from "framer-motion";
 
-const galleryImages = [
-  { id: 1, title: "Primeiro Escritório", year: "2024", aspect: "aspect-square" },
-  { id: 2, title: "Lançamento V2", year: "2024", aspect: "aspect-[4/5]" },
-  { id: 3, title: "Evento São Paulo", year: "2024", aspect: "aspect-square" },
-  { id: 4, title: "Expansão Equipe", year: "2025", aspect: "aspect-[4/3]" },
-  { id: 5, title: "Prêmio Inovação", year: "2025", aspect: "aspect-square" },
-  { id: 6, title: "Summit Ratoeira", year: "2024", aspect: "aspect-[3/4]" },
-  { id: 7, title: "Integração IA", year: "2026", aspect: "aspect-video" },
-  { id: 8, title: "Nossa Cultura", year: "Hoje", aspect: "aspect-square" },
+const galleryItems = [
+  { id: 1, title: "Primeiro Escritório", year: "2024", aspect: "aspect-square", src: "/time1.peg.jpeg", type: "image" as const },
+  { id: 2, title: "Lançamento V2", year: "2024", aspect: "aspect-[4/5]", src: "/time2.jpeg", type: "image" as const },
+  { id: 3, title: "Evento São Paulo", year: "2024", aspect: "aspect-square", src: "/time3.jpeg", type: "image" as const },
+  { id: 4, title: "Expansão Equipe", year: "2025", aspect: "aspect-[4/3]", src: "/time4.jpeg", type: "image" as const },
+  { id: 5, title: "Prêmio Inovação", year: "2025", aspect: "aspect-square", src: "/time5.jpeg", type: "image" as const },
+  { id: 6, title: "Summit Ratoeira", year: "2024", aspect: "aspect-[3/4]", src: "/time6.jpeg", type: "image" as const },
+  { id: 7, title: "Integração IA", year: "2026", aspect: "aspect-video", src: "/time7.jpeg", type: "image" as const },
+  { id: 8, title: "Nossa Cultura", year: "Hoje", aspect: "aspect-square", src: "/time8.jpeg", type: "image" as const },
+  { id: 9, title: "Nosso Time", year: "Hoje", aspect: "aspect-square", src: "/time9.jpeg", type: "image" as const },
+  { id: 10, title: "Nosso Time em Ação", year: "Hoje", aspect: "aspect-[3/4]", src: "/time10-HD 720p.mov", type: "video" as const },
 ];
 
 export default function GalleryAbout() {
@@ -34,28 +36,40 @@ export default function GalleryAbout() {
         </motion.div>
 
         {/* Masonry-like Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-6">
-          {galleryImages.map((img, index) => (
+        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4 md:gap-6">
+          {galleryItems.map((item, index) => (
             <motion.div
-              key={img.id}
+              key={item.id}
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className={`relative group overflow-hidden bg-[#111111] rounded-3xl shadow-md border border-white/10 ${img.aspect} ${
-                index === 1 || index === 5 ? "row-span-2" : ""
-              } ${index === 6 ? "col-span-2 aspect-auto" : ""}`}
+              className={`relative group overflow-hidden bg-[#111111] rounded-3xl shadow-md border border-white/10 ${item.aspect}`}
             >
-              {/* Image Placeholder */}
-              <div className="absolute inset-0 bg-white/5 transition-transform duration-700 group-hover:scale-105" />
+              {item.type === "video" ? (
+                <video
+                  src={item.src}
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+              ) : (
+                <img
+                  src={item.src}
+                  alt={item.title}
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+              )}
               
               {/* Overlay Content */}
               <div className="absolute inset-0 p-6 flex flex-col justify-end opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-t from-black/80 via-black/30 to-transparent">
                 <span className="text-amber-400 font-bold text-xs uppercase tracking-widest mb-1">
-                  {img.year}
+                  {item.year}
                 </span>
                 <h3 className="text-white font-bold text-lg tracking-tight leading-tight">
-                  {img.title}
+                  {item.title}
                 </h3>
               </div>
             </motion.div>

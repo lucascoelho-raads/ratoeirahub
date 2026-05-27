@@ -27,9 +27,9 @@ export default function HeroAbout() {
             </div>
 
             <h1 className="text-[clamp(2.75rem,4.2vw,6rem)] font-black text-[#111827] leading-[1.04] tracking-tight text-balance">
-              <GradientText className="font-black">A Ratoeira nasceu de dentro do mercado.</GradientText>
+              A <GradientText className="font-black">Ratoeira</GradientText> nasceu de <GradientText className="font-black">dentro</GradientText> do mercado.
               <br />
-              <GradientText className="font-black">Não de fora.</GradientText>
+              Não de fora.
             </h1>
 
             <div className="space-y-6 text-[#4b5563] font-medium leading-relaxed max-w-xl 2xl:max-w-[36rem] 3xl:max-w-[48rem] 4xl:max-w-[64rem] text-[clamp(1rem,1.1vw,1.125rem)] mx-auto lg:mx-0">
@@ -58,20 +58,24 @@ export default function HeroAbout() {
             className="relative"
           >
             <div className="relative w-full aspect-square md:aspect-video lg:aspect-square">
-              {/* Main Image placeholder (Top Right) */}
+              {/* Main Image (Top Right) */}
               <div className="absolute top-0 right-0 w-[70%] h-[60%] bg-gray-100 rounded-3xl shadow-xl overflow-hidden group border border-gray-200">
-                <div className="absolute inset-0 bg-black/5 transition-transform duration-700 group-hover:scale-105" />
-                <div className="absolute inset-0 flex items-center justify-center text-gray-400 font-bold text-sm">
-                  Equipe Fundadora
-                </div>
+                <img
+                  src="/quemsomos1.jpg.jpeg"
+                  alt="Equipe Fundadora"
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-black/5" />
               </div>
 
-              {/* Secondary Image placeholder (Bottom Left) */}
+              {/* Secondary Image (Bottom Left) */}
               <div className="absolute bottom-10 left-0 w-[60%] h-[50%] bg-gray-50 rounded-3xl shadow-2xl overflow-hidden z-10 group border border-gray-200">
-                <div className="absolute inset-0 bg-black/5 transition-transform duration-700 group-hover:scale-105" />
-                <div className="absolute inset-0 flex items-center justify-center text-gray-400 font-bold text-sm">
-                  Primeiro Evento
-                </div>
+                <img
+                  src="/quemsomos2.jpg.jpeg"
+                  alt="Primeiro Evento"
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-black/5" />
               </div>
 
               {/* Decorative Accent */}

@@ -28,10 +28,11 @@ export default function FoundersAbout() {
           >
             <div className="w-full md:w-5/12">
               <div className="relative aspect-[4/5] rounded-3xl overflow-hidden bg-[#111111] border border-white/10 group">
-                {/* Placeholder Image */}
-                <div className="absolute inset-0 bg-white/5 transition-transform duration-700 group-hover:scale-105 flex items-center justify-center">
-                  <span className="text-gray-500 font-medium">Foto Eitor Guimarães</span>
-                </div>
+                <img
+                  src="/eitor.png"
+                  alt="Eitor Guimarães"
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
               </div>
             </div>
@@ -75,10 +76,11 @@ export default function FoundersAbout() {
           >
             <div className="w-full md:w-5/12">
               <div className="relative aspect-[4/5] rounded-3xl overflow-hidden bg-[#111111] border border-white/10 group">
-                {/* Placeholder Image */}
-                <div className="absolute inset-0 bg-white/5 transition-transform duration-700 group-hover:scale-105 flex items-center justify-center">
-                  <span className="text-gray-500 font-medium">Foto Paulo Furtado</span>
-                </div>
+                <img
+                  src="/paulo.png"
+                  alt="Paulo Furtado"
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
               </div>
             </div>
