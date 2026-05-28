@@ -4,6 +4,7 @@ import HeroAds from "./components/HeroAds";
 import FeaturesAds from "./components/FeaturesAds";
 import AppSection from "./components/AppSection";
 import CTAAds from "./components/CTAAds";
+import TutorialSection from "./components/TutorialSection";
 
 export const metadata = {
   title: "Ratoeira Ads | Recupere Conversões e Bloqueie Fraudes",
@@ -18,6 +19,7 @@ export default function RatoeiraAdsPage() {
       <FeaturesAds />
       <AppSection />
       <CTAAds />
+      <TutorialSection />
       <Footer />
     </main>
   );
