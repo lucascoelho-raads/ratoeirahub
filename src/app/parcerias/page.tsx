@@ -1,12 +1,13 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import HeroPartnerships from "./components/HeroPartnerships";
-import BenefitsPartnerships from "./components/BenefitsPartnerships";
+import HeroBenefits from "./components/HeroBenefits";
+import DetailedBenefits from "./components/DetailedBenefits";
+import CommissionStructure from "./components/CommissionStructure";
 import CTAPartnerships from "./components/CTAPartnerships";
 
 export const metadata = {
-  title: "Programa de Parceiros | Ratoeira Hub",
-  description: "Junte-se ao programa de parcerias do Ratoeira Hub e garanta comissões recorrentes enquanto ajuda seus clientes a escalarem.",
+  title: "Parcerias | Ratoeira Hub",
+  description: "Conheça todas as vantagens, comissões e premiações de ser um parceiro Ratoeira Hub.",
 };
 
 export default function ParceriasPage() {
@@ -14,13 +15,10 @@ export default function ParceriasPage() {
     <main className="flex flex-col flex-1 min-h-screen bg-[#050505] text-white">
       <Navbar />
       
-      {/* 1. Hero da Página de Parcerias */}
-      <HeroPartnerships />
+      <HeroBenefits />
+      <DetailedBenefits />
+      <CommissionStructure />
       
-      {/* 2. Benefícios do Programa */}
-      <BenefitsPartnerships />
-      
-      {/* 3. Call to Action / Formulário */}
       <CTAPartnerships />
 
       <Footer />
