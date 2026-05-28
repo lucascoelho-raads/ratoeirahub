@@ -34,7 +34,7 @@ const features = [
     icon: Zap,
     title: "Dados em Tempo Real",
     description:
-      "O Ads Manager demora para consolidar conversões — e nesse intervalo o algoritmo pode continuar otimizando para o público errado. A Ratoeira mostra seus dados integrados — visitas, leads e vendas — mais rápido do que o próprio painel do Google e do Meta. Você vê o que está funcionando e age antes que o orçamento vá para o lugar errado.",
+      "O Gerenciador demora para consolidar conversões — e nesse intervalo o algoritmo pode continuar otimizando para o público errado. A Ratoeira mostra seus dados integrados — visitas, leads e vendas — mais rápido do que o próprio painel do Google e do Meta. Você vê o que está funcionando e age antes que o orçamento vá para o lugar errado.",
   },
   {
     icon: LineChart,
@@ -67,7 +67,11 @@ export default function FeaturesAds() {
             ? "/economizometro.png"
             : feature.title === "Dados em Tempo Real"
               ? "/dash.png"
-              : null;
+              : feature.title === "Dashboard Consolidado"
+                ? "/slide4home.png"
+                : feature.title === "Funil Completo Visível"
+                  ? "/analytics2.png"
+                  : null;
 
     const imageClassName = imageSrc ? "object-cover object-top" : null;
 
