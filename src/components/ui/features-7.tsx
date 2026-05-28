@@ -135,14 +135,14 @@ export function Features() {
                 </div>
 
                 <div className="flex-1 w-full">
-                  <div className="relative aspect-video rounded-2xl border border-white/10 bg-[#111111] overflow-hidden">
+                  <div className="relative aspect-[4/3] rounded-2xl border border-white/10 bg-[#111111] overflow-hidden">
                     <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(80%_70%_at_50%_40%,rgba(255,126,74,0.14)_0%,rgba(0,0,0,0)_70%)]" />
                     <Image
                       src={slide.imageSrc}
                       alt={slide.imageAlt}
                       fill
                       sizes="(min-width: 1024px) 900px, 100vw"
-                      className="object-cover object-top"
+                      className="object-contain"
                       priority={index === 0}
                     />
                     <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/45 via-black/15 to-transparent" />

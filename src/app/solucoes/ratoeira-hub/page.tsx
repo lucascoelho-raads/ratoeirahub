@@ -103,7 +103,7 @@ export default function RatoeiraHubPage() {
                     fill
                     priority
                     sizes="(min-width: 1024px) 900px, 100vw"
-                    className="object-cover object-top"
+                    className="object-contain"
                   />
                 </div>
               </div>
@@ -151,7 +151,7 @@ export default function RatoeiraHubPage() {
                   </div>
 
                   <div className="flex-1 w-full">
-                    <div className="relative aspect-video rounded-2xl border border-white/10 bg-[#111111] overflow-hidden group">
+                    <div className="relative aspect-[4/3] rounded-2xl border border-white/10 bg-[#111111] overflow-hidden group">
                       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(80%_70%_at_50%_40%,rgba(255,184,0,0.12)_0%,rgba(0,0,0,0)_70%)]" />
 
                       {feature.title === "Integração nativa via API" ? (
@@ -219,7 +219,7 @@ export default function RatoeiraHubPage() {
                             alt="Página publicada"
                             fill
                             sizes="(min-width: 1024px) 900px, 100vw"
-                            className="object-cover object-top opacity-80"
+                            className="object-contain opacity-80"
                           />
                           <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-black/65 via-black/40 to-black/10" />
 
@@ -384,7 +384,7 @@ export default function RatoeiraHubPage() {
                             alt="Dashboard"
                             fill
                             sizes="(min-width: 1024px) 900px, 100vw"
-                            className="object-cover object-top"
+                            className="object-contain"
                           />
                           <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/55 via-black/20 to-transparent" />
                         </>

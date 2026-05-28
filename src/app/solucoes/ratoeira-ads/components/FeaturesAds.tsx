@@ -64,7 +64,7 @@ export default function FeaturesAds() {
         : feature.title === "Bloqueio Automático de IP"
           ? "/ip_bloqueado.png"
           : feature.title === "Recuperação de Conversões Invisíveis"
-            ? "/economizometro.png"
+            ? "/slide2home.png"
             : feature.title === "Dados em Tempo Real"
               ? "/dash.png"
               : feature.title === "Dashboard Consolidado"
@@ -73,7 +73,7 @@ export default function FeaturesAds() {
                   ? "/analytics2.png"
                   : null;
 
-    const imageClassName = imageSrc ? "object-cover object-top" : null;
+    const imageClassName = imageSrc ? "object-contain" : null;
 
     return { ...feature, imageSrc, imageClassName } as const;
   });
@@ -116,7 +116,7 @@ export default function FeaturesAds() {
                 </div>
 
                 <div className="flex-1 w-full">
-                  <div className="relative aspect-video rounded-2xl border border-white/10 bg-[#111111] overflow-hidden">
+                  <div className="relative aspect-[4/3] rounded-2xl border border-white/10 bg-[#111111] overflow-hidden">
                     <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(80%_70%_at_50%_40%,rgba(255,184,0,0.12)_0%,rgba(0,0,0,0)_70%)]" />
 
                     {slide.title === "Tracking Server-Side" ? (
