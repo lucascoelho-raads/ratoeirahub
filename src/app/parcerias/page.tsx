@@ -1,7 +1,7 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import HeroBenefits from "./components/HeroBenefits";
-import DetailedBenefits from "./components/DetailedBenefits";
+import { ExpandableCardDemo } from "./components/ExpandableCardDemo";
 import CommissionStructure from "./components/CommissionStructure";
 import CTAPartnerships from "./components/CTAPartnerships";
 
@@ -16,7 +16,11 @@ export default function ParceriasPage() {
       <Navbar />
       
       <HeroBenefits />
-      <DetailedBenefits />
+      <section className="py-16 md:py-24 bg-[#0a0a0a]">
+        <div className="max-w-7xl 3xl:max-w-[100rem] 4xl:max-w-[120rem] mx-auto px-4 sm:px-6 lg:px-8 3xl:px-12 4xl:px-20">
+          <ExpandableCardDemo />
+        </div>
+      </section>
       <CommissionStructure />
       
       <CTAPartnerships />
