@@ -1,6 +1,6 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import HeroBenefits from "./components/HeroBenefits";
+import { HeroGeometric } from "@/components/ui/shape-landing-hero";
 import { ExpandableCardDemo } from "./components/ExpandableCardDemo";
 import CommissionStructure from "./components/CommissionStructure";
 import CTAPartnerships from "./components/CTAPartnerships";
@@ -15,7 +15,12 @@ export default function ParceriasPage() {
     <main className="flex flex-col flex-1 min-h-screen bg-[#050505] text-white">
       <Navbar />
       
-      <HeroBenefits />
+      <HeroGeometric
+        badge="Vantagens Exclusivas"
+        title1="Mais do que comissões."
+        title2="Um Ecossistema de Vantagens."
+        subtitle="Todo assinante da Ratoeira pode ser parceiro. Indique, ganhe recorrente e acesse vantagens exclusivas — enquanto sua operação cresce junto."
+      />
       <section className="py-16 md:py-24 bg-[#0a0a0a]">
         <div className="max-w-7xl 3xl:max-w-[100rem] 4xl:max-w-[120rem] mx-auto px-4 sm:px-6 lg:px-8 3xl:px-12 4xl:px-20">
           <ExpandableCardDemo />
