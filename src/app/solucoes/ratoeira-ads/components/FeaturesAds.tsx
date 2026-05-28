@@ -1,6 +1,6 @@
 "use client";
 
-import { Bot, Ghost, LineChart, Server, Target, Zap } from "lucide-react";
+import { Bot, Ghost, LineChart, Server, Settings2, SlidersHorizontal, BarChart3, Target, Zap } from "lucide-react";
 import { BlurTextEffect } from "@/components/ui/blur-text-effect";
 import { GradientText } from "@/components/ui/gradient-text";
 import Image from "next/image";
@@ -41,6 +41,18 @@ const features = [
     title: "Funil Completo Visível",
     description:
       "Enquanto outras ferramentas mostram apenas de onde vieram os cliques, a Ratoeira mostra de onde vieram as vendas — com visitas, leads e conversões integradas num só lugar. Mais dados reais no pixel significa públicos melhores, criativos mais inteligentes e um custo por aquisição que cai enquanto o lucro sobe.",
+  },
+  {
+    icon: SlidersHorizontal,
+    title: "Gerenciador Integrado",
+    description:
+      "Controle campanhas, orçamentos, criativos e públicos do Google Ads e Meta Ads em um único painel. A Ratoeira unifica a gestão das duas plataformas — você pausa, escala e ajusta sem precisar alternar entre abas. Menos fricção, mais velocidade de execução e zero campanha esquecida rodando no vermelho.",
+  },
+  {
+    icon: BarChart3,
+    title: "Dashboard Consolidado",
+    description:
+      "Visualize métricas dos dois lados em um só lugar: impressões, cliques, CPC, CPL, ROAS, conversões e receita — tudo cruzado entre Google Ads, Meta Ads e as plataformas de venda. Sem planilhas, sem importação manual. O dashboard que você sempre quis ter, mas nenhuma ferramenta sozinha entregava.",
   },
 ];
 
