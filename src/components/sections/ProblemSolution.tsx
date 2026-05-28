@@ -163,12 +163,23 @@ export default function ProblemSolution() {
                   alt="Páginas de Alta Conversão"
                   className="w-full h-auto rounded-2xl"
                 />
+              ) : activeTab === "rastreamento" ? (
+                <img
+                  src="/rastreamentointeligente.png"
+                  alt="Rastreamento Inteligente"
+                  className="w-full h-auto rounded-2xl"
+                />
+              ) : activeTab === "ecossistema" ? (
+                <img
+                  src="/loginunico.png"
+                  alt="Ratoeira Hub"
+                  className="w-full h-auto rounded-2xl"
+                />
               ) : (
                 <div className="aspect-video flex items-center justify-center">
                   <div className="text-center">
                     <div className="w-20 h-20 rounded-2xl mx-auto mb-4 flex items-center justify-center bg-linear-to-r from-yellow-500 to-orange-500">
-                      {activeTab === "rastreamento" && <Radar className="w-10 h-10 text-white" />}
-                      {activeTab === "ecossistema" && <Link2 className="w-10 h-10 text-white" />}
+                      <Link2 className="w-10 h-10 text-white" />
                     </div>
                     <div className="min-h-[56px] flex items-center justify-center px-4">
                       <AnimatePresence mode="wait">

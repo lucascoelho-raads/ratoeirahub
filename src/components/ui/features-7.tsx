@@ -135,7 +135,7 @@ export function Features() {
                 </div>
 
                 <div className="flex-1 w-full">
-                  <div className={`relative aspect-video rounded-2xl border overflow-hidden ${isLight ? "border-black/10 bg-[#f3f4f6]" : "border-white/10 bg-[#111111]"}`}>
+                  <div className="relative aspect-video rounded-2xl border border-white/10 bg-[#111111] overflow-hidden">
                     <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(80%_70%_at_50%_40%,rgba(255,126,74,0.14)_0%,rgba(0,0,0,0)_70%)]" />
                     <Image
                       src={slide.imageSrc}

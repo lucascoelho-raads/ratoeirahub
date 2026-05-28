@@ -2,7 +2,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Link2, Radar, LayoutTemplate, MousePointerClick, Server, LineChart, ShieldCheck } from "lucide-react";
+import { ArrowRight, Link2, Radar, LayoutTemplate, Server, LineChart, ShieldCheck } from "lucide-react";
 import { BeamsBackground } from "@/components/ui/ethereal-beams-hero";
 import { GradientText } from "@/components/ui/gradient-text";
 import { BlurTextEffect } from "@/components/ui/blur-text-effect";
@@ -72,16 +72,7 @@ export default function RatoeiraHubPage() {
           }}
         >
           <div aria-hidden className="absolute inset-0 z-[1] bg-gradient-to-br from-yellow-500/15 via-orange-500/10 to-transparent" />
-          <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-4 py-[clamp(4.5rem,10vh,8.5rem)]">
-            <div className="mb-8">
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10">
-                <Link2 className="w-4 h-4 text-yellow-400" />
-                <span className="text-sm text-neutral-300 uppercase tracking-wider font-semibold">
-                  Ratoeira Hub
-                </span>
-              </div>
-            </div>
-
+          <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-4 pt-[clamp(7rem,16vh,12rem)] pb-[clamp(4.5rem,10vh,8.5rem)]">
             <div className="max-w-6xl 3xl:max-w-[90rem] 4xl:max-w-[110rem] text-center">
               <h1 className="text-[clamp(2.75rem,4.2vw,6rem)] font-black text-white tracking-tight leading-[1.04] mb-8 text-balance">
                 Quando Ads e Pages trabalham juntos, sua operação chega onde nenhuma ferramenta sozinha chega.
@@ -99,13 +90,6 @@ export default function RatoeiraHubPage() {
                 >
                   Começar grátis
                   <ArrowRight className="w-5 h-5" />
-                </a>
-                <a
-                  href="#como-funciona"
-                  className="inline-flex items-center gap-2 px-8 py-4 2xl:px-10 2xl:py-5 rounded-button bg-white/5 text-orange-400 font-semibold border border-white/10 hover:bg-white/10 transition-colors"
-                >
-                  <MousePointerClick className="w-5 h-5" />
-                  Como Funciona
                 </a>
               </div>
 
@@ -167,7 +151,9 @@ export default function RatoeiraHubPage() {
                   </div>
 
                   <div className="flex-1 w-full">
-                    <div className={`relative aspect-video rounded-2xl border overflow-hidden group ${index % 2 === 1 ? "border-black/10 bg-[#f3f4f6]" : "border-white/10 bg-[#111111]"}`}>
+                    <div className="relative aspect-video rounded-2xl border border-white/10 bg-[#111111] overflow-hidden group">
+                      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(80%_70%_at_50%_40%,rgba(255,184,0,0.12)_0%,rgba(0,0,0,0)_70%)]" />
+
                       {feature.title === "Integração nativa via API" ? (
                         <div className="absolute inset-0">
                           <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-yellow-500/15 via-orange-500/10 to-transparent" />
@@ -403,6 +389,7 @@ export default function RatoeiraHubPage() {
                           <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/55 via-black/20 to-transparent" />
                         </>
                       )}
+                      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/45 via-black/15 to-transparent" />
                     </div>
                   </div>
                 </div>
