@@ -17,7 +17,7 @@ export default function PrivacidadeAdsPage() {
         <div className="mb-12">
           <Link
             href="/"
-            className="inline-flex items-center gap-2 text-white/60 hover:text-white bg-white/5 hover:bg-white/10 px-4 py-2 rounded-full backdrop-blur-md transition-all font-medium text-sm border border-white/10 mb-8"
+            className="inline-flex items-center gap-2 text-gray-400/60 hover:text-white bg-white/5 hover:bg-white/10 px-4 py-2 rounded-full backdrop-blur-md transition-all font-medium text-sm border border-white/10 mb-8"
           >
             <ArrowLeft className="w-4 h-4" />
             Voltar para a Home

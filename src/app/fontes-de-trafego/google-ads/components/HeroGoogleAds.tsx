@@ -37,7 +37,7 @@ export const HeroGoogleAds = () => {
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Link>
             </Button>
-            <div className="mt-3 text-sm text-white/60 font-semibold">
+            <div className="mt-3 text-sm text-gray-400/60 font-semibold">
               Plano gratuito disponível. Sem cartão.
             </div>
           </div>

@@ -176,7 +176,7 @@ export default function Pricing() {
                   {plan.features.map((feat) => (
                     <div key={feat} className="flex items-start gap-2.5">
                       <CheckCircle className={`w-4 h-4 flex-shrink-0 mt-0.5 ${plan.popular ? "text-yellow-300" : "text-emerald-500"}`} />
-                      <span className={`text-sm ${plan.popular ? "text-white" : "text-gray-600"}`}>{feat}</span>
+                      <span className={`text-sm ${plan.popular ? "text-gray-400" : "text-gray-600"}`}>{feat}</span>
                     </div>
                   ))}
                   {plan.missing.map((feat) => (

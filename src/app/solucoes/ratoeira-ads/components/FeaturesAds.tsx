@@ -302,7 +302,7 @@ export default function FeaturesAds() {
                       />
                     ) : (
                       <div className="absolute inset-0 flex items-center justify-center">
-                        <div className="text-center text-white/35">
+                        <div className="text-center text-gray-400/35">
                           <Icon className="w-16 h-16 mx-auto mb-4 opacity-50" />
                           <p className="font-bold uppercase tracking-wider text-sm">Espaço para Imagem/Mockup</p>
                         </div>

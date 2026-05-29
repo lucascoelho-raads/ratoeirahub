@@ -97,7 +97,7 @@ export default function Testimonials() {
             Quem{" "}
             <span className="text-orange-600">domina o tráfego</span>, confia na Ratoeira
           </h2>
-          <p className="text-white/70 text-lg sm:text-xl max-w-xl 2xl:max-w-[34rem] 3xl:max-w-[48rem] 4xl:max-w-[64rem] mx-auto text-balance">
+          <p className="text-gray-400/70 text-lg sm:text-xl max-w-xl 2xl:max-w-[34rem] 3xl:max-w-[48rem] 4xl:max-w-[64rem] mx-auto text-balance">
             Veja o que anunciantes de Google Ads, Meta Ads e gestores de tráfego dizem sobre operar com dado real.
           </p>
         </motion.div>

@@ -38,7 +38,7 @@ export const HeroMetaAds = () => {
                 <Link href="/solucoes/ratoeira-ads#como-funciona">Como funciona</Link>
               </Button>
             </div>
-            <div className="mt-3 text-sm text-white/60 font-semibold">
+            <div className="mt-3 text-sm text-gray-400/60 font-semibold">
               Plano gratuito disponível. Sem cartão.
             </div>
           </div>

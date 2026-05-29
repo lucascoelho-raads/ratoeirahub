@@ -336,7 +336,7 @@ function QuoteWideCard({ card }: { card: QuoteWideCard }) {
             <Star key={i} className="w-4 h-4 text-brand-primary fill-brand-primary" />
           ))}
         </div>
-        <p className="text-lg sm:text-xl text-white font-medium mb-6 leading-snug line-clamp-3">
+        <p className="text-lg sm:text-xl text-gray-400 font-medium mb-6 leading-snug line-clamp-3">
           &ldquo;{card.quote}&rdquo;
         </p>
         <div className="flex items-center gap-3">

@@ -49,7 +49,7 @@ export default function PricingHero() {
               </div>
 
               <div className="absolute bottom-4 left-4 sm:bottom-8 sm:left-8 text-left z-20">
-                <p className="text-white font-bold text-sm sm:text-lg">Um papo rápido sobre nossos limites</p>
+                <p className="text-gray-400 font-bold text-sm sm:text-lg">Um papo rápido sobre nossos limites</p>
                 <p className="text-gray-300 text-xs sm:text-sm">Com Eitor, CEO</p>
               </div>
             </div>

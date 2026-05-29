@@ -207,7 +207,7 @@ export default function ChainCarousel({
                 }}
                 className="flex-grow outline-none text-white bg-white/[0.03] px-4 text-base rounded-full border border-white/10 pr-10 pl-10 py-3"
               />
-              <Search className="absolute text-white/60 w-5 h-5 left-6 pointer-events-none" />
+              <Search className="absolute text-gray-400/60 w-5 h-5 left-6 pointer-events-none" />
               {searchTerm && (
                 <button
                   type="button"
@@ -216,7 +216,7 @@ export default function ChainCarousel({
                     setShowDropdown(false);
                     setIsPaused(false);
                   }}
-                  className="absolute right-6 text-white/70 hover:text-white"
+                  className="absolute right-6 text-gray-400/70 hover:text-white"
                   aria-label="Limpar"
                 >
                   <X className="h-4 w-4" />

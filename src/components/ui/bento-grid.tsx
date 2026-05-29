@@ -143,13 +143,13 @@ function BentoGrid({ items = itemsSample, className, hideStatus = false, hideCta
 
           <div className="relative flex flex-col justify-end h-full p-8 sm:p-10 min-h-[260px]">
             <div className="space-y-4 mt-auto">
-              <h3 className="text-2xl sm:text-3xl font-semibold tracking-tight text-white/90">
+              <h3 className="text-2xl sm:text-3xl font-semibold tracking-tight text-gray-400/90">
                 {item.title}
                 {item.meta ? (
-                  <span className="ml-2 text-xs text-white/50 font-semibold">{item.meta}</span>
+                  <span className="ml-2 text-xs text-gray-400/50 font-semibold">{item.meta}</span>
                 ) : null}
               </h3>
-              <p className="text-sm sm:text-base text-white/40 leading-relaxed max-w-lg">{item.description}</p>
+              <p className="text-sm sm:text-base text-gray-400/40 leading-relaxed max-w-lg">{item.description}</p>
             </div>
           </div>
 

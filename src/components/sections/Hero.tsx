@@ -141,7 +141,7 @@ export default function Hero() {
 
                   <motion.p
                     variants={itemVariants}
-                    className="text-[clamp(1rem,1.15vw,1.125rem)] 3xl:text-[clamp(1.125rem,1.2vw,1.5rem)] text-white/70 leading-relaxed max-w-xl 2xl:max-w-[34rem] 3xl:max-w-[46rem] 4xl:max-w-[56rem] text-center lg:text-left"
+                    className="text-[clamp(1rem,1.15vw,1.125rem)] 3xl:text-[clamp(1.125rem,1.2vw,1.5rem)] text-gray-400/70 leading-relaxed max-w-xl 2xl:max-w-[34rem] 3xl:max-w-[46rem] 4xl:max-w-[56rem] text-center lg:text-left"
                   >
                     Operações reais reportam aumento de lucro em até 60% quando passam a rastrear com dado real. Cada clique, cada lead, cada venda — origem rastreada no Google e no Meta, em tempo real.
                   </motion.p>
@@ -153,7 +153,7 @@ export default function Hero() {
                     >
                       Começar grátis
                     </Link>
-                    <span className="text-white/60 text-sm text-center lg:text-left">Plano gratuito disponível. Sem cartão.</span>
+                    <span className="text-gray-400/60 text-sm text-center lg:text-left">Plano gratuito disponível. Sem cartão.</span>
                   </motion.div>
                 </motion.div>
 
@@ -298,7 +298,7 @@ export default function Hero() {
                       Integradas ao seu trackeamento desde o primeiro clique.
                     </span>
                   </h2>
-                  <p className="text-[clamp(0.875rem,3vw,1.125rem)] sm:text-[clamp(1rem,2vw,1.125rem)] 3xl:text-[clamp(1.125rem,1.2vw,1.5rem)] text-white/70 leading-relaxed max-w-2xl 2xl:max-w-[34rem] 3xl:max-w-[46rem] 4xl:max-w-[56rem] text-center lg:text-left">
+                  <p className="text-[clamp(0.875rem,3vw,1.125rem)] sm:text-[clamp(1rem,2vw,1.125rem)] 3xl:text-[clamp(1.125rem,1.2vw,1.5rem)] text-gray-400/70 leading-relaxed max-w-2xl 2xl:max-w-[34rem] 3xl:max-w-[46rem] 4xl:max-w-[56rem] text-center lg:text-left">
                     Templates prontos e validados, Flash Pages que abrem em menos de 1 segundo e criação por IA com 1 clique. Cada página já nasce com o trackeamento integrado — sem scripts avulsos, sem configuração manual, sem dado perdido entre a página e a campanha.
                   </p>
                 </div>

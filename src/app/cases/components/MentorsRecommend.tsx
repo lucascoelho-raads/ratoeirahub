@@ -65,7 +65,7 @@ export default function MentorsRecommend() {
             <Quote className="absolute top-6 right-6 w-20 h-20 text-brand-primary/5 -rotate-12 group-hover:text-brand-primary/10 transition-colors duration-500" />
             
             <div className="relative z-10">
-              <p className="text-lg sm:text-xl text-white font-medium mb-6 leading-snug line-clamp-3">
+              <p className="text-lg sm:text-xl text-gray-400 font-medium mb-6 leading-snug line-clamp-3">
                 &quot;A única plataforma de tracking que recomendo para meus alunos. Simples, robusta e não perde dados.&quot;
               </p>
               <div className="flex items-center gap-4">

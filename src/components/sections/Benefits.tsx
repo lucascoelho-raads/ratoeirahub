@@ -109,7 +109,7 @@ export default function Benefits() {
             Por que <span style={{ color: "var(--color-brand-primary)" }}>+2.600 anunciantes</span> escolheram a{" "}
             <span className="whitespace-normal sm:whitespace-nowrap">Ratoeira Hub</span>
           </h2>
-          <p className="text-white/80 text-lg mx-auto">
+          <p className="text-gray-400/80 text-lg mx-auto">
             Do primeiro anúncio ao gestor que escala múltiplos clientes —<br />a Ratoeira transforma cada real investido em tráfego numa origem rastreada e numa decisão mais inteligente.
           </p>
         </motion.div>

@@ -166,19 +166,19 @@ export default function RatoeiraHubPage() {
                                   <span className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-white/5 border border-white/10 text-white text-sm font-black">
                                     P
                                   </span>
-                                  <span className="text-sm font-semibold text-white/80">Página</span>
+                                  <span className="text-sm font-semibold text-gray-400/80">Página</span>
                                 </div>
                                 <div className="flex items-center gap-2">
                                   <span className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-white/5 border border-white/10 text-white text-sm font-black">
                                     A
                                   </span>
-                                  <span className="text-sm font-semibold text-white/80">Ads</span>
+                                  <span className="text-sm font-semibold text-gray-400/80">Ads</span>
                                 </div>
                               </div>
 
                               <div className="mt-7 grid grid-cols-1 sm:grid-cols-3 items-center gap-3">
                                 <div className="rounded-xl border border-white/10 bg-black/30 p-3">
-                                  <p className="text-[11px] font-semibold text-white/60">Página</p>
+                                  <p className="text-[11px] font-semibold text-gray-400/60">Página</p>
                                   <p className="mt-1 text-xs font-bold text-white">Click</p>
                                 </div>
 
@@ -191,7 +191,7 @@ export default function RatoeiraHubPage() {
                                 </div>
 
                                 <div className="rounded-xl border border-white/10 bg-black/30 p-3 text-right">
-                                  <p className="text-[11px] font-semibold text-white/60">Ads</p>
+                                  <p className="text-[11px] font-semibold text-gray-400/60">Ads</p>
                                   <p className="mt-1 text-xs font-bold text-white">Conversão</p>
                                 </div>
                               </div>
@@ -206,7 +206,7 @@ export default function RatoeiraHubPage() {
                                 </div>
                               </div>
 
-                              <p className="mt-5 text-center text-[11px] font-semibold text-white/60">
+                              <p className="mt-5 text-center text-[11px] font-semibold text-gray-400/60">
                                 Integração via API · loop fechado
                               </p>
                             </div>
@@ -225,12 +225,12 @@ export default function RatoeiraHubPage() {
 
                           <div className="absolute inset-0 flex items-center justify-center px-6">
                             <div className="w-full max-w-sm rounded-2xl border border-white/10 bg-black/55 backdrop-blur-md p-5">
-                              <p className="text-xs font-semibold tracking-wide text-white/70">
+                              <p className="text-xs font-semibold tracking-wide text-gray-400/70">
                                 Velocidade de carregamento
                               </p>
                               <div className="mt-4 flex items-end justify-between">
                                 <p className="text-4xl font-black text-white leading-none">
-                                  0.8<span className="text-base font-bold text-white/70 ml-1">s</span>
+                                  0.8<span className="text-base font-bold text-gray-400/70 ml-1">s</span>
                                 </p>
                                 <span className="rounded-full bg-brand-primary/15 border border-brand-primary/25 px-3 py-1 text-xs font-bold text-brand-primary">
                                   abaixo de 1s
@@ -251,21 +251,21 @@ export default function RatoeiraHubPage() {
                             <div className="w-full max-w-xl 3xl:max-w-[40rem] 4xl:max-w-[60rem] rounded-2xl border border-white/10 bg-black/55 backdrop-blur-md p-5">
                               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
                                 <div>
-                                  <p className="text-[11px] font-semibold text-white/60">Ads (isolado)</p>
+                                  <p className="text-[11px] font-semibold text-gray-400/60">Ads (isolado)</p>
                                   <div className="mt-2 relative h-28 rounded-xl bg-white/10 overflow-hidden">
                                     <div className="absolute inset-x-0 bottom-0 h-[95%] bg-white/25" />
                                   </div>
-                                  <p className="mt-2 text-xs font-bold text-white/80">~95%</p>
+                                  <p className="mt-2 text-xs font-bold text-gray-400/80">~95%</p>
                                 </div>
                                 <div>
-                                  <p className="text-[11px] font-semibold text-white/60">Pages (isolado)</p>
+                                  <p className="text-[11px] font-semibold text-gray-400/60">Pages (isolado)</p>
                                   <div className="mt-2 relative h-28 rounded-xl bg-white/10 overflow-hidden">
                                     <div className="absolute inset-x-0 bottom-0 h-[93%] bg-white/20" />
                                   </div>
-                                  <p className="mt-2 text-xs font-bold text-white/80">~93%</p>
+                                  <p className="mt-2 text-xs font-bold text-gray-400/80">~93%</p>
                                 </div>
                                 <div>
-                                  <p className="text-[11px] font-semibold text-white/60">Hub (integrado)</p>
+                                  <p className="text-[11px] font-semibold text-gray-400/60">Hub (integrado)</p>
                                   <div className="mt-2 relative h-28 rounded-xl bg-brand-primary/15 overflow-hidden border border-brand-primary/20">
                                     <div className="absolute inset-x-0 bottom-0 h-[100%] bg-gradient-to-t from-yellow-500/55 to-orange-500/40" />
                                   </div>
@@ -273,7 +273,7 @@ export default function RatoeiraHubPage() {
                                 </div>
                               </div>
 
-                              <p className="mt-4 text-center text-[11px] font-semibold text-white/60">
+                              <p className="mt-4 text-center text-[11px] font-semibold text-gray-400/60">
                                 Taxa de rastreamento: isolado vs integrado
                               </p>
                             </div>
@@ -295,9 +295,9 @@ export default function RatoeiraHubPage() {
 
                               <div className="grid grid-cols-1 sm:grid-cols-2 gap-0">
                                 <div className="p-5 border-r border-white/10">
-                                  <p className="text-[11px] font-semibold text-white/60">Uso isolado (Ads)</p>
+                                  <p className="text-[11px] font-semibold text-gray-400/60">Uso isolado (Ads)</p>
                                   <p className="mt-2 text-2xl font-black text-white">
-                                    12<span className="text-xs font-bold text-white/60 ml-1">IPs</span>
+                                    12<span className="text-xs font-bold text-gray-400/60 ml-1">IPs</span>
                                   </p>
                                   <div className="mt-4 space-y-2">
                                     {["189.34.12.90", "201.88.3.21", "45.178.9.10", "177.22.90.14"].map((ip) => (
@@ -305,15 +305,15 @@ export default function RatoeiraHubPage() {
                                         key={ip}
                                         className="flex items-center justify-between rounded-lg border border-white/10 bg-white/5 px-3 py-2"
                                       >
-                                        <span className="text-xs font-semibold text-white/70">{ip}</span>
-                                        <span className="text-[11px] font-bold text-white/50">bloqueado</span>
+                                        <span className="text-xs font-semibold text-gray-400/70">{ip}</span>
+                                        <span className="text-[11px] font-bold text-gray-400/50">bloqueado</span>
                                       </div>
                                     ))}
                                   </div>
                                 </div>
 
                                 <div className="p-5">
-                                  <p className="text-[11px] font-semibold text-white/60">Com Hub ativo</p>
+                                  <p className="text-[11px] font-semibold text-gray-400/60">Com Hub ativo</p>
                                   <p className="mt-2 text-2xl font-black text-brand-primary">
                                     28<span className="text-xs font-bold text-brand-primary/80 ml-1">IPs</span>
                                   </p>
@@ -324,7 +324,7 @@ export default function RatoeiraHubPage() {
                                           key={ip}
                                           className="flex items-center justify-between rounded-lg border border-brand-primary/20 bg-brand-primary/10 px-3 py-2"
                                         >
-                                          <span className="text-xs font-semibold text-white/80">{ip}</span>
+                                          <span className="text-xs font-semibold text-gray-400/80">{ip}</span>
                                           <span className="text-[11px] font-black text-brand-primary">bloqueado</span>
                                         </div>
                                       ),
@@ -361,7 +361,7 @@ export default function RatoeiraHubPage() {
                                         {item.badge}
                                       </span>
                                     </div>
-                                    <p className="mt-3 text-sm font-bold text-white/85 leading-snug">{item.label}</p>
+                                    <p className="mt-3 text-sm font-bold text-gray-400/85 leading-snug">{item.label}</p>
                                     <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1 bg-gradient-to-r from-yellow-500/0 via-yellow-500/60 to-orange-500/0" />
                                   </div>
                                 ))}

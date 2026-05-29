@@ -130,14 +130,14 @@ export default function ConexoesComIAPage() {
                 <span className="inline-flex items-center rounded-full bg-[#FFB800]/15 px-3 py-1 text-xs font-semibold tracking-wide text-[#FFB800]">
                   MCP RATOEIRA ADS
                 </span>
-                <span className="text-xs text-white/60">Compatível com Claude · ChatGPT</span>
+                <span className="text-xs text-gray-400/60">Compatível com Claude · ChatGPT</span>
               </div>
 
               <h2 className="text-3xl sm:text-4xl font-black tracking-tight text-white">
                 Controle suas campanhas sem abrir o painel.
               </h2>
 
-              <p className="text-base sm:text-lg text-white/70 leading-relaxed max-w-3xl 3xl:max-w-[60rem] 4xl:max-w-[80rem]">
+              <p className="text-base sm:text-lg text-gray-400/70 leading-relaxed max-w-3xl 3xl:max-w-[60rem] 4xl:max-w-[80rem]">
                 Com o MCP do Ratoeira Ads instalado, o Claude e o ChatGPT têm acesso direto à sua operação. Você pergunta
                 em linguagem natural — eles consultam, analisam e executam em tempo real.
               </p>
@@ -169,7 +169,7 @@ export default function ConexoesComIAPage() {
               <h2 className="text-3xl sm:text-4xl font-black tracking-tight text-white">
                 Sua operação, onde você estiver.
               </h2>
-              <p className="mt-4 text-base sm:text-lg text-white/70 leading-relaxed">
+              <p className="mt-4 text-base sm:text-lg text-gray-400/70 leading-relaxed">
                 O MCP da Ratoeira conecta seus dados e suas páginas diretamente ao Claude e ao ChatGPT. Sem API manual, sem
                 planilha, sem painel aberto. Você pergunta — a IA age.
               </p>
@@ -190,14 +190,14 @@ export default function ConexoesComIAPage() {
                 <span className="inline-flex items-center rounded-full bg-brand-secondary/15 px-3 py-1 text-xs font-semibold tracking-wide text-brand-secondary">
                   MCP RATOEIRA PAGES
                 </span>
-                <span className="text-xs text-white/60">Compatível com Claude</span>
+                <span className="text-xs text-gray-400/60">Compatível com Claude</span>
               </div>
 
               <h2 className="text-3xl sm:text-4xl font-black tracking-tight text-white">
                 Crie qualquer página com um comando.
               </h2>
 
-              <p className="text-base sm:text-lg text-white/70 leading-relaxed max-w-3xl 3xl:max-w-[60rem] 4xl:max-w-[80rem]">
+              <p className="text-base sm:text-lg text-gray-400/70 leading-relaxed max-w-3xl 3xl:max-w-[60rem] 4xl:max-w-[80rem]">
                 Com o MCP do Ratoeira Pages instalado no Claude, você descreve a página que quer — e vê ela ser construída
                 em tempo real. Analytics, domínios e clones na palma da sua mão.
               </p>

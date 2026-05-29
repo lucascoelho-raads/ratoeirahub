@@ -89,7 +89,7 @@ export default function CaseClientView({ caseData }: { caseData: CaseData }) {
           >
             <Link
               href="/cases"
-              className="inline-flex items-center gap-2 text-white/60 hover:text-white bg-white/5 hover:bg-white/10 px-4 py-2 rounded-full backdrop-blur-md transition-all font-medium text-sm border border-white/10"
+              className="inline-flex items-center gap-2 text-gray-400/60 hover:text-white bg-white/5 hover:bg-white/10 px-4 py-2 rounded-full backdrop-blur-md transition-all font-medium text-sm border border-white/10"
             >
               <ArrowLeft className="w-4 h-4" />
               Voltar para Cases
@@ -215,9 +215,9 @@ export default function CaseClientView({ caseData }: { caseData: CaseData }) {
             className="relative aspect-square md:aspect-[4/3] rounded-[32px] bg-gradient-to-br from-[#161616] to-[#0a0a0a] border border-white/5 flex flex-col items-center justify-center text-center p-8 overflow-hidden group cursor-pointer"
           >
             <div className="absolute inset-0 bg-brand-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-            <BarChart className="relative z-10 w-12 h-12 text-white/20 mb-4 group-hover:text-brand-primary transition-colors duration-500 group-hover:-translate-y-2" />
-            <p className="relative z-10 text-white/40 font-semibold uppercase tracking-widest text-xs mb-2 group-hover:text-white transition-colors">Placeholder</p>
-            <p className="relative z-10 text-white/60 text-sm">Dashboard de Resultados / Print do Gerenciador</p>
+            <BarChart className="relative z-10 w-12 h-12 text-gray-400/20 mb-4 group-hover:text-brand-primary transition-colors duration-500 group-hover:-translate-y-2" />
+            <p className="relative z-10 text-gray-400/40 font-semibold uppercase tracking-widest text-xs mb-2 group-hover:text-white transition-colors">Placeholder</p>
+            <p className="relative z-10 text-gray-400/60 text-sm">Dashboard de Resultados / Print do Gerenciador</p>
           </motion.div>
 
           <motion.div 
@@ -229,9 +229,9 @@ export default function CaseClientView({ caseData }: { caseData: CaseData }) {
             className="relative aspect-square md:aspect-[4/3] rounded-[32px] bg-gradient-to-bl from-[#161616] to-[#0a0a0a] border border-white/5 flex flex-col items-center justify-center text-center p-8 overflow-hidden group cursor-pointer"
           >
             <div className="absolute inset-0 bg-brand-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-            <ImageIcon className="relative z-10 w-12 h-12 text-white/20 mb-4 group-hover:text-brand-primary transition-colors duration-500 group-hover:-translate-y-2" />
-            <p className="relative z-10 text-white/40 font-semibold uppercase tracking-widest text-xs mb-2 group-hover:text-white transition-colors">Placeholder</p>
-            <p className="relative z-10 text-white/60 text-sm">Foto da Equipe / Estrutura da Operação</p>
+            <ImageIcon className="relative z-10 w-12 h-12 text-gray-400/20 mb-4 group-hover:text-brand-primary transition-colors duration-500 group-hover:-translate-y-2" />
+            <p className="relative z-10 text-gray-400/40 font-semibold uppercase tracking-widest text-xs mb-2 group-hover:text-white transition-colors">Placeholder</p>
+            <p className="relative z-10 text-gray-400/60 text-sm">Foto da Equipe / Estrutura da Operação</p>
           </motion.div>
         </motion.section>
 
@@ -279,9 +279,9 @@ export default function CaseClientView({ caseData }: { caseData: CaseData }) {
             className="relative aspect-square md:aspect-[4/3] rounded-[32px] bg-gradient-to-tr from-[#161616] to-[#0a0a0a] border border-white/5 flex flex-col items-center justify-center text-center p-8 overflow-hidden group cursor-pointer"
           >
             <div className="absolute inset-0 bg-brand-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-            <Zap className="relative z-10 w-12 h-12 text-white/20 mb-4 group-hover:text-brand-primary transition-colors duration-500 group-hover:-translate-y-2" />
-            <p className="relative z-10 text-white/40 font-semibold uppercase tracking-widest text-xs mb-2 group-hover:text-white transition-colors">Placeholder</p>
-            <p className="relative z-10 text-white/60 text-sm">Print da Ferramenta / Setup do Tracking</p>
+            <Zap className="relative z-10 w-12 h-12 text-gray-400/20 mb-4 group-hover:text-brand-primary transition-colors duration-500 group-hover:-translate-y-2" />
+            <p className="relative z-10 text-gray-400/40 font-semibold uppercase tracking-widest text-xs mb-2 group-hover:text-white transition-colors">Placeholder</p>
+            <p className="relative z-10 text-gray-400/60 text-sm">Print da Ferramenta / Setup do Tracking</p>
           </motion.div>
 
           <motion.div 
@@ -293,9 +293,9 @@ export default function CaseClientView({ caseData }: { caseData: CaseData }) {
             className="relative aspect-square md:aspect-[4/3] rounded-[32px] bg-gradient-to-tl from-[#161616] to-[#0a0a0a] border border-white/5 flex flex-col items-center justify-center text-center p-8 overflow-hidden group cursor-pointer"
           >
             <div className="absolute inset-0 bg-brand-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-            <ImageIcon className="relative z-10 w-12 h-12 text-white/20 mb-4 group-hover:text-brand-primary transition-colors duration-500 group-hover:-translate-y-2" />
-            <p className="relative z-10 text-white/40 font-semibold uppercase tracking-widest text-xs mb-2 group-hover:text-white transition-colors">Placeholder</p>
-            <p className="relative z-10 text-white/60 text-sm">Criação de Páginas / Dashboard do Hub</p>
+            <ImageIcon className="relative z-10 w-12 h-12 text-gray-400/20 mb-4 group-hover:text-brand-primary transition-colors duration-500 group-hover:-translate-y-2" />
+            <p className="relative z-10 text-gray-400/40 font-semibold uppercase tracking-widest text-xs mb-2 group-hover:text-white transition-colors">Placeholder</p>
+            <p className="relative z-10 text-gray-400/60 text-sm">Criação de Páginas / Dashboard do Hub</p>
           </motion.div>
         </motion.section>
 
