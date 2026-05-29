@@ -27,7 +27,7 @@ O Ratoeira Hub utiliza um design system **clean e moderno**, com característica
 | Text Primary | `#0A0A0A` (gray-900) | Títulos e texto principal |
 | Text Secondary | `#6B7280` (gray-500) | Descrições e texto complementar |
 | Text Muted | `#9CA3AF` (gray-400) | Labels, placeholders |
-| Text Light | `#FFFFFF` | Texto sobre fundos escuros/gradient |
+| Text Inverse | `#9CA3AF` (gray-400) | Texto sobre fundos escuros/gradient |
 
 ### Cores de Feedback
 | Nome | Hexadecimal | Uso |
