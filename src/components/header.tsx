@@ -29,7 +29,7 @@ function Logo() {
       <div className="h-[50px] w-[72px] overflow-hidden">
         <img src="/logohub.png" alt="Ratoeira Hub" className="w-full h-auto" />
       </div>
-      <span className="text-[2.5rem] font-black tracking-tight gradient-text-orange">Ratoeira Hub</span>
+      <span className="text-[1.5rem] md:text-[2.5rem] font-black tracking-tight gradient-text-orange whitespace-nowrap">Ratoeira Hub</span>
     </Link>
   );
 }

@@ -123,7 +123,7 @@ export default function Hero() {
               />
               <div className="absolute -bottom-[30%] left-1/2 -translate-x-1/2 w-[800px] h-[600px] rounded-full bg-[radial-gradient(circle_at_center,rgba(255,184,0,0.18),transparent_70%)] blur-3xl pointer-events-none" />
               <div className="relative w-full h-full max-w-7xl 2xl:max-w-[90rem] 3xl:max-w-[120rem] 4xl:max-w-[140rem] mx-auto px-4 sm:px-6 lg:px-12 2xl:px-16 3xl:px-20 4xl:px-28 flex flex-col lg:grid lg:grid-cols-[1fr_1.1fr] 2xl:grid-cols-[1.25fr_1fr] 3xl:grid-cols-[1.35fr_1fr] 4xl:grid-cols-[1.45fr_1fr] gap-6 lg:gap-10 2xl:gap-14 3xl:gap-20 lg:items-start min-w-0 pt-28 lg:pt-32 pb-8 lg:pb-20">
-                {/* Texto + CTA */}
+                {/* Texto */}
                 <motion.div
                   variants={containerVariants}
                   initial="hidden"
@@ -145,16 +145,6 @@ export default function Hero() {
                   >
                     Operações reais reportam aumento de lucro em até 60% quando passam a rastrear com dado real. Cada clique, cada lead, cada venda — origem rastreada no Google e no Meta, em tempo real.
                   </motion.p>
-
-                  <motion.div variants={itemVariants} className="flex flex-col gap-2 pt-2">
-                    <Link
-                      href="/planos#vamos-transformar"
-                      className="inline-flex self-center lg:self-start items-center justify-center px-6 py-3 bg-brand-primary text-white font-semibold text-sm rounded-button hover:bg-brand-primary-hover transition-colors duration-200 text-center"
-                    >
-                      Começar grátis
-                    </Link>
-                    <span className="text-gray-400/60 text-sm text-center lg:text-left">Plano gratuito disponível. Sem cartão.</span>
-                  </motion.div>
                 </motion.div>
 
                 {/* Mockup - visível em todas as telas */}
@@ -244,7 +234,7 @@ export default function Hero() {
                 </motion.div>
 
                 {/* Slider Controls */}
-                <div className="relative z-30 flex items-center justify-center gap-3 bg-black/80 backdrop-blur-md px-4 py-2 rounded-full border border-brand-primary/50 mt-4 w-fit mx-auto lg:col-span-2">
+                <div className="relative z-30 flex items-center justify-center gap-3 bg-black/80 backdrop-blur-md px-4 py-2 rounded-full border border-brand-primary/50 mt-4 w-fit mx-auto order-3 lg:order-none lg:col-span-2">
                   <button 
                     onClick={() => setActivePanel((prev) => (prev === 0 ? 1 : 0))}
                     className="w-8 h-8 rounded-full bg-white flex items-center justify-center hover:bg-neutral-200 transition-colors"
@@ -276,6 +266,17 @@ export default function Hero() {
                     </svg>
                   </button>
                 </div>
+
+                {/* CTA */}
+                <motion.div variants={itemVariants} className="flex flex-col gap-2 pt-2 order-4 lg:order-none lg:col-start-1">
+                  <Link
+                    href="/planos#vamos-transformar"
+                    className="inline-flex self-center lg:self-start items-center justify-center px-6 py-3 bg-brand-primary text-white font-semibold text-sm rounded-button hover:bg-brand-primary-hover transition-colors duration-200 text-center"
+                  >
+                    Começar grátis
+                  </Link>
+                  <span className="text-gray-400/60 text-sm text-center lg:text-left">Plano gratuito disponível. Sem cartão.</span>
+                </motion.div>
               </div>
             </SpotlightBackground>
         </div>
@@ -362,18 +363,8 @@ export default function Hero() {
                   </div>
                 </motion.div>
 
-                {/* CTA - separado, abaixo do mockup no mobile */}
-                <div className="flex items-center justify-center lg:justify-start gap-3 pt-2 lg:col-start-1">
-                  <Link
-                    href="/solucoes/ratoeira-pages"
-                    className="inline-flex items-center gap-2 px-6 py-3 bg-brand-primary text-white font-semibold text-sm rounded-button hover:bg-brand-primary-hover transition-colors duration-200"
-                  >
-                    Conhecer o Ratoeira Pages →
-                  </Link>
-                </div>
-
                 {/* Slider Controls */}
-                <div className="absolute z-30 bottom-8 left-1/2 -translate-x-1/2 flex items-center justify-center gap-3 bg-black/80 backdrop-blur-md px-4 py-2 rounded-full border border-brand-primary/50">
+                <div className="relative lg:absolute z-30 lg:bottom-8 lg:left-1/2 lg:-translate-x-1/2 flex items-center justify-center gap-3 bg-black/80 backdrop-blur-md px-4 py-2 rounded-full border border-brand-primary/50 order-3 lg:order-none mt-4 lg:mt-0 w-fit mx-auto">
                   <button 
                     onClick={() => setActivePanel((prev) => (prev === 0 ? 1 : 0))}
                     className="w-8 h-8 rounded-full bg-white flex items-center justify-center hover:bg-neutral-200 transition-colors"
@@ -404,6 +395,16 @@ export default function Hero() {
                       <polyline points="9 18 15 12 9 6"></polyline>
                     </svg>
                   </button>
+                </div>
+
+                {/* CTA - abaixo dos controles no mobile */}
+                <div className="flex items-center justify-center lg:justify-start gap-3 pt-2 order-4 lg:order-none lg:col-start-1">
+                  <Link
+                    href="/solucoes/ratoeira-pages"
+                    className="inline-flex items-center gap-2 px-6 py-3 bg-brand-primary text-white font-semibold text-sm rounded-button hover:bg-brand-primary-hover transition-colors duration-200"
+                  >
+                    Conhecer o Ratoeira Pages →
+                  </Link>
                 </div>
               </div>
             </SpotlightBackground>
