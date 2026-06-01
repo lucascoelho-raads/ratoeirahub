@@ -52,10 +52,12 @@ const plansData = {
       name: "Rato",
       description: "Para quem está validando as primeiras campanhas.",
       price: {
-        monthly: "197",
-        semiannual: "177",
-        annual: "147",
+        monthly: "167,00",
+        semiannual: "139,50",
+        annual: "124,75",
       },
+      semiannualTotal: "837,00",
+      yearlyTotal: "1.497,00",
       features: [
         "Até 10.000 eventos/mês",
         "Tracking server-side (CAPI)",
@@ -70,10 +72,12 @@ const plansData = {
       name: "Ratazana",
       description: "Para anunciantes que já escalam com consistência.",
       price: {
-        monthly: "397",
-        semiannual: "357",
-        annual: "297",
+        monthly: "247,00",
+        semiannual: "199,50",
+        annual: "166,42",
       },
+      semiannualTotal: "1.197,00",
+      yearlyTotal: "1.997,00",
       features: [
         "Até 50.000 eventos/mês",
         "Tracking server-side avançado",
@@ -88,10 +92,12 @@ const plansData = {
       name: "Ratazana Plus",
       description: "Para operações robustas de alto volume.",
       price: {
-        monthly: "997",
-        semiannual: "897",
-        annual: "797",
+        monthly: "397,00",
+        semiannual: "349,50",
+        annual: "333,08",
       },
+      semiannualTotal: "2.097,00",
+      yearlyTotal: "3.997,00",
       features: [
         "Até 200.000 eventos/mês",
         "Dashboard consolidado de ROI real",
@@ -108,10 +114,12 @@ const plansData = {
       name: "Rato",
       description: "Ideal para testar ofertas rapidamente.",
       price: {
-        monthly: "97",
-        semiannual: "87",
-        annual: "77",
+        monthly: "97,00",
+        semiannual: "82,83",
+        annual: "54,75",
       },
+      semiannualTotal: "497,00",
+      yearlyTotal: "657,00",
       features: [
         "Até 5.000 visitas/mês",
         "Construtor Drag-and-Drop",
@@ -126,10 +134,12 @@ const plansData = {
       name: "Ratazana",
       description: "Para múltiplos funis e alto tráfego.",
       price: {
-        monthly: "197",
-        semiannual: "177",
-        annual: "147",
+        monthly: "117,00",
+        semiannual: "99,50",
+        annual: "73,08",
       },
+      semiannualTotal: "597,00",
+      yearlyTotal: "877,00",
       features: [
         "Até 25.000 visitas/mês",
         "Construtor avançado + IA",
@@ -144,10 +154,12 @@ const plansData = {
       name: "Ratazana Plus",
       description: "Sem limites para sua criatividade.",
       price: {
-        monthly: "497",
-        semiannual: "447",
-        annual: "397",
+        monthly: "147,00",
+        semiannual: "132,83",
+        annual: "116,42",
       },
+      semiannualTotal: "797,00",
+      yearlyTotal: "1.397,00",
       features: [
         "Até 100.000 visitas/mês",
         "Geração de páginas por IA ilimitada",
@@ -182,10 +194,12 @@ const plansData = {
       name: "Rato",
       description: "O combo ideal para iniciar sua escala integrada.",
       price: {
-        monthly: "497",
-        semiannual: "447",
-        annual: "397",
+        monthly: "147,75",
+        semiannual: "137,12",
+        annual: "118,56",
       },
+      semiannualTotal: "822,75",
+      yearlyTotal: "1.422,75",
       features: [
         "Ads Iniciante + Pages Starter",
         "10.000 eventos + 5.000 visitas",
@@ -200,10 +214,12 @@ const plansData = {
       name: "Ratazana",
       description: "Tudo que o ecossistema Ratoeira pode oferecer.",
       price: {
-        monthly: "797",
-        semiannual: "697",
-        annual: "597",
+        monthly: "222,75",
+        semiannual: "199,63",
+        annual: "162,31",
       },
+      semiannualTotal: "1.197,75",
+      yearlyTotal: "1.947,75",
       features: [
         "Ads Profissional + Pages Growth",
         "50.000 eventos + 25.000 visitas",
@@ -218,10 +234,12 @@ const plansData = {
       name: "Ratazana Plus",
       description: "Para agências e grandes infoprodutores.",
       price: {
-        monthly: "Custom",
-        semiannual: "Custom",
-        annual: "Custom",
+        monthly: "372,75",
+        semiannual: "324,62",
+        annual: "312,31",
       },
+      semiannualTotal: "1.947,75",
+      yearlyTotal: "3.747,75",
       features: [
         "Volume customizado de eventos/visitas",
         "Infraestrutura dedicada",
@@ -490,15 +508,103 @@ export default function PricingTabs() {
                   <h3 className="text-xl font-bold text-white mb-2">{plan.name}</h3>
                   <p className="text-gray-400 text-sm">{plan.description}</p>
                 </div>
-                <div className="mb-6 flex items-baseline gap-1">
-                  {plan.price.monthly !== "Custom" && plan.price.monthly !== "0" && <span className="text-gray-400">R$</span>}
-                  <span className="text-2xl sm:text-4xl font-black text-white">
-                    {plan.price[billingCycle as keyof typeof plan.price] === "0" ? "Grátis" : plan.price[billingCycle as keyof typeof plan.price]}
-                  </span>
-                  {plan.price.monthly !== "Custom" && plan.price.monthly !== "0" && (
-                    <span className="text-gray-400 text-sm">
-                      {billingCycle === "monthly" ? "/mês" : billingCycle === "semiannual" ? "/semestre" : "/ano"}
-                    </span>
+                <div className="mb-6">
+                  {activeTab === "ads" && billingCycle === "annual" ? (
+                    <div className="flex flex-col">
+                      <span className="text-xs font-bold text-brand-primary uppercase tracking-wider mb-1">12X</span>
+                      <div className="flex items-baseline gap-1">
+                        <span className="text-gray-400 text-lg">R$</span>
+                        <span className="text-2xl sm:text-4xl font-black text-white">
+                          {plan.price.annual}
+                        </span>
+                        <span className="text-gray-400 text-sm">/mês</span>
+                      </div>
+                      <span className="text-xs text-gray-400 mt-1">
+                        por R${(plan as any).yearlyTotal} à vista
+                      </span>
+                    </div>
+                  ) : activeTab === "ads" && billingCycle === "semiannual" ? (
+                    <div className="flex flex-col">
+                      <span className="text-xs font-bold text-brand-primary uppercase tracking-wider mb-1">6X</span>
+                      <div className="flex items-baseline gap-1">
+                        <span className="text-gray-400 text-lg">R$</span>
+                        <span className="text-2xl sm:text-4xl font-black text-white">
+                          {plan.price.semiannual}
+                        </span>
+                        <span className="text-gray-400 text-sm">/mês</span>
+                      </div>
+                      <span className="text-xs text-gray-400 mt-1">
+                        por R${(plan as any).semiannualTotal} à vista
+                      </span>
+                    </div>
+                  ) : activeTab === "pages" && billingCycle === "annual" ? (
+                    <div className="flex flex-col">
+                      <span className="text-xs font-bold text-brand-primary uppercase tracking-wider mb-1">12X</span>
+                      <div className="flex items-baseline gap-1">
+                        <span className="text-gray-400 text-lg">R$</span>
+                        <span className="text-2xl sm:text-4xl font-black text-white">
+                          {plan.price.annual}
+                        </span>
+                        <span className="text-gray-400 text-sm">/mês</span>
+                      </div>
+                      <span className="text-xs text-gray-400 mt-1">
+                        ou R${(plan as any).yearlyTotal} à vista
+                      </span>
+                    </div>
+                  ) : activeTab === "pages" && billingCycle === "semiannual" ? (
+                    <div className="flex flex-col">
+                      <span className="text-xs font-bold text-brand-primary uppercase tracking-wider mb-1">6X</span>
+                      <div className="flex items-baseline gap-1">
+                        <span className="text-gray-400 text-lg">R$</span>
+                        <span className="text-2xl sm:text-4xl font-black text-white">
+                          {plan.price.semiannual}
+                        </span>
+                        <span className="text-gray-400 text-sm">/mês</span>
+                      </div>
+                      <span className="text-xs text-gray-400 mt-1">
+                        ou R${(plan as any).semiannualTotal} à vista
+                      </span>
+                    </div>
+                  ) : activeTab === "hub" && billingCycle === "annual" ? (
+                    <div className="flex flex-col">
+                      <span className="text-xs font-bold text-brand-primary uppercase tracking-wider mb-1">12X</span>
+                      <div className="flex items-baseline gap-1">
+                        <span className="text-gray-400 text-lg">R$</span>
+                        <span className="text-2xl sm:text-4xl font-black text-white">
+                          {plan.price.annual}
+                        </span>
+                        <span className="text-gray-400 text-sm">/mês</span>
+                      </div>
+                      <span className="text-xs text-gray-400 mt-1">
+                        ou R${(plan as any).yearlyTotal} à vista
+                      </span>
+                    </div>
+                  ) : activeTab === "hub" && billingCycle === "semiannual" ? (
+                    <div className="flex flex-col">
+                      <span className="text-xs font-bold text-brand-primary uppercase tracking-wider mb-1">6X</span>
+                      <div className="flex items-baseline gap-1">
+                        <span className="text-gray-400 text-lg">R$</span>
+                        <span className="text-2xl sm:text-4xl font-black text-white">
+                          {plan.price.semiannual}
+                        </span>
+                        <span className="text-gray-400 text-sm">/mês</span>
+                      </div>
+                      <span className="text-xs text-gray-400 mt-1">
+                        ou R${(plan as any).semiannualTotal} à vista
+                      </span>
+                    </div>
+                  ) : (
+                    <div className="flex items-baseline gap-1">
+                      {plan.price.monthly !== "Custom" && plan.price.monthly !== "0" && <span className="text-gray-400">R$</span>}
+                      <span className="text-2xl sm:text-4xl font-black text-white">
+                        {plan.price[billingCycle as keyof typeof plan.price] === "0" ? "Grátis" : plan.price[billingCycle as keyof typeof plan.price]}
+                      </span>
+                      {plan.price.monthly !== "Custom" && plan.price.monthly !== "0" && (
+                        <span className="text-gray-400 text-sm">
+                          {billingCycle === "monthly" ? "/mês" : "/semestre"}
+                        </span>
+                      )}
+                    </div>
                   )}
                 </div>
 
@@ -723,17 +829,103 @@ export default function PricingTabs() {
                     </div>
 
                   <div className="mb-8">
-                    <div className="flex items-baseline gap-1">
-                      {plan.price.monthly !== "Custom" && plan.price.monthly !== "0" && <span className="text-gray-400 text-lg">R$</span>}
-                      <span className="text-3xl sm:text-5xl font-black text-white">
-                        {plan.price[billingCycle as keyof typeof plan.price] === "0" ? "Grátis" : plan.price[billingCycle as keyof typeof plan.price]}
-                      </span>
-                      {plan.price.monthly !== "Custom" && plan.price.monthly !== "0" && (
-                        <span className="text-gray-400">
-                          {billingCycle === "monthly" ? "/mês" : billingCycle === "semiannual" ? "/semestre" : "/ano"}
+                    {activeTab === "ads" && billingCycle === "annual" ? (
+                      <div className="flex flex-col">
+                        <span className="text-xs font-bold text-brand-primary uppercase tracking-wider mb-1">12X</span>
+                        <div className="flex items-baseline gap-1">
+                          <span className="text-gray-400 text-lg">R$</span>
+                          <span className="text-3xl sm:text-5xl font-black text-white">
+                            {plan.price.annual}
+                          </span>
+                          <span className="text-gray-400">/mês</span>
+                        </div>
+                        <span className="text-xs text-gray-400 mt-1">
+                          por R${(plan as any).yearlyTotal} à vista
                         </span>
-                      )}
-                    </div>
+                      </div>
+                    ) : activeTab === "ads" && billingCycle === "semiannual" ? (
+                      <div className="flex flex-col">
+                        <span className="text-xs font-bold text-brand-primary uppercase tracking-wider mb-1">6X</span>
+                        <div className="flex items-baseline gap-1">
+                          <span className="text-gray-400 text-lg">R$</span>
+                          <span className="text-3xl sm:text-5xl font-black text-white">
+                            {plan.price.semiannual}
+                          </span>
+                          <span className="text-gray-400">/mês</span>
+                        </div>
+                        <span className="text-xs text-gray-400 mt-1">
+                          por R${(plan as any).semiannualTotal} à vista
+                        </span>
+                      </div>
+                    ) : activeTab === "pages" && billingCycle === "semiannual" ? (
+                      <div className="flex flex-col">
+                        <span className="text-xs font-bold text-brand-primary uppercase tracking-wider mb-1">6X</span>
+                        <div className="flex items-baseline gap-1">
+                          <span className="text-gray-400 text-lg">R$</span>
+                          <span className="text-3xl sm:text-5xl font-black text-white">
+                            {plan.price.semiannual}
+                          </span>
+                          <span className="text-gray-400">/mês</span>
+                        </div>
+                        <span className="text-xs text-gray-400 mt-1">
+                          ou R${(plan as any).semiannualTotal} à vista
+                        </span>
+                      </div>
+                    ) : activeTab === "pages" && billingCycle === "annual" ? (
+                      <div className="flex flex-col">
+                        <span className="text-xs font-bold text-brand-primary uppercase tracking-wider mb-1">12X</span>
+                        <div className="flex items-baseline gap-1">
+                          <span className="text-gray-400 text-lg">R$</span>
+                          <span className="text-3xl sm:text-5xl font-black text-white">
+                            {plan.price.annual}
+                          </span>
+                          <span className="text-gray-400">/mês</span>
+                        </div>
+                        <span className="text-xs text-gray-400 mt-1">
+                          ou R${(plan as any).yearlyTotal} à vista
+                        </span>
+                      </div>
+                    ) : activeTab === "hub" && billingCycle === "annual" ? (
+                      <div className="flex flex-col">
+                        <span className="text-xs font-bold text-brand-primary uppercase tracking-wider mb-1">12X</span>
+                        <div className="flex items-baseline gap-1">
+                          <span className="text-gray-400 text-lg">R$</span>
+                          <span className="text-3xl sm:text-5xl font-black text-white">
+                            {plan.price.annual}
+                          </span>
+                          <span className="text-gray-400">/mês</span>
+                        </div>
+                        <span className="text-xs text-gray-400 mt-1">
+                          ou R${(plan as any).yearlyTotal} à vista
+                        </span>
+                      </div>
+                    ) : activeTab === "hub" && billingCycle === "semiannual" ? (
+                      <div className="flex flex-col">
+                        <span className="text-xs font-bold text-brand-primary uppercase tracking-wider mb-1">6X</span>
+                        <div className="flex items-baseline gap-1">
+                          <span className="text-gray-400 text-lg">R$</span>
+                          <span className="text-3xl sm:text-5xl font-black text-white">
+                            {plan.price.semiannual}
+                          </span>
+                          <span className="text-gray-400">/mês</span>
+                        </div>
+                        <span className="text-xs text-gray-400 mt-1">
+                          ou R${(plan as any).semiannualTotal} à vista
+                        </span>
+                      </div>
+                    ) : (
+                      <div className="flex items-baseline gap-1">
+                        {plan.price.monthly !== "Custom" && plan.price.monthly !== "0" && <span className="text-gray-400 text-lg">R$</span>}
+                        <span className="text-3xl sm:text-5xl font-black text-white">
+                          {plan.price[billingCycle as keyof typeof plan.price] === "0" ? "Grátis" : plan.price[billingCycle as keyof typeof plan.price]}
+                        </span>
+                        {plan.price.monthly !== "Custom" && plan.price.monthly !== "0" && (
+                          <span className="text-gray-400">
+                            {billingCycle === "monthly" ? "/mês" : "/semestre"}
+                          </span>
+                        )}
+                      </div>
+                    )}
                   </div>
 
                   {activeTab === "ads" && ADS_LIMITS_BY_PLAN[plan.name] && (
