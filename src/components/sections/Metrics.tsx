@@ -151,7 +151,7 @@ export default function Metrics() {
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 text-yellow-200 text-sm font-medium">
             <BarChart3 className="w-4 h-4" /> Resultados comprovados
           </div>
-          <h2 className="text-2xl sm:text-3xl lg:text-5xl font-black text-white leading-tight text-balance">
+          <h2 className="text-2xl sm:text-3xl lg:text-5xl font-black text-white leading-tight text-balance max-w-4xl mx-auto">
             <span className="block">
               <span style={{ color: "var(--color-brand-primary)" }}>Números</span> que falam mais alto
             </span>

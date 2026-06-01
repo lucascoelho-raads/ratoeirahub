@@ -17,7 +17,17 @@ import {
 } from "lucide-react";
 import SpotlightBackground from "@/components/ui/spotlight-background";
 
-function HeroVideoMockup({ onReady }: { onReady?: () => void }) {
+function HeroVideoMockup({
+  onReady,
+  src = "/videos/videoadsherohome.mp4",
+  poster = "/videos/videoadsherohome-poster.jpg",
+  alt = "Dashboard Preview",
+}: {
+  onReady?: () => void;
+  src?: string;
+  poster?: string;
+  alt?: string;
+}) {
   const [isReady, setIsReady] = useState(false);
   const [hasError, setHasError] = useState(false);
 
@@ -33,19 +43,19 @@ function HeroVideoMockup({ onReady }: { onReady?: () => void }) {
     <div className="w-full h-full bg-black rounded-xl overflow-hidden relative">
       {hasError ? (
         <img
-          src="/videos/video1-poster.jpg"
-          alt="Dashboard Preview"
+          src={poster}
+          alt={alt}
           className="w-full h-full object-cover"
         />
       ) : (
         <video
-          src="/videos/video1.mp4"
+          src={src}
           autoPlay
           muted
           loop
           playsInline
           preload="auto"
-          poster="/videos/video1-poster.jpg"
+          poster={poster}
           className="w-full h-full object-cover"
           onLoadedData={() => setIsReady(true)}
           onError={() => setHasError(true)}
@@ -132,7 +142,7 @@ export default function Hero() {
                 >
                   <motion.h1
                     variants={itemVariants}
-                    className="text-[clamp(1.25rem,8vw,5.25rem)] lg:text-[clamp(2.75rem,3.8vw,5.25rem)] 3xl:text-[clamp(3.5rem,4.2vw,7rem)] font-extrabold tracking-tight leading-[1.04] break-words text-center lg:text-left text-balance"
+                    className="text-[clamp(1.25rem,8vw,5.25rem)] lg:text-[clamp(2.75rem,3.8vw,4.5rem)] 3xl:text-[clamp(3.5rem,3.2vw,5.5rem)] font-extrabold tracking-tight leading-[1.04] break-words text-center lg:text-left text-balance max-w-2xl lg:max-w-4xl 3xl:max-w-5xl 4xl:max-w-6xl mx-auto lg:mx-0"
                   >
                     <span className="text-white">Cada venda tem uma origem.</span>
                     <br />
@@ -206,7 +216,11 @@ export default function Hero() {
                           transition={{ duration: 0.4, ease: "easeInOut" }}
                           className="absolute inset-3"
                         >
-                          <HeroVideoMockup />
+                          <HeroVideoMockup
+                            src="/videos/videoadsherohome.mp4"
+                            poster="/videos/videoadsherohome-poster.jpg"
+                            alt="Ratoeira Ads Preview"
+                          />
                         </motion.div>
                       </AnimatePresence>
                     </div>
@@ -309,7 +323,7 @@ export default function Hero() {
               <div className="relative w-full h-full max-w-7xl 2xl:max-w-[90rem] 3xl:max-w-[120rem] 4xl:max-w-[140rem] mx-auto px-4 sm:px-6 lg:px-12 2xl:px-16 3xl:px-20 4xl:px-28 flex flex-col lg:grid lg:grid-cols-[1fr_1.1fr] 2xl:grid-cols-[1.25fr_1fr] 3xl:grid-cols-[1.35fr_1fr] 4xl:grid-cols-[1.45fr_1fr] gap-6 lg:gap-10 2xl:gap-14 3xl:gap-20 lg:items-start min-w-0 pt-28 lg:pt-32 pb-8 lg:pb-20">
                 {/* Texto */}
                 <div className="flex flex-col gap-6">
-                  <h2 className="text-[clamp(1.15rem,6vw,3.5rem)] sm:text-[clamp(1.5rem,5vw,4rem)] lg:text-[clamp(2.75rem,3.8vw,5.25rem)] 3xl:text-[clamp(3.5rem,4.2vw,7rem)] font-extrabold tracking-tight leading-tight lg:leading-[1.04] text-white break-words text-center lg:text-left text-balance">
+                  <h2 className="text-[clamp(1.15rem,6vw,3.5rem)] sm:text-[clamp(1.5rem,5vw,4rem)] lg:text-[clamp(2.75rem,3.8vw,4.5rem)] 3xl:text-[clamp(3.5rem,3.2vw,5.5rem)] font-extrabold tracking-tight leading-tight lg:leading-[1.04] text-white break-words text-center lg:text-left text-balance max-w-2xl lg:max-w-4xl 3xl:max-w-5xl 4xl:max-w-6xl mx-auto lg:mx-0">
                     Páginas que convertem.{" "}
                     <span style={{ color: "var(--color-brand-primary)" }}>
                       Integradas ao seu trackeamento desde o primeiro clique.
@@ -378,10 +392,10 @@ export default function Hero() {
                           transition={{ duration: 0.4, ease: "easeInOut" }}
                           className="absolute inset-3"
                         >
-                          <img
-                            src="/paginasqueconvertem.png"
+                          <HeroVideoMockup
+                            src="/videos/videopagesheroslide2.mp4"
+                            poster="/videos/videopagesheroslide2-poster.jpg"
                             alt="Ratoeira Pages Preview"
-                            className="w-full h-full object-cover rounded-xl"
                           />
                         </motion.div>
                       </AnimatePresence>

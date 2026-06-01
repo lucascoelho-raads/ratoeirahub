@@ -39,7 +39,7 @@ export default function CTA() {
           
 
           {/* Title */}
-          <h2 className="text-2xl sm:text-4xl lg:text-5xl 3xl:text-6xl font-black text-[#111827] leading-tight text-balance">
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl 3xl:text-6xl font-black text-[#111827] leading-tight text-balance max-w-4xl mx-auto">
             <span className="block text-[#111827]">Pare de operar no escuro.</span>
             <span className="block text-lg sm:text-2xl lg:text-3xl font-black text-brand-primary">
               Cada real investido merece uma origem rastreada.

@@ -84,7 +84,7 @@ export default function Pricing() {
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-yellow-50 border border-yellow-200 text-orange-700 text-sm font-semibold">
             💰 Preços
           </div>
-          <h2 className="text-2xl sm:text-3xl lg:text-5xl font-black text-gray-900 leading-tight text-balance">
+          <h2 className="text-2xl sm:text-3xl lg:text-5xl font-black text-gray-900 leading-tight text-balance max-w-4xl mx-auto">
             Simples, transparente,{" "}
             <span className="gradient-text">sem surpresas</span>
           </h2>

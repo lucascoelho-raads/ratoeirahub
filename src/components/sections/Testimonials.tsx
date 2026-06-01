@@ -94,7 +94,7 @@ export default function Testimonials() {
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-badge bg-orange-50 border border-orange-200 text-orange-600 text-sm font-semibold">
             <MessageSquare className="w-4 h-4" /> Depoimentos Reais
           </div>
-          <h2 className="text-2xl sm:text-3xl lg:text-5xl font-black text-white leading-tight text-balance">
+          <h2 className="text-2xl sm:text-3xl lg:text-5xl font-black text-white leading-tight text-balance max-w-4xl mx-auto">
             Quem{" "}
             <span className="text-orange-600">domina o tráfego</span>, confia na Ratoeira
           </h2>

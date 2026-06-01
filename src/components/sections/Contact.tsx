@@ -52,7 +52,7 @@ export default function Contact() {
     <section ref={ref} className="py-20 bg-white" id="fale-conosco">
       <div className="max-w-2xl 3xl:max-w-[50rem] 4xl:max-w-[70rem] mx-auto px-4 sm:px-6 lg:px-8 3xl:px-12 4xl:px-20">
         <div className="text-center mb-10">
-          <h2 className="text-2xl sm:text-3xl lg:text-5xl font-black text-gray-900 leading-tight text-balance">
+          <h2 className="text-2xl sm:text-3xl lg:text-5xl font-black text-gray-900 leading-tight text-balance max-w-4xl mx-auto">
             Vamos estruturar sua operação?
           </h2>
           <p className="mt-4 text-gray-700 text-lg max-w-2xl 2xl:max-w-[40rem] 3xl:max-w-[56rem] 4xl:max-w-[72rem] mx-auto leading-relaxed text-balance">
