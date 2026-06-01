@@ -166,7 +166,7 @@ function HeroGeometric({
             initial="hidden"
             animate="visible"
           >
-            <h1 className="text-[clamp(2.75rem,4.2vw,6rem)] font-black mb-6 md:mb-8 tracking-tight leading-[1.04]">
+            <h1 className="text-[clamp(1.25rem,4.2vw,6rem)] font-black mb-6 md:mb-8 tracking-tight leading-[1.04]">
               <span className="bg-clip-text text-transparent bg-gradient-to-b from-white to-white/80">
                 {title1}
               </span>

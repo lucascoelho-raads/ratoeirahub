@@ -77,7 +77,7 @@ export default function MVVAbout() {
             <div className="w-14 h-14 bg-orange-500/15 border border-orange-500/20 rounded-2xl flex items-center justify-center mb-5 mx-auto sm:mx-0">
               <Target className="w-7 h-7 text-orange-300" />
             </div>
-            <h2 className="text-2xl sm:text-3xl font-black text-white tracking-tight mb-4">
+            <h2 className="text-2xl sm:text-2xl sm:text-3xl font-black text-white tracking-tight mb-4">
               <GradientText className="font-black">Missão</GradientText>
             </h2>
             <p className="text-gray-400 font-medium leading-relaxed text-sm sm:text-base">
@@ -96,7 +96,7 @@ export default function MVVAbout() {
             <div className="w-14 h-14 bg-amber-500/15 border border-amber-500/20 rounded-2xl flex items-center justify-center mb-5 mx-auto sm:mx-0">
               <Eye className="w-7 h-7 text-amber-300" />
             </div>
-            <h2 className="text-3xl font-black text-white tracking-tight mb-4">
+            <h2 className="text-2xl sm:text-3xl font-black text-white tracking-tight mb-4">
               <GradientText className="font-black">Visão</GradientText>
             </h2>
             <p className="text-gray-400 font-medium leading-relaxed">
@@ -115,7 +115,7 @@ export default function MVVAbout() {
             <div className="w-14 h-14 bg-orange-500/15 border border-orange-500/20 rounded-2xl flex items-center justify-center mb-5 mx-auto sm:mx-0">
               <ShieldCheck className="w-7 h-7 text-orange-300" />
             </div>
-            <h2 className="text-3xl font-black text-white tracking-tight mb-4">
+            <h2 className="text-2xl sm:text-3xl font-black text-white tracking-tight mb-4">
               <GradientText className="font-black">Valores</GradientText>
             </h2>
             <div className="relative min-h-[120px]">

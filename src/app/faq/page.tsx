@@ -24,7 +24,7 @@ export default function FAQPage() {
             Central de Ajuda
           </div>
           
-          <h1 className="text-4xl sm:text-5xl md:text-7xl font-black text-white mb-6 tracking-tight text-balance">
+          <h1 className="text-2xl sm:text-5xl md:text-7xl font-black text-white mb-6 tracking-tight text-balance">
             Como podemos <span className="text-brand-primary">ajudar?</span>
           </h1>
           

@@ -308,7 +308,7 @@ export default function Header() {
                           key={column.heading}
                           className={cn(
                             "rounded-card border border-border-default p-4",
-                            column.accent && "bg-surface-subdued",
+                            column.accent && "bg-white/5",
                           )}
                         >
                           <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-gray-100">
@@ -324,11 +324,6 @@ export default function Header() {
                                 <span className="block text-sm font-semibold text-gray-100">
                                   {item.label}
                                 </span>
-                                {item.description ? (
-                                  <span className="text-xs text-gray-200">
-                                    {item.description}
-                                  </span>
-                                ) : null}
                               </a>
                             ))}
                           </div>

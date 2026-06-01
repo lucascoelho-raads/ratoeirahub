@@ -133,7 +133,7 @@ export default function ConexoesComIAPage() {
                 <span className="text-xs text-gray-400/60">Compatível com Claude · ChatGPT</span>
               </div>
 
-              <h2 className="text-3xl sm:text-4xl font-black tracking-tight text-white">
+              <h2 className="text-2xl sm:text-4xl font-black tracking-tight text-white">
                 Controle suas campanhas sem abrir o painel.
               </h2>
 
@@ -166,7 +166,7 @@ export default function ConexoesComIAPage() {
           <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-[#0b0b0b] px-8 py-12 sm:px-12 sm:py-14">
             <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(60%_60%_at_50%_20%,rgba(255,184,0,0.18),rgba(11,11,11,0))]" />
             <div className="relative mx-auto max-w-3xl 3xl:max-w-[60rem] 4xl:max-w-[80rem] text-center">
-              <h2 className="text-3xl sm:text-4xl font-black tracking-tight text-white">
+              <h2 className="text-2xl sm:text-4xl font-black tracking-tight text-white">
                 Sua operação, onde você estiver.
               </h2>
               <p className="mt-4 text-base sm:text-lg text-gray-400/70 leading-relaxed">
@@ -193,7 +193,7 @@ export default function ConexoesComIAPage() {
                 <span className="text-xs text-gray-400/60">Compatível com Claude</span>
               </div>
 
-              <h2 className="text-3xl sm:text-4xl font-black tracking-tight text-white">
+              <h2 className="text-2xl sm:text-4xl font-black tracking-tight text-white">
                 Crie qualquer página com um comando.
               </h2>
 

@@ -311,7 +311,7 @@ function RatingCard({ card }: { card: RatingCard }) {
   return (
     <div className="col-span-1 md:col-span-1 row-span-1 bg-[#111111] border border-white/5 rounded-[32px] p-6 flex flex-col items-center justify-center text-center group hover:border-brand-primary/30 transition-colors relative overflow-hidden h-full">
       <div className="absolute inset-0 bg-gradient-to-b from-transparent to-brand-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-      <h3 className="relative z-10 text-5xl sm:text-6xl font-black text-white mb-2">
+      <h3 className="relative z-10 text-3xl sm:text-6xl font-black text-white mb-2">
         {card.score}
       </h3>
       <div className="relative z-10 flex gap-1 mb-3">
@@ -453,7 +453,7 @@ export default function CasesSocialProof() {
           <div className="inline-flex items-center gap-2 px-4 py-2 mb-6 rounded-full bg-brand-primary/10 border border-brand-primary/20 text-brand-primary text-sm font-bold uppercase tracking-widest">
             Cases de Sucesso
           </div>
-          <h1 className="text-3xl sm:text-5xl lg:text-7xl font-black text-white leading-tight mb-6 tracking-tight">
+          <h1 className="text-2xl sm:text-5xl lg:text-7xl font-black text-white leading-tight mb-6 tracking-tight">
             Eles confiaram. <br />
             <span className="text-brand-primary">Eles escalaram.</span>
           </h1>

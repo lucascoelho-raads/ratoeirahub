@@ -492,7 +492,7 @@ export default function PricingTabs() {
                 </div>
                 <div className="mb-6 flex items-baseline gap-1">
                   {plan.price.monthly !== "Custom" && plan.price.monthly !== "0" && <span className="text-gray-400">R$</span>}
-                  <span className="text-4xl font-black text-white">
+                  <span className="text-2xl sm:text-4xl font-black text-white">
                     {plan.price[billingCycle as keyof typeof plan.price] === "0" ? "Grátis" : plan.price[billingCycle as keyof typeof plan.price]}
                   </span>
                   {plan.price.monthly !== "Custom" && plan.price.monthly !== "0" && (
@@ -725,7 +725,7 @@ export default function PricingTabs() {
                   <div className="mb-8">
                     <div className="flex items-baseline gap-1">
                       {plan.price.monthly !== "Custom" && plan.price.monthly !== "0" && <span className="text-gray-400 text-lg">R$</span>}
-                      <span className="text-5xl font-black text-white">
+                      <span className="text-3xl sm:text-5xl font-black text-white">
                         {plan.price[billingCycle as keyof typeof plan.price] === "0" ? "Grátis" : plan.price[billingCycle as keyof typeof plan.price]}
                       </span>
                       {plan.price.monthly !== "Custom" && plan.price.monthly !== "0" && (

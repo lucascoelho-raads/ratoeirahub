@@ -87,7 +87,7 @@ export default function FoundersAbout() {
             
             <div className="w-full md:w-7/12 space-y-6 text-center md:text-right">
               <div>
-                <h3 className="text-3xl font-black text-white mb-2">Paulo Furtado</h3>
+                <h3 className="text-2xl sm:text-3xl font-black text-white mb-2">Paulo Furtado</h3>
                 <p className="text-brand-primary font-bold tracking-widest uppercase text-sm">Co-Fundador & CTO</p>
               </div>
               

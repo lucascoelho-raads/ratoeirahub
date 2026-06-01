@@ -180,7 +180,7 @@ export default function DetailedPricing() {
                   </div>
                   <div className="mb-6 flex items-end gap-1">
                     <span className="text-gray-400 text-sm mb-1">R$</span>
-                    <span className="text-4xl font-black text-white">
+                    <span className="text-2xl sm:text-4xl font-black text-white">
                       <NumberFlow value={price} />
                     </span>
                     <span className="text-xs text-gray-500 mb-1">

@@ -16,7 +16,7 @@ export default function CTAPages() {
           transition={{ duration: 0.7, ease: "easeOut" }}
           className="flex flex-col items-center w-full max-w-6xl 3xl:max-w-[90rem] 4xl:max-w-[110rem] 3xl:max-w-[90rem] 4xl:max-w-[110rem] mx-auto"
         >
-          <h2 className="text-[clamp(2.25rem,3.2vw,4.5rem)] font-black text-[#111827] mb-6 tracking-tight text-balance">
+          <h2 className="text-[clamp(1.15rem,3.2vw,4.5rem)] font-black text-[#111827] mb-6 tracking-tight text-balance">
             Sua <span className="text-orange-500">próxima página</span> já poderia estar no ar.
           </h2>
           <p className="text-[clamp(1.1rem,1.25vw,1.5rem)] text-[#4b5563] max-w-3xl 2xl:max-w-[44rem] 3xl:max-w-[60rem] 4xl:max-w-[80rem] mx-auto mb-12 leading-relaxed text-balance">

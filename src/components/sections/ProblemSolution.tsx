@@ -85,7 +85,7 @@ export default function ProblemSolution() {
           transition={{ duration: 0.7 }}
           className="text-center mb-16 space-y-6"
         >
-          <h2 className="text-4xl lg:text-5xl font-black text-[#111827] leading-tight text-balance">
+          <h2 className="text-2xl sm:text-3xl lg:text-5xl font-black text-[#111827] leading-tight text-balance">
             <span className="text-brand-primary">Tudo</span> que você precisa para dominar o <span className="text-brand-primary">tráfego pago</span>. Em um só <span className="text-brand-primary">lugar</span>.
           </h2>
           <p className="text-xl text-[#4b5563] max-w-4xl 2xl:max-w-[56rem] 3xl:max-w-[70rem] 4xl:max-w-[90rem] mx-auto leading-relaxed text-balance">
@@ -134,7 +134,7 @@ export default function ProblemSolution() {
           transition={{ duration: 0.5 }}
           className="flex flex-col items-center gap-10"
         >
-          <h3 className="text-3xl font-bold text-[#111827] text-center text-balance">
+          <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-[#111827] text-center text-balance">
             {activeContent.title}
           </h3>
 

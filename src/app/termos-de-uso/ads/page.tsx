@@ -22,7 +22,7 @@ export default function TermosDeUsoAdsPage() {
             <ArrowLeft className="w-4 h-4" />
             Voltar para a Home
           </Link>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-black text-white mb-4 tracking-tight">
+          <h1 className="text-2xl sm:text-4xl md:text-5xl font-black text-white mb-4 tracking-tight">
             Termos de Uso
           </h1>
           <p className="text-brand-primary font-bold uppercase tracking-widest text-sm">

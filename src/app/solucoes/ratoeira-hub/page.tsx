@@ -74,7 +74,7 @@ export default function RatoeiraHubPage() {
           <div aria-hidden className="absolute inset-0 z-[1] bg-gradient-to-br from-yellow-500/15 via-orange-500/10 to-transparent" />
           <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-4 pt-[clamp(7rem,16vh,12rem)] pb-[clamp(4.5rem,10vh,8.5rem)]">
             <div className="max-w-6xl 3xl:max-w-[90rem] 4xl:max-w-[110rem] text-center">
-              <h1 className="text-[clamp(2.75rem,4.2vw,6rem)] font-black text-white tracking-tight leading-[1.04] mb-8 text-balance">
+              <h1 className="text-[clamp(1.25rem,4.2vw,6rem)] font-black text-white tracking-tight leading-[1.04] mb-8 text-balance">
                 Quando Ads e Pages trabalham juntos, sua operação chega onde nenhuma ferramenta sozinha chega.
               </h1>
 
@@ -229,7 +229,7 @@ export default function RatoeiraHubPage() {
                                 Velocidade de carregamento
                               </p>
                               <div className="mt-4 flex items-end justify-between">
-                                <p className="text-4xl font-black text-white leading-none">
+                                <p className="text-2xl sm:text-4xl font-black text-white leading-none">
                                   0.8<span className="text-base font-bold text-gray-400/70 ml-1">s</span>
                                 </p>
                                 <span className="rounded-full bg-brand-primary/15 border border-brand-primary/25 px-3 py-1 text-xs font-bold text-brand-primary">

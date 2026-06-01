@@ -454,7 +454,7 @@ export default function EtherealBeamsHero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-[clamp(2.75rem,4.2vw,6rem)] font-black text-white tracking-tight leading-[1.04] mb-8 text-balance"
+            className="text-[clamp(1.25rem,4.2vw,6rem)] font-black text-white tracking-tight leading-[1.04] mb-8 text-balance"
           >
             Rastreamento <span className="text-[#E6A600]">~100%</span>.{" "}
             <span className="text-[#E6A600]">Anti-fraude automático.</span>{" "}

@@ -117,7 +117,7 @@ export default function CaseClientView({ caseData }: { caseData: CaseData }) {
                 transition: { staggerChildren: 0.1, delayChildren: 0.3 },
               },
             }}
-            className="text-4xl sm:text-6xl md:text-8xl font-black mb-8 sm:mb-12 tracking-tight text-white drop-shadow-2xl flex flex-wrap justify-center gap-x-4 px-4"
+            className="text-2xl sm:text-6xl md:text-8xl font-black mb-8 sm:mb-12 tracking-tight text-white drop-shadow-2xl flex flex-wrap justify-center gap-x-4 px-4"
           >
             {caseData.name.split(" ").map((word, i) => (
               <motion.span
@@ -187,7 +187,7 @@ export default function CaseClientView({ caseData }: { caseData: CaseData }) {
             >
               <Target className="w-6 h-6 text-red-500" />
             </motion.div>
-            <h2 className="text-3xl sm:text-4xl font-black text-white">O Desafio</h2>
+            <h2 className="text-2xl sm:text-4xl font-black text-white">O Desafio</h2>
           </div>
           <AnimatedText 
             text={caseData.challenge} 
@@ -251,7 +251,7 @@ export default function CaseClientView({ caseData }: { caseData: CaseData }) {
             >
               <CheckCircle className="w-6 h-6 text-emerald-500" />
             </motion.div>
-            <h2 className="text-3xl sm:text-4xl font-black text-white">A Solução Ratoeira</h2>
+            <h2 className="text-2xl sm:text-4xl font-black text-white">A Solução Ratoeira</h2>
           </div>
           <AnimatedText 
             text={caseData.solution} 

@@ -84,7 +84,7 @@ export default function Pricing() {
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-yellow-50 border border-yellow-200 text-orange-700 text-sm font-semibold">
             💰 Preços
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-gray-900 leading-tight text-balance">
+          <h2 className="text-2xl sm:text-3xl lg:text-5xl font-black text-gray-900 leading-tight text-balance">
             Simples, transparente,{" "}
             <span className="gradient-text">sem surpresas</span>
           </h2>
@@ -158,7 +158,7 @@ export default function Pricing() {
                 {/* Price */}
                 <div className="mb-8">
                   <div className="flex items-end gap-2">
-                    <span className={`text-5xl font-black tabular-nums ${plan.popular ? "text-white" : "text-gray-900"}`}>
+                    <span className={`text-3xl sm:text-5xl font-black tabular-nums ${plan.popular ? "text-white" : "text-gray-900"}`}>
                       R${yearly ? plan.yearlyPrice : plan.monthlyPrice}
                     </span>
                     <span className={`text-sm mb-2 ${plan.popular ? "text-yellow-200" : "text-gray-400"}`}>/mês</span>

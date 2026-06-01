@@ -20,7 +20,7 @@ export default function MentorsRecommend() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl sm:text-4xl lg:text-6xl font-black text-[#111111] leading-tight tracking-tight">
+          <h2 className="text-2xl sm:text-4xl lg:text-6xl font-black text-[#111111] leading-tight tracking-tight">
             Os Maiores Mentores <br />
             <span className="text-brand-primary">Indicam a Ratoeira Hub</span>
           </h2>
@@ -128,7 +128,7 @@ export default function MentorsRecommend() {
             <div className="absolute inset-0 bg-gradient-to-b from-white/20 to-transparent" />
             <div className="relative z-10">
               <Users className="w-8 h-8 text-black mx-auto mb-3 opacity-80" />
-              <h3 className="text-4xl sm:text-5xl font-black text-black mb-1">+50</h3>
+              <h3 className="text-2xl sm:text-5xl font-black text-black mb-1">+50</h3>
               <p className="text-black/80 font-bold uppercase tracking-widest text-xs mb-3">Masterminds</p>
               <p className="text-black/70 text-xs font-semibold leading-tight px-2">
                 Recomendado oficialmente nas maiores imersões do Brasil.

@@ -21,7 +21,7 @@ export default function HeroBenefits() {
             <span className="text-sm font-bold tracking-wider uppercase">Vantagens Exclusivas</span>
           </div>
           
-          <h1 className="text-[clamp(2.75rem,4.2vw,6rem)] font-black text-white mb-8 tracking-tight leading-[1.04] text-balance">
+          <h1 className="text-[clamp(1.25rem,4.2vw,6rem)] font-black text-white mb-8 tracking-tight leading-[1.04] text-balance">
             Mais do que comissões. Um <span className="text-brand-primary">Ecossistema de Vantagens.</span>
           </h1>
           
