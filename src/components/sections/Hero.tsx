@@ -145,6 +145,17 @@ export default function Hero() {
                   >
                     Operações reais reportam aumento de lucro em até 60% quando passam a rastrear com dado real. Cada clique, cada lead, cada venda — origem rastreada no Google e no Meta, em tempo real.
                   </motion.p>
+
+                  {/* CTA — desktop only, inside text flow */}
+                  <motion.div variants={itemVariants} className="hidden lg:flex flex-col gap-2">
+                    <Link
+                      href="/planos#vamos-transformar"
+                      className="inline-flex self-center lg:self-start items-center justify-center px-6 py-3 bg-brand-primary text-white font-semibold text-sm rounded-button hover:bg-brand-primary-hover transition-colors duration-200 text-center"
+                    >
+                      Começar grátis
+                    </Link>
+                    <span className="text-gray-400/60 text-sm text-center lg:text-left">Plano gratuito disponível. Sem cartão.</span>
+                  </motion.div>
                 </motion.div>
 
                 {/* Mockup - visível em todas as telas */}
@@ -206,7 +217,7 @@ export default function Hero() {
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 1.2, duration: 0.5 }}
-                    className="absolute -bottom-5 -left-8 bg-white/95 backdrop-blur-xl border border-neutral-200 rounded-xl px-4 py-3 items-center gap-3 shadow-card-hover hidden lg:flex"
+                    className="absolute -bottom-5 -left-8 bg-white border border-neutral-200 rounded-xl px-4 py-3 items-center gap-3 shadow-card-hover hidden lg:flex"
                   >
                     <div className="w-8 h-8 rounded-full bg-emerald-500/20 flex items-center justify-center">
                       <TrendingUp className="w-4 h-4 text-emerald-400" />
@@ -221,7 +232,7 @@ export default function Hero() {
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 1.4, duration: 0.5 }}
-                    className="absolute -top-5 -right-4 bg-white/95 backdrop-blur-xl border border-neutral-200 rounded-xl px-4 py-3 items-center gap-3 shadow-card-hover hidden lg:flex"
+                    className="absolute -top-5 -right-4 bg-white border border-neutral-200 rounded-xl px-4 py-3 items-center gap-3 shadow-card-hover hidden lg:flex"
                   >
                     <div className="w-8 h-8 rounded-full bg-[#E6A600]/20 flex items-center justify-center">
                       <Users className="w-4 h-4 text-[#E6A600]" />
@@ -267,8 +278,13 @@ export default function Hero() {
                   </button>
                 </div>
 
-                {/* CTA */}
-                <motion.div variants={itemVariants} className="flex flex-col gap-2 pt-2 order-4 lg:order-none lg:col-start-1">
+                {/* CTA — mobile only, after slider */}
+                <motion.div 
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.7, delay: 0.6, ease: [0.215, 0.61, 0.355, 1] }}
+                  className="flex lg:hidden flex-col gap-2 pt-2 order-4"
+                >
                   <Link
                     href="/planos#vamos-transformar"
                     className="inline-flex self-center lg:self-start items-center justify-center px-6 py-3 bg-brand-primary text-white font-semibold text-sm rounded-button hover:bg-brand-primary-hover transition-colors duration-200 text-center"
@@ -302,6 +318,16 @@ export default function Hero() {
                   <p className="text-[clamp(0.875rem,3vw,1.125rem)] sm:text-[clamp(1rem,2vw,1.125rem)] 3xl:text-[clamp(1.125rem,1.2vw,1.5rem)] text-gray-400/70 leading-relaxed max-w-2xl 2xl:max-w-[34rem] 3xl:max-w-[46rem] 4xl:max-w-[56rem] text-center lg:text-left">
                     Templates prontos e validados, Flash Pages que abrem em menos de 1 segundo e criação por IA com 1 clique. Cada página já nasce com o trackeamento integrado — sem scripts avulsos, sem configuração manual, sem dado perdido entre a página e a campanha.
                   </p>
+
+                  {/* CTA — desktop only, inside text flow */}
+                  <div className="hidden lg:flex items-center justify-start gap-3 pt-2">
+                    <Link
+                      href="/solucoes/ratoeira-pages"
+                      className="inline-flex items-center gap-2 px-6 py-3 bg-brand-primary text-white font-semibold text-sm rounded-button hover:bg-brand-primary-hover transition-colors duration-200"
+                    >
+                      Conhecer o Ratoeira Pages →
+                    </Link>
+                  </div>
                 </div>
 
                 {/* Mockup Pages - visível em todas as telas */}
@@ -397,8 +423,8 @@ export default function Hero() {
                   </button>
                 </div>
 
-                {/* CTA - abaixo dos controles no mobile */}
-                <div className="flex items-center justify-center lg:justify-start gap-3 pt-2 order-4 lg:order-none lg:col-start-1">
+                {/* CTA — mobile only, after slider */}
+                <div className="flex lg:hidden items-center justify-center gap-3 pt-2 order-4">
                   <Link
                     href="/solucoes/ratoeira-pages"
                     className="inline-flex items-center gap-2 px-6 py-3 bg-brand-primary text-white font-semibold text-sm rounded-button hover:bg-brand-primary-hover transition-colors duration-200"

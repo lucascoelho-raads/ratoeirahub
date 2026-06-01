@@ -248,7 +248,7 @@ export default function Footer() {
                 <div className="h-[40px] w-14 overflow-hidden">
                   <img src="/logohub.png" alt="Ratoeira Hub" className="w-full h-auto shadow-lg shadow-yellow-500/20" />
                 </div>
-                <span className="text-xl font-black gradient-text-orange">Ratoeira Hub</span>
+                <span className="text-xl font-black text-brand-primary">Ratoeira Hub</span>
               </Link>
               <p className="text-sm text-gray-50 leading-relaxed mb-6 max-w-xs mx-auto sm:mx-0">
                 A plataforma completa de rastreamento e páginas para anunciantes que querem escalar com dado real.

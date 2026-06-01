@@ -86,7 +86,7 @@ export default function ProblemSolution() {
           className="text-center mb-16 space-y-6"
         >
           <h2 className="text-4xl lg:text-5xl font-black text-[#111827] leading-tight text-balance">
-            <span className="bg-gradient-to-r from-yellow-500 to-orange-500 bg-clip-text text-transparent">Tudo</span> que você precisa para dominar o <span className="bg-gradient-to-r from-yellow-500 to-orange-500 bg-clip-text text-transparent">tráfego pago</span>. Em um só <span className="bg-gradient-to-r from-yellow-500 to-orange-500 bg-clip-text text-transparent">lugar</span>.
+            <span className="text-brand-primary">Tudo</span> que você precisa para dominar o <span className="text-brand-primary">tráfego pago</span>. Em um só <span className="text-brand-primary">lugar</span>.
           </h2>
           <p className="text-xl text-[#4b5563] max-w-4xl 2xl:max-w-[56rem] 3xl:max-w-[70rem] 4xl:max-w-[90rem] mx-auto leading-relaxed text-balance">
             Quem escala no Google e no Meta não usa ferramentas soltas. Usa um ecossistema onde trackeamento, páginas e dados conversam entre si — e cada real investido tem uma origem rastreada. Operações que migram para o Hub reportam aumento de lucro em até 60%.

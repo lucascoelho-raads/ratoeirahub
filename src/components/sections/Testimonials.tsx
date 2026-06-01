@@ -4,6 +4,7 @@ import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import { Transition } from "@headlessui/react";
 import { motion, useInView } from "framer-motion";
+import { MessageSquare, BarChart3 } from "lucide-react";
 
 interface Testimonial {
   img: string;
@@ -91,7 +92,7 @@ export default function Testimonials() {
           className="text-center mb-16 space-y-4"
         >
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-badge bg-orange-50 border border-orange-200 text-orange-600 text-sm font-semibold">
-            💬 Depoimentos Reais
+            <MessageSquare className="w-4 h-4" /> Depoimentos Reais
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white leading-tight text-balance">
             Quem{" "}

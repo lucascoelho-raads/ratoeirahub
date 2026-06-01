@@ -18,7 +18,7 @@ function GradientText({
     <span
       className={cn(
         "inline-block",
-        variant === "gold" ? "gradient-text-animated" : "gradient-text-orange",
+        variant === "gold" ? "text-brand-primary" : "text-brand-secondary",
         className,
       )}
     >

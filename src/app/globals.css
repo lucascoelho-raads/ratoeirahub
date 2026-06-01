@@ -147,6 +147,13 @@ html {
   overflow-x: hidden;
 }
 
+/* Prevent text overflow in clamp headings */
+h1, h2, h3 {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  hyphens: auto;
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
@@ -156,68 +163,33 @@ body {
   overflow-x: hidden;
 }
 
-/* Gradient text utility */
-.gradient-text {
-  background: linear-gradient(135deg, #ffb800 0%, #ffc22e 50%, #e6a600 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+/* Brand text utility — solid color, no gradient */
+.brand-text {
+  color: var(--color-brand-primary);
 }
 
-/* Animated gradient text — tons de amarelo do design system */
-.gradient-text-animated {
-  background: linear-gradient(
-    90deg,
-    #e6a600 0%,
-    #ffb800 25%,
-    #ffd15c 50%,
-    #ffb800 75%,
-    #e6a600 100%
-  );
-  background-size: 300% 100%;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  color: transparent;
-  animation: gradient-text-shift 4s ease-in-out infinite;
+/* Brand text with hover */
+.brand-text-hover:hover {
+  color: var(--color-brand-primary-hover);
 }
 
-/* Animated gradient text — tons de laranja */
-.gradient-text-orange {
-  background: linear-gradient(
-    90deg,
-    #c2410c 0%,
-    #f97316 25%,
-    #fb923c 50%,
-    #f97316 75%,
-    #c2410c 100%
-  );
-  background-size: 300% 100%;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  color: transparent;
-  animation: gradient-text-shift 4s ease-in-out infinite;
-}
-
-@keyframes gradient-text-shift {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }
 
-/* Glass morphism utility */
-.glassmorphism {
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 184, 0, 0.2);
+/* Card with subtle elevation — no glassmorphism */
+.elevated-card {
+  background: var(--color-surface-default);
+  border: 1px solid var(--color-border-default);
+  box-shadow: var(--shadow-card-resting);
 }
 
 /* Section transition utility */
@@ -362,6 +334,23 @@ body {
   0% { transform: translate(0, 0) scale(1); }
   50% { transform: translate(-20%, 10%) scale(1.2); }
   100% { transform: translate(0, 0) scale(1); }
+}
+
+/* Metrics section keyframes */
+@keyframes metricsLineMove {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+@keyframes metricsCornerLineAnimation {
+  0% { stroke-dashoffset: 0; }
+  25% { stroke-dashoffset: 100; }
+  50% { stroke-dashoffset: 200; }
+  75% { stroke-dashoffset: 300; }
+  100% { stroke-dashoffset: 400; }
+}
+@keyframes metricsGridMove {
+  0% { background-position: 0 0; }
+  100% { background-position: 50px 50px; }
 }
 
 /* Spotlight background styles */

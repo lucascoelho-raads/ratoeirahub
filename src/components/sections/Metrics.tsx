@@ -2,28 +2,24 @@
 
 import { useRef, useEffect, useState } from "react";
 import { motion, useInView } from "framer-motion";
-import { TrendingUp, Users, MessageSquare, Layers } from "lucide-react";
+import { TrendingUp, Users, MessageSquare, Layers, BarChart3 } from "lucide-react";
 
 const metrics = [
   {
     value: 16000000,
     suffix: "",
     label: "em conversões rastreadas",
-    description: "total acumulado",
+    description: "total acumulado no ecossistema Ratoeira",
     icon: TrendingUp,
-    color: "from-yellow-500 to-orange-500",
-    bg: "bg-yellow-50",
     iconColor: "text-yellow-500",
   },
   {
     value: 65000,
     suffix: "+",
     label: "ratoeiras armadas",
-    description: "campanhas monitoradas",
+    description: "campanhas monitoradas ativamente",
     icon: Layers,
-    color: "from-emerald-500 to-emerald-600",
-    bg: "bg-emerald-50",
-    iconColor: "text-emerald-600",
+    iconColor: "text-emerald-400",
   },
   {
     value: 76,
@@ -31,9 +27,7 @@ const metrics = [
     label: "atendimentos em até 10 minutos",
     description: "*no horário de atendimento",
     icon: Users,
-    color: "from-blue-500 to-blue-600",
-    bg: "bg-blue-50",
-    iconColor: "text-blue-600",
+    iconColor: "text-blue-400",
   },
   {
     value: 2600,
@@ -41,9 +35,7 @@ const metrics = [
     label: "anunciantes",
     description: "escalando com dado real",
     icon: MessageSquare,
-    color: "from-rose-500 to-rose-600",
-    bg: "bg-rose-50",
-    iconColor: "text-rose-600",
+    iconColor: "text-rose-400",
   },
 ];
 
@@ -61,7 +53,6 @@ function Counter({ target, suffix }: { target: number; suffix: string }) {
     const animate = (now: number) => {
       const elapsed = now - start;
       const progress = Math.min(elapsed / duration, 1);
-      // Ease out cubic
       const ease = 1 - Math.pow(1 - progress, 3);
       setCount(Math.round(target * ease));
       if (progress < 1) requestAnimationFrame(animate);
@@ -87,6 +78,9 @@ function Counter({ target, suffix }: { target: number; suffix: string }) {
 export default function Metrics() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const inView = useInView(sectionRef, { once: true, margin: "-80px" });
+
+  const featured = metrics[0];
+  const secondary = metrics.slice(1);
 
   return (
     <section
@@ -155,91 +149,65 @@ export default function Metrics() {
           className="text-center mb-16 space-y-4"
         >
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 text-yellow-200 text-sm font-medium">
-            📊 Resultados comprovados
+            <BarChart3 className="w-4 h-4" /> Resultados comprovados
           </div>
           <h2 className="text-4xl lg:text-5xl font-black text-white leading-tight text-balance">
             <span className="block">
-              <span style={{ color: "var(--color-brand-primary)" }}>Números</span> Que Falam Mais Alto
+              <span style={{ color: "var(--color-brand-primary)" }}>Números</span> que falam mais alto
             </span>
-            <span className="block">Que Qualquer Discurso</span>
+            <span className="block">que qualquer discurso</span>
           </h2>
         </motion.div>
 
-        {/* Metrics Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {metrics.map((metric, i) => (
+        {/* Featured metric — full width */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.7, delay: 0.1 }}
+          className="mb-6 relative bg-white/10 hover:bg-white/15 rounded-3xl p-8 md:p-10 border border-white/10 hover:border-white/25 transition-all duration-300"
+        >
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+            <div className="flex items-center gap-4">
+              <div className="w-14 h-14 rounded-2xl bg-yellow-500/15 flex items-center justify-center shrink-0">
+                <featured.icon className="w-7 h-7 text-yellow-500" />
+              </div>
+              <div>
+                <p className="text-white font-bold text-lg leading-tight">{featured.label}</p>
+                <p className="text-yellow-200/70 text-sm mt-0.5">{featured.description}</p>
+              </div>
+            </div>
+            <div className="text-5xl sm:text-6xl md:text-7xl font-black text-white tabular-nums md:text-right">
+              <Counter target={featured.value} suffix="" />
+              <span className="text-yellow-500">{featured.suffix}</span>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Secondary metrics — 3 column grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+          {secondary.map((metric, i) => (
             <motion.div
               key={metric.label}
               initial={{ opacity: 0, y: 40 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: i * 0.12 }}
-              className="group relative bg-white/10 hover:bg-white/15 rounded-3xl p-8 border border-white/10 hover:border-white/25 transition-all duration-300 hover:-translate-y-1 backdrop-blur-sm"
+              transition={{ duration: 0.6, delay: 0.2 + i * 0.1 }}
+              className="group relative bg-white/5 hover:bg-white/10 rounded-2xl p-6 border border-white/10 hover:border-white/20 transition-all duration-300"
             >
-              {/* Icon */}
-              <div className={`w-12 h-12 rounded-2xl ${metric.bg} flex items-center justify-center mb-6`}>
-                <metric.icon className={`w-6 h-6 ${metric.iconColor}`} />
-              </div>
-
-              {/* Number */}
-              <div className="text-4xl sm:text-5xl lg:text-6xl font-black text-white mb-2 tabular-nums text-center sm:text-left">
-                {metric.value === 1 ? (
-                  <span>
-                    1<span className="text-yellow-500">B+</span>
-                  </span>
-                ) : (
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center">
+                  <metric.icon className={`w-5 h-5 ${metric.iconColor}`} />
+                </div>
+                <div className="text-3xl sm:text-4xl font-black text-white tabular-nums">
                   <Counter target={metric.value} suffix="" />
-                )}
-                {metric.value !== 1 && (
                   <span className="text-yellow-500">{metric.suffix}</span>
-                )}
+                </div>
               </div>
-
-              {/* Label */}
-              <p className="text-white font-bold text-lg leading-tight text-center sm:text-left">{metric.label}</p>
-              <p className="text-yellow-200/70 text-sm mt-1 text-center sm:text-left">{metric.description}</p>
-
-              {/* Hover glow */}
-              <div className={`absolute inset-0 rounded-3xl bg-gradient-to-br ${metric.color} opacity-0 group-hover:opacity-10 transition-opacity duration-300`} />
+              <p className="text-white font-semibold text-base leading-tight">{metric.label}</p>
+              <p className="text-gray-400 text-sm mt-1">{metric.description}</p>
             </motion.div>
           ))}
         </div>
       </div>
-
-      <style jsx global>{`
-        @keyframes metricsLineMove {
-          0% {
-            transform: translateX(-100%);
-          }
-          100% {
-            transform: translateX(100%);
-          }
-        }
-        @keyframes metricsCornerLineAnimation {
-          0% {
-            stroke-dashoffset: 0;
-          }
-          25% {
-            stroke-dashoffset: 100;
-          }
-          50% {
-            stroke-dashoffset: 200;
-          }
-          75% {
-            stroke-dashoffset: 300;
-          }
-          100% {
-            stroke-dashoffset: 400;
-          }
-        }
-        @keyframes metricsGridMove {
-          0% {
-            background-position: 0 0;
-          }
-          100% {
-            background-position: 50px 50px;
-          }
-        }
-      `}</style>
     </section>
   );
 }

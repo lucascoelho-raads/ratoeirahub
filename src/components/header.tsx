@@ -29,7 +29,7 @@ function Logo() {
       <div className="h-[50px] w-[72px] overflow-hidden">
         <img src="/logohub.png" alt="Ratoeira Hub" className="w-full h-auto" />
       </div>
-      <span className="text-[1.5rem] md:text-[2.5rem] font-black tracking-tight gradient-text-orange whitespace-nowrap">Ratoeira Hub</span>
+      <span className="text-[1.5rem] md:text-[2.5rem] font-black tracking-tight text-brand-primary whitespace-nowrap">Ratoeira Hub</span>
     </Link>
   );
 }
@@ -121,13 +121,13 @@ function HeaderActions({
         href="/planos#vamos-transformar"
         onClick={onAction}
         className={cn(
-          "flex select-none items-center justify-center gap-1.5 rounded-button bg-brand-primary text-gray-50 font-black transition-colors duration-150 hover:bg-brand-primary-hover",
+          "flex select-none items-center justify-center gap-1.5 rounded-button bg-brand-primary text-gray-900 font-black transition-colors duration-150 hover:bg-brand-primary-hover",
           mobile ? "min-h-14 text-lg" : "px-5 py-2 text-sm",
         )}
       >
         {primaryLabel}
         <ArrowRight
-          className="size-3.5 shrink-0 text-gray-50"
+          className="size-3.5 shrink-0 text-gray-900"
           strokeWidth={1.6}
         />
       </Link>
