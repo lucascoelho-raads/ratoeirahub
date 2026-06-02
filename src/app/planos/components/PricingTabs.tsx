@@ -49,6 +49,24 @@ const tabs = [
 const plansData = {
   ads: [
     {
+      name: "Gratuito",
+      description: "Para testar o rastreamento sem compromisso.",
+      price: {
+        monthly: "0",
+        semiannual: "0",
+        annual: "0",
+      },
+      features: [
+        "Até 1.000 eventos/mês",
+        "Tracking server-side básico",
+        "Bloqueio básico de fraudes",
+        "1 domínio customizado",
+        "Suporte por e-mail",
+      ],
+      cta: "Começar Grátis",
+      popular: false,
+    },
+    {
       name: "Rato",
       description: "Para quem está validando as primeiras campanhas.",
       price: {
@@ -110,6 +128,24 @@ const plansData = {
     },
   ],
   pages: [
+    {
+      name: "Gratuito",
+      description: "Para publicar suas primeiras páginas.",
+      price: {
+        monthly: "0",
+        semiannual: "0",
+        annual: "0",
+      },
+      features: [
+        "Até 5.000 visitas/mês",
+        "Construtor Drag-and-Drop",
+        "3 templates de alta conversão",
+        "1 domínio customizado",
+        "Hospedagem inclusa",
+      ],
+      cta: "Começar Grátis",
+      popular: false,
+    },
     {
       name: "Rato",
       description: "Ideal para testar ofertas rapidamente.",
@@ -258,37 +294,37 @@ const featureGroupsByTab: Record<PlanType, FeatureGroup[]> = {
     {
       group: "Limites do Plano",
       features: [
-        { label: "E-Book de Estratégia Mensal", values: [true, true, true] },
-        { label: "Produtos rastreados simultaneamente", values: ["50", "100", "300"] },
-        { label: "Produtos com conversão 100% automática", values: ["5", "50", "300"] },
-        { label: "Integrações com plataformas", values: ["Ilimitadas", "Ilimitadas", "Ilimitadas"] },
-        { label: "Perfis Google Ads conectados", values: ["3", "10", "30"] },
-        { label: "Links de produtor automáticos", values: ["5", "50", "50"] },
-        { label: "Contas de anúncio", values: [null, null, "Ilimitadas"] },
+        { label: "E-Book de Estratégia Mensal", values: [false, true, true, true] },
+        { label: "Produtos rastreados simultaneamente", values: ["10", "50", "100", "300"] },
+        { label: "Produtos com conversão 100% automática", values: ["1", "5", "50", "300"] },
+        { label: "Integrações com plataformas", values: ["1", "Ilimitadas", "Ilimitadas", "Ilimitadas"] },
+        { label: "Perfis Google Ads conectados", values: ["1", "3", "10", "30"] },
+        { label: "Links de produtor automáticos", values: ["1", "5", "50", "50"] },
+        { label: "Contas de anúncio", values: [null, null, null, "Ilimitadas"] },
       ],
     },
     {
       group: "Tracking & Anti-Fraude",
       features: [
-        { label: "Tracking server-side", tooltip: "Envio de conversões em 1st party", values: [true, true, true] },
-        { label: "Bloqueio de bots/fraudes", tooltip: "Proteção contra tráfego inválido", values: ["Básico", "Avançado", "Tempo real"] },
-        { label: "Dashboard de ROI", tooltip: "Visão consolidada de resultado real", values: [null, true, true] },
-        { label: "Eventos por mês", tooltip: "Volume mensal de conversões/eventos", values: ["10.000", "50.000", "200.000+"] },
+        { label: "Tracking server-side", tooltip: "Envio de conversões em 1st party", values: [true, true, true, true] },
+        { label: "Bloqueio de bots/fraudes", tooltip: "Proteção contra tráfego inválido", values: ["Básico", "Básico", "Avançado", "Tempo real"] },
+        { label: "Dashboard de ROI", tooltip: "Visão consolidada de resultado real", values: [null, null, true, true] },
+        { label: "Eventos por mês", tooltip: "Volume mensal de conversões/eventos", values: ["1.000", "10.000", "50.000", "200.000+"] },
       ],
     },
     {
       group: "Domínios & Integrações",
       features: [
-        { label: "Domínios customizados", tooltip: "Quantidade de domínios para tracking", values: ["1", "3", "Ilimitado"] },
-        { label: "Integrações nativas", tooltip: "Conexão com plataformas e CRMs", values: [true, true, true] },
-        { label: "Notificações", tooltip: "Alertas de eventos importantes", values: [null, true, true] },
+        { label: "Domínios customizados", tooltip: "Quantidade de domínios para tracking", values: ["1", "1", "3", "Ilimitado"] },
+        { label: "Integrações nativas", tooltip: "Conexão com plataformas e CRMs", values: [true, true, true, true] },
+        { label: "Notificações", tooltip: "Alertas de eventos importantes", values: [null, null, true, true] },
       ],
     },
     {
       group: "Suporte",
       features: [
-        { label: "Suporte", tooltip: "Canal de atendimento", values: ["E-mail", "WhatsApp", "Gerente dedicado"] },
-        { label: "Onboarding", tooltip: "Acompanhamento de implementação", values: [null, true, true] },
+        { label: "Suporte", tooltip: "Canal de atendimento", values: ["E-mail", "E-mail", "WhatsApp", "Gerente dedicado"] },
+        { label: "Onboarding", tooltip: "Acompanhamento de implementação", values: [null, null, true, true] },
       ],
     },
   ],
@@ -296,38 +332,38 @@ const featureGroupsByTab: Record<PlanType, FeatureGroup[]> = {
     {
       group: "Limites do Plano",
       features: [
-        { label: "Hospedagem Grátis", values: [true, true, true] },
-        { label: "Domínios conectados", values: ["10", "20", "40"] },
-        { label: "Acessos mensais", values: ["200.000", "500.000", "1.000.000"] },
-        { label: "Páginas ilimitadas", values: ["Ilimitadas", "Ilimitadas", "Ilimitadas"] },
-        { label: "Tutorial Passo a Passo", values: [true, true, true] },
-        { label: "Suporte Via WhatsApp", values: [true, true, true] },
-        { label: "Domínio Customizado", values: [true, true, true] },
-        { label: "1 E-Book Mensal", values: ["1", "1", "1"] },
+        { label: "Hospedagem Grátis", values: [true, true, true, true] },
+        { label: "Domínios conectados", values: ["1", "10", "20", "40"] },
+        { label: "Acessos mensais", values: ["5.000", "200.000", "500.000", "1.000.000"] },
+        { label: "Páginas ilimitadas", values: ["2", "Ilimitadas", "Ilimitadas", "Ilimitadas"] },
+        { label: "Tutorial Passo a Passo", values: [true, true, true, true] },
+        { label: "Suporte Via WhatsApp", values: [null, true, true, true] },
+        { label: "Domínio Customizado", values: [true, true, true, true] },
+        { label: "1 E-Book Mensal", values: [null, "1", "1", "1"] },
       ],
     },
     {
       group: "Construtor & Templates",
       features: [
-        { label: "Drag-and-drop", tooltip: "Editor visual", values: [true, true, true] },
-        { label: "Templates", tooltip: "Biblioteca de modelos", values: ["10", "Todos", "Todos + antecipado"] },
-        { label: "Teste A/B", tooltip: "Otimização nativa", values: [null, true, true] },
-        { label: "Geração por IA", tooltip: "Copys e seções assistidas", values: [null, true, "Ilimitado"] },
+        { label: "Drag-and-drop", tooltip: "Editor visual", values: [true, true, true, true] },
+        { label: "Templates", tooltip: "Biblioteca de modelos", values: ["3", "10", "Todos", "Todos + antecipado"] },
+        { label: "Teste A/B", tooltip: "Otimização nativa", values: [null, null, true, true] },
+        { label: "Geração por IA", tooltip: "Copys e seções assistidas", values: [null, null, true, "Ilimitado"] },
       ],
     },
     {
       group: "Performance & Domínios",
       features: [
-        { label: "Visitas por mês", tooltip: "Volume mensal de tráfego", values: ["5.000", "25.000", "100.000+"] },
-        { label: "Domínios customizados", tooltip: "Quantidade de domínios para páginas", values: ["1", "3", "Ilimitado"] },
-        { label: "Hospedagem inclusa", tooltip: "Infra pronta para produção", values: [true, true, true] },
+        { label: "Visitas por mês", tooltip: "Volume mensal de tráfego", values: ["5.000", "5.000", "25.000", "100.000+"] },
+        { label: "Domínios customizados", tooltip: "Quantidade de domínios para páginas", values: ["1", "1", "3", "Ilimitado"] },
+        { label: "Hospedagem inclusa", tooltip: "Infra pronta para produção", values: [true, true, true, true] },
       ],
     },
     {
       group: "Suporte",
       features: [
-        { label: "Suporte", tooltip: "Canal de atendimento", values: ["Padrão", "Prioritário", "Prioritário"] },
-        { label: "Onboarding", tooltip: "Acompanhamento de publicação", values: [null, true, true] },
+        { label: "Suporte", tooltip: "Canal de atendimento", values: ["E-mail", "Padrão", "Prioritário", "Prioritário"] },
+        { label: "Onboarding", tooltip: "Acompanhamento de publicação", values: [null, null, true, true] },
       ],
     },
   ],
@@ -378,7 +414,10 @@ function FeatureCell({ value }: { value: PlanFeatureValue }) {
 
 export default function PricingTabs() {
   const getFeaturedIndex = (tab: PlanType) => {
-    const idx = plansData[tab].findIndex((p) => p.popular);
+    const planList = billingCycle !== "monthly"
+      ? plansData[tab].filter((p) => p.name !== "Gratuito")
+      : plansData[tab];
+    const idx = planList.findIndex((p) => p.popular);
     return idx >= 0 ? idx : 0;
   };
 
@@ -387,11 +426,11 @@ export default function PricingTabs() {
   const [activePlanIndex, setActivePlanIndex] = useState<number>(() => getFeaturedIndex("hub"));
 
   const rawPlans = plansData[activeTab];
-  const plans = activeTab === "hub" && billingCycle !== "monthly"
+  const plans = billingCycle !== "monthly"
     ? rawPlans.filter((p) => p.name !== "Gratuito")
     : rawPlans;
   const comparisonGroups =
-    activeTab === "hub" && billingCycle !== "monthly"
+    billingCycle !== "monthly"
       ? featureGroupsByTab[activeTab].map((group) => ({
           ...group,
           features: group.features.map((feature) => ({

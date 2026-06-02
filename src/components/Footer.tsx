@@ -73,7 +73,7 @@ export default function Footer() {
       {showTransformSection && (
         <section id="vamos-transformar" className={sectionClassName}>
           <AuroraBackground>
-          <div className="max-w-7xl 3xl:max-w-[100rem] 4xl:max-w-[120rem] 5xl:max-w-[140rem] 6xl:max-w-[160rem] mx-auto px-4 sm:px-6 lg:px-8 3xl:px-12 4xl:px-20 5xl:px-28 6xl:px-36 py-16 md:py-20 lg:py-24">
+          <div className="max-w-7xl 3xl:max-w-[100rem] 4xl:max-w-[120rem] 5xl:max-w-[180rem] 6xl:max-w-[160rem] mx-auto px-4 sm:px-6 lg:px-8 3xl:px-12 4xl:px-20 5xl:px-28 6xl:px-36 py-16 md:py-20 lg:py-24">
             <div className="grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-[1.3fr_1fr] 3xl:grid-cols-[1.4fr_1fr] 4xl:grid-cols-[1.5fr_1fr] 5xl:grid-cols-[1.55fr_1fr] 6xl:grid-cols-[1.6fr_1fr] gap-14 lg:gap-20 5xl:gap-28 6xl:gap-36 items-center">
               <div className="max-w-xl 2xl:max-w-[36rem] 3xl:max-w-[48rem] 4xl:max-w-[64rem] 5xl:max-w-[80rem] 6xl:max-w-[96rem] text-center lg:text-left mx-auto lg:mx-0">
                 <h2 className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tight leading-[0.98] text-balance ${titleBaseClassName}`}>
@@ -239,7 +239,7 @@ export default function Footer() {
 
       <SpotlightBackground>
       <footer className="text-gray-400">
-        <div className="max-w-7xl 3xl:max-w-[100rem] 4xl:max-w-[120rem] 5xl:max-w-[140rem] 6xl:max-w-[160rem] mx-auto px-4 sm:px-6 lg:px-8 3xl:px-12 4xl:px-20 5xl:px-28 6xl:px-36">
+        <div className="max-w-7xl 3xl:max-w-[100rem] 4xl:max-w-[120rem] 5xl:max-w-[180rem] 6xl:max-w-[160rem] mx-auto px-4 sm:px-6 lg:px-8 3xl:px-12 4xl:px-20 5xl:px-28 6xl:px-36">
           {/* Main footer */}
           <div className="py-12 md:py-16 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-6 gap-8 text-center sm:text-left">
             {/* Brand column */}

@@ -14,8 +14,8 @@ module.exports = {
       screens: {
         '3xl': '1920px',
         '4xl': '2560px',
-        '5xl': '3840px',
-        '6xl': '5120px',
+        '5xl': '3440px', // ultrawide 34" (3440×1440) e QHD+
+        '6xl': '3840px', // 4K UHD
       },
       colors: {
         gold: {

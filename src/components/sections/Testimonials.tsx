@@ -84,7 +84,7 @@ export default function Testimonials() {
 
   return (
     <section ref={sectionRef} className="py-16 md:py-28 bg-[#050505]" id="cases">
-      <div className="max-w-7xl 3xl:max-w-[100rem] 4xl:max-w-[120rem] 5xl:max-w-[140rem] 6xl:max-w-[160rem] mx-auto px-4 sm:px-6 lg:px-8 3xl:px-12 4xl:px-20 5xl:px-28 6xl:px-36">
+      <div className="max-w-7xl 3xl:max-w-[100rem] 4xl:max-w-[120rem] 5xl:max-w-[180rem] 6xl:max-w-[160rem] mx-auto px-4 sm:px-6 lg:px-8 3xl:px-12 4xl:px-20 5xl:px-28 6xl:px-36">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}

@@ -51,7 +51,7 @@ const SpotlightBackground = ({
             repeat: Infinity,
             repeatType: "mirror",
           }}
-          className="w-[600px] h-[600px] -top-[100px] -left-[100px]"
+          className="w-[clamp(600px,30vw,1200px)] h-[clamp(600px,30vw,1200px)] -top-[100px] -left-[100px]"
           style={{
             background:
               "radial-gradient(circle, rgba(251, 191, 36, 0.8) 0%, rgba(245, 158, 11, 0.4) 40%, transparent 70%)",
@@ -72,7 +72,7 @@ const SpotlightBackground = ({
             repeatType: "mirror",
             delay: 1.5,
           }}
-          className="w-[500px] h-[500px] top-1/2 left-1/2"
+          className="w-[clamp(500px,25vw,1000px)] h-[clamp(500px,25vw,1000px)] top-1/2 left-1/2"
           style={{
             background:
               "radial-gradient(circle, rgba(251, 146, 60, 0.7) 0%, rgba(234, 88, 12, 0.3) 40%, transparent 70%)",
@@ -93,7 +93,7 @@ const SpotlightBackground = ({
             repeatType: "mirror",
             delay: 2.5,
           }}
-          className="w-[550px] h-[550px] -top-[50px] -right-[100px]"
+          className="w-[clamp(550px,28vw,1100px)] h-[clamp(550px,28vw,1100px)] -top-[50px] -right-[100px]"
           style={{
             background:
               "radial-gradient(circle, rgba(252, 211, 77, 0.7) 0%, rgba(251, 191, 36, 0.3) 40%, transparent 70%)",
