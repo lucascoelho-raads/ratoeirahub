@@ -73,7 +73,7 @@ export default function Pricing() {
 
   return (
     <section ref={ref} className="py-16 md:py-28 bg-gray-50/50" id="planos">
-      <div className="max-w-7xl 3xl:max-w-[100rem] 4xl:max-w-[120rem] mx-auto px-4 sm:px-6 lg:px-8 3xl:px-12 4xl:px-20">
+      <div className="max-w-7xl 3xl:max-w-[100rem] 4xl:max-w-[120rem] 5xl:max-w-[140rem] 6xl:max-w-[160rem] mx-auto px-4 sm:px-6 lg:px-8 3xl:px-12 4xl:px-20 5xl:px-28 6xl:px-36">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -88,7 +88,7 @@ export default function Pricing() {
             Simples, transparente,{" "}
             <span className="gradient-text">sem surpresas</span>
           </h2>
-          <p className="text-gray-500 text-xl max-w-xl 2xl:max-w-[34rem] 3xl:max-w-[48rem] 4xl:max-w-[64rem] mx-auto text-balance">
+          <p className="text-gray-500 text-xl max-w-xl 2xl:max-w-[34rem] 3xl:max-w-[48rem] 4xl:max-w-[64rem] 5xl:max-w-[80rem] 6xl:max-w-[96rem] mx-auto text-balance">
             Comece gratuitamente. Escale conforme seus resultados.
           </p>
 
@@ -122,7 +122,7 @@ export default function Pricing() {
         </motion.div>
 
         {/* Plans Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 items-stretch">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 5xl:gap-12 6xl:gap-16 items-stretch">
           {plans.map((plan, i) => (
             <motion.div
               key={plan.name}
@@ -144,7 +144,7 @@ export default function Pricing() {
                 </div>
               )}
 
-              <div className="p-8 flex-1 flex flex-col">
+              <div className="p-8 5xl:p-10 6xl:p-12 flex-1 flex flex-col">
                 {/* Plan info */}
                 <div className="mb-8">
                   <h3 className={`text-xl font-black mb-1 ${plan.popular ? "text-white" : "text-gray-900"}`}>
@@ -172,7 +172,7 @@ export default function Pricing() {
                 </div>
 
                 {/* Features */}
-                <div className="flex-1 space-y-3 mb-8">
+                <div className="flex-1 space-y-3 5xl:space-y-0 5xl:grid 5xl:grid-cols-2 5xl:gap-x-4 5xl:gap-y-3 mb-8">
                   {plan.features.map((feat) => (
                     <div key={feat} className="flex items-start gap-2.5">
                       <CheckCircle className={`w-4 h-4 flex-shrink-0 mt-0.5 ${plan.popular ? "text-yellow-300" : "text-emerald-500"}`} />

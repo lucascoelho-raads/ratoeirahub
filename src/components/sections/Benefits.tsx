@@ -97,7 +97,7 @@ export default function Benefits() {
 
   return (
     <section ref={ref} className="relative pt-16 md:pt-28 pb-0 bg-[#050505]" id="solucoes">
-      <div className="relative z-10 max-w-7xl 3xl:max-w-[100rem] 4xl:max-w-[120rem] mx-auto px-4 sm:px-6 lg:px-8 3xl:px-12 4xl:px-20">
+      <div className="relative z-10 max-w-7xl 3xl:max-w-[100rem] 4xl:max-w-[120rem] 5xl:max-w-[140rem] 6xl:max-w-[160rem] mx-auto px-4 sm:px-6 lg:px-8 3xl:px-12 4xl:px-20 5xl:px-28 6xl:px-36">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -105,7 +105,7 @@ export default function Benefits() {
           transition={{ duration: 0.7 }}
           className="text-center mb-20 space-y-6"
         >
-          <h2 className="text-xl sm:text-2xl lg:text-5xl font-black text-text-inverse leading-tight text-balance max-w-4xl 3xl:max-w-5xl 4xl:max-w-6xl mx-auto">
+          <h2 className="text-xl sm:text-2xl lg:text-5xl font-black text-text-inverse leading-tight text-balance max-w-4xl 3xl:max-w-5xl 4xl:max-w-6xl 5xl:max-w-[80rem] 6xl:max-w-[96rem] mx-auto">
             Por que <span style={{ color: "var(--color-brand-primary)" }}>+2.600 anunciantes</span> escolheram a{" "}
             <span className="whitespace-normal sm:whitespace-nowrap">Ratoeira Hub</span>
           </h2>
@@ -132,7 +132,7 @@ export default function Benefits() {
                 const Icon = benefit.icon;
 
                 return (
-                  <div className="w-full max-w-7xl 3xl:max-w-[100rem] 4xl:max-w-[120rem] mx-auto">
+                  <div className="w-full max-w-7xl 3xl:max-w-[100rem] 4xl:max-w-[120rem] 5xl:max-w-[140rem] 6xl:max-w-[160rem] mx-auto">
                     <ShineBorder
                       borderRadius={24}
                       borderWidth={5.5}
@@ -143,13 +143,13 @@ export default function Benefits() {
                         "var(--color-brand-secondary)",
                         "var(--color-brand-primary-hover)",
                       ]}
-                      className="h-auto min-h-[420px] sm:h-[78vh] sm:min-h-[520px] w-full"
+                      className="h-auto min-h-[420px] sm:h-[78vh] sm:min-h-[520px] 5xl:min-h-[600px] 6xl:min-h-[680px] w-full"
                     >
                       <div className="relative h-full rounded-card border border-white/10 bg-[#050505] shadow-card-resting p-5 sm:p-6 md:p-10 lg:p-12 overflow-hidden">
                         <BackgroundPaths reverse={benefit.imageLeft} />
-                        <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-[1.2fr_1fr] 3xl:grid-cols-[1.3fr_1fr] 4xl:grid-cols-[1.35fr_1fr] gap-10 items-center h-full">
+                        <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-[1.2fr_1fr] 3xl:grid-cols-[1.3fr_1fr] 4xl:grid-cols-[1.35fr_1fr] 5xl:grid-cols-[1.45fr_1fr] 6xl:grid-cols-[1.55fr_1fr] gap-10 5xl:gap-16 6xl:gap-20 items-center h-full">
                           <div className={benefit.imageLeft ? "order-2" : "order-1"}>
-                            <h3 className="mt-4 sm:mt-6 text-lg sm:text-xl lg:text-4xl font-black text-gray-50 leading-tight text-center lg:text-left text-balance max-w-2xl lg:max-w-3xl">
+                            <h3 className="mt-4 sm:mt-6 text-lg sm:text-xl lg:text-4xl font-black text-gray-50 leading-tight text-center lg:text-left text-balance max-w-2xl lg:max-w-3xl 5xl:max-w-4xl 6xl:max-w-5xl">
                               {benefit.title}
                             </h3>
                             <p className="mt-4 sm:mt-5 text-base sm:text-lg text-gray-200 leading-relaxed text-center lg:text-left text-balance">
@@ -159,7 +159,7 @@ export default function Benefits() {
 
                           <div className={benefit.imageLeft ? "order-1" : "order-2"}>
                             {activeIndex === 0 || activeIndex === 1 || activeIndex === 2 || activeIndex === 3 || activeIndex === 5 ? (
-                              <div className={activeIndex === 2 ? "relative rounded-card overflow-hidden lg:scale-110" : "relative rounded-card overflow-hidden"}>
+                              <div className={activeIndex === 2 ? "relative rounded-card overflow-hidden lg:scale-110 5xl:scale-125 6xl:scale-135" : "relative rounded-card overflow-hidden 5xl:scale-110 6xl:scale-125"}>
                                 <img
                                   src={activeIndex === 0 ? "/slide1home.png" : activeIndex === 1 ? "/slide2home.png" : activeIndex === 2 ? "/slide3home.png" : activeIndex === 3 ? "/slide4home.png" : "/slide6home.png"}
                                   alt={benefit.title}
@@ -167,7 +167,7 @@ export default function Benefits() {
                                 />
                               </div>
                             ) : activeIndex === 4 ? (
-                              <div className="relative aspect-[9/16] max-w-[260px] sm:max-w-[300px] max-h-full mx-auto">
+                              <div className="relative aspect-[9/16] max-w-[260px] sm:max-w-[300px] 5xl:max-w-[380px] 6xl:max-w-[460px] max-h-full mx-auto">
                                 <video
                                   src="/slide5home.mp4"
                                   autoPlay

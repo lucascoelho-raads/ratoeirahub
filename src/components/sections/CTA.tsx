@@ -17,8 +17,8 @@ export default function CTA() {
     >
       {/* Background decoration */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-0 right-1/4 w-96 h-96 rounded-full bg-brand-primary/10 blur-3xl" />
-        <div className="absolute bottom-0 left-1/4 w-72 h-72 rounded-full bg-brand-secondary/10 blur-3xl" />
+        <div className="absolute top-0 right-1/4 w-96 h-96 5xl:w-[28rem] 5xl:h-[28rem] 6xl:w-[36rem] 6xl:h-[36rem] rounded-full bg-brand-primary/10 blur-3xl" />
+        <div className="absolute bottom-0 left-1/4 w-72 h-72 5xl:w-[22rem] 5xl:h-[22rem] 6xl:w-[28rem] 6xl:h-[28rem] rounded-full bg-brand-secondary/10 blur-3xl" />
         <div
           className="absolute inset-0 opacity-25"
           style={{
@@ -28,7 +28,7 @@ export default function CTA() {
         />
       </div>
 
-      <div className="relative max-w-6xl 3xl:max-w-[90rem] 4xl:max-w-[110rem] mx-auto px-4 sm:px-6 lg:px-8 3xl:px-12 4xl:px-20 text-center">
+      <div className="relative max-w-6xl 3xl:max-w-[90rem] 4xl:max-w-[110rem] 5xl:max-w-[130rem] 6xl:max-w-[150rem] mx-auto px-4 sm:px-6 lg:px-8 3xl:px-12 4xl:px-20 5xl:px-28 6xl:px-36 text-center">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -39,7 +39,7 @@ export default function CTA() {
           
 
           {/* Title */}
-          <h2 className="text-2xl sm:text-4xl lg:text-5xl 3xl:text-6xl font-black text-[#111827] leading-tight text-balance max-w-4xl mx-auto">
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl 3xl:text-6xl font-black text-[#111827] leading-tight text-balance max-w-4xl 5xl:max-w-6xl 6xl:max-w-[80rem] mx-auto">
             <span className="block text-[#111827]">Pare de operar no escuro.</span>
             <span className="block text-lg sm:text-2xl lg:text-3xl font-black text-brand-primary">
               Cada real investido merece uma origem rastreada.
@@ -47,7 +47,7 @@ export default function CTA() {
           </h2>
 
           {/* Subtitle */}
-          <p className="text-[#4b5563] text-base sm:text-lg max-w-2xl 2xl:max-w-[40rem] 3xl:max-w-[56rem] 4xl:max-w-[72rem] mx-auto leading-relaxed text-balance">
+          <p className="text-[#4b5563] text-base sm:text-lg max-w-2xl 2xl:max-w-[40rem] 3xl:max-w-[56rem] 4xl:max-w-[72rem] 5xl:max-w-[90rem] 6xl:max-w-[110rem] mx-auto leading-relaxed text-balance">
             Configure em minutos. Rastreie cada venda, cada lead, cada clique — no Google e no Meta. Tome as decisões que a maioria adia por falta de dado real.
           </p>
 

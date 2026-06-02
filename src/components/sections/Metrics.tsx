@@ -140,7 +140,7 @@ export default function Metrics() {
         </svg>
       </div>
 
-      <div className="relative z-10 max-w-7xl 3xl:max-w-[100rem] 4xl:max-w-[120rem] mx-auto px-4 sm:px-6 lg:px-8 3xl:px-12 4xl:px-20">
+      <div className="relative z-10 max-w-7xl 3xl:max-w-[100rem] 4xl:max-w-[120rem] 5xl:max-w-[140rem] 6xl:max-w-[160rem] mx-auto px-4 sm:px-6 lg:px-8 3xl:px-12 4xl:px-20 5xl:px-28 6xl:px-36">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -166,7 +166,7 @@ export default function Metrics() {
           transition={{ duration: 0.7, delay: 0.1 }}
           className="mb-6 relative bg-white/10 hover:bg-white/15 rounded-3xl p-8 md:p-10 border border-white/10 hover:border-white/25 transition-all duration-300"
         >
-          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 5xl:gap-12 6xl:gap-16">
             <div className="flex items-center gap-4">
               <div className="w-14 h-14 rounded-2xl bg-yellow-500/15 flex items-center justify-center shrink-0">
                 <featured.icon className="w-7 h-7 text-yellow-500" />
@@ -184,7 +184,7 @@ export default function Metrics() {
         </motion.div>
 
         {/* Secondary metrics — 3 column grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-3 5xl:grid-cols-4 6xl:grid-cols-5 gap-6 5xl:gap-8 6xl:gap-10">
           {secondary.map((metric, i) => (
             <motion.div
               key={metric.label}

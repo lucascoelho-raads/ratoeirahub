@@ -50,12 +50,12 @@ export default function Contact() {
 
   return (
     <section ref={ref} className="py-20 bg-white" id="fale-conosco">
-      <div className="max-w-2xl 3xl:max-w-[50rem] 4xl:max-w-[70rem] mx-auto px-4 sm:px-6 lg:px-8 3xl:px-12 4xl:px-20">
+      <div className="max-w-2xl 3xl:max-w-[50rem] 4xl:max-w-[70rem] 5xl:max-w-[90rem] 6xl:max-w-[110rem] mx-auto px-4 sm:px-6 lg:px-8 3xl:px-12 4xl:px-20 5xl:px-28 6xl:px-36">
         <div className="text-center mb-10">
-          <h2 className="text-2xl sm:text-3xl lg:text-5xl font-black text-gray-900 leading-tight text-balance max-w-4xl mx-auto">
+          <h2 className="text-2xl sm:text-3xl lg:text-5xl font-black text-gray-900 leading-tight text-balance max-w-4xl 5xl:max-w-5xl 6xl:max-w-6xl mx-auto">
             Vamos estruturar sua operação?
           </h2>
-          <p className="mt-4 text-gray-700 text-lg max-w-2xl 2xl:max-w-[40rem] 3xl:max-w-[56rem] 4xl:max-w-[72rem] mx-auto leading-relaxed text-balance">
+          <p className="mt-4 text-gray-700 text-lg max-w-2xl 2xl:max-w-[40rem] 3xl:max-w-[56rem] 4xl:max-w-[72rem] 5xl:max-w-[90rem] 6xl:max-w-[110rem] mx-auto leading-relaxed text-balance">
             Fale com a equipe e descubra qual configuração faz sentido para o seu momento.
           </p>
         </div>
@@ -79,10 +79,10 @@ export default function Contact() {
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.7 }}
             onSubmit={handleSubmit}
-            className="space-y-6"
+            className="space-y-6 5xl:space-y-0 5xl:grid 5xl:grid-cols-2 5xl:gap-x-8 5xl:gap-y-6 6xl:gap-x-10 6xl:gap-y-8"
           >
             {/* Nome */}
-            <div>
+            <div className="5xl:col-span-1">
               <label htmlFor="name" className="block text-sm font-semibold text-gray-900 mb-2">
                 Nome <span className="text-red-500">*</span>
               </label>
@@ -99,7 +99,7 @@ export default function Contact() {
             </div>
 
             {/* Telefone e Email em linha */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 5xl:col-span-2">
               <div>
                 <label htmlFor="phone" className="block text-sm font-semibold text-gray-900 mb-2">
                   Telefone (com DDD) <span className="text-red-500">*</span>
@@ -133,7 +133,7 @@ export default function Contact() {
             </div>
 
             {/* Validação Meta */}
-            <div>
+            <div className="5xl:col-span-2">
               <label className="block text-sm font-semibold text-gray-900 mb-3">
                 Um site ativo é o principal requisito para verificar sua empresa no Google Ads. A empresa possui site? <span className="text-red-500">*</span>
               </label>
@@ -163,7 +163,7 @@ export default function Contact() {
             </div>
 
             {/* Qual é o seu site */}
-            <div>
+            <div className="5xl:col-span-1">
               <label htmlFor="website" className="block text-sm font-semibold text-gray-900 mb-2">
                 Qual o seu site? <span className="text-red-500">*</span>
               </label>
@@ -180,7 +180,7 @@ export default function Contact() {
             </div>
 
             {/* Nome da Empresa */}
-            <div>
+            <div className="5xl:col-span-1">
               <label htmlFor="company" className="block text-sm font-semibold text-gray-900 mb-2">
                 Nome da Empresa <span className="text-red-500">*</span>
               </label>
@@ -197,7 +197,7 @@ export default function Contact() {
             </div>
 
             {/* Cargo */}
-            <div>
+            <div className="5xl:col-span-1">
               <label htmlFor="position" className="block text-sm font-semibold text-gray-900 mb-2">
                 Cargo
               </label>
@@ -213,7 +213,7 @@ export default function Contact() {
             </div>
 
             {/* Quantas conversas */}
-            <div>
+            <div className="5xl:col-span-2">
               <label className="block text-sm font-semibold text-gray-900 mb-3">
                 Quantas conversas você recebe no whatsapp por dia? <span className="text-red-500">*</span>
               </label>
@@ -245,7 +245,7 @@ export default function Contact() {
             </div>
 
             {/* Budget */}
-            <div>
+            <div className="5xl:col-span-2">
               <label htmlFor="budget" className="block text-sm font-semibold text-gray-900 mb-2">
                 Quanto você planeja investir mensalmente para automatizar e escalar seu atendimento? <span className="text-red-500">*</span>
               </label>
@@ -264,13 +264,13 @@ export default function Contact() {
             {/* Submit Button */}
             <button
               type="submit"
-              className="w-full px-6 py-3 bg-emerald-500 hover:bg-emerald-600 text-white font-bold text-lg rounded-button transition-colors duration-200"
+              className="w-full 5xl:col-span-2 px-6 py-3 bg-emerald-500 hover:bg-emerald-600 text-white font-bold text-lg rounded-button transition-colors duration-200"
             >
               SOLICITAR CONTATO DO ESPECIALISTA
             </button>
 
             {/* Footer Links */}
-            <div className="text-center text-xs text-gray-500 space-y-1">
+            <div className="text-center text-xs text-gray-500 space-y-1 5xl:col-span-2">
               <p>
                 <a href="#" className="text-blue-600 hover:underline">
                   Privacy Policy

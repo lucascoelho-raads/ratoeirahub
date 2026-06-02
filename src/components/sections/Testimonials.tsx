@@ -84,7 +84,7 @@ export default function Testimonials() {
 
   return (
     <section ref={sectionRef} className="py-16 md:py-28 bg-[#050505]" id="cases">
-      <div className="max-w-7xl 3xl:max-w-[100rem] 4xl:max-w-[120rem] mx-auto px-4 sm:px-6 lg:px-8 3xl:px-12 4xl:px-20">
+      <div className="max-w-7xl 3xl:max-w-[100rem] 4xl:max-w-[120rem] 5xl:max-w-[140rem] 6xl:max-w-[160rem] mx-auto px-4 sm:px-6 lg:px-8 3xl:px-12 4xl:px-20 5xl:px-28 6xl:px-36">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -98,7 +98,7 @@ export default function Testimonials() {
             Quem{" "}
             <span className="text-orange-600">domina o tráfego</span>, confia na Ratoeira
           </h2>
-          <p className="text-gray-400/70 text-lg sm:text-xl max-w-xl 2xl:max-w-[34rem] 3xl:max-w-[48rem] 4xl:max-w-[64rem] mx-auto text-balance">
+          <p className="text-gray-400/70 text-lg sm:text-xl max-w-xl 2xl:max-w-[34rem] 3xl:max-w-[48rem] 4xl:max-w-[64rem] 5xl:max-w-[80rem] 6xl:max-w-[96rem] mx-auto text-balance">
             Veja o que anunciantes de Google Ads, Meta Ads e gestores de tráfego dizem sobre operar com dado real.
           </p>
         </motion.div>
@@ -107,10 +107,10 @@ export default function Testimonials() {
           initial={{ opacity: 0, y: 40 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7, delay: 0.2 }}
-          className="mx-auto w-full max-w-3xl 3xl:max-w-[60rem] 4xl:max-w-[80rem] text-center"
+          className="mx-auto w-full max-w-3xl 3xl:max-w-[60rem] 4xl:max-w-[80rem] 5xl:max-w-[100rem] 6xl:max-w-[120rem] text-center"
         >
           <div className="relative h-32">
-            <div className="pointer-events-none absolute left-1/2 top-0 h-[480px] w-[480px] -translate-x-1/2 before:absolute before:inset-0 before:-z-10 before:rounded-full before:bg-gradient-to-b before:from-orange-600/25 before:via-orange-600/5 before:via-25% before:to-orange-600/0 before:to-75%">
+            <div className="pointer-events-none absolute left-1/2 top-0 h-[480px] w-[480px] 5xl:h-[600px] 5xl:w-[600px] 6xl:h-[800px] 6xl:w-[800px] -translate-x-1/2 before:absolute before:inset-0 before:-z-10 before:rounded-full before:bg-gradient-to-b before:from-orange-600/25 before:via-orange-600/5 before:via-25% before:to-orange-600/0 before:to-75%">
               <div className="h-32 [mask-image:_linear-gradient(0deg,transparent,theme(colors.white)_20%,theme(colors.white))]">
                 {testimonials.map((testimonial, index) => (
                   <Transition
@@ -153,7 +153,7 @@ export default function Testimonials() {
                   leaveTo="opacity-0 translate-x-4"
                   beforeEnter={heightFix}
                 >
-                  <div className="text-xl sm:text-2xl font-bold text-orange-600 before:content-['\201C'] after:content-['\201D']">
+                  <div className="text-xl sm:text-2xl 5xl:text-3xl 6xl:text-4xl font-bold text-orange-600 before:content-['\201C'] after:content-['\201D']">
                     {testimonial.quote}
                   </div>
                 </Transition>

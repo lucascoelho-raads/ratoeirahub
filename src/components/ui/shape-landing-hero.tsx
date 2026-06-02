@@ -145,8 +145,8 @@ function HeroGeometric({
         />
       </div>
 
-      <div className="relative z-10 container mx-auto px-4 md:px-6">
-        <div className="max-w-4xl mx-auto text-center">
+      <div className="relative z-10 container mx-auto 5xl:max-w-[140rem] 6xl:max-w-[160rem] px-4 md:px-6">
+        <div className="max-w-4xl 5xl:max-w-[60rem] 6xl:max-w-[80rem] mx-auto text-center">
           <motion.div
             custom={0}
             variants={fadeUpVariants}
@@ -188,7 +188,7 @@ function HeroGeometric({
               initial="hidden"
               animate="visible"
             >
-              <p className="text-[clamp(1.05rem,1.25vw,1.35rem)] text-gray-400 leading-relaxed max-w-3xl mx-auto text-balance">
+              <p className="text-[clamp(1.05rem,1.25vw,1.35rem)] text-gray-400 leading-relaxed max-w-3xl 5xl:max-w-5xl 6xl:max-w-6xl mx-auto text-balance">
                 {subtitle}
               </p>
             </motion.div>
