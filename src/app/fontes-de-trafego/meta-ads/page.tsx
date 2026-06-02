@@ -64,12 +64,12 @@ export default function MetaAdsTrafficSourcePage() {
       <HeroMetaAds />
 
       <section className="py-20">
-        <div className="mx-auto max-w-6xl 3xl:max-w-[90rem] 4xl:max-w-[110rem] px-4 sm:px-6 lg:px-8 3xl:px-12 4xl:px-20">
+        <div className="mx-auto max-w-6xl 2xl:max-w-[92%] 4xl:max-w-[110rem] 5xl:max-w-[130rem] 6xl:max-w-[150rem] px-4 sm:px-6 lg:px-8 2xl:px-12 4xl:px-20 5xl:px-28 6xl:px-36">
           <div className="mb-10">
             <h2 className="text-3xl sm:text-4xl font-black tracking-tight text-white text-balance">
               O Meta Ads só otimiza tão bem quanto o dado que recebe.
             </h2>
-            <p className="mt-4 text-gray-300 max-w-3xl 2xl:max-w-[44rem] 3xl:max-w-[60rem] 4xl:max-w-[80rem] text-balance">
+            <p className="mt-4 text-gray-300 max-w-3xl 2xl:max-w-[60rem] 4xl:max-w-[80rem] text-balance">
               Quando o pixel perde conversões, o algoritmo aprende errado — e vai buscar o público errado. A Ratoeira garante
               que cada venda real chegue ao Meta com qualidade máxima, do clique ao pagamento.
             </p>
@@ -83,7 +83,7 @@ export default function MetaAdsTrafficSourcePage() {
 
               return (
                 <div key={p.title} className={`grid gap-10 lg:grid-cols-2 lg:items-center rounded-3xl p-6 sm:p-8 ${isDark ? "bg-[#0a0a0a]" : "bg-white"}`}>
-                  <div className={isReversed ? "space-y-6 max-w-2xl 3xl:max-w-[50rem] 4xl:max-w-[70rem] lg:order-2" : "space-y-6 max-w-2xl 3xl:max-w-[50rem] 4xl:max-w-[70rem] lg:order-1"}>
+                  <div className={isReversed ? "space-y-6 max-w-2xl 2xl:max-w-[50rem] 4xl:max-w-[70rem] lg:order-2" : "space-y-6 max-w-2xl 2xl:max-w-[50rem] 4xl:max-w-[70rem] lg:order-1"}>
                     <div className="flex items-center gap-3">
                       <span className={`flex w-12 h-12 items-center justify-center rounded-2xl bg-brand-primary/10 border ${isDark ? "border-white/10 text-brand-primary" : "border-black/10 text-brand-primary"}`}>
                         <Icon className="w-6 h-6" />
@@ -119,7 +119,7 @@ export default function MetaAdsTrafficSourcePage() {
       </section>
 
       <section className="py-20 border-t border-white/5">
-        <div className="mx-auto max-w-6xl 3xl:max-w-[90rem] 4xl:max-w-[110rem] px-4 sm:px-6 lg:px-8 3xl:px-12 4xl:px-20">
+        <div className="mx-auto max-w-6xl 2xl:max-w-[92%] 4xl:max-w-[110rem] 5xl:max-w-[130rem] 6xl:max-w-[150rem] px-4 sm:px-6 lg:px-8 2xl:px-12 4xl:px-20 5xl:px-28 6xl:px-36">
           <div className="rounded-[32px] border border-white/10 bg-[#0A0A0A] p-6 sm:p-10 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 sm:gap-8">
             <div>
               <h3 className="text-2xl sm:text-3xl font-black text-white tracking-tight">
@@ -127,7 +127,7 @@ export default function MetaAdsTrafficSourcePage() {
                 <span className="text-brand-primary">Meta Ads</span>{" "}
                 com dados limpos?
               </h3>
-              <p className="mt-3 text-gray-300 max-w-2xl 3xl:max-w-[50rem] 4xl:max-w-[70rem]">
+              <p className="mt-3 text-gray-300 max-w-2xl 2xl:max-w-[50rem] 4xl:max-w-[70rem]">
                 Veja os planos e escolha a melhor configuração para seu volume de tráfego.
               </p>
             </div>

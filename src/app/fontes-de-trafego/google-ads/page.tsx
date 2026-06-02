@@ -17,8 +17,8 @@ export default function GoogleAdsPage() {
       <HeroGoogleAds />
 
       <section className="py-16 md:py-24 bg-[#050505]">
-        <div className="max-w-7xl 3xl:max-w-[100rem] 4xl:max-w-[120rem] mx-auto px-6 3xl:px-12 4xl:px-20">
-          <div className="text-center mb-20 max-w-3xl 3xl:max-w-[60rem] 4xl:max-w-[80rem] 3xl:max-w-[60rem] 4xl:max-w-[80rem] mx-auto">
+        <div className="max-w-7xl 2xl:max-w-[92%] 4xl:max-w-[120rem] 5xl:max-w-[140rem] 6xl:max-w-[160rem] mx-auto px-6 2xl:px-12 4xl:px-20 5xl:px-28 6xl:px-36">
+          <div className="text-center mb-20 max-w-3xl 2xl:max-w-[60rem] 4xl:max-w-[80rem] mx-auto">
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white mb-6 tracking-tight text-balance">
               O <span className="text-brand-primary">Google Ads</span> só otimiza tão bem quanto o dado que recebe.
             </h2>
@@ -82,8 +82,8 @@ export default function GoogleAdsPage() {
                   <div
                     className={
                       index % 2 === 1
-                        ? "space-y-6 max-w-2xl 3xl:max-w-[50rem] 4xl:max-w-[70rem] lg:order-2"
-                        : "space-y-6 max-w-2xl 3xl:max-w-[50rem] 4xl:max-w-[70rem] lg:order-1"
+                        ? "space-y-6 max-w-2xl 2xl:max-w-[50rem] 4xl:max-w-[70rem] lg:order-2"
+                        : "space-y-6 max-w-2xl 2xl:max-w-[50rem] 4xl:max-w-[70rem] lg:order-1"
                     }
                   >
                     <div className="w-16 h-16 rounded-2xl bg-brand-primary/10 flex items-center justify-center">
@@ -122,8 +122,8 @@ export default function GoogleAdsPage() {
       </section>
 
       <section id="como-funciona" className="py-16 md:py-24 bg-[#0a0a0a]">
-        <div className="max-w-7xl 3xl:max-w-[100rem] 4xl:max-w-[120rem] mx-auto px-6 3xl:px-12 4xl:px-20">
-          <div className="text-center mb-16 max-w-3xl 3xl:max-w-[60rem] 4xl:max-w-[80rem] 3xl:max-w-[60rem] 4xl:max-w-[80rem] mx-auto">
+        <div className="max-w-7xl 2xl:max-w-[92%] 4xl:max-w-[120rem] 5xl:max-w-[140rem] 6xl:max-w-[160rem] mx-auto px-6 2xl:px-12 4xl:px-20 5xl:px-28 6xl:px-36">
+          <div className="text-center mb-16 max-w-3xl 2xl:max-w-[60rem] 4xl:max-w-[80rem] mx-auto">
             <h2 className="text-4xl md:text-5xl font-black text-white mb-6 tracking-tight">
               Da ativação ao primeiro dado real em minutos
             </h2>

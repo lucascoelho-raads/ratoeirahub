@@ -18,7 +18,7 @@ const galleryItems = [
 export default function GalleryAbout() {
   return (
     <section className="py-16 md:py-32 bg-[#050505]">
-      <div className="max-w-7xl 3xl:max-w-[100rem] 4xl:max-w-[120rem] mx-auto px-4 sm:px-6 lg:px-8 3xl:px-12 4xl:px-20">
+      <div className="max-w-7xl 2xl:max-w-[92%] 4xl:max-w-[120rem] 5xl:max-w-[140rem] 6xl:max-w-[160rem] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-12 4xl:px-20 5xl:px-28 6xl:px-36">
         
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -30,7 +30,7 @@ export default function GalleryAbout() {
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight text-balance">
             O <span className="text-brand-primary">time</span> por trás da <span className="text-brand-primary">plataforma</span>.
           </h2>
-          <p className="mt-4 text-base sm:text-xl text-gray-400 max-w-2xl 2xl:max-w-[36rem] 3xl:max-w-[50rem] 4xl:max-w-[70rem] mx-auto px-4 sm:px-0 text-balance">
+          <p className="mt-4 text-base sm:text-xl text-gray-400 max-w-2xl 2xl:max-w-[50rem] 4xl:max-w-[70rem] mx-auto px-4 sm:px-0 text-balance">
             Um time técnico, direto e obcecado com o problema do anunciante. A Ratoeira não foi construída em sala de reunião — foi construída por quem viveu o problema por dentro.
           </p>
         </motion.div>

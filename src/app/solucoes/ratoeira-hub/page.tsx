@@ -73,12 +73,12 @@ export default function RatoeiraHubPage() {
         >
           <div aria-hidden className="absolute inset-0 z-[1] bg-gradient-to-br from-yellow-500/15 via-orange-500/10 to-transparent" />
           <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-4 pt-[clamp(7rem,16vh,12rem)] pb-[clamp(4.5rem,10vh,8.5rem)]">
-            <div className="max-w-6xl 3xl:max-w-[90rem] 4xl:max-w-[110rem] text-center">
+            <div className="max-w-6xl 2xl:max-w-[92%] 4xl:max-w-[110rem] 5xl:max-w-[130rem] 6xl:max-w-[150rem] text-center">
               <h1 className="text-[clamp(1.25rem,4.2vw,6rem)] font-black text-white tracking-tight leading-[1.04] mb-8 text-balance">
                 Quando Ads e Pages trabalham juntos, sua operação chega onde nenhuma ferramenta sozinha chega.
               </h1>
 
-              <p className="text-base sm:text-[clamp(1.05rem,1.25vw,1.35rem)] text-neutral-400 mb-12 max-w-3xl 2xl:max-w-[44rem] 3xl:max-w-[60rem] 4xl:max-w-[80rem] mx-auto px-4 sm:px-0 text-balance">
+              <p className="text-base sm:text-[clamp(1.05rem,1.25vw,1.35rem)] text-neutral-400 mb-12 max-w-3xl 2xl:max-w-[44rem] 4xl:max-w-[80rem] 5xl:max-w-[90rem] mx-auto px-4 sm:px-0 text-balance">
                 Rastreamento ~100%. Páginas que carregam em menos de 1 segundo. Bloqueio automático de fraude. Tudo integrado
                 via API — e funcionando melhor do que a soma das partes.
               </p>
@@ -95,8 +95,8 @@ export default function RatoeiraHubPage() {
 
               <p className="mt-4 text-sm text-neutral-400">Plano gratuito disponível. Sem cartão.</p>
 
-              <div className="mx-auto mt-12 w-full max-w-6xl 3xl:max-w-[90rem] 4xl:max-w-[110rem]">
-                <div className="relative mx-auto h-[clamp(14rem,30vw,28rem)] w-full max-w-5xl 3xl:max-w-[80rem] 4xl:max-w-[100rem] rounded-2xl border border-white/10 bg-black/20 shadow-2xl shadow-black/60 overflow-hidden">
+              <div className="mx-auto mt-12 w-full max-w-6xl 2xl:max-w-[92%] 4xl:max-w-[110rem] 5xl:max-w-[130rem] 6xl:max-w-[150rem]">
+                <div className="relative mx-auto h-[clamp(14rem,30vw,28rem)] w-full max-w-5xl 2xl:max-w-[80rem] 4xl:max-w-[100rem] rounded-2xl border border-white/10 bg-black/20 shadow-2xl shadow-black/60 overflow-hidden">
                   <Image
                     src="/dashboard.png"
                     alt="Dashboard unificado"
@@ -113,7 +113,7 @@ export default function RatoeiraHubPage() {
       </section>
 
       <section id="como-funciona" className="py-16 md:py-24 bg-[#050505] relative border-t border-white/5">
-        <div className="max-w-7xl 3xl:max-w-[100rem] 4xl:max-w-[120rem] mx-auto px-4 3xl:px-12 4xl:px-20 relative z-10">
+        <div className="max-w-7xl 2xl:max-w-[92%] 4xl:max-w-[120rem] 5xl:max-w-[140rem] 6xl:max-w-[160rem] mx-auto px-4 2xl:px-12 4xl:px-20 5xl:px-28 6xl:px-36 relative z-10">
           <div className="text-center mb-20">
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white mb-6 text-balance">
               Integrado é diferente de{" "}
@@ -122,7 +122,7 @@ export default function RatoeiraHubPage() {
               </span>
               .
             </h2>
-            <p className="text-base sm:text-xl text-gray-400 max-w-2xl 2xl:max-w-[36rem] 3xl:max-w-[50rem] 4xl:max-w-[70rem] mx-auto px-4 sm:px-0 text-balance">
+            <p className="text-base sm:text-xl text-gray-400 max-w-2xl 2xl:max-w-[36rem] 4xl:max-w-[70rem] mx-auto px-4 sm:px-0 text-balance">
               A maioria das ferramentas se conecta. O Ratoeira Hub se integra — via API, em tempo real, sem gap entre o
               clique na página e o dado na campanha.
             </p>
@@ -160,7 +160,7 @@ export default function RatoeiraHubPage() {
                           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(70%_80%_at_50%_50%,rgba(255,184,0,0.16)_0%,rgba(17,17,17,0)_70%)]" />
 
                           <div className="absolute inset-0 flex items-center justify-center px-6">
-                            <div className="w-full max-w-2xl 3xl:max-w-[50rem] 4xl:max-w-[70rem]">
+                            <div className="w-full max-w-2xl 2xl:max-w-[50rem] 4xl:max-w-[70rem]">
                               <div className="flex items-center justify-between gap-4">
                                 <div className="flex items-center gap-2">
                                   <span className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-white/5 border border-white/10 text-white text-sm font-black">
@@ -248,7 +248,7 @@ export default function RatoeiraHubPage() {
                           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(70%_80%_at_50%_40%,rgba(255,184,0,0.14)_0%,rgba(17,17,17,0)_70%)]" />
 
                           <div className="absolute inset-0 flex items-center justify-center px-6">
-                            <div className="w-full max-w-xl 3xl:max-w-[40rem] 4xl:max-w-[60rem] rounded-2xl border border-white/10 bg-black/55 backdrop-blur-md p-5">
+                            <div className="w-full max-w-xl 2xl:max-w-[40rem] 4xl:max-w-[60rem] rounded-2xl border border-white/10 bg-black/55 backdrop-blur-md p-5">
                               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
                                 <div>
                                   <p className="text-[11px] font-semibold text-gray-400/60">Ads (isolado)</p>
@@ -285,7 +285,7 @@ export default function RatoeiraHubPage() {
                           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(70%_80%_at_50%_50%,rgba(255,184,0,0.12)_0%,rgba(17,17,17,0)_70%)]" />
 
                           <div className="absolute inset-0 flex items-center justify-center px-6">
-                            <div className="w-full max-w-2xl 3xl:max-w-[50rem] 4xl:max-w-[70rem] rounded-2xl border border-white/10 bg-black/55 backdrop-blur-md overflow-hidden">
+                            <div className="w-full max-w-2xl 2xl:max-w-[50rem] 4xl:max-w-[70rem] rounded-2xl border border-white/10 bg-black/55 backdrop-blur-md overflow-hidden">
                               <div className="flex items-center justify-between px-5 py-4 border-b border-white/10">
                                 <p className="text-sm font-black text-white">Bloqueios de IP</p>
                                 <span className="rounded-full bg-brand-primary/15 border border-brand-primary/25 px-3 py-1 text-xs font-bold text-brand-primary">
@@ -341,7 +341,7 @@ export default function RatoeiraHubPage() {
                           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(70%_80%_at_50%_40%,rgba(255,184,0,0.12)_0%,rgba(17,17,17,0)_70%)]" />
 
                           <div className="absolute inset-0 flex items-center justify-center px-6">
-                            <div className="w-full max-w-2xl 3xl:max-w-[50rem] 4xl:max-w-[70rem] rounded-2xl border border-white/10 bg-black/55 backdrop-blur-md p-5">
+                            <div className="w-full max-w-2xl 2xl:max-w-[50rem] 4xl:max-w-[70rem] rounded-2xl border border-white/10 bg-black/55 backdrop-blur-md p-5">
                               <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
                                 {[
                                   { step: "1", label: "Criar página", badge: "Pages" },
@@ -400,16 +400,16 @@ export default function RatoeiraHubPage() {
       </section>
 
       <section className="bg-[#050505] flex items-center justify-center min-h-[auto] md:min-h-[clamp(600px,70vh,900px)] py-16 md:py-24">
-        <div className="max-w-6xl 3xl:max-w-[90rem] 4xl:max-w-[110rem] mx-auto px-4 3xl:px-12 4xl:px-20 relative z-20 text-center w-full">
+        <div className="max-w-6xl 2xl:max-w-[92%] 4xl:max-w-[110rem] 5xl:max-w-[130rem] 6xl:max-w-[150rem] mx-auto px-4 2xl:px-12 4xl:px-20 5xl:px-28 6xl:px-36 relative z-20 text-center w-full">
           <h2 className="text-[clamp(1.75rem,6vw,4.5rem)] font-black text-white mb-6 tracking-tight px-4">
             O <GradientText variant="orange" className="font-black">ecossistema completo</GradientText> do tráfego pago. Em um lugar.
           </h2>
-          <p className="text-base sm:text-[clamp(1.1rem,1.25vw,1.5rem)] text-gray-400 max-w-3xl 3xl:max-w-[60rem] 4xl:max-w-[80rem] 3xl:max-w-[60rem] 4xl:max-w-[80rem] mx-auto mb-10 leading-relaxed px-4">
+          <p className="text-base sm:text-[clamp(1.1rem,1.25vw,1.5rem)] text-gray-400 max-w-3xl 2xl:max-w-[60rem] 4xl:max-w-[80rem] mx-auto mb-10 leading-relaxed px-4">
             Ads + Pages integrados via API. Rastreamento ~100%. Páginas abaixo de 1 segundo. Bloqueio automático de fraude.
             Tudo que você precisa para escalar com dado real.
           </p>
 
-          <div className="relative mx-auto mb-10 w-full max-w-6xl 3xl:max-w-[90rem] 4xl:max-w-[110rem]">
+          <div className="relative mx-auto mb-10 w-full max-w-6xl 2xl:max-w-[92%] 4xl:max-w-[110rem] 5xl:max-w-[130rem] 6xl:max-w-[150rem]">
             <div className="absolute -left-6 top-1/2 -translate-y-1/2 hidden lg:block">
               <Image
                 src="/logoraads.png"

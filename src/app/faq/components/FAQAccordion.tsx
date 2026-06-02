@@ -45,7 +45,7 @@ export default function FAQAccordion() {
   };
 
   return (
-    <div className="w-full max-w-3xl 3xl:max-w-[60rem] 4xl:max-w-[80rem] 3xl:max-w-[60rem] 4xl:max-w-[80rem] mx-auto space-y-4">
+    <div className="w-full max-w-3xl 2xl:max-w-[60rem] 4xl:max-w-[80rem] mx-auto space-y-4">
       {faqs.map((faq, index) => {
         const isOpen = openIndex === index;
         return (

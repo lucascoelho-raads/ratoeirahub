@@ -80,7 +80,7 @@ export default function CaseClientView({ caseData }: { caseData: CaseData }) {
         </motion.div>
 
         {/* Conteúdo da Hero */}
-        <div className="relative z-10 w-full max-w-5xl 3xl:max-w-[80rem] 4xl:max-w-[100rem] 3xl:max-w-[80rem] 4xl:max-w-[100rem] mx-auto px-4 3xl:px-12 4xl:px-20 text-center mt-20">
+        <div className="relative z-10 w-full max-w-5xl 2xl:max-w-[92%] 4xl:max-w-[100rem] mx-auto px-4 2xl:px-12 4xl:px-20 text-center mt-20">
           <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -136,7 +136,7 @@ export default function CaseClientView({ caseData }: { caseData: CaseData }) {
       </div>
 
       {/* 2. OVERLAPPING RESULTS BAR */}
-      <div className="relative z-20 max-w-5xl 3xl:max-w-[80rem] 4xl:max-w-[100rem] 3xl:max-w-[80rem] 4xl:max-w-[100rem] mx-auto px-4 3xl:px-12 4xl:px-20 -mt-16 sm:-mt-24 mb-16 sm:mb-32">
+      <div className="relative z-20 max-w-5xl 2xl:max-w-[92%] 4xl:max-w-[100rem] mx-auto px-4 2xl:px-12 4xl:px-20 -mt-16 sm:-mt-24 mb-16 sm:mb-32">
         <motion.div 
           initial="hidden"
           whileInView="visible"
@@ -169,7 +169,7 @@ export default function CaseClientView({ caseData }: { caseData: CaseData }) {
       </div>
 
       {/* 3. CONTEÚDO PRINCIPAL (Editorial Style) */}
-      <div className="max-w-4xl 3xl:max-w-[70rem] 4xl:max-w-[90rem] mx-auto px-4 3xl:px-12 4xl:px-20 pb-16 sm:pb-32">
+      <div className="max-w-4xl 2xl:max-w-[92%] 4xl:max-w-[90rem] mx-auto px-4 2xl:px-12 4xl:px-20 pb-16 sm:pb-32">
         
         {/* O Desafio */}
         <motion.section 
@@ -349,7 +349,7 @@ export default function CaseClientView({ caseData }: { caseData: CaseData }) {
           <div className="absolute inset-0 bg-brand-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
           
           <h3 className="text-2xl sm:text-4xl md:text-5xl font-black mb-4 sm:mb-6 relative z-10">Pronto para ser o próximo case de sucesso?</h3>
-          <p className="text-base sm:text-xl text-gray-400 mb-8 sm:mb-10 max-w-2xl 3xl:max-w-[50rem] 4xl:max-w-[70rem] 3xl:max-w-[50rem] 4xl:max-w-[70rem] mx-auto relative z-10">
+          <p className="text-base sm:text-xl text-gray-400 mb-8 sm:mb-10 max-w-2xl 2xl:max-w-[50rem] 4xl:max-w-[70rem] mx-auto relative z-10">
             Pare de perder dinheiro com tráfego sujo e páginas lentas. Venha para o ecossistema Ratoeira Hub.
           </p>
           <Link

@@ -6,7 +6,7 @@ import { ArrowRight } from "lucide-react";
 export default function CTAPartnerships() {
   return (
     <section id="formulario-parceria" className="py-16 md:py-24 bg-[#050505] relative scroll-mt-20">
-      <div className="max-w-4xl 3xl:max-w-[70rem] 4xl:max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8 3xl:px-12 4xl:px-20 relative z-10">
+      <div className="max-w-4xl 2xl:max-w-[92%] 4xl:max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-12 4xl:px-20 relative z-10">
         {/* Seção 4 — CTA */}
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
@@ -21,7 +21,7 @@ export default function CTAPartnerships() {
           <h2 className="text-2xl sm:text-3xl md:text-5xl font-black text-white mb-6 tracking-tight relative z-10 text-balance">
             Pronto para multiplicar seus ganhos?
           </h2>
-          <p className="text-gray-400 text-base sm:text-lg mb-0 max-w-xl 2xl:max-w-[30rem] 3xl:max-w-[40rem] 4xl:max-w-[60rem] mx-auto relative z-10 text-balance">
+          <p className="text-gray-400 text-base sm:text-lg mb-0 max-w-xl 2xl:max-w-[50rem] 4xl:max-w-[60rem] mx-auto relative z-10 text-balance">
             Já indicou alguém ou quer entrar para o programa? Fale com nosso time agora mesmo.
           </p>
         </motion.div>

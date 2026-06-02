@@ -10,7 +10,7 @@ export default function PlatformCTAAbout() {
       {/* Background Accent */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-orange-100 blur-[120px] rounded-full opacity-50 pointer-events-none" />
 
-      <div className="max-w-7xl 3xl:max-w-[100rem] 4xl:max-w-[120rem] mx-auto px-4 sm:px-6 lg:px-8 3xl:px-12 4xl:px-20 relative z-10">
+      <div className="max-w-7xl 2xl:max-w-[92%] 4xl:max-w-[120rem] 5xl:max-w-[140rem] 6xl:max-w-[160rem] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-12 4xl:px-20 5xl:px-28 6xl:px-36 relative z-10">
         
         {/* Banner "Somos uma plataforma inovadora" */}
         <motion.div
@@ -67,7 +67,7 @@ export default function PlatformCTAAbout() {
             <h2 className="text-2xl sm:text-5xl lg:text-7xl font-black text-gray-900 tracking-tight leading-tight text-center lg:text-left text-balance">
               Vamos <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-amber-500">Transformar</span> sua operação?
             </h2>
-            <p className="text-gray-600 text-lg sm:text-xl max-w-md 2xl:max-w-[28rem] 3xl:max-w-[36rem] 4xl:max-w-[44rem] leading-relaxed text-center lg:text-left mx-auto lg:mx-0 text-balance">
+            <p className="text-gray-600 text-lg sm:text-xl max-w-md 2xl:max-w-[50rem] 4xl:max-w-[64rem] leading-relaxed text-center lg:text-left mx-auto lg:mx-0 text-balance">
               Pare de perder dinheiro com cliques desqualificados. Dê o próximo passo na sua jornada de escala.
             </p>
           </motion.div>
