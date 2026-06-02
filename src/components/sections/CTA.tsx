@@ -28,7 +28,7 @@ export default function CTA() {
         />
       </div>
 
-      <div className="relative max-w-6xl 3xl:max-w-[90rem] 4xl:max-w-[110rem] 5xl:max-w-[130rem] 6xl:max-w-[150rem] mx-auto px-4 sm:px-6 lg:px-8 3xl:px-12 4xl:px-20 5xl:px-28 6xl:px-36 text-center">
+      <div className="relative max-w-6xl 3xl:max-w-[92%] mx-auto px-4 sm:px-6 lg:px-8 3xl:px-12 text-center">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}

@@ -51,7 +51,12 @@ module.exports = {
           subdued: 'var(--color-border-subdued)',
           focus: 'var(--color-border-focus)',
           error: 'var(--color-border-error)',
-        }
+        },
+        "brand-1": "hsl(var(--color-1))",
+        "brand-2": "hsl(var(--color-2))",
+        "brand-3": "hsl(var(--color-3))",
+        "brand-4": "hsl(var(--color-4))",
+        "brand-5": "hsl(var(--color-5))",
       },
       borderRadius: {
         input: 'var(--radius-input)',
@@ -95,13 +100,6 @@ module.exports = {
           lineHeight: 'var(--line-height-body-badge)', 
           fontWeight: 'var(--font-weight-body-badge)' 
         }],
-      },
-      colors: {
-        "brand-1": "hsl(var(--color-1))",
-        "brand-2": "hsl(var(--color-2))",
-        "brand-3": "hsl(var(--color-3))",
-        "brand-4": "hsl(var(--color-4))",
-        "brand-5": "hsl(var(--color-5))",
       },
       keyframes: {
         "gradient-border": {
