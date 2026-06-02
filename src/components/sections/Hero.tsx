@@ -110,7 +110,7 @@ export default function Hero() {
   useEffect(() => {
     const panelInterval = setInterval(() => {
       setActivePanel((prev) => (prev === 0 ? 1 : 0));
-    }, 8000);
+    }, 25000);
     return () => clearInterval(panelInterval);
   }, []);
 
