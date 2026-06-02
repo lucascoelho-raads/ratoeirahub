@@ -132,7 +132,7 @@ export default function Hero() {
                 }}
               />
               <div className="absolute -bottom-[30%] left-1/2 -translate-x-1/2 w-[800px] h-[600px] rounded-full bg-[radial-gradient(circle_at_center,rgba(255,184,0,0.18),transparent_70%)] blur-3xl pointer-events-none" />
-              <div className="relative w-full h-full max-w-7xl 2xl:max-w-[90rem] 3xl:max-w-[120rem] 4xl:max-w-[220rem] mx-auto px-4 sm:px-6 lg:px-12 2xl:px-16 3xl:px-20 4xl:px-28 flex flex-col lg:grid lg:grid-cols-[1fr_1.1fr] 2xl:grid-cols-[1.25fr_1fr] 3xl:grid-cols-[1.35fr_1fr] 4xl:grid-cols-[1.45fr_1fr] gap-6 lg:gap-10 2xl:gap-14 3xl:gap-20 lg:items-start min-w-0 pt-28 lg:pt-32 pb-8 lg:pb-20">
+              <div className="relative w-full h-full max-w-7xl 2xl:max-w-[90rem] 3xl:max-w-[120rem] mx-auto px-4 sm:px-6 lg:px-12 2xl:px-16 3xl:px-20 4xl:px-28 flex flex-col lg:grid lg:grid-cols-[1fr_1.1fr] 2xl:grid-cols-[1.25fr_1fr] 3xl:grid-cols-[1.35fr_1fr] 4xl:grid-cols-[1.45fr_1fr] gap-6 lg:gap-10 2xl:gap-14 3xl:gap-20 lg:items-start min-w-0 pt-28 lg:pt-32 pb-8 lg:pb-20">
                 {/* Texto */}
                 <motion.div
                   variants={containerVariants}
@@ -320,7 +320,7 @@ export default function Hero() {
                   backgroundSize: "120px 120px",
                 }}
               />
-              <div className="relative w-full h-full max-w-7xl 2xl:max-w-[90rem] 3xl:max-w-[120rem] 4xl:max-w-[220rem] mx-auto px-4 sm:px-6 lg:px-12 2xl:px-16 3xl:px-20 4xl:px-28 flex flex-col lg:grid lg:grid-cols-[1fr_1.1fr] 2xl:grid-cols-[1.25fr_1fr] 3xl:grid-cols-[1.35fr_1fr] 4xl:grid-cols-[1.45fr_1fr] gap-6 lg:gap-10 2xl:gap-14 3xl:gap-20 lg:items-start min-w-0 pt-28 lg:pt-32 pb-8 lg:pb-20">
+              <div className="relative w-full h-full max-w-7xl 2xl:max-w-[90rem] 3xl:max-w-[120rem] mx-auto px-4 sm:px-6 lg:px-12 2xl:px-16 3xl:px-20 4xl:px-28 flex flex-col lg:grid lg:grid-cols-[1fr_1.1fr] 2xl:grid-cols-[1.25fr_1fr] 3xl:grid-cols-[1.35fr_1fr] 4xl:grid-cols-[1.45fr_1fr] gap-6 lg:gap-10 2xl:gap-14 3xl:gap-20 lg:items-start min-w-0 pt-28 lg:pt-32 pb-8 lg:pb-20">
                 {/* Texto */}
                 <div className="flex flex-col gap-6">
                   <h2 className="text-[clamp(1.15rem,6vw,3.5rem)] sm:text-[clamp(1.5rem,5vw,4rem)] lg:text-[clamp(2.75rem,3.8vw,4.5rem)] 3xl:text-[clamp(3.5rem,3.2vw,5.5rem)] font-extrabold tracking-tight leading-tight lg:leading-[1.04] text-white break-words text-center lg:text-left text-balance max-w-2xl lg:max-w-4xl 3xl:max-w-5xl 4xl:max-w-6xl mx-auto lg:mx-0">
