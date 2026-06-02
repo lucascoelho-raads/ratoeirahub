@@ -86,11 +86,6 @@ function MegaMenuPanel({
                   )}
                 >
                   <span className="block text-sm font-semibold text-gray-100">{item.label}</span>
-                  {item.description && (
-                    <span className="mt-0.5 block text-xs leading-snug text-gray-200">
-                      {item.description}
-                    </span>
-                  )}
                 </motion.a>
               ))}
             </div>
