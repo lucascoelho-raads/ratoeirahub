@@ -191,7 +191,7 @@ export default function Header() {
       ref={navRef}
       className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-[#0a0a0a]/92 backdrop-blur-xl supports-[backdrop-filter]:bg-[#0a0a0a]/88"
     >
-      <div className="mx-auto w-full max-w-7xl 3xl:max-w-[92%] px-4 sm:px-6 lg:px-8 3xl:px-12">
+      <div className="mx-auto w-full max-w-7xl 2xl:max-w-[92%] 4xl:max-w-[120rem] px-4 sm:px-6 lg:px-8 2xl:px-12 4xl:px-20">
         <div className="flex h-16 items-center justify-between">
           <Logo />
 
