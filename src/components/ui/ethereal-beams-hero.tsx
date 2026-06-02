@@ -454,7 +454,7 @@ export default function EtherealBeamsHero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-[clamp(1.25rem,4.2vw,4.5rem)] lg:text-[clamp(1.25rem,3.2vw,5rem)] font-black text-white tracking-tight leading-[1.04] mb-8 text-balance max-w-3xl lg:max-w-4xl 5xl:max-w-5xl 6xl:max-w-6xl mx-auto"
+            className="text-[clamp(1.25rem,4.2vw,4.5rem)] lg:text-[clamp(1.25rem,3.2vw,5rem)] font-black text-white tracking-tight leading-[1.04] mb-8 text-balance max-w-3xl lg:max-w-5xl 2xl:max-w-6xl 4xl:max-w-7xl mx-auto"
           >
             Rastreamento <span className="text-[#E6A600]">~100%</span>.{" "}
             <span className="text-[#E6A600]">Anti-fraude automático.</span>{" "}
@@ -465,7 +465,7 @@ export default function EtherealBeamsHero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-[clamp(1.05rem,1.25vw,1.35rem)] text-gray-50 mb-12 max-w-3xl 2xl:max-w-[44rem] 4xl:max-w-[80rem] 5xl:max-w-[100rem] 6xl:max-w-[120rem] mx-auto text-balance"
+            className="text-[clamp(1.05rem,1.25vw,1.35rem)] text-gray-50 mb-12 max-w-3xl lg:max-w-4xl 2xl:max-w-5xl 4xl:max-w-6xl mx-auto text-balance"
           >
             Para anunciantes no Google Ads e Meta Ads que precisam de clareza total — não de estimativas. Cada venda rastreada,
             cada fraude bloqueada, cada decisão tomada com dado real.
@@ -501,7 +501,7 @@ export default function EtherealBeamsHero() {
             transition={{ duration: 0.6, delay: 0.45 }}
             className="mx-auto mt-12 w-full max-w-6xl 3xl:max-w-[90rem] 4xl:max-w-[110rem] 5xl:max-w-[130rem] 6xl:max-w-[150rem]"
           >
-            <div className="relative mx-auto h-[clamp(14rem,30vw,28rem)] 5xl:h-[clamp(16rem,25vw,36rem)] 6xl:h-[clamp(18rem,22vw,42rem)] w-full max-w-5xl 2xl:max-w-[80rem] 4xl:max-w-[100rem] 5xl:max-w-[120rem] 6xl:max-w-[140rem] rounded-2xl border border-white/10 bg-black/20 shadow-2xl shadow-black/60 overflow-hidden">
+            <div className="relative mx-auto h-[clamp(14rem,30vw,28rem)] 5xl:h-[clamp(16rem,25vw,36rem)] 6xl:h-[clamp(18rem,22vw,42rem)] w-full max-w-5xl xl:max-w-6xl 2xl:max-w-[85rem] 3xl:max-w-[92rem] 4xl:max-w-[110rem] 5xl:max-w-[120rem] 6xl:max-w-[140rem] rounded-2xl border border-white/10 bg-black/20 shadow-2xl shadow-black/60 overflow-hidden">
               <Image
                 src="/dashboard.png"
                 alt="Dashboard da Ratoeira Ads"

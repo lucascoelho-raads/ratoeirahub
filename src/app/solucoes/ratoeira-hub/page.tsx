@@ -78,7 +78,7 @@ export default function RatoeiraHubPage() {
                 Quando Ads e Pages trabalham juntos, sua operação chega onde nenhuma ferramenta sozinha chega.
               </h1>
 
-              <p className="text-base sm:text-[clamp(1.05rem,1.25vw,1.35rem)] text-neutral-400 mb-12 max-w-3xl 2xl:max-w-[44rem] 4xl:max-w-[80rem] 5xl:max-w-[90rem] mx-auto px-4 sm:px-0 text-balance">
+              <p className="text-base sm:text-[clamp(1.05rem,1.25vw,1.35rem)] text-neutral-400 mb-12 max-w-3xl lg:max-w-4xl 2xl:max-w-5xl 4xl:max-w-6xl mx-auto px-4 sm:px-0 text-balance">
                 Rastreamento ~100%. Páginas que carregam em menos de 1 segundo. Bloqueio automático de fraude. Tudo integrado
                 via API — e funcionando melhor do que a soma das partes.
               </p>
@@ -96,7 +96,7 @@ export default function RatoeiraHubPage() {
               <p className="mt-4 text-sm text-neutral-400">Plano gratuito disponível. Sem cartão.</p>
 
               <div className="mx-auto mt-12 w-full max-w-6xl 2xl:max-w-[92%] 4xl:max-w-[110rem] 5xl:max-w-[130rem] 6xl:max-w-[150rem]">
-                <div className="relative mx-auto h-[clamp(14rem,30vw,28rem)] w-full max-w-5xl 2xl:max-w-[80rem] 4xl:max-w-[100rem] rounded-2xl border border-white/10 bg-black/20 shadow-2xl shadow-black/60 overflow-hidden">
+                <div className="relative mx-auto h-[clamp(14rem,30vw,28rem)] w-full max-w-5xl xl:max-w-6xl 2xl:max-w-[85rem] 3xl:max-w-[92rem] 4xl:max-w-[100rem] rounded-2xl border border-white/10 bg-black/20 shadow-2xl shadow-black/60 overflow-hidden">
                   <Image
                     src="/dashboard.png"
                     alt="Dashboard unificado"
@@ -122,7 +122,7 @@ export default function RatoeiraHubPage() {
               </span>
               .
             </h2>
-            <p className="text-base sm:text-xl text-gray-400 max-w-2xl 2xl:max-w-[36rem] 4xl:max-w-[70rem] mx-auto px-4 sm:px-0 text-balance">
+            <p className="text-base sm:text-xl text-gray-400 max-w-2xl lg:max-w-4xl 2xl:max-w-5xl mx-auto px-4 sm:px-0 text-balance">
               A maioria das ferramentas se conecta. O Ratoeira Hub se integra — via API, em tempo real, sem gap entre o
               clique na página e o dado na campanha.
             </p>
