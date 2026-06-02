@@ -16,10 +16,10 @@ export default function CTAPages() {
           transition={{ duration: 0.7, ease: "easeOut" }}
           className="flex flex-col items-center w-full max-w-6xl 2xl:max-w-[92%] 4xl:max-w-[110rem] mx-auto"
         >
-          <h2 className="text-[clamp(1.15rem,3.2vw,4.5rem)] font-black text-[#111827] mb-6 tracking-tight text-balance">
+          <h2 className="text-[clamp(1.15rem,3.2vw,4.5rem)] 3xl:text-[clamp(2.5rem,3.2vw,5.5rem)] font-black text-[#111827] mb-6 tracking-tight text-balance">
             Sua <span className="text-orange-500">próxima página</span> já poderia estar no ar.
           </h2>
-          <p className="text-[clamp(1.1rem,1.25vw,1.5rem)] text-[#4b5563] max-w-3xl lg:max-w-4xl 2xl:max-w-5xl 4xl:max-w-6xl mx-auto mb-12 leading-relaxed text-balance">
+          <p className="text-[clamp(1.1rem,1.25vw,1.5rem)] 3xl:text-[clamp(1.2rem,1.2vw,1.75rem)] text-[#4b5563] max-w-3xl lg:max-w-4xl 2xl:max-w-5xl 4xl:max-w-6xl mx-auto mb-12 leading-relaxed text-balance">
             Pare de perder tempo com ferramentas que não integram entre si. Com o{" "}
             <span className="text-[#FF7E4A] font-semibold">Ratoeira Pages</span>, você cria, publica e já começa a rastrear — tudo em um lugar, tudo conectado.
           </p>
