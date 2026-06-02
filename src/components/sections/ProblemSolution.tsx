@@ -85,13 +85,13 @@ export default function ProblemSolution() {
           transition={{ duration: 0.7 }}
           className="text-center mb-16 space-y-6"
         >
-          <h2 className="text-2xl sm:text-3xl lg:text-5xl 3xl:text-6xl font-black text-[#111827] leading-tight text-balance max-w-4xl 3xl:max-w-5xl 4xl:max-w-6xl 5xl:max-w-[80rem] 6xl:max-w-[96rem] mx-auto">
+          <h2 className="text-2xl sm:text-3xl lg:text-5xl 3xl:text-7xl font-black text-[#111827] leading-tight text-balance max-w-4xl 3xl:max-w-5xl 4xl:max-w-6xl 5xl:max-w-[80rem] 6xl:max-w-[96rem] mx-auto">
             <span className="text-brand-primary">Tudo</span> que você precisa para dominar o <span className="text-brand-primary">tráfego pago</span>. Em um só <span className="text-brand-primary">lugar</span>.
           </h2>
-          <p className="text-xl 3xl:text-2xl text-[#4b5563] max-w-4xl 2xl:max-w-[56rem] 3xl:max-w-[70rem] 4xl:max-w-[90rem] 5xl:max-w-[110rem] 6xl:max-w-[130rem] mx-auto leading-relaxed text-balance">
+          <p className="text-xl 3xl:text-3xl text-[#4b5563] max-w-4xl 2xl:max-w-[56rem] 3xl:max-w-[70rem] 4xl:max-w-[90rem] 5xl:max-w-[110rem] 6xl:max-w-[130rem] mx-auto leading-relaxed text-balance">
             Quem escala no Google e no Meta não usa ferramentas soltas. Usa um ecossistema onde trackeamento, páginas e dados conversam entre si — e cada real investido tem uma origem rastreada. Operações que migram para o Hub reportam aumento de lucro em até 60%.
           </p>
-          <p className="text-lg 3xl:text-xl text-orange-400 font-semibold text-balance">
+          <p className="text-lg 3xl:text-2xl text-orange-400 font-semibold text-balance">
             Conheça as ferramentas ou combine tudo no Hub para resultado máximo.
           </p>
         </motion.div>
@@ -134,7 +134,7 @@ export default function ProblemSolution() {
           transition={{ duration: 0.5 }}
           className="flex flex-col items-center gap-10"
         >
-          <h3 className="text-xl sm:text-2xl lg:text-3xl 3xl:text-4xl font-bold text-[#111827] text-center text-balance max-w-3xl 5xl:max-w-5xl 6xl:max-w-6xl mx-auto">
+          <h3 className="text-xl sm:text-2xl lg:text-3xl 3xl:text-5xl font-bold text-[#111827] text-center text-balance max-w-3xl 5xl:max-w-5xl 6xl:max-w-6xl mx-auto">
             {activeContent.title}
           </h3>
 
@@ -144,7 +144,7 @@ export default function ProblemSolution() {
               activeTab === "rastreamento" ? "max-w-5xl 3xl:max-w-[80rem] 4xl:max-w-[100rem] 5xl:max-w-[120rem] 6xl:max-w-[140rem]" : "max-w-4xl 3xl:max-w-[70rem] 4xl:max-w-[90rem] 5xl:max-w-[110rem] 6xl:max-w-[130rem]"
             }`}
           >
-            <p className="text-lg 3xl:text-2xl text-[#4b5563] leading-relaxed whitespace-pre-line text-center">
+            <p className="text-lg 3xl:text-3xl text-[#4b5563] leading-relaxed whitespace-pre-line text-center">
               {contentParts[0]}
             </p>
           </div>
@@ -189,7 +189,7 @@ export default function ProblemSolution() {
                           animate={{ opacity: 1, y: 0 }}
                           exit={{ opacity: 0, y: -6 }}
                           transition={{ duration: 0.35, ease: "easeOut" }}
-                          className="text-gray-700 font-semibold text-lg md:text-xl 3xl:text-2xl"
+                          className="text-gray-700 font-semibold text-lg md:text-xl 3xl:text-3xl"
                         >
                           • {activeHighlights[highlightIndex]}
                         </motion.p>
@@ -211,7 +211,7 @@ export default function ProblemSolution() {
               {contentParts.slice(1).map((part, index) => (
                 <p
                   key={`${activeTab}-remaining-${index}`}
-                  className="text-lg 3xl:text-2xl text-[#4b5563] leading-relaxed whitespace-pre-line text-center sm:text-left"
+                  className="text-lg 3xl:text-3xl text-[#4b5563] leading-relaxed whitespace-pre-line text-center sm:text-left"
                 >
                   {part}
                 </p>

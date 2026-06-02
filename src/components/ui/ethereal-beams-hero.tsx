@@ -454,7 +454,7 @@ export default function EtherealBeamsHero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-[clamp(1.25rem,4.2vw,4.5rem)] lg:text-[clamp(1.25rem,3.2vw,5rem)] 3xl:text-[clamp(3rem,3.2vw,5.5rem)] font-black text-white tracking-tight leading-[1.04] mb-8 text-balance max-w-3xl lg:max-w-5xl 2xl:max-w-6xl 4xl:max-w-7xl mx-auto"
+            className="text-[clamp(1.25rem,4.2vw,4.5rem)] lg:text-[clamp(1.25rem,3.2vw,5rem)] 3xl:text-[clamp(4.5rem,3.2vw,6.5rem)] font-black text-white tracking-tight leading-[1.04] mb-8 text-balance max-w-3xl lg:max-w-5xl 2xl:max-w-6xl 4xl:max-w-7xl mx-auto"
           >
             Rastreamento <span className="text-[#E6A600]">~100%</span>.{" "}
             <span className="text-[#E6A600]">Anti-fraude automático.</span>{" "}
@@ -465,7 +465,7 @@ export default function EtherealBeamsHero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-[clamp(1.05rem,1.25vw,1.35rem)] 3xl:text-[clamp(1.125rem,1.2vw,1.5rem)] text-gray-50 mb-12 max-w-3xl lg:max-w-4xl 2xl:max-w-5xl 4xl:max-w-6xl mx-auto text-balance"
+            className="text-[clamp(1.05rem,1.25vw,1.35rem)] 3xl:text-[clamp(1.5rem,1.2vw,2.25rem)] text-gray-50 mb-12 max-w-3xl lg:max-w-4xl 2xl:max-w-5xl 4xl:max-w-6xl mx-auto text-balance"
           >
             Para anunciantes no Google Ads e Meta Ads que precisam de clareza total — não de estimativas. Cada venda rastreada,
             cada fraude bloqueada, cada decisão tomada com dado real.

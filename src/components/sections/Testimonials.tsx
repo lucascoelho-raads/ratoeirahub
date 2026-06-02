@@ -94,11 +94,11 @@ export default function Testimonials() {
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-badge bg-orange-50 border border-orange-200 text-orange-600 text-sm font-semibold">
             <MessageSquare className="w-4 h-4" /> Depoimentos Reais
           </div>
-          <h2 className="text-2xl sm:text-3xl lg:text-5xl 3xl:text-6xl font-black text-white leading-tight text-balance max-w-4xl mx-auto">
+          <h2 className="text-2xl sm:text-3xl lg:text-5xl 3xl:text-7xl font-black text-white leading-tight text-balance max-w-4xl mx-auto">
             Quem{" "}
             <span className="text-orange-600">domina o tráfego</span>, confia na Ratoeira
           </h2>
-          <p className="text-gray-400/70 text-lg sm:text-xl 3xl:text-2xl max-w-xl 2xl:max-w-[34rem] 3xl:max-w-[48rem] 4xl:max-w-[64rem] 5xl:max-w-[80rem] 6xl:max-w-[96rem] mx-auto text-balance">
+          <p className="text-gray-400/70 text-lg sm:text-xl 3xl:text-3xl max-w-xl 2xl:max-w-[34rem] 3xl:max-w-[48rem] 4xl:max-w-[64rem] 5xl:max-w-[80rem] 6xl:max-w-[96rem] mx-auto text-balance">
             Veja o que anunciantes de Google Ads, Meta Ads e gestores de tráfego dizem sobre operar com dado real.
           </p>
         </motion.div>
@@ -153,7 +153,7 @@ export default function Testimonials() {
                   leaveTo="opacity-0 translate-x-4"
                   beforeEnter={heightFix}
                 >
-                  <div className="text-xl sm:text-2xl 3xl:text-3xl 5xl:text-4xl 6xl:text-5xl font-bold text-orange-600 before:content-['\201C'] after:content-['\201D']">
+                  <div className="text-xl sm:text-2xl 3xl:text-4xl 5xl:text-4xl 6xl:text-5xl font-bold text-orange-600 before:content-['\201C'] after:content-['\201D']">
                     {testimonial.quote}
                   </div>
                 </Transition>

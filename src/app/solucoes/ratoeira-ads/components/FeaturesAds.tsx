@@ -82,10 +82,10 @@ export default function FeaturesAds() {
     <section id="como-funciona" className="py-16 md:py-24 bg-[#0a0a0a]">
       <div className="max-w-7xl 2xl:max-w-[92%] 4xl:max-w-[120rem] 5xl:max-w-[140rem] 6xl:max-w-[160rem] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-12 4xl:px-20 5xl:px-28 6xl:px-36">
         <div className="text-center mb-16 max-w-4xl xl:max-w-5xl 2xl:max-w-[65rem] 3xl:max-w-[80rem] 4xl:max-w-[90rem] 5xl:max-w-[100rem] 6xl:max-w-[110rem] mx-auto">
-          <h2 className="text-2xl sm:text-3xl md:text-5xl 3xl:text-6xl font-black text-white mb-6 text-center md:text-left text-balance">
+          <h2 className="text-2xl sm:text-3xl md:text-5xl 3xl:text-7xl font-black text-white mb-6 text-center md:text-left text-balance">
             O fim do <span className="text-brand-primary">achismo</span> no tráfego pago.
           </h2>
-          <p className="text-gray-400 text-base sm:text-lg 3xl:text-xl max-w-3xl xl:max-w-4xl 2xl:max-w-5xl 4xl:max-w-[80rem] 5xl:max-w-[90rem] 6xl:max-w-[100rem] mx-auto text-center md:text-left text-balance">
+          <p className="text-gray-400 text-base sm:text-lg 3xl:text-3xl max-w-3xl xl:max-w-4xl 2xl:max-w-5xl 4xl:max-w-[80rem] 5xl:max-w-[90rem] 6xl:max-w-[100rem] mx-auto text-center md:text-left text-balance">
             A Ratoeira Ads atua em 6 frentes para garantir que você saiba exatamente qual anúncio gerou cada centavo de
             resultado — no Google Ads e no Meta Ads.
           </p>
@@ -105,12 +105,12 @@ export default function FeaturesAds() {
                   <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br from-yellow-500/15 to-orange-500/15 flex items-center justify-center border ${index % 2 === 0 ? "border-black/10" : "border-white/10"}`}>
                     <Icon className="w-8 h-8 text-brand-primary" />
                   </div>
-                  <h3 className="text-2xl sm:text-3xl md:text-4xl 3xl:text-5xl font-black leading-tight">
+                  <h3 className="text-2xl sm:text-3xl md:text-4xl 3xl:text-6xl font-black leading-tight">
                     <GradientText className="font-black">
                       {slide.title}
                     </GradientText>
                   </h3>
-                  <p className={`text-base sm:text-xl 3xl:text-2xl leading-relaxed ${index % 2 === 0 ? "text-[#4b5563]" : "text-gray-400"}`}>
+                  <p className={`text-base sm:text-xl 3xl:text-3xl leading-relaxed ${index % 2 === 0 ? "text-[#4b5563]" : "text-gray-400"}`}>
                     <BlurTextEffect key={`${slide.title}-desc`}>{slide.description}</BlurTextEffect>
                   </p>
                 </div>

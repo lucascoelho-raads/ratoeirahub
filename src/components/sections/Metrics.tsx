@@ -151,7 +151,7 @@ export default function Metrics() {
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 text-yellow-200 text-sm font-medium">
             <BarChart3 className="w-4 h-4" /> Resultados comprovados
           </div>
-          <h2 className="text-2xl sm:text-3xl lg:text-5xl 3xl:text-6xl font-black text-white leading-tight text-balance max-w-4xl mx-auto">
+          <h2 className="text-2xl sm:text-3xl lg:text-5xl 3xl:text-7xl font-black text-white leading-tight text-balance max-w-4xl mx-auto">
             <span className="block">
               <span style={{ color: "var(--color-brand-primary)" }}>Números</span> que falam mais alto
             </span>
@@ -172,11 +172,11 @@ export default function Metrics() {
                 <featured.icon className="w-7 h-7 text-yellow-500" />
               </div>
               <div>
-                <p className="text-white font-bold text-lg 3xl:text-2xl leading-tight">{featured.label}</p>
+                <p className="text-white font-bold text-lg 3xl:text-3xl leading-tight">{featured.label}</p>
                 <p className="text-yellow-200/70 text-sm mt-0.5">{featured.description}</p>
               </div>
             </div>
-            <div className="text-5xl sm:text-6xl md:text-7xl 3xl:text-8xl font-black text-white tabular-nums md:text-right">
+            <div className="text-5xl sm:text-6xl md:text-7xl 3xl:text-9xl font-black text-white tabular-nums md:text-right">
               <Counter target={featured.value} suffix="" />
               <span className="text-yellow-500">{featured.suffix}</span>
             </div>
@@ -197,12 +197,12 @@ export default function Metrics() {
                 <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center">
                   <metric.icon className={`w-5 h-5 ${metric.iconColor}`} />
                 </div>
-                <div className="text-3xl sm:text-4xl 3xl:text-5xl font-black text-white tabular-nums">
+                <div className="text-3xl sm:text-4xl 3xl:text-6xl font-black text-white tabular-nums">
                   <Counter target={metric.value} suffix="" />
                   <span className="text-yellow-500">{metric.suffix}</span>
                 </div>
               </div>
-              <p className="text-white font-semibold text-base 3xl:text-xl leading-tight">{metric.label}</p>
+              <p className="text-white font-semibold text-base 3xl:text-2xl leading-tight">{metric.label}</p>
               <p className="text-gray-400 text-sm mt-1">{metric.description}</p>
             </motion.div>
           ))}
