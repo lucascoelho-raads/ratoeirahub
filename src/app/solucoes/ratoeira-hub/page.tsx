@@ -74,7 +74,7 @@ export default function RatoeiraHubPage() {
           <div aria-hidden className="absolute inset-0 z-[1] bg-gradient-to-br from-yellow-500/15 via-orange-500/10 to-transparent" />
           <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-4 pt-[clamp(7rem,16vh,12rem)] pb-[clamp(4.5rem,10vh,8.5rem)]">
             <div className="max-w-6xl 2xl:max-w-[92%] 4xl:max-w-[110rem] 5xl:max-w-[130rem] 6xl:max-w-[150rem] text-center">
-              <h1 className="text-[clamp(1.25rem,4.2vw,5rem)] lg:text-[clamp(2.75rem,3.2vw,4.5rem)] 3xl:text-[clamp(3.5rem,3.2vw,5.5rem)] font-black text-white tracking-tight leading-[1.04] mb-8 text-balance">
+              <h1 className="text-[clamp(1.25rem,4.2vw,6rem)] 3xl:text-[clamp(3.5rem,3.2vw,5.5rem)] font-black text-white tracking-tight leading-[1.04] mb-8 text-balance">
                 Quando Ads e Pages trabalham juntos, sua operação chega onde nenhuma ferramenta sozinha chega.
               </h1>
 
@@ -401,7 +401,7 @@ export default function RatoeiraHubPage() {
 
       <section className="bg-[#050505] flex items-center justify-center min-h-[auto] md:min-h-[clamp(600px,70vh,900px)] py-16 md:py-24">
         <div className="max-w-6xl 2xl:max-w-[92%] 4xl:max-w-[110rem] 5xl:max-w-[130rem] 6xl:max-w-[150rem] mx-auto px-4 2xl:px-12 4xl:px-20 5xl:px-28 6xl:px-36 relative z-20 text-center w-full">
-          <h2 className="text-[clamp(1.75rem,6vw,4.5rem)] lg:text-[clamp(2rem,3.2vw,4rem)] 3xl:text-[clamp(2.5rem,3.2vw,4.5rem)] font-black text-white mb-6 tracking-tight px-4">
+          <h2 className="text-[clamp(1.75rem,6vw,4.5rem)] 3xl:text-[clamp(2.5rem,3.2vw,4.5rem)] font-black text-white mb-6 tracking-tight px-4">
             O <GradientText variant="orange" className="font-black">ecossistema completo</GradientText> do tráfego pago. Em um lugar.
           </h2>
           <p className="text-base sm:text-[clamp(1.1rem,1.25vw,1.5rem)] 3xl:text-[clamp(1.2rem,1.2vw,1.75rem)] text-gray-400 max-w-3xl 2xl:max-w-[60rem] 4xl:max-w-[80rem] mx-auto mb-10 leading-relaxed px-4">
