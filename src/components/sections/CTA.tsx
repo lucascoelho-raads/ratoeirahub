@@ -41,19 +41,19 @@ export default function CTA() {
           {/* Title */}
           <h2 className="text-2xl sm:text-4xl lg:text-5xl 3xl:text-6xl font-black text-[#111827] leading-tight text-balance max-w-4xl 5xl:max-w-6xl 6xl:max-w-[80rem] mx-auto">
             <span className="block text-[#111827]">Pare de operar no escuro.</span>
-            <span className="block text-lg sm:text-2xl lg:text-3xl font-black text-brand-primary">
+            <span className="block text-lg sm:text-2xl lg:text-3xl 3xl:text-4xl font-black text-brand-primary">
               Cada real investido merece uma origem rastreada.
             </span>
           </h2>
 
           {/* Subtitle */}
-          <p className="text-[#4b5563] text-base sm:text-lg max-w-2xl 2xl:max-w-[40rem] 3xl:max-w-[56rem] 4xl:max-w-[72rem] 5xl:max-w-[90rem] 6xl:max-w-[110rem] mx-auto leading-relaxed text-balance">
+          <p className="text-[#4b5563] text-base sm:text-lg 3xl:text-2xl max-w-2xl 2xl:max-w-[40rem] 3xl:max-w-[56rem] 4xl:max-w-[72rem] 5xl:max-w-[90rem] 6xl:max-w-[110rem] mx-auto leading-relaxed text-balance">
             Configure em minutos. Rastreie cada venda, cada lead, cada clique — no Google e no Meta. Tome as decisões que a maioria adia por falta de dado real.
           </p>
 
           {/* Garantia */}
-          <h3 className="text-xl font-black text-[#111827]">Risco Zero</h3>
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-gray-50 border border-brand-primary/30 rounded-full text-brand-primary text-sm">
+          <h3 className="text-xl 3xl:text-3xl font-black text-[#111827]">Risco Zero</h3>
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-gray-50 border border-brand-primary/30 rounded-full text-brand-primary text-sm 3xl:text-lg">
             <span className="text-green-600">✓</span> Comece no plano gratuito. Sem compromisso, sem cartão. Faça upgrade quando quiser.
           </div>
 

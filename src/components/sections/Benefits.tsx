@@ -105,11 +105,11 @@ export default function Benefits() {
           transition={{ duration: 0.7 }}
           className="text-center mb-20 space-y-6"
         >
-          <h2 className="text-xl sm:text-2xl lg:text-5xl font-black text-text-inverse leading-tight text-balance max-w-4xl 3xl:max-w-5xl 4xl:max-w-6xl 5xl:max-w-[80rem] 6xl:max-w-[96rem] mx-auto">
+          <h2 className="text-xl sm:text-2xl lg:text-5xl 3xl:text-6xl font-black text-text-inverse leading-tight text-balance max-w-4xl 3xl:max-w-5xl 4xl:max-w-6xl 5xl:max-w-[80rem] 6xl:max-w-[96rem] mx-auto">
             Por que <span style={{ color: "var(--color-brand-primary)" }}>+2.600 anunciantes</span> escolheram a{" "}
             <span className="whitespace-normal sm:whitespace-nowrap">Ratoeira Hub</span>
           </h2>
-          <p className="text-gray-400/80 text-lg mx-auto">
+          <p className="text-gray-400/80 text-lg 3xl:text-2xl mx-auto">
             Do primeiro anúncio ao gestor que escala múltiplos clientes —<br />a Ratoeira transforma cada real investido em tráfego numa origem rastreada e numa decisão mais inteligente.
           </p>
         </motion.div>
@@ -149,10 +149,10 @@ export default function Benefits() {
                         <BackgroundPaths reverse={benefit.imageLeft} />
                         <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-[1.2fr_1fr] 3xl:grid-cols-[1.3fr_1fr] 4xl:grid-cols-[1.35fr_1fr] 5xl:grid-cols-[1.45fr_1fr] 6xl:grid-cols-[1.55fr_1fr] gap-10 5xl:gap-16 6xl:gap-20 items-center h-full">
                           <div className={benefit.imageLeft ? "order-2" : "order-1"}>
-                            <h3 className="mt-4 sm:mt-6 text-lg sm:text-xl lg:text-4xl font-black text-gray-50 leading-tight text-center lg:text-left text-balance max-w-2xl lg:max-w-3xl 5xl:max-w-4xl 6xl:max-w-5xl">
+                            <h3 className="mt-4 sm:mt-6 text-lg sm:text-xl lg:text-4xl 3xl:text-5xl font-black text-gray-50 leading-tight text-center lg:text-left text-balance max-w-2xl lg:max-w-3xl 5xl:max-w-4xl 6xl:max-w-5xl">
                               {benefit.title}
                             </h3>
-                            <p className="mt-4 sm:mt-5 text-base sm:text-lg text-gray-200 leading-relaxed text-center lg:text-left text-balance">
+                            <p className="mt-4 sm:mt-5 text-base sm:text-lg 3xl:text-2xl text-gray-200 leading-relaxed text-center lg:text-left text-balance">
                               {benefit.description}
                             </p>
                           </div>
