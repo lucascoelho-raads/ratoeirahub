@@ -828,9 +828,8 @@ export default function PricingTabs() {
           </div>
         </div>
 
-        {/* Desktop View: Cards & Features Separated */}
+        {/* Desktop View: Shared grid for cards & features alignment */}
         <div className="hidden md:block w-full mx-auto">
-          {/* Cards Row */}
           <AnimatePresence mode="wait">
             <motion.div
               key={activeTab}
@@ -838,206 +837,146 @@ export default function PricingTabs() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.4 }}
-              className="mb-16 grid mx-auto"
+              className="mx-auto"
               style={{
-                gridTemplateColumns: `repeat(${plans.length}, 1fr)`,
-                gap: plans.length === 4 ? '20px' : '32px',
+                display: 'grid',
+                gridTemplateColumns: plans.length === 4 ? '200px repeat(4, 1fr)' : '200px repeat(3, 1fr)',
+                columnGap: plans.length === 4 ? '20px' : '32px',
                 maxWidth: '100%',
               }}
             >
-              {/* Pricing Cards */}
-              {plans.map((plan) => (
-                <div
-                  key={plan.name}
-                  className={cn(
-                    "relative flex flex-col rounded-3xl transition-all duration-300",
-                    plans.length === 4 ? "p-5" : "p-8",
-                    plan.popular
-                      ? "bg-[#161616] border-2 border-brand-primary shadow-2xl shadow-brand-primary/10 z-10"
-                      : "bg-[#111111] border border-white/10 hover:border-white/20"
-                  )}
-                >
-                  {plan.popular && (
-                    <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 px-4 py-1 bg-brand-primary text-black text-xs font-black uppercase tracking-widest rounded-full">
-                      <span className="whitespace-normal sm:whitespace-nowrap">Mais Escolhido</span>
-                    </div>
-                  )}
-
-                  <div className="flex-1 flex flex-col">
-                    <div className="mb-8">
-                      <h3 className="text-2xl font-bold text-white mb-2">{plan.name}</h3>
-                      <p className="text-gray-400 text-sm h-10">{plan.description}</p>
-                    </div>
-
-                  <div className="mb-8">
-                    {activeTab === "ads" && billingCycle === "annual" ? (
-                      <div className="flex flex-col">
-                        <span className="text-xs font-bold text-brand-primary uppercase tracking-wider mb-1">12X</span>
-                        <div className="flex items-baseline gap-1">
-                          <span className="text-gray-400 text-lg">R$</span>
-                          <span className="text-3xl sm:text-5xl font-black text-white">
-                            {plan.price.annual}
-                          </span>
-                          <span className="text-gray-400">/mês</span>
-                        </div>
-                        <span className="text-xs text-gray-400 mt-1">
-                          por R${(plan as any).yearlyTotal} à vista
-                        </span>
-                      </div>
-                    ) : activeTab === "ads" && billingCycle === "semiannual" ? (
-                      <div className="flex flex-col">
-                        <span className="text-xs font-bold text-brand-primary uppercase tracking-wider mb-1">6X</span>
-                        <div className="flex items-baseline gap-1">
-                          <span className="text-gray-400 text-lg">R$</span>
-                          <span className="text-3xl sm:text-5xl font-black text-white">
-                            {plan.price.semiannual}
-                          </span>
-                          <span className="text-gray-400">/mês</span>
-                        </div>
-                        <span className="text-xs text-gray-400 mt-1">
-                          por R${(plan as any).semiannualTotal} à vista
-                        </span>
-                      </div>
-                    ) : activeTab === "pages" && billingCycle === "semiannual" ? (
-                      <div className="flex flex-col">
-                        <span className="text-xs font-bold text-brand-primary uppercase tracking-wider mb-1">6X</span>
-                        <div className="flex items-baseline gap-1">
-                          <span className="text-gray-400 text-lg">R$</span>
-                          <span className="text-3xl sm:text-5xl font-black text-white">
-                            {plan.price.semiannual}
-                          </span>
-                          <span className="text-gray-400">/mês</span>
-                        </div>
-                        <span className="text-xs text-gray-400 mt-1">
-                          ou R${(plan as any).semiannualTotal} à vista
-                        </span>
-                      </div>
-                    ) : activeTab === "pages" && billingCycle === "annual" ? (
-                      <div className="flex flex-col">
-                        <span className="text-xs font-bold text-brand-primary uppercase tracking-wider mb-1">12X</span>
-                        <div className="flex items-baseline gap-1">
-                          <span className="text-gray-400 text-lg">R$</span>
-                          <span className="text-3xl sm:text-5xl font-black text-white">
-                            {plan.price.annual}
-                          </span>
-                          <span className="text-gray-400">/mês</span>
-                        </div>
-                        <span className="text-xs text-gray-400 mt-1">
-                          ou R${(plan as any).yearlyTotal} à vista
-                        </span>
-                      </div>
-                    ) : activeTab === "hub" && billingCycle === "annual" ? (
-                      <div className="flex flex-col">
-                        <span className="text-xs font-bold text-brand-primary uppercase tracking-wider mb-1">12X</span>
-                        <div className="flex items-baseline gap-1">
-                          <span className="text-gray-400 text-lg">R$</span>
-                          <span className="text-3xl sm:text-5xl font-black text-white">
-                            {plan.price.annual}
-                          </span>
-                          <span className="text-gray-400">/mês</span>
-                        </div>
-                        <span className="text-xs text-gray-400 mt-1">
-                          ou R${(plan as any).yearlyTotal} à vista
-                        </span>
-                      </div>
-                    ) : activeTab === "hub" && billingCycle === "semiannual" ? (
-                      <div className="flex flex-col">
-                        <span className="text-xs font-bold text-brand-primary uppercase tracking-wider mb-1">6X</span>
-                        <div className="flex items-baseline gap-1">
-                          <span className="text-gray-400 text-lg">R$</span>
-                          <span className="text-3xl sm:text-5xl font-black text-white">
-                            {plan.price.semiannual}
-                          </span>
-                          <span className="text-gray-400">/mês</span>
-                        </div>
-                        <span className="text-xs text-gray-400 mt-1">
-                          ou R${(plan as any).semiannualTotal} à vista
-                        </span>
-                      </div>
-                    ) : (
-                      <div className="flex items-baseline gap-1">
-                        {plan.price.monthly !== "Custom" && plan.price.monthly !== "0" && <span className="text-gray-400 text-lg">R$</span>}
-                        <span className="text-3xl sm:text-5xl font-black text-white">
-                          {plan.price[billingCycle as keyof typeof plan.price] === "0" ? "Grátis" : plan.price[billingCycle as keyof typeof plan.price]}
-                        </span>
-                        {plan.price.monthly !== "Custom" && plan.price.monthly !== "0" && (
-                          <span className="text-gray-400">
-                            {billingCycle === "monthly" ? "/mês" : "/semestre"}
-                          </span>
-                        )}
+              {/* Cards Row - uses subgrid to align with parent columns */}
+              <div style={{ gridColumn: '1 / -1', display: 'grid', gridTemplateColumns: 'subgrid' }}>
+                <div /> {/* empty cell for the 200px label column */}
+                {plans.map((plan) => (
+                  <div
+                    key={plan.name}
+                    className={cn(
+                      "relative flex flex-col rounded-3xl transition-all duration-300",
+                      plans.length === 4 ? "p-5" : "p-8",
+                      plan.popular
+                        ? "bg-[#161616] border-2 border-brand-primary shadow-2xl shadow-brand-primary/10 z-10"
+                        : "bg-[#111111] border border-white/10 hover:border-white/20"
+                    )}
+                  >
+                    {plan.popular && (
+                      <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 px-4 py-1 bg-brand-primary text-black text-xs font-black uppercase tracking-widest rounded-full">
+                        <span className="whitespace-normal sm:whitespace-nowrap">Mais Escolhido</span>
                       </div>
                     )}
-                  </div>
-
-                  {activeTab === "ads" && ADS_LIMITS_BY_PLAN[plan.name] && (
-                    <div className="mb-8">
-                      <div className="h-px w-full bg-brand-primary" />
-                      <div className="mt-5 space-y-3">
-                        <div className="text-xs font-black uppercase tracking-widest gradient-text-animated">
-                          Limites do Plano
-                        </div>
-                        <div className="flex items-center justify-between gap-2 text-sm">
-                          <span className="text-gray-300 truncate">Perfis Google Ads</span>
-                          <span className="font-bold text-white tabular-nums flex-shrink-0">
-                            {ADS_LIMITS_BY_PLAN[plan.name].googleAdsProfiles}
-                          </span>
-                        </div>
-                        <div className="flex items-center justify-between gap-2 text-sm">
-                          <span className="text-gray-300 truncate">Ratoeiras Automáticas</span>
-                          <span className="font-bold text-white tabular-nums flex-shrink-0">
-                            {ADS_LIMITS_BY_PLAN[plan.name].automaticTraps}
-                          </span>
-                        </div>
-                        <div className="flex items-center justify-between gap-2 text-sm">
-                          <span className="text-gray-300 truncate">Integrações</span>
-                          <span className="font-bold text-white flex-shrink-0">
-                            {ADS_LIMITS_BY_PLAN[plan.name].integrations}
-                          </span>
-                        </div>
+  
+                    <div className="flex-1 flex flex-col">
+                      <div className="mb-8">
+                        <h3 className="text-2xl font-bold text-white mb-2">{plan.name}</h3>
+                        <p className="text-gray-400 text-sm h-10">{plan.description}</p>
                       </div>
-                    </div>
-                  )}
-
-                  {activeTab === "pages" && PAGES_LIMITS_BY_PLAN[plan.name] && (
+  
                     <div className="mb-8">
-                      <div className="h-px w-full bg-brand-primary" />
-                      <div className="mt-5 space-y-3">
-                        <div className="text-xs font-black uppercase tracking-widest gradient-text-animated">
-                          Limites do Plano
-                        </div>
-                        <div className="flex items-center justify-between gap-2 text-sm">
-                          <span className="text-gray-300 truncate">Acessos mensais</span>
-                          <span className="font-bold text-white tabular-nums flex-shrink-0">
-                            {PAGES_LIMITS_BY_PLAN[plan.name].monthlyAccesses}
+                      {activeTab === "ads" && billingCycle === "annual" ? (
+                        <div className="flex flex-col">
+                          <span className="text-xs font-bold text-brand-primary uppercase tracking-wider mb-1">12X</span>
+                          <div className="flex items-baseline gap-1">
+                            <span className="text-gray-400 text-lg">R$</span>
+                            <span className="text-3xl sm:text-5xl font-black text-white">
+                              {plan.price.annual}
+                            </span>
+                            <span className="text-gray-400">/mês</span>
+                          </div>
+                          <span className="text-xs text-gray-400 mt-1">
+                            por R${(plan as any).yearlyTotal} à vista
                           </span>
                         </div>
-                        <div className="flex items-center justify-between gap-2 text-sm">
-                          <span className="text-gray-300 truncate">Domínios</span>
-                          <span className="font-bold text-white tabular-nums flex-shrink-0">
-                            {PAGES_LIMITS_BY_PLAN[plan.name].connectedDomains}
+                      ) : activeTab === "ads" && billingCycle === "semiannual" ? (
+                        <div className="flex flex-col">
+                          <span className="text-xs font-bold text-brand-primary uppercase tracking-wider mb-1">6X</span>
+                          <div className="flex items-baseline gap-1">
+                            <span className="text-gray-400 text-lg">R$</span>
+                            <span className="text-3xl sm:text-5xl font-black text-white">
+                              {plan.price.semiannual}
+                            </span>
+                            <span className="text-gray-400">/mês</span>
+                          </div>
+                          <span className="text-xs text-gray-400 mt-1">
+                            por R${(plan as any).semiannualTotal} à vista
                           </span>
                         </div>
-                        <div className="flex items-center justify-between gap-2 text-sm">
-                          <span className="text-gray-300 truncate">Páginas</span>
-                          <span className="font-bold text-white flex-shrink-0">
-                            {PAGES_LIMITS_BY_PLAN[plan.name].unlimitedPages}
+                      ) : activeTab === "pages" && billingCycle === "semiannual" ? (
+                        <div className="flex flex-col">
+                          <span className="text-xs font-bold text-brand-primary uppercase tracking-wider mb-1">6X</span>
+                          <div className="flex items-baseline gap-1">
+                            <span className="text-gray-400 text-lg">R$</span>
+                            <span className="text-3xl sm:text-5xl font-black text-white">
+                              {plan.price.semiannual}
+                            </span>
+                            <span className="text-gray-400">/mês</span>
+                          </div>
+                          <span className="text-xs text-gray-400 mt-1">
+                            ou R${(plan as any).semiannualTotal} à vista
                           </span>
                         </div>
-                      </div>
+                      ) : activeTab === "pages" && billingCycle === "annual" ? (
+                        <div className="flex flex-col">
+                          <span className="text-xs font-bold text-brand-primary uppercase tracking-wider mb-1">12X</span>
+                          <div className="flex items-baseline gap-1">
+                            <span className="text-gray-400 text-lg">R$</span>
+                            <span className="text-3xl sm:text-5xl font-black text-white">
+                              {plan.price.annual}
+                            </span>
+                            <span className="text-gray-400">/mês</span>
+                          </div>
+                          <span className="text-xs text-gray-400 mt-1">
+                            ou R${(plan as any).yearlyTotal} à vista
+                          </span>
+                        </div>
+                      ) : activeTab === "hub" && billingCycle === "annual" ? (
+                        <div className="flex flex-col">
+                          <span className="text-xs font-bold text-brand-primary uppercase tracking-wider mb-1">12X</span>
+                          <div className="flex items-baseline gap-1">
+                            <span className="text-gray-400 text-lg">R$</span>
+                            <span className="text-3xl sm:text-5xl font-black text-white">
+                              {plan.price.annual}
+                            </span>
+                            <span className="text-gray-400">/mês</span>
+                          </div>
+                          <span className="text-xs text-gray-400 mt-1">
+                            ou R${(plan as any).yearlyTotal} à vista
+                          </span>
+                        </div>
+                      ) : activeTab === "hub" && billingCycle === "semiannual" ? (
+                        <div className="flex flex-col">
+                          <span className="text-xs font-bold text-brand-primary uppercase tracking-wider mb-1">6X</span>
+                          <div className="flex items-baseline gap-1">
+                            <span className="text-gray-400 text-lg">R$</span>
+                            <span className="text-3xl sm:text-5xl font-black text-white">
+                              {plan.price.semiannual}
+                            </span>
+                            <span className="text-gray-400">/mês</span>
+                          </div>
+                          <span className="text-xs text-gray-400 mt-1">
+                            ou R${(plan as any).semiannualTotal} à vista
+                          </span>
+                        </div>
+                      ) : (
+                        <div className="flex items-baseline gap-1">
+                          {plan.price.monthly !== "Custom" && plan.price.monthly !== "0" && <span className="text-gray-400 text-lg">R$</span>}
+                          <span className="text-3xl sm:text-5xl font-black text-white">
+                            {plan.price[billingCycle as keyof typeof plan.price] === "0" ? "Grátis" : plan.price[billingCycle as keyof typeof plan.price]}
+                          </span>
+                          {plan.price.monthly !== "Custom" && plan.price.monthly !== "0" && (
+                            <span className="text-gray-400">
+                              {billingCycle === "monthly" ? "/mês" : "/semestre"}
+                            </span>
+                          )}
+                        </div>
+                      )}
                     </div>
-                  )}
-
-                  {activeTab === "hub" && ADS_LIMITS_BY_PLAN[plan.name] && PAGES_LIMITS_BY_PLAN[plan.name] && (
-                    <div className="mb-8">
-                      <div className="h-px w-full bg-brand-primary" />
-                      <div className="mt-5 space-y-5">
-                        <div className="text-xs font-black uppercase tracking-widest gradient-text-animated">
-                          Limites do Plano
-                        </div>
-
-                        <div className="space-y-3">
-                          <div className="text-[11px] font-black uppercase tracking-widest text-[#FFB800]">
-                            Ratoeira Ads
+  
+                    {activeTab === "ads" && ADS_LIMITS_BY_PLAN[plan.name] && (
+                      <div className="mb-8">
+                        <div className="h-px w-full bg-brand-primary" />
+                        <div className="mt-5 space-y-3">
+                          <div className="text-xs font-black uppercase tracking-widest gradient-text-animated">
+                            Limites do Plano
                           </div>
                           <div className="flex items-center justify-between gap-2 text-sm">
                             <span className="text-gray-300 truncate">Perfis Google Ads</span>
@@ -1058,10 +997,15 @@ export default function PricingTabs() {
                             </span>
                           </div>
                         </div>
-
-                        <div className="space-y-3">
-                          <div className="text-[11px] font-black uppercase tracking-widest text-[#FF7E4A]">
-                            Ratoeira Pages
+                      </div>
+                    )}
+  
+                    {activeTab === "pages" && PAGES_LIMITS_BY_PLAN[plan.name] && (
+                      <div className="mb-8">
+                        <div className="h-px w-full bg-brand-primary" />
+                        <div className="mt-5 space-y-3">
+                          <div className="text-xs font-black uppercase tracking-widest gradient-text-animated">
+                            Limites do Plano
                           </div>
                           <div className="flex items-center justify-between gap-2 text-sm">
                             <span className="text-gray-300 truncate">Acessos mensais</span>
@@ -1083,89 +1027,156 @@ export default function PricingTabs() {
                           </div>
                         </div>
                       </div>
-                    </div>
-                  )}
-                  </div>
-                  <a
-                    href="/planos#vamos-transformar"
-                    className={cn(
-                      "w-full py-4 rounded-button font-bold text-sm transition-colors mt-auto text-center block",
-                      plan.popular
-                        ? "bg-brand-primary text-black hover:bg-brand-primary-hover shadow-lg shadow-brand-primary/20"
-                        : "bg-white/10 text-white hover:bg-white/20"
                     )}
-                  >
-                    {plan.cta}
-                  </a>
-                </div>
-              ))}
-            </motion.div>
-          </AnimatePresence>
-          <div className="mt-6 text-center">
-            <p className="text-xs text-brand-primary">
-              * Renovação automática - Ao prosseguir você concorda que a assinatura será renovada automaticamente.
-            </p>
-          </div>
-
-          {/* Features Table */}
-          <div className="mt-16">
-            {/* Sticky header — mesma estrutura de colunas do grid pai */}
-            <div className="sticky top-20 z-20 -mt-6 mb-6">
-              <div
-                className="grid items-center py-3 border-b border-white/10 bg-black/80 backdrop-blur-md"
-                style={{
-                  gridTemplateColumns: plans.length === 4 ? '200px repeat(4, 1fr)' : '200px repeat(3, 1fr)',
-                  columnGap: plans.length === 4 ? '20px' : '32px',
-                }}
-              >
-                <div /> {/* coluna de label — vazia no header */}
-                {plans.length === 4 && <div />} {/* coluna Gratuito — vazia no header */}
-                {(plans.length === 4 ? plans.slice(1) : plans).map((plan) => (
-                  <div
-                    key={`plan-col-${activeTab}-${plan.name}`}
-                    className="flex justify-center text-xs font-bold uppercase tracking-widest text-gray-400"
-                  >
-                    {plan.name}
+  
+                    {activeTab === "hub" && ADS_LIMITS_BY_PLAN[plan.name] && PAGES_LIMITS_BY_PLAN[plan.name] && (
+                      <div className="mb-8">
+                        <div className="h-px w-full bg-brand-primary" />
+                        <div className="mt-5 space-y-5">
+                          <div className="text-xs font-black uppercase tracking-widest gradient-text-animated">
+                            Limites do Plano
+                          </div>
+  
+                          <div className="space-y-3">
+                            <div className="text-[11px] font-black uppercase tracking-widest text-[#FFB800]">
+                              Ratoeira Ads
+                            </div>
+                            <div className="flex items-center justify-between gap-2 text-sm">
+                              <span className="text-gray-300 truncate">Perfis Google Ads</span>
+                              <span className="font-bold text-white tabular-nums flex-shrink-0">
+                                {ADS_LIMITS_BY_PLAN[plan.name].googleAdsProfiles}
+                              </span>
+                            </div>
+                            <div className="flex items-center justify-between gap-2 text-sm">
+                              <span className="text-gray-300 truncate">Ratoeiras Automáticas</span>
+                              <span className="font-bold text-white tabular-nums flex-shrink-0">
+                                {ADS_LIMITS_BY_PLAN[plan.name].automaticTraps}
+                              </span>
+                            </div>
+                            <div className="flex items-center justify-between gap-2 text-sm">
+                              <span className="text-gray-300 truncate">Integrações</span>
+                              <span className="font-bold text-white flex-shrink-0">
+                                {ADS_LIMITS_BY_PLAN[plan.name].integrations}
+                              </span>
+                            </div>
+                          </div>
+  
+                          <div className="space-y-3">
+                            <div className="text-[11px] font-black uppercase tracking-widest text-[#FF7E4A]">
+                              Ratoeira Pages
+                            </div>
+                            <div className="flex items-center justify-between gap-2 text-sm">
+                              <span className="text-gray-300 truncate">Acessos mensais</span>
+                              <span className="font-bold text-white tabular-nums flex-shrink-0">
+                                {PAGES_LIMITS_BY_PLAN[plan.name].monthlyAccesses}
+                              </span>
+                            </div>
+                            <div className="flex items-center justify-between gap-2 text-sm">
+                              <span className="text-gray-300 truncate">Domínios</span>
+                              <span className="font-bold text-white tabular-nums flex-shrink-0">
+                                {PAGES_LIMITS_BY_PLAN[plan.name].connectedDomains}
+                              </span>
+                            </div>
+                            <div className="flex items-center justify-between gap-2 text-sm">
+                              <span className="text-gray-300 truncate">Páginas</span>
+                              <span className="font-bold text-white flex-shrink-0">
+                                {PAGES_LIMITS_BY_PLAN[plan.name].unlimitedPages}
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    )}
+                    </div>
+                    <a
+                      href="/planos#vamos-transformar"
+                      className={cn(
+                        "w-full py-4 rounded-button font-bold text-sm transition-colors mt-auto text-center block",
+                        plan.popular
+                          ? "bg-brand-primary text-black hover:bg-brand-primary-hover shadow-lg shadow-brand-primary/20"
+                          : "bg-white/10 text-white hover:bg-white/20"
+                      )}
+                    >
+                      {plan.cta}
+                    </a>
                   </div>
                 ))}
               </div>
-            </div>
 
-            {comparisonGroups.map((group, gi) => (
-              <div key={group.group} className="mb-12">
-                <div className="mb-4 text-sm font-bold uppercase tracking-widest text-brand-primary border-b border-white/10 pb-4 whitespace-pre-line">
-                  {group.group}
-                </div>
+              <div style={{ gridColumn: '1 / -1' }} className="mt-6 text-center">
+                <p className="text-xs text-brand-primary">
+                  * Renovação automática - Ao prosseguir você concorda que a assinatura será renovada automaticamente.
+                </p>
+              </div>
 
-                <div className="space-y-0">
-                  {group.features.map((feature, fi) => (
+              {/* Features Table */}
+              <div style={{ gridColumn: '1 / -1', display: 'grid', gridTemplateColumns: 'subgrid' }} className="mt-16">
+                {/* Sticky header */}
+                <div className="sticky top-20 z-20 -mt-6 mb-6" style={{ gridColumn: '1 / -1', display: 'grid', gridTemplateColumns: 'subgrid' }}>
+                  <div
+                    className="grid items-center py-3 border-b border-white/10 bg-black/80 backdrop-blur-md"
+                    style={{ gridColumn: '1 / -1', gridTemplateColumns: 'subgrid' }}
+                  >
+                    <div /> {/* coluna de label — vazia no header */}
                     <div
-                      key={feature.label}
-                      className="grid items-center border-b border-white/5 last:border-0 hover:bg-white/[0.02] transition-colors py-6"
+                      className="grid"
                       style={{
-                        gridTemplateColumns: plans.length === 4 ? '200px repeat(4, 1fr)' : '200px repeat(3, 1fr)',
-                        columnGap: plans.length === 4 ? '20px' : '32px',
+                        gridColumn: plans.length === 4 ? '3 / 6' : '2 / 5',
+                        gridTemplateColumns: 'subgrid',
                       }}
                     >
-                      {/* Label em fluxo — primeira coluna (200px) */}
-                      <div className="text-left text-sm text-gray-300 font-medium leading-snug">
-                        {feature.label}
-                      </div>
-
-                      {plans.length === 4 && <div />} {/* coluna Gratuito — vazia */}
-
-                      {/* Colunas de valores */}
-                      {feature.values.map((val, vi) => (
-                        <div key={vi} className="flex justify-center text-white">
-                          <FeatureCell value={val} />
+                      {(plans.length === 4 ? plans.slice(1) : plans).map((plan) => (
+                        <div
+                          key={`plan-col-${activeTab}-${plan.name}`}
+                          className="flex justify-center text-xs font-bold uppercase tracking-widest text-gray-400"
+                        >
+                          {plan.name}
                         </div>
                       ))}
                     </div>
-                  ))}
+                  </div>
                 </div>
+
+                {comparisonGroups.map((group, gi) => (
+                  <div key={group.group} className="mb-12" style={{ gridColumn: '1 / -1', display: 'grid', gridTemplateColumns: 'subgrid' }}>
+                    <div className="mb-4 text-sm font-bold uppercase tracking-widest text-brand-primary border-b border-white/10 pb-4 whitespace-pre-line" style={{ gridColumn: '1 / -1' }}>
+                      {group.group}
+                    </div>
+
+                    <div className="space-y-0">
+                      {group.features.map((feature, fi) => (
+                        <div
+                          key={feature.label}
+                          className="grid items-center border-b border-white/5 last:border-0 hover:bg-white/[0.02] transition-colors py-6"
+                          style={{ gridColumn: '1 / -1', gridTemplateColumns: 'subgrid' }}
+                        >
+                          {/* Label em fluxo — primeira coluna (200px) */}
+                          <div className="text-left text-xs text-gray-300 font-medium leading-snug">
+                            {feature.label}
+                          </div>
+
+                          {/* Colunas de valores — alinhadas com os cards (pulando Gratuito) */}
+                          <div
+                            className="grid"
+                            style={{
+                              gridColumn: plans.length === 4 ? '3 / 6' : '2 / 5',
+                              gridTemplateColumns: 'subgrid',
+                            }}
+                          >
+                            {feature.values.map((val, vi) => (
+                              <div key={vi} className="flex justify-center text-white">
+                                <FeatureCell value={val} />
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                ))}
               </div>
-            ))}
-          </div>
+            </motion.div>
+          </AnimatePresence>
         </div>
       </div>
     </section>
