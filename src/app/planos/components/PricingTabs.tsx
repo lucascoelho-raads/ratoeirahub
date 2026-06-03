@@ -1159,7 +1159,7 @@ export default function PricingTabs() {
                       }}
                     >
                       {/* Label em fluxo — primeira coluna (200px) */}
-                      <div className="text-right text-sm text-gray-300 font-medium pr-4 leading-snug">
+                      <div className="text-left text-sm text-gray-300 font-medium leading-snug">
                         {feature.label}
                       </div>
 

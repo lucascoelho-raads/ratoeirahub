@@ -12,21 +12,11 @@ export default function CTA() {
   return (
     <section
       ref={ref}
-      className="py-16 md:py-28 relative overflow-hidden bg-[#f9fafb]"
+      className="py-16 md:py-28 relative overflow-hidden bg-gray-100"
       id="parcerias"
     >
       {/* Background decoration */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-0 right-1/4 w-96 h-96 5xl:w-[28rem] 5xl:h-[28rem] 6xl:w-[36rem] 6xl:h-[36rem] rounded-full bg-brand-primary/10 blur-3xl" />
-        <div className="absolute bottom-0 left-1/4 w-72 h-72 5xl:w-[22rem] 5xl:h-[22rem] 6xl:w-[28rem] 6xl:h-[28rem] rounded-full bg-brand-secondary/10 blur-3xl" />
-        <div
-          className="absolute inset-0 opacity-25"
-          style={{
-            backgroundImage: "radial-gradient(circle, rgba(0,0,0,0.08) 1px, transparent 1px)",
-            backgroundSize: "36px 36px",
-          }}
-        />
-      </div>
+      <div className="absolute inset-0 pointer-events-none" />
 
       <div className="relative max-w-6xl 2xl:max-w-[92%] 4xl:max-w-[110rem] 5xl:max-w-[130rem] 6xl:max-w-[150rem] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-12 4xl:px-20 5xl:px-28 6xl:px-36 text-center">
         <motion.div
@@ -53,7 +43,7 @@ export default function CTA() {
 
           {/* Garantia */}
           <h3 className="text-xl 3xl:text-4xl font-black text-[#111827]">Risco Zero</h3>
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-gray-50 border border-brand-primary/30 rounded-full text-brand-primary text-sm 3xl:text-lg">
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-gray-50 border border-yellow-600/30 rounded-full text-yellow-600 text-sm 3xl:text-lg">
             <span className="text-green-600">✓</span> Comece no plano gratuito. Sem compromisso, sem cartão. Faça upgrade quando quiser.
           </div>
 
