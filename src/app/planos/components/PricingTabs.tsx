@@ -230,12 +230,12 @@ const plansData = {
       name: "Rato",
       description: "O combo ideal para iniciar sua escala integrada.",
       price: {
-        monthly: "147,75",
-        semiannual: "137,12",
-        annual: "118,56",
+        monthly: "197,00",
+        semiannual: "182,83",
+        annual: "158,08",
       },
-      semiannualTotal: "822,75",
-      yearlyTotal: "1.422,75",
+      semiannualTotal: "1.097,00",
+      yearlyTotal: "1.897,00",
       features: [
         "Ads Iniciante + Pages Starter",
         "10.000 eventos + 5.000 visitas",
@@ -250,12 +250,12 @@ const plansData = {
       name: "Ratazana",
       description: "Tudo que o ecossistema Ratoeira pode oferecer.",
       price: {
-        monthly: "222,75",
-        semiannual: "199,63",
-        annual: "162,31",
+        monthly: "297,00",
+        semiannual: "266,17",
+        annual: "216,66",
       },
-      semiannualTotal: "1.197,75",
-      yearlyTotal: "1.947,75",
+      semiannualTotal: "1.597,00",
+      yearlyTotal: "2.599,92",
       features: [
         "Ads Profissional + Pages Growth",
         "50.000 eventos + 25.000 visitas",
@@ -270,12 +270,12 @@ const plansData = {
       name: "Ratazana Plus",
       description: "Para agências e grandes infoprodutores.",
       price: {
-        monthly: "372,75",
-        semiannual: "324,62",
-        annual: "312,31",
+        monthly: "497,00",
+        semiannual: "432,83",
+        annual: "416,41",
       },
-      semiannualTotal: "1.947,75",
-      yearlyTotal: "3.747,75",
+      semiannualTotal: "2.597,00",
+      yearlyTotal: "4.996,92",
       features: [
         "Volume customizado de eventos/visitas",
         "Infraestrutura dedicada",
@@ -829,17 +829,7 @@ export default function PricingTabs() {
         </div>
 
         {/* Desktop View: Cards & Features Separated */}
-        <div
-          className="hidden md:block w-full mx-auto"
-          style={{
-            display: 'grid',
-            gridTemplateColumns: plans.length === 4 ? '200px repeat(4, 1fr)' : '200px repeat(3, 1fr)',
-            columnGap: plans.length === 4 ? '20px' : '32px',
-          }}
-        >
-          {/* Placeholder vazio na coluna de labels — alinha com a linha dos cards */}
-          <div style={{ gridRow: 1, gridColumn: 1 }} />
-
+        <div className="hidden md:block w-full mx-auto">
           {/* Cards Row */}
           <AnimatePresence mode="wait">
             <motion.div
@@ -848,12 +838,11 @@ export default function PricingTabs() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.4 }}
-              className="mb-16"
+              className="mb-16 grid mx-auto"
               style={{
-                gridRow: 1,
-                gridColumn: '2 / -1',
-                display: 'grid',
-                gridTemplateColumns: 'subgrid',
+                gridTemplateColumns: `repeat(${plans.length}, 1fr)`,
+                gap: plans.length === 4 ? '20px' : '32px',
+                maxWidth: '100%',
               }}
             >
               {/* Pricing Cards */}
@@ -1112,14 +1101,14 @@ export default function PricingTabs() {
               ))}
             </motion.div>
           </AnimatePresence>
-          <div className="mt-6 text-center" style={{ gridColumn: '1 / -1', gridRow: 2 }}>
+          <div className="mt-6 text-center">
             <p className="text-xs text-brand-primary">
               * Renovação automática - Ao prosseguir você concorda que a assinatura será renovada automaticamente.
             </p>
           </div>
 
           {/* Features Table */}
-          <div className="mt-16" style={{ gridColumn: '1 / -1', gridRow: 3 }}>
+          <div className="mt-16">
             {/* Sticky header — mesma estrutura de colunas do grid pai */}
             <div className="sticky top-20 z-20 -mt-6 mb-6">
               <div
@@ -1165,7 +1154,7 @@ export default function PricingTabs() {
 
                       {plans.length === 4 && <div />} {/* coluna Gratuito — vazia */}
 
-                      {/* Colunas de valores — alinhadas com os cards acima via subgrid */}
+                      {/* Colunas de valores */}
                       {feature.values.map((val, vi) => (
                         <div key={vi} className="flex justify-center text-white">
                           <FeatureCell value={val} />
