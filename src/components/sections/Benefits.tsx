@@ -167,15 +167,15 @@ export default function Benefits() {
                                 />
                               </div>
                             ) : activeIndex === 4 ? (
-                              <div className="relative aspect-[9/16] max-w-[260px] sm:max-w-[300px] 5xl:max-w-[380px] 6xl:max-w-[460px] max-h-full mx-auto">
+                              <div className="relative aspect-[9/19.5] max-w-[260px] sm:max-w-[300px] 5xl:max-w-[380px] 6xl:max-w-[460px] max-h-full mx-auto rounded-[2.5rem] overflow-hidden">
                                 <video
-                                  src="/slide5home.mp4"
+                                  src="/videos/slide5.mp4"
                                   autoPlay
                                   muted
                                   loop
                                   playsInline
                                   preload="auto"
-                                  className="w-full h-full object-contain rounded-card border border-border-default"
+                                  className="w-full h-full object-cover"
                                 />
                               </div>
                             ) : (
