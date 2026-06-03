@@ -132,7 +132,7 @@ export default function Hero() {
                 }}
               />
               <div className="absolute -bottom-[30%] left-1/2 -translate-x-1/2 w-[clamp(800px,40vw,1600px)] h-[clamp(600px,30vw,1200px)] rounded-full bg-[radial-gradient(circle_at_center,rgba(255,184,0,0.18),transparent_70%)] blur-3xl pointer-events-none" />
-              <div className="relative w-full h-full max-w-7xl 2xl:max-w-[92%] 4xl:max-w-[120rem] 5xl:max-w-[140rem] 6xl:max-w-[160rem] mx-auto px-4 sm:px-6 lg:px-12 2xl:px-16 4xl:px-28 5xl:px-36 6xl:px-44 flex flex-col lg:grid lg:grid-cols-[1fr_1.1fr] 2xl:grid-cols-[1.25fr_1fr] 3xl:grid-cols-[1.35fr_1fr] 4xl:grid-cols-[1.45fr_1fr] 5xl:grid-cols-[1.3fr_1.2fr] 6xl:grid-cols-[1.65fr_1fr] gap-6 lg:gap-10 2xl:gap-14 3xl:gap-20 5xl:gap-28 6xl:gap-36 lg:items-start min-w-0 pt-28 lg:pt-32 pb-8 lg:pb-20">
+              <div className="relative w-full h-full max-w-7xl 2xl:max-w-[92%] 4xl:max-w-[120rem] 5xl:max-w-[130rem] 6xl:max-w-[148rem] mx-auto px-4 sm:px-6 lg:px-12 2xl:px-16 4xl:px-28 5xl:px-40 6xl:px-52 flex flex-col lg:grid lg:grid-cols-[1fr_1.1fr] 2xl:grid-cols-[1.25fr_1fr] 3xl:grid-cols-[1.35fr_1fr] 4xl:grid-cols-[1.45fr_1fr] 5xl:grid-cols-[1.15fr_1fr] 6xl:grid-cols-[1.25fr_1fr] gap-6 lg:gap-10 2xl:gap-14 3xl:gap-20 5xl:gap-16 6xl:gap-20 lg:items-start min-w-0 pt-28 lg:pt-32 pb-8 lg:pb-20">
                 {/* Texto */}
                 <motion.div
                   variants={containerVariants}
@@ -142,7 +142,7 @@ export default function Hero() {
                 >
                   <motion.h1
                     variants={itemVariants}
-                    className="text-[clamp(1.25rem,8vw,5.25rem)] lg:text-[clamp(2.75rem,3.8vw,4.5rem)] 3xl:text-[clamp(3.5rem,3.2vw,5.5rem)] font-extrabold tracking-tight leading-[1.04] break-words text-center lg:text-left text-balance max-w-2xl lg:max-w-4xl 3xl:max-w-5xl 4xl:max-w-6xl 5xl:max-w-[80rem] 6xl:max-w-[100rem] mx-auto lg:mx-0"
+                    className="text-[clamp(1.25rem,8vw,5.25rem)] lg:text-[clamp(2.75rem,3.8vw,4.5rem)] 3xl:text-[clamp(3.5rem,3.2vw,5.5rem)] font-extrabold tracking-tight leading-[1.04] break-words text-center lg:text-left text-balance max-w-2xl lg:max-w-4xl 3xl:max-w-5xl 4xl:max-w-6xl 5xl:max-w-[64rem] 6xl:max-w-[72rem] mx-auto lg:mx-0"
                   >
                     <span className="text-white">Cada venda tem uma origem.</span>
                     <br />
@@ -151,7 +151,7 @@ export default function Hero() {
 
                   <motion.p
                     variants={itemVariants}
-                    className="text-[clamp(1rem,1.15vw,1.125rem)] 3xl:text-[clamp(1.125rem,1.2vw,1.5rem)] text-gray-400/70 leading-relaxed max-w-xl 2xl:max-w-[34rem] 3xl:max-w-[46rem] 4xl:max-w-[56rem] 5xl:max-w-[72rem] 6xl:max-w-[90rem] text-center lg:text-left"
+                    className="text-[clamp(1rem,1.15vw,1.125rem)] 3xl:text-[clamp(1.125rem,1.2vw,1.5rem)] text-gray-400/70 leading-relaxed max-w-xl 2xl:max-w-[34rem] 3xl:max-w-[46rem] 4xl:max-w-[56rem] 5xl:max-w-[48rem] 6xl:max-w-[56rem] text-center lg:text-left"
                   >
                     Operações reais reportam aumento de lucro em até 60% quando passam a rastrear com dado real. Cada clique, cada lead, cada venda — origem rastreada no Google e no Meta, em tempo real.
                   </motion.p>
@@ -320,16 +320,16 @@ export default function Hero() {
                   backgroundSize: "120px 120px",
                 }}
               />
-              <div className="relative w-full h-full max-w-7xl 2xl:max-w-[92%] 4xl:max-w-[120rem] 5xl:max-w-[140rem] 6xl:max-w-[160rem] mx-auto px-4 sm:px-6 lg:px-12 2xl:px-16 4xl:px-28 5xl:px-36 6xl:px-44 flex flex-col lg:grid lg:grid-cols-[1fr_1.1fr] 2xl:grid-cols-[1.25fr_1fr] 3xl:grid-cols-[1.35fr_1fr] 4xl:grid-cols-[1.45fr_1fr] 5xl:grid-cols-[1.3fr_1.2fr] 6xl:grid-cols-[1.65fr_1fr] gap-6 lg:gap-10 2xl:gap-14 3xl:gap-20 5xl:gap-28 6xl:gap-36 lg:items-start min-w-0 pt-28 lg:pt-32 pb-8 lg:pb-20">
+              <div className="relative w-full h-full max-w-7xl 2xl:max-w-[92%] 4xl:max-w-[120rem] 5xl:max-w-[130rem] 6xl:max-w-[148rem] mx-auto px-4 sm:px-6 lg:px-12 2xl:px-16 4xl:px-28 5xl:px-40 6xl:px-52 flex flex-col lg:grid lg:grid-cols-[1fr_1.1fr] 2xl:grid-cols-[1.25fr_1fr] 3xl:grid-cols-[1.35fr_1fr] 4xl:grid-cols-[1.45fr_1fr] 5xl:grid-cols-[1.15fr_1fr] 6xl:grid-cols-[1.25fr_1fr] gap-6 lg:gap-10 2xl:gap-14 3xl:gap-20 5xl:gap-16 6xl:gap-20 lg:items-start min-w-0 pt-28 lg:pt-32 pb-8 lg:pb-20">
                 {/* Texto */}
                 <div className="flex flex-col gap-6">
-                  <h2 className="text-[clamp(1.15rem,6vw,3.5rem)] sm:text-[clamp(1.5rem,5vw,4rem)] lg:text-[clamp(2.75rem,3.8vw,4.5rem)] 3xl:text-[clamp(3.5rem,3.2vw,5.5rem)] font-extrabold tracking-tight leading-tight lg:leading-[1.04] text-white break-words text-center lg:text-left text-balance max-w-2xl lg:max-w-4xl 3xl:max-w-5xl 4xl:max-w-6xl 5xl:max-w-[80rem] 6xl:max-w-[100rem] mx-auto lg:mx-0">
+                  <h2 className="text-[clamp(1.15rem,6vw,3.5rem)] sm:text-[clamp(1.5rem,5vw,4rem)] lg:text-[clamp(2.75rem,3.8vw,4.5rem)] 3xl:text-[clamp(3.5rem,3.2vw,5.5rem)] font-extrabold tracking-tight leading-tight lg:leading-[1.04] text-white break-words text-center lg:text-left text-balance max-w-2xl lg:max-w-4xl 3xl:max-w-5xl 4xl:max-w-6xl 5xl:max-w-[64rem] 6xl:max-w-[72rem] mx-auto lg:mx-0">
                     Páginas que convertem.{" "}
                     <span style={{ color: "var(--color-brand-primary)" }}>
                       Integradas ao seu trackeamento desde o primeiro clique.
                     </span>
                   </h2>
-                  <p className="text-[clamp(0.875rem,3vw,1.125rem)] sm:text-[clamp(1rem,2vw,1.125rem)] 3xl:text-[clamp(1.125rem,1.2vw,1.5rem)] text-gray-400/70 leading-relaxed max-w-2xl 2xl:max-w-[34rem] 3xl:max-w-[46rem] 4xl:max-w-[56rem] text-center lg:text-left">
+                  <p className="text-[clamp(0.875rem,3vw,1.125rem)] sm:text-[clamp(1rem,2vw,1.125rem)] 3xl:text-[clamp(1.125rem,1.2vw,1.5rem)] text-gray-400/70 leading-relaxed max-w-2xl 2xl:max-w-[34rem] 3xl:max-w-[46rem] 4xl:max-w-[56rem] 5xl:max-w-[48rem] text-center lg:text-left">
                     Templates prontos e validados, Flash Pages que abrem em menos de 1 segundo e criação por IA com 1 clique. Cada página já nasce com o trackeamento integrado — sem scripts avulsos, sem configuração manual, sem dado perdido entre a página e a campanha.
                   </p>
 

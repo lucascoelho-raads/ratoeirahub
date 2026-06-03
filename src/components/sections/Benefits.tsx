@@ -96,14 +96,14 @@ export default function Benefits() {
   }, [activeIndex]);
 
   return (
-    <section ref={ref} className="relative pt-16 md:pt-28 pb-0 bg-[#050505]" id="solucoes">
+    <section ref={ref} className="relative pt-16 md:pt-20 lg:pt-24 pb-0 bg-[#050505]" id="solucoes">
       <div className="relative z-10 max-w-7xl 2xl:max-w-[92%] 4xl:max-w-[120rem] 5xl:max-w-[140rem] 6xl:max-w-[160rem] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-12 4xl:px-20 5xl:px-28 6xl:px-36">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7 }}
-          className="text-center mb-20 space-y-6"
+          className="text-center mb-10 md:mb-14 space-y-4"
         >
           <h2 className="text-xl sm:text-2xl lg:text-5xl 3xl:text-7xl font-black text-text-inverse leading-tight text-balance max-w-4xl 3xl:max-w-5xl 4xl:max-w-6xl 5xl:max-w-[80rem] 6xl:max-w-[96rem] mx-auto">
             Por que <span style={{ color: "var(--color-brand-primary)" }}>+2.600 anunciantes</span> escolheram a{" "}
@@ -159,7 +159,7 @@ export default function Benefits() {
 
                           <div className={benefit.imageLeft ? "order-1" : "order-2"}>
                             {activeIndex === 0 || activeIndex === 1 || activeIndex === 2 || activeIndex === 3 || activeIndex === 5 ? (
-                              <div className={activeIndex === 2 ? "relative rounded-card overflow-hidden lg:scale-110 5xl:scale-125 6xl:scale-135" : "relative rounded-card overflow-hidden 5xl:scale-110 6xl:scale-125"}>
+                              <div className={activeIndex === 2 ? "relative rounded-card overflow-hidden p-3 5xl:p-6 6xl:p-8" : "relative rounded-card overflow-hidden 5xl:scale-110 6xl:scale-125"}>
                                 <img
                                   src={activeIndex === 0 ? "/slide1home.png" : activeIndex === 1 ? "/slide2home.png" : activeIndex === 2 ? "/slide3home.png" : activeIndex === 3 ? "/slide4home.png" : "/slide6home.png"}
                                   alt={benefit.title}
