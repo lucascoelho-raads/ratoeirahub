@@ -292,7 +292,7 @@ const plansData = {
 const featureGroupsByTab: Record<PlanType, FeatureGroup[]> = {
   ads: [
     {
-      group: "Limites do Plano",
+      group: "Limites do\nPlano",
       features: [
         { label: "E-Book de Estratégia Mensal", values: [false, true, true, true] },
         { label: "Produtos rastreados simultaneamente", values: ["10", "50", "100", "300"] },
@@ -304,7 +304,7 @@ const featureGroupsByTab: Record<PlanType, FeatureGroup[]> = {
       ],
     },
     {
-      group: "Tracking & Anti-Fraude",
+      group: "Tracking &\nAnti-Fraude",
       features: [
         { label: "Tracking server-side", tooltip: "Envio de conversões em 1st party", values: [true, true, true, true] },
         { label: "Bloqueio de bots/fraudes", tooltip: "Proteção contra tráfego inválido", values: ["Básico", "Básico", "Avançado", "Tempo real"] },
@@ -313,7 +313,7 @@ const featureGroupsByTab: Record<PlanType, FeatureGroup[]> = {
       ],
     },
     {
-      group: "Domínios & Integrações",
+      group: "Domínios &\nIntegrações",
       features: [
         { label: "Domínios customizados", tooltip: "Quantidade de domínios para tracking", values: ["1", "1", "3", "Ilimitado"] },
         { label: "Integrações nativas", tooltip: "Conexão com plataformas e CRMs", values: [true, true, true, true] },
@@ -330,7 +330,7 @@ const featureGroupsByTab: Record<PlanType, FeatureGroup[]> = {
   ],
   pages: [
     {
-      group: "Limites do Plano",
+      group: "Limites do\nPlano",
       features: [
         { label: "Hospedagem Grátis", values: [true, true, true, true] },
         { label: "Domínios conectados", values: ["1", "10", "20", "40"] },
@@ -343,7 +343,7 @@ const featureGroupsByTab: Record<PlanType, FeatureGroup[]> = {
       ],
     },
     {
-      group: "Construtor & Templates",
+      group: "Construtor &\nTemplates",
       features: [
         { label: "Drag-and-drop", tooltip: "Editor visual", values: [true, true, true, true] },
         { label: "Templates", tooltip: "Biblioteca de modelos", values: ["3", "10", "Todos", "Todos + antecipado"] },
@@ -352,7 +352,7 @@ const featureGroupsByTab: Record<PlanType, FeatureGroup[]> = {
       ],
     },
     {
-      group: "Performance & Domínios",
+      group: "Performance &\nDomínios",
       features: [
         { label: "Visitas por mês", tooltip: "Volume mensal de tráfego", values: ["5.000", "5.000", "25.000", "100.000+"] },
         { label: "Domínios customizados", tooltip: "Quantidade de domínios para páginas", values: ["1", "1", "3", "Ilimitado"] },
@@ -369,7 +369,7 @@ const featureGroupsByTab: Record<PlanType, FeatureGroup[]> = {
   ],
   hub: [
     {
-      group: "Ecossistema Completo",
+      group: "Ecossistema\nCompleto",
       features: [
         { label: "Tracking + Pages", tooltip: "Integração nativa entre Ads e Pages", values: [true, true, true, true] },
         { label: "Dashboard unificado", tooltip: "ROI real em um só lugar", values: [null, true, true, true] },
@@ -429,16 +429,13 @@ export default function PricingTabs() {
   const plans = billingCycle !== "monthly"
     ? rawPlans.filter((p) => p.name !== "Gratuito")
     : rawPlans;
-  const comparisonGroups =
-    billingCycle !== "monthly"
-      ? featureGroupsByTab[activeTab].map((group) => ({
-          ...group,
-          features: group.features.map((feature) => ({
-            ...feature,
-            values: feature.values.slice(1),
-          })),
-        }))
-      : featureGroupsByTab[activeTab];
+  const comparisonGroups = featureGroupsByTab[activeTab].map((group) => ({
+    ...group,
+    features: group.features.map((feature) => ({
+      ...feature,
+      values: feature.values.slice(1),
+    })),
+  }));
 
   useEffect(() => {
     if (activePlanIndex >= plans.length) {
@@ -448,7 +445,7 @@ export default function PricingTabs() {
 
   return (
     <section className="py-16 md:py-24 bg-black">
-      <div className="max-w-7xl 2xl:max-w-[92%] 4xl:max-w-[120rem] 5xl:max-w-[140rem] 6xl:max-w-[160rem] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-12 4xl:px-20 5xl:px-28 6xl:px-36">
+      <div className="max-w-7xl 2xl:max-w-[92%] 4xl:max-w-[120rem] 5xl:max-w-[140rem] 6xl:max-w-[160rem] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-24 4xl:px-36 5xl:px-44 6xl:px-52">
         {/* Tabs and Billing Toggle */}
         <div className="flex flex-col items-center gap-8 mb-16">
           {/* Tabs */}
@@ -832,7 +829,17 @@ export default function PricingTabs() {
         </div>
 
         {/* Desktop View: Cards & Features Separated */}
-        <div className="hidden md:block w-full max-w-7xl 2xl:max-w-[92%] 4xl:max-w-[120rem] mx-auto">
+        <div
+          className="hidden md:block w-full mx-auto"
+          style={{
+            display: 'grid',
+            gridTemplateColumns: plans.length === 4 ? '200px repeat(4, 1fr)' : '200px repeat(3, 1fr)',
+            columnGap: plans.length === 4 ? '20px' : '32px',
+          }}
+        >
+          {/* Placeholder vazio na coluna de labels — alinha com a linha dos cards */}
+          <div style={{ gridRow: 1, gridColumn: 1 }} />
+
           {/* Cards Row */}
           <AnimatePresence mode="wait">
             <motion.div
@@ -841,7 +848,13 @@ export default function PricingTabs() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.4 }}
-              className={cn("grid mb-16", plans.length === 4 ? "grid-cols-4 gap-5" : "grid-cols-3 gap-8")}
+              className="mb-16"
+              style={{
+                gridRow: 1,
+                gridColumn: '2 / -1',
+                display: 'grid',
+                gridTemplateColumns: 'subgrid',
+              }}
             >
               {/* Pricing Cards */}
               {plans.map((plan) => (
@@ -1099,18 +1112,26 @@ export default function PricingTabs() {
               ))}
             </motion.div>
           </AnimatePresence>
-          <div className="mt-6 text-center">
+          <div className="mt-6 text-center" style={{ gridColumn: '1 / -1', gridRow: 2 }}>
             <p className="text-xs text-brand-primary">
               * Renovação automática - Ao prosseguir você concorda que a assinatura será renovada automaticamente.
             </p>
           </div>
 
           {/* Features Table */}
-          <div className="mt-16">
+          <div className="mt-16" style={{ gridColumn: '1 / -1', gridRow: 3 }}>
+            {/* Sticky header — mesma estrutura de colunas do grid pai */}
             <div className="sticky top-20 z-20 -mt-6 mb-6">
-              <div className={cn("relative grid items-center py-3 border-b border-white/10 bg-black/80 backdrop-blur-md", plans.length === 4 ? "grid-cols-5 gap-6" : "grid-cols-4 gap-8")}>
-                <div className="text-xs font-bold uppercase tracking-widest text-gray-500" />
-                {plans.map((plan) => (
+              <div
+                className="grid items-center py-3 border-b border-white/10 bg-black/80 backdrop-blur-md"
+                style={{
+                  gridTemplateColumns: plans.length === 4 ? '200px repeat(4, 1fr)' : '200px repeat(3, 1fr)',
+                  columnGap: plans.length === 4 ? '20px' : '32px',
+                }}
+              >
+                <div /> {/* coluna de label — vazia no header */}
+                {plans.length === 4 && <div />} {/* coluna Gratuito — vazia no header */}
+                {(plans.length === 4 ? plans.slice(1) : plans).map((plan) => (
                   <div
                     key={`plan-col-${activeTab}-${plan.name}`}
                     className="flex justify-center text-xs font-bold uppercase tracking-widest text-gray-400"
@@ -1120,9 +1141,10 @@ export default function PricingTabs() {
                 ))}
               </div>
             </div>
+
             {comparisonGroups.map((group, gi) => (
               <div key={group.group} className="mb-12">
-                <div className="mb-4 text-sm font-bold uppercase tracking-widest text-brand-primary border-b border-white/10 pb-4">
+                <div className="mb-4 text-sm font-bold uppercase tracking-widest text-brand-primary border-b border-white/10 pb-4 whitespace-pre-line">
                   {group.group}
                 </div>
 
@@ -1130,13 +1152,20 @@ export default function PricingTabs() {
                   {group.features.map((feature, fi) => (
                     <div
                       key={feature.label}
-                      className={cn("grid items-center py-6 border-b border-white/5 last:border-0 hover:bg-white/[0.02] transition-colors group/row", plans.length === 4 ? "grid-cols-5 gap-6" : "grid-cols-4 gap-8")}
+                      className="grid items-center border-b border-white/5 last:border-0 hover:bg-white/[0.02] transition-colors py-6"
+                      style={{
+                        gridTemplateColumns: plans.length === 4 ? '200px repeat(4, 1fr)' : '200px repeat(3, 1fr)',
+                        columnGap: plans.length === 4 ? '20px' : '32px',
+                      }}
                     >
-                      <div className="flex items-center gap-2 text-sm text-gray-300 font-medium pr-4">
+                      {/* Label em fluxo — primeira coluna (200px) */}
+                      <div className="text-right text-sm text-gray-300 font-medium pr-4 leading-snug">
                         {feature.label}
                       </div>
 
-                      {/* Value Columns (Perfectly aligned with cards) */}
+                      {plans.length === 4 && <div />} {/* coluna Gratuito — vazia */}
+
+                      {/* Colunas de valores — alinhadas com os cards acima via subgrid */}
                       {feature.values.map((val, vi) => (
                         <div key={vi} className="flex justify-center text-white">
                           <FeatureCell value={val} />

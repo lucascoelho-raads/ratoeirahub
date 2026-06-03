@@ -79,7 +79,7 @@ export default function Pricing() {
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7 }}
-          className="text-center mb-16 space-y-4"
+          className="text-center mb-8 lg:mb-10 space-y-3 lg:space-y-4"
         >
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-yellow-50 border border-yellow-200 text-orange-700 text-sm font-semibold">
             💰 Preços
@@ -93,7 +93,7 @@ export default function Pricing() {
           </p>
 
           {/* Toggle */}
-          <div className="flex items-center justify-center gap-4 mt-6">
+          <div className="flex items-center justify-center gap-4 mt-4 lg:mt-6">
             <span className={`text-sm font-medium ${!yearly ? "text-gray-900" : "text-gray-400"}`}>
               Mensal
             </span>

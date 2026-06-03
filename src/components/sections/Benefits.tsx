@@ -96,16 +96,16 @@ export default function Benefits() {
   }, [activeIndex]);
 
   return (
-    <section ref={ref} className="relative pt-16 md:pt-20 lg:pt-24 pb-0 bg-[#050505]" id="solucoes">
+    <section ref={ref} className="relative pt-16 md:pt-20 lg:pt-24 pb-12 sm:pb-24 4xl:pb-28 bg-[#050505]" id="solucoes">
       <div className="relative z-10 max-w-7xl 2xl:max-w-[92%] 4xl:max-w-[120rem] 5xl:max-w-[140rem] 6xl:max-w-[160rem] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-12 4xl:px-20 5xl:px-28 6xl:px-36">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7 }}
-          className="text-center mb-10 md:mb-14 space-y-4"
+          className="text-center mb-6 md:mb-8 4xl:mb-4 space-y-4"
         >
-          <h2 className="text-xl sm:text-2xl lg:text-5xl 3xl:text-7xl font-black text-text-inverse leading-tight text-balance max-w-4xl 3xl:max-w-5xl 4xl:max-w-6xl 5xl:max-w-[80rem] 6xl:max-w-[96rem] mx-auto">
+          <h2 className="text-xl sm:text-2xl lg:text-5xl 3xl:text-7xl 4xl:text-[5.5rem] 5xl:text-[6.5rem] 6xl:text-[7.5rem] font-black text-text-inverse leading-tight text-balance max-w-4xl 3xl:max-w-5xl 4xl:max-w-[90rem] 5xl:max-w-[110rem] 6xl:max-w-[120rem] mx-auto">
             Por que <span style={{ color: "var(--color-brand-primary)" }}>+2.600 anunciantes</span> escolheram a{" "}
             <span className="whitespace-normal sm:whitespace-nowrap">Ratoeira Hub</span>
           </h2>
@@ -116,7 +116,7 @@ export default function Benefits() {
 
       </div>
 
-      <div className="relative z-10 h-[520px] sm:h-screen overflow-visible sm:overflow-hidden flex items-center">
+      <div className="relative z-10 h-[520px] sm:h-[85vh] 4xl:h-[80vh] 5xl:h-[75vh] 6xl:h-[75vh] overflow-visible sm:overflow-hidden flex items-center -mt-4 sm:-mt-8 4xl:-mt-12 5xl:-mt-16">
         <div className="relative w-full h-full">
           <AnimatePresence mode="sync" initial={false}>
             <motion.article
@@ -149,10 +149,10 @@ export default function Benefits() {
                         <BackgroundPaths reverse={benefit.imageLeft} />
                         <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-[1.2fr_1fr] 3xl:grid-cols-[1.3fr_1fr] 4xl:grid-cols-[1.35fr_1fr] 5xl:grid-cols-[1.45fr_1fr] 6xl:grid-cols-[1.55fr_1fr] gap-10 5xl:gap-16 6xl:gap-20 items-center h-full">
                           <div className={benefit.imageLeft ? "order-2" : "order-1"}>
-                            <h3 className="mt-4 sm:mt-6 text-lg sm:text-xl lg:text-4xl 3xl:text-6xl font-black text-gray-50 leading-tight text-center lg:text-left text-balance max-w-2xl lg:max-w-3xl 5xl:max-w-4xl 6xl:max-w-5xl">
+                            <h3 className="mt-4 sm:mt-6 text-lg sm:text-xl lg:text-4xl 3xl:text-5xl 4xl:text-[3.5rem] 5xl:text-[4.5rem] 6xl:text-[5.5rem] font-black text-gray-50 leading-tight text-center lg:text-left text-balance max-w-2xl lg:max-w-3xl 5xl:max-w-[60rem] 6xl:max-w-[70rem]">
                               {benefit.title}
                             </h3>
-                            <p className="mt-4 sm:mt-5 text-base sm:text-lg 3xl:text-3xl text-gray-200 leading-relaxed text-center lg:text-left text-balance">
+                            <p className="mt-4 sm:mt-5 4xl:mt-8 5xl:mt-10 text-base sm:text-lg 3xl:text-2xl 4xl:text-3xl 5xl:text-4xl 6xl:text-[2.5rem] text-gray-200 leading-relaxed text-center lg:text-left text-balance">
                               {benefit.description}
                             </p>
                           </div>
@@ -211,7 +211,7 @@ export default function Benefits() {
       </div>
 
       {/* Controls - outside card, below it */}
-      <div className="relative z-20 flex items-center justify-center gap-3 mt-4 pb-8 sm:pb-0 sm:absolute sm:bottom-6 sm:left-1/2 sm:-translate-x-1/2">
+      <div className="relative z-20 flex items-center justify-center gap-3 mt-4 pb-8 sm:pb-0 sm:absolute sm:bottom-8 4xl:bottom-10 sm:left-1/2 sm:-translate-x-1/2">
         <button
           type="button"
           onClick={goToPrev}
