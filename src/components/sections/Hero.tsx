@@ -115,7 +115,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative min-h-[100svh] lg:min-h-screen 5xl:min-h-[100svh] bg-[#050505] z-10 overflow-hidden flex flex-col pt-20 lg:pt-24 pb-16 lg:pb-20">
+    <section className="relative min-h-[100svh] lg:min-h-screen 5xl:min-h-[100svh] bg-[#050505] z-10 overflow-hidden flex flex-col pt-20 lg:pt-24 pb-24 lg:pb-28">
       <motion.div
         initial={false}
         animate={{ x: activePanel === 0 ? "0%" : "-50%" }}
@@ -383,7 +383,7 @@ export default function Hero() {
         </div>
       </motion.div>
 
-      <div className="absolute left-1/2 bottom-6 -translate-x-1/2 z-50 flex items-center justify-center gap-3 bg-black/80 backdrop-blur-md px-4 py-2 rounded-full border border-brand-primary/50 w-fit">
+      <div className="absolute left-1/2 bottom-12 lg:bottom-14 -translate-x-1/2 z-50 flex items-center justify-center gap-3 bg-black/80 backdrop-blur-md px-4 py-2 rounded-full border border-brand-primary/50 w-fit">
         <button
           onClick={() => setActivePanel((prev) => (prev === 0 ? 1 : 0))}
           className="w-8 h-8 rounded-full bg-white flex items-center justify-center hover:bg-neutral-200 transition-colors"
