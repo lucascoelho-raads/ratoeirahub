@@ -217,8 +217,8 @@ export default function Hero() {
                           className="absolute inset-3"
                         >
                           <HeroVideoMockup
-                            src="/videos/videoadsherohome.mp4"
-                            poster="/videos/videoadsherohome-poster.jpg"
+                            src="/videos/hero1.mov"
+                            poster="/videos/video1-poster.jpg"
                             alt="Ratoeira Ads Preview"
                           />
                         </motion.div>
@@ -393,7 +393,7 @@ export default function Hero() {
                           className="absolute inset-3"
                         >
                           <HeroVideoMockup
-                            src="/videos/videopagesheroslide2.mp4"
+                            src="/videos/hero2.mov"
                             poster="/videos/videopagesheroslide2-poster.jpg"
                             alt="Ratoeira Pages Preview"
                           />
