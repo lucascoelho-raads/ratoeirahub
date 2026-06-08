@@ -269,10 +269,10 @@ const plansData: Record<PlanType, Plan[]> = {
       price: {
         monthly: "297,00",
         semiannual: "266,17",
-        annual: "216,66",
+        annual: "208,08",
       },
       semiannualTotal: "1.597,00",
-      yearlyTotal: "2.599,92",
+      yearlyTotal: "2.497,00",
       features: [
         "Ads Profissional + Pages Growth",
         "50.000 eventos + 25.000 visitas",
@@ -289,10 +289,10 @@ const plansData: Record<PlanType, Plan[]> = {
       price: {
         monthly: "497,00",
         semiannual: "432,83",
-        annual: "416,41",
+        annual: "416,42",
       },
       semiannualTotal: "2.597,00",
-      yearlyTotal: "4.996,92",
+      yearlyTotal: "4.997,00",
       features: [
         "Volume customizado de eventos/visitas",
         "Infraestrutura dedicada",
