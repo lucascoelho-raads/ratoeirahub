@@ -311,7 +311,7 @@ export default function Hero() {
             </SpotlightBackground>
         </div>
 
-        <div className="relative w-1/2 h-full flex items-start justify-center pt-28 lg:pt-32">
+        <div className="relative w-1/2 h-full flex items-start justify-center overflow-hidden pt-28 lg:pt-32">
           <SpotlightBackground className="absolute inset-0">
               <div
                 className="absolute inset-0 pointer-events-none"
@@ -404,7 +404,7 @@ export default function Hero() {
                 </motion.div>
 
                 {/* Slider Controls */}
-                <div className="relative z-30 flex items-center justify-center gap-3 bg-black/80 backdrop-blur-md px-4 py-2 rounded-full border border-brand-primary/50 mt-4 w-fit mx-auto order-3 lg:order-none lg:col-span-2">
+                <div className="relative lg:absolute z-30 lg:bottom-8 lg:left-1/2 lg:-translate-x-1/2 flex items-center justify-center gap-3 bg-black/80 backdrop-blur-md px-4 py-2 rounded-full border border-brand-primary/50 order-3 lg:order-none mt-4 lg:mt-0 w-fit mx-auto">
                   <button 
                     onClick={() => setActivePanel((prev) => (prev === 0 ? 1 : 0))}
                     className="w-8 h-8 rounded-full bg-white flex items-center justify-center hover:bg-neutral-200 transition-colors"
