@@ -13,19 +13,14 @@ const footerLinks = {
     { href: "#plataforma", label: "Funcionalidades" },
     { href: "#integracoes", label: "Integrações" },
     { href: "#precos", label: "Preços" },
-    { href: "#", label: "Novidades" },
   ],
   Empresa: [
     { href: "#", label: "Sobre nós" },
-    { href: "#clientes", label: "Clientes" },
-    { href: "#", label: "Carreiras" },
-    { href: "#", label: "Parceiros" },
+    { href: "#", label: "Parcerias" },
   ],
   Suporte: [
     { href: "#", label: "Central de Ajuda" },
     { href: "#demo", label: "Falar com vendas" },
-    { href: "#", label: "Comunidade" },
-    { href: "#", label: "Webinars" },
   ],
   Legal: [
     { href: "/privacidade/ads", label: "Privacidade" },
@@ -265,6 +260,13 @@ export default function Footer() {
                     <social.icon className="w-4 h-4" />
                   </a>
                 ))}
+              </div>
+
+              {/* Informações Legais */}
+              <div className="mt-6 space-y-1 text-[11px] leading-relaxed text-gray-500 text-center sm:text-left">
+                <p>Ratoeira Ads - CNPJ: 55.824.986/0001-06</p>
+                <p>Ratoeira Pages - CNPJ: 62.829.447/0001-25</p>
+                <p>Endereço: Alameda Rio Negro, 503, sala 2020, Alphaville, Barueri/SP, CEP: 06.454-000</p>
               </div>
             </div>
 
