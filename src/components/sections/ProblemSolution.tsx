@@ -150,7 +150,7 @@ export default function ProblemSolution() {
           </div>
 
           {/* Visual (immediately below first paragraph) */}
-          <div className="relative w-full max-w-3xl 3xl:max-w-[56rem] 4xl:max-w-[68rem] 5xl:max-w-[76rem] 6xl:max-w-[84rem]">
+          <div className={`relative w-full ${activeTab === "paginas" ? "max-w-4xl 3xl:max-w-[56rem] 4xl:max-w-[68rem] 5xl:max-w-[76rem] 6xl:max-w-[84rem]" : "max-w-5xl 3xl:max-w-[68rem] 4xl:max-w-[76rem] 5xl:max-w-[84rem] 6xl:max-w-[92rem]"}`}>
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
