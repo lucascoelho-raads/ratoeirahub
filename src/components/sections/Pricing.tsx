@@ -73,7 +73,7 @@ export default function Pricing() {
 
   return (
     <section ref={ref} className="py-16 md:py-28 bg-gray-50/50" id="planos">
-      <div className="max-w-7xl 3xl:max-w-[100rem] 4xl:max-w-[120rem] 5xl:max-w-[180rem] 6xl:max-w-[160rem] mx-auto px-4 sm:px-6 lg:px-8 3xl:px-12 4xl:px-20 5xl:px-28 6xl:px-36">
+      <div className="max-w-7xl 3xl:max-w-[100rem] 4xl:max-w-[110rem] 5xl:max-w-[120rem] 6xl:max-w-[132rem] mx-auto px-4 sm:px-6 lg:px-12 3xl:px-16 4xl:px-24 5xl:px-32 6xl:px-40">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -88,7 +88,7 @@ export default function Pricing() {
             Simples, transparente,{" "}
             <span className="gradient-text">sem surpresas</span>
           </h2>
-          <p className="text-gray-500 text-xl 3xl:text-3xl max-w-xl 2xl:max-w-[34rem] 3xl:max-w-[48rem] 4xl:max-w-[64rem] 5xl:max-w-[80rem] 6xl:max-w-[96rem] mx-auto text-balance">
+          <p className="text-gray-500 text-lg sm:text-xl 3xl:text-[1.75rem] max-w-xl 2xl:max-w-[34rem] 3xl:max-w-[44rem] 4xl:max-w-[52rem] 5xl:max-w-[58rem] 6xl:max-w-[64rem] mx-auto text-balance">
             Comece gratuitamente. Escale conforme seus resultados.
           </p>
 
@@ -122,7 +122,7 @@ export default function Pricing() {
         </motion.div>
 
         {/* Plans Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 5xl:gap-12 6xl:gap-16 items-stretch">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 5xl:gap-8 6xl:gap-10 items-stretch">
           {plans.map((plan, i) => (
             <motion.div
               key={plan.name}
@@ -131,7 +131,7 @@ export default function Pricing() {
               transition={{ duration: 0.6, delay: i * 0.15 }}
               className={`relative flex flex-col rounded-3xl border transition-all duration-300 ${
                 plan.popular
-                  ? "bg-yellow-500 border-yellow-400 shadow-2xl shadow-yellow-500/30 scale-105 z-10"
+                  ? "bg-yellow-500 border-yellow-400 shadow-2xl shadow-yellow-500/30 lg:scale-[1.02] z-10"
                   : "bg-white border-gray-100 shadow-sm hover:shadow-xl hover:shadow-yellow-500/10 hover:-translate-y-1"
               }`}
             >
@@ -144,10 +144,10 @@ export default function Pricing() {
                 </div>
               )}
 
-              <div className="p-8 5xl:p-10 6xl:p-12 flex-1 flex flex-col">
+              <div className="p-8 5xl:p-9 6xl:p-10 flex-1 flex flex-col">
                 {/* Plan info */}
                 <div className="mb-8">
-                  <h3 className={`text-xl 3xl:text-3xl font-black mb-1 ${plan.popular ? "text-white" : "text-gray-900"}`}>
+                  <h3 className={`text-xl 3xl:text-[1.75rem] font-black mb-1 ${plan.popular ? "text-white" : "text-gray-900"}`}>
                     {plan.name}
                   </h3>
                   <p className={`text-sm 3xl:text-base ${plan.popular ? "text-yellow-200" : "text-gray-500"}`}>
@@ -158,7 +158,7 @@ export default function Pricing() {
                 {/* Price */}
                 <div className="mb-8">
                   <div className="flex items-end gap-2">
-                    <span className={`text-3xl sm:text-5xl 3xl:text-7xl font-black tabular-nums ${plan.popular ? "text-white" : "text-gray-900"}`}>
+                    <span className={`text-3xl sm:text-5xl 3xl:text-6xl 5xl:text-[4.5rem] 6xl:text-[5rem] font-black tabular-nums ${plan.popular ? "text-white" : "text-gray-900"}`}>
                       R${yearly ? plan.yearlyPrice : plan.monthlyPrice}
                     </span>
                     <span className={`text-sm mb-2 ${plan.popular ? "text-yellow-200" : "text-gray-400"}`}>/mês</span>
@@ -176,13 +176,13 @@ export default function Pricing() {
                   {plan.features.map((feat) => (
                     <div key={feat} className="flex items-start gap-2.5">
                       <CheckCircle className={`w-4 h-4 flex-shrink-0 mt-0.5 ${plan.popular ? "text-yellow-300" : "text-emerald-500"}`} />
-                      <span className={`text-sm 3xl:text-xl ${plan.popular ? "text-gray-400" : "text-gray-600"}`}>{feat}</span>
+                      <span className={`text-sm 3xl:text-lg ${plan.popular ? "text-gray-400" : "text-gray-600"}`}>{feat}</span>
                     </div>
                   ))}
                   {plan.missing.map((feat) => (
                     <div key={feat} className="flex items-start gap-2.5 opacity-40">
                       <div className={`w-4 h-4 flex-shrink-0 mt-0.5 rounded-full border-2 ${plan.popular ? "border-yellow-300" : "border-gray-300"}`} />
-                      <span className={`text-sm 3xl:text-xl line-through ${plan.popular ? "text-yellow-200" : "text-gray-400"}`}>{feat}</span>
+                      <span className={`text-sm 3xl:text-lg line-through ${plan.popular ? "text-yellow-200" : "text-gray-400"}`}>{feat}</span>
                     </div>
                   ))}
                 </div>

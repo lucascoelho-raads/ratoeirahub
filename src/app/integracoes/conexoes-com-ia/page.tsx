@@ -133,11 +133,11 @@ export default function ConexoesComIAPage() {
                 <span className="text-xs text-gray-400/60">Compatível com Claude · ChatGPT</span>
               </div>
 
-              <h2 className="text-2xl sm:text-4xl font-black tracking-tight text-white">
+              <h2 className="text-2xl sm:text-4xl font-black tracking-tight text-white text-center lg:text-left">
                 Controle suas campanhas sem abrir o painel.
               </h2>
 
-              <p className="text-base sm:text-lg text-gray-400/70 leading-relaxed max-w-3xl 2xl:max-w-[60rem] 4xl:max-w-[80rem]">
+              <p className="text-base sm:text-lg text-gray-400/70 leading-relaxed max-w-3xl 2xl:max-w-[60rem] 4xl:max-w-[80rem] text-center lg:text-left">
                 Com o MCP do Ratoeira Ads instalado, o Claude e o ChatGPT têm acesso direto à sua operação. Você pergunta
                 em linguagem natural — eles consultam, analisam e executam em tempo real.
               </p>
@@ -193,11 +193,11 @@ export default function ConexoesComIAPage() {
                 <span className="text-xs text-gray-400/60">Compatível com Claude</span>
               </div>
 
-              <h2 className="text-2xl sm:text-4xl font-black tracking-tight text-white">
+              <h2 className="text-2xl sm:text-4xl font-black tracking-tight text-white text-center lg:text-left">
                 Crie qualquer página com um comando.
               </h2>
 
-              <p className="text-base sm:text-lg text-gray-400/70 leading-relaxed max-w-3xl 2xl:max-w-[60rem] 4xl:max-w-[80rem]">
+              <p className="text-base sm:text-lg text-gray-400/70 leading-relaxed max-w-3xl 2xl:max-w-[60rem] 4xl:max-w-[80rem] text-center lg:text-left">
                 Com o MCP do Ratoeira Pages instalado no Claude, você descreve a página que quer — e vê ela ser construída
                 em tempo real. Analytics, domínios e clones na palma da sua mão.
               </p>

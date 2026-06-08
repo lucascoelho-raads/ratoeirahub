@@ -88,7 +88,7 @@ export default function TimelineAbout() {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true, margin: "-100px" }}
                     transition={{ duration: 0.6 }}
-                    className={`w-full md:w-1/2 pl-12 md:pl-0 ${isLeft ? "md:pr-20 text-left" : "md:pl-20 md:order-2 text-left"}`}
+                    className={`w-full md:w-1/2 pl-12 md:pl-0 text-center ${isLeft ? "md:pr-20 md:text-left" : "md:pl-20 md:order-2 md:text-right"}`}
                   >
                     <div className="bg-[#111111] p-5 sm:p-8 rounded-3xl shadow-lg border border-white/10 hover:shadow-xl transition-shadow relative group">
                       <div className={`absolute top-8 ${isLeft ? "-right-3" : "-left-3"} w-6 h-6 bg-[#111111] transform rotate-45 border-t border-r border-white/10 hidden md:block ${isLeft ? "" : "rotate-[-135deg]"}`} />

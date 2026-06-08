@@ -140,7 +140,7 @@ export default function Metrics() {
         </svg>
       </div>
 
-      <div className="relative z-10 max-w-7xl 2xl:max-w-[92%] 4xl:max-w-[120rem] 5xl:max-w-[140rem] 6xl:max-w-[160rem] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-12 4xl:px-20 5xl:px-28 6xl:px-36">
+      <div className="relative z-10 max-w-7xl 2xl:max-w-[92%] 4xl:max-w-[110rem] 5xl:max-w-[120rem] 6xl:max-w-[132rem] mx-auto px-4 sm:px-6 lg:px-12 2xl:px-16 4xl:px-24 5xl:px-32 6xl:px-40">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -176,7 +176,7 @@ export default function Metrics() {
                 <p className="text-yellow-200/70 text-sm mt-0.5">{featured.description}</p>
               </div>
             </div>
-            <div className="text-5xl sm:text-6xl md:text-7xl 3xl:text-9xl font-black text-white tabular-nums md:text-right">
+            <div className="text-5xl sm:text-6xl md:text-7xl 3xl:text-8xl 5xl:text-[6rem] 6xl:text-[6.5rem] font-black text-white tabular-nums md:text-right">
               <Counter target={featured.value} suffix="" />
               <span className="text-yellow-500">{featured.suffix}</span>
             </div>
@@ -184,7 +184,7 @@ export default function Metrics() {
         </motion.div>
 
         {/* Secondary metrics — 3 column grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 5xl:grid-cols-4 6xl:grid-cols-5 gap-6 5xl:gap-8 6xl:gap-10">
+        <div className="grid grid-cols-1 sm:grid-cols-3 5xl:grid-cols-4 6xl:grid-cols-4 gap-6 5xl:gap-8 6xl:gap-10">
           {secondary.map((metric, i) => (
             <motion.div
               key={metric.label}
@@ -197,12 +197,12 @@ export default function Metrics() {
                 <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center">
                   <metric.icon className={`w-5 h-5 ${metric.iconColor}`} />
                 </div>
-                <div className="text-3xl sm:text-4xl 3xl:text-6xl font-black text-white tabular-nums">
+                <div className="text-3xl sm:text-4xl 3xl:text-5xl 5xl:text-[3.75rem] 6xl:text-[4rem] font-black text-white tabular-nums">
                   <Counter target={metric.value} suffix="" />
                   <span className="text-yellow-500">{metric.suffix}</span>
                 </div>
               </div>
-              <p className="text-white font-semibold text-base 3xl:text-2xl leading-tight">{metric.label}</p>
+              <p className="text-white font-semibold text-base 3xl:text-xl leading-tight">{metric.label}</p>
               <p className="text-gray-400 text-sm mt-1">{metric.description}</p>
             </motion.div>
           ))}

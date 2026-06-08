@@ -50,12 +50,12 @@ export default function Contact() {
 
   return (
     <section ref={ref} className="py-20 bg-white" id="fale-conosco">
-      <div className="max-w-2xl 3xl:max-w-[50rem] 4xl:max-w-[70rem] 5xl:max-w-[90rem] 6xl:max-w-[110rem] mx-auto px-4 sm:px-6 lg:px-8 3xl:px-12 4xl:px-20 5xl:px-28 6xl:px-36">
+      <div className="max-w-2xl 3xl:max-w-[50rem] 4xl:max-w-[62rem] 5xl:max-w-[72rem] 6xl:max-w-[80rem] mx-auto px-4 sm:px-6 lg:px-12 3xl:px-16 4xl:px-24 5xl:px-32 6xl:px-40">
         <div className="text-center mb-10">
-          <h2 className="text-2xl sm:text-3xl lg:text-5xl font-black text-gray-900 leading-tight text-balance max-w-4xl 5xl:max-w-5xl 6xl:max-w-6xl mx-auto">
+          <h2 className="text-2xl sm:text-3xl lg:text-5xl 3xl:text-6xl 5xl:text-[4.5rem] 6xl:text-[5rem] font-black text-gray-900 leading-tight text-balance max-w-4xl 5xl:max-w-5xl 6xl:max-w-6xl mx-auto">
             Vamos estruturar sua operação?
           </h2>
-          <p className="mt-4 text-gray-700 text-lg max-w-2xl 2xl:max-w-[40rem] 3xl:max-w-[56rem] 4xl:max-w-[72rem] 5xl:max-w-[90rem] 6xl:max-w-[110rem] mx-auto leading-relaxed text-balance">
+          <p className="mt-4 text-gray-700 text-lg 3xl:text-[1.5rem] max-w-2xl 2xl:max-w-[40rem] 3xl:max-w-[48rem] 4xl:max-w-[52rem] 5xl:max-w-[56rem] 6xl:max-w-[62rem] mx-auto leading-relaxed text-balance">
             Fale com a equipe e descubra qual configuração faz sentido para o seu momento.
           </p>
         </div>

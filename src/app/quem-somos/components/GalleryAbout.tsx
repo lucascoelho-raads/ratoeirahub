@@ -64,7 +64,7 @@ export default function GalleryAbout() {
               )}
               
               {/* Overlay Content */}
-              <div className="absolute inset-0 p-6 flex flex-col justify-end opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-t from-black/80 via-black/30 to-transparent">
+              <div className="absolute inset-0 p-6 flex flex-col justify-end opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-t from-black/80 via-black/30 to-transparent text-center sm:text-left">
                 <span className="text-amber-400 font-bold text-xs uppercase tracking-widest mb-1">
                   {item.year}
                 </span>

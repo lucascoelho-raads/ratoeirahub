@@ -110,7 +110,7 @@ export default function MVVAbout() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="bg-[#111111] p-8 rounded-3xl shadow-xl border border-white/10 hover:-translate-y-2 transition-transform duration-300 overflow-hidden"
+            className="bg-[#111111] p-8 rounded-3xl shadow-xl border border-white/10 hover:-translate-y-2 transition-transform duration-300 overflow-hidden text-center sm:text-left"
           >
             <div className="w-14 h-14 bg-orange-500/15 border border-orange-500/20 rounded-2xl flex items-center justify-center mb-5 mx-auto sm:mx-0">
               <ShieldCheck className="w-7 h-7 text-orange-300" />
@@ -126,7 +126,7 @@ export default function MVVAbout() {
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: -50 }}
                   transition={{ duration: 0.5, ease: "easeInOut" }}
-                  className="absolute inset-0 flex items-start gap-3"
+                  className="absolute inset-0 flex flex-col items-center sm:flex-row sm:items-start gap-3"
                 >
                   <div className="w-2 h-2 bg-amber-500 rounded-full mt-2 flex-shrink-0" />
                   <p className="text-gray-400 font-medium text-sm leading-relaxed">

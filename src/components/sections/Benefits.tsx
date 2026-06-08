@@ -97,7 +97,7 @@ export default function Benefits() {
 
   return (
     <section ref={ref} className="relative pt-16 md:pt-20 lg:pt-24 pb-12 sm:pb-24 4xl:pb-28 bg-[#050505]" id="solucoes">
-      <div className="relative z-10 max-w-7xl 2xl:max-w-[92%] 4xl:max-w-[120rem] 5xl:max-w-[140rem] 6xl:max-w-[160rem] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-12 4xl:px-20 5xl:px-28 6xl:px-36">
+      <div className="relative z-10 max-w-7xl 2xl:max-w-[92%] 4xl:max-w-[110rem] 5xl:max-w-[120rem] 6xl:max-w-[132rem] mx-auto px-4 sm:px-6 lg:px-12 2xl:px-16 4xl:px-24 5xl:px-32 6xl:px-40">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -105,18 +105,18 @@ export default function Benefits() {
           transition={{ duration: 0.7 }}
           className="text-center mb-6 md:mb-8 4xl:mb-4 space-y-4"
         >
-          <h2 className="text-xl sm:text-2xl lg:text-5xl 3xl:text-7xl 4xl:text-[5.5rem] 5xl:text-[6.5rem] 6xl:text-[7.5rem] font-black text-text-inverse leading-tight text-balance max-w-4xl 3xl:max-w-5xl 4xl:max-w-[90rem] 5xl:max-w-[110rem] 6xl:max-w-[120rem] mx-auto">
+          <h2 className="text-xl sm:text-2xl lg:text-5xl 3xl:text-7xl 4xl:text-[5rem] 5xl:text-[5.75rem] 6xl:text-[6.5rem] font-black text-text-inverse leading-tight text-balance max-w-4xl 3xl:max-w-5xl 4xl:max-w-[72rem] 5xl:max-w-[82rem] 6xl:max-w-[92rem] mx-auto">
             Por que <span style={{ color: "var(--color-brand-primary)" }}>+2.600 anunciantes</span> escolheram a{" "}
-            <span className="whitespace-normal sm:whitespace-nowrap">Ratoeira Hub</span>
+            <span className="whitespace-normal lg:whitespace-nowrap">Ratoeira Hub</span>
           </h2>
-          <p className="text-gray-400/80 text-lg 3xl:text-3xl mx-auto">
+          <p className="text-gray-400/80 text-lg 3xl:text-[1.75rem] max-w-2xl 3xl:max-w-[54rem] 4xl:max-w-[62rem] 5xl:max-w-[68rem] 6xl:max-w-[74rem] mx-auto">
             Do primeiro anúncio ao gestor que escala múltiplos clientes —<br />a Ratoeira transforma cada real investido em tráfego numa origem rastreada e numa decisão mais inteligente.
           </p>
         </motion.div>
 
       </div>
 
-      <div className="relative z-10 h-[520px] sm:h-[85vh] 4xl:h-[80vh] 5xl:h-[75vh] 6xl:h-[75vh] overflow-visible sm:overflow-hidden flex items-center -mt-4 sm:-mt-8 4xl:-mt-12 5xl:-mt-16">
+      <div className="relative z-10 h-[520px] sm:h-[82vh] 4xl:h-[76vh] 5xl:h-[70vh] 6xl:h-[70vh] overflow-visible sm:overflow-hidden flex items-center -mt-4 sm:-mt-8 4xl:-mt-10 5xl:-mt-12">
         <div className="relative w-full h-full">
           <AnimatePresence mode="sync" initial={false}>
             <motion.article
@@ -132,7 +132,7 @@ export default function Benefits() {
                 const Icon = benefit.icon;
 
                 return (
-                  <div className="w-full max-w-7xl 2xl:max-w-[92%] 4xl:max-w-[120rem] 5xl:max-w-[140rem] 6xl:max-w-[160rem] mx-auto">
+                  <div className="w-full max-w-7xl 2xl:max-w-[92%] 4xl:max-w-[110rem] 5xl:max-w-[120rem] 6xl:max-w-[132rem] mx-auto">
                     <ShineBorder
                       borderRadius={24}
                       borderWidth={5.5}
@@ -143,23 +143,23 @@ export default function Benefits() {
                         "var(--color-brand-secondary)",
                         "var(--color-brand-primary-hover)",
                       ]}
-                      className="h-auto min-h-[420px] sm:h-[78vh] sm:min-h-[520px] 5xl:min-h-[600px] 6xl:min-h-[680px] w-full"
+                      className="h-auto min-h-[420px] sm:h-[74vh] sm:min-h-[520px] 5xl:min-h-[560px] 6xl:min-h-[620px] w-full"
                     >
-                      <div className="relative h-full rounded-card border border-white/10 bg-[#050505] shadow-card-resting p-5 sm:p-6 md:p-10 lg:p-12 overflow-hidden">
+                      <div className="relative h-full rounded-card border border-white/10 bg-[#050505] shadow-card-resting p-5 sm:p-6 md:p-10 lg:p-12 5xl:p-16 6xl:p-20 overflow-hidden">
                         <BackgroundPaths reverse={benefit.imageLeft} />
-                        <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-[1.2fr_1fr] 3xl:grid-cols-[1.3fr_1fr] 4xl:grid-cols-[1.35fr_1fr] 5xl:grid-cols-[1.45fr_1fr] 6xl:grid-cols-[1.55fr_1fr] gap-10 5xl:gap-16 6xl:gap-20 items-center h-full">
-                          <div className={benefit.imageLeft ? "order-2" : "order-1"}>
-                            <h3 className="mt-4 sm:mt-6 text-lg sm:text-xl lg:text-4xl 3xl:text-5xl 4xl:text-[3.5rem] 5xl:text-[4.5rem] 6xl:text-[5.5rem] font-black text-gray-50 leading-tight text-center lg:text-left text-balance max-w-2xl lg:max-w-3xl 5xl:max-w-[60rem] 6xl:max-w-[70rem]">
+                        <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-[1.2fr_1fr] 3xl:grid-cols-[1.3fr_1fr] 4xl:grid-cols-[1.35fr_1fr] 5xl:grid-cols-[1fr_1fr] 6xl:grid-cols-[1fr_1fr] gap-10 5xl:gap-14 6xl:gap-16 items-center h-full">
+                          <div className={`${benefit.imageLeft ? "order-2" : "order-1"} 5xl:px-4 6xl:px-6`}>
+                            <h3 className="mt-4 sm:mt-6 text-lg sm:text-xl lg:text-4xl 3xl:text-5xl 4xl:text-[3.5rem] 5xl:text-[5.5rem] 6xl:text-[6.75rem] font-black text-gray-50 leading-tight text-center lg:text-left text-balance max-w-2xl lg:max-w-3xl 5xl:max-w-[60rem] 6xl:max-w-[70rem]">
                               {benefit.title}
                             </h3>
-                            <p className="mt-4 sm:mt-5 4xl:mt-8 5xl:mt-10 text-base sm:text-lg 3xl:text-2xl 4xl:text-3xl 5xl:text-4xl 6xl:text-[2.5rem] text-gray-200 leading-relaxed text-center lg:text-left text-balance">
+                            <p className="mt-4 sm:mt-5 4xl:mt-8 5xl:mt-10 text-base sm:text-lg 3xl:text-2xl 4xl:text-3xl 5xl:text-[2.75rem] 6xl:text-[3rem] text-gray-200 leading-relaxed text-center lg:text-left text-balance">
                               {benefit.description}
                             </p>
                           </div>
 
                           <div className={benefit.imageLeft ? "order-1" : "order-2"}>
                             {activeIndex === 0 || activeIndex === 1 || activeIndex === 2 || activeIndex === 3 || activeIndex === 5 ? (
-                              <div className={activeIndex === 2 ? "relative rounded-card overflow-hidden p-3 5xl:p-6 6xl:p-8" : "relative rounded-card overflow-hidden 5xl:scale-110 6xl:scale-125"}>
+                              <div className={activeIndex === 2 ? "relative rounded-card overflow-hidden p-3 5xl:p-4 6xl:p-6" : "relative rounded-card overflow-hidden 5xl:scale-100 6xl:scale-110"}>
                                 <img
                                   src={activeIndex === 0 ? "/slide1home.png" : activeIndex === 1 ? "/slide2home.png" : activeIndex === 2 ? "/slide3home.png" : activeIndex === 3 ? "/slide4home.png" : "/slide6home.png"}
                                   alt={benefit.title}
@@ -167,7 +167,7 @@ export default function Benefits() {
                                 />
                               </div>
                             ) : activeIndex === 4 ? (
-                              <div className="relative aspect-[9/19.5] max-w-[260px] sm:max-w-[300px] 5xl:max-w-[380px] 6xl:max-w-[460px] max-h-full mx-auto rounded-[2.5rem] overflow-hidden">
+                              <div className="relative aspect-[9/19.5] max-w-[260px] sm:max-w-[300px] 5xl:max-w-[340px] 6xl:max-w-[420px] max-h-full mx-auto rounded-[2.5rem] overflow-hidden">
                                 <video
                                   src="/videos/slide5.mp4"
                                   autoPlay

@@ -120,7 +120,7 @@ export function Features() {
                 key={slide.key}
                 className={`flex flex-col ${isReversed ? "md:flex-row-reverse" : "md:flex-row"} items-center gap-12 md:gap-24 rounded-3xl border p-8 md:p-12 ${isLight ? "bg-white border-black/10" : "bg-[#111111] border-white/10"}`}
               >
-                <div className="flex-1 space-y-6 w-full">
+                <div className="flex-1 space-y-6 w-full text-center md:text-left">
                   <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br from-[#FF7E4A]/20 to-[#FF7E4A]/8 flex items-center justify-center border ${isLight ? "border-black/10" : "border-white/10"}`}>
                     <Zap className="w-8 h-8 text-[#FF7E4A]" />
                   </div>
