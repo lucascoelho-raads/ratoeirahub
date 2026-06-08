@@ -115,7 +115,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative min-h-[100svh] lg:min-h-screen 5xl:min-h-[100svh] bg-[#050505] z-10 overflow-hidden flex flex-col pt-20 lg:pt-24">
+    <section className="relative min-h-[100svh] lg:min-h-screen 5xl:min-h-[100svh] bg-[#050505] z-10 overflow-hidden flex flex-col pt-20 lg:pt-24 pb-16 lg:pb-20">
       <motion.div
         initial={false}
         animate={{ x: activePanel === 0 ? "0%" : "-50%" }}
