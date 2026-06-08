@@ -6,7 +6,7 @@ import { ArrowRight } from "lucide-react";
 export default function CTAPartnerships() {
   return (
     <section id="formulario-parceria" className="py-16 md:py-24 bg-[#050505] relative scroll-mt-20">
-      <div className="max-w-4xl 2xl:max-w-[92%] 4xl:max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-12 4xl:px-20 relative z-10">
+      <div className="max-w-4xl 2xl:max-w-[90rem] 4xl:max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-12 4xl:px-20 relative z-10">
         {/* Seção 4 — CTA */}
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}

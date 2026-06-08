@@ -28,7 +28,7 @@ const tiers = [
 export default function CommissionStructure() {
   return (
     <section className="py-16 md:py-24 bg-[#050505]">
-      <div className="max-w-7xl 2xl:max-w-[92%] 4xl:max-w-[120rem] 5xl:max-w-[140rem] 6xl:max-w-[160rem] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-12 4xl:px-20 5xl:px-28 6xl:px-36">
+      <div className="max-w-7xl 2xl:max-w-[90rem] 4xl:max-w-[120rem] 5xl:max-w-[140rem] 6xl:max-w-[160rem] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-12 4xl:px-20 5xl:px-28 6xl:px-36">
         <div className="text-center mb-16">
           <h2 className="text-2xl sm:text-3xl md:text-5xl font-black text-white mb-4 tracking-tight text-balance">
             Estrutura de <span className="text-brand-primary">Comissionamento</span>
@@ -38,7 +38,7 @@ export default function CommissionStructure() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl 2xl:max-w-[92%] 4xl:max-w-[100rem] mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl 2xl:max-w-[90rem] 4xl:max-w-[100rem] mx-auto">
           {tiers.map((tier, index) => (
             <motion.div
               key={tier.name}

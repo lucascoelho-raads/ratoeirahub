@@ -123,7 +123,7 @@ export default function ConexoesComIAPage() {
 
       <section className="relative py-14 sm:py-20">
         <RadialGlowBackground sizePx={760} position={{ x: "50%", y: "180px" }} color="rgba(255,184,0,0.18)" />
-        <div className="relative z-10 max-w-7xl 2xl:max-w-[92%] 4xl:max-w-[120rem] 5xl:max-w-[140rem] 6xl:max-w-[160rem] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-12 4xl:px-20 5xl:px-28 6xl:px-36">
+        <div className="relative z-10 max-w-7xl 2xl:max-w-[90rem] 4xl:max-w-[120rem] 5xl:max-w-[140rem] 6xl:max-w-[160rem] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-12 4xl:px-20 5xl:px-28 6xl:px-36">
           <div className="relative z-10 grid gap-10 lg:grid-cols-2 lg:items-center">
             <div className="flex flex-col gap-4 lg:col-span-2">
               <div className="flex flex-wrap items-center gap-2">
@@ -162,7 +162,7 @@ export default function ConexoesComIAPage() {
         <div className="absolute inset-0 bg-black -z-10" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_700px_at_50%_200px,rgba(180,83,9,0.25),transparent)] -z-10" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_400px_at_70%_500px,rgba(234,88,12,0.3),transparent)] -z-10" />
-        <div className="relative z-10 max-w-7xl 2xl:max-w-[92%] 4xl:max-w-[120rem] 5xl:max-w-[140rem] 6xl:max-w-[160rem] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-12 4xl:px-20 5xl:px-28 6xl:px-36">
+        <div className="relative z-10 max-w-7xl 2xl:max-w-[90rem] 4xl:max-w-[120rem] 5xl:max-w-[140rem] 6xl:max-w-[160rem] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-12 4xl:px-20 5xl:px-28 6xl:px-36">
           <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-[#0b0b0b] px-8 py-12 sm:px-12 sm:py-14">
             <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(60%_60%_at_50%_20%,rgba(255,184,0,0.18),rgba(11,11,11,0))]" />
             <div className="relative mx-auto max-w-3xl 2xl:max-w-[60rem] 4xl:max-w-[80rem] text-center">
@@ -180,7 +180,7 @@ export default function ConexoesComIAPage() {
 
       <section className="relative py-14 sm:py-20">
         <RadialGlowBackground sizePx={760} position={{ x: "50%", y: "180px" }} color="rgba(251,147,60,0.18)" />
-        <div className="relative z-10 max-w-7xl 2xl:max-w-[92%] 4xl:max-w-[120rem] 5xl:max-w-[140rem] 6xl:max-w-[160rem] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-12 4xl:px-20 5xl:px-28 6xl:px-36">
+        <div className="relative z-10 max-w-7xl 2xl:max-w-[90rem] 4xl:max-w-[120rem] 5xl:max-w-[140rem] 6xl:max-w-[160rem] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-12 4xl:px-20 5xl:px-28 6xl:px-36">
           <div
             style={mcpPagesOrangeStyle}
             className="grid gap-10 lg:grid-cols-2 lg:items-center"

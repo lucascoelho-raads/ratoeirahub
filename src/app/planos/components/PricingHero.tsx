@@ -12,7 +12,7 @@ export default function PricingHero() {
       {/* Decorative background elements */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-full max-w-4xl 2xl:max-w-[70rem] 4xl:max-w-[90rem] h-[400px] bg-brand-primary/10 rounded-full blur-[120px] pointer-events-none" />
 
-      <div className="max-w-7xl 2xl:max-w-[92%] 4xl:max-w-[120rem] 5xl:max-w-[140rem] 6xl:max-w-[160rem] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-12 4xl:px-20 5xl:px-28 6xl:px-36 relative z-10 text-center">
+      <div className="max-w-7xl 2xl:max-w-[90rem] 4xl:max-w-[120rem] 5xl:max-w-[140rem] 6xl:max-w-[160rem] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-12 4xl:px-20 5xl:px-28 6xl:px-36 relative z-10 text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}

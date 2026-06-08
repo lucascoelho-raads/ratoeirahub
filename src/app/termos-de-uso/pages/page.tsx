@@ -13,7 +13,7 @@ export default function TermosDeUsoPagesPage() {
     <main className="flex flex-col flex-1 min-h-screen bg-[#050505] text-white">
       <Navbar />
 
-      <div className="flex-1 py-20 md:py-32 px-4 sm:px-6 lg:px-8 max-w-4xl 2xl:max-w-[92%] 4xl:max-w-[90rem] mx-auto w-full">
+      <div className="flex-1 py-20 md:py-32 px-4 sm:px-6 lg:px-8 max-w-4xl 2xl:max-w-4xl 4xl:max-w-[90rem] mx-auto w-full">
         <div className="mb-12">
           <Link
             href="/"

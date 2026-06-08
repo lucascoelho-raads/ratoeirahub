@@ -11,12 +11,6 @@ module.exports = {
   ],
   theme: {
     extend: {
-      screens: {
-        '3xl': '1920px',
-        '4xl': '2560px',
-        '5xl': '3440px', // ultrawide 34" (3440×1440) e QHD+
-        '6xl': '3840px', // 4K UHD
-      },
       colors: {
         gold: {
           600: '#d97706',

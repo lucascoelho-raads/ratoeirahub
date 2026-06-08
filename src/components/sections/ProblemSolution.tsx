@@ -77,7 +77,7 @@ export default function ProblemSolution() {
 
   return (
     <section ref={ref} className="py-16 md:py-24 bg-[#f9fafb]" id="solucoes">
-      <div className="max-w-7xl 2xl:max-w-[92%] 4xl:max-w-[110rem] 5xl:max-w-[120rem] 6xl:max-w-[132rem] mx-auto px-4 sm:px-6 lg:px-12 2xl:px-16 4xl:px-24 5xl:px-32 6xl:px-40">
+      <div className="max-w-7xl 2xl:max-w-[90rem] 4xl:max-w-[110rem] 5xl:max-w-[120rem] 6xl:max-w-[132rem] mx-auto px-4 sm:px-6 lg:px-12 2xl:px-16 4xl:px-24 5xl:px-32 6xl:px-40">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}

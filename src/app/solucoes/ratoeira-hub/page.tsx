@@ -73,7 +73,7 @@ export default function RatoeiraHubPage() {
         >
           <div aria-hidden className="absolute inset-0 z-[1] bg-gradient-to-br from-yellow-500/15 via-orange-500/10 to-transparent" />
           <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-4 pt-[clamp(7rem,16vh,12rem)] pb-[clamp(4.5rem,10vh,8.5rem)]">
-            <div className="max-w-6xl 2xl:max-w-[92%] 4xl:max-w-[110rem] 5xl:max-w-[130rem] 6xl:max-w-[150rem] text-center">
+            <div className="max-w-6xl 2xl:max-w-[90rem] 4xl:max-w-[110rem] 5xl:max-w-[130rem] 6xl:max-w-[150rem] text-center">
               <h1 className="text-[clamp(1.25rem,4.2vw,6rem)] 3xl:text-[clamp(4.5rem,3.2vw,6.5rem)] font-black text-white tracking-tight leading-[1.04] mb-8 text-balance">
                 Quando Ads e Pages trabalham juntos, sua operação chega onde nenhuma ferramenta sozinha chega.
               </h1>
@@ -95,7 +95,7 @@ export default function RatoeiraHubPage() {
 
               <p className="mt-4 text-sm text-neutral-400">Plano gratuito disponível. Sem cartão.</p>
 
-              <div className="mx-auto mt-12 w-full max-w-6xl 2xl:max-w-[92%] 4xl:max-w-[110rem] 5xl:max-w-[130rem] 6xl:max-w-[150rem]">
+              <div className="mx-auto mt-12 w-full max-w-6xl 2xl:max-w-[90rem] 4xl:max-w-[110rem] 5xl:max-w-[130rem] 6xl:max-w-[150rem]">
                 <div className="relative mx-auto h-[clamp(14rem,30vw,28rem)] w-full max-w-5xl xl:max-w-6xl 2xl:max-w-[85rem] 3xl:max-w-[92rem] 4xl:max-w-[100rem] rounded-2xl border border-white/10 bg-black/20 shadow-2xl shadow-black/60 overflow-hidden">
                   <Image
                     src="/dashboard.png"
@@ -113,7 +113,7 @@ export default function RatoeiraHubPage() {
       </section>
 
       <section id="como-funciona" className="py-16 md:py-24 bg-[#050505] relative border-t border-white/5">
-        <div className="max-w-7xl 2xl:max-w-[92%] 4xl:max-w-[120rem] 5xl:max-w-[140rem] 6xl:max-w-[160rem] mx-auto px-4 2xl:px-12 4xl:px-20 5xl:px-28 6xl:px-36 relative z-10">
+        <div className="max-w-7xl 2xl:max-w-[90rem] 4xl:max-w-[120rem] 5xl:max-w-[140rem] 6xl:max-w-[160rem] mx-auto px-4 2xl:px-12 4xl:px-20 5xl:px-28 6xl:px-36 relative z-10">
           <div className="text-center mb-20">
             <h2 className="text-3xl sm:text-4xl md:text-5xl 3xl:text-7xl font-black text-white mb-6 text-balance">
               Integrado é diferente de{" "}
@@ -400,7 +400,7 @@ export default function RatoeiraHubPage() {
       </section>
 
       <section className="bg-[#050505] flex items-center justify-center min-h-[auto] md:min-h-[clamp(600px,70vh,900px)] py-16 md:py-24">
-        <div className="max-w-6xl 2xl:max-w-[92%] 4xl:max-w-[110rem] 5xl:max-w-[130rem] 6xl:max-w-[150rem] mx-auto px-4 2xl:px-12 4xl:px-20 5xl:px-28 6xl:px-36 relative z-20 text-center w-full">
+        <div className="max-w-6xl 2xl:max-w-[90rem] 4xl:max-w-[110rem] 5xl:max-w-[130rem] 6xl:max-w-[150rem] mx-auto px-4 2xl:px-12 4xl:px-20 5xl:px-28 6xl:px-36 relative z-20 text-center w-full">
           <h2 className="text-[clamp(1.75rem,6vw,4.5rem)] 3xl:text-[clamp(3.5rem,3.2vw,5.5rem)] font-black text-white mb-6 tracking-tight px-4">
             O <GradientText variant="orange" className="font-black">ecossistema completo</GradientText> do tráfego pago. Em um lugar.
           </h2>
@@ -409,7 +409,7 @@ export default function RatoeiraHubPage() {
             Tudo que você precisa para escalar com dado real.
           </p>
 
-          <div className="relative mx-auto mb-10 w-full max-w-6xl 2xl:max-w-[92%] 4xl:max-w-[110rem] 5xl:max-w-[130rem] 6xl:max-w-[150rem]">
+          <div className="relative mx-auto mb-10 w-full max-w-6xl 2xl:max-w-[90rem] 4xl:max-w-[110rem] 5xl:max-w-[130rem] 6xl:max-w-[150rem]">
             <div className="absolute -left-6 top-1/2 -translate-y-1/2 hidden lg:block">
               <Image
                 src="/logoraads.png"

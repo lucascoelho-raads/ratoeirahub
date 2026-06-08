@@ -122,7 +122,7 @@ export default function Pricing() {
         </motion.div>
 
         {/* Plans Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 5xl:gap-8 6xl:gap-10 items-stretch">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 2xl:gap-10 items-stretch">
           {plans.map((plan, i) => (
             <motion.div
               key={plan.name}
@@ -144,13 +144,13 @@ export default function Pricing() {
                 </div>
               )}
 
-              <div className="p-8 5xl:p-9 6xl:p-10 flex-1 flex flex-col">
+              <div className="p-8 2xl:p-9 flex-1 flex flex-col">
                 {/* Plan info */}
                 <div className="mb-8">
-                  <h3 className={`text-xl 3xl:text-[1.75rem] font-black mb-1 ${plan.popular ? "text-white" : "text-gray-900"}`}>
+                  <h3 className={`text-xl 2xl:text-[1.75rem] font-black mb-1 ${plan.popular ? "text-white" : "text-gray-900"}`}>
                     {plan.name}
                   </h3>
-                  <p className={`text-sm 3xl:text-base ${plan.popular ? "text-yellow-200" : "text-gray-500"}`}>
+                  <p className={`text-sm 2xl:text-base ${plan.popular ? "text-yellow-200" : "text-gray-500"}`}>
                     {plan.description}
                   </p>
                 </div>
@@ -158,7 +158,7 @@ export default function Pricing() {
                 {/* Price */}
                 <div className="mb-8">
                   <div className="flex items-end gap-2">
-                    <span className={`text-3xl sm:text-5xl 3xl:text-6xl 5xl:text-[4.5rem] 6xl:text-[5rem] font-black tabular-nums ${plan.popular ? "text-white" : "text-gray-900"}`}>
+                    <span className={`text-3xl sm:text-5xl 2xl:text-6xl font-black tabular-nums ${plan.popular ? "text-white" : "text-gray-900"}`}>
                       R${yearly ? plan.yearlyPrice : plan.monthlyPrice}
                     </span>
                     <span className={`text-sm mb-2 ${plan.popular ? "text-yellow-200" : "text-gray-400"}`}>/mês</span>
@@ -172,17 +172,17 @@ export default function Pricing() {
                 </div>
 
                 {/* Features */}
-                <div className="flex-1 space-y-3 5xl:space-y-0 5xl:grid 5xl:grid-cols-2 5xl:gap-x-4 5xl:gap-y-3 mb-8">
+                <div className="flex-1 space-y-3 2xl:space-y-0 2xl:grid 2xl:grid-cols-2 2xl:gap-x-4 2xl:gap-y-3 mb-8">
                   {plan.features.map((feat) => (
                     <div key={feat} className="flex items-start gap-2.5">
                       <CheckCircle className={`w-4 h-4 flex-shrink-0 mt-0.5 ${plan.popular ? "text-yellow-300" : "text-emerald-500"}`} />
-                      <span className={`text-sm 3xl:text-lg ${plan.popular ? "text-gray-400" : "text-gray-600"}`}>{feat}</span>
+                      <span className={`text-sm 2xl:text-lg ${plan.popular ? "text-gray-400" : "text-gray-600"}`}>{feat}</span>
                     </div>
                   ))}
                   {plan.missing.map((feat) => (
                     <div key={feat} className="flex items-start gap-2.5 opacity-40">
                       <div className={`w-4 h-4 flex-shrink-0 mt-0.5 rounded-full border-2 ${plan.popular ? "border-yellow-300" : "border-gray-300"}`} />
-                      <span className={`text-sm 3xl:text-lg line-through ${plan.popular ? "text-yellow-200" : "text-gray-400"}`}>{feat}</span>
+                      <span className={`text-sm 2xl:text-lg line-through ${plan.popular ? "text-yellow-200" : "text-gray-400"}`}>{feat}</span>
                     </div>
                   ))}
                 </div>

@@ -64,7 +64,7 @@ export default function MetaAdsTrafficSourcePage() {
       <HeroMetaAds />
 
       <section className="py-20">
-        <div className="mx-auto max-w-6xl 2xl:max-w-[92%] 4xl:max-w-[110rem] 5xl:max-w-[130rem] 6xl:max-w-[150rem] px-4 sm:px-6 lg:px-8 2xl:px-12 4xl:px-20 5xl:px-28 6xl:px-36">
+        <div className="mx-auto max-w-6xl 2xl:max-w-[90rem] 4xl:max-w-[110rem] 5xl:max-w-[130rem] 6xl:max-w-[150rem] px-4 sm:px-6 lg:px-8 2xl:px-12 4xl:px-20 5xl:px-28 6xl:px-36">
           <div className="mb-10">
             <h2 className="text-3xl sm:text-4xl font-black tracking-tight text-white text-balance">
               O Meta Ads só otimiza tão bem quanto o dado que recebe.
@@ -119,7 +119,7 @@ export default function MetaAdsTrafficSourcePage() {
       </section>
 
       <section className="py-20 border-t border-white/5">
-        <div className="mx-auto max-w-6xl 2xl:max-w-[92%] 4xl:max-w-[110rem] 5xl:max-w-[130rem] 6xl:max-w-[150rem] px-4 sm:px-6 lg:px-8 2xl:px-12 4xl:px-20 5xl:px-28 6xl:px-36">
+        <div className="mx-auto max-w-6xl 2xl:max-w-[90rem] 4xl:max-w-[110rem] 5xl:max-w-[130rem] 6xl:max-w-[150rem] px-4 sm:px-6 lg:px-8 2xl:px-12 4xl:px-20 5xl:px-28 6xl:px-36">
           <div className="rounded-[32px] border border-white/10 bg-[#0A0A0A] p-6 sm:p-10 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 sm:gap-8">
             <div>
               <h3 className="text-2xl sm:text-3xl font-black text-white tracking-tight">

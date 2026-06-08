@@ -468,7 +468,7 @@ export default function PricingTabs() {
 
   return (
     <section className="py-16 md:py-24 bg-black">
-      <div className="max-w-7xl 2xl:max-w-[92%] 4xl:max-w-[120rem] 5xl:max-w-[140rem] 6xl:max-w-[160rem] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-24 4xl:px-36 5xl:px-44 6xl:px-52">
+      <div className="max-w-7xl 2xl:max-w-[90rem] 4xl:max-w-[120rem] 5xl:max-w-[140rem] 6xl:max-w-[160rem] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-16 4xl:px-36 5xl:px-44 6xl:px-52">
         {/* Tabs and Billing Toggle */}
         <div className="flex flex-col items-center gap-8 mb-16">
           {/* Tabs */}

@@ -304,7 +304,7 @@ export default function DesignSystem() {
     <div className="min-h-screen">
       <div className="grid lg:grid-cols-[260px_1fr]">
         <SideNavigation />
-        <main className="max-w-5xl 2xl:max-w-[92%] 4xl:max-w-[100rem] 5xl:max-w-[120rem] 6xl:max-w-[140rem] mx-auto px-10 py-12 w-full space-y-14">
+        <main className="max-w-5xl 2xl:max-w-[90rem] 4xl:max-w-[100rem] 5xl:max-w-[120rem] 6xl:max-w-[140rem] mx-auto px-10 py-12 w-full space-y-14">
           <section id="overview" className="space-y-4">
             <p className="text-body-label text-brand-secondary font-mono">Ratoeira Hub · Documentation</p>
             <h1 className="text-heading-section text-text-primary">Design System</h1>

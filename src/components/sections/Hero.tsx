@@ -49,17 +49,21 @@ function HeroVideoMockup({
         />
       ) : (
         <video
-          src={src}
           autoPlay
           muted
           loop
           playsInline
-          preload="auto"
+          preload="metadata"
           poster={poster}
           className="w-full h-full object-cover"
-          onLoadedData={() => setIsReady(true)}
+          onCanPlay={() => setIsReady(true)}
           onError={() => setHasError(true)}
-        />
+        >
+          <source
+            src={src}
+            type={src.endsWith(".mov") ? "video/quicktime" : "video/mp4"}
+          />
+        </video>
       )}
 
       {!isReady && !hasError && (
@@ -115,15 +119,15 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative min-h-[100svh] lg:min-h-screen 5xl:min-h-[100svh] bg-[#050505] z-0 overflow-hidden flex flex-col pt-20 lg:pt-24">
+    <section className="relative min-h-[100svh] lg:min-h-screen bg-[#050505] z-10 overflow-x-hidden overflow-y-visible">
       <motion.div
         initial={false}
         animate={{ x: activePanel === 0 ? "0%" : "-50%" }}
         transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-        className="absolute inset-0 flex w-[200%] bg-[#050505]"
+        className="relative flex w-[200%] min-h-[100svh] lg:min-h-screen bg-[#050505]"
       >
-        <div className="relative w-1/2 h-full flex items-start justify-center pt-28 lg:pt-32">
-          <SpotlightBackground className="absolute inset-0">
+        <div className="relative w-1/2 min-h-[100svh] lg:min-h-screen flex items-start justify-center pt-28 lg:pt-32">
+          <SpotlightBackground className="w-full">
               <div
                 className="absolute inset-0 pointer-events-none"
                 style={{
@@ -132,7 +136,7 @@ export default function Hero() {
                 }}
               />
               <div className="absolute -bottom-[30%] left-1/2 -translate-x-1/2 w-[clamp(800px,40vw,1600px)] h-[clamp(600px,30vw,1200px)] rounded-full bg-[radial-gradient(circle_at_center,rgba(255,184,0,0.18),transparent_70%)] blur-3xl pointer-events-none" />
-              <div className="relative w-full h-full max-w-7xl 2xl:max-w-[92%] 4xl:max-w-[105rem] 5xl:max-w-[110rem] 6xl:max-w-[120rem] mx-auto px-4 sm:px-6 lg:px-12 2xl:px-16 4xl:px-28 5xl:px-32 6xl:px-60 flex flex-col lg:grid lg:grid-cols-[1fr_1.1fr] 2xl:grid-cols-[1.25fr_1fr] 3xl:grid-cols-[1.35fr_1fr] 4xl:grid-cols-[1fr_1fr] 5xl:grid-cols-[0.95fr_1.05fr] 6xl:grid-cols-[0.8fr_1fr] gap-6 lg:gap-10 2xl:gap-14 3xl:gap-20 5xl:gap-16 6xl:gap-20 lg:items-start 5xl:items-center min-w-0 pt-16 lg:pt-20 pb-16 lg:pb-24">
+              <div className="relative w-full h-full max-w-7xl 2xl:max-w-[90rem] 4xl:max-w-[105rem] 5xl:max-w-[110rem] 6xl:max-w-[120rem] mx-auto px-4 sm:px-6 lg:px-12 2xl:px-16 4xl:px-28 5xl:px-32 6xl:px-60 flex flex-col lg:grid lg:grid-cols-[1fr_1.1fr] 2xl:grid-cols-[1.25fr_1fr] 3xl:grid-cols-[1.35fr_1fr] 4xl:grid-cols-[1fr_1fr] 5xl:grid-cols-[0.95fr_1.05fr] 6xl:grid-cols-[0.8fr_1fr] gap-6 lg:gap-10 2xl:gap-14 3xl:gap-20 5xl:gap-16 6xl:gap-20 lg:items-start 5xl:items-center min-w-0 pt-16 lg:pt-20 pb-16 lg:pb-24">
                 {/* Texto */}
                 <motion.div
                   variants={containerVariants}
@@ -311,8 +315,8 @@ export default function Hero() {
             </SpotlightBackground>
         </div>
 
-        <div className="relative w-1/2 h-full flex items-start justify-center pt-28 lg:pt-32">
-          <SpotlightBackground className="absolute inset-0">
+        <div className="relative w-1/2 min-h-[100svh] lg:min-h-screen flex items-start justify-center pt-28 lg:pt-32">
+          <SpotlightBackground className="w-full">
               <div
                 className="absolute inset-0 pointer-events-none"
                 style={{
@@ -320,7 +324,7 @@ export default function Hero() {
                   backgroundSize: "120px 120px",
                 }}
               />
-              <div className="relative w-full h-full max-w-7xl 2xl:max-w-[92%] 4xl:max-w-[105rem] 5xl:max-w-[110rem] 6xl:max-w-[120rem] mx-auto px-4 sm:px-6 lg:px-12 2xl:px-16 4xl:px-28 5xl:px-32 6xl:px-60 flex flex-col lg:grid lg:grid-cols-[1fr_1.1fr] 2xl:grid-cols-[1.25fr_1fr] 3xl:grid-cols-[1.35fr_1fr] 4xl:grid-cols-[1fr_1fr] 5xl:grid-cols-[0.95fr_1.05fr] 6xl:grid-cols-[0.8fr_1fr] gap-6 lg:gap-10 2xl:gap-14 3xl:gap-20 5xl:gap-16 6xl:gap-20 lg:items-start 5xl:items-center min-w-0 pt-16 lg:pt-20 pb-16 lg:pb-24">
+              <div className="relative w-full h-full max-w-7xl 2xl:max-w-[90rem] 4xl:max-w-[105rem] 5xl:max-w-[110rem] 6xl:max-w-[120rem] mx-auto px-4 sm:px-6 lg:px-12 2xl:px-16 4xl:px-28 5xl:px-32 6xl:px-60 flex flex-col lg:grid lg:grid-cols-[1fr_1.1fr] 2xl:grid-cols-[1.25fr_1fr] 3xl:grid-cols-[1.35fr_1fr] 4xl:grid-cols-[1fr_1fr] 5xl:grid-cols-[0.95fr_1.05fr] 6xl:grid-cols-[0.8fr_1fr] gap-6 lg:gap-10 2xl:gap-14 3xl:gap-20 5xl:gap-16 6xl:gap-20 lg:items-start 5xl:items-center min-w-0 pt-16 lg:pt-20 pb-16 lg:pb-24">
                 {/* Texto */}
                 <div className="flex flex-col gap-6 lg:col-start-1 lg:row-start-1">
                   <h2 className="text-[clamp(1.15rem,6vw,3.5rem)] sm:text-[clamp(1.5rem,5vw,4rem)] lg:text-[clamp(2.75rem,3.8vw,4.5rem)] 3xl:text-[clamp(3.5rem,3.2vw,5.5rem)] font-extrabold tracking-tight leading-tight lg:leading-[1.04] text-white break-words text-center lg:text-left text-balance max-w-2xl lg:max-w-4xl 3xl:max-w-5xl 4xl:max-w-6xl 5xl:max-w-[64rem] 6xl:max-w-[72rem] mx-auto lg:mx-0">

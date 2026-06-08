@@ -116,7 +116,7 @@ export default function Mais70ChainCarousel() {
 
   return (
     <section className="py-20 bg-[#050505]">
-      <div className="max-w-7xl 2xl:max-w-[92%] 4xl:max-w-[120rem] 5xl:max-w-[140rem] 6xl:max-w-[160rem] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-12 4xl:px-20 5xl:px-28 6xl:px-36">
+      <div className="max-w-7xl 2xl:max-w-[90rem] 4xl:max-w-[120rem] 5xl:max-w-[140rem] 6xl:max-w-[160rem] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-12 4xl:px-20 5xl:px-28 6xl:px-36">
         <h2 className="text-center text-2xl md:text-4xl font-black text-[#FFB800] tracking-tight">
           Conexão em minutos. Zero retrabalho.
         </h2>

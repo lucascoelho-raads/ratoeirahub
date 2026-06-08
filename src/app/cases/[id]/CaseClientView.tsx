@@ -80,7 +80,7 @@ export default function CaseClientView({ caseData }: { caseData: CaseData }) {
         </motion.div>
 
         {/* Conteúdo da Hero */}
-        <div className="relative z-10 w-full max-w-5xl 2xl:max-w-[92%] 4xl:max-w-[100rem] mx-auto px-4 2xl:px-12 4xl:px-20 text-center mt-20">
+        <div className="relative z-10 w-full max-w-5xl 2xl:max-w-5xl 4xl:max-w-[100rem] mx-auto px-4 2xl:px-12 4xl:px-20 text-center mt-20">
           <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -136,7 +136,7 @@ export default function CaseClientView({ caseData }: { caseData: CaseData }) {
       </div>
 
       {/* 2. OVERLAPPING RESULTS BAR */}
-      <div className="relative z-20 max-w-5xl 2xl:max-w-[92%] 4xl:max-w-[100rem] mx-auto px-4 2xl:px-12 4xl:px-20 -mt-16 sm:-mt-24 mb-16 sm:mb-32">
+      <div className="relative z-20 max-w-5xl 2xl:max-w-5xl 4xl:max-w-[100rem] mx-auto px-4 2xl:px-12 4xl:px-20 -mt-16 sm:-mt-24 mb-16 sm:mb-32">
         <motion.div 
           initial="hidden"
           whileInView="visible"
@@ -169,7 +169,7 @@ export default function CaseClientView({ caseData }: { caseData: CaseData }) {
       </div>
 
       {/* 3. CONTEÚDO PRINCIPAL (Editorial Style) */}
-      <div className="max-w-4xl 2xl:max-w-[92%] 4xl:max-w-[90rem] mx-auto px-4 2xl:px-12 4xl:px-20 pb-16 sm:pb-32">
+      <div className="max-w-4xl 2xl:max-w-4xl 4xl:max-w-[90rem] mx-auto px-4 2xl:px-12 4xl:px-20 pb-16 sm:pb-32">
         
         {/* O Desafio */}
         <motion.section 
