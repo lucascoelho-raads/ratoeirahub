@@ -404,7 +404,7 @@ export default function Hero() {
                 </motion.div>
 
                 {/* Slider Controls */}
-                <div className="relative lg:absolute z-30 lg:bottom-8 lg:left-1/2 lg:-translate-x-1/2 flex items-center justify-center gap-3 bg-black/80 backdrop-blur-md px-4 py-2 rounded-full border border-brand-primary/50 order-3 lg:order-none mt-4 lg:mt-0 w-fit mx-auto">
+                <div className="relative z-30 flex items-center justify-center gap-3 bg-black/80 backdrop-blur-md px-4 py-2 rounded-full border border-brand-primary/50 mt-4 w-fit mx-auto order-3 lg:order-none lg:col-span-2">
                   <button 
                     onClick={() => setActivePanel((prev) => (prev === 0 ? 1 : 0))}
                     className="w-8 h-8 rounded-full bg-white flex items-center justify-center hover:bg-neutral-200 transition-colors"
