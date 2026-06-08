@@ -132,7 +132,7 @@ export default function Hero() {
                 }}
               />
               <div className="absolute -bottom-[30%] left-1/2 -translate-x-1/2 w-[clamp(800px,40vw,1600px)] h-[clamp(600px,30vw,1200px)] rounded-full bg-[radial-gradient(circle_at_center,rgba(255,184,0,0.18),transparent_70%)] blur-3xl pointer-events-none" />
-              <div className="relative w-full h-full max-w-7xl 2xl:max-w-[92%] 4xl:max-w-[105rem] 5xl:max-w-[110rem] 6xl:max-w-[120rem] mx-auto px-4 sm:px-6 lg:px-12 2xl:px-16 4xl:px-28 5xl:px-32 6xl:px-60 flex flex-col lg:grid lg:grid-cols-[1fr_1.1fr] 2xl:grid-cols-[1.25fr_1fr] 3xl:grid-cols-[1.35fr_1fr] 4xl:grid-cols-[1fr_1fr] 5xl:grid-cols-[0.95fr_1.05fr] 6xl:grid-cols-[0.8fr_1fr] gap-6 lg:gap-10 2xl:gap-14 3xl:gap-20 5xl:gap-16 6xl:gap-20 lg:items-start 5xl:items-center min-w-0 pt-28 lg:pt-32 pb-8 lg:pb-20">
+              <div className="relative w-full h-full max-w-7xl 2xl:max-w-[92%] 4xl:max-w-[105rem] 5xl:max-w-[110rem] 6xl:max-w-[120rem] mx-auto px-4 sm:px-6 lg:px-12 2xl:px-16 4xl:px-28 5xl:px-32 6xl:px-60 flex flex-col lg:grid lg:grid-cols-[1fr_1.1fr] 2xl:grid-cols-[1.25fr_1fr] 3xl:grid-cols-[1.35fr_1fr] 4xl:grid-cols-[1fr_1fr] 5xl:grid-cols-[0.95fr_1.05fr] 6xl:grid-cols-[0.8fr_1fr] gap-6 lg:gap-10 2xl:gap-14 3xl:gap-20 5xl:gap-16 6xl:gap-20 lg:items-start 5xl:items-center min-w-0 pt-16 lg:pt-20 pb-16 lg:pb-24">
                 {/* Texto */}
                 <motion.div
                   variants={containerVariants}
@@ -320,9 +320,9 @@ export default function Hero() {
                   backgroundSize: "120px 120px",
                 }}
               />
-              <div className="relative w-full h-full max-w-7xl 2xl:max-w-[92%] 4xl:max-w-[105rem] 5xl:max-w-[110rem] 6xl:max-w-[120rem] mx-auto px-4 sm:px-6 lg:px-12 2xl:px-16 4xl:px-28 5xl:px-32 6xl:px-60 flex flex-col lg:grid lg:grid-cols-[1fr_1.1fr] 2xl:grid-cols-[1.25fr_1fr] 3xl:grid-cols-[1.35fr_1fr] 4xl:grid-cols-[1fr_1fr] 5xl:grid-cols-[0.95fr_1.05fr] 6xl:grid-cols-[0.8fr_1fr] gap-6 lg:gap-10 2xl:gap-14 3xl:gap-20 5xl:gap-16 6xl:gap-20 lg:items-start 5xl:items-center min-w-0 pt-28 lg:pt-32 pb-8 lg:pb-20">
+              <div className="relative w-full h-full max-w-7xl 2xl:max-w-[92%] 4xl:max-w-[105rem] 5xl:max-w-[110rem] 6xl:max-w-[120rem] mx-auto px-4 sm:px-6 lg:px-12 2xl:px-16 4xl:px-28 5xl:px-32 6xl:px-60 flex flex-col lg:grid lg:grid-cols-[1fr_1.1fr] 2xl:grid-cols-[1.25fr_1fr] 3xl:grid-cols-[1.35fr_1fr] 4xl:grid-cols-[1fr_1fr] 5xl:grid-cols-[0.95fr_1.05fr] 6xl:grid-cols-[0.8fr_1fr] gap-6 lg:gap-10 2xl:gap-14 3xl:gap-20 5xl:gap-16 6xl:gap-20 lg:items-start 5xl:items-center min-w-0 pt-16 lg:pt-20 pb-16 lg:pb-24">
                 {/* Texto */}
-                <div className="flex flex-col gap-6">
+                <div className="flex flex-col gap-6 lg:col-start-1 lg:row-start-1">
                   <h2 className="text-[clamp(1.15rem,6vw,3.5rem)] sm:text-[clamp(1.5rem,5vw,4rem)] lg:text-[clamp(2.75rem,3.8vw,4.5rem)] 3xl:text-[clamp(3.5rem,3.2vw,5.5rem)] font-extrabold tracking-tight leading-tight lg:leading-[1.04] text-white break-words text-center lg:text-left text-balance max-w-2xl lg:max-w-4xl 3xl:max-w-5xl 4xl:max-w-6xl 5xl:max-w-[64rem] 6xl:max-w-[72rem] mx-auto lg:mx-0">
                     Páginas que convertem.{" "}
                     <span style={{ color: "var(--color-brand-primary)" }}>
@@ -332,16 +332,6 @@ export default function Hero() {
                   <p className="text-[clamp(0.875rem,3vw,1.125rem)] sm:text-[clamp(1rem,2vw,1.125rem)] 3xl:text-[clamp(1.125rem,1.2vw,1.5rem)] text-gray-400/70 leading-relaxed max-w-2xl 2xl:max-w-[34rem] 3xl:max-w-[46rem] 4xl:max-w-[56rem] 5xl:max-w-[48rem] text-center lg:text-left">
                     Templates prontos e validados, Flash Pages que abrem em menos de 1 segundo e criação por IA com 1 clique. Cada página já nasce com o trackeamento integrado — sem scripts avulsos, sem configuração manual, sem dado perdido entre a página e a campanha.
                   </p>
-
-                  {/* CTA — desktop only, inside text flow */}
-                  <div className="hidden lg:flex items-center justify-start gap-3 pt-2">
-                    <Link
-                      href="/solucoes/ratoeira-pages"
-                      className="inline-flex items-center gap-2 px-6 py-3 bg-brand-primary text-white font-semibold text-sm rounded-button hover:bg-brand-primary-hover transition-colors duration-200 text-center"
-                    >
-                      Conhecer o Ratoeira Pages →
-                    </Link>
-                  </div>
                 </div>
 
                 {/* Mockup Pages - visível em todas as telas */}
@@ -403,8 +393,18 @@ export default function Hero() {
                   </div>
                 </motion.div>
 
+                {/* CTA — desktop only, aligned with slider */}
+                <div className="hidden lg:flex items-center justify-start gap-3 lg:col-start-1 lg:row-start-2 self-end pb-2">
+                  <Link
+                    href="/solucoes/ratoeira-pages"
+                    className="inline-flex items-center gap-2 px-6 py-3 bg-brand-primary text-white font-semibold text-sm rounded-button hover:bg-brand-primary-hover transition-colors duration-200 text-center"
+                  >
+                    Conhecer o Ratoeira Pages →
+                  </Link>
+                </div>
+
                 {/* Slider Controls */}
-                <div className="relative z-30 flex items-center justify-center gap-3 bg-black/80 backdrop-blur-md px-4 py-2 rounded-full border border-brand-primary/50 mt-4 w-fit mx-auto order-3 lg:order-none lg:col-span-2">
+                <div className="relative z-30 flex items-center justify-center gap-3 bg-black/80 backdrop-blur-md px-4 py-2 rounded-full border border-brand-primary/50 mt-4 w-fit mx-auto order-3 lg:col-start-2 lg:row-start-2 lg:justify-self-start lg:self-end mb-2">
                   <button 
                     onClick={() => setActivePanel((prev) => (prev === 0 ? 1 : 0))}
                     className="w-8 h-8 rounded-full bg-white flex items-center justify-center hover:bg-neutral-200 transition-colors"
