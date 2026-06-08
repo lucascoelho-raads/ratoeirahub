@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Check, Radar, LayoutTemplate, Link2, X } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -8,6 +8,23 @@ import { cn } from "@/lib/utils";
 type PlanType = "ads" | "pages" | "hub";
 type BillingCycle = "monthly" | "semiannual" | "annual";
 type PlanFeatureValue = boolean | string | null;
+
+type PlanPrice = {
+  monthly: string;
+  semiannual: string;
+  annual: string;
+};
+
+type Plan = {
+  name: string;
+  description: string;
+  price: PlanPrice;
+  semiannualTotal?: string;
+  yearlyTotal?: string;
+  features: string[];
+  cta: string;
+  popular: boolean;
+};
 
 type FeatureRow = {
   label: string;
@@ -46,7 +63,7 @@ const tabs = [
   { id: "hub", label: "Ratoeira Hub", icon: Link2, badge: "Recomendado" },
 ];
 
-const plansData = {
+const plansData: Record<PlanType, Plan[]> = {
   ads: [
     {
       name: "Gratuito",
@@ -413,22 +430,25 @@ function FeatureCell({ value }: { value: PlanFeatureValue }) {
 }
 
 export default function PricingTabs() {
-  const getFeaturedIndex = (tab: PlanType) => {
-    const planList = billingCycle !== "monthly"
-      ? plansData[tab].filter((p) => p.name !== "Gratuito")
-      : plansData[tab];
+  const getPlanList = (tab: PlanType, cycle: BillingCycle) =>
+    cycle !== "monthly" ? plansData[tab].filter((p) => p.name !== "Gratuito") : plansData[tab];
+
+  const [activeTab, setActiveTab] = useState<PlanType>("hub");
+  const [billingCycle, setBillingCycle] = useState<BillingCycle>("annual");
+  const [activePlanIndex, setActivePlanIndex] = useState<number>(() => {
+    const idx = getPlanList("hub", "annual").findIndex((p) => p.popular);
+    return idx >= 0 ? idx : 0;
+  });
+
+  const getFeaturedIndex = (tab: PlanType, cycle: BillingCycle) => {
+    const planList = getPlanList(tab, cycle);
     const idx = planList.findIndex((p) => p.popular);
     return idx >= 0 ? idx : 0;
   };
 
-  const [activeTab, setActiveTab] = useState<PlanType>("hub");
-  const [billingCycle, setBillingCycle] = useState<BillingCycle>("annual");
-  const [activePlanIndex, setActivePlanIndex] = useState<number>(() => getFeaturedIndex("hub"));
-
-  const rawPlans = plansData[activeTab];
-  const plans = billingCycle !== "monthly"
-    ? rawPlans.filter((p) => p.name !== "Gratuito")
-    : rawPlans;
+  const plans = getPlanList(activeTab, billingCycle);
+  const comparisonPlans = plans.length === 4 ? plans.slice(1) : plans;
+  const comparisonColumnCount = comparisonPlans.length;
   const comparisonGroups = featureGroupsByTab[activeTab].map((group) => ({
     ...group,
     features: group.features.map((feature) => ({
@@ -436,12 +456,15 @@ export default function PricingTabs() {
       values: feature.values.slice(1),
     })),
   }));
-
-  useEffect(() => {
-    if (activePlanIndex >= plans.length) {
-      setActivePlanIndex(getFeaturedIndex(activeTab));
-    }
-  }, [plans.length, activeTab]);
+  
+  const handleBillingCycleChange = (nextCycle: BillingCycle) => {
+    setBillingCycle(nextCycle);
+    const nextPlans = getPlanList(activeTab, nextCycle);
+    setActivePlanIndex((current) => {
+      if (current < nextPlans.length) return current;
+      return getFeaturedIndex(activeTab, nextCycle);
+    });
+  };
 
   return (
     <section className="py-16 md:py-24 bg-black">
@@ -459,7 +482,7 @@ export default function PricingTabs() {
                   onClick={() => {
                     const nextTab = tab.id as PlanType;
                     setActiveTab(nextTab);
-                    setActivePlanIndex(getFeaturedIndex(nextTab));
+                    setActivePlanIndex(getFeaturedIndex(nextTab, billingCycle));
                   }}
                   className={cn(
                     "relative inline-flex items-center gap-2 px-6 py-3.5 rounded-button font-semibold text-sm transition-all duration-300",
@@ -483,7 +506,7 @@ export default function PricingTabs() {
           {/* Billing Cycle Toggle */}
           <div className="flex items-center p-1.5 bg-white/5 border border-white/10 rounded-full">
             <button
-              onClick={() => setBillingCycle("monthly")}
+              onClick={() => handleBillingCycleChange("monthly")}
               className={cn(
                 "px-6 py-2.5 rounded-full text-sm font-semibold transition-all duration-300",
                 billingCycle === "monthly"
@@ -494,7 +517,7 @@ export default function PricingTabs() {
               Mensal
             </button>
             <button
-              onClick={() => setBillingCycle("semiannual")}
+              onClick={() => handleBillingCycleChange("semiannual")}
               className={cn(
                 "px-6 py-2.5 rounded-full text-sm font-semibold transition-all duration-300",
                 billingCycle === "semiannual"
@@ -505,7 +528,7 @@ export default function PricingTabs() {
               Semestral
             </button>
             <button
-              onClick={() => setBillingCycle("annual")}
+              onClick={() => handleBillingCycleChange("annual")}
               className={cn(
                 "relative px-6 py-2.5 rounded-full text-sm font-semibold transition-all duration-300",
                 billingCycle === "annual"
@@ -555,9 +578,9 @@ export default function PricingTabs() {
                         </span>
                         <span className="text-gray-400 text-sm">/mês</span>
                       </div>
-                      <span className="text-xs text-gray-400 mt-1">
-                        por R${(plan as any).yearlyTotal} à vista
-                      </span>
+                      {plan.yearlyTotal ? (
+                        <span className="text-xs text-gray-400 mt-1">por R${plan.yearlyTotal} à vista</span>
+                      ) : null}
                     </div>
                   ) : activeTab === "ads" && billingCycle === "semiannual" ? (
                     <div className="flex flex-col">
@@ -569,9 +592,9 @@ export default function PricingTabs() {
                         </span>
                         <span className="text-gray-400 text-sm">/mês</span>
                       </div>
-                      <span className="text-xs text-gray-400 mt-1">
-                        por R${(plan as any).semiannualTotal} à vista
-                      </span>
+                      {plan.semiannualTotal ? (
+                        <span className="text-xs text-gray-400 mt-1">por R${plan.semiannualTotal} à vista</span>
+                      ) : null}
                     </div>
                   ) : activeTab === "pages" && billingCycle === "annual" ? (
                     <div className="flex flex-col">
@@ -583,9 +606,9 @@ export default function PricingTabs() {
                         </span>
                         <span className="text-gray-400 text-sm">/mês</span>
                       </div>
-                      <span className="text-xs text-gray-400 mt-1">
-                        ou R${(plan as any).yearlyTotal} à vista
-                      </span>
+                      {plan.yearlyTotal ? (
+                        <span className="text-xs text-gray-400 mt-1">ou R${plan.yearlyTotal} à vista</span>
+                      ) : null}
                     </div>
                   ) : activeTab === "pages" && billingCycle === "semiannual" ? (
                     <div className="flex flex-col">
@@ -597,9 +620,9 @@ export default function PricingTabs() {
                         </span>
                         <span className="text-gray-400 text-sm">/mês</span>
                       </div>
-                      <span className="text-xs text-gray-400 mt-1">
-                        ou R${(plan as any).semiannualTotal} à vista
-                      </span>
+                      {plan.semiannualTotal ? (
+                        <span className="text-xs text-gray-400 mt-1">ou R${plan.semiannualTotal} à vista</span>
+                      ) : null}
                     </div>
                   ) : activeTab === "hub" && billingCycle === "annual" ? (
                     <div className="flex flex-col">
@@ -611,9 +634,9 @@ export default function PricingTabs() {
                         </span>
                         <span className="text-gray-400 text-sm">/mês</span>
                       </div>
-                      <span className="text-xs text-gray-400 mt-1">
-                        ou R${(plan as any).yearlyTotal} à vista
-                      </span>
+                      {plan.yearlyTotal ? (
+                        <span className="text-xs text-gray-400 mt-1">ou R${plan.yearlyTotal} à vista</span>
+                      ) : null}
                     </div>
                   ) : activeTab === "hub" && billingCycle === "semiannual" ? (
                     <div className="flex flex-col">
@@ -625,9 +648,9 @@ export default function PricingTabs() {
                         </span>
                         <span className="text-gray-400 text-sm">/mês</span>
                       </div>
-                      <span className="text-xs text-gray-400 mt-1">
-                        ou R${(plan as any).semiannualTotal} à vista
-                      </span>
+                      {plan.semiannualTotal ? (
+                        <span className="text-xs text-gray-400 mt-1">ou R${plan.semiannualTotal} à vista</span>
+                      ) : null}
                     </div>
                   ) : (
                     <div className="flex items-baseline gap-1">
@@ -845,25 +868,31 @@ export default function PricingTabs() {
                 maxWidth: '100%',
               }}
             >
-              {/* Cards Row - uses subgrid to align with parent columns */}
-              <div style={{ gridColumn: '1 / -1', display: 'grid', gridTemplateColumns: 'subgrid' }}>
-                <div /> {/* empty cell for the 200px label column */}
-                {plans.map((plan) => (
-                  <div
-                    key={plan.name}
-                    className={cn(
-                      "relative flex flex-col rounded-3xl transition-all duration-300",
-                      plans.length === 4 ? "p-5" : "p-8",
-                      plan.popular
-                        ? "bg-[#161616] border-2 border-brand-primary shadow-2xl shadow-brand-primary/10 z-10"
-                        : "bg-[#111111] border border-white/10 hover:border-white/20"
-                    )}
-                  >
-                    {plan.popular && (
-                      <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 px-4 py-1 bg-brand-primary text-black text-xs font-black uppercase tracking-widest rounded-full">
-                        <span className="whitespace-normal sm:whitespace-nowrap">Mais Escolhido</span>
-                      </div>
-                    )}
+              {/* Cards Row (desktop) */}
+              <div style={{ gridColumn: "1 / -1" }}>
+                <div
+                  className={cn(
+                    "mx-auto grid items-stretch",
+                    plans.length === 4 ? "grid-cols-4 gap-5" : "grid-cols-3 gap-8",
+                    "max-w-7xl"
+                  )}
+                >
+                  {plans.map((plan) => (
+                    <div
+                      key={plan.name}
+                      className={cn(
+                        "relative flex flex-col rounded-3xl transition-all duration-300",
+                        plans.length === 4 ? "p-5" : "p-8",
+                        plan.popular
+                          ? "bg-[#161616] border-2 border-brand-primary shadow-2xl shadow-brand-primary/10 z-10"
+                          : "bg-[#111111] border border-white/10 hover:border-white/20"
+                      )}
+                    >
+                      {plan.popular && (
+                        <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 px-4 py-1 bg-brand-primary text-black text-xs font-black uppercase tracking-widest rounded-full">
+                          <span className="whitespace-normal sm:whitespace-nowrap">Mais Escolhido</span>
+                        </div>
+                      )}
   
                     <div className="flex-1 flex flex-col">
                       <div className="mb-8">
@@ -882,9 +911,9 @@ export default function PricingTabs() {
                             </span>
                             <span className="text-gray-400">/mês</span>
                           </div>
-                          <span className="text-xs text-gray-400 mt-1">
-                            por R${(plan as any).yearlyTotal} à vista
-                          </span>
+                            {plan.yearlyTotal ? (
+                              <span className="text-xs text-gray-400 mt-1">por R${plan.yearlyTotal} à vista</span>
+                            ) : null}
                         </div>
                       ) : activeTab === "ads" && billingCycle === "semiannual" ? (
                         <div className="flex flex-col">
@@ -896,9 +925,9 @@ export default function PricingTabs() {
                             </span>
                             <span className="text-gray-400">/mês</span>
                           </div>
-                          <span className="text-xs text-gray-400 mt-1">
-                            por R${(plan as any).semiannualTotal} à vista
-                          </span>
+                            {plan.semiannualTotal ? (
+                              <span className="text-xs text-gray-400 mt-1">por R${plan.semiannualTotal} à vista</span>
+                            ) : null}
                         </div>
                       ) : activeTab === "pages" && billingCycle === "semiannual" ? (
                         <div className="flex flex-col">
@@ -910,9 +939,9 @@ export default function PricingTabs() {
                             </span>
                             <span className="text-gray-400">/mês</span>
                           </div>
-                          <span className="text-xs text-gray-400 mt-1">
-                            ou R${(plan as any).semiannualTotal} à vista
-                          </span>
+                            {plan.semiannualTotal ? (
+                              <span className="text-xs text-gray-400 mt-1">ou R${plan.semiannualTotal} à vista</span>
+                            ) : null}
                         </div>
                       ) : activeTab === "pages" && billingCycle === "annual" ? (
                         <div className="flex flex-col">
@@ -924,9 +953,9 @@ export default function PricingTabs() {
                             </span>
                             <span className="text-gray-400">/mês</span>
                           </div>
-                          <span className="text-xs text-gray-400 mt-1">
-                            ou R${(plan as any).yearlyTotal} à vista
-                          </span>
+                            {plan.yearlyTotal ? (
+                              <span className="text-xs text-gray-400 mt-1">ou R${plan.yearlyTotal} à vista</span>
+                            ) : null}
                         </div>
                       ) : activeTab === "hub" && billingCycle === "annual" ? (
                         <div className="flex flex-col">
@@ -938,9 +967,9 @@ export default function PricingTabs() {
                             </span>
                             <span className="text-gray-400">/mês</span>
                           </div>
-                          <span className="text-xs text-gray-400 mt-1">
-                            ou R${(plan as any).yearlyTotal} à vista
-                          </span>
+                            {plan.yearlyTotal ? (
+                              <span className="text-xs text-gray-400 mt-1">ou R${plan.yearlyTotal} à vista</span>
+                            ) : null}
                         </div>
                       ) : activeTab === "hub" && billingCycle === "semiannual" ? (
                         <div className="flex flex-col">
@@ -952,9 +981,9 @@ export default function PricingTabs() {
                             </span>
                             <span className="text-gray-400">/mês</span>
                           </div>
-                          <span className="text-xs text-gray-400 mt-1">
-                            ou R${(plan as any).semiannualTotal} à vista
-                          </span>
+                            {plan.semiannualTotal ? (
+                              <span className="text-xs text-gray-400 mt-1">ou R${plan.semiannualTotal} à vista</span>
+                            ) : null}
                         </div>
                       ) : (
                         <div className="flex items-baseline gap-1">
@@ -1099,8 +1128,9 @@ export default function PricingTabs() {
                     >
                       {plan.cta}
                     </a>
-                  </div>
-                ))}
+                    </div>
+                  ))}
+                </div>
               </div>
 
               <div style={{ gridColumn: '1 / -1' }} className="mt-6 text-center">
@@ -1109,23 +1139,20 @@ export default function PricingTabs() {
                 </p>
               </div>
 
-              {/* Features Table */}
-              <div style={{ gridColumn: '1 / -1', display: 'grid', gridTemplateColumns: 'subgrid' }} className="mt-16">
-                {/* Sticky header */}
-                <div className="sticky top-20 z-20 -mt-6 mb-6" style={{ gridColumn: '1 / -1', display: 'grid', gridTemplateColumns: 'subgrid' }}>
+              <div className="mt-16" style={{ gridColumn: "1 / -1" }}>
+                <div className="sticky top-20 z-20 -mt-6 mb-6">
                   <div
                     className="grid items-center py-3 border-b border-white/10 bg-black/80 backdrop-blur-md"
-                    style={{ gridColumn: '1 / -1', gridTemplateColumns: 'subgrid' }}
+                    style={{ gridTemplateColumns: "200px 1fr" }}
                   >
-                    <div /> {/* coluna de label — vazia no header */}
+                    <div />
                     <div
                       className="grid"
                       style={{
-                        gridColumn: plans.length === 4 ? '3 / 6' : '2 / 5',
-                        gridTemplateColumns: 'subgrid',
+                        gridTemplateColumns: `repeat(${comparisonColumnCount}, minmax(0, 1fr))`,
                       }}
                     >
-                      {(plans.length === 4 ? plans.slice(1) : plans).map((plan) => (
+                      {comparisonPlans.map((plan) => (
                         <div
                           key={`plan-col-${activeTab}-${plan.name}`}
                           className="flex justify-center text-xs font-bold uppercase tracking-widest text-gray-400"
@@ -1137,33 +1164,30 @@ export default function PricingTabs() {
                   </div>
                 </div>
 
-                {comparisonGroups.map((group, gi) => (
-                  <div key={group.group} className="mb-12" style={{ gridColumn: '1 / -1', display: 'grid', gridTemplateColumns: 'subgrid' }}>
-                    <div className="mb-4 text-sm font-bold uppercase tracking-widest text-brand-primary border-b border-white/10 pb-4 whitespace-pre-line" style={{ gridColumn: '1 / -1' }}>
+                {comparisonGroups.map((group) => (
+                  <div key={group.group} className="mb-12">
+                    <div className="mb-4 text-sm font-bold uppercase tracking-widest text-brand-primary border-b border-white/10 pb-4 whitespace-pre-line">
                       {group.group}
                     </div>
 
                     <div className="space-y-0">
-                      {group.features.map((feature, fi) => (
+                      {group.features.map((feature) => (
                         <div
                           key={feature.label}
                           className="grid items-center border-b border-white/5 last:border-0 hover:bg-white/[0.02] transition-colors py-6"
-                          style={{ gridColumn: '1 / -1', gridTemplateColumns: 'subgrid' }}
+                          style={{ gridTemplateColumns: "200px 1fr" }}
                         >
-                          {/* Label em fluxo — primeira coluna (200px) */}
                           <div className="text-left text-xs text-gray-300 font-medium leading-snug">
                             {feature.label}
                           </div>
 
-                          {/* Colunas de valores — alinhadas com os cards (pulando Gratuito) */}
                           <div
                             className="grid"
                             style={{
-                              gridColumn: plans.length === 4 ? '3 / 6' : '2 / 5',
-                              gridTemplateColumns: 'subgrid',
+                              gridTemplateColumns: `repeat(${comparisonColumnCount}, minmax(0, 1fr))`,
                             }}
                           >
-                            {feature.values.map((val, vi) => (
+                            {feature.values.slice(0, comparisonColumnCount).map((val, vi) => (
                               <div key={vi} className="flex justify-center text-white">
                                 <FeatureCell value={val} />
                               </div>
