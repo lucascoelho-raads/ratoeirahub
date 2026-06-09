@@ -860,16 +860,10 @@ export default function PricingTabs() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.4 }}
-              className="mx-auto"
-              style={{
-                display: 'grid',
-                gridTemplateColumns: plans.length === 4 ? '200px repeat(4, 1fr)' : '200px repeat(3, 1fr)',
-                columnGap: plans.length === 4 ? '20px' : '32px',
-                maxWidth: '100%',
-              }}
+              className="w-full mx-auto"
             >
               {/* Cards Row (desktop) */}
-              <div style={{ gridColumn: "1 / -1" }}>
+              <div>
                 <div
                   className={cn(
                     "mx-auto grid items-stretch",
@@ -1133,40 +1127,50 @@ export default function PricingTabs() {
                 </div>
               </div>
 
-              <div style={{ gridColumn: '1 / -1' }} className="mt-6 text-center">
+              <div className="mt-6 text-center">
                 <p className="text-xs text-brand-primary">
                   * Renovação automática - Ao prosseguir você concorda que a assinatura será renovada automaticamente.
                 </p>
               </div>
 
-              <div className="mt-16" style={{ gridColumn: "1 / -1" }}>
+              <div className="mt-16">
                 <div className="sticky top-20 z-20 -mt-6 mb-6">
                   <div
-                    className="grid items-center py-3 border-b border-white/10 bg-black/80 backdrop-blur-md"
-                    style={{ gridTemplateColumns: "200px 1fr" }}
+                    className={cn(
+                      "grid items-center py-3 border-b border-white/10 bg-black/80 backdrop-blur-md mx-auto max-w-7xl",
+                      plans.length === 4 ? "grid-cols-4 gap-5" : "grid-cols-3 gap-8"
+                    )}
                   >
-                    <div />
-                    <div
-                      className="grid"
-                      style={{
-                        gridTemplateColumns: `repeat(${comparisonColumnCount}, minmax(0, 1fr))`,
-                      }}
-                    >
-                      {comparisonPlans.map((plan) => (
-                        <div
-                          key={`plan-col-${activeTab}-${plan.name}`}
-                          className="flex justify-center text-xs font-bold uppercase tracking-widest text-gray-400"
-                        >
-                          {plan.name}
-                        </div>
-                      ))}
-                    </div>
+                    {plans.length === 4 ? (
+                      <>
+                        <div />
+                        {comparisonPlans.map((plan) => (
+                          <div
+                            key={`plan-col-${activeTab}-${plan.name}`}
+                            className="flex justify-center text-xs font-bold uppercase tracking-widest text-gray-400"
+                          >
+                            {plan.name}
+                          </div>
+                        ))}
+                      </>
+                    ) : (
+                      <>
+                        {comparisonPlans.map((plan) => (
+                          <div
+                            key={`plan-col-${activeTab}-${plan.name}`}
+                            className="flex justify-center text-xs font-bold uppercase tracking-widest text-gray-400"
+                          >
+                            {plan.name}
+                          </div>
+                        ))}
+                      </>
+                    )}
                   </div>
                 </div>
 
                 {comparisonGroups.map((group) => (
                   <div key={group.group} className="mb-12">
-                    <div className="mb-4 text-sm font-bold uppercase tracking-widest text-brand-primary border-b border-white/10 pb-4 whitespace-pre-line">
+                    <div className="mb-4 text-sm font-bold uppercase tracking-widest text-brand-primary border-b border-white/10 pb-4 whitespace-pre-line max-w-7xl mx-auto px-4 lg:px-0">
                       {group.group}
                     </div>
 
@@ -1174,25 +1178,36 @@ export default function PricingTabs() {
                       {group.features.map((feature) => (
                         <div
                           key={feature.label}
-                          className="grid items-center border-b border-white/5 last:border-0 hover:bg-white/[0.02] transition-colors py-6"
-                          style={{ gridTemplateColumns: "200px 1fr" }}
+                          className={cn(
+                            "grid items-center border-b border-white/5 last:border-0 hover:bg-white/[0.02] transition-colors py-6 mx-auto max-w-7xl relative",
+                            plans.length === 4 ? "grid-cols-4 gap-5" : "grid-cols-3 gap-8"
+                          )}
                         >
-                          <div className="text-left text-xs text-gray-300 font-medium leading-snug">
-                            {feature.label}
-                          </div>
-
-                          <div
-                            className="grid"
-                            style={{
-                              gridTemplateColumns: `repeat(${comparisonColumnCount}, minmax(0, 1fr))`,
-                            }}
-                          >
-                            {feature.values.slice(0, comparisonColumnCount).map((val, vi) => (
-                              <div key={vi} className="flex justify-center text-white">
-                                <FeatureCell value={val} />
+                          {plans.length === 4 ? (
+                            <>
+                              <div className="text-left text-xs text-gray-300 font-medium leading-snug px-4 lg:px-0">
+                                {feature.label}
                               </div>
-                            ))}
-                          </div>
+                              {feature.values.slice(0, comparisonColumnCount).map((val, vi) => (
+                                <div key={vi} className="flex justify-center text-white h-full items-center">
+                                  <FeatureCell value={val} />
+                                </div>
+                              ))}
+                            </>
+                          ) : (
+                            <>
+                              {feature.values.slice(0, comparisonColumnCount).map((val, vi) => (
+                                <div key={vi} className="relative flex justify-center text-white h-full items-center w-full">
+                                  {vi === 0 && (
+                                    <div className="absolute left-4 lg:left-0 top-1/2 -translate-y-1/2 w-[140px] sm:w-[160px] lg:w-[180px] text-left text-xs text-gray-300 font-medium leading-snug pointer-events-none">
+                                      {feature.label}
+                                    </div>
+                                  )}
+                                  <FeatureCell value={val} />
+                                </div>
+                              ))}
+                            </>
+                          )}
                         </div>
                       ))}
                     </div>
