@@ -447,13 +447,13 @@ export default function PricingTabs() {
   };
 
   const plans = getPlanList(activeTab, billingCycle);
-  const comparisonPlans = plans.length === 4 ? plans.slice(1) : plans;
+  const comparisonPlans = plans;
   const comparisonColumnCount = comparisonPlans.length;
   const comparisonGroups = featureGroupsByTab[activeTab].map((group) => ({
     ...group,
     features: group.features.map((feature) => ({
       ...feature,
-      values: feature.values.slice(1),
+      values: plans.length === 4 ? feature.values : feature.values.slice(1),
     })),
   }));
   
@@ -1141,30 +1141,14 @@ export default function PricingTabs() {
                       plans.length === 4 ? "grid-cols-4 gap-5" : "grid-cols-3 gap-8"
                     )}
                   >
-                    {plans.length === 4 ? (
-                      <>
-                        <div />
-                        {comparisonPlans.map((plan) => (
-                          <div
-                            key={`plan-col-${activeTab}-${plan.name}`}
-                            className="flex justify-center text-xs font-bold uppercase tracking-widest text-gray-400"
-                          >
-                            {plan.name}
-                          </div>
-                        ))}
-                      </>
-                    ) : (
-                      <>
-                        {comparisonPlans.map((plan) => (
-                          <div
-                            key={`plan-col-${activeTab}-${plan.name}`}
-                            className="flex justify-center text-xs font-bold uppercase tracking-widest text-gray-400"
-                          >
-                            {plan.name}
-                          </div>
-                        ))}
-                      </>
-                    )}
+                    {comparisonPlans.map((plan) => (
+                      <div
+                        key={`plan-col-${activeTab}-${plan.name}`}
+                        className="flex justify-center text-xs font-bold uppercase tracking-widest text-gray-400"
+                      >
+                        {plan.name}
+                      </div>
+                    ))}
                   </div>
                 </div>
 
@@ -1183,31 +1167,19 @@ export default function PricingTabs() {
                             plans.length === 4 ? "grid-cols-4 gap-5" : "grid-cols-3 gap-8"
                           )}
                         >
-                          {plans.length === 4 ? (
-                            <>
-                              <div className="text-left text-xs text-gray-300 font-medium leading-snug px-4 lg:px-0">
-                                {feature.label}
-                              </div>
-                              {feature.values.slice(0, comparisonColumnCount).map((val, vi) => (
-                                <div key={vi} className="flex justify-center text-white h-full items-center">
-                                  <FeatureCell value={val} />
+                          {feature.values.slice(0, comparisonColumnCount).map((val, vi) => (
+                            <div key={vi} className="relative flex justify-center text-white h-full items-center w-full">
+                              {vi === 0 && (
+                                <div className={cn(
+                                  "absolute top-1/2 -translate-y-1/2 text-left text-xs text-gray-300 font-medium leading-snug pointer-events-none",
+                                  plans.length === 4 ? "left-2 lg:left-0 w-[90px] xl:w-[120px]" : "left-4 lg:left-0 w-[140px] sm:w-[160px] lg:w-[180px]"
+                                )}>
+                                  {feature.label}
                                 </div>
-                              ))}
-                            </>
-                          ) : (
-                            <>
-                              {feature.values.slice(0, comparisonColumnCount).map((val, vi) => (
-                                <div key={vi} className="relative flex justify-center text-white h-full items-center w-full">
-                                  {vi === 0 && (
-                                    <div className="absolute left-4 lg:left-0 top-1/2 -translate-y-1/2 w-[140px] sm:w-[160px] lg:w-[180px] text-left text-xs text-gray-300 font-medium leading-snug pointer-events-none">
-                                      {feature.label}
-                                    </div>
-                                  )}
-                                  <FeatureCell value={val} />
-                                </div>
-                              ))}
-                            </>
-                          )}
+                              )}
+                              <FeatureCell value={val} />
+                            </div>
+                          ))}
                         </div>
                       ))}
                     </div>
