@@ -2,8 +2,9 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Check, Radar, LayoutTemplate, Link2, X } from "lucide-react";
+import { Check, Radar, LayoutTemplate, Link2, X, Info } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useFloating, offset, flip, shift, autoUpdate, useHover, useFocus, useDismiss, useRole, useInteractions, FloatingPortal } from "@floating-ui/react";
 
 type PlanType = "ads" | "pages" | "hub";
 type BillingCycle = "monthly" | "semiannual" | "annual";
@@ -311,37 +312,37 @@ const featureGroupsByTab: Record<PlanType, FeatureGroup[]> = {
     {
       group: "Limites do\nPlano",
       features: [
-        { label: "E-Book de Estratégia Mensal", values: [false, true, true, true] },
-        { label: "Produtos rastreados simultaneamente", values: ["10", "50", "100", "300"] },
-        { label: "Produtos com conversão 100% automática", values: ["1", "5", "50", "300"] },
-        { label: "Integrações com plataformas", values: ["1", "Ilimitadas", "Ilimitadas", "Ilimitadas"] },
-        { label: "Perfis Google Ads conectados", values: ["1", "3", "10", "30"] },
-        { label: "Links de produtor automáticos", values: ["1", "5", "50", "50"] },
-        { label: "Contas de anúncio", values: [null, null, null, "Ilimitadas"] },
+        { label: "E-Book de Estratégia Mensal", tooltip: "Receba todo mês um guia prático com estratégias validadas para escalar suas campanhas.", values: [false, true, true, true] },
+        { label: "Produtos rastreados simultaneamente", tooltip: "Quantidade de produtos ou ofertas diferentes que você pode monitorar ao mesmo tempo.", values: ["10", "50", "100", "300"] },
+        { label: "Produtos com conversão 100% automática", tooltip: "Produtos com setup de tracking totalmente automatizado via nossa integração.", values: ["1", "5", "50", "300"] },
+        { label: "Integrações com plataformas", tooltip: "Conecte com Hotmart, Kiwify, PerfectPay e outras plataformas de pagamento.", values: ["1", "Ilimitadas", "Ilimitadas", "Ilimitadas"] },
+        { label: "Perfis Google Ads conectados", tooltip: "Quantidade de MCCs ou contas do Google Ads vinculadas ao seu painel.", values: ["1", "3", "10", "30"] },
+        { label: "Links de produtor automáticos", tooltip: "Links gerados automaticamente com todos os parâmetros UTM necessários.", values: ["1", "5", "50", "50"] },
+        { label: "Contas de anúncio", tooltip: "Número de contas de anúncio individuais que podem enviar dados para a plataforma.", values: [null, null, null, "Ilimitadas"] },
       ],
     },
     {
       group: "Tracking &\nAnti-Fraude",
       features: [
-        { label: "Tracking server-side", tooltip: "Envio de conversões em 1st party", values: [true, true, true, true] },
-        { label: "Bloqueio de bots/fraudes", tooltip: "Proteção contra tráfego inválido", values: ["Básico", "Básico", "Avançado", "Tempo real"] },
-        { label: "Dashboard de ROI", tooltip: "Visão consolidada de resultado real", values: [null, null, true, true] },
-        { label: "Eventos por mês", tooltip: "Volume mensal de conversões/eventos", values: ["1.000", "10.000", "50.000", "200.000+"] },
+        { label: "Tracking server-side", tooltip: "Envio de conversões direto do servidor (CAPI) driblando bloqueadores de anúncios e iOS14.", values: [true, true, true, true] },
+        { label: "Bloqueio de bots/fraudes", tooltip: "Filtro inteligente que impede cliques falsos de gastarem seu orçamento no Google.", values: ["Básico", "Básico", "Avançado", "Tempo real"] },
+        { label: "Dashboard de ROI", tooltip: "Visão financeira unificada cruzando custo exato do anúncio vs. faturamento real.", values: [null, null, true, true] },
+        { label: "Eventos por mês", tooltip: "Volume total de eventos (PageViews, Checkouts, Purchases) processados no período.", values: ["1.000", "10.000", "50.000", "200.000+"] },
       ],
     },
     {
       group: "Domínios &\nIntegrações",
       features: [
-        { label: "Domínios customizados", tooltip: "Quantidade de domínios para tracking", values: ["1", "1", "3", "Ilimitado"] },
-        { label: "Integrações nativas", tooltip: "Conexão com plataformas e CRMs", values: [true, true, true, true] },
-        { label: "Notificações", tooltip: "Alertas de eventos importantes", values: [null, null, true, true] },
+        { label: "Domínios customizados", tooltip: "Use seu próprio domínio (ex: track.seusite.com) para maior confiança das plataformas.", values: ["1", "1", "3", "Ilimitado"] },
+        { label: "Integrações nativas", tooltip: "Conexão em 1 clique com as principais plataformas do mercado digital.", values: [true, true, true, true] },
+        { label: "Notificações", tooltip: "Receba alertas no WhatsApp ou Telegram sobre quedas de conversão e anomalias.", values: [null, null, true, true] },
       ],
     },
     {
       group: "Suporte",
       features: [
-        { label: "Suporte", tooltip: "Canal de atendimento", values: ["E-mail", "E-mail", "WhatsApp", "Gerente dedicado"] },
-        { label: "Onboarding", tooltip: "Acompanhamento de implementação", values: [null, null, true, true] },
+        { label: "Suporte", tooltip: "Nível de prioridade e canal para resolução de dúvidas e problemas técnicos.", values: ["E-mail", "E-mail", "WhatsApp", "Gerente dedicado"] },
+        { label: "Onboarding", tooltip: "Especialista dedicado para ajudar na configuração inicial da sua conta e campanhas.", values: [null, null, true, true] },
       ],
     },
   ],
@@ -349,38 +350,38 @@ const featureGroupsByTab: Record<PlanType, FeatureGroup[]> = {
     {
       group: "Limites do\nPlano",
       features: [
-        { label: "Hospedagem Grátis", values: [true, true, true, true] },
-        { label: "Domínios conectados", values: ["1", "10", "20", "40"] },
-        { label: "Acessos mensais", values: ["5.000", "200.000", "500.000", "1.000.000"] },
-        { label: "Páginas ilimitadas", values: ["2", "Ilimitadas", "Ilimitadas", "Ilimitadas"] },
-        { label: "Tutorial Passo a Passo", values: [true, true, true, true] },
-        { label: "Suporte Via WhatsApp", values: [null, true, true, true] },
-        { label: "Domínio Customizado", values: [true, true, true, true] },
-        { label: "1 E-Book Mensal", values: [null, "1", "1", "1"] },
+        { label: "Hospedagem Grátis", tooltip: "Páginas hospedadas em infraestrutura premium de altíssima velocidade sem custo extra.", values: [true, true, true, true] },
+        { label: "Domínios conectados", tooltip: "Quantidade de domínios diferentes que podem ser apontados para suas páginas.", values: ["1", "10", "20", "40"] },
+        { label: "Acessos mensais", tooltip: "Limite de pageviews suportados por mês somando todas as suas páginas ativas.", values: ["5.000", "200.000", "500.000", "1.000.000"] },
+        { label: "Páginas ilimitadas", tooltip: "Crie quantas landing pages, advertoriais ou presells quiser dentro do limite de acessos.", values: ["2", "Ilimitadas", "Ilimitadas", "Ilimitadas"] },
+        { label: "Tutorial Passo a Passo", tooltip: "Acesso completo à nossa base de conhecimento em vídeo para criação de páginas.", values: [true, true, true, true] },
+        { label: "Suporte Via WhatsApp", tooltip: "Atendimento rápido e direto com nossa equipe técnica pelo WhatsApp.", values: [null, true, true, true] },
+        { label: "Domínio Customizado", tooltip: "Remova a marca Ratoeira e use a URL oficial da sua empresa.", values: [true, true, true, true] },
+        { label: "1 E-Book Mensal", tooltip: "Material exclusivo mensal sobre copy e design focado em alta conversão.", values: [null, "1", "1", "1"] },
       ],
     },
     {
       group: "Construtor &\nTemplates",
       features: [
-        { label: "Drag-and-drop", tooltip: "Editor visual", values: [true, true, true, true] },
-        { label: "Templates", tooltip: "Biblioteca de modelos", values: ["3", "10", "Todos", "Todos + antecipado"] },
-        { label: "Teste A/B", tooltip: "Otimização nativa", values: [null, null, true, true] },
-        { label: "Geração por IA", tooltip: "Copys e seções assistidas", values: [null, null, true, "Ilimitado"] },
+        { label: "Drag-and-drop", tooltip: "Editor visual fácil: arraste, solte e edite os elementos sem precisar saber programar.", values: [true, true, true, true] },
+        { label: "Templates", tooltip: "Acesso a modelos de páginas pré-prontos validados por grandes players do mercado.", values: ["3", "10", "Todos", "Todos + antecipado"] },
+        { label: "Teste A/B", tooltip: "Crie variações da mesma página para descobrir qual converte mais automaticamente.", values: [null, null, true, true] },
+        { label: "Geração por IA", tooltip: "Deixe nossa Inteligência Artificial escrever copys inteiras e montar seções para você.", values: [null, null, true, "Ilimitado"] },
       ],
     },
     {
       group: "Performance &\nDomínios",
       features: [
-        { label: "Visitas por mês", tooltip: "Volume mensal de tráfego", values: ["5.000", "5.000", "25.000", "100.000+"] },
-        { label: "Domínios customizados", tooltip: "Quantidade de domínios para páginas", values: ["1", "1", "3", "Ilimitado"] },
-        { label: "Hospedagem inclusa", tooltip: "Infra pronta para produção", values: [true, true, true, true] },
+        { label: "Visitas por mês", tooltip: "Tráfego suportado pela CDN de alta performance antes de taxas adicionais.", values: ["5.000", "5.000", "25.000", "100.000+"] },
+        { label: "Domínios customizados", tooltip: "Quantidade de URLs próprias que você pode publicar sem subdomínios.", values: ["1", "1", "3", "Ilimitado"] },
+        { label: "Hospedagem inclusa", tooltip: "Servidores globais (Edge Computing) garantindo abertura em menos de 1 segundo.", values: [true, true, true, true] },
       ],
     },
     {
       group: "Suporte",
       features: [
-        { label: "Suporte", tooltip: "Canal de atendimento", values: ["E-mail", "Padrão", "Prioritário", "Prioritário"] },
-        { label: "Onboarding", tooltip: "Acompanhamento de publicação", values: [null, null, true, true] },
+        { label: "Suporte", tooltip: "Canal e velocidade de resposta para te ajudar com dúvidas de configuração.", values: ["E-mail", "Padrão", "Prioritário", "Prioritário"] },
+        { label: "Onboarding", tooltip: "Reunião guiada para publicar sua primeira página de alta conversão sem erros.", values: [null, null, true, true] },
       ],
     },
   ],
@@ -388,24 +389,24 @@ const featureGroupsByTab: Record<PlanType, FeatureGroup[]> = {
     {
       group: "Ecossistema\nCompleto",
       features: [
-        { label: "Tracking + Pages", tooltip: "Integração nativa entre Ads e Pages", values: [true, true, true, true] },
-        { label: "Dashboard unificado", tooltip: "ROI real em um só lugar", values: [null, true, true, true] },
-        { label: "Integrações", tooltip: "Conexões com plataformas e CRMs", values: [null, true, true, true] },
+        { label: "Tracking + Pages", tooltip: "Suas páginas já nascem com o pixel do Ratoeira Ads injetado nativamente.", values: [true, true, true, true] },
+        { label: "Dashboard unificado", tooltip: "Veja o tráfego da página e as conversões do Ads em uma única tela.", values: [null, true, true, true] },
+        { label: "Integrações", tooltip: "Conecte facilmente o ecossistema com CRMs, e-mail marketing e gateways.", values: [null, true, true, true] },
       ],
     },
     {
       group: "Limites",
       features: [
-        { label: "Eventos por mês", tooltip: "Volume de eventos do tracking", values: ["1.000", "10.000", "50.000", "Custom"] },
-        { label: "Visitas por mês", tooltip: "Tráfego total das páginas", values: ["1.000", "5.000", "25.000", "Custom"] },
-        { label: "Domínios", tooltip: "Domínios para tracking + páginas", values: ["1", "2", "Ilimitado", "Ilimitado"] },
+        { label: "Eventos por mês", tooltip: "Capacidade mensal de rastreamento no módulo Ratoeira Ads.", values: ["1.000", "10.000", "50.000", "Custom"] },
+        { label: "Visitas por mês", tooltip: "Capacidade mensal de tráfego suportado no módulo Ratoeira Pages.", values: ["1.000", "5.000", "25.000", "Custom"] },
+        { label: "Domínios", tooltip: "Limite unificado de URLs customizadas aplicáveis a ambas as ferramentas.", values: ["1", "2", "Ilimitado", "Ilimitado"] },
       ],
     },
     {
       group: "Suporte",
       features: [
-        { label: "Suporte", tooltip: "Canal de atendimento", values: ["E-mail", "Padrão", "VIP", "SLA + dedicado"] },
-        { label: "Onboarding", tooltip: "Implantação com especialista", values: [null, true, true, true] },
+        { label: "Suporte", tooltip: "Acesso aos especialistas para os dois produtos do ecossistema.", values: ["E-mail", "Padrão", "VIP", "SLA + dedicado"] },
+        { label: "Onboarding", tooltip: "Implantação completa do tracking e das páginas com ajuda do nosso time.", values: [null, true, true, true] },
       ],
     },
   ],
@@ -427,6 +428,73 @@ function FeatureCell({ value }: { value: PlanFeatureValue }) {
     );
   }
   return <span className="text-sm text-gray-300">{value}</span>;
+}
+
+function Tooltip({ children, content }: { children: React.ReactNode; content: React.ReactNode }) {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const { refs, x, y, strategy, context } = useFloating({
+    open: isOpen,
+    onOpenChange: setIsOpen,
+    placement: "top",
+    whileElementsMounted: autoUpdate,
+    middleware: [
+      offset(8),
+      flip({ fallbackAxisSideDirection: "end" }),
+      shift({ padding: 8 }),
+    ],
+  });
+
+  const hover = useHover(context, { move: false, delay: { open: 0, close: 100 } });
+  const focus = useFocus(context);
+  const dismiss = useDismiss(context);
+  const role = useRole(context, { role: "tooltip" });
+
+  const { getReferenceProps, getFloatingProps } = useInteractions([
+    hover,
+    focus,
+    dismiss,
+    role,
+  ]);
+
+  return (
+    <>
+      <div
+        ref={(node) => { refs.setReference(node); }}
+        {...getReferenceProps()}
+        className="inline-flex items-center cursor-pointer pointer-events-auto"
+        onMouseEnter={() => setIsOpen(true)}
+        onMouseLeave={() => setIsOpen(false)}
+        onClick={() => setIsOpen(!isOpen)}
+        onTouchStart={() => setIsOpen(!isOpen)}
+      >
+        {children}
+      </div>
+      <FloatingPortal>
+        <AnimatePresence>
+          {isOpen && (
+            <motion.div
+              ref={(node) => { refs.setFloating(node); }}
+              style={{
+                position: strategy,
+                top: y ?? 0,
+                left: x ?? 0,
+                pointerEvents: "none"
+              }}
+              {...getFloatingProps()}
+              initial={{ opacity: 0, scale: 0.95, y: 5 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: 5 }}
+              transition={{ duration: 0.15, ease: "easeOut" }}
+              className="z-[99999] max-w-[250px] rounded-lg bg-white/10 px-3 py-2 text-xs text-white shadow-xl backdrop-blur-md border border-white/20 text-center"
+            >
+              {content}
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </FloatingPortal>
+    </>
+  );
 }
 
 export default function PricingTabs() {
@@ -838,6 +906,13 @@ export default function PricingTabs() {
                     <div className="flex items-center justify-between px-6 py-4">
                       <div className="flex items-center gap-2 text-sm text-gray-300 font-medium">
                         {feature.label}
+                        {feature.tooltip && (
+                          <Tooltip content={feature.tooltip}>
+                            <div className="p-1 hover:text-brand-primary cursor-pointer transition-colors text-gray-500 flex items-center justify-center pointer-events-auto">
+                              <Info className="w-4 h-4" />
+                            </div>
+                          </Tooltip>
+                        )}
                       </div>
                       <div className="text-sm font-semibold text-white">
                         <FeatureCell value={feature.values[activePlanIndex]} />
@@ -1161,24 +1236,35 @@ export default function PricingTabs() {
                     <div className="space-y-0">
                       {group.features.map((feature) => (
                         <div
-                          key={feature.label}
-                          className={cn(
-                            "grid items-center border-b border-white/5 last:border-0 hover:bg-white/[0.02] transition-colors py-6 mx-auto max-w-7xl relative",
-                            plans.length === 4 ? "grid-cols-4 gap-5" : "grid-cols-3 gap-8"
-                          )}
-                        >
+                            key={feature.label}
+                            className={cn(
+                              "grid items-center border-b border-white/5 last:border-0 hover:bg-white/[0.02] transition-colors py-6 mx-auto max-w-7xl relative z-10",
+                              plans.length === 4 ? "grid-cols-4 gap-5" : "grid-cols-3 gap-8"
+                            )}
+                          >
                           {feature.values.slice(0, comparisonColumnCount).map((val, vi) => (
-                            <div key={vi} className="relative flex justify-center text-white h-full items-center w-full">
-                              {vi === 0 && (
-                                <div className={cn(
-                                  "absolute top-1/2 -translate-y-1/2 text-left text-xs text-gray-300 font-medium leading-snug pointer-events-none",
-                                  plans.length === 4 ? "left-2 lg:left-0 w-[90px] xl:w-[120px]" : "left-4 lg:left-0 w-[140px] sm:w-[160px] lg:w-[180px]"
-                                )}>
-                                  {feature.label}
+                            <div key={vi} className="relative flex justify-center text-white h-full items-center w-full z-20">
+                                  {vi === 0 && (
+                                    <div className={cn(
+                                      "absolute top-1/2 -translate-y-1/2 text-left text-xs text-gray-300 font-medium leading-snug flex items-center gap-1.5 z-[9999] pointer-events-auto",
+                                      plans.length === 4 ? "left-2 lg:left-0 w-[90px] xl:w-[120px]" : "left-4 lg:left-0 w-[140px] sm:w-[160px] lg:w-[180px]"
+                                    )}>
+                                    {feature.label}
+                                    {feature.tooltip && (
+                                      <div className="pointer-events-auto">
+                                        <Tooltip content={feature.tooltip}>
+                                          <div className="p-1 hover:text-brand-primary cursor-pointer transition-colors text-gray-500 flex items-center justify-center">
+                                            <Info className="w-3.5 h-3.5" />
+                                          </div>
+                                        </Tooltip>
+                                      </div>
+                                    )}
+                                  </div>
+                                )}
+                                <div className="pointer-events-none w-full h-full flex items-center justify-center">
+                                  <FeatureCell value={val} />
                                 </div>
-                              )}
-                              <FeatureCell value={val} />
-                            </div>
+                              </div>
                           ))}
                         </div>
                       ))}

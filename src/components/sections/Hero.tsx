@@ -17,6 +17,8 @@ import {
 } from "lucide-react";
 import SpotlightBackground from "@/components/ui/spotlight-background";
 
+import { useFloating, offset, autoUpdate } from "@floating-ui/react";
+
 function HeroVideoMockup({
   onReady,
   src = "/videos/videoadsherohome.mp4",
@@ -104,6 +106,25 @@ export default function Hero() {
   const [activeSlide, setActiveSlide] = useState(0);
   const [activePanel, setActivePanel] = useState(0);
 
+  const [referenceElement, setReferenceElement] = useState<HTMLDivElement | null>(null);
+
+  // Floating UI setup for badges
+  const { refs: badge1Refs, x: badge1X, y: badge1Y, strategy: badge1Strategy } = useFloating({
+    elements: { reference: referenceElement },
+    placement: "bottom-start",
+    middleware: [offset({ mainAxis: -20, crossAxis: -32 })],
+    whileElementsMounted: autoUpdate,
+    strategy: "absolute",
+  });
+
+  const { refs: badge2Refs, x: badge2X, y: badge2Y, strategy: badge2Strategy } = useFloating({
+    elements: { reference: referenceElement },
+    placement: "top-end",
+    middleware: [offset({ mainAxis: -20, crossAxis: -16 })],
+    whileElementsMounted: autoUpdate,
+    strategy: "absolute",
+  });
+
   useEffect(() => {
     const interval = setInterval(() => {
       setActiveSlide((prev) => (prev + 1) % slides.length);
@@ -178,6 +199,7 @@ export default function Hero() {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.9, delay: 0.4, ease: [0.215, 0.61, 0.355, 1] }}
                   className="relative lg:col-start-2 lg:row-start-1"
+                  ref={setReferenceElement}
                 >
                   <div className="relative rounded-2xl overflow-hidden border border-neutral-200 bg-[#0d0d0d] shadow-card-resting h-[clamp(280px,55vw,420px)] lg:h-[clamp(420px,46vh,640px)] 2xl:h-[clamp(520px,22vw,820px)] 3xl:h-[clamp(600px,24vw,900px)] 5xl:h-[clamp(720px,22vw,1100px)] 6xl:h-[clamp(850px,20vw,1300px)]">
                     <div className="bg-[#161616] border-b border-white/5 px-4 py-3 flex items-center justify-between">
@@ -232,10 +254,16 @@ export default function Hero() {
 
                   {/* Cards flutuantes - desktop apenas */}
                   <motion.div
+                    ref={(node) => { badge1Refs.setFloating(node); }}
+                    style={{
+                      position: badge1Strategy,
+                      top: badge1Y ?? 0,
+                      left: badge1X ?? 0,
+                    }}
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 1.2, duration: 0.5 }}
-                    className="absolute -bottom-5 -left-8 bg-white border border-neutral-200 rounded-xl px-4 py-3 items-center gap-3 shadow-card-hover hidden lg:flex"
+                    className="absolute z-10 bg-white border border-neutral-200 rounded-xl px-4 py-3 items-center gap-3 shadow-card-hover hidden lg:flex origin-top-left"
                   >
                     <div className="w-8 h-8 rounded-full bg-emerald-500/20 flex items-center justify-center">
                       <TrendingUp className="w-4 h-4 text-emerald-400" />
@@ -247,10 +275,16 @@ export default function Hero() {
                   </motion.div>
 
                   <motion.div
+                    ref={(node) => { badge2Refs.setFloating(node); }}
+                    style={{
+                      position: badge2Strategy,
+                      top: badge2Y ?? 0,
+                      left: badge2X ?? 0,
+                    }}
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 1.4, duration: 0.5 }}
-                    className="absolute -top-5 -right-4 bg-white border border-neutral-200 rounded-xl px-4 py-3 items-center gap-3 shadow-card-hover hidden lg:flex"
+                    className="absolute z-10 bg-white border border-neutral-200 rounded-xl px-4 py-3 items-center gap-3 shadow-card-hover hidden lg:flex origin-top-left"
                   >
                     <div className="w-8 h-8 rounded-full bg-[#E6A600]/20 flex items-center justify-center">
                       <Users className="w-4 h-4 text-[#E6A600]" />
