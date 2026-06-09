@@ -29,7 +29,7 @@ export default function FoundersAbout() {
             <div className="w-full md:w-5/12">
               <div className="relative aspect-[4/5] rounded-3xl overflow-hidden bg-[#111111] border border-white/10 group">
                 <img
-                  src="/eitor.png"
+                  src="/fotoeitorbrabo.jpg"
                   alt="Eitor Guimarães"
                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
