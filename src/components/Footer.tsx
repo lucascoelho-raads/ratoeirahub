@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowRight, Zap, Twitter, Linkedin, Instagram, Github } from "lucide-react";
+import { ArrowRight, Instagram } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { useMemo, useState } from "react";
 import { AuroraBackground } from "@/components/ui/aurora-background";
@@ -10,17 +10,17 @@ import { countries } from "@/lib/countries";
 
 const footerLinks = {
   Produto: [
-    { href: "#plataforma", label: "Funcionalidades" },
-    { href: "#integracoes", label: "Integrações" },
-    { href: "#precos", label: "Preços" },
+    { href: "/#solucoes", label: "Funcionalidades" },
+    { href: "/integracoes/mais-de-70-plataformas", label: "Integrações" },
+    { href: "/planos#pricing-cards", label: "Preços" },
   ],
   Empresa: [
-    { href: "#", label: "Sobre nós" },
-    { href: "#", label: "Parcerias" },
+    { href: "/quem-somos", label: "Sobre nós" },
+    { href: "/parcerias", label: "Parcerias" },
   ],
   Suporte: [
-    { href: "#", label: "Central de Ajuda" },
-    { href: "#demo", label: "Falar com vendas" },
+    { href: "/faq", label: "Central de Ajuda" },
+    { href: "/fale-conosco", label: "Falar com vendas" },
   ],
   Legal: [
     { href: "/privacidade/ads", label: "Privacidade" },
@@ -277,12 +277,12 @@ export default function Footer() {
                 <ul className="space-y-2.5">
                   {links.map((link) => (
                     <li key={link.label}>
-                      <a
+                      <Link
                         href={link.href}
                         className="text-sm text-gray-50 hover:text-yellow-400 transition-colors duration-200"
                       >
                         {link.label}
-                      </a>
+                      </Link>
                     </li>
                   ))}
                 </ul>

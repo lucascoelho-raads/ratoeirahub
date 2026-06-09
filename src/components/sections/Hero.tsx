@@ -184,7 +184,7 @@ export default function Hero() {
                   {/* CTA — desktop only, inside text flow */}
                   <motion.div variants={itemVariants} className="hidden lg:flex flex-col gap-2">
                     <Link
-                      href="/planos#vamos-transformar"
+                      href="/planos#pricing-cards"
                       className="inline-flex self-center lg:self-start items-center justify-center px-6 py-3 bg-brand-primary text-white font-semibold text-sm rounded-button hover:bg-brand-primary-hover transition-colors duration-200 text-center"
                     >
                       Começar grátis
@@ -338,7 +338,7 @@ export default function Hero() {
                   className="flex lg:hidden flex-col gap-2 pt-2 order-4"
                 >
                   <Link
-                    href="/planos#vamos-transformar"
+                    href="/planos#pricing-cards"
                     className="inline-flex self-center lg:self-start items-center justify-center px-6 py-3 bg-brand-primary text-white font-semibold text-sm rounded-button hover:bg-brand-primary-hover transition-colors duration-200 text-center"
                   >
                     Começar grátis

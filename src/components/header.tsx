@@ -118,7 +118,7 @@ function HeaderActions({
     >
       {/* Design System link hidden temporarily */}
       <Link
-        href="/planos#vamos-transformar"
+        href="/planos#pricing-cards"
         onClick={onAction}
         className={cn(
           "flex select-none items-center justify-center gap-1.5 rounded-button bg-brand-primary text-gray-900 font-black transition-colors duration-150 hover:bg-brand-primary-hover",

@@ -70,6 +70,8 @@ export default function Pricing() {
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
   const [yearly, setYearly] = useState(false);
+  const getPlanHref = (cta: string) =>
+    cta.toLowerCase() === "começar grátis" ? "/planos#pricing-cards" : "/planos#vamos-transformar";
 
   return (
     <section ref={ref} className="py-16 md:py-28 bg-gray-50/50" id="planos">
@@ -189,7 +191,7 @@ export default function Pricing() {
 
                 {/* CTA */}
                 <a
-                  href="/planos#vamos-transformar"
+                  href={getPlanHref(plan.cta)}
                   className={`flex items-center justify-center gap-2 px-6 py-3.5 rounded-button font-bold text-sm transition-all duration-200 group ${
                     plan.popular
                       ? "bg-white text-orange-600 hover:bg-orange-50 shadow-lg"

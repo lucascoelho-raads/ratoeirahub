@@ -111,7 +111,7 @@ export default function CTAAds() {
 
         <div className="mt-16 flex flex-col items-center gap-4">
           <Link
-            href="/planos#vamos-transformar"
+            href="/planos#pricing-cards"
             className="inline-flex items-center gap-2 px-8 py-4 sm:px-10 sm:py-5 bg-brand-primary text-white font-black rounded-button hover:bg-brand-primary-hover transition-all text-lg sm:text-xl shadow-xl shadow-brand-primary/20 hover:scale-105 active:scale-95"
           >
             Começar grátis — ver planos

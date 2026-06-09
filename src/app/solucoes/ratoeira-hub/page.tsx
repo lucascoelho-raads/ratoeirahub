@@ -85,7 +85,7 @@ export default function RatoeiraHubPage() {
 
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <a
-                  href="/planos#vamos-transformar"
+                  href="/planos#pricing-cards"
                   className="inline-flex items-center gap-2 px-8 py-4 2xl:px-10 2xl:py-5 rounded-button bg-gradient-to-r from-yellow-500 to-orange-500 text-black font-semibold hover:from-yellow-400 hover:to-orange-400 transition-colors"
                 >
                   Começar grátis

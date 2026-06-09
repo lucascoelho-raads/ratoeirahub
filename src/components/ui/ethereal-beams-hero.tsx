@@ -478,7 +478,7 @@ export default function EtherealBeamsHero() {
             className="flex flex-col sm:flex-row items-center justify-center gap-4"
           >
             <a
-              href="/planos#vamos-transformar"
+              href="/planos#pricing-cards"
               className="inline-flex items-center gap-2 px-8 py-4 2xl:px-10 2xl:py-5 rounded-button bg-yellow-500 text-white font-semibold hover:bg-yellow-400 transition-colors"
             >
               Começar grátis
