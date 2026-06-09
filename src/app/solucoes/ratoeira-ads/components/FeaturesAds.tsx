@@ -60,7 +60,7 @@ export default function FeaturesAds() {
   const slides = features.map((feature) => {
     const imageSrc =
       feature.title === "Tracking Server-Side"
-        ? null
+        ? "/Tracking Server-Side.png"
         : feature.title === "Bloqueio Automático de IP"
           ? "/ip_bloqueado.png"
           : feature.title === "Recuperação de Conversões Invisíveis"
@@ -73,7 +73,12 @@ export default function FeaturesAds() {
                   ? "/analytics2.png"
                   : null;
 
-    const imageClassName = imageSrc ? "object-contain" : null;
+    const imageClassName =
+      feature.title === "Tracking Server-Side"
+        ? "object-cover scale-[1.02]"
+        : imageSrc
+          ? "object-contain"
+          : null;
 
     return { ...feature, imageSrc, imageClassName } as const;
   });
@@ -119,43 +124,7 @@ export default function FeaturesAds() {
                   <div className="relative aspect-[4/3] rounded-2xl border border-white/10 bg-[#111111] overflow-hidden">
                     <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(80%_70%_at_50%_40%,rgba(255,184,0,0.12)_0%,rgba(0,0,0,0)_70%)]" />
 
-                    {slide.title === "Tracking Server-Side" ? (
-                      <div className="absolute inset-0 flex items-center justify-center px-6">
-                        <svg viewBox="0 0 560 260" className="w-full max-w-xl h-auto" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          {/* Horizontal scale / funnel */}
-                          <path d="M40 180 L520 180" stroke="white" strokeWidth="2" />
-                          
-                          {/* Level 1 - Red (low) */}
-                          <path d="M40 180 L120 180 L140 140 L60 140 Z" fill="#EF4444" opacity="0.9" />
-                          
-                          {/* Level 2 - Orange (medium) */}
-                          <path d="M140 180 L300 180 L320 120 L160 120 Z" fill="#F59E0B" opacity="0.9" />
-                          
-                          {/* Level 3 - Green/Lime (max) */}
-                          <path d="M300 180 L520 180 L520 100 L320 100 Z" fill="#84CC16" opacity="0.95" />
-                          
-                          {/* Blue marker triangle pointing to green level */}
-                          <path d="M420 85 L440 55 L460 85 Z" fill="#3B82F6" />
-                          
-                          {/* RAADS text */}
-                          <text x="440" y="45" textAnchor="middle" fill="white" fontSize="20" fontWeight="bold" fontFamily="system-ui, sans-serif">RAADS</text>
-                          
-                          {/* Máx.nível API text */}
-                          <text x="440" y="115" textAnchor="middle" fill="white" fontSize="16" fontWeight="600" fontFamily="system-ui, sans-serif">Máx.nível</text>
-                          <text x="440" y="135" textAnchor="middle" fill="white" fontSize="16" fontWeight="600" fontFamily="system-ui, sans-serif">API</text>
-                          
-                          {/* Labels below */}
-                          <text x="100" y="205" textAnchor="middle" fill="#9CA3AF" fontSize="12" fontFamily="system-ui, sans-serif">Pixel padrão</text>
-                          <text x="100" y="220" textAnchor="middle" fill="#9CA3AF" fontSize="12" fontFamily="system-ui, sans-serif">(60–75%)</text>
-                          
-                          <text x="240" y="205" textAnchor="middle" fill="#9CA3AF" fontSize="12" fontFamily="system-ui, sans-serif">Browser + API</text>
-                          <text x="240" y="220" textAnchor="middle" fill="#9CA3AF" fontSize="12" fontFamily="system-ui, sans-serif">(85–95%)</text>
-                          
-                          <text x="420" y="205" textAnchor="middle" fill="#84CC16" fontSize="12" fontWeight="bold" fontFamily="system-ui, sans-serif">Ratoeira Ads</text>
-                          <text x="420" y="220" textAnchor="middle" fill="#84CC16" fontSize="12" fontWeight="bold" fontFamily="system-ui, sans-serif">(~100%)</text>
-                        </svg>
-                      </div>
-                    ) : slide.title === "Pixel de Qualidade Máxima" ? (
+                    {slide.title === "Pixel de Qualidade Máxima" ? (
                       <div className="absolute inset-0 flex items-center justify-center px-6">
                         <svg viewBox="0 0 520 300" className="w-full max-w-xl h-auto" fill="none" xmlns="http://www.w3.org/2000/svg">
                           <defs>
