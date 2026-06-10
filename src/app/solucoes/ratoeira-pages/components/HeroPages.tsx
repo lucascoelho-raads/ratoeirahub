@@ -50,7 +50,7 @@ export default function HeroPages() {
             >
               <a
                 href="/planos#pricing-cards"
-                className="inline-flex items-center gap-2 px-8 py-4 2xl:px-10 2xl:py-5 rounded-button bg-[#FF7E4A] text-white font-bold hover:bg-[#e86b3b] transition-colors"
+                className="inline-flex items-center gap-2 px-8 py-4 2xl:px-10 2xl:py-5 rounded-button bg-[#FF7E4A] text-black font-bold hover:bg-[#e86b3b] transition-colors"
               >
                 Começar grátis
                 <ArrowRight className="w-5 h-5" />
