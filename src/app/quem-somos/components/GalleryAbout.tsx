@@ -36,7 +36,7 @@ export default function GalleryAbout() {
         </motion.div>
 
         {/* Masonry-like Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4 md:gap-6">
+        <div className="columns-2 md:columns-3 gap-3 sm:gap-4 md:gap-6">
           {galleryItems.map((item, index) => (
             <motion.div
               key={item.id}
@@ -44,7 +44,7 @@ export default function GalleryAbout() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className={`relative group overflow-hidden bg-[#111111] rounded-3xl shadow-md border border-white/10 ${item.aspect}`}
+              className={`relative group overflow-hidden bg-[#111111] rounded-3xl shadow-md border border-white/10 ${item.aspect} break-inside-avoid mb-3 sm:mb-4 md:mb-6 inline-block w-full`}
             >
               {item.type === "video" ? (
                 <video
