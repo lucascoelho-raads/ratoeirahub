@@ -409,14 +409,14 @@ export default function RatoeiraHubPage() {
             Tudo que você precisa para escalar com dado real.
           </p>
 
-          <div className="relative mx-auto mb-10 w-full max-w-6xl 2xl:max-w-[90rem] 4xl:max-w-[110rem] 5xl:max-w-[130rem] 6xl:max-w-[150rem]">
+          <div className="relative mx-auto mb-10 w-full max-w-6xl 2xl:max-w-[90rem] 4xl:max-w-[110rem] 5xl:max-w-[130rem] 6xl:max-w-[150rem] pointer-events-none">
             <div
               className="absolute -left-6 top-1/2 hidden lg:block"
               style={{ transform: "translateY(calc(-50% + 48px))" }}
             >
               <div className="relative flex h-[252px] w-[252px] items-center justify-center">
                 <video
-                  className="pointer-events-none absolute left-1/2 top-1/2 z-0 h-[320px] w-[320px] -translate-x-1/2 -translate-y-1/2 object-contain"
+                  className="pointer-events-none absolute left-1/2 top-1/2 z-0 h-[640px] w-[640px] max-w-none -translate-x-1/2 -translate-y-1/2 object-contain"
                   src="/videos/circuloraads.mov"
                   autoPlay
                   loop
@@ -460,7 +460,7 @@ export default function RatoeiraHubPage() {
 
           <Link
             href="/planos"
-            className="inline-flex items-center gap-2 px-10 py-5 mt-6 bg-gradient-to-r from-yellow-500 to-orange-500 text-black font-bold rounded-button hover:from-yellow-400 hover:to-orange-400 transition-all text-xl shadow-xl shadow-orange-500/20 hover:scale-105 active:scale-95"
+            className="relative z-30 inline-flex items-center gap-2 px-10 py-5 mt-6 bg-gradient-to-r from-yellow-500 to-orange-500 text-black font-bold rounded-button hover:from-yellow-400 hover:to-orange-400 transition-all text-xl shadow-xl shadow-orange-500/20 hover:scale-105 active:scale-95"
           >
             Ver planos e começar grátis
             <ArrowRight className="w-6 h-6" />
