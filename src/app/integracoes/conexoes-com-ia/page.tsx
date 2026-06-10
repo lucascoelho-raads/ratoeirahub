@@ -3,8 +3,7 @@ import Footer from "@/components/Footer"
 import { SplineSceneBasic } from "@/components/ui/spline-scene-basic"
 import { BentoGrid, type BentoItem } from "@/components/ui/bento-grid"
 import { RadialGlowBackground } from "@/components/ui/radial-glow-background"
-import { ArrowRight, BarChart3, ListChecks, MessageSquareText } from "lucide-react"
-import Link from "next/link"
+import { BarChart3, ListChecks, MessageSquareText } from "lucide-react"
 import type { CSSProperties } from "react"
 
 export const metadata = {
@@ -143,16 +142,6 @@ export default function ConexoesComIAPage() {
               </p>
 
               <BentoGrid className="mt-2" items={mcpAdsItems} hideStatus hideCta />
-
-              <div className="pt-2">
-                <Link
-                  href="/#fale-conosco"
-                  className="inline-flex items-center justify-center gap-2 rounded-button bg-brand-primary px-8 py-4 font-black text-white transition-colors hover:bg-brand-primary-hover"
-                >
-                  Conectar Ratoeira Ads com IA
-                  <ArrowRight className="h-5 w-5" />
-                </Link>
-              </div>
             </div>
           </div>
         </div>
@@ -203,16 +192,6 @@ export default function ConexoesComIAPage() {
               </p>
 
               <BentoGrid className="mt-2" items={mcpPagesItems} hideStatus hideCta />
-
-              <div className="pt-2">
-                <Link
-                  href="/#fale-conosco"
-                  className="inline-flex items-center justify-center gap-2 rounded-button bg-brand-secondary px-8 py-4 font-black text-white transition-colors hover:bg-[#E86B3B]"
-                >
-                  Conectar Ratoeira Pages com Claude
-                  <ArrowRight className="h-5 w-5" />
-                </Link>
-              </div>
             </div>
           </div>
         </div>

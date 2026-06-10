@@ -30,7 +30,7 @@ export const HeroGoogleAds = () => {
             <Button
               asChild
               size="lg"
-              className="h-14 px-8 2xl:h-16 2xl:px-10 2xl:text-xl font-bold text-white"
+              className="h-14 px-8 2xl:h-16 2xl:px-10 2xl:text-xl font-bold text-black"
             >
               <Link href="/planos#pricing-cards">
                 Começar grátis
