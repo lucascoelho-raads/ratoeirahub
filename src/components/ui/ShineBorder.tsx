@@ -11,6 +11,7 @@ interface ShineBorderProps {
   duration?: number;
   color?: ShineBorderColor;
   className?: string;
+  style?: CSSProperties;
   children: ReactNode;
 }
 
@@ -20,6 +21,7 @@ export function ShineBorder({
   duration = 14,
   color = "var(--color-brand-primary)",
   className,
+  style,
   children,
 }: ShineBorderProps) {
   const palette = Array.isArray(color) ? color : [color, color, color, color];
@@ -40,7 +42,7 @@ export function ShineBorder({
 
   return (
     <div
-      style={cssVars}
+      style={{ ...cssVars, ...style }}
       className={cn(
         "relative rounded-[--sb-radius] overflow-hidden will-change-[background-position]",
         className,

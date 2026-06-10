@@ -157,7 +157,7 @@ export default function Hero() {
                 }}
               />
               <div className="absolute -bottom-[30%] left-1/2 -translate-x-1/2 w-[clamp(800px,40vw,1600px)] h-[clamp(600px,30vw,1200px)] rounded-full bg-[radial-gradient(circle_at_center,rgba(255,184,0,0.18),transparent_70%)] blur-3xl pointer-events-none" />
-              <div className="relative w-full h-full max-w-7xl 2xl:max-w-[90rem] 4xl:max-w-[105rem] 5xl:max-w-[110rem] 6xl:max-w-[120rem] mx-auto px-4 sm:px-6 lg:px-12 2xl:px-16 4xl:px-28 5xl:px-32 6xl:px-60 flex flex-col lg:grid lg:grid-cols-[1fr_1.1fr] 2xl:grid-cols-[1.25fr_1fr] 3xl:grid-cols-[1.35fr_1fr] 4xl:grid-cols-[1fr_1fr] 5xl:grid-cols-[0.95fr_1.05fr] 6xl:grid-cols-[0.8fr_1fr] gap-6 lg:gap-10 2xl:gap-14 3xl:gap-20 5xl:gap-16 6xl:gap-20 lg:items-start 5xl:items-center min-w-0 pt-16 lg:pt-20 pb-16 lg:pb-24">
+              <div className="relative w-full h-full max-w-7xl 2xl:max-w-[90rem] 4xl:max-w-[105rem] 5xl:max-w-[110rem] 6xl:max-w-[120rem] mx-auto px-4 sm:px-6 lg:px-12 2xl:px-16 4xl:px-28 5xl:px-32 6xl:px-60 flex flex-col lg:grid lg:grid-cols-[1fr_1.1fr] 2xl:grid-cols-[1fr_1.15fr] 3xl:grid-cols-[1fr_1.2fr] 4xl:grid-cols-[1fr_1fr] 5xl:grid-cols-[0.95fr_1.05fr] 6xl:grid-cols-[0.8fr_1fr] gap-6 lg:gap-10 2xl:gap-14 3xl:gap-20 5xl:gap-16 6xl:gap-20 lg:items-start 5xl:items-center min-w-0 pt-16 lg:pt-20 pb-16 lg:pb-24">
                 {/* Texto */}
                 <motion.div
                   variants={containerVariants}
@@ -201,7 +201,7 @@ export default function Hero() {
                   className="relative lg:col-start-2 lg:row-start-1"
                   ref={setReferenceElement}
                 >
-                  <div className="relative rounded-2xl overflow-hidden border border-neutral-200 bg-[#0d0d0d] shadow-card-resting h-[clamp(280px,55vw,420px)] lg:h-[clamp(420px,46vh,640px)] 2xl:h-[clamp(520px,22vw,820px)] 3xl:h-[clamp(600px,24vw,900px)] 5xl:h-[clamp(720px,22vw,1100px)] 6xl:h-[clamp(850px,20vw,1300px)]">
+                  <div className="relative rounded-2xl overflow-hidden border border-neutral-200 bg-[#0d0d0d] shadow-card-resting h-[clamp(280px,55vw,420px)] lg:h-[clamp(420px,46vh,640px)] 2xl:h-auto 2xl:aspect-[16/10]">
                     <div className="bg-[#161616] border-b border-white/5 px-4 py-3 flex items-center justify-between">
                       <div className="flex gap-1.5">
                         <div className="w-2.5 h-2.5 rounded-full bg-red-500/40" />
@@ -358,7 +358,7 @@ export default function Hero() {
                   backgroundSize: "120px 120px",
                 }}
               />
-              <div className="relative w-full h-full max-w-7xl 2xl:max-w-[90rem] 4xl:max-w-[105rem] 5xl:max-w-[110rem] 6xl:max-w-[120rem] mx-auto px-4 sm:px-6 lg:px-12 2xl:px-16 4xl:px-28 5xl:px-32 6xl:px-60 flex flex-col lg:grid lg:grid-cols-[1fr_1.1fr] 2xl:grid-cols-[1.25fr_1fr] 3xl:grid-cols-[1.35fr_1fr] 4xl:grid-cols-[1fr_1fr] 5xl:grid-cols-[0.95fr_1.05fr] 6xl:grid-cols-[0.8fr_1fr] gap-6 lg:gap-10 2xl:gap-14 3xl:gap-20 5xl:gap-16 6xl:gap-20 lg:items-start 5xl:items-center min-w-0 pt-16 lg:pt-20 pb-16 lg:pb-24">
+              <div className="relative w-full h-full max-w-7xl 2xl:max-w-[90rem] 4xl:max-w-[105rem] 5xl:max-w-[110rem] 6xl:max-w-[120rem] mx-auto px-4 sm:px-6 lg:px-12 2xl:px-16 4xl:px-28 5xl:px-32 6xl:px-60 flex flex-col lg:grid lg:grid-cols-[1fr_1.1fr] 2xl:grid-cols-[1fr_1.15fr] 3xl:grid-cols-[1fr_1.2fr] 4xl:grid-cols-[1fr_1fr] 5xl:grid-cols-[0.95fr_1.05fr] 6xl:grid-cols-[0.8fr_1fr] gap-6 lg:gap-10 2xl:gap-14 3xl:gap-20 5xl:gap-16 6xl:gap-20 lg:items-start 5xl:items-center min-w-0 pt-16 lg:pt-20 pb-16 lg:pb-24">
                 {/* Texto */}
                 <div className="flex flex-col gap-6 lg:col-start-1 lg:row-start-1">
                   <h2 className="text-[clamp(1.15rem,6vw,3.5rem)] sm:text-[clamp(1.5rem,5vw,4rem)] lg:text-[clamp(2.75rem,3.8vw,4.5rem)] 3xl:text-[clamp(3.5rem,3.2vw,5.5rem)] font-extrabold tracking-tight leading-tight lg:leading-[1.04] text-white break-words text-center lg:text-left text-balance max-w-2xl lg:max-w-4xl 3xl:max-w-5xl 4xl:max-w-6xl 5xl:max-w-[64rem] 6xl:max-w-[72rem] mx-auto lg:mx-0">
@@ -379,7 +379,7 @@ export default function Hero() {
                   transition={{ duration: 0.9, delay: 0.4, ease: [0.215, 0.61, 0.355, 1] }}
                   className="relative lg:col-start-2 lg:row-start-1"
                 >
-                  <div className="relative rounded-2xl overflow-hidden border border-neutral-200 bg-[#0d0d0d] shadow-card-resting h-[clamp(280px,55vw,420px)] lg:h-[clamp(420px,46vh,640px)] 2xl:h-[clamp(520px,22vw,820px)] 3xl:h-[clamp(600px,24vw,900px)] 5xl:h-[clamp(720px,22vw,1100px)] 6xl:h-[clamp(850px,20vw,1300px)]">
+                  <div className="relative rounded-2xl overflow-hidden border border-neutral-200 bg-[#0d0d0d] shadow-card-resting h-[clamp(280px,55vw,420px)] lg:h-[clamp(420px,46vh,640px)] 2xl:h-auto 2xl:aspect-[16/10]">
                     <div className="bg-[#161616] border-b border-white/5 px-4 py-3 flex items-center justify-between">
                       <div className="flex gap-1.5">
                         <div className="w-2.5 h-2.5 rounded-full bg-red-500/40" />

@@ -71,6 +71,9 @@ export default function Benefits() {
   const inView = useInView(ref, { once: true, margin: "-80px" });
   const [activeIndex, setActiveIndex] = useState(0);
   const [slideDirection, setSlideDirection] = useState(1);
+  const [isMobile, setIsMobile] = useState(false);
+  const referenceCardRef = useRef<HTMLDivElement>(null);
+  const [referenceCardHeight, setReferenceCardHeight] = useState<number | null>(null);
 
   const goToNext = () => {
     setSlideDirection(1);
@@ -89,11 +92,130 @@ export default function Benefits() {
   };
 
   useEffect(() => {
+    const media = window.matchMedia("(min-width: 640px)");
+    const update = () => setIsMobile(!media.matches);
+    update();
+
+    media.addEventListener("change", update);
+    return () => media.removeEventListener("change", update);
+  }, []);
+
+  useEffect(() => {
+    if (!isMobile) return;
+    if (!referenceCardRef.current) return;
+
+    const node = referenceCardRef.current;
+    const measure = () => setReferenceCardHeight(node.getBoundingClientRect().height);
+    measure();
+
+    const ro = new ResizeObserver(measure);
+    ro.observe(node);
+    return () => ro.disconnect();
+  }, [isMobile]);
+
+  useEffect(() => {
     const interval = setInterval(() => {
       goToNext();
     }, 25000);
     return () => clearInterval(interval);
   }, [activeIndex]);
+
+  const controlsSpacingClassName =
+    isMobile && (activeIndex === 1 || activeIndex === 4)
+      ? "mt-12 pb-16"
+      : "mt-8 pb-12";
+
+  const renderCard = (index: number, options?: { measure?: boolean }) => {
+    const benefit = benefits[index];
+    const Icon = benefit.icon;
+    const imageSrc =
+      index === 0
+        ? "/slide1home.png"
+        : index === 1
+          ? "/slide2home.png"
+          : index === 2
+            ? "/slide3home.png"
+            : index === 3
+              ? "/slide4home.png"
+              : "/slide6home.png";
+
+    return (
+      <div
+        ref={options?.measure ? referenceCardRef : undefined}
+        className="w-full max-w-7xl 2xl:max-w-[90rem] 4xl:max-w-[110rem] 5xl:max-w-[120rem] 6xl:max-w-[132rem] mx-auto"
+      >
+        <ShineBorder
+          borderRadius={24}
+          borderWidth={5.5}
+          duration={3.8}
+          color={[
+            "var(--color-brand-300)",
+            "var(--color-brand-primary)",
+            "var(--color-brand-secondary)",
+            "var(--color-brand-primary-hover)",
+          ]}
+          style={{
+            ...(options?.measure ? { animation: "none" } : {}),
+            ...(isMobile && index === 4 && referenceCardHeight ? { minHeight: referenceCardHeight } : {}),
+          }}
+          className="h-auto min-h-[420px] sm:h-[74vh] sm:min-h-[520px] 5xl:min-h-[560px] 6xl:min-h-[620px] w-full"
+        >
+          <div className="relative h-full rounded-card border border-white/10 bg-[#050505] shadow-card-resting p-5 sm:p-6 md:p-10 lg:p-12 5xl:p-16 6xl:p-20 overflow-hidden">
+            <BackgroundPaths reverse={benefit.imageLeft} />
+            <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-[1.2fr_1fr] 3xl:grid-cols-[1.3fr_1fr] 4xl:grid-cols-[1.35fr_1fr] 5xl:grid-cols-[1fr_1fr] 6xl:grid-cols-[1fr_1fr] gap-10 5xl:gap-14 6xl:gap-16 items-center h-full">
+              <div className={`${benefit.imageLeft ? "order-2" : "order-1"} 5xl:px-4 6xl:px-6`}>
+                <h3 className="mt-4 sm:mt-6 text-lg sm:text-xl lg:text-4xl 3xl:text-5xl 4xl:text-[3.5rem] 5xl:text-[5.5rem] 6xl:text-[6.75rem] font-black text-gray-50 leading-tight text-center lg:text-left text-balance max-w-2xl lg:max-w-3xl 5xl:max-w-[60rem] 6xl:max-w-[70rem]">
+                  {benefit.title}
+                </h3>
+                <p className="mt-4 sm:mt-5 4xl:mt-8 5xl:mt-10 text-base sm:text-lg 3xl:text-2xl 4xl:text-3xl 5xl:text-[2.75rem] 6xl:text-[3rem] text-gray-200 leading-relaxed text-center lg:text-left text-balance">
+                  {benefit.description}
+                </p>
+              </div>
+
+              <div className={benefit.imageLeft ? "order-1" : "order-2"}>
+                {index === 0 || index === 1 || index === 2 || index === 3 || index === 5 ? (
+                  <div className={index === 2 ? "relative rounded-card overflow-hidden p-3 5xl:p-4 6xl:p-6" : "relative rounded-card overflow-hidden 5xl:scale-100 6xl:scale-110"}>
+                    <img src={imageSrc} alt={benefit.title} className="w-full h-auto" />
+                  </div>
+                ) : index === 4 ? (
+                  <div className="relative aspect-[9/19.5] max-w-[260px] sm:max-w-[300px] 5xl:max-w-[340px] 6xl:max-w-[420px] max-h-full mx-auto rounded-[2.5rem] overflow-hidden">
+                    <video
+                      src="/videos/slide5.mp4"
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                      preload="auto"
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                ) : (
+                  <div
+                    className="relative h-[220px] sm:h-[280px] md:h-[380px] rounded-card border border-border-default overflow-hidden flex items-center justify-center"
+                    style={{
+                      background: benefit.imageLeft
+                        ? "linear-gradient(135deg, var(--color-brand-100) 0%, var(--color-brand-50) 100%)"
+                        : "linear-gradient(135deg, var(--color-brand-50) 0%, var(--color-brand-100) 100%)",
+                    }}
+                  >
+                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.9),rgba(255,255,255,0.15))]" />
+                    <div className="relative z-10 flex flex-col items-center text-center px-6">
+                      <div className="w-20 h-20 rounded-card bg-white/5 border border-white/10 flex items-center justify-center">
+                        <Icon className="w-10 h-10 text-brand-primary" />
+                      </div>
+                      <p className="mt-4 text-sm font-semibold text-gray-200">
+                        Imagem ilustrativa do {benefit.label.toLowerCase()}
+                      </p>
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+        </ShineBorder>
+      </div>
+    );
+  };
 
   return (
     <section ref={ref} className="relative pt-16 md:pt-20 lg:pt-24 pb-12 sm:pb-24 4xl:pb-28 bg-[#050505]" id="solucoes">
@@ -118,6 +240,13 @@ export default function Benefits() {
 
       <div className="relative z-10 h-[520px] sm:h-[82vh] 4xl:h-[76vh] 5xl:h-[70vh] 6xl:h-[70vh] overflow-visible sm:overflow-hidden flex items-center -mt-4 sm:-mt-8 4xl:-mt-10 5xl:-mt-12">
         <div className="relative w-full h-full">
+          {isMobile ? (
+            <div aria-hidden className="pointer-events-none absolute inset-0 opacity-0 -z-10">
+              <div className="absolute inset-0 px-4 sm:px-8 lg:px-12 py-8 flex items-center">
+                {renderCard(1, { measure: true })}
+              </div>
+            </div>
+          ) : null}
           <AnimatePresence mode="sync" initial={false}>
             <motion.article
               key={benefits[activeIndex].title}
@@ -127,91 +256,14 @@ export default function Benefits() {
               transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
               className="absolute inset-0 px-4 sm:px-8 lg:px-12 py-8 flex items-center"
             >
-              {(() => {
-                const benefit = benefits[activeIndex];
-                const Icon = benefit.icon;
-
-                return (
-                  <div className="w-full max-w-7xl 2xl:max-w-[90rem] 4xl:max-w-[110rem] 5xl:max-w-[120rem] 6xl:max-w-[132rem] mx-auto">
-                    <ShineBorder
-                      borderRadius={24}
-                      borderWidth={5.5}
-                      duration={3.8}
-                      color={[
-                        "var(--color-brand-300)",
-                        "var(--color-brand-primary)",
-                        "var(--color-brand-secondary)",
-                        "var(--color-brand-primary-hover)",
-                      ]}
-                      className="h-auto min-h-[420px] sm:h-[74vh] sm:min-h-[520px] 5xl:min-h-[560px] 6xl:min-h-[620px] w-full"
-                    >
-                      <div className="relative h-full rounded-card border border-white/10 bg-[#050505] shadow-card-resting p-5 sm:p-6 md:p-10 lg:p-12 5xl:p-16 6xl:p-20 overflow-hidden">
-                        <BackgroundPaths reverse={benefit.imageLeft} />
-                        <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-[1.2fr_1fr] 3xl:grid-cols-[1.3fr_1fr] 4xl:grid-cols-[1.35fr_1fr] 5xl:grid-cols-[1fr_1fr] 6xl:grid-cols-[1fr_1fr] gap-10 5xl:gap-14 6xl:gap-16 items-center h-full">
-                          <div className={`${benefit.imageLeft ? "order-2" : "order-1"} 5xl:px-4 6xl:px-6`}>
-                            <h3 className="mt-4 sm:mt-6 text-lg sm:text-xl lg:text-4xl 3xl:text-5xl 4xl:text-[3.5rem] 5xl:text-[5.5rem] 6xl:text-[6.75rem] font-black text-gray-50 leading-tight text-center lg:text-left text-balance max-w-2xl lg:max-w-3xl 5xl:max-w-[60rem] 6xl:max-w-[70rem]">
-                              {benefit.title}
-                            </h3>
-                            <p className="mt-4 sm:mt-5 4xl:mt-8 5xl:mt-10 text-base sm:text-lg 3xl:text-2xl 4xl:text-3xl 5xl:text-[2.75rem] 6xl:text-[3rem] text-gray-200 leading-relaxed text-center lg:text-left text-balance">
-                              {benefit.description}
-                            </p>
-                          </div>
-
-                          <div className={benefit.imageLeft ? "order-1" : "order-2"}>
-                            {activeIndex === 0 || activeIndex === 1 || activeIndex === 2 || activeIndex === 3 || activeIndex === 5 ? (
-                              <div className={activeIndex === 2 ? "relative rounded-card overflow-hidden p-3 5xl:p-4 6xl:p-6" : "relative rounded-card overflow-hidden 5xl:scale-100 6xl:scale-110"}>
-                                <img
-                                  src={activeIndex === 0 ? "/slide1home.png" : activeIndex === 1 ? "/slide2home.png" : activeIndex === 2 ? "/slide3home.png" : activeIndex === 3 ? "/slide4home.png" : "/slide6home.png"}
-                                  alt={benefit.title}
-                                  className="w-full h-auto"
-                                />
-                              </div>
-                            ) : activeIndex === 4 ? (
-                              <div className="relative aspect-[9/19.5] max-w-[260px] sm:max-w-[300px] 5xl:max-w-[340px] 6xl:max-w-[420px] max-h-full mx-auto rounded-[2.5rem] overflow-hidden">
-                                <video
-                                  src="/videos/slide5.mp4"
-                                  autoPlay
-                                  muted
-                                  loop
-                                  playsInline
-                                  preload="auto"
-                                  className="w-full h-full object-cover"
-                                />
-                              </div>
-                            ) : (
-                              <div
-                                className="relative h-[220px] sm:h-[280px] md:h-[380px] rounded-card border border-border-default overflow-hidden flex items-center justify-center"
-                                style={{
-                                  background: benefit.imageLeft
-                                    ? "linear-gradient(135deg, var(--color-brand-100) 0%, var(--color-brand-50) 100%)"
-                                    : "linear-gradient(135deg, var(--color-brand-50) 0%, var(--color-brand-100) 100%)",
-                                }}
-                              >
-                                <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.9),rgba(255,255,255,0.15))]" />
-                                <div className="relative z-10 flex flex-col items-center text-center px-6">
-                                  <div className="w-20 h-20 rounded-card bg-white/5 border border-white/10 flex items-center justify-center">
-                                    <Icon className="w-10 h-10 text-brand-primary" />
-                                  </div>
-                                  <p className="mt-4 text-sm font-semibold text-gray-200">
-                                    Imagem ilustrativa do {benefit.label.toLowerCase()}
-                                  </p>
-                                </div>
-                              </div>
-                            )}
-                          </div>
-                        </div>
-                      </div>
-                    </ShineBorder>
-                  </div>
-                );
-              })()}
+              {renderCard(activeIndex)}
             </motion.article>
           </AnimatePresence>
         </div>
       </div>
 
       {/* Controls - outside card, below it */}
-      <div className="relative z-20 flex items-center justify-center gap-3 mt-4 pb-8 sm:pb-0 sm:absolute sm:bottom-8 4xl:bottom-10 sm:left-1/2 sm:-translate-x-1/2">
+      <div className={`relative z-20 flex items-center justify-center gap-3 ${controlsSpacingClassName} sm:pb-0 sm:absolute sm:bottom-8 4xl:bottom-10 sm:left-1/2 sm:-translate-x-1/2`}>
         <button
           type="button"
           onClick={goToPrev}
