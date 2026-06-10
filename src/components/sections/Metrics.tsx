@@ -184,7 +184,7 @@ export default function Metrics() {
         </motion.div>
 
         {/* Secondary metrics — 3 column grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-6 2xl:gap-8">
+        <div className="mx-auto grid w-full max-w-5xl 2xl:max-w-6xl grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 2xl:gap-8">
           {secondary.map((metric, i) => (
             <motion.div
               key={metric.label}

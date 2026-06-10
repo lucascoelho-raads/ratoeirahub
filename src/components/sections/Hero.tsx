@@ -22,16 +22,20 @@ import { useFloating, offset, autoUpdate } from "@floating-ui/react";
 function HeroVideoMockup({
   onReady,
   src = "/videos/videoadsherohome.mp4",
+  fallbackSrc,
   poster = "/videos/videoadsherohome-poster.jpg",
   alt = "Dashboard Preview",
 }: {
   onReady?: () => void;
   src?: string;
+  fallbackSrc?: string;
   poster?: string;
   alt?: string;
 }) {
   const [isReady, setIsReady] = useState(false);
   const [hasError, setHasError] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [currentSrc, setCurrentSrc] = useState(src);
 
   useEffect(() => {
     const timer = window.setTimeout(() => {
@@ -50,22 +54,35 @@ function HeroVideoMockup({
           className="w-full h-full object-cover"
         />
       ) : (
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="metadata"
-          poster={poster}
-          className="w-full h-full object-cover"
-          onCanPlay={() => setIsReady(true)}
-          onError={() => setHasError(true)}
-        >
-          <source
-            src={src}
-            type={src.endsWith(".mov") ? "video/quicktime" : "video/mp4"}
+        <>
+          <img
+            src={poster}
+            alt={alt}
+            className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-300 ${isPlaying ? "opacity-0" : "opacity-100"}`}
           />
-        </video>
+          <video
+            key={currentSrc}
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
+            poster={poster}
+            className={`relative z-10 h-full w-full object-cover transition-opacity duration-300 ${isPlaying ? "opacity-100" : "opacity-0"}`}
+            onCanPlay={() => setIsReady(true)}
+            onPlaying={() => setIsPlaying(true)}
+            onPause={() => setIsPlaying(false)}
+            onError={() => {
+              if (fallbackSrc && currentSrc !== fallbackSrc) {
+                setCurrentSrc(fallbackSrc);
+                return;
+              }
+
+              setHasError(true);
+            }}
+            src={currentSrc}
+          />
+        </>
       )}
 
       {!isReady && !hasError && (
@@ -244,6 +261,7 @@ export default function Hero() {
                         >
                           <HeroVideoMockup
                             src="/videos/hero1.mov"
+                            fallbackSrc="/videos/video1.mp4"
                             poster="/videos/video1-poster.jpg"
                             alt="Ratoeira Ads Preview"
                           />
@@ -422,6 +440,7 @@ export default function Hero() {
                         >
                           <HeroVideoMockup
                             src="/videos/hero2.mov"
+                            fallbackSrc="/videos/videopagesheroslide2.mp4"
                             poster="/videos/videopagesheroslide2-poster.jpg"
                             alt="Ratoeira Pages Preview"
                           />

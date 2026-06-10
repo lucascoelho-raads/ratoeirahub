@@ -156,7 +156,7 @@ export default function Benefits() {
           ]}
           style={{
             ...(options?.measure ? { animation: "none" } : {}),
-            ...(isMobile && index === 4 && referenceCardHeight ? { minHeight: referenceCardHeight } : {}),
+            ...(isMobile && index === 4 && referenceCardHeight ? { height: referenceCardHeight } : {}),
           }}
           className="h-auto min-h-[420px] sm:h-[74vh] sm:min-h-[520px] 5xl:min-h-[560px] 6xl:min-h-[620px] w-full"
         >
@@ -238,12 +238,12 @@ export default function Benefits() {
 
       </div>
 
-      <div className="relative z-10 h-[520px] sm:h-[82vh] 4xl:h-[76vh] 5xl:h-[70vh] 6xl:h-[70vh] overflow-visible sm:overflow-hidden flex items-center -mt-4 sm:-mt-8 4xl:-mt-10 5xl:-mt-12">
+      <div className="relative z-10 h-[520px] sm:h-[82vh] 4xl:h-[76vh] 5xl:h-[70vh] 6xl:h-[70vh] overflow-visible sm:overflow-hidden flex items-center mt-10 sm:-mt-8 4xl:-mt-10 5xl:-mt-12">
         <div className="relative w-full h-full">
           {isMobile ? (
             <div aria-hidden className="pointer-events-none absolute inset-0 opacity-0 -z-10">
               <div className="absolute inset-0 px-4 sm:px-8 lg:px-12 py-8 flex items-center">
-                {renderCard(1, { measure: true })}
+                {renderCard(0, { measure: true })}
               </div>
             </div>
           ) : null}
