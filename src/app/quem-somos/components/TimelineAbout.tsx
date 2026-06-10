@@ -57,8 +57,8 @@ export default function TimelineAbout() {
       <div className="max-w-7xl 2xl:max-w-[90rem] 4xl:max-w-[120rem] 5xl:max-w-[140rem] 6xl:max-w-[160rem] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-12 4xl:px-20 5xl:px-28 6xl:px-36 relative z-10">
         
         <div className="text-center mb-20">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight text-balance">Dois anos. O <span className="text-[#FFB800]">mercado</span> não é mais o <span className="text-[#FFB800]">mesmo</span></h2>
-          <p className="mt-4 text-base sm:text-xl text-gray-400 max-w-2xl 2xl:max-w-[50rem] 4xl:max-w-[70rem] mx-auto px-4 sm:px-0 text-balance">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight ">Dois anos. O <span className="text-[#FFB800]">mercado</span> não é mais o <span className="text-[#FFB800]">mesmo</span></h2>
+          <p className="mt-4 text-base sm:text-xl text-gray-400 max-w-2xl 2xl:max-w-[50rem] 4xl:max-w-[70rem] mx-auto px-4 sm:px-0 ">
             De uma descoberta individual a mais de 2.500 anunciantes que escalam com dado real.
           </p>
         </div>

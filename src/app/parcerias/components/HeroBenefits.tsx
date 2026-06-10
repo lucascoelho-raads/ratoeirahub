@@ -21,11 +21,11 @@ export default function HeroBenefits() {
             <span className="text-sm font-bold tracking-wider uppercase">Vantagens Exclusivas</span>
           </div>
           
-          <h1 className="text-[clamp(1.25rem,4.2vw,6rem)] font-black text-white mb-8 tracking-tight leading-[1.04] text-balance">
+          <h1 className="text-[clamp(1.25rem,4.2vw,6rem)] font-black text-white mb-8 tracking-tight leading-[1.04] ">
             Mais do que comissões. Um <span className="text-brand-primary">Ecossistema de Vantagens.</span>
           </h1>
           
-          <p className="text-[clamp(1.05rem,1.25vw,1.35rem)] text-gray-400 leading-relaxed max-w-3xl 2xl:max-w-[50rem] 4xl:max-w-[80rem] mx-auto text-balance">
+          <p className="text-[clamp(1.05rem,1.25vw,1.35rem)] text-gray-400 leading-relaxed max-w-3xl 2xl:max-w-[50rem] 4xl:max-w-[80rem] mx-auto ">
             Todo assinante da Ratoeira pode ser parceiro. Indique, ganhe recorrente e acesse vantagens exclusivas — enquanto sua operação cresce junto.
           </p>
         </motion.div>

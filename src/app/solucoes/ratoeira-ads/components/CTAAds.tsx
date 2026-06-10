@@ -101,10 +101,10 @@ export default function CTAAds() {
           transition={{ duration: 0.7, ease: "easeOut" }}
           className="flex flex-col items-center w-full max-w-6xl 2xl:max-w-[90rem] 4xl:max-w-[110rem] 5xl:max-w-[130rem] 6xl:max-w-[150rem] mx-auto"
         >
-          <h2 className="text-[clamp(1.75rem,6vw,4.5rem)] font-black text-white mb-6 tracking-tight drop-shadow-[0_0_15px_rgba(0,0,0,0.8)] px-4 text-balance">
+          <h2 className="text-[clamp(1.75rem,6vw,4.5rem)] font-black text-white mb-6 tracking-tight drop-shadow-[0_0_15px_rgba(0,0,0,0.8)] px-4 ">
             Pare de tomar decisão com dado <span className="text-brand-primary">incompleto</span>.
           </h2>
-          <p className="text-base sm:text-[clamp(1.1rem,1.25vw,1.5rem)] text-gray-300 max-w-3xl 2xl:max-w-[50rem] 4xl:max-w-[80rem] mx-auto drop-shadow-[0_0_10px_rgba(0,0,0,0.8)] leading-relaxed px-4 text-balance">
+          <p className="text-base sm:text-[clamp(1.1rem,1.25vw,1.5rem)] text-gray-300 max-w-3xl 2xl:max-w-[50rem] 4xl:max-w-[80rem] mx-auto drop-shadow-[0_0_10px_rgba(0,0,0,0.8)] leading-relaxed px-4 ">
             Configure a <span className="text-brand-primary font-semibold">Ratoeira Ads</span> em minutos e descubra o ROI real das suas campanhas com trackeamento ~100% e proteção automática no Google Ads.
           </p>
         </motion.div>

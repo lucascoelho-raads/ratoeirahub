@@ -24,11 +24,11 @@ export default function FAQPage() {
             Central de Ajuda
           </div>
           
-          <h1 className="text-2xl sm:text-5xl md:text-7xl font-black text-white mb-6 tracking-tight text-balance">
+          <h1 className="text-2xl sm:text-5xl md:text-7xl font-black text-white mb-6 tracking-tight ">
             Como podemos <span className="text-brand-primary">ajudar?</span>
           </h1>
           
-          <p className="text-lg text-gray-400 max-w-2xl 2xl:max-w-[50rem] 4xl:max-w-[70rem] mx-auto leading-relaxed text-balance">
+          <p className="text-lg text-gray-400 max-w-2xl 2xl:max-w-[50rem] 4xl:max-w-[70rem] mx-auto leading-relaxed ">
             Encontre respostas rápidas para as dúvidas mais comuns sobre o ecossistema Ratoeira Hub, nossos planos e integrações.
           </p>
         </div>

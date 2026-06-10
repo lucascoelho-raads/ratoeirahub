@@ -18,7 +18,7 @@ export const HeroGoogleAds = () => {
       <section className="relative">
         <div className="relative mx-auto max-w-6xl 2xl:max-w-[90rem] 4xl:max-w-[110rem] 5xl:max-w-[130rem] 6xl:max-w-[150rem] px-6 pt-[clamp(7rem,12vh,10rem)] pb-10">
           <div className="relative z-10 mx-auto max-w-3xl 2xl:max-w-[60rem] 4xl:max-w-[80rem] text-center">
-            <h1 className="text-balance text-[clamp(1.15rem,3.6vw,4.5rem)] lg:text-[clamp(1.15rem,3.2vw,5rem)] font-black text-white tracking-tight leading-[1.04] mb-6 max-w-3xl lg:max-w-4xl mx-auto">
+            <h1 className=" text-[clamp(1.15rem,3.6vw,4.5rem)] lg:text-[clamp(1.15rem,3.2vw,5rem)] font-black text-white tracking-tight leading-[1.04] mb-6 max-w-3xl lg:max-w-4xl mx-auto">
               Pare de otimizar com conversão incompleta. A Ratoeira fecha o gap do{" "}
               <span className="text-brand-primary">Google Ads</span>.
             </h1>

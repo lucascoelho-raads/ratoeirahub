@@ -29,7 +29,7 @@ export default function CTA() {
           
 
           {/* Title */}
-          <h2 className="text-2xl sm:text-4xl lg:text-5xl 3xl:text-7xl font-black text-[#111827] leading-tight text-balance max-w-4xl 5xl:max-w-[70rem] 6xl:max-w-[78rem] mx-auto">
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl 3xl:text-7xl font-black text-[#111827] leading-tight  max-w-4xl 5xl:max-w-[70rem] 6xl:max-w-[78rem] mx-auto">
             <span className="block text-[#111827]">Pare de operar no escuro.</span>
             <span className="block text-lg sm:text-2xl lg:text-3xl 3xl:text-5xl font-black text-brand-primary">
               Cada real investido merece uma origem rastreada.
@@ -37,7 +37,7 @@ export default function CTA() {
           </h2>
 
           {/* Subtitle */}
-          <p className="text-[#4b5563] text-base sm:text-lg 3xl:text-[1.75rem] max-w-2xl 2xl:max-w-[40rem] 3xl:max-w-[52rem] 4xl:max-w-[58rem] 5xl:max-w-[64rem] 6xl:max-w-[72rem] mx-auto leading-relaxed text-balance">
+          <p className="text-[#4b5563] text-base sm:text-lg 3xl:text-[1.75rem] max-w-2xl 2xl:max-w-[40rem] 3xl:max-w-[52rem] 4xl:max-w-[58rem] 5xl:max-w-[64rem] 6xl:max-w-[72rem] mx-auto leading-relaxed ">
             Configure em minutos. Rastreie cada venda, cada lead, cada clique — no Google e no Meta. Tome as decisões que a maioria adia por falta de dado real.
           </p>
 

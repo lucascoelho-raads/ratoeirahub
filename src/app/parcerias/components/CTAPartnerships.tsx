@@ -18,10 +18,10 @@ export default function CTAPartnerships() {
           {/* Decorative glow */}
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[80%] h-32 bg-brand-primary/20 blur-[80px] rounded-full pointer-events-none" />
           
-          <h2 className="text-2xl sm:text-3xl md:text-5xl font-black text-white mb-6 tracking-tight relative z-10 text-balance">
+          <h2 className="text-2xl sm:text-3xl md:text-5xl font-black text-white mb-6 tracking-tight relative z-10 ">
             Pronto para multiplicar seus ganhos?
           </h2>
-          <p className="text-gray-400 text-base sm:text-lg mb-0 max-w-xl 2xl:max-w-[50rem] 4xl:max-w-[60rem] mx-auto relative z-10 text-balance">
+          <p className="text-gray-400 text-base sm:text-lg mb-0 max-w-xl 2xl:max-w-[50rem] 4xl:max-w-[60rem] mx-auto relative z-10 ">
             Já indicou alguém ou quer entrar para o programa? Fale com nosso time agora mesmo.
           </p>
         </motion.div>
@@ -34,10 +34,10 @@ export default function CTAPartnerships() {
           transition={{ duration: 0.6, delay: 0.15 }}
           className="text-center"
         >
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-white mb-4 tracking-tight text-balance">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-white mb-4 tracking-tight ">
             Vamos estruturar sua operação?
           </h2>
-          <p className="text-gray-400 text-base sm:text-lg mb-8 max-w-xl mx-auto text-balance">
+          <p className="text-gray-400 text-base sm:text-lg mb-8 max-w-xl mx-auto ">
             Preencha seu cadastro. Ative agora mesmo seu plano GRATUITO. Sem cartão, sem pix. Apenas cadastre-se e receba o acesso.
           </p>
 

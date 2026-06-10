@@ -184,11 +184,18 @@ export default function Hero() {
                 >
                   <motion.h1
                     variants={itemVariants}
-                    className="text-[clamp(1.25rem,8vw,5.25rem)] lg:text-[clamp(2.75rem,3.8vw,4.5rem)] 3xl:text-[clamp(3.5rem,3.2vw,5.5rem)] font-extrabold tracking-tight leading-[1.04] break-words text-center lg:text-left text-balance max-w-2xl lg:max-w-4xl 3xl:max-w-5xl 4xl:max-w-6xl 5xl:max-w-[64rem] 6xl:max-w-[72rem] mx-auto lg:mx-0"
+                    className="text-[clamp(1.25rem,8vw,5.25rem)] lg:text-[clamp(2.75rem,3.8vw,4.5rem)] 3xl:text-[clamp(3.5rem,3.2vw,5.5rem)] font-extrabold tracking-tight leading-[1.04] text-center lg:text-left max-w-2xl lg:max-w-none mx-auto lg:mx-0"
                   >
-                    <span className="text-white">Cada venda tem uma origem.</span>
-                    <br />
-                    <span className="text-[#FFB800]">A Ratoeira te mostra qual é.</span>
+                    <span className="text-white lg:hidden">Cada venda tem uma origem.</span>
+                    <span className="hidden text-white lg:block">
+                      <span className="block whitespace-nowrap">Cada venda tem</span>
+                      <span className="block whitespace-nowrap">uma origem.</span>
+                    </span>
+                    <span className="text-[#FFB800] lg:hidden">A Ratoeira te mostra qual é.</span>
+                    <span className="hidden text-[#FFB800] lg:block">
+                      <span className="block whitespace-nowrap">A Ratoeira te mostra</span>
+                      <span className="block whitespace-nowrap">qual é.</span>
+                    </span>
                   </motion.h1>
 
                   <motion.p
@@ -379,10 +386,19 @@ export default function Hero() {
               <div className="relative w-full h-full max-w-7xl 2xl:max-w-[90rem] 4xl:max-w-[105rem] 5xl:max-w-[110rem] 6xl:max-w-[120rem] mx-auto px-4 sm:px-6 lg:px-12 2xl:px-16 4xl:px-28 5xl:px-32 6xl:px-60 flex flex-col lg:grid lg:grid-cols-[1fr_1.1fr] 2xl:grid-cols-[1fr_1.15fr] 3xl:grid-cols-[1fr_1.2fr] 4xl:grid-cols-[1fr_1fr] 5xl:grid-cols-[0.95fr_1.05fr] 6xl:grid-cols-[0.8fr_1fr] gap-6 lg:gap-10 2xl:gap-14 3xl:gap-20 5xl:gap-16 6xl:gap-20 lg:items-start 5xl:items-center min-w-0 pt-16 lg:pt-20 pb-16 lg:pb-24">
                 {/* Texto */}
                 <div className="flex flex-col gap-6 lg:col-start-1 lg:row-start-1">
-                  <h2 className="text-[clamp(1.15rem,6vw,3.5rem)] sm:text-[clamp(1.5rem,5vw,4rem)] lg:text-[clamp(2.75rem,3.8vw,4.5rem)] 3xl:text-[clamp(3.5rem,3.2vw,5.5rem)] font-extrabold tracking-tight leading-tight lg:leading-[1.04] text-white break-words text-center lg:text-left text-balance max-w-2xl lg:max-w-4xl 3xl:max-w-5xl 4xl:max-w-6xl 5xl:max-w-[64rem] 6xl:max-w-[72rem] mx-auto lg:mx-0">
-                    Páginas que convertem.{" "}
-                    <span style={{ color: "var(--color-brand-primary)" }}>
+                  <h2 className="text-[clamp(1.15rem,6vw,3.5rem)] sm:text-[clamp(1.5rem,5vw,4rem)] lg:text-[clamp(2.75rem,3.8vw,4.5rem)] 3xl:text-[clamp(3.5rem,3.2vw,5.5rem)] font-extrabold tracking-tight leading-tight lg:leading-[1.04] text-white text-center lg:text-left max-w-2xl lg:max-w-none mx-auto lg:mx-0">
+                    <span className="lg:hidden">Páginas que convertem. </span>
+                    <span className="hidden lg:block">
+                      <span className="block whitespace-nowrap">Páginas que</span>
+                      <span className="block whitespace-nowrap">convertem.</span>
+                    </span>
+                    <span className="lg:hidden" style={{ color: "var(--color-brand-primary)" }}>
                       Integradas ao seu trackeamento desde o primeiro clique.
+                    </span>
+                    <span className="hidden lg:block" style={{ color: "var(--color-brand-primary)" }}>
+                      <span className="block whitespace-nowrap">Integradas ao seu</span>
+                      <span className="block whitespace-nowrap">trackeamento desde</span>
+                      <span className="block whitespace-nowrap">o primeiro clique.</span>
                     </span>
                   </h2>
                   <p className="text-[clamp(0.875rem,3vw,1.125rem)] sm:text-[clamp(1rem,2vw,1.125rem)] 3xl:text-[clamp(1.125rem,1.2vw,1.5rem)] text-gray-400/70 leading-relaxed max-w-2xl 2xl:max-w-[34rem] 3xl:max-w-[46rem] 4xl:max-w-[56rem] 5xl:max-w-[48rem] text-center lg:text-left">

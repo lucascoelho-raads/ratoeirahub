@@ -30,10 +30,10 @@ export default function CommissionStructure() {
     <section className="py-16 md:py-24 bg-[#050505]">
       <div className="max-w-7xl 2xl:max-w-[90rem] 4xl:max-w-[120rem] 5xl:max-w-[140rem] 6xl:max-w-[160rem] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-12 4xl:px-20 5xl:px-28 6xl:px-36">
         <div className="text-center mb-16">
-          <h2 className="text-2xl sm:text-3xl md:text-5xl font-black text-white mb-4 tracking-tight text-balance">
+          <h2 className="text-2xl sm:text-3xl md:text-5xl font-black text-white mb-4 tracking-tight ">
             Estrutura de <span className="text-brand-primary">Comissionamento</span>
           </h2>
-          <p className="text-gray-400 text-base sm:text-lg max-w-2xl 2xl:max-w-[50rem] 4xl:max-w-[70rem] mx-auto px-4 sm:px-0 text-balance">
+          <p className="text-gray-400 text-base sm:text-lg max-w-2xl 2xl:max-w-[50rem] 4xl:max-w-[70rem] mx-auto px-4 sm:px-0 ">
             Seu esforço é recompensado. Quanto mais clientes você traz para a Ratoeira, maior é a sua participação na receita.
           </p>
         </div>

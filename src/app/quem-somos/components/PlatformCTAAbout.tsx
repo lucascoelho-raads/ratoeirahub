@@ -43,7 +43,7 @@ export default function PlatformCTAAbout() {
             </div>
 
             <div className="space-y-6">
-              <h2 className="text-2xl sm:text-3xl lg:text-5xl font-black text-gray-900 tracking-tight leading-tight text-center lg:text-left text-balance">
+              <h2 className="text-2xl sm:text-3xl lg:text-5xl font-black text-gray-900 tracking-tight leading-tight text-center lg:text-left ">
                 Somos o ecossistema <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-amber-500">definitivo</span> para escala.
               </h2>
               <p className="text-gray-600 leading-relaxed text-base sm:text-lg text-center lg:text-left">
@@ -64,10 +64,10 @@ export default function PlatformCTAAbout() {
             transition={{ duration: 0.8 }}
             className="space-y-8"
           >
-            <h2 className="text-2xl sm:text-5xl lg:text-7xl font-black text-gray-900 tracking-tight leading-tight text-center lg:text-left text-balance">
+            <h2 className="text-2xl sm:text-5xl lg:text-7xl font-black text-gray-900 tracking-tight leading-tight text-center lg:text-left ">
               Vamos <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-amber-500">Transformar</span> sua operação?
             </h2>
-            <p className="text-gray-600 text-lg sm:text-xl max-w-md 2xl:max-w-[50rem] 4xl:max-w-[64rem] leading-relaxed text-center lg:text-left mx-auto lg:mx-0 text-balance">
+            <p className="text-gray-600 text-lg sm:text-xl max-w-md 2xl:max-w-[50rem] 4xl:max-w-[64rem] leading-relaxed text-center lg:text-left mx-auto lg:mx-0 ">
               Pare de perder dinheiro com cliques desqualificados. Dê o próximo passo na sua jornada de escala.
             </p>
           </motion.div>

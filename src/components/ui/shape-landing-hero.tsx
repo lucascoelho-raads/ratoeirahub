@@ -188,7 +188,7 @@ function HeroGeometric({
               initial="hidden"
               animate="visible"
             >
-              <p className="text-[clamp(1.05rem,1.25vw,1.35rem)] text-gray-400 leading-relaxed max-w-3xl 5xl:max-w-5xl 6xl:max-w-6xl mx-auto text-balance">
+              <p className="text-[clamp(1.05rem,1.25vw,1.35rem)] text-gray-400 leading-relaxed max-w-3xl 5xl:max-w-5xl 6xl:max-w-6xl mx-auto ">
                 {subtitle}
               </p>
             </motion.div>

@@ -34,11 +34,11 @@ export default function TutorialSection() {
             <span>Tutorial</span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white mb-6 tracking-tight text-balance">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white mb-6 tracking-tight ">
             Confira Nosso <span className="text-yellow-500">Tutorial Completo</span>
           </h2>
 
-          <p className="text-lg text-gray-400 leading-relaxed max-w-2xl mx-auto text-balance">
+          <p className="text-lg text-gray-400 leading-relaxed max-w-2xl mx-auto ">
             Aprenda a configurar o Ratoeira Ads passo a passo, desde a instalação do pixel até a ativação do bloqueio automático de fraude. Em menos de 15 minutos, sua operação estará protegida e rastreando ~100% das conversões.
           </p>
 
