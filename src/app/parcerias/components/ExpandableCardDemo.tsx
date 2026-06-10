@@ -3,7 +3,6 @@
 import React, { useEffect, useId, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useOutsideClick } from "@/hooks/use-outside-click";
-import { ArrowRight } from "lucide-react";
 
 const imgReceita =
   "data:image/svg+xml," +
@@ -386,8 +385,6 @@ const cards = [
     description: "Receita recorrente sobre assinaturas",
     title: "Receita Recorrente Real",
     src: imgReceita,
-    ctaText: "Saiba mais",
-    ctaLink: "#comissionamento",
     content: () => {
       return (
         <p>
@@ -403,8 +400,6 @@ const cards = [
     description: "Solução que resolve a dor do mercado",
     title: "Produto que se Vende Sozinho",
     src: imgProduto,
-    ctaText: "Saiba mais",
-    ctaLink: "#comissionamento",
     content: () => {
       return (
         <p>
@@ -420,8 +415,6 @@ const cards = [
     description: "Saques direto pelo dashboard",
     title: "Saques Rápidos",
     src: imgSaques,
-    ctaText: "Saiba mais",
-    ctaLink: "#comissionamento",
     content: () => {
       return (
         <p>
@@ -437,8 +430,6 @@ const cards = [
     description: "Recompensas por marcos de faturamento",
     title: "Premiações por Metas",
     src: imgPremios,
-    ctaText: "Saiba mais",
-    ctaLink: "#comissionamento",
     content: () => {
       return (
         <p>
@@ -535,18 +526,6 @@ export function ExpandableCardDemo() {
                       {active.description}
                     </motion.p>
                   </div>
-
-                  <motion.a
-                    layout
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    href={active.ctaLink}
-                    className="inline-flex items-center gap-1.5 px-4 py-2.5 text-sm rounded-full font-bold bg-brand-primary text-black hover:bg-brand-primary-hover transition-colors shrink-0"
-                  >
-                    {active.ctaText}
-                    <ArrowRight className="w-3.5 h-3.5" />
-                  </motion.a>
                 </div>
                 <div className="pt-2 relative px-6 pb-6">
                   <motion.div

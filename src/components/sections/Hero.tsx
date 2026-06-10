@@ -140,7 +140,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative min-h-[100svh] lg:min-h-screen bg-[#050505] z-10 overflow-x-hidden overflow-y-visible">
+    <section className="relative min-h-[100svh] lg:min-h-screen bg-[#050505] z-10 overflow-hidden [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
       <motion.div
         initial={false}
         animate={{ x: activePanel === 0 ? "0%" : "-50%" }}
