@@ -411,10 +411,16 @@ export default function RatoeiraHubPage() {
 
           <div className="relative mx-auto mb-10 w-full max-w-6xl 2xl:max-w-[90rem] 4xl:max-w-[110rem] 5xl:max-w-[130rem] 6xl:max-w-[150rem] pointer-events-none">
             <div
-              className="absolute -left-6 top-1/2 hidden lg:block"
+              className="absolute -left-6 top-1/2 z-20 hidden lg:block"
               style={{ transform: "translateY(calc(-50% + 48px))" }}
             >
               <div className="relative flex h-[252px] w-[252px] items-center justify-center">
+                <div
+                  aria-hidden
+                  className="absolute inset-[-14px] z-0 rounded-full bg-[radial-gradient(circle,rgba(0,0,0,1)_58%,rgba(0,0,0,0)_78%)] blur-[1px]"
+                />
+                <div aria-hidden className="absolute inset-[8px] z-[1] rounded-full bg-black" />
+
                 <Image
                   src="/logoraads.png"
                   alt="Logo Ratoeira Ads"
@@ -426,21 +432,29 @@ export default function RatoeiraHubPage() {
             </div>
 
             <div
-              className="absolute -right-10 top-1/2 hidden lg:block"
+              className="absolute -right-10 top-1/2 z-20 hidden lg:block"
               style={{ transform: "translateY(calc(-50% + 48px))" }}
             >
-              <Image
-                src="/logopages.png"
-                alt="Logo Ratoeira Pages"
-                width={252}
-                height={252}
-                className="drop-shadow-[0_20px_60px_rgba(0,0,0,0.65)]"
-              />
+              <div className="relative flex h-[252px] w-[252px] items-center justify-center">
+                <div
+                  aria-hidden
+                  className="absolute inset-[-14px] z-0 rounded-full bg-[radial-gradient(circle,rgba(0,0,0,1)_58%,rgba(0,0,0,0)_78%)] blur-[1px]"
+                />
+                <div aria-hidden className="absolute inset-[8px] z-[1] rounded-full bg-black" />
+
+                <Image
+                  src="/logopages.png"
+                  alt="Logo Ratoeira Pages"
+                  width={252}
+                  height={252}
+                  className="relative z-10 drop-shadow-[0_20px_60px_rgba(0,0,0,0.65)]"
+                />
+              </div>
             </div>
 
-            <div className="relative mx-auto w-full max-w-[620px] overflow-visible translate-y-12">
+            <div className="relative z-0 mx-auto w-full max-w-[620px] overflow-visible translate-y-12">
               <div className="relative h-[252px] w-full overflow-visible">
-                <div aria-hidden className="absolute inset-0 flex items-center justify-center">
+                <div aria-hidden className="absolute inset-0 z-0 flex items-center justify-center">
                   <svg
                     className="h-[252px] w-[calc(100%+520px)] max-w-none overflow-visible"
                     viewBox="0 0 1000 200"
@@ -459,9 +473,24 @@ export default function RatoeiraHubPage() {
                         to { stroke-dashoffset: 260; }
                       }
 
+                      @keyframes highlightL {
+                        from { stroke-dashoffset: 0; }
+                        to { stroke-dashoffset: -420; }
+                      }
+
+                      @keyframes highlightR {
+                        from { stroke-dashoffset: 0; }
+                        to { stroke-dashoffset: 420; }
+                      }
+
                       @keyframes centerPulse {
-                        0%, 100% { opacity: 0.55; transform: scale(0.98); }
-                        50% { opacity: 0.95; transform: scale(1.04); }
+                        0%, 100% { opacity: 0.42; transform: scale(0.985); }
+                        50% { opacity: 0.95; transform: scale(1.045); }
+                      }
+
+                      @keyframes coreBreath {
+                        0%, 100% { opacity: 0.32; }
+                        50% { opacity: 0.68; }
                       }
                     `}</style>
 
@@ -474,8 +503,12 @@ export default function RatoeiraHubPage() {
                         <feGaussianBlur stdDeviation="7.5" />
                       </filter>
 
+                      <filter id="blur-highlight" x="-50%" y="-50%" width="200%" height="200%">
+                        <feGaussianBlur stdDeviation="3.2" />
+                      </filter>
+
                       <filter id="mask-feather" x="-50%" y="-50%" width="200%" height="200%">
-                        <feGaussianBlur stdDeviation="14" />
+                        <feGaussianBlur stdDeviation="15" />
                       </filter>
 
                       <linearGradient
@@ -487,13 +520,29 @@ export default function RatoeiraHubPage() {
                         gradientUnits="userSpaceOnUse"
                       >
                         <stop offset="0" stopColor="#facc15" />
+                        <stop offset="0.45" stopColor="#fde047" />
                         <stop offset="1" stopColor="#f97316" />
                       </linearGradient>
 
+                      <linearGradient
+                        id="hot-gradient"
+                        x1="0"
+                        y1="0"
+                        x2="1000"
+                        y2="0"
+                        gradientUnits="userSpaceOnUse"
+                      >
+                        <stop offset="0" stopColor="#fff7ae" />
+                        <stop offset="0.35" stopColor="#fde047" />
+                        <stop offset="0.7" stopColor="#facc15" />
+                        <stop offset="1" stopColor="#fb923c" />
+                      </linearGradient>
+
                       <radialGradient id="center-glow" cx="50%" cy="50%" r="50%">
-                        <stop offset="0%" stopColor="#fde047" stopOpacity="0.68" />
-                        <stop offset="40%" stopColor="#facc15" stopOpacity="0.34" />
-                        <stop offset="75%" stopColor="#f97316" stopOpacity="0.14" />
+                        <stop offset="0%" stopColor="#fff7ae" stopOpacity="0.9" />
+                        <stop offset="18%" stopColor="#fde047" stopOpacity="0.72" />
+                        <stop offset="46%" stopColor="#facc15" stopOpacity="0.34" />
+                        <stop offset="78%" stopColor="#f97316" stopOpacity="0.14" />
                         <stop offset="100%" stopColor="#f97316" stopOpacity="0" />
                       </radialGradient>
 
@@ -504,26 +553,24 @@ export default function RatoeiraHubPage() {
                         <ellipse
                           cx="145"
                           cy="100"
-                          rx="118"
-                          ry="92"
+                          rx="126"
+                          ry="96"
                           fill="black"
                           filter="url(#mask-feather)"
                         />
-
                         <ellipse
                           cx="500"
                           cy="100"
-                          rx="118"
-                          ry="88"
+                          rx="112"
+                          ry="84"
                           fill="black"
                           filter="url(#mask-feather)"
                         />
-
                         <ellipse
                           cx="855"
                           cy="100"
-                          rx="118"
-                          ry="92"
+                          rx="126"
+                          ry="96"
                           fill="black"
                           filter="url(#mask-feather)"
                         />
@@ -536,26 +583,24 @@ export default function RatoeiraHubPage() {
                         <ellipse
                           cx="145"
                           cy="100"
-                          rx="118"
-                          ry="92"
+                          rx="126"
+                          ry="96"
                           fill="black"
                           filter="url(#mask-feather)"
                         />
-
                         <ellipse
                           cx="500"
                           cy="100"
-                          rx="118"
-                          ry="88"
+                          rx="112"
+                          ry="84"
                           fill="black"
                           filter="url(#mask-feather)"
                         />
-
                         <ellipse
                           cx="855"
                           cy="100"
-                          rx="118"
-                          ry="92"
+                          rx="126"
+                          ry="96"
                           fill="black"
                           filter="url(#mask-feather)"
                         />
@@ -567,24 +612,24 @@ export default function RatoeiraHubPage() {
                         <ellipse
                           cx="145"
                           cy="100"
-                          rx="118"
-                          ry="92"
+                          rx="126"
+                          ry="96"
                           fill="black"
                           filter="url(#mask-feather)"
                         />
                         <ellipse
                           cx="500"
                           cy="100"
-                          rx="118"
-                          ry="88"
+                          rx="112"
+                          ry="84"
                           fill="black"
                           filter="url(#mask-feather)"
                         />
                         <ellipse
                           cx="855"
                           cy="100"
-                          rx="118"
-                          ry="92"
+                          rx="126"
+                          ry="96"
                           fill="black"
                           filter="url(#mask-feather)"
                         />
@@ -592,20 +637,64 @@ export default function RatoeiraHubPage() {
                     </defs>
 
                     <g
-                      style={{ transformOrigin: "500px 100px", animation: "centerPulse 2.6s ease-in-out infinite" }}
+                      style={{
+                        transformOrigin: "500px 100px",
+                        animation: "centerPulse 2.7s ease-in-out infinite",
+                      }}
                     >
                       <ellipse
                         cx="500"
                         cy="100"
-                        rx="132"
-                        ry="62"
+                        rx="138"
+                        ry="66"
                         fill="url(#center-glow)"
                         filter="url(#blur-strong)"
-                        opacity="0.9"
+                        opacity="0.92"
                       />
                     </g>
 
-                    <g filter="url(#blur)" opacity="0.55" mask="url(#energy-left)">
+                    <g style={{ animation: "coreBreath 2.7s ease-in-out infinite" }}>
+                      <ellipse
+                        cx="500"
+                        cy="100"
+                        rx="92"
+                        ry="34"
+                        stroke="url(#hot-gradient)"
+                        strokeWidth="1.8"
+                        fill="none"
+                        filter="url(#blur)"
+                        opacity="0.6"
+                      >
+                        <animate
+                          attributeName="rx"
+                          values="86;104;86"
+                          dur="2.7s"
+                          repeatCount="indefinite"
+                        />
+                        <animate
+                          attributeName="ry"
+                          values="30;40;30"
+                          dur="2.7s"
+                          repeatCount="indefinite"
+                        />
+                        <animate
+                          attributeName="opacity"
+                          values="0.18;0.62;0.18"
+                          dur="2.7s"
+                          repeatCount="indefinite"
+                        />
+                      </ellipse>
+                    </g>
+
+                    <g filter="url(#blur)" opacity="0.52" mask="url(#energy-left)">
+                      <path
+                        d="M0 88 C 260 88 360 28 500 28 C 640 28 740 88 1000 88"
+                        stroke="#fde047"
+                        strokeWidth="6"
+                        strokeLinecap="round"
+                        strokeDasharray="18 50"
+                        style={{ animation: "energyL 1.65s linear infinite" }}
+                      />
                       <path
                         d="M0 95 C 260 95 340 55 500 55 C 660 55 740 95 1000 95"
                         stroke="#fde047"
@@ -648,7 +737,15 @@ export default function RatoeiraHubPage() {
                       />
                     </g>
 
-                    <g filter="url(#blur)" opacity="0.55" mask="url(#energy-right)">
+                    <g filter="url(#blur)" opacity="0.52" mask="url(#energy-right)">
+                      <path
+                        d="M0 88 C 260 88 360 28 500 28 C 640 28 740 88 1000 88"
+                        stroke="#fde047"
+                        strokeWidth="6"
+                        strokeLinecap="round"
+                        strokeDasharray="18 50"
+                        style={{ animation: "energyR 1.65s linear infinite" }}
+                      />
                       <path
                         d="M0 95 C 260 95 340 55 500 55 C 660 55 740 95 1000 95"
                         stroke="#fde047"
@@ -691,7 +788,15 @@ export default function RatoeiraHubPage() {
                       />
                     </g>
 
-                    <g opacity="0.95" mask="url(#energy-left)">
+                    <g opacity="0.96" mask="url(#energy-left)">
+                      <path
+                        d="M0 88 C 260 88 360 28 500 28 C 640 28 740 88 1000 88"
+                        stroke="#fde047"
+                        strokeWidth="3"
+                        strokeLinecap="round"
+                        strokeDasharray="14 42"
+                        style={{ animation: "energyL 1.65s linear infinite" }}
+                      />
                       <path
                         d="M0 95 C 260 95 340 55 500 55 C 660 55 740 95 1000 95"
                         stroke="#fde047"
@@ -734,7 +839,15 @@ export default function RatoeiraHubPage() {
                       />
                     </g>
 
-                    <g opacity="0.95" mask="url(#energy-right)">
+                    <g opacity="0.96" mask="url(#energy-right)">
+                      <path
+                        d="M0 88 C 260 88 360 28 500 28 C 640 28 740 88 1000 88"
+                        stroke="#fde047"
+                        strokeWidth="3"
+                        strokeLinecap="round"
+                        strokeDasharray="14 42"
+                        style={{ animation: "energyR 1.65s linear infinite" }}
+                      />
                       <path
                         d="M0 95 C 260 95 340 55 500 55 C 660 55 740 95 1000 95"
                         stroke="#fde047"
@@ -777,7 +890,77 @@ export default function RatoeiraHubPage() {
                       />
                     </g>
 
-                    <g filter="url(#blur)" opacity="0.34" mask="url(#all-energy-cutouts)">
+                    <g
+                      filter="url(#blur-highlight)"
+                      opacity="0.98"
+                      mask="url(#energy-left)"
+                      style={{ mixBlendMode: "screen" }}
+                    >
+                      <path
+                        d="M0 95 C 260 95 340 55 500 55 C 660 55 740 95 1000 95"
+                        stroke="#fff7ae"
+                        strokeWidth="4"
+                        strokeLinecap="round"
+                        strokeDasharray="26 180"
+                        style={{ animation: "highlightL 1.15s linear infinite" }}
+                      />
+                      <path
+                        d="M0 105 C 250 105 350 110 500 110 C 650 110 750 105 1000 105"
+                        stroke="url(#hot-gradient)"
+                        strokeWidth="4.5"
+                        strokeLinecap="round"
+                        strokeDasharray="30 210"
+                        style={{ animation: "highlightL 1.35s linear infinite" }}
+                      />
+                      <path
+                        d="M0 115 C 260 115 340 165 500 165 C 660 165 740 115 1000 115"
+                        stroke="#ffe27a"
+                        strokeWidth="3.8"
+                        strokeLinecap="round"
+                        strokeDasharray="24 190"
+                        style={{ animation: "highlightL 1.25s linear infinite" }}
+                      />
+                    </g>
+
+                    <g
+                      filter="url(#blur-highlight)"
+                      opacity="0.98"
+                      mask="url(#energy-right)"
+                      style={{ mixBlendMode: "screen" }}
+                    >
+                      <path
+                        d="M0 95 C 260 95 340 55 500 55 C 660 55 740 95 1000 95"
+                        stroke="#fff7ae"
+                        strokeWidth="4"
+                        strokeLinecap="round"
+                        strokeDasharray="26 180"
+                        style={{ animation: "highlightR 1.15s linear infinite" }}
+                      />
+                      <path
+                        d="M0 105 C 250 105 350 110 500 110 C 650 110 750 105 1000 105"
+                        stroke="url(#hot-gradient)"
+                        strokeWidth="4.5"
+                        strokeLinecap="round"
+                        strokeDasharray="30 210"
+                        style={{ animation: "highlightR 1.35s linear infinite" }}
+                      />
+                      <path
+                        d="M0 115 C 260 115 340 165 500 165 C 660 165 740 115 1000 115"
+                        stroke="#ffe27a"
+                        strokeWidth="3.8"
+                        strokeLinecap="round"
+                        strokeDasharray="24 190"
+                        style={{ animation: "highlightR 1.25s linear infinite" }}
+                      />
+                    </g>
+
+                    <g filter="url(#blur)" opacity="0.24" mask="url(#all-energy-cutouts)">
+                      <path
+                        d="M0 88 C 260 88 360 28 500 28 C 640 28 740 88 1000 88"
+                        stroke="#facc15"
+                        strokeWidth="4"
+                        strokeLinecap="round"
+                      />
                       <path
                         d="M0 95 C 260 95 340 55 500 55 C 660 55 740 95 1000 95"
                         stroke="#facc15"
@@ -812,7 +995,10 @@ export default function RatoeiraHubPage() {
                   </svg>
                 </div>
 
-                <div className="absolute left-1/2 top-1/2 z-10 -translate-x-1/2 -translate-y-1/2">
+                <div
+                  className="absolute left-1/2 top-1/2 z-10"
+                  style={{ transform: "translate(-50%, calc(-50% + 20px))" }}
+                >
                   <Image
                     src="/logo_ads_pages2.png"
                     alt="Ads + Pages"
