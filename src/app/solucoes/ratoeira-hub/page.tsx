@@ -415,15 +415,6 @@ export default function RatoeiraHubPage() {
               style={{ transform: "translateY(calc(-50% + 48px))" }}
             >
               <div className="relative flex h-[252px] w-[252px] items-center justify-center">
-                <video
-                  className="pointer-events-none absolute left-1/2 top-1/2 z-0 h-[640px] w-[640px] max-w-none -translate-x-1/2 -translate-y-1/2 object-contain"
-                  src="/videos/circuloraads.mov"
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  preload="auto"
-                />
                 <Image
                   src="/logoraads.png"
                   alt="Logo Ratoeira Ads"
@@ -446,6 +437,97 @@ export default function RatoeiraHubPage() {
               />
             </div>
             <div className="relative mx-auto w-full max-w-[620px] overflow-visible translate-y-12">
+              <div aria-hidden className="absolute inset-0 flex items-center justify-center">
+                <svg
+                  className="h-[135px] w-[calc(100%+520px)] max-w-none overflow-visible"
+                  viewBox="0 0 1000 200"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  preserveAspectRatio="none"
+                >
+                  <style>{`
+                    @keyframes energyL {
+                      from { stroke-dashoffset: 0; }
+                      to { stroke-dashoffset: -260; }
+                    }
+                    @keyframes energyR {
+                      from { stroke-dashoffset: 0; }
+                      to { stroke-dashoffset: 260; }
+                    }
+                  `}</style>
+                  <defs>
+                    <filter id="blur" x="-20%" y="-20%" width="140%" height="140%">
+                      <feGaussianBlur stdDeviation="2.2" />
+                    </filter>
+                    <linearGradient id="line-gradient" x1="0" y1="0" x2="1000" y2="0" gradientUnits="userSpaceOnUse">
+                      <stop offset="0" stopColor="#facc15" />
+                      <stop offset="1" stopColor="#f97316" />
+                    </linearGradient>
+                    <mask id="logo-cutout">
+                      <rect x="0" y="0" width="1000" height="200" fill="white" />
+                      <rect x="310" y="-20" width="380" height="240" rx="70" fill="black" />
+                    </mask>
+                    <mask id="energy-left">
+                      <rect x="0" y="0" width="500" height="200" fill="white" />
+                      <rect x="500" y="0" width="500" height="200" fill="black" />
+                      <rect x="310" y="-20" width="380" height="240" rx="70" fill="black" />
+                    </mask>
+                    <mask id="energy-right">
+                      <rect x="0" y="0" width="500" height="200" fill="black" />
+                      <rect x="500" y="0" width="500" height="200" fill="white" />
+                      <rect x="310" y="-20" width="380" height="240" rx="70" fill="black" />
+                    </mask>
+                  </defs>
+
+                  <g filter="url(#blur)" opacity="0.55" mask="url(#energy-left)">
+                    <path d="M0 95 C 260 95 340 55 500 55 C 660 55 740 95 1000 95" stroke="#fde047" strokeWidth="6" strokeLinecap="round" strokeDasharray="18 52" style={{ animation: "energyL 1.5s linear infinite" }} />
+                    <path d="M0 100 C 260 100 340 80 500 80 C 660 80 740 100 1000 100" stroke="#fde047" strokeWidth="6" strokeLinecap="round" strokeDasharray="16 56" style={{ animation: "energyL 1.7s linear infinite" }} />
+                    <path d="M0 105 C 250 105 350 110 500 110 C 650 110 750 105 1000 105" stroke="url(#line-gradient)" strokeWidth="6" strokeLinecap="round" strokeDasharray="20 60" style={{ animation: "energyL 1.9s linear infinite" }} />
+                    <path d="M0 110 C 260 110 340 140 500 140 C 660 140 740 110 1000 110" stroke="#fb923c" strokeWidth="6" strokeLinecap="round" strokeDasharray="18 54" style={{ animation: "energyL 1.6s linear infinite" }} />
+                    <path d="M0 115 C 260 115 340 165 500 165 C 660 165 740 115 1000 115" stroke="#fb923c" strokeWidth="6" strokeLinecap="round" strokeDasharray="16 58" style={{ animation: "energyL 1.8s linear infinite" }} />
+                  </g>
+
+                  <g filter="url(#blur)" opacity="0.55" mask="url(#energy-right)">
+                    <path d="M0 95 C 260 95 340 55 500 55 C 660 55 740 95 1000 95" stroke="#fde047" strokeWidth="6" strokeLinecap="round" strokeDasharray="18 52" style={{ animation: "energyR 1.5s linear infinite" }} />
+                    <path d="M0 100 C 260 100 340 80 500 80 C 660 80 740 100 1000 100" stroke="#fde047" strokeWidth="6" strokeLinecap="round" strokeDasharray="16 56" style={{ animation: "energyR 1.7s linear infinite" }} />
+                    <path d="M0 105 C 250 105 350 110 500 110 C 650 110 750 105 1000 105" stroke="url(#line-gradient)" strokeWidth="6" strokeLinecap="round" strokeDasharray="20 60" style={{ animation: "energyR 1.9s linear infinite" }} />
+                    <path d="M0 110 C 260 110 340 140 500 140 C 660 140 740 110 1000 110" stroke="#fb923c" strokeWidth="6" strokeLinecap="round" strokeDasharray="18 54" style={{ animation: "energyR 1.6s linear infinite" }} />
+                    <path d="M0 115 C 260 115 340 165 500 165 C 660 165 740 115 1000 115" stroke="#fb923c" strokeWidth="6" strokeLinecap="round" strokeDasharray="16 58" style={{ animation: "energyR 1.8s linear infinite" }} />
+                  </g>
+
+                  <g opacity="0.9" mask="url(#energy-left)">
+                    <path d="M0 95 C 260 95 340 55 500 55 C 660 55 740 95 1000 95" stroke="#fde047" strokeWidth="3" strokeLinecap="round" strokeDasharray="14 44" style={{ animation: "energyL 1.5s linear infinite" }} />
+                    <path d="M0 100 C 260 100 340 80 500 80 C 660 80 740 100 1000 100" stroke="#fde047" strokeWidth="3" strokeLinecap="round" strokeDasharray="12 48" style={{ animation: "energyL 1.7s linear infinite" }} />
+                    <path d="M0 105 C 250 105 350 110 500 110 C 650 110 750 105 1000 105" stroke="url(#line-gradient)" strokeWidth="3" strokeLinecap="round" strokeDasharray="16 52" style={{ animation: "energyL 1.9s linear infinite" }} />
+                    <path d="M0 110 C 260 110 340 140 500 140 C 660 140 740 110 1000 110" stroke="#fb923c" strokeWidth="3" strokeLinecap="round" strokeDasharray="14 46" style={{ animation: "energyL 1.6s linear infinite" }} />
+                    <path d="M0 115 C 260 115 340 165 500 165 C 660 165 740 115 1000 115" stroke="#fb923c" strokeWidth="3" strokeLinecap="round" strokeDasharray="12 50" style={{ animation: "energyL 1.8s linear infinite" }} />
+                  </g>
+
+                  <g opacity="0.9" mask="url(#energy-right)">
+                    <path d="M0 95 C 260 95 340 55 500 55 C 660 55 740 95 1000 95" stroke="#fde047" strokeWidth="3" strokeLinecap="round" strokeDasharray="14 44" style={{ animation: "energyR 1.5s linear infinite" }} />
+                    <path d="M0 100 C 260 100 340 80 500 80 C 660 80 740 100 1000 100" stroke="#fde047" strokeWidth="3" strokeLinecap="round" strokeDasharray="12 48" style={{ animation: "energyR 1.7s linear infinite" }} />
+                    <path d="M0 105 C 250 105 350 110 500 110 C 650 110 750 105 1000 105" stroke="url(#line-gradient)" strokeWidth="3" strokeLinecap="round" strokeDasharray="16 52" style={{ animation: "energyR 1.9s linear infinite" }} />
+                    <path d="M0 110 C 260 110 340 140 500 140 C 660 140 740 110 1000 110" stroke="#fb923c" strokeWidth="3" strokeLinecap="round" strokeDasharray="14 46" style={{ animation: "energyR 1.6s linear infinite" }} />
+                    <path d="M0 115 C 260 115 340 165 500 165 C 660 165 740 115 1000 115" stroke="#fb923c" strokeWidth="3" strokeLinecap="round" strokeDasharray="12 50" style={{ animation: "energyR 1.8s linear infinite" }} />
+                  </g>
+
+                  <g filter="url(#blur)" opacity="0.45" mask="url(#logo-cutout)">
+                    <path d="M0 95 C 260 95 340 55 500 55 C 660 55 740 95 1000 95" stroke="#facc15" strokeWidth="4" strokeLinecap="round" />
+                    <path d="M0 100 C 260 100 340 80 500 80 C 660 80 740 100 1000 100" stroke="#facc15" strokeWidth="4" strokeLinecap="round" />
+                    <path d="M0 105 C 250 105 350 110 500 110 C 650 110 750 105 1000 105" stroke="url(#line-gradient)" strokeWidth="4" strokeLinecap="round" />
+                    <path d="M0 110 C 260 110 340 140 500 140 C 660 140 740 110 1000 110" stroke="#f97316" strokeWidth="4" strokeLinecap="round" />
+                    <path d="M0 115 C 260 115 340 165 500 165 C 660 165 740 115 1000 115" stroke="#f97316" strokeWidth="4" strokeLinecap="round" />
+                  </g>
+
+                  <g opacity="0.9" mask="url(#logo-cutout)">
+                    <path d="M0 95 C 260 95 340 55 500 55 C 660 55 740 95 1000 95" stroke="#facc15" strokeWidth="2.25" strokeLinecap="round" />
+                    <path d="M0 100 C 260 100 340 80 500 80 C 660 80 740 100 1000 100" stroke="#facc15" strokeWidth="2.25" strokeLinecap="round" />
+                    <path d="M0 105 C 250 105 350 110 500 110 C 650 110 750 105 1000 105" stroke="url(#line-gradient)" strokeWidth="2.25" strokeLinecap="round" />
+                    <path d="M0 110 C 260 110 340 140 500 140 C 660 140 740 110 1000 110" stroke="#f97316" strokeWidth="2.25" strokeLinecap="round" />
+                    <path d="M0 115 C 260 115 340 165 500 165 C 660 165 740 115 1000 115" stroke="#f97316" strokeWidth="2.25" strokeLinecap="round" />
+                  </g>
+                </svg>
+              </div>
               <div className="relative mx-auto w-fit">
                 <Image
                   src="/logo_ads_pages2.png"
