@@ -19,7 +19,9 @@ export default function Contact() {
   });
   const [submitted, setSubmitted] = useState(false);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
     const { name, value, type } = e.target;
     if (type === "radio") {
       setFormData((prev) => ({ ...prev, [name]: value }));
@@ -52,11 +54,16 @@ export default function Contact() {
     <section ref={ref} className="py-20 bg-white" id="fale-conosco">
       <div className="max-w-4xl 2xl:max-w-[70rem] mx-auto px-4 sm:px-6 lg:px-12 2xl:px-16">
         <div className="text-center mb-10">
-          <h2 className="text-2xl sm:text-3xl lg:text-5xl 3xl:text-6xl 5xl:text-[4.5rem] 6xl:text-[5rem] font-black text-gray-900 leading-tight  max-w-4xl 5xl:max-w-5xl 6xl:max-w-6xl mx-auto">
-            Vamos estruturar sua operação?
+          <h2 className="text-2xl sm:text-3xl lg:text-5xl 3xl:text-6xl 5xl:text-[4.5rem] 6xl:text-[5rem] font-black text-gray-900 leading-tight max-w-4xl 5xl:max-w-5xl 6xl:max-w-6xl mx-auto">
+            Vamos{" "}
+            <span className="text-brand-primary whitespace-nowrap">
+              estruturar
+            </span>{" "}
+            sua operação?
           </h2>
           <p className="mt-4 text-gray-700 text-lg 3xl:text-[1.5rem] max-w-2xl 2xl:max-w-[40rem] 3xl:max-w-[48rem] 4xl:max-w-[52rem] 5xl:max-w-[56rem] 6xl:max-w-[62rem] mx-auto leading-relaxed ">
-            Fale com a equipe e descubra qual configuração faz sentido para o seu momento.
+            Fale com a equipe e descubra qual configuração faz sentido para o
+            seu momento.
           </p>
         </div>
         {submitted ? (
@@ -66,12 +73,26 @@ export default function Contact() {
             className="flex flex-col items-center justify-center text-center space-y-4 py-20"
           >
             <div className="w-16 h-16 rounded-full bg-emerald-100 flex items-center justify-center">
-              <svg className="w-8 h-8 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+              <svg
+                className="w-8 h-8 text-emerald-600"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M5 13l4 4L19 7"
+                />
               </svg>
             </div>
-            <h3 className="text-2xl font-bold text-gray-900">Formulário enviado!</h3>
-            <p className="text-gray-600">Em breve nosso especialista entrará em contato.</p>
+            <h3 className="text-2xl font-bold text-gray-900">
+              Formulário enviado!
+            </h3>
+            <p className="text-gray-600">
+              Em breve nosso especialista entrará em contato.
+            </p>
           </motion.div>
         ) : (
           <motion.form
@@ -83,7 +104,10 @@ export default function Contact() {
           >
             {/* Nome */}
             <div className="lg:col-span-1">
-              <label htmlFor="name" className="block text-sm font-semibold text-gray-900 mb-2">
+              <label
+                htmlFor="name"
+                className="block text-sm font-semibold text-gray-900 mb-2"
+              >
                 Nome <span className="text-red-500">*</span>
               </label>
               <input
@@ -101,7 +125,10 @@ export default function Contact() {
             {/* Telefone e Email em linha */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:col-span-2">
               <div>
-                <label htmlFor="phone" className="block text-sm font-semibold text-gray-900 mb-2">
+                <label
+                  htmlFor="phone"
+                  className="block text-sm font-semibold text-gray-900 mb-2"
+                >
                   Telefone (com DDD) <span className="text-red-500">*</span>
                 </label>
                 <input
@@ -116,7 +143,10 @@ export default function Contact() {
                 />
               </div>
               <div>
-                <label htmlFor="email" className="block text-sm font-semibold text-gray-900 mb-2">
+                <label
+                  htmlFor="email"
+                  className="block text-sm font-semibold text-gray-900 mb-2"
+                >
                   Email <span className="text-red-500">*</span>
                 </label>
                 <input
@@ -135,13 +165,19 @@ export default function Contact() {
             {/* Validação Meta */}
             <div className="lg:col-span-2">
               <label className="block text-sm font-semibold text-gray-900 mb-3">
-                Um site ativo é o principal requisito para verificar sua empresa no Google Ads. A empresa possui site? <span className="text-red-500">*</span>
+                Um site ativo é o principal requisito para verificar sua empresa
+                no Google Ads. A empresa possui site?{" "}
+                <span className="text-red-500">*</span>
               </label>
               <div className="space-y-3">
                 {[
                   { value: "sim", label: "Sim, possuo um site ativo." },
                   { value: "nao", label: "Não, e não pretendo ativar." },
-                  { value: "nao-mas-interesso", label: "Não, mas tenho interesse em me adequar para ativar." },
+                  {
+                    value: "nao-mas-interesso",
+                    label:
+                      "Não, mas tenho interesse em me adequar para ativar.",
+                  },
                 ].map((option) => (
                   <div key={option.value} className="flex items-center">
                     <input
@@ -154,7 +190,10 @@ export default function Contact() {
                       required
                       className="w-4 h-4 text-yellow-500 border-gray-300 focus:ring-yellow-500 cursor-pointer"
                     />
-                    <label htmlFor={`validation-${option.value}`} className="ml-3 text-sm text-gray-700 cursor-pointer">
+                    <label
+                      htmlFor={`validation-${option.value}`}
+                      className="ml-3 text-sm text-gray-700 cursor-pointer"
+                    >
                       {option.label}
                     </label>
                   </div>
@@ -164,7 +203,10 @@ export default function Contact() {
 
             {/* Qual é o seu site */}
             <div className="lg:col-span-1">
-              <label htmlFor="website" className="block text-sm font-semibold text-gray-900 mb-2">
+              <label
+                htmlFor="website"
+                className="block text-sm font-semibold text-gray-900 mb-2"
+              >
                 Qual o seu site? <span className="text-red-500">*</span>
               </label>
               <input
@@ -181,7 +223,10 @@ export default function Contact() {
 
             {/* Nome da Empresa */}
             <div className="lg:col-span-1">
-              <label htmlFor="company" className="block text-sm font-semibold text-gray-900 mb-2">
+              <label
+                htmlFor="company"
+                className="block text-sm font-semibold text-gray-900 mb-2"
+              >
                 Nome da Empresa <span className="text-red-500">*</span>
               </label>
               <input
@@ -198,7 +243,10 @@ export default function Contact() {
 
             {/* Cargo */}
             <div className="lg:col-span-1">
-              <label htmlFor="position" className="block text-sm font-semibold text-gray-900 mb-2">
+              <label
+                htmlFor="position"
+                className="block text-sm font-semibold text-gray-900 mb-2"
+              >
                 Cargo
               </label>
               <input
@@ -215,7 +263,8 @@ export default function Contact() {
             {/* Quantas conversas */}
             <div className="lg:col-span-2">
               <label className="block text-sm font-semibold text-gray-900 mb-3">
-                Quantas conversas você recebe no whatsapp por dia? <span className="text-red-500">*</span>
+                Quantas conversas você recebe no whatsapp por dia?{" "}
+                <span className="text-red-500">*</span>
               </label>
               <div className="space-y-3">
                 {[
@@ -236,7 +285,10 @@ export default function Contact() {
                       required
                       className="w-4 h-4 text-yellow-500 border-gray-300 focus:ring-yellow-500 cursor-pointer"
                     />
-                    <label htmlFor={`conversations-${option}`} className="ml-3 text-sm text-gray-700 cursor-pointer">
+                    <label
+                      htmlFor={`conversations-${option}`}
+                      className="ml-3 text-sm text-gray-700 cursor-pointer"
+                    >
                       {option}
                     </label>
                   </div>
@@ -246,8 +298,12 @@ export default function Contact() {
 
             {/* Budget */}
             <div className="lg:col-span-2">
-              <label htmlFor="budget" className="block text-sm font-semibold text-gray-900 mb-2">
-                Quanto você planeja investir mensalmente para automatizar e escalar seu atendimento? <span className="text-red-500">*</span>
+              <label
+                htmlFor="budget"
+                className="block text-sm font-semibold text-gray-900 mb-2"
+              >
+                Quanto você planeja investir mensalmente para automatizar e
+                escalar seu atendimento? <span className="text-red-500">*</span>
               </label>
               <textarea
                 id="budget"
