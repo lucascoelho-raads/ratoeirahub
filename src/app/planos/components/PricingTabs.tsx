@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, Fragment } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Check, Radar, LayoutTemplate, Link2, X, Info } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -1210,69 +1210,100 @@ export default function PricingTabs() {
                 </p>
               </div>
 
-              <div className="mt-16">
-                <div className="sticky top-20 z-20 -mt-6 mb-6">
-                  <div
-                    className={cn(
-                      "grid items-center py-3 border-b border-white/10 bg-black/80 backdrop-blur-md mx-auto max-w-7xl",
-                      plans.length === 4 ? "grid-cols-4 gap-5" : "grid-cols-3 gap-8"
-                    )}
-                  >
-                    {comparisonPlans.map((plan) => (
-                      <div
-                        key={`plan-col-${activeTab}-${plan.name}`}
-                        className="flex justify-center text-xs font-bold uppercase tracking-widest text-gray-400"
-                      >
-                        {plan.name}
-                      </div>
-                    ))}
-                  </div>
+              <div className="mt-20">
+                <div className="mb-10 text-center">
+                  <h3 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+                    Compare os Planos
+                  </h3>
+                  <p className="mt-4 text-lg text-neutral-400">
+                    Encontre a configuração ideal para sua operação
+                  </p>
                 </div>
 
-                {comparisonGroups.map((group) => (
-                  <div key={group.group} className="mb-12">
-                    <div className="mb-4 text-sm font-bold uppercase tracking-widest text-brand-primary border-b border-white/10 pb-4 whitespace-pre-line max-w-7xl mx-auto px-4 lg:px-0">
-                      {group.group}
-                    </div>
+                <div className="overflow-x-auto">
+                  <div className="inline-block min-w-full align-middle">
+                    <div className="overflow-hidden rounded-2xl border border-white/10 bg-[#111111] backdrop-blur-xl">
+                      <table className="w-full min-w-[980px] table-fixed divide-y divide-white/10">
+                        <colgroup>
+                          <col style={{ width: "30%" }} />
+                          {comparisonPlans.map((plan) => (
+                            <col
+                              key={`col-${plan.name}`}
+                              style={{ width: `${70 / comparisonPlans.length}%` }}
+                            />
+                          ))}
+                        </colgroup>
 
-                    <div className="space-y-0">
-                      {group.features.map((feature) => (
-                        <div
-                            key={feature.label}
-                            className={cn(
-                              "grid items-center border-b border-white/5 last:border-0 hover:bg-white/[0.02] transition-colors py-6 mx-auto max-w-7xl relative z-10",
-                              plans.length === 4 ? "grid-cols-4 gap-5" : "grid-cols-3 gap-8"
-                            )}
-                          >
-                          {feature.values.slice(0, comparisonColumnCount).map((val, vi) => (
-                            <div key={vi} className="relative flex justify-center text-white h-full items-center w-full z-20">
-                                  {vi === 0 && (
-                                    <div className={cn(
-                                      "absolute top-1/2 -translate-y-1/2 text-left text-xs text-gray-300 font-medium leading-snug flex items-center gap-1.5 z-[9999] pointer-events-auto",
-                                      plans.length === 4 ? "left-2 lg:left-0 w-[90px] xl:w-[120px]" : "left-4 lg:left-0 w-[140px] sm:w-[160px] lg:w-[180px]"
-                                    )}>
-                                    {feature.label}
-                                    {feature.tooltip && (
-                                      <div className="pointer-events-auto">
+                        <thead>
+                          <tr>
+                            <th
+                              scope="col"
+                              className="bg-white/5 py-5 pl-8 pr-8 text-left text-sm font-semibold text-white"
+                            >
+                              Recursos
+                            </th>
+
+                            {comparisonPlans.map((plan) => (
+                              <th
+                                key={plan.name}
+                                scope="col"
+                                className="bg-white/5 px-6 py-5 text-center text-sm font-semibold text-white"
+                              >
+                                {plan.name}
+                              </th>
+                            ))}
+                          </tr>
+                        </thead>
+
+                        <tbody className="divide-y divide-white/10 bg-transparent">
+                          {comparisonGroups.map((group) => (
+                            <Fragment key={group.group}>
+                              <tr>
+                                <th
+                                  colSpan={comparisonPlans.length + 1}
+                                  scope="colgroup"
+                                  className="bg-white/[0.02] py-4 pl-8 text-left text-xs font-bold uppercase tracking-wider text-brand-primary"
+                                >
+                                  {group.group}
+                                </th>
+                              </tr>
+                              {group.features.map((feature, index) => (
+                                <tr
+                                  key={feature.label}
+                                  className={index % 2 === 0 ? "bg-white/[0.02]" : "bg-transparent"}
+                                >
+                                  <td className="py-4 pl-8 pr-8 text-sm font-medium leading-snug text-neutral-300 whitespace-normal">
+                                    <div className="flex items-center gap-1.5">
+                                      {feature.label}
+                                      {feature.tooltip && (
                                         <Tooltip content={feature.tooltip}>
-                                          <div className="p-1 hover:text-brand-primary cursor-pointer transition-colors text-gray-500 flex items-center justify-center">
+                                          <div className="p-1 hover:text-brand-primary cursor-pointer transition-colors text-gray-500 flex items-center justify-center pointer-events-auto">
                                             <Info className="w-3.5 h-3.5" />
                                           </div>
                                         </Tooltip>
+                                      )}
+                                    </div>
+                                  </td>
+
+                                  {feature.values.slice(0, comparisonColumnCount).map((val, vi) => (
+                                    <td
+                                      key={vi}
+                                      className="px-6 py-4 text-center text-sm text-neutral-400"
+                                    >
+                                      <div className="flex items-center justify-center">
+                                        <FeatureCell value={val} />
                                       </div>
-                                    )}
-                                  </div>
-                                )}
-                                <div className="pointer-events-none w-full h-full flex items-center justify-center">
-                                  <FeatureCell value={val} />
-                                </div>
-                              </div>
+                                    </td>
+                                  ))}
+                                </tr>
+                              ))}
+                            </Fragment>
                           ))}
-                        </div>
-                      ))}
+                        </tbody>
+                      </table>
                     </div>
                   </div>
-                ))}
+                </div>
               </div>
             </motion.div>
           </AnimatePresence>
