@@ -148,7 +148,7 @@ export default function FoundersAbout() {
             </div>
           </motion.div>
 
-          {/* É o Baraia! */}
+          {/* É o Braia! */}
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -160,7 +160,7 @@ export default function FoundersAbout() {
               <div className="relative aspect-[4/5] rounded-3xl overflow-hidden bg-[#111111] border border-white/10 group">
                 <img
                   src="/paul-walker-nos-bastidores-de-velozes--furiosos-1532648841040_v2_3x4.jpg"
-                  alt="É o Baraia!"
+                  alt="É o Braia!"
                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
@@ -170,7 +170,7 @@ export default function FoundersAbout() {
             <div className="w-full md:w-7/12 space-y-6 text-center md:text-left">
               <div>
                 <h3 className="text-2xl sm:text-3xl font-black text-white mb-2">
-                  É o Baraia!
+                  É o Braia!
                 </h3>
                 <p className="text-brand-primary font-bold tracking-widest uppercase text-sm">
                   Cargo / Posição
