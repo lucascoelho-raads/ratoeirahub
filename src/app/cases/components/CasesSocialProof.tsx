@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { Play, Star, Mic, Quote, CheckCircle2, Award } from "lucide-react";
+import { Play, Star, Mic, Quote, CheckCircle2, Award, X } from "lucide-react";
 import { useState, useEffect } from "react";
 import Image from "next/image";
 
@@ -31,6 +31,7 @@ interface AwardCard extends BaseCard {
 interface VideoLargeCard extends BaseCard {
   type: "video-large";
   image: string;
+  videoSrc?: string;
   tag: string;
   name: string;
   role: string;
@@ -95,10 +96,12 @@ const decks: SocialCard[][] = [
     },
     {
       type: "video-large",
-      colSpan: "col-span-1 md:col-span-2",
+      colSpan: "col-span-1 md:col-span-1",
       rowSpan: "row-span-2",
       image:
         "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+      videoSrc:
+        "/depoimentos/Michael%20Pogne%20indica%20a%20Ratoeira%20Ads%20para%20afiliados.mp4",
       tag: "Customer Story",
       name: "Michel Pogne",
       role: "Especialista em Tráfego Pago",
@@ -114,23 +117,6 @@ const decks: SocialCard[][] = [
         "Saí de um frankenstein de ferramentas para um dashboard único.",
     },
     {
-      type: "rating",
-      colSpan: "col-span-1 md:col-span-1",
-      rowSpan: "row-span-1",
-      score: "4.9",
-      reviews: "Aprovado por +2.600 anunciantes.",
-    },
-    {
-      type: "quote-wide",
-      colSpan: "col-span-1 md:col-span-2",
-      rowSpan: "row-span-1",
-      quote:
-        "ROI triplicou no primeiro mês bloqueando bots e com páginas voando de tão rápidas. Sem explicação!",
-      name: "Thiago Rocha",
-      role: "Anunciante Top Player",
-      initial: "T",
-    },
-    {
       type: "video-small",
       colSpan: "col-span-1 md:col-span-1",
       rowSpan: "row-span-1",
@@ -138,6 +124,13 @@ const decks: SocialCard[][] = [
         "https://images.unsplash.com/photo-1553877522-43269d4ea984?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
       quote: "A assertividade salvou nossa operação.",
       name: "Lucas Martins",
+    },
+    {
+      type: "rating",
+      colSpan: "col-span-1 md:col-span-1",
+      rowSpan: "row-span-1",
+      score: "4.9",
+      reviews: "Aprovado por +2.600 anunciantes.",
     },
     {
       type: "quote-small",
@@ -148,6 +141,16 @@ const decks: SocialCard[][] = [
       name: "Michel Pogne",
       role: "Especialista",
       initial: "M",
+    },
+    {
+      type: "quote-wide",
+      colSpan: "col-span-1 md:col-span-4",
+      rowSpan: "row-span-1",
+      quote:
+        "ROI triplicou no primeiro mês bloqueando bots e com páginas voando de tão rápidas. Sem explicação!",
+      name: "Thiago Rocha",
+      role: "Anunciante Top Player",
+      initial: "T",
     },
   ],
 
@@ -223,7 +226,7 @@ const decks: SocialCard[][] = [
 /* ─── Card Renderers ─── */
 function AwardCard({ card }: { card: AwardCard }) {
   return (
-    <div className="col-span-1 md:col-span-1 row-span-1 bg-[#111111] border border-white/5 rounded-[32px] p-6 flex flex-col items-center justify-center text-center group hover:border-brand-primary/30 transition-colors relative overflow-hidden h-full">
+    <div className="bg-[#111111] border border-white/5 rounded-[32px] p-6 flex flex-col items-center justify-center text-center group hover:border-brand-primary/30 transition-colors relative overflow-hidden h-full">
       <div className="absolute inset-0 bg-gradient-to-b from-brand-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
       <Award className="relative z-10 w-12 h-12 text-brand-primary mb-4" />
       <p className="relative z-10 text-gray-400 text-xs font-semibold uppercase tracking-widest mb-2">
@@ -237,15 +240,35 @@ function AwardCard({ card }: { card: AwardCard }) {
   );
 }
 
-function VideoLargeCard({ card }: { card: VideoLargeCard }) {
+function VideoLargeCard({
+  card,
+  onClick,
+}: {
+  card: VideoLargeCard;
+  onClick: () => void;
+}) {
   return (
-    <div className="col-span-1 md:col-span-2 row-span-2 bg-[#161616] border border-white/5 rounded-[32px] overflow-hidden relative group cursor-pointer h-full">
-      <Image
-        src={card.image}
-        alt={`Case Video ${card.name}`}
-        fill
-        className="object-cover transition-transform duration-700 group-hover:scale-105 opacity-50 group-hover:opacity-40"
-      />
+    <div
+      className="bg-[#161616] border border-white/5 rounded-[32px] overflow-hidden relative group cursor-pointer h-full"
+      onClick={onClick}
+    >
+      {card.videoSrc ? (
+        <video
+          src={card.videoSrc}
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80 group-hover:opacity-100"
+        />
+      ) : (
+        <Image
+          src={card.image}
+          alt={`Case Video ${card.name}`}
+          fill
+          className="object-cover transition-transform duration-700 group-hover:scale-105 opacity-50 group-hover:opacity-40"
+        />
+      )}
       <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/40 to-transparent" />
       <div className="absolute inset-0 flex items-center justify-center">
         <div className="w-16 h-16 rounded-full bg-brand-primary text-black flex items-center justify-center pl-1 transform group-hover:scale-110 transition-transform shadow-lg shadow-brand-primary/20">
@@ -267,7 +290,7 @@ function VideoLargeCard({ card }: { card: VideoLargeCard }) {
 
 function AudioCard({ card }: { card: AudioCard }) {
   return (
-    <div className="col-span-1 md:col-span-1 row-span-2 bg-gradient-to-b from-[#111111] to-[#0a0a0a] border border-white/5 rounded-[32px] overflow-hidden flex flex-col group hover:border-brand-primary/30 transition-colors h-full">
+    <div className="bg-gradient-to-b from-[#111111] to-[#0a0a0a] border border-white/5 rounded-[32px] overflow-hidden flex flex-col group hover:border-brand-primary/30 transition-colors h-full">
       <div className="h-1/2 relative overflow-hidden">
         <Image
           src={card.image}
@@ -311,7 +334,7 @@ function AudioCard({ card }: { card: AudioCard }) {
 
 function RatingCard({ card }: { card: RatingCard }) {
   return (
-    <div className="col-span-1 md:col-span-1 row-span-1 bg-[#111111] border border-white/5 rounded-[32px] p-6 flex flex-col items-center justify-center text-center group hover:border-brand-primary/30 transition-colors relative overflow-hidden h-full">
+    <div className="bg-[#111111] border border-white/5 rounded-[32px] p-6 flex flex-col items-center justify-center text-center group hover:border-brand-primary/30 transition-colors relative overflow-hidden h-full">
       <div className="absolute inset-0 bg-gradient-to-b from-transparent to-brand-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
       <h3 className="relative z-10 text-3xl sm:text-6xl font-black text-white mb-2">
         {card.score}
@@ -333,7 +356,7 @@ function RatingCard({ card }: { card: RatingCard }) {
 
 function QuoteWideCard({ card }: { card: QuoteWideCard }) {
   return (
-    <div className="col-span-1 md:col-span-2 row-span-1 bg-gradient-to-br from-brand-primary/10 to-[#111111] border border-white/5 rounded-[32px] p-8 flex flex-col justify-center relative overflow-hidden group hover:border-brand-primary/30 transition-colors h-full">
+    <div className="bg-gradient-to-br from-brand-primary/10 to-[#111111] border border-white/5 rounded-[32px] p-8 flex flex-col justify-center relative overflow-hidden group hover:border-brand-primary/30 transition-colors h-full">
       <Quote className="absolute top-6 right-6 w-24 h-24 text-brand-primary/5 -rotate-12 group-hover:text-brand-primary/10 transition-colors duration-500" />
       <div className="relative z-10">
         <div className="flex gap-1 mb-4">
@@ -366,7 +389,7 @@ function QuoteWideCard({ card }: { card: QuoteWideCard }) {
 
 function VideoSmallCard({ card }: { card: VideoSmallCard }) {
   return (
-    <div className="col-span-1 md:col-span-1 row-span-1 bg-[#161616] border border-white/5 rounded-[32px] overflow-hidden relative group cursor-pointer h-full">
+    <div className="bg-[#161616] border border-white/5 rounded-[32px] overflow-hidden relative group cursor-pointer h-full">
       <Image
         src={card.image}
         alt={`Small Case ${card.name}`}
@@ -393,7 +416,7 @@ function VideoSmallCard({ card }: { card: VideoSmallCard }) {
 
 function QuoteSmallCard({ card }: { card: QuoteSmallCard }) {
   return (
-    <div className="col-span-1 md:col-span-1 row-span-1 bg-[#111111] border border-white/5 rounded-[32px] p-6 flex flex-col justify-between group hover:border-brand-primary/30 transition-colors relative overflow-hidden h-full">
+    <div className="bg-[#111111] border border-white/5 rounded-[32px] p-6 flex flex-col justify-between group hover:border-brand-primary/30 transition-colors relative overflow-hidden h-full">
       <div className="absolute inset-0 bg-gradient-to-tr from-brand-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
       <div className="relative z-10">
         <Quote className="w-6 h-6 text-brand-primary/40 mb-3 group-hover:text-brand-primary/60 transition-colors" />
@@ -414,12 +437,23 @@ function QuoteSmallCard({ card }: { card: QuoteSmallCard }) {
   );
 }
 
-function CardSwitch({ card }: { card: SocialCard }) {
+function CardSwitch({
+  card,
+  onVideoClick,
+}: {
+  card: SocialCard;
+  onVideoClick: (src: string) => void;
+}) {
   switch (card.type) {
     case "award":
       return <AwardCard card={card} />;
     case "video-large":
-      return <VideoLargeCard card={card} />;
+      return (
+        <VideoLargeCard
+          card={card}
+          onClick={() => card.videoSrc && onVideoClick(card.videoSrc)}
+        />
+      );
     case "audio":
       return <AudioCard card={card} />;
     case "rating":
@@ -438,6 +472,7 @@ function CardSwitch({ card }: { card: SocialCard }) {
 /* ─── Main Component ─── */
 export default function CasesSocialProof() {
   const [deckIndex, setDeckIndex] = useState(0);
+  const [activeVideo, setActiveVideo] = useState<string | null>(null);
 
   /* Ciclo automático a cada 5 segundos - PAUSADO TEMPORARIAMENTE PARA EDIÇÃO 
   useEffect(() => {
@@ -449,55 +484,96 @@ export default function CasesSocialProof() {
   */
 
   return (
-    <section className="pt-16 md:pt-32 pb-12 md:pb-24 bg-[#050505] relative overflow-hidden">
-      {/* Background glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-brand-primary/5 rounded-full blur-[100px] pointer-events-none" />
+    <>
+      <section className="pt-16 md:pt-32 pb-12 md:pb-24 bg-[#050505] relative overflow-hidden">
+        {/* Background glow */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-brand-primary/5 rounded-full blur-[100px] pointer-events-none" />
 
-      <div className="max-w-7xl 2xl:max-w-[90rem] 4xl:max-w-[120rem] 5xl:max-w-[140rem] 6xl:max-w-[160rem] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-12 4xl:px-20 5xl:px-28 6xl:px-36 relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <div className="inline-flex items-center gap-2 px-4 py-2 mb-6 rounded-full bg-brand-primary/10 border border-brand-primary/20 text-brand-primary text-sm font-bold uppercase tracking-widest">
-            Cases de Sucesso
-          </div>
-          <h1 className="text-2xl sm:text-5xl lg:text-7xl font-black text-white leading-tight mb-6 tracking-tight">
-            Eles confiaram. <br />
-            <span className="text-brand-primary">Eles escalaram.</span>
-          </h1>
-          <p className="text-base sm:text-xl text-gray-400 max-w-2xl 2xl:max-w-[50rem] 4xl:max-w-[70rem] mx-auto">
-            Não acredite apenas em nós. Veja o que os maiores players do mercado
-            estão falando sobre o ecossistema Ratoeira Hub.
-          </p>
-        </motion.div>
-
-        {/* Bento Grid with deck swap */}
-        <AnimatePresence mode="wait">
+        <div className="max-w-7xl 2xl:max-w-[90rem] 4xl:max-w-[120rem] 5xl:max-w-[140rem] 6xl:max-w-[160rem] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-12 4xl:px-20 5xl:px-28 6xl:px-36 relative z-10">
           <motion.div
-            key={deckIndex}
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.8 }}
-            transition={{ duration: 0.5, ease: "easeInOut" }}
-            className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 auto-rows-[240px] sm:auto-rows-[280px] md:auto-rows-[240px]"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
           >
-            {decks[deckIndex].map((card, i) => (
-              <motion.div
-                key={`${deckIndex}-${card.type}-${i}`}
-                initial={{ opacity: 0, scale: 0.5 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.4, delay: i * 0.07, ease: "easeOut" }}
-                className={`${card.colSpan} ${card.rowSpan}`}
-              >
-                <CardSwitch card={card} />
-              </motion.div>
-            ))}
+            <div className="inline-flex items-center gap-2 px-4 py-2 mb-6 rounded-full bg-brand-primary/10 border border-brand-primary/20 text-brand-primary text-sm font-bold uppercase tracking-widest">
+              Cases de Sucesso
+            </div>
+            <h1 className="text-2xl sm:text-5xl lg:text-7xl font-black text-white leading-tight mb-6 tracking-tight">
+              Eles confiaram. <br />
+              <span className="text-brand-primary">Eles escalaram.</span>
+            </h1>
+            <p className="text-base sm:text-xl text-gray-400 max-w-2xl 2xl:max-w-[50rem] 4xl:max-w-[70rem] mx-auto">
+              Não acredite apenas em nós. Veja o que os maiores players do
+              mercado estão falando sobre o ecossistema Ratoeira Hub.
+            </p>
           </motion.div>
-        </AnimatePresence>
-      </div>
-    </section>
+
+          {/* Bento Grid with deck swap */}
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={deckIndex}
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.8 }}
+              transition={{ duration: 0.5, ease: "easeInOut" }}
+              className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 auto-rows-[240px] sm:auto-rows-[280px] md:auto-rows-[240px]"
+            >
+              {decks[deckIndex].map((card, i) => (
+                <motion.div
+                  key={`${deckIndex}-${card.type}-${i}`}
+                  initial={{ opacity: 0, scale: 0.5 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{
+                    duration: 0.4,
+                    delay: i * 0.07,
+                    ease: "easeOut",
+                  }}
+                  className={`${card.colSpan} ${card.rowSpan}`}
+                >
+                  <CardSwitch card={card} onVideoClick={setActiveVideo} />
+                </motion.div>
+              ))}
+            </motion.div>
+          </AnimatePresence>
+        </div>
+      </section>
+
+      {/* Video Modal */}
+      <AnimatePresence>
+        {activeVideo && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4 backdrop-blur-sm"
+            onClick={() => setActiveVideo(null)}
+          >
+            <motion.div
+              initial={{ scale: 0.95, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.95, opacity: 0 }}
+              className="relative w-full max-w-[400px] sm:max-w-[450px] md:max-w-[500px] h-[85vh] rounded-2xl overflow-hidden bg-black shadow-2xl border border-white/10"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button
+                onClick={() => setActiveVideo(null)}
+                className="absolute top-4 right-4 z-10 w-10 h-10 bg-black/50 hover:bg-black/80 backdrop-blur-md rounded-full flex items-center justify-center text-white transition-colors border border-white/10"
+              >
+                <X className="w-5 h-5" />
+              </button>
+              <video
+                src={activeVideo}
+                controls
+                autoPlay
+                playsInline
+                className="w-full h-full object-contain"
+              />
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
   );
 }
