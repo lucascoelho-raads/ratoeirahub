@@ -284,7 +284,9 @@ function AudioCard({ card }: { card: AudioCard }) {
           <h4 className="text-white font-bold text-lg mb-2 leading-snug">
             &ldquo;{card.quote}&rdquo;
           </h4>
-          <p className="text-gray-400 text-sm line-clamp-3">{card.description}</p>
+          <p className="text-gray-400 text-sm line-clamp-3">
+            {card.description}
+          </p>
         </div>
         <div className="flex items-center gap-3 bg-white/5 p-3 rounded-2xl cursor-pointer hover:bg-white/10 transition-colors border border-white/5 mt-4">
           <div className="w-8 h-8 rounded-full bg-brand-primary text-black flex items-center justify-center pl-0.5 shrink-0">
@@ -298,7 +300,7 @@ function AudioCard({ card }: { card: AudioCard }) {
                   className="w-1 bg-brand-primary rounded-full"
                   style={{ height: `${h}%` }}
                 />
-              )
+              ),
             )}
           </div>
         </div>
@@ -316,7 +318,10 @@ function RatingCard({ card }: { card: RatingCard }) {
       </h3>
       <div className="relative z-10 flex gap-1 mb-3">
         {[...Array(5)].map((_, i) => (
-          <Star key={i} className="w-5 h-5 text-brand-primary fill-brand-primary" />
+          <Star
+            key={i}
+            className="w-5 h-5 text-brand-primary fill-brand-primary"
+          />
         ))}
       </div>
       <p className="relative z-10 text-gray-400 text-sm font-medium leading-snug">
@@ -333,7 +338,10 @@ function QuoteWideCard({ card }: { card: QuoteWideCard }) {
       <div className="relative z-10">
         <div className="flex gap-1 mb-4">
           {[...Array(5)].map((_, i) => (
-            <Star key={i} className="w-4 h-4 text-brand-primary fill-brand-primary" />
+            <Star
+              key={i}
+              className="w-4 h-4 text-brand-primary fill-brand-primary"
+            />
           ))}
         </div>
         <p className="text-lg sm:text-xl text-gray-400 font-medium mb-6 leading-snug line-clamp-3">
@@ -375,7 +383,9 @@ function VideoSmallCard({ card }: { card: VideoSmallCard }) {
         <p className="text-white font-bold leading-tight line-clamp-2">
           &ldquo;{card.quote}&rdquo;
         </p>
-        <p className="text-brand-primary text-xs mt-2 font-semibold">{card.name}</p>
+        <p className="text-brand-primary text-xs mt-2 font-semibold">
+          {card.name}
+        </p>
       </div>
     </div>
   );
@@ -429,13 +439,14 @@ function CardSwitch({ card }: { card: SocialCard }) {
 export default function CasesSocialProof() {
   const [deckIndex, setDeckIndex] = useState(0);
 
-  /* Ciclo automático a cada 5 segundos */
+  /* Ciclo automático a cada 5 segundos - PAUSADO TEMPORARIAMENTE PARA EDIÇÃO 
   useEffect(() => {
     const timer = setInterval(() => {
       setDeckIndex((prev) => (prev + 1) % decks.length);
     }, 5000);
     return () => clearInterval(timer);
   }, []);
+  */
 
   return (
     <section className="pt-16 md:pt-32 pb-12 md:pb-24 bg-[#050505] relative overflow-hidden">
