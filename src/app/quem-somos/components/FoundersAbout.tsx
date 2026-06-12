@@ -69,13 +69,17 @@ export default function FoundersAbout() {
 
               <div className="flex items-center gap-4 pt-4 justify-center md:justify-start">
                 <a
-                  href="#"
+                  href="https://www.linkedin.com/in/eitorguimaraes/"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:text-white hover:border-brand-primary transition-colors"
                 >
                   <Linkedin className="w-5 h-5" />
                 </a>
                 <a
-                  href="#"
+                  href="https://www.instagram.com/eitor.guimaraes/"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:text-white hover:border-brand-primary transition-colors"
                 >
                   <Instagram className="w-5 h-5" />
