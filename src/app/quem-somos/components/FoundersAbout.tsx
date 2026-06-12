@@ -152,7 +152,7 @@ export default function FoundersAbout() {
             </div>
           </motion.div>
 
-          {/* É o Braia! */}
+          {/* Brayan Cicarone */}
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -163,8 +163,8 @@ export default function FoundersAbout() {
             <div className="w-full md:w-5/12">
               <div className="relative aspect-[4/5] rounded-3xl overflow-hidden bg-[#111111] border border-white/10 group">
                 <img
-                  src="/paul-walker-nos-bastidores-de-velozes--furiosos-1532648841040_v2_3x4.jpg"
-                  alt="É o Braia!"
+                  src="/brayan.jpeg"
+                  alt="Brayan Cicarone"
                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
@@ -174,23 +174,29 @@ export default function FoundersAbout() {
             <div className="w-full md:w-7/12 space-y-6 text-center md:text-left">
               <div>
                 <h3 className="text-2xl sm:text-3xl font-black text-white mb-2">
-                  É o Braia!
+                  Brayan Cicarone
                 </h3>
                 <p className="text-brand-primary font-bold tracking-widest uppercase text-sm">
-                  Cargo / Posição
+                  Co-Fundador e Líder de Desenvolvimento - Ratoeira Pages
                 </p>
               </div>
 
               <div className="space-y-4 text-gray-400 leading-relaxed text-base sm:text-lg text-center md:text-left">
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                  laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-                  irure dolor in reprehenderit in voluptate velit esse cillum
-                  dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                  cupidatat non proident, sunt in culpa qui officia deserunt
-                  mollit anim id est laborum.
+                  Especialista em arquitetura de software e MBA em Banco de Dados,
+                  Brayan construiu sua trajetória atuando no desenvolvimento de
+                  sistemas, arquitetura de software e produtos digitais. Em 2025,
+                  passou a colaborar com Paulo e Eitor na evolução da Ratoeira
+                  Ads, ajudando a resolver desafios técnicos e a estruturar novas
+                  soluções para o mercado.
+                </p>
+                <p>
+                  Ao participar desse processo, enxergou a necessidade de uma
+                  plataforma que simplificasse a criação de páginas e integrações
+                  para anunciantes. Dessa visão nasceu a Ratoeira Pages. Hoje, é
+                  responsável pela arquitetura da plataforma, pelas integrações
+                  com inteligência artificial e pela construção das ferramentas
+                  que impulsionam a próxima fase do ecossistema Ratoeira.
                 </p>
               </div>
 
