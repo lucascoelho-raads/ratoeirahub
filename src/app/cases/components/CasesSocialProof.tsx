@@ -13,6 +13,7 @@ type CardType =
   | "rating"
   | "quote-wide"
   | "video-small"
+  | "image-small"
   | "quote-small";
 
 interface BaseCard {
@@ -41,7 +42,7 @@ interface AudioCard extends BaseCard {
   type: "audio";
   image: string;
   quote: string;
-  description: string;
+  description?: string;
 }
 
 interface RatingCard extends BaseCard {
@@ -56,10 +57,18 @@ interface QuoteWideCard extends BaseCard {
   name: string;
   role: string;
   initial: string;
+  image?: string;
 }
 
 interface VideoSmallCard extends BaseCard {
   type: "video-small";
+  image: string;
+  quote: string;
+  name: string;
+}
+
+interface ImageSmallCard extends BaseCard {
+  type: "image-small";
   image: string;
   quote: string;
   name: string;
@@ -80,20 +89,13 @@ type SocialCard =
   | RatingCard
   | QuoteWideCard
   | VideoSmallCard
+  | ImageSmallCard
   | QuoteSmallCard;
 
 /* ─── Data ─── */
 const decks: SocialCard[][] = [
   // ── Deck A (original) ──
   [
-    {
-      type: "award",
-      colSpan: "col-span-1 md:col-span-1",
-      rowSpan: "row-span-1",
-      year: "Vencedor 2026",
-      label: "Vencedor 2026",
-      title: "Plataforma de Tracking<br/>Mais Confiável",
-    },
     {
       type: "video-large",
       colSpan: "col-span-1 md:col-span-1",
@@ -108,49 +110,29 @@ const decks: SocialCard[][] = [
     },
     {
       type: "audio",
-      colSpan: "col-span-1 md:col-span-1",
-      rowSpan: "row-span-2",
-      image:
-        "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      quote: "Foi a transição mais fácil que já fiz.",
-      description:
-        "Saí de um frankenstein de ferramentas para um dashboard único.",
-    },
-    {
-      type: "video-small",
-      colSpan: "col-span-1 md:col-span-1",
+      colSpan: "col-span-1 md:col-span-3",
       rowSpan: "row-span-1",
-      image:
-        "https://images.unsplash.com/photo-1553877522-43269d4ea984?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
-      quote: "A assertividade salvou nossa operação.",
-      name: "Lucas Martins",
-    },
-    {
-      type: "rating",
-      colSpan: "col-span-1 md:col-span-1",
-      rowSpan: "row-span-1",
-      score: "4.9",
-      reviews: "Aprovado por +2.600 anunciantes.",
-    },
-    {
-      type: "quote-small",
-      colSpan: "col-span-1 md:col-span-1",
-      rowSpan: "row-span-1",
+      image: "/depoimentos/depoimento1.jpeg",
       quote:
-        "A Ratoeira Hub mudou o jogo para mim. Tracking server-side impecável e conversão absurda.",
-      name: "Michel Pogne",
-      role: "Especialista",
-      initial: "M",
+        "Estava usando a Clickmagic anteriormente. E agora com a Ratoeira, acho até mais simples o seu manuseio...",
+    },
+    {
+      type: "image-small",
+      colSpan: "col-span-1 md:col-span-3",
+      rowSpan: "row-span-1",
+      image: "/depoimentos/depoimento2.jpeg",
+      quote: "A ferramente é ótima!",
+      name: "Karina",
     },
     {
       type: "quote-wide",
       colSpan: "col-span-1 md:col-span-4",
       rowSpan: "row-span-1",
-      quote:
-        "ROI triplicou no primeiro mês bloqueando bots e com páginas voando de tão rápidas. Sem explicação!",
-      name: "Thiago Rocha",
-      role: "Anunciante Top Player",
-      initial: "T",
+      quote: "faço gringa também, Buygoods, e não falhou nenhuma",
+      name: "Larissa Gomes",
+      role: "",
+      initial: "L",
+      image: "/depoimentos/depoimento5.jpeg",
     },
   ],
 
@@ -168,8 +150,7 @@ const decks: SocialCard[][] = [
       type: "video-large",
       colSpan: "col-span-1 md:col-span-2",
       rowSpan: "row-span-2",
-      image:
-        "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+      image: "/depoimentos/depoimento3.jpeg",
       tag: "Depoimento",
       name: "Rafael Borges",
       role: "Gestor de Tráfego Profissional",
@@ -178,8 +159,7 @@ const decks: SocialCard[][] = [
       type: "audio",
       colSpan: "col-span-1 md:col-span-1",
       rowSpan: "row-span-2",
-      image:
-        "https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      image: "/depoimentos/depoimento4.jpeg",
       quote: "Melhor investimento que fiz no ano.",
       description:
         "Saí de planilhas manuais para automação total. O tempo que economizo paga a ferramenta sozinho.",
@@ -205,8 +185,7 @@ const decks: SocialCard[][] = [
       type: "video-small",
       colSpan: "col-span-1 md:col-span-1",
       rowSpan: "row-span-1",
-      image:
-        "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+      image: "/depoimentos/depoimento5.jpeg",
       quote: "As páginas convertem o dobro do que convertiam antes.",
       name: "Fernanda Souza",
     },
@@ -259,14 +238,15 @@ function VideoLargeCard({
           loop
           muted
           playsInline
-          className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80 group-hover:opacity-100"
+          className="absolute inset-0 w-full h-full object-contain transition-transform duration-700 group-hover:scale-105 opacity-90 group-hover:opacity-100 bg-[#0a0a0a]"
         />
       ) : (
         <Image
           src={card.image}
           alt={`Case Video ${card.name}`}
           fill
-          className="object-cover transition-transform duration-700 group-hover:scale-105 opacity-50 group-hover:opacity-40"
+          className="object-contain transition-transform duration-700 group-hover:scale-105 opacity-90 group-hover:opacity-100 bg-[#0a0a0a]"
+          sizes="(max-width: 768px) 100vw, 50vw"
         />
       )}
       <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/40 to-transparent" />
@@ -288,45 +268,30 @@ function VideoLargeCard({
   );
 }
 
-function AudioCard({ card }: { card: AudioCard }) {
+function AudioCard({
+  card,
+  onImageClick,
+}: {
+  card: AudioCard;
+  onImageClick: (src: string) => void;
+}) {
   return (
-    <div className="bg-gradient-to-b from-[#111111] to-[#0a0a0a] border border-white/5 rounded-[32px] overflow-hidden flex flex-col group hover:border-brand-primary/30 transition-colors h-full">
-      <div className="h-1/2 relative overflow-hidden">
-        <Image
-          src={card.image}
-          alt="Podcast cover"
-          fill
-          className="object-cover opacity-60 transition-transform duration-700 group-hover:scale-105"
-        />
-        <div className="absolute top-4 left-4 w-10 h-10 bg-black/60 backdrop-blur-md rounded-full flex items-center justify-center border border-white/10">
-          <Mic className="w-5 h-5 text-brand-primary" />
-        </div>
-      </div>
-      <div className="h-1/2 p-6 flex flex-col justify-between relative z-10">
-        <div>
-          <h4 className="text-white font-bold text-lg mb-2 leading-snug">
-            &ldquo;{card.quote}&rdquo;
-          </h4>
-          <p className="text-gray-400 text-sm line-clamp-3">
-            {card.description}
-          </p>
-        </div>
-        <div className="flex items-center gap-3 bg-white/5 p-3 rounded-2xl cursor-pointer hover:bg-white/10 transition-colors border border-white/5 mt-4">
-          <div className="w-8 h-8 rounded-full bg-brand-primary text-black flex items-center justify-center pl-0.5 shrink-0">
-            <Play className="w-3 h-3 fill-current" />
-          </div>
-          <div className="flex-1 flex gap-1 items-center h-4 opacity-50 overflow-hidden">
-            {[30, 80, 50, 90, 40, 70, 100, 60, 80, 40, 90, 50, 70, 30, 80].map(
-              (h, i) => (
-                <div
-                  key={i}
-                  className="w-1 bg-brand-primary rounded-full"
-                  style={{ height: `${h}%` }}
-                />
-              ),
-            )}
-          </div>
-        </div>
+    <div
+      className="bg-[#161616] border border-white/5 rounded-[32px] overflow-hidden relative group hover:border-brand-primary/30 transition-colors h-full cursor-pointer"
+      onClick={() => onImageClick(card.image)}
+    >
+      <Image
+        src={card.image}
+        alt="Depoimento"
+        fill
+        className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
+        sizes="(max-width: 768px) 100vw, 50vw"
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
+      <div className="absolute bottom-0 left-0 w-full p-6">
+        <p className="text-white font-bold leading-tight line-clamp-2">
+          &ldquo;{card.quote}&rdquo;
+        </p>
       </div>
     </div>
   );
@@ -354,33 +319,48 @@ function RatingCard({ card }: { card: RatingCard }) {
   );
 }
 
-function QuoteWideCard({ card }: { card: QuoteWideCard }) {
+function QuoteWideCard({
+  card,
+  onImageClick,
+}: {
+  card: QuoteWideCard;
+  onImageClick: (src: string) => void;
+}) {
   return (
-    <div className="bg-gradient-to-br from-brand-primary/10 to-[#111111] border border-white/5 rounded-[32px] p-8 flex flex-col justify-center relative overflow-hidden group hover:border-brand-primary/30 transition-colors h-full">
-      <Quote className="absolute top-6 right-6 w-24 h-24 text-brand-primary/5 -rotate-12 group-hover:text-brand-primary/10 transition-colors duration-500" />
-      <div className="relative z-10">
-        <div className="flex gap-1 mb-4">
-          {[...Array(5)].map((_, i) => (
-            <Star
-              key={i}
-              className="w-4 h-4 text-brand-primary fill-brand-primary"
-            />
-          ))}
-        </div>
-        <p className="text-lg sm:text-xl text-gray-400 font-medium mb-6 leading-snug line-clamp-3">
+    <div
+      className={`border border-white/5 rounded-[32px] p-8 flex flex-col justify-center relative overflow-hidden group transition-colors h-full ${
+        card.image
+          ? "cursor-pointer hover:border-brand-primary/30"
+          : "bg-gradient-to-br from-brand-primary/10 to-[#111111] hover:border-brand-primary/30"
+      }`}
+      onClick={() => card.image && onImageClick(card.image)}
+    >
+      {card.image ? (
+        <>
+          <Image
+            src={card.image}
+            alt={`Depoimento ${card.name}`}
+            fill
+            className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
+            sizes="(max-width: 768px) 100vw, 100vw"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/70 to-black/40" />
+        </>
+      ) : (
+        <Quote className="absolute top-6 right-6 w-24 h-24 text-brand-primary/5 -rotate-12 group-hover:text-brand-primary/10 transition-colors duration-500" />
+      )}
+      <div className="relative z-10 max-w-2xl">
+        <p className="text-lg sm:text-xl text-gray-200 font-medium mb-6 leading-snug line-clamp-3">
           &ldquo;{card.quote}&rdquo;
         </p>
-        <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-full bg-[#222] flex items-center justify-center font-bold text-brand-primary border border-brand-primary/30">
-            {card.initial}
-          </div>
-          <div>
-            <p className="text-white font-bold text-sm">{card.name}</p>
-            <p className="text-gray-500 text-xs flex items-center gap-1">
+        <div>
+          <p className="text-white font-bold text-sm">{card.name}</p>
+          {card.role && (
+            <p className="text-gray-400 text-xs flex items-center gap-1">
               <CheckCircle2 className="w-3 h-3 text-emerald-500" />
               {card.role}
             </p>
-          </div>
+          )}
         </div>
       </div>
     </div>
@@ -394,7 +374,8 @@ function VideoSmallCard({ card }: { card: VideoSmallCard }) {
         src={card.image}
         alt={`Small Case ${card.name}`}
         fill
-        className="object-cover transition-transform duration-700 group-hover:scale-110 opacity-50 group-hover:opacity-40"
+        className="object-contain transition-transform duration-700 group-hover:scale-105 opacity-80 group-hover:opacity-70"
+        sizes="(max-width: 768px) 100vw, 25vw"
       />
       <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
       <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -402,6 +383,38 @@ function VideoSmallCard({ card }: { card: VideoSmallCard }) {
           <Play className="w-5 h-5 text-white fill-white" />
         </div>
       </div>
+      <div className="absolute bottom-0 left-0 w-full p-6">
+        <p className="text-white font-bold leading-tight line-clamp-2">
+          &ldquo;{card.quote}&rdquo;
+        </p>
+        <p className="text-brand-primary text-xs mt-2 font-semibold">
+          {card.name}
+        </p>
+      </div>
+    </div>
+  );
+}
+
+function ImageSmallCard({
+  card,
+  onImageClick,
+}: {
+  card: ImageSmallCard;
+  onImageClick: (src: string) => void;
+}) {
+  return (
+    <div
+      className="bg-[#161616] border border-white/5 rounded-[32px] overflow-hidden relative group h-full cursor-pointer"
+      onClick={() => onImageClick(card.image)}
+    >
+      <Image
+        src={card.image}
+        alt={`Depoimento ${card.name}`}
+        fill
+        className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
+        sizes="(max-width: 768px) 100vw, 50vw"
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
       <div className="absolute bottom-0 left-0 w-full p-6">
         <p className="text-white font-bold leading-tight line-clamp-2">
           &ldquo;{card.quote}&rdquo;
@@ -440,9 +453,11 @@ function QuoteSmallCard({ card }: { card: QuoteSmallCard }) {
 function CardSwitch({
   card,
   onVideoClick,
+  onImageClick,
 }: {
   card: SocialCard;
   onVideoClick: (src: string) => void;
+  onImageClick: (src: string) => void;
 }) {
   switch (card.type) {
     case "award":
@@ -455,13 +470,15 @@ function CardSwitch({
         />
       );
     case "audio":
-      return <AudioCard card={card} />;
+      return <AudioCard card={card} onImageClick={onImageClick} />;
     case "rating":
       return <RatingCard card={card} />;
     case "quote-wide":
-      return <QuoteWideCard card={card} />;
+      return <QuoteWideCard card={card} onImageClick={onImageClick} />;
     case "video-small":
       return <VideoSmallCard card={card} />;
+    case "image-small":
+      return <ImageSmallCard card={card} onImageClick={onImageClick} />;
     case "quote-small":
       return <QuoteSmallCard card={card} />;
     default:
@@ -473,6 +490,7 @@ function CardSwitch({
 export default function CasesSocialProof() {
   const [deckIndex, setDeckIndex] = useState(0);
   const [activeVideo, setActiveVideo] = useState<string | null>(null);
+  const [activeImage, setActiveImage] = useState<string | null>(null);
 
   /* Ciclo automático a cada 5 segundos - PAUSADO TEMPORARIAMENTE PARA EDIÇÃO 
   useEffect(() => {
@@ -532,7 +550,11 @@ export default function CasesSocialProof() {
                   }}
                   className={`${card.colSpan} ${card.rowSpan}`}
                 >
-                  <CardSwitch card={card} onVideoClick={setActiveVideo} />
+                  <CardSwitch
+                    card={card}
+                    onVideoClick={setActiveVideo}
+                    onImageClick={setActiveImage}
+                  />
                 </motion.div>
               ))}
             </motion.div>
@@ -569,6 +591,39 @@ export default function CasesSocialProof() {
                 autoPlay
                 playsInline
                 className="w-full h-full object-contain"
+              />
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Image Modal */}
+      <AnimatePresence>
+        {activeImage && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4 backdrop-blur-sm"
+            onClick={() => setActiveImage(null)}
+          >
+            <motion.div
+              initial={{ scale: 0.95, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.95, opacity: 0 }}
+              className="relative w-full max-w-4xl max-h-[85vh] rounded-2xl overflow-hidden bg-black shadow-2xl border border-white/10"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button
+                onClick={() => setActiveImage(null)}
+                className="absolute top-4 right-4 z-10 w-10 h-10 bg-black/50 hover:bg-black/80 backdrop-blur-md rounded-full flex items-center justify-center text-white transition-colors border border-white/10"
+              >
+                <X className="w-5 h-5" />
+              </button>
+              <img
+                src={activeImage}
+                alt="Depoimento ampliado"
+                className="w-full h-full object-contain max-h-[85vh]"
               />
             </motion.div>
           </motion.div>
