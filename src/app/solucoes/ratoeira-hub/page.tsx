@@ -2,7 +2,15 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Link2, Radar, LayoutTemplate, Server, LineChart, ShieldCheck } from "lucide-react";
+import {
+  ArrowRight,
+  Link2,
+  Radar,
+  LayoutTemplate,
+  Server,
+  LineChart,
+  ShieldCheck,
+} from "lucide-react";
 import { BeamsBackground } from "@/components/ui/ethereal-beams-hero";
 import { GradientText } from "@/components/ui/gradient-text";
 import { BlurTextEffect } from "@/components/ui/blur-text-effect";
@@ -71,16 +79,21 @@ export default function RatoeiraHubPage() {
             rotation: 0,
           }}
         >
-          <div aria-hidden className="absolute inset-0 z-[1] bg-gradient-to-br from-yellow-500/15 via-orange-500/10 to-transparent" />
+          <div
+            aria-hidden
+            className="absolute inset-0 z-[1] bg-gradient-to-br from-yellow-500/15 via-orange-500/10 to-transparent"
+          />
           <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-4 pt-[clamp(7rem,16vh,12rem)] pb-[clamp(4.5rem,10vh,8.5rem)]">
             <div className="max-w-6xl 2xl:max-w-[90rem] 4xl:max-w-[110rem] 5xl:max-w-[130rem] 6xl:max-w-[150rem] text-center">
               <h1 className="text-[clamp(1.25rem,4.2vw,6rem)] 3xl:text-[clamp(4.5rem,3.2vw,6.5rem)] font-black text-white tracking-tight leading-[1.04] mb-8 ">
-                Quando Ads e Pages trabalham juntos, sua operação chega onde nenhuma ferramenta sozinha chega.
+                Quando Ads e Pages trabalham juntos, sua operação chega onde
+                nenhuma ferramenta sozinha chega.
               </h1>
 
               <p className="text-base sm:text-[clamp(1.05rem,1.25vw,1.35rem)] 3xl:text-[clamp(1.5rem,1.2vw,2.25rem)] text-neutral-400 mb-12 max-w-3xl lg:max-w-4xl 2xl:max-w-5xl 4xl:max-w-6xl mx-auto px-4 sm:px-0 ">
-                Rastreamento ~100%. Páginas que carregam em menos de 1 segundo. Bloqueio automático de fraude. Tudo integrado
-                via API — e funcionando melhor do que a soma das partes.
+                Rastreamento ~100%. Páginas que carregam em menos de 1 segundo.
+                Bloqueio automático de fraude. Tudo integrado via API — e
+                funcionando melhor do que a soma das partes.
               </p>
 
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -93,7 +106,9 @@ export default function RatoeiraHubPage() {
                 </a>
               </div>
 
-              <p className="mt-4 text-sm text-neutral-400">Plano gratuito disponível. Sem cartão.</p>
+              <p className="mt-4 text-sm text-neutral-400">
+                Plano gratuito disponível. Sem cartão.
+              </p>
 
               <div className="mx-auto mt-12 w-full max-w-6xl 2xl:max-w-[90rem] 4xl:max-w-[110rem] 5xl:max-w-[130rem] 6xl:max-w-[150rem]">
                 <div className="relative mx-auto h-[clamp(14rem,30vw,28rem)] w-full max-w-5xl xl:max-w-6xl 2xl:max-w-[85rem] 3xl:max-w-[92rem] 4xl:max-w-[100rem] rounded-2xl border border-white/10 bg-black/20 shadow-2xl shadow-black/60 overflow-hidden">
@@ -112,7 +127,10 @@ export default function RatoeiraHubPage() {
         </BeamsBackground>
       </section>
 
-      <section id="como-funciona" className="py-16 md:py-24 bg-[#050505] relative border-t border-white/5">
+      <section
+        id="como-funciona"
+        className="py-16 md:py-24 bg-[#050505] relative border-t border-white/5"
+      >
         <div className="max-w-7xl 2xl:max-w-[90rem] 4xl:max-w-[120rem] 5xl:max-w-[140rem] 6xl:max-w-[160rem] mx-auto px-4 2xl:px-12 4xl:px-20 5xl:px-28 6xl:px-36 relative z-10">
           <div className="text-center mb-20">
             <h2 className="text-3xl sm:text-4xl md:text-5xl 3xl:text-7xl font-black text-white mb-6 ">
@@ -123,8 +141,9 @@ export default function RatoeiraHubPage() {
               .
             </h2>
             <p className="text-base sm:text-xl 3xl:text-3xl text-gray-400 max-w-2xl lg:max-w-4xl 2xl:max-w-5xl mx-auto px-4 sm:px-0 ">
-              A maioria das ferramentas se conecta. O Ratoeira Hub se integra — via API, em tempo real, sem gap entre o
-              clique na página e o dado na campanha.
+              A maioria das ferramentas se conecta. O Ratoeira Hub se integra —
+              via API, em tempo real, sem gap entre o clique na página e o dado
+              na campanha.
             </p>
           </div>
 
@@ -137,7 +156,9 @@ export default function RatoeiraHubPage() {
                   className={`flex flex-col ${index % 2 === 1 ? "md:flex-row-reverse" : "md:flex-row"} items-center gap-8 md:gap-12 lg:gap-24 rounded-3xl border p-8 md:p-12 ${index % 2 === 1 ? "bg-white border-black/10" : "bg-[#111111] border-white/10"}`}
                 >
                   <div className="flex-1 space-y-6 text-center md:text-left">
-                    <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br from-yellow-500/15 to-orange-500/15 flex items-center justify-center mb-6 border ${index % 2 === 1 ? "border-black/10" : "border-white/10"}`}>
+                    <div
+                      className={`w-16 h-16 rounded-2xl bg-gradient-to-br from-yellow-500/15 to-orange-500/15 flex items-center justify-center mb-6 border ${index % 2 === 1 ? "border-black/10" : "border-white/10"}`}
+                    >
                       <Icon className="w-8 h-8 text-orange-400" />
                     </div>
                     <h3 className="text-2xl sm:text-3xl md:text-4xl 3xl:text-6xl font-black leading-tight">
@@ -145,8 +166,12 @@ export default function RatoeiraHubPage() {
                         {feature.title}
                       </GradientText>
                     </h3>
-                    <p className={`text-base sm:text-xl 3xl:text-3xl leading-relaxed ${index % 2 === 1 ? "text-[#4b5563]" : "text-gray-400"}`}>
-                      <BlurTextEffect key={`${feature.title}-desc`}>{feature.description}</BlurTextEffect>
+                    <p
+                      className={`text-base sm:text-xl 3xl:text-3xl leading-relaxed ${index % 2 === 1 ? "text-[#4b5563]" : "text-gray-400"}`}
+                    >
+                      <BlurTextEffect key={`${feature.title}-desc`}>
+                        {feature.description}
+                      </BlurTextEffect>
                     </p>
                   </div>
 
@@ -166,20 +191,28 @@ export default function RatoeiraHubPage() {
                                   <span className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-white/5 border border-white/10 text-white text-sm font-black">
                                     P
                                   </span>
-                                  <span className="text-sm font-semibold text-gray-400/80">Página</span>
+                                  <span className="text-sm font-semibold text-gray-400/80">
+                                    Página
+                                  </span>
                                 </div>
                                 <div className="flex items-center gap-2">
                                   <span className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-white/5 border border-white/10 text-white text-sm font-black">
                                     A
                                   </span>
-                                  <span className="text-sm font-semibold text-gray-400/80">Ads</span>
+                                  <span className="text-sm font-semibold text-gray-400/80">
+                                    Ads
+                                  </span>
                                 </div>
                               </div>
 
                               <div className="mt-7 grid grid-cols-1 sm:grid-cols-3 items-center gap-3">
                                 <div className="rounded-xl border border-white/10 bg-black/30 p-3">
-                                  <p className="text-[11px] font-semibold text-gray-400/60">Página</p>
-                                  <p className="mt-1 text-xs font-bold text-white">Click</p>
+                                  <p className="text-[11px] font-semibold text-gray-400/60">
+                                    Página
+                                  </p>
+                                  <p className="mt-1 text-xs font-bold text-white">
+                                    Click
+                                  </p>
                                 </div>
 
                                 <div className="relative h-10">
@@ -191,8 +224,12 @@ export default function RatoeiraHubPage() {
                                 </div>
 
                                 <div className="rounded-xl border border-white/10 bg-black/30 p-3 text-right">
-                                  <p className="text-[11px] font-semibold text-gray-400/60">Ads</p>
-                                  <p className="mt-1 text-xs font-bold text-white">Conversão</p>
+                                  <p className="text-[11px] font-semibold text-gray-400/60">
+                                    Ads
+                                  </p>
+                                  <p className="mt-1 text-xs font-bold text-white">
+                                    Conversão
+                                  </p>
                                 </div>
                               </div>
 
@@ -212,7 +249,8 @@ export default function RatoeiraHubPage() {
                             </div>
                           </div>
                         </div>
-                      ) : feature.title === "Páginas que carregam em menos de 1 segundo" ? (
+                      ) : feature.title ===
+                        "Páginas que carregam em menos de 1 segundo" ? (
                         <div className="absolute inset-0">
                           <Image
                             src="/imagem pages/flashpages.png"
@@ -230,7 +268,10 @@ export default function RatoeiraHubPage() {
                               </p>
                               <div className="mt-4 flex items-end justify-between">
                                 <p className="text-2xl sm:text-4xl font-black text-white leading-none">
-                                  0.8<span className="text-base font-bold text-gray-400/70 ml-1">s</span>
+                                  0.8
+                                  <span className="text-base font-bold text-gray-400/70 ml-1">
+                                    s
+                                  </span>
                                 </p>
                                 <span className="rounded-full bg-brand-primary/15 border border-brand-primary/25 px-3 py-1 text-xs font-bold text-brand-primary">
                                   abaixo de 1s
@@ -242,7 +283,8 @@ export default function RatoeiraHubPage() {
                             </div>
                           </div>
                         </div>
-                      ) : feature.title === "Precisão de ~100% — porque os dois lados estão conectados" ? (
+                      ) : feature.title ===
+                        "Precisão de ~100% — porque os dois lados estão conectados" ? (
                         <div className="absolute inset-0">
                           <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-yellow-500/12 via-orange-500/10 to-transparent" />
                           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(70%_80%_at_50%_40%,rgba(255,184,0,0.14)_0%,rgba(17,17,17,0)_70%)]" />
@@ -251,25 +293,37 @@ export default function RatoeiraHubPage() {
                             <div className="w-full max-w-xl 2xl:max-w-[40rem] 4xl:max-w-[60rem] rounded-2xl border border-white/10 bg-black/55 backdrop-blur-md p-5">
                               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
                                 <div>
-                                  <p className="text-[11px] font-semibold text-gray-400/60">Ads (isolado)</p>
+                                  <p className="text-[11px] font-semibold text-gray-400/60">
+                                    Ads (isolado)
+                                  </p>
                                   <div className="mt-2 relative h-28 rounded-xl bg-white/10 overflow-hidden">
                                     <div className="absolute inset-x-0 bottom-0 h-[95%] bg-white/25" />
                                   </div>
-                                  <p className="mt-2 text-xs font-bold text-gray-400/80">~95%</p>
+                                  <p className="mt-2 text-xs font-bold text-gray-400/80">
+                                    ~95%
+                                  </p>
                                 </div>
                                 <div>
-                                  <p className="text-[11px] font-semibold text-gray-400/60">Pages (isolado)</p>
+                                  <p className="text-[11px] font-semibold text-gray-400/60">
+                                    Pages (isolado)
+                                  </p>
                                   <div className="mt-2 relative h-28 rounded-xl bg-white/10 overflow-hidden">
                                     <div className="absolute inset-x-0 bottom-0 h-[93%] bg-white/20" />
                                   </div>
-                                  <p className="mt-2 text-xs font-bold text-gray-400/80">~93%</p>
+                                  <p className="mt-2 text-xs font-bold text-gray-400/80">
+                                    ~93%
+                                  </p>
                                 </div>
                                 <div>
-                                  <p className="text-[11px] font-semibold text-gray-400/60">Hub (integrado)</p>
+                                  <p className="text-[11px] font-semibold text-gray-400/60">
+                                    Hub (integrado)
+                                  </p>
                                   <div className="mt-2 relative h-28 rounded-xl bg-brand-primary/15 overflow-hidden border border-brand-primary/20">
                                     <div className="absolute inset-x-0 bottom-0 h-[100%] bg-gradient-to-t from-yellow-500/55 to-orange-500/40" />
                                   </div>
-                                  <p className="mt-2 text-xs font-black text-brand-primary">~100%</p>
+                                  <p className="mt-2 text-xs font-black text-brand-primary">
+                                    ~100%
+                                  </p>
                                 </div>
                               </div>
 
@@ -279,7 +333,8 @@ export default function RatoeiraHubPage() {
                             </div>
                           </div>
                         </div>
-                      ) : feature.title === "Mais fraude bloqueada. Mais verba protegida. (Google Ads)" ? (
+                      ) : feature.title ===
+                        "Mais fraude bloqueada. Mais verba protegida. (Google Ads)" ? (
                         <div className="absolute inset-0">
                           <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-yellow-500/10 via-orange-500/10 to-transparent" />
                           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(70%_80%_at_50%_50%,rgba(255,184,0,0.12)_0%,rgba(17,17,17,0)_70%)]" />
@@ -287,7 +342,9 @@ export default function RatoeiraHubPage() {
                           <div className="absolute inset-0 flex items-center justify-center px-6">
                             <div className="w-full max-w-2xl 2xl:max-w-[50rem] 4xl:max-w-[70rem] rounded-2xl border border-white/10 bg-black/55 backdrop-blur-md overflow-hidden">
                               <div className="flex items-center justify-between px-5 py-4 border-b border-white/10">
-                                <p className="text-sm font-black text-white">Bloqueios de IP</p>
+                                <p className="text-sm font-black text-white">
+                                  Bloqueios de IP
+                                </p>
                                 <span className="rounded-full bg-brand-primary/15 border border-brand-primary/25 px-3 py-1 text-xs font-bold text-brand-primary">
                                   Auto-block
                                 </span>
@@ -295,47 +352,76 @@ export default function RatoeiraHubPage() {
 
                               <div className="grid grid-cols-1 sm:grid-cols-2 gap-0">
                                 <div className="p-5 border-r border-white/10">
-                                  <p className="text-[11px] font-semibold text-gray-400/60">Uso isolado (Ads)</p>
+                                  <p className="text-[11px] font-semibold text-gray-400/60">
+                                    Uso isolado (Ads)
+                                  </p>
                                   <p className="mt-2 text-2xl font-black text-white">
-                                    12<span className="text-xs font-bold text-gray-400/60 ml-1">IPs</span>
+                                    12
+                                    <span className="text-xs font-bold text-gray-400/60 ml-1">
+                                      IPs
+                                    </span>
                                   </p>
                                   <div className="mt-4 space-y-2">
-                                    {["189.34.12.90", "201.88.3.21", "45.178.9.10", "177.22.90.14"].map((ip) => (
+                                    {[
+                                      "189.34.12.90",
+                                      "201.88.3.21",
+                                      "45.178.9.10",
+                                      "177.22.90.14",
+                                    ].map((ip) => (
                                       <div
                                         key={ip}
                                         className="flex items-center justify-between rounded-lg border border-white/10 bg-white/5 px-3 py-2"
                                       >
-                                        <span className="text-xs font-semibold text-gray-400/70">{ip}</span>
-                                        <span className="text-[11px] font-bold text-gray-400/50">bloqueado</span>
+                                        <span className="text-xs font-semibold text-gray-400/70">
+                                          {ip}
+                                        </span>
+                                        <span className="text-[11px] font-bold text-gray-400/50">
+                                          bloqueado
+                                        </span>
                                       </div>
                                     ))}
                                   </div>
                                 </div>
 
                                 <div className="p-5">
-                                  <p className="text-[11px] font-semibold text-gray-400/60">Com Hub ativo</p>
+                                  <p className="text-[11px] font-semibold text-gray-400/60">
+                                    Com Hub ativo
+                                  </p>
                                   <p className="mt-2 text-2xl font-black text-brand-primary">
-                                    28<span className="text-xs font-bold text-brand-primary/80 ml-1">IPs</span>
+                                    28
+                                    <span className="text-xs font-bold text-brand-primary/80 ml-1">
+                                      IPs
+                                    </span>
                                   </p>
                                   <div className="mt-4 space-y-2">
-                                    {["189.34.12.90", "201.88.3.21", "45.178.9.10", "177.22.90.14", "143.12.88.70", "62.33.91.18"].map(
-                                      (ip) => (
-                                        <div
-                                          key={ip}
-                                          className="flex items-center justify-between rounded-lg border border-brand-primary/20 bg-brand-primary/10 px-3 py-2"
-                                        >
-                                          <span className="text-xs font-semibold text-gray-400/80">{ip}</span>
-                                          <span className="text-[11px] font-black text-brand-primary">bloqueado</span>
-                                        </div>
-                                      ),
-                                    )}
+                                    {[
+                                      "189.34.12.90",
+                                      "201.88.3.21",
+                                      "45.178.9.10",
+                                      "177.22.90.14",
+                                      "143.12.88.70",
+                                      "62.33.91.18",
+                                    ].map((ip) => (
+                                      <div
+                                        key={ip}
+                                        className="flex items-center justify-between rounded-lg border border-brand-primary/20 bg-brand-primary/10 px-3 py-2"
+                                      >
+                                        <span className="text-xs font-semibold text-gray-400/80">
+                                          {ip}
+                                        </span>
+                                        <span className="text-[11px] font-black text-brand-primary">
+                                          bloqueado
+                                        </span>
+                                      </div>
+                                    ))}
                                   </div>
                                 </div>
                               </div>
                             </div>
                           </div>
                         </div>
-                      ) : feature.title === "Crie, rastreie e escale — sem sair da plataforma" ? (
+                      ) : feature.title ===
+                        "Crie, rastreie e escale — sem sair da plataforma" ? (
                         <div className="absolute inset-0">
                           <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-yellow-500/12 via-orange-500/10 to-transparent" />
                           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(70%_80%_at_50%_40%,rgba(255,184,0,0.12)_0%,rgba(17,17,17,0)_70%)]" />
@@ -344,10 +430,26 @@ export default function RatoeiraHubPage() {
                             <div className="w-full max-w-2xl 2xl:max-w-[50rem] 4xl:max-w-[70rem] rounded-2xl border border-white/10 bg-black/55 backdrop-blur-md p-5">
                               <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
                                 {[
-                                  { step: "1", label: "Criar página", badge: "Pages" },
-                                  { step: "2", label: "Tracking ativo", badge: "API" },
-                                  { step: "3", label: "Campanha no ar", badge: "Ads" },
-                                  { step: "4", label: "Resultado em tempo real", badge: "Dashboard" },
+                                  {
+                                    step: "1",
+                                    label: "Criar página",
+                                    badge: "Pages",
+                                  },
+                                  {
+                                    step: "2",
+                                    label: "Tracking ativo",
+                                    badge: "API",
+                                  },
+                                  {
+                                    step: "3",
+                                    label: "Campanha no ar",
+                                    badge: "Ads",
+                                  },
+                                  {
+                                    step: "4",
+                                    label: "Resultado em tempo real",
+                                    badge: "Dashboard",
+                                  },
                                 ].map((item) => (
                                   <div
                                     key={item.step}
@@ -361,7 +463,9 @@ export default function RatoeiraHubPage() {
                                         {item.badge}
                                       </span>
                                     </div>
-                                    <p className="mt-3 text-sm font-bold text-gray-400/85 leading-snug">{item.label}</p>
+                                    <p className="mt-3 text-sm font-bold text-gray-400/85 leading-snug">
+                                      {item.label}
+                                    </p>
                                     <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1 bg-gradient-to-r from-yellow-500/0 via-yellow-500/60 to-orange-500/0" />
                                   </div>
                                 ))}
@@ -402,11 +506,16 @@ export default function RatoeiraHubPage() {
       <section className="bg-[#050505] flex items-center justify-center min-h-[auto] md:min-h-[clamp(600px,70vh,900px)] py-16 md:py-24">
         <div className="max-w-6xl 2xl:max-w-[90rem] 4xl:max-w-[110rem] 5xl:max-w-[130rem] 6xl:max-w-[150rem] mx-auto px-4 2xl:px-12 4xl:px-20 5xl:px-28 6xl:px-36 relative z-20 text-center w-full">
           <h2 className="text-[clamp(1.75rem,6vw,4.5rem)] 3xl:text-[clamp(3.5rem,3.2vw,5.5rem)] font-black text-white mb-6 tracking-tight px-4">
-            O <GradientText variant="orange" className="font-black">ecossistema completo</GradientText> do tráfego pago. Em um lugar.
+            O{" "}
+            <GradientText variant="orange" className="font-black">
+              ecossistema completo
+            </GradientText>{" "}
+            do tráfego pago. Em um lugar.
           </h2>
           <p className="text-base sm:text-[clamp(1.1rem,1.25vw,1.5rem)] 3xl:text-[clamp(1.6rem,1.2vw,2.5rem)] text-gray-400 max-w-3xl 2xl:max-w-[60rem] 4xl:max-w-[80rem] mx-auto mb-10 leading-relaxed px-4">
-            Ads + Pages integrados via API. Rastreamento ~100%. Páginas abaixo de 1 segundo. Bloqueio automático de fraude.
-            Tudo que você precisa para escalar com dado real.
+            Ads + Pages integrados via API. Rastreamento ~100%. Páginas abaixo
+            de 1 segundo. Bloqueio automático de fraude. Tudo que você precisa
+            para escalar com dado real.
           </p>
 
           <div className="relative mx-auto mb-10 w-full max-w-6xl 2xl:max-w-[90rem] 4xl:max-w-[110rem] 5xl:max-w-[130rem] 6xl:max-w-[150rem] pointer-events-none">
@@ -419,7 +528,10 @@ export default function RatoeiraHubPage() {
                   aria-hidden
                   className="absolute inset-[-14px] z-0 rounded-full bg-[radial-gradient(circle,rgba(0,0,0,1)_58%,rgba(0,0,0,0)_78%)] blur-[1px]"
                 />
-                <div aria-hidden className="absolute inset-[8px] z-[1] rounded-full bg-black" />
+                <div
+                  aria-hidden
+                  className="absolute inset-[8px] z-[1] rounded-full bg-black"
+                />
 
                 <Image
                   src="/logoraads.png"
@@ -440,7 +552,10 @@ export default function RatoeiraHubPage() {
                   aria-hidden
                   className="absolute inset-[-14px] z-0 rounded-full bg-[radial-gradient(circle,rgba(0,0,0,1)_58%,rgba(0,0,0,0)_78%)] blur-[1px]"
                 />
-                <div aria-hidden className="absolute inset-[8px] z-[1] rounded-full bg-black" />
+                <div
+                  aria-hidden
+                  className="absolute inset-[8px] z-[1] rounded-full bg-black"
+                />
 
                 <Image
                   src="/logopages.png"
@@ -454,7 +569,10 @@ export default function RatoeiraHubPage() {
 
             <div className="relative z-0 mx-auto w-full max-w-[620px] overflow-visible translate-y-12">
               <div className="relative h-[252px] w-full overflow-visible">
-                <div aria-hidden className="absolute inset-0 z-0 flex items-center justify-center">
+                <div
+                  aria-hidden
+                  className="absolute inset-0 z-0 flex items-center justify-center"
+                >
                   <svg
                     className="h-[252px] w-[calc(100%+520px)] max-w-none overflow-visible"
                     viewBox="0 0 1000 200"
@@ -495,19 +613,43 @@ export default function RatoeiraHubPage() {
                     `}</style>
 
                     <defs>
-                      <filter id="blur" x="-30%" y="-30%" width="160%" height="160%">
+                      <filter
+                        id="blur"
+                        x="-30%"
+                        y="-30%"
+                        width="160%"
+                        height="160%"
+                      >
                         <feGaussianBlur stdDeviation="2.2" />
                       </filter>
 
-                      <filter id="blur-strong" x="-40%" y="-40%" width="180%" height="180%">
+                      <filter
+                        id="blur-strong"
+                        x="-40%"
+                        y="-40%"
+                        width="180%"
+                        height="180%"
+                      >
                         <feGaussianBlur stdDeviation="7.5" />
                       </filter>
 
-                      <filter id="blur-highlight" x="-50%" y="-50%" width="200%" height="200%">
+                      <filter
+                        id="blur-highlight"
+                        x="-50%"
+                        y="-50%"
+                        width="200%"
+                        height="200%"
+                      >
                         <feGaussianBlur stdDeviation="3.2" />
                       </filter>
 
-                      <filter id="mask-feather" x="-50%" y="-50%" width="200%" height="200%">
+                      <filter
+                        id="mask-feather"
+                        x="-50%"
+                        y="-50%"
+                        width="200%"
+                        height="200%"
+                      >
                         <feGaussianBlur stdDeviation="15" />
                       </filter>
 
@@ -538,22 +680,59 @@ export default function RatoeiraHubPage() {
                         <stop offset="1" stopColor="#fb923c" />
                       </linearGradient>
 
-                      <radialGradient id="center-glow" cx="50%" cy="50%" r="50%">
-                        <stop offset="0%" stopColor="#fff7ae" stopOpacity="0.9" />
-                        <stop offset="18%" stopColor="#fde047" stopOpacity="0.72" />
-                        <stop offset="46%" stopColor="#facc15" stopOpacity="0.34" />
-                        <stop offset="78%" stopColor="#f97316" stopOpacity="0.14" />
-                        <stop offset="100%" stopColor="#f97316" stopOpacity="0" />
+                      <radialGradient
+                        id="center-glow"
+                        cx="50%"
+                        cy="50%"
+                        r="50%"
+                      >
+                        <stop
+                          offset="0%"
+                          stopColor="#fff7ae"
+                          stopOpacity="0.9"
+                        />
+                        <stop
+                          offset="18%"
+                          stopColor="#fde047"
+                          stopOpacity="0.72"
+                        />
+                        <stop
+                          offset="46%"
+                          stopColor="#facc15"
+                          stopOpacity="0.34"
+                        />
+                        <stop
+                          offset="78%"
+                          stopColor="#f97316"
+                          stopOpacity="0.14"
+                        />
+                        <stop
+                          offset="100%"
+                          stopColor="#f97316"
+                          stopOpacity="0"
+                        />
                       </radialGradient>
 
                       <mask id="energy-left" maskUnits="userSpaceOnUse">
-                        <rect x="0" y="0" width="500" height="200" fill="white" />
-                        <rect x="500" y="0" width="500" height="200" fill="black" />
+                        <rect
+                          x="0"
+                          y="0"
+                          width="500"
+                          height="200"
+                          fill="white"
+                        />
+                        <rect
+                          x="500"
+                          y="0"
+                          width="500"
+                          height="200"
+                          fill="black"
+                        />
 
                         <ellipse
-                          cx="145"
+                          cx="90"
                           cy="100"
-                          rx="126"
+                          rx="86"
                           ry="96"
                           fill="black"
                           filter="url(#mask-feather)"
@@ -567,9 +746,9 @@ export default function RatoeiraHubPage() {
                           filter="url(#mask-feather)"
                         />
                         <ellipse
-                          cx="855"
+                          cx="910"
                           cy="100"
-                          rx="126"
+                          rx="86"
                           ry="96"
                           fill="black"
                           filter="url(#mask-feather)"
@@ -577,13 +756,25 @@ export default function RatoeiraHubPage() {
                       </mask>
 
                       <mask id="energy-right" maskUnits="userSpaceOnUse">
-                        <rect x="0" y="0" width="500" height="200" fill="black" />
-                        <rect x="500" y="0" width="500" height="200" fill="white" />
+                        <rect
+                          x="0"
+                          y="0"
+                          width="500"
+                          height="200"
+                          fill="black"
+                        />
+                        <rect
+                          x="500"
+                          y="0"
+                          width="500"
+                          height="200"
+                          fill="white"
+                        />
 
                         <ellipse
-                          cx="145"
+                          cx="90"
                           cy="100"
-                          rx="126"
+                          rx="86"
                           ry="96"
                           fill="black"
                           filter="url(#mask-feather)"
@@ -597,9 +788,9 @@ export default function RatoeiraHubPage() {
                           filter="url(#mask-feather)"
                         />
                         <ellipse
-                          cx="855"
+                          cx="910"
                           cy="100"
-                          rx="126"
+                          rx="86"
                           ry="96"
                           fill="black"
                           filter="url(#mask-feather)"
@@ -607,12 +798,18 @@ export default function RatoeiraHubPage() {
                       </mask>
 
                       <mask id="all-energy-cutouts" maskUnits="userSpaceOnUse">
-                        <rect x="0" y="0" width="1000" height="200" fill="white" />
+                        <rect
+                          x="0"
+                          y="0"
+                          width="1000"
+                          height="200"
+                          fill="white"
+                        />
 
                         <ellipse
-                          cx="145"
+                          cx="90"
                           cy="100"
-                          rx="126"
+                          rx="86"
                           ry="96"
                           fill="black"
                           filter="url(#mask-feather)"
@@ -626,9 +823,9 @@ export default function RatoeiraHubPage() {
                           filter="url(#mask-feather)"
                         />
                         <ellipse
-                          cx="855"
+                          cx="910"
                           cy="100"
-                          rx="126"
+                          rx="86"
                           ry="96"
                           fill="black"
                           filter="url(#mask-feather)"
@@ -653,7 +850,11 @@ export default function RatoeiraHubPage() {
                       />
                     </g>
 
-                    <g style={{ animation: "coreBreath 2.7s ease-in-out infinite" }}>
+                    <g
+                      style={{
+                        animation: "coreBreath 2.7s ease-in-out infinite",
+                      }}
+                    >
                       <ellipse
                         cx="500"
                         cy="100"
@@ -686,7 +887,11 @@ export default function RatoeiraHubPage() {
                       </ellipse>
                     </g>
 
-                    <g filter="url(#blur)" opacity="0.52" mask="url(#energy-left)">
+                    <g
+                      filter="url(#blur)"
+                      opacity="0.52"
+                      mask="url(#energy-left)"
+                    >
                       <path
                         d="M0 88 C 260 88 360 28 500 28 C 640 28 740 88 1000 88"
                         stroke="#fde047"
@@ -737,7 +942,11 @@ export default function RatoeiraHubPage() {
                       />
                     </g>
 
-                    <g filter="url(#blur)" opacity="0.52" mask="url(#energy-right)">
+                    <g
+                      filter="url(#blur)"
+                      opacity="0.52"
+                      mask="url(#energy-right)"
+                    >
                       <path
                         d="M0 88 C 260 88 360 28 500 28 C 640 28 740 88 1000 88"
                         stroke="#fde047"
@@ -902,7 +1111,9 @@ export default function RatoeiraHubPage() {
                         strokeWidth="4"
                         strokeLinecap="round"
                         strokeDasharray="26 180"
-                        style={{ animation: "highlightL 1.15s linear infinite" }}
+                        style={{
+                          animation: "highlightL 1.15s linear infinite",
+                        }}
                       />
                       <path
                         d="M0 105 C 250 105 350 110 500 110 C 650 110 750 105 1000 105"
@@ -910,7 +1121,9 @@ export default function RatoeiraHubPage() {
                         strokeWidth="4.5"
                         strokeLinecap="round"
                         strokeDasharray="30 210"
-                        style={{ animation: "highlightL 1.35s linear infinite" }}
+                        style={{
+                          animation: "highlightL 1.35s linear infinite",
+                        }}
                       />
                       <path
                         d="M0 115 C 260 115 340 165 500 165 C 660 165 740 115 1000 115"
@@ -918,7 +1131,9 @@ export default function RatoeiraHubPage() {
                         strokeWidth="3.8"
                         strokeLinecap="round"
                         strokeDasharray="24 190"
-                        style={{ animation: "highlightL 1.25s linear infinite" }}
+                        style={{
+                          animation: "highlightL 1.25s linear infinite",
+                        }}
                       />
                     </g>
 
@@ -934,7 +1149,9 @@ export default function RatoeiraHubPage() {
                         strokeWidth="4"
                         strokeLinecap="round"
                         strokeDasharray="26 180"
-                        style={{ animation: "highlightR 1.15s linear infinite" }}
+                        style={{
+                          animation: "highlightR 1.15s linear infinite",
+                        }}
                       />
                       <path
                         d="M0 105 C 250 105 350 110 500 110 C 650 110 750 105 1000 105"
@@ -942,7 +1159,9 @@ export default function RatoeiraHubPage() {
                         strokeWidth="4.5"
                         strokeLinecap="round"
                         strokeDasharray="30 210"
-                        style={{ animation: "highlightR 1.35s linear infinite" }}
+                        style={{
+                          animation: "highlightR 1.35s linear infinite",
+                        }}
                       />
                       <path
                         d="M0 115 C 260 115 340 165 500 165 C 660 165 740 115 1000 115"
@@ -950,11 +1169,17 @@ export default function RatoeiraHubPage() {
                         strokeWidth="3.8"
                         strokeLinecap="round"
                         strokeDasharray="24 190"
-                        style={{ animation: "highlightR 1.25s linear infinite" }}
+                        style={{
+                          animation: "highlightR 1.25s linear infinite",
+                        }}
                       />
                     </g>
 
-                    <g filter="url(#blur)" opacity="0.24" mask="url(#all-energy-cutouts)">
+                    <g
+                      filter="url(#blur)"
+                      opacity="0.24"
+                      mask="url(#all-energy-cutouts)"
+                    >
                       <path
                         d="M0 88 C 260 88 360 28 500 28 C 640 28 740 88 1000 88"
                         stroke="#facc15"
