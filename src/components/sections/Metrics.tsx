@@ -22,7 +22,7 @@ const metrics = [
     iconColor: "text-emerald-400",
   },
   {
-    value: 76,
+    value: 85,
     suffix: "%",
     label: "atendimentos em até 10 minutos",
     description: "*no horário de atendimento",
