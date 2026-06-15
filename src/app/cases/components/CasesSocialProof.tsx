@@ -20,6 +20,7 @@ interface BaseCard {
   type: CardType;
   colSpan: string;
   rowSpan: string;
+  centered?: boolean;
 }
 
 interface AwardCard extends BaseCard {
@@ -27,6 +28,8 @@ interface AwardCard extends BaseCard {
   year: string;
   label: string;
   title: string;
+  image?: string;
+  position?: "top" | "center" | "bottom";
 }
 
 interface VideoLargeCard extends BaseCard {
@@ -42,6 +45,7 @@ interface AudioCard extends BaseCard {
   type: "audio";
   image: string;
   quote: string;
+  name?: string;
   description?: string;
 }
 
@@ -58,6 +62,7 @@ interface QuoteWideCard extends BaseCard {
   role: string;
   initial: string;
   image?: string;
+  nameColor?: "white" | "primary";
 }
 
 interface VideoSmallCard extends BaseCard {
@@ -72,6 +77,10 @@ interface ImageSmallCard extends BaseCard {
   image: string;
   quote: string;
   name: string;
+  fit?: "cover" | "contain";
+  aspectRatio?: string;
+  position?: "top" | "center" | "bottom";
+  overlay?: boolean;
 }
 
 interface QuoteSmallCard extends BaseCard {
@@ -115,6 +124,7 @@ const decks: SocialCard[][] = [
       image: "/depoimentos/depoimento1.jpeg",
       quote:
         "Estava usando a Clickmagic anteriormente. E agora com a Ratoeira, acho até mais simples o seu manuseio...",
+      name: "Maico Souza",
     },
     {
       type: "image-small",
@@ -133,6 +143,7 @@ const decks: SocialCard[][] = [
       role: "",
       initial: "L",
       image: "/depoimentos/depoimento5.jpeg",
+      nameColor: "primary",
     },
   ],
 
@@ -140,64 +151,43 @@ const decks: SocialCard[][] = [
   [
     {
       type: "award",
-      colSpan: "col-span-1 md:col-span-1",
-      rowSpan: "row-span-1",
-      year: "Reconhecimento 2026",
-      label: "Reconhecimento 2026",
-      title: "Melhor Ecossistema<br/>de Ads do Brasil",
-    },
-    {
-      type: "video-large",
       colSpan: "col-span-1 md:col-span-2",
       rowSpan: "row-span-2",
+      year: "",
+      label: "",
+      title: "",
       image: "/depoimentos/depoimento3.jpeg",
-      tag: "Depoimento",
-      name: "Rafael Borges",
-      role: "Gestor de Tráfego Profissional",
+      position: "bottom",
     },
     {
       type: "audio",
       colSpan: "col-span-1 md:col-span-1",
       rowSpan: "row-span-2",
       image: "/depoimentos/depoimento4.jpeg",
-      quote: "Melhor investimento que fiz no ano.",
-      description:
-        "Saí de planilhas manuais para automação total. O tempo que economizo paga a ferramenta sozinho.",
+      quote: "Com a Ratoeira tenho mais cliques qualificados",
     },
     {
-      type: "rating",
+      type: "image-small",
       colSpan: "col-span-1 md:col-span-1",
-      rowSpan: "row-span-1",
-      score: "4.9",
-      reviews: "Aprovado por +2.600 anunciantes.",
+      rowSpan: "row-span-2",
+      image: "/depoimentos/depoimento10.jpeg",
+      quote: "",
+      name: "",
+      fit: "cover",
+      position: "top",
+      aspectRatio: "706/1000",
+      overlay: false,
     },
     {
-      type: "quote-wide",
+      type: "image-small",
       colSpan: "col-span-1 md:col-span-2",
       rowSpan: "row-span-1",
-      quote:
-        "Nosso CAC caiu 35% em 60 dias com tracking limpo e páginas otimizadas. Resultado surreal.",
-      name: "André Lima",
-      role: "Diretor de Performance",
-      initial: "A",
-    },
-    {
-      type: "video-small",
-      colSpan: "col-span-1 md:col-span-1",
-      rowSpan: "row-span-1",
-      image: "/depoimentos/depoimento5.jpeg",
-      quote: "As páginas convertem o dobro do que convertiam antes.",
-      name: "Fernanda Souza",
-    },
-    {
-      type: "quote-small",
-      colSpan: "col-span-1 md:col-span-1",
-      rowSpan: "row-span-1",
-      quote:
-        "Finalmente tenho clareza de qual criativo vende de verdade. O dashboard é simplesmente brutal.",
-      name: "Rafael Borges",
-      role: "Gestor de Tráfego",
-      initial: "R",
+      image: "/depoimentos/depoimento9.jpeg",
+      quote: "",
+      name: "",
+      fit: "cover",
+      aspectRatio: "1600/712",
+      centered: true,
     },
   ],
 ];
@@ -206,15 +196,37 @@ const decks: SocialCard[][] = [
 function AwardCard({ card }: { card: AwardCard }) {
   return (
     <div className="bg-[#111111] border border-white/5 rounded-[32px] p-6 flex flex-col items-center justify-center text-center group hover:border-brand-primary/30 transition-colors relative overflow-hidden h-full">
-      <div className="absolute inset-0 bg-gradient-to-b from-brand-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-      <Award className="relative z-10 w-12 h-12 text-brand-primary mb-4" />
-      <p className="relative z-10 text-gray-400 text-xs font-semibold uppercase tracking-widest mb-2">
-        {card.label}
-      </p>
-      <h3
-        className="relative z-10 text-white font-bold text-lg leading-tight"
-        dangerouslySetInnerHTML={{ __html: card.title }}
-      />
+      {card.image ? (
+        <>
+          <Image
+            src={card.image}
+            alt={card.title}
+            fill
+            className={`object-cover ${
+              card.position === "top"
+                ? "object-top"
+                : card.position === "bottom"
+                ? "object-bottom"
+                : "object-center"
+            } transition-transform duration-700 group-hover:scale-105`}
+            sizes="(max-width: 768px) 100vw, 50vw"
+          />
+          <div className="absolute inset-0 bg-black/60" />
+        </>
+      ) : (
+        <div className="absolute inset-0 bg-gradient-to-b from-brand-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+      )}
+      {card.label && (
+        <p className="relative z-10 text-brand-primary text-xs font-semibold uppercase tracking-widest mb-2">
+          {card.label}
+        </p>
+      )}
+      {card.title && (
+        <h3
+          className="relative z-10 text-white font-bold text-lg leading-tight"
+          dangerouslySetInnerHTML={{ __html: card.title }}
+        />
+      )}
     </div>
   );
 }
@@ -292,6 +304,11 @@ function AudioCard({
         <p className="text-white font-bold leading-tight line-clamp-2">
           &ldquo;{card.quote}&rdquo;
         </p>
+        {card.name && (
+          <p className="text-brand-primary text-xs mt-2 font-semibold">
+            {card.name}
+          </p>
+        )}
       </div>
     </div>
   );
@@ -354,7 +371,7 @@ function QuoteWideCard({
           &ldquo;{card.quote}&rdquo;
         </p>
         <div>
-          <p className="text-white font-bold text-sm">{card.name}</p>
+          <p className={`font-bold text-sm ${card.nameColor === "primary" ? "text-brand-primary" : "text-white"}`}>{card.name}</p>
           {card.role && (
             <p className="text-gray-400 text-xs flex items-center gap-1">
               <CheckCircle2 className="w-3 h-3 text-emerald-500" />
@@ -404,25 +421,42 @@ function ImageSmallCard({
 }) {
   return (
     <div
-      className="bg-[#161616] border border-white/5 rounded-[32px] overflow-hidden relative group h-full cursor-pointer"
+      className={`bg-[#161616] border border-white/5 rounded-[32px] overflow-hidden relative group cursor-pointer ${card.aspectRatio ? "h-auto" : "h-full"}`}
+      style={card.aspectRatio ? { aspectRatio: card.aspectRatio } : undefined}
       onClick={() => onImageClick(card.image)}
     >
       <Image
         src={card.image}
         alt={`Depoimento ${card.name}`}
         fill
-        className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
+        className={`${
+          card.fit === "contain" ? "object-contain" : "object-cover"
+        } ${
+          card.position === "top"
+            ? "object-top"
+            : card.position === "bottom"
+            ? "object-bottom"
+            : "object-center"
+        } transition-transform duration-700 group-hover:scale-105`}
         sizes="(max-width: 768px) 100vw, 50vw"
       />
-      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
-      <div className="absolute bottom-0 left-0 w-full p-6">
-        <p className="text-white font-bold leading-tight line-clamp-2">
-          &ldquo;{card.quote}&rdquo;
-        </p>
-        <p className="text-brand-primary text-xs mt-2 font-semibold">
-          {card.name}
-        </p>
-      </div>
+      {card.overlay !== false && (
+        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
+      )}
+      {(card.quote || card.name) && (
+        <div className="absolute bottom-0 left-0 w-full p-6">
+          {card.quote && (
+            <p className="text-white font-bold leading-tight line-clamp-2">
+              &ldquo;{card.quote}&rdquo;
+            </p>
+          )}
+          {card.name && (
+            <p className="text-brand-primary text-xs mt-2 font-semibold">
+              {card.name}
+            </p>
+          )}
+        </div>
+      )}
     </div>
   );
 }
@@ -488,18 +522,17 @@ function CardSwitch({
 
 /* ─── Main Component ─── */
 export default function CasesSocialProof() {
-  const [deckIndex, setDeckIndex] = useState(0);
+  const [deckIndex, setDeckIndex] = useState(1);
   const [activeVideo, setActiveVideo] = useState<string | null>(null);
   const [activeImage, setActiveImage] = useState<string | null>(null);
 
-  /* Ciclo automático a cada 5 segundos - PAUSADO TEMPORARIAMENTE PARA EDIÇÃO 
+  /* Ciclo automático a cada 5 segundos */
   useEffect(() => {
     const timer = setInterval(() => {
       setDeckIndex((prev) => (prev + 1) % decks.length);
     }, 5000);
     return () => clearInterval(timer);
   }, []);
-  */
 
   return (
     <>
@@ -536,7 +569,7 @@ export default function CasesSocialProof() {
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.8 }}
               transition={{ duration: 0.5, ease: "easeInOut" }}
-              className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 auto-rows-[240px] sm:auto-rows-[280px] md:auto-rows-[240px]"
+              className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 auto-rows-[minmax(240px,auto)] sm:auto-rows-[minmax(280px,auto)] md:auto-rows-[minmax(240px,auto)]"
             >
               {decks[deckIndex].map((card, i) => (
                 <motion.div
@@ -548,7 +581,7 @@ export default function CasesSocialProof() {
                     delay: i * 0.07,
                     ease: "easeOut",
                   }}
-                  className={`${card.colSpan} ${card.rowSpan}`}
+                  className={`${card.colSpan} ${card.rowSpan} ${card.centered ? "md:col-start-2" : ""}`}
                 >
                   <CardSwitch
                     card={card}
