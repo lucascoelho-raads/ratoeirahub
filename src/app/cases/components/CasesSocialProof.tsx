@@ -14,7 +14,8 @@ type CardType =
   | "quote-wide"
   | "video-small"
   | "image-small"
-  | "quote-small";
+  | "quote-small"
+  | "youtube-short";
 
 interface BaseCard {
   type: CardType;
@@ -91,6 +92,15 @@ interface QuoteSmallCard extends BaseCard {
   initial: string;
 }
 
+interface YoutubeShortCard extends BaseCard {
+  type: "youtube-short";
+  url?: string;
+  videoSrc?: string;
+  thumbnail: string;
+  title: string;
+  speaker: string;
+}
+
 type SocialCard =
   | AwardCard
   | VideoLargeCard
@@ -99,44 +109,45 @@ type SocialCard =
   | QuoteWideCard
   | VideoSmallCard
   | ImageSmallCard
-  | QuoteSmallCard;
+  | QuoteSmallCard
+  | YoutubeShortCard;
+
+function getYouTubeId(url: string) {
+  const match = url.match(
+    /(?:youtube\.com\/shorts\/|youtube\.com\/watch\?v=|youtu\.be\/)([^/?&]+)/
+  );
+  return match ? match[1] : "";
+}
 
 /* ─── Data ─── */
 const decks: SocialCard[][] = [
-  // ── Deck A (original) ──
+  // ── Deck A ──
+  // Layout: 4 colunas x 2 linhas
+  // [ short | short | quote-wide(2) ]
+  // [ short | short | image-small(2) ]
   [
     {
-      type: "video-large",
-      colSpan: "col-span-1 md:col-span-1",
-      rowSpan: "row-span-2",
-      image:
-        "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+      type: "youtube-short",
+      colSpan: "col-span-1",
+      rowSpan: "row-span-1 sm:row-span-2 lg:row-span-2",
       videoSrc:
         "/depoimentos/Michael%20Pogne%20indica%20a%20Ratoeira%20Ads%20para%20afiliados.mp4",
-      tag: "Customer Story",
-      name: "Michel Pogne",
-      role: "Especialista em Tráfego Pago",
+      thumbnail: "/depoimentos/michel_pogne_thumb.jpg",
+      title: "Customer Story",
+      speaker: "Michel Pogne",
     },
     {
-      type: "audio",
-      colSpan: "col-span-1 md:col-span-3",
-      rowSpan: "row-span-1",
-      image: "/depoimentos/depoimento1.jpeg",
-      quote:
-        "Estava usando a Clickmagic anteriormente. E agora com a Ratoeira, acho até mais simples o seu manuseio...",
-      name: "Maico Souza",
-    },
-    {
-      type: "image-small",
-      colSpan: "col-span-1 md:col-span-3",
-      rowSpan: "row-span-1",
-      image: "/depoimentos/depoimento2.jpeg",
-      quote: "A ferramente é ótima!",
-      name: "Karina",
+      type: "youtube-short",
+      colSpan: "col-span-1",
+      rowSpan: "row-span-1 sm:row-span-2 lg:row-span-2",
+      url: "https://www.youtube.com/shorts/5edTCBZu-ds",
+      thumbnail: "https://img.youtube.com/vi/5edTCBZu-ds/maxresdefault.jpg",
+      title: "Depoimento 1",
+      speaker: "Amanda & Lígia - Fênix",
     },
     {
       type: "quote-wide",
-      colSpan: "col-span-1 md:col-span-4",
+      colSpan: "col-span-2",
       rowSpan: "row-span-1",
       quote: "faço gringa também, Buygoods, e não falhou nenhuma",
       name: "Larissa Gomes",
@@ -145,14 +156,25 @@ const decks: SocialCard[][] = [
       image: "/depoimentos/depoimento5.jpeg",
       nameColor: "primary",
     },
+    {
+      type: "image-small",
+      colSpan: "col-span-2",
+      rowSpan: "row-span-1",
+      image: "/depoimentos/depoimento2.jpeg",
+      quote: "A ferramente é ótima!",
+      name: "Karina",
+    },
   ],
 
-  // ── Deck B (novo) ──
+  // ── Deck B ──
+  // Layout: 4 colunas x 2 linhas
+  // [ award(2) | audio(2)          ]
+  // [ award(2) | short | short     ]
   [
     {
       type: "award",
-      colSpan: "col-span-1 md:col-span-2",
-      rowSpan: "row-span-2",
+      colSpan: "col-span-2",
+      rowSpan: "row-span-1 sm:row-span-2 lg:row-span-2",
       year: "",
       label: "",
       title: "",
@@ -161,33 +183,28 @@ const decks: SocialCard[][] = [
     },
     {
       type: "audio",
-      colSpan: "col-span-1 md:col-span-1",
-      rowSpan: "row-span-2",
+      colSpan: "col-span-2",
+      rowSpan: "row-span-1",
       image: "/depoimentos/depoimento4.jpeg",
       quote: "Com a Ratoeira tenho mais cliques qualificados",
     },
     {
-      type: "image-small",
-      colSpan: "col-span-1 md:col-span-1",
-      rowSpan: "row-span-2",
-      image: "/depoimentos/depoimento10.jpeg",
-      quote: "",
-      name: "",
-      fit: "cover",
-      position: "top",
-      aspectRatio: "706/1000",
-      overlay: false,
+      type: "youtube-short",
+      colSpan: "col-span-1",
+      rowSpan: "row-span-1 sm:row-span-2 lg:row-span-1",
+      url: "https://www.youtube.com/shorts/qdP5z0bFfP8",
+      thumbnail: "https://img.youtube.com/vi/qdP5z0bFfP8/maxresdefault.jpg",
+      title: "Depoimento 3",
+      speaker: "Jéssica Maciel",
     },
     {
-      type: "image-small",
-      colSpan: "col-span-1 md:col-span-2",
-      rowSpan: "row-span-1",
-      image: "/depoimentos/depoimento9.jpeg",
-      quote: "",
-      name: "",
-      fit: "cover",
-      aspectRatio: "1600/712",
-      centered: true,
+      type: "youtube-short",
+      colSpan: "col-span-1",
+      rowSpan: "row-span-1 sm:row-span-2 lg:row-span-1",
+      url: "https://www.youtube.com/shorts/04xowV0-fPw",
+      thumbnail: "https://img.youtube.com/vi/04xowV0-fPw/maxresdefault.jpg",
+      title: "Depoimento 4",
+      speaker: "Alexander Lopes",
     },
   ],
 ];
@@ -484,14 +501,53 @@ function QuoteSmallCard({ card }: { card: QuoteSmallCard }) {
   );
 }
 
+function YoutubeShortCard({
+  card,
+  onClick,
+}: {
+  card: YoutubeShortCard;
+  onClick: () => void;
+}) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      className="bg-[#161616] border border-white/5 rounded-[24px] sm:rounded-[32px] overflow-hidden relative group cursor-pointer h-full text-left w-full hover:border-brand-primary/30 transition-colors aspect-[9/16] sm:aspect-auto"
+    >
+      <Image
+        src={card.thumbnail}
+        alt={card.title}
+        fill
+        className="object-cover opacity-90 group-hover:opacity-100 transition-transform duration-700 group-hover:scale-105"
+        sizes="(max-width: 768px) 100vw, 25vw"
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+
+      <div className="absolute inset-0 flex items-center justify-center">
+        <div className="w-14 h-14 rounded-full bg-brand-primary text-black flex items-center justify-center pl-1 transform group-hover:scale-110 transition-transform shadow-lg shadow-brand-primary/20">
+          <Play className="w-5 h-5 fill-current" />
+        </div>
+      </div>
+
+      <div className="absolute bottom-0 left-0 w-full p-5">
+        <p className="text-white font-bold text-sm leading-tight">
+          {card.speaker}
+        </p>
+      </div>
+    </button>
+  );
+}
+
 function CardSwitch({
   card,
   onVideoClick,
   onImageClick,
+  onYouTubeShortClick,
 }: {
   card: SocialCard;
   onVideoClick: (src: string) => void;
   onImageClick: (src: string) => void;
+  onYouTubeShortClick: (videoId: string) => void;
 }) {
   switch (card.type) {
     case "award":
@@ -515,6 +571,17 @@ function CardSwitch({
       return <ImageSmallCard card={card} onImageClick={onImageClick} />;
     case "quote-small":
       return <QuoteSmallCard card={card} />;
+    case "youtube-short":
+      return (
+        <YoutubeShortCard
+          card={card}
+          onClick={() =>
+            card.videoSrc
+              ? onVideoClick(card.videoSrc)
+              : onYouTubeShortClick(getYouTubeId(card.url ?? ""))
+          }
+        />
+      );
     default:
       return null;
   }
@@ -522,9 +589,10 @@ function CardSwitch({
 
 /* ─── Main Component ─── */
 export default function CasesSocialProof() {
-  const [deckIndex, setDeckIndex] = useState(1);
+  const [deckIndex, setDeckIndex] = useState(0);
   const [activeVideo, setActiveVideo] = useState<string | null>(null);
   const [activeImage, setActiveImage] = useState<string | null>(null);
+  const [activeYouTubeShort, setActiveYouTubeShort] = useState<string | null>(null);
 
   /* Ciclo automático a cada 5 segundos */
   useEffect(() => {
@@ -569,7 +637,7 @@ export default function CasesSocialProof() {
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.8 }}
               transition={{ duration: 0.5, ease: "easeInOut" }}
-              className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 auto-rows-[minmax(240px,auto)] sm:auto-rows-[minmax(280px,auto)] md:auto-rows-[minmax(240px,auto)]"
+              className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-6 auto-rows-[minmax(180px,auto)] sm:auto-rows-[minmax(220px,auto)] lg:auto-rows-[minmax(200px,auto)]"
             >
               {decks[deckIndex].map((card, i) => (
                 <motion.div
@@ -581,12 +649,13 @@ export default function CasesSocialProof() {
                     delay: i * 0.07,
                     ease: "easeOut",
                   }}
-                  className={`${card.colSpan} ${card.rowSpan} ${card.centered ? "md:col-start-2" : ""}`}
+                  className={`${card.colSpan} ${card.rowSpan} ${card.centered ? "md:col-start-2" : ""} w-full h-full`}
                 >
                   <CardSwitch
                     card={card}
                     onVideoClick={setActiveVideo}
                     onImageClick={setActiveImage}
+                    onYouTubeShortClick={setActiveYouTubeShort}
                   />
                 </motion.div>
               ))}
@@ -624,6 +693,41 @@ export default function CasesSocialProof() {
                 autoPlay
                 playsInline
                 className="w-full h-full object-contain"
+              />
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* YouTube Short Modal */}
+      <AnimatePresence>
+        {activeYouTubeShort && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4 backdrop-blur-sm"
+            onClick={() => setActiveYouTubeShort(null)}
+          >
+            <motion.div
+              initial={{ scale: 0.95, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.95, opacity: 0 }}
+              className="relative w-full max-w-[400px] sm:max-w-[450px] md:max-w-[500px] h-[85vh] rounded-2xl overflow-hidden bg-black shadow-2xl border border-white/10"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button
+                onClick={() => setActiveYouTubeShort(null)}
+                className="absolute top-4 right-4 z-10 w-10 h-10 bg-black/50 hover:bg-black/80 backdrop-blur-md rounded-full flex items-center justify-center text-white transition-colors border border-white/10"
+              >
+                <X className="w-5 h-5" />
+              </button>
+              <iframe
+                src={`https://www.youtube.com/embed/${activeYouTubeShort}?autoplay=1&rel=0`}
+                title="YouTube Short"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="w-full h-full"
               />
             </motion.div>
           </motion.div>
