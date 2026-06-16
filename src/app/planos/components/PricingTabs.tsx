@@ -2,15 +2,7 @@
 
 import { useState, Fragment } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import {
-  Check,
-  Radar,
-  LayoutTemplate,
-  Link2,
-  X,
-  Info,
-  Minus,
-} from "lucide-react";
+import { Check, ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 import {
   useFloating,
@@ -28,698 +20,1097 @@ import {
 
 type PlanType = "ads" | "pages" | "hub";
 type BillingCycle = "monthly" | "semiannual" | "annual";
-type PlanFeatureValue = boolean | string | null;
 
-type PlanPrice = {
-  monthly: string;
-  semiannual: string;
-  annual: string;
-};
-
-type Plan = {
-  name: string;
-  description: string;
-  price: PlanPrice;
-  semiannualTotal?: string;
-  yearlyTotal?: string;
-  features: string[];
-  cta: string;
-  popular: boolean;
-};
-
-type FeatureRow = {
-  label: string;
-  tooltip?: string;
-  values: PlanFeatureValue[];
-};
-
-type FeatureGroup = {
-  group: string;
-  features: FeatureRow[];
-};
-
-const ADS_LIMITS_BY_PLAN: Record<
-  string,
-  { googleAdsProfiles: string; automaticTraps: string; integrations: string }
-> = {
-  Gratuito: { googleAdsProfiles: "1", automaticTraps: "1", integrations: "1" },
-  Rato: {
-    googleAdsProfiles: "3",
-    automaticTraps: "5",
-    integrations: "Ilimitadas",
+const TABS: { id: PlanType; label: string; icon: string; badge?: string }[] = [
+  {
+    id: "ads",
+    label: "Ratoeira Ads",
+    icon: "/icons/pricing/ads-icon.png",
   },
-  Ratazana: {
-    googleAdsProfiles: "10",
-    automaticTraps: "50",
-    integrations: "Ilimitadas",
+  {
+    id: "pages",
+    label: "Ratoeira Pages",
+    icon: "/icons/pricing/pages-icon.png",
   },
-  "Ratazana Plus": {
-    googleAdsProfiles: "30",
-    automaticTraps: "300",
-    integrations: "Ilimitadas",
+  {
+    id: "hub",
+    label: "Ratoeira Hub",
+    icon: "/icons/pricing/hub-icon.png",
+    badge: "RECOMENDADO",
   },
-};
-
-const PAGES_LIMITS_BY_PLAN: Record<
-  string,
-  { monthlyAccesses: string; connectedDomains: string; unlimitedPages: string }
-> = {
-  Gratuito: {
-    monthlyAccesses: "5.000",
-    connectedDomains: "1",
-    unlimitedPages: "2",
-  },
-  Rato: {
-    monthlyAccesses: "200.000",
-    connectedDomains: "10",
-    unlimitedPages: "Ilimitadas",
-  },
-  Ratazana: {
-    monthlyAccesses: "500.000",
-    connectedDomains: "20",
-    unlimitedPages: "Ilimitadas",
-  },
-  "Ratazana Plus": {
-    monthlyAccesses: "1.000.000",
-    connectedDomains: "40",
-    unlimitedPages: "Ilimitadas",
-  },
-};
-
-const tabs = [
-  { id: "ads", label: "Ratoeira Ads", icon: Radar },
-  { id: "pages", label: "Ratoeira Pages", icon: LayoutTemplate },
-  { id: "hub", label: "Ratoeira Hub", icon: Link2, badge: "Recomendado" },
 ];
 
-const plansData: Record<PlanType, Plan[]> = {
-  ads: [
-    {
-      name: "Gratuito",
-      description: "Para testar o rastreamento sem compromisso.",
-      price: {
-        monthly: "0",
-        semiannual: "0",
-        annual: "0",
-      },
-      features: [
-        "Até 1.000 eventos/mês",
-        "Tracking server-side básico",
-        "Bloqueio básico de fraudes",
-        "1 domínio customizado",
-        "Suporte por e-mail",
-      ],
-      cta: "Assinar Agora",
-      popular: false,
-    },
-    {
-      name: "Rato",
-      description: "Para quem está validando as primeiras campanhas.",
-      price: {
-        monthly: "167,00",
-        semiannual: "139,50",
-        annual: "124,75",
-      },
-      semiannualTotal: "837,00",
-      yearlyTotal: "1.497,00",
-      features: [
-        "Até 10.000 eventos/mês",
-        "Tracking server-side (CAPI)",
-        "Bloqueio básico de fraudes",
-        "1 domínio customizado",
-        "Suporte por e-mail",
-      ],
-      cta: "Assinar Rato",
-      popular: false,
-    },
-    {
-      name: "Ratazana",
-      description: "Para anunciantes que já escalam com consistência.",
-      price: {
-        monthly: "247,00",
-        semiannual: "199,50",
-        annual: "166,42",
-      },
-      semiannualTotal: "1.197,00",
-      yearlyTotal: "1.997,00",
-      features: [
-        "Até 50.000 eventos/mês",
-        "Tracking server-side avançado",
-        "Bloqueio avançado de fraudes e bots",
-        "3 domínios customizados",
-        "Suporte prioritário via WhatsApp",
-      ],
-      cta: "Assinar Ratazana",
-      popular: false,
-    },
-    {
-      name: "Ratazana Plus",
-      description: "Para operações robustas de alto volume.",
-      price: {
-        monthly: "397,00",
-        semiannual: "349,50",
-        annual: "333,08",
-      },
-      semiannualTotal: "2.097,00",
-      yearlyTotal: "3.997,00",
-      features: [
-        "Até 200.000 eventos/mês",
-        "Dashboard consolidado de ROI real",
-        "Bloqueio de IP dinâmico em tempo real",
-        "Domínios ilimitados",
-        "Gerente de conta dedicado",
-      ],
-      cta: "Assinar Ratazana Plus",
-      popular: true,
-    },
-  ],
-  pages: [
-    {
-      name: "Gratuito",
-      description: "Para publicar suas primeiras páginas.",
-      price: {
-        monthly: "0",
-        semiannual: "0",
-        annual: "0",
-      },
-      features: [
-        "Até 5.000 visitas/mês",
-        "Construtor Drag-and-Drop",
-        "3 templates de alta conversão",
-        "1 domínio customizado",
-        "Hospedagem inclusa",
-      ],
-      cta: "Assinar Agora",
-      popular: false,
-    },
-    {
-      name: "Rato",
-      description: "Ideal para testar ofertas rapidamente.",
-      price: {
-        monthly: "97,00",
-        semiannual: "82,83",
-        annual: "54,75",
-      },
-      semiannualTotal: "497,00",
-      yearlyTotal: "657,00",
-      features: [
-        "Até 5.000 visitas/mês",
-        "Construtor Drag-and-Drop",
-        "10 templates de alta conversão",
-        "1 domínio customizado",
-        "Hospedagem inclusa",
-      ],
-      cta: "Assinar Rato",
-      popular: false,
-    },
-    {
-      name: "Ratazana",
-      description: "Para múltiplos funis e alto tráfego.",
-      price: {
-        monthly: "117,00",
-        semiannual: "99,50",
-        annual: "73,08",
-      },
-      semiannualTotal: "597,00",
-      yearlyTotal: "877,00",
-      features: [
-        "Até 25.000 visitas/mês",
-        "Construtor avançado + IA",
-        "Todos os templates liberados",
-        "3 domínios customizados",
-        "Teste A/B nativo",
-      ],
-      cta: "Assinar Ratazana",
-      popular: false,
-    },
-    {
-      name: "Ratazana Plus",
-      description: "Sem limites para sua criatividade.",
-      price: {
-        monthly: "147,00",
-        semiannual: "132,83",
-        annual: "116,42",
-      },
-      semiannualTotal: "797,00",
-      yearlyTotal: "1.397,00",
-      features: [
-        "Até 100.000 visitas/mês",
-        "Geração de páginas por IA ilimitada",
-        "Acesso antecipado a novos templates",
-        "Domínios ilimitados",
-        "Suporte prioritário",
-      ],
-      cta: "Assinar Ratazana Plus",
-      popular: true,
-    },
-  ],
-  hub: [
-    {
-      name: "Gratuito",
-      description: "Conheça o ecossistema Ratoeira sem compromisso.",
-      price: {
-        monthly: "0",
-        semiannual: "0",
-        annual: "0",
-      },
-      features: [
-        "1 perfil Google Ads",
-        "1.000 eventos/mês",
-        "1 domínio customizado",
-        "Templates limitados",
-        "Suporte por e-mail",
-      ],
-      cta: "Assinar Agora",
-      popular: false,
-    },
-    {
-      name: "Rato",
-      description: "O combo ideal para iniciar sua escala integrada.",
-      price: {
-        monthly: "197,00",
-        semiannual: "182,83",
-        annual: "158,08",
-      },
-      semiannualTotal: "1.097,00",
-      yearlyTotal: "1.897,00",
-      features: [
-        "Ads Iniciante + Pages Starter",
-        "10.000 eventos + 5.000 visitas",
-        "Integração nativa (1 clique)",
-        "2 domínios unificados",
-        "Dashboard único de ROI",
-      ],
-      cta: "Assinar Rato",
-      popular: false,
-    },
-    {
-      name: "Ratazana",
-      description: "Tudo que o ecossistema Ratoeira pode oferecer.",
-      price: {
-        monthly: "297,00",
-        semiannual: "266,17",
-        annual: "208,08",
-      },
-      semiannualTotal: "1.597,00",
-      yearlyTotal: "2.497,00",
-      features: [
-        "Ads Profissional + Pages Growth",
-        "50.000 eventos + 25.000 visitas",
-        "Integração nativa avançada",
-        "Domínios ilimitados unificados",
-        "Suporte VIP WhatsApp",
-      ],
-      cta: "Assinar Ratazana",
-      popular: false,
-    },
-    {
-      name: "Ratazana Plus",
-      description: "Para agências e grandes infoprodutores.",
-      price: {
-        monthly: "497,00",
-        semiannual: "432,83",
-        annual: "416,42",
-      },
-      semiannualTotal: "2.597,00",
-      yearlyTotal: "4.997,00",
-      features: [
-        "Volume customizado de eventos/visitas",
-        "Infraestrutura dedicada",
-        "Onboarding com especialista",
-        "Desenvolvimento de features sob demanda",
-        "SLA garantido",
-      ],
-      cta: "Assinar Ratazana Plus",
-      popular: true,
-    },
-  ],
+const GOOGLE_ADS_LOGO = "/icons/pricing/google-ads.webp";
+const META_ADS_LOGO = "/icons/pricing/meta-ads.png";
+
+const PERIODS: { id: BillingCycle; label: string }[] = [
+  { id: "monthly", label: "Mensal" },
+  { id: "semiannual", label: "Semestral" },
+  { id: "annual", label: "Anual" },
+];
+
+const DESCRIPTIONS: Record<
+  PlanType,
+  Record<BillingCycle, [string, string, string]>
+> = {
+  ads: {
+    monthly: [
+      "Para quem está validando as primeiras campanhas.",
+      "Para anunciantes que já escalam com consistência.",
+      "Para operações robustas de alto volume.",
+    ],
+    semiannual: [
+      "Para quem está validando as primeiras campanhas.",
+      "Para anunciantes que já escalam com consistência.",
+      "Para operações robustas de alto volume.",
+    ],
+    annual: [
+      "Para quem está validando as primeiras campanhas.",
+      "Para anunciantes que já escalam com consistência.",
+      "Para operações robustas de alto volume.",
+    ],
+  },
+  pages: {
+    monthly: [
+      "Para quem está iniciando e precisa de mais páginas.",
+      "Ideal para te dar flexibilidade de domínios.",
+      "Plano ideal para não travar sua escala.",
+    ],
+    semiannual: [
+      "Para quem está iniciando e precisa de mais páginas.",
+      "Ideal para te dar flexibilidade de domínios.",
+      "Plano ideal para não travar sua escala.",
+    ],
+    annual: [
+      "Para quem está iniciando e precisa de mais páginas.",
+      "Ideal para te dar flexibilidade de domínios.",
+      "Plano ideal para não travar sua escala.",
+    ],
+  },
+  hub: {
+    monthly: [
+      "O combo ideal para iniciar sua escala integrada.",
+      "Ideal para ter flexibilidade de teste e escala.",
+      "Ideal para não travar sua escala.",
+    ],
+    semiannual: [
+      "O combo ideal para iniciar sua escala integrada.",
+      "Ideal para ter flexibilidade de teste e escala.",
+      "Ideal para não travar sua escala.",
+    ],
+    annual: [
+      "O combo ideal para iniciar sua escala integrada.",
+      "Ideal para ter flexibilidade de teste e escala.",
+      "Ideal para não travar sua escala.",
+    ],
+  },
 };
 
-const featureGroupsByTab: Record<PlanType, FeatureGroup[]> = {
-  ads: [
-    {
-      group: "Limites do\nPlano",
-      features: [
-        {
-          label: "E-Book de Estratégia Mensal",
-          tooltip:
-            "Receba todo mês um guia prático com estratégias validadas para escalar suas campanhas.",
-          values: [false, true, true, true],
-        },
-        {
-          label: "Produtos rastreados simultaneamente",
-          tooltip:
-            "Quantidade de produtos ou ofertas diferentes que você pode monitorar ao mesmo tempo.",
-          values: ["10", "50", "100", "300"],
-        },
-        {
-          label: "Produtos com conversão 100% automática",
-          tooltip:
-            "Produtos com setup de tracking totalmente automatizado via nossa integração.",
-          values: ["1", "5", "50", "300"],
-        },
-        {
-          label: "Integrações com plataformas",
-          tooltip:
-            "Conecte com Hotmart, Kiwify, PerfectPay e outras plataformas de pagamento.",
-          values: ["1", "Ilimitadas", "Ilimitadas", "Ilimitadas"],
-        },
-        {
-          label: "Perfis Google Ads conectados",
-          tooltip:
-            "Quantidade de MCCs ou contas do Google Ads vinculadas ao seu painel.",
-          values: ["1", "3", "10", "30"],
-        },
-        {
-          label: "Links de produtor automáticos",
-          tooltip:
-            "Links gerados automaticamente com todos os parâmetros UTM necessários.",
-          values: ["1", "5", "50", "50"],
-        },
-        {
-          label: "Contas de anúncio",
-          tooltip:
-            "Número de contas de anúncio individuais que podem enviar dados para a plataforma.",
-          values: [null, null, null, "Ilimitadas"],
-        },
-      ],
-    },
-    {
-      group: "Tracking &\nAnti-Fraude",
-      features: [
-        {
-          label: "Tracking server-side",
-          tooltip:
-            "Envio de conversões direto do servidor (CAPI) driblando bloqueadores de anúncios e iOS14.",
-          values: [true, true, true, true],
-        },
-        {
-          label: "Bloqueio de bots/fraudes",
-          tooltip:
-            "Filtro inteligente que impede cliques falsos de gastarem seu orçamento no Google.",
-          values: ["Básico", "Básico", "Avançado", "Tempo real"],
-        },
-        {
-          label: "Dashboard de ROI",
-          tooltip:
-            "Visão financeira unificada cruzando custo exato do anúncio vs. faturamento real.",
-          values: [null, null, true, true],
-        },
-        {
-          label: "Eventos por mês",
-          tooltip:
-            "Volume total de eventos (PageViews, Checkouts, Purchases) processados no período.",
-          values: ["1.000", "10.000", "50.000", "200.000+"],
-        },
-      ],
-    },
-    {
-      group: "Domínios &\nIntegrações",
-      features: [
-        {
-          label: "Domínios customizados",
-          tooltip:
-            "Use seu próprio domínio (ex: track.seusite.com) para maior confiança das plataformas.",
-          values: ["1", "1", "3", "Ilimitado"],
-        },
-        {
-          label: "Integrações nativas",
-          tooltip:
-            "Conexão em 1 clique com as principais plataformas do mercado digital.",
-          values: [true, true, true, true],
-        },
-        {
-          label: "Notificações",
-          tooltip:
-            "Receba alertas no WhatsApp ou Telegram sobre quedas de conversão e anomalias.",
-          values: [null, null, true, true],
-        },
-      ],
-    },
-    {
-      group: "Suporte",
-      features: [
-        {
-          label: "Suporte",
-          tooltip:
-            "Nível de prioridade e canal para resolução de dúvidas e problemas técnicos.",
-          values: ["E-mail", "E-mail", "WhatsApp", "Gerente dedicado"],
-        },
-        {
-          label: "Onboarding",
-          tooltip:
-            "Especialista dedicado para ajudar na configuração inicial da sua conta e campanhas.",
-          values: [null, null, true, true],
-        },
-      ],
-    },
-  ],
-  pages: [
-    {
-      group: "Limites do\nPlano",
-      features: [
-        {
-          label: "Hospedagem Grátis",
-          tooltip:
-            "Páginas hospedadas em infraestrutura premium de altíssima velocidade sem custo extra.",
-          values: [true, true, true, true],
-        },
-        {
-          label: "Domínios conectados",
-          tooltip:
-            "Quantidade de domínios diferentes que podem ser apontados para suas páginas.",
-          values: ["1", "10", "20", "40"],
-        },
-        {
-          label: "Acessos mensais",
-          tooltip:
-            "Limite de pageviews suportados por mês somando todas as suas páginas ativas.",
-          values: ["5.000", "200.000", "500.000", "1.000.000"],
-        },
-        {
-          label: "Páginas ilimitadas",
-          tooltip:
-            "Crie quantas landing pages, advertoriais ou presells quiser dentro do limite de acessos.",
-          values: ["2", "Ilimitadas", "Ilimitadas", "Ilimitadas"],
-        },
-        {
-          label: "Tutorial Passo a Passo",
-          tooltip:
-            "Acesso completo à nossa base de conhecimento em vídeo para criação de páginas.",
-          values: [true, true, true, true],
-        },
-        {
-          label: "Suporte Via WhatsApp",
-          tooltip:
-            "Atendimento rápido e direto com nossa equipe técnica pelo WhatsApp.",
-          values: [null, true, true, true],
-        },
-        {
-          label: "Domínio Customizado",
-          tooltip:
-            "Remova a marca Ratoeira e use a URL oficial da sua empresa.",
-          values: [true, true, true, true],
-        },
-        {
-          label: "1 E-Book Mensal",
-          tooltip:
-            "Material exclusivo mensal sobre copy e design focado em alta conversão.",
-          values: [null, "1", "1", "1"],
-        },
-      ],
-    },
-    {
-      group: "Construtor &\nTemplates",
-      features: [
-        {
-          label: "Drag-and-drop",
-          tooltip:
-            "Editor visual fácil: arraste, solte e edite os elementos sem precisar saber programar.",
-          values: [true, true, true, true],
-        },
-        {
-          label: "Templates",
-          tooltip:
-            "Acesso a modelos de páginas pré-prontos validados por grandes players do mercado.",
-          values: ["3", "10", "Todos", "Todos + antecipado"],
-        },
-        {
-          label: "Teste A/B",
-          tooltip:
-            "Crie variações da mesma página para descobrir qual converte mais automaticamente.",
-          values: [null, null, true, true],
-        },
-        {
-          label: "Geração por IA",
-          tooltip:
-            "Deixe nossa Inteligência Artificial escrever copys inteiras e montar seções para você.",
-          values: [null, null, true, "Ilimitado"],
-        },
-      ],
-    },
-    {
-      group: "Performance &\nDomínios",
-      features: [
-        {
-          label: "Visitas por mês",
-          tooltip:
-            "Tráfego suportado pela CDN de alta performance antes de taxas adicionais.",
-          values: ["5.000", "5.000", "25.000", "100.000+"],
-        },
-        {
-          label: "Domínios customizados",
-          tooltip:
-            "Quantidade de URLs próprias que você pode publicar sem subdomínios.",
-          values: ["1", "1", "3", "Ilimitado"],
-        },
-        {
-          label: "Hospedagem inclusa",
-          tooltip:
-            "Servidores globais (Edge Computing) garantindo abertura em menos de 1 segundo.",
-          values: [true, true, true, true],
-        },
-      ],
-    },
-    {
-      group: "Suporte",
-      features: [
-        {
-          label: "Suporte",
-          tooltip:
-            "Canal e velocidade de resposta para te ajudar com dúvidas de configuração.",
-          values: ["E-mail", "Padrão", "Prioritário", "Prioritário"],
-        },
-        {
-          label: "Onboarding",
-          tooltip:
-            "Reunião guiada para publicar sua primeira página de alta conversão sem erros.",
-          values: [null, null, true, true],
-        },
-      ],
-    },
-  ],
-  hub: [
-    {
-      group: "Ecossistema\nCompleto",
-      features: [
-        {
-          label: "Tracking + Pages",
-          tooltip:
-            "Suas páginas já nascem com o pixel do Ratoeira Ads injetado nativamente.",
-          values: [true, true, true, true],
-        },
-        {
-          label: "Dashboard unificado",
-          tooltip:
-            "Veja o tráfego da página e as conversões do Ads em uma única tela.",
-          values: [null, true, true, true],
-        },
-        {
-          label: "Integrações",
-          tooltip:
-            "Conecte facilmente o ecossistema com CRMs, e-mail marketing e gateways.",
-          values: [null, true, true, true],
-        },
-      ],
-    },
-    {
-      group: "Limites",
-      features: [
-        {
-          label: "Eventos por mês",
-          tooltip: "Capacidade mensal de rastreamento no módulo Ratoeira Ads.",
-          values: ["1.000", "10.000", "50.000", "Custom"],
-        },
-        {
-          label: "Visitas por mês",
-          tooltip:
-            "Capacidade mensal de tráfego suportado no módulo Ratoeira Pages.",
-          values: ["1.000", "5.000", "25.000", "Custom"],
-        },
-        {
-          label: "Domínios",
-          tooltip:
-            "Limite unificado de URLs customizadas aplicáveis a ambas as ferramentas.",
-          values: ["1", "2", "Ilimitado", "Ilimitado"],
-        },
-      ],
-    },
-    {
-      group: "Suporte",
-      features: [
-        {
-          label: "Suporte",
-          tooltip:
-            "Acesso aos especialistas para os dois produtos do ecossistema.",
-          values: ["E-mail", "Padrão", "VIP", "SLA + dedicado"],
-        },
-        {
-          label: "Onboarding",
-          tooltip:
-            "Implantação completa do tracking e das páginas com ajuda do nosso time.",
-          values: [null, true, true, true],
-        },
-      ],
-    },
-  ],
+// Source: /tmp/pricing_cards.json
+const PRICING_CARDS: PricingCard[] = [
+  {
+    index: 1,
+    product: "ads",
+    cycle: "monthly",
+    name: "Rato",
+    badge: "",
+    inst: "",
+    val: "167,00",
+    per: "/mês",
+    avista: "",
+    cta: "Assinar Rato",
+    limits: [
+      ["Ratoeiras Totais", "50"],
+      ["Ratoeiras Automáticas", "5"],
+      ["Integrações / Webhooks", "Ilimitado"],
+      ["Perfis/E-mail Google Ads", "3"],
+    ],
+    platforms: [
+      ["Google Ads", "10"],
+      ["Meta Ads", "Em Breve"],
+    ],
+    hub_subs: [],
+  },
+  {
+    index: 2,
+    product: "ads",
+    cycle: "monthly",
+    name: "Ratazana",
+    badge: "MAIS ESCOLHIDO",
+    inst: "",
+    val: "247,00",
+    per: "/mês",
+    avista: "",
+    cta: "Assinar Ratazana",
+    limits: [
+      ["Ratoeiras Totais", "100"],
+      ["Ratoeiras Automáticas", "50"],
+      ["Integrações / Webhooks", "Ilimitado"],
+      ["Perfis/E-mail Google Ads", "10"],
+    ],
+    platforms: [
+      ["Google Ads", "20"],
+      ["Meta Ads", "Em Breve"],
+    ],
+    hub_subs: [],
+  },
+  {
+    index: 3,
+    product: "ads",
+    cycle: "monthly",
+    name: "Ratazana Plus",
+    badge: "MELHOR PREÇO",
+    inst: "",
+    val: "397,00",
+    per: "/mês",
+    avista: "",
+    cta: "Assinar Ratazana Plus",
+    limits: [
+      ["Ratoeiras Totais", "300"],
+      ["Ratoeiras Automáticas", "300"],
+      ["Integrações / Webhooks", "Ilimitado"],
+      ["Perfis/E-mail Google Ads", "30"],
+    ],
+    platforms: [
+      ["Google Ads", "Ilimitado"],
+      ["Meta Ads", "Em Breve"],
+    ],
+    hub_subs: [],
+  },
+  {
+    index: 4,
+    product: "ads",
+    cycle: "semiannual",
+    name: "Rato",
+    badge: "",
+    inst: "6X",
+    val: "149,52",
+    per: "/mês",
+    avista: "por R$797,00 à vista",
+    cta: "Assinar Rato",
+    limits: [
+      ["Ratoeiras Totais", "50"],
+      ["Ratoeiras Automáticas", "5"],
+      ["Integrações / Webhooks", "Ilimitado"],
+      ["Perfis/E-mail Google Ads", "3"],
+    ],
+    platforms: [
+      ["Google Ads", "10"],
+      ["Meta Ads", "Em Breve"],
+    ],
+    hub_subs: [],
+  },
+  {
+    index: 5,
+    product: "ads",
+    cycle: "semiannual",
+    name: "Ratazana",
+    badge: "MAIS ESCOLHIDO",
+    inst: "6X",
+    val: "205,80",
+    per: "/mês",
+    avista: "por R$1.097,00 à vista",
+    cta: "Assinar Ratazana",
+    limits: [
+      ["Ratoeiras Totais", "100"],
+      ["Ratoeiras Automáticas", "50"],
+      ["Integrações / Webhooks", "Ilimitado"],
+      ["Perfis/E-mail Google Ads", "10"],
+    ],
+    platforms: [
+      ["Google Ads", "20"],
+      ["Meta Ads", "Em Breve"],
+    ],
+    hub_subs: [],
+  },
+  {
+    index: 6,
+    product: "ads",
+    cycle: "semiannual",
+    name: "Ratazana Plus",
+    badge: "MELHOR PREÇO",
+    inst: "6X",
+    val: "349,50",
+    per: "/mês",
+    avista: "por R$2.097,00 à vista",
+    cta: "Assinar Ratazana Plus",
+    limits: [
+      ["Ratoeiras Totais", "300"],
+      ["Ratoeiras Automáticas", "300"],
+      ["Integrações / Webhooks", "Ilimitado"],
+      ["Perfis/E-mail Google Ads", "30"],
+    ],
+    platforms: [
+      ["Google Ads", "Ilimitado"],
+      ["Meta Ads", "Em Breve"],
+    ],
+    hub_subs: [],
+  },
+  {
+    index: 7,
+    product: "ads",
+    cycle: "annual",
+    name: "Rato",
+    badge: "",
+    inst: "12X",
+    val: "139,31",
+    per: "/mês",
+    avista: "por R$1.347,00 à vista",
+    cta: "Assinar Rato",
+    limits: [
+      ["Ratoeiras Totais", "50"],
+      ["Ratoeiras Automáticas", "5"],
+      ["Integrações / Webhooks", "Ilimitado"],
+      ["Perfis/E-mail Google Ads", "3"],
+    ],
+    platforms: [
+      ["Google Ads", "10"],
+      ["Meta Ads", "Em Breve"],
+    ],
+    hub_subs: [],
+  },
+  {
+    index: 8,
+    product: "ads",
+    cycle: "annual",
+    name: "Ratazana",
+    badge: "MAIS ESCOLHIDO",
+    inst: "12X",
+    val: "185,85",
+    per: "/mês",
+    avista: "por R$1.797,00 à vista",
+    cta: "Assinar Ratazana",
+    limits: [
+      ["Ratoeiras Totais", "100"],
+      ["Ratoeiras Automáticas", "50"],
+      ["Integrações / Webhooks", "Ilimitado"],
+      ["Perfis/E-mail Google Ads", "10"],
+    ],
+    platforms: [
+      ["Google Ads", "20"],
+      ["Meta Ads", "Em Breve"],
+    ],
+    hub_subs: [],
+  },
+  {
+    index: 9,
+    product: "ads",
+    cycle: "annual",
+    name: "Ratazana Plus",
+    badge: "MELHOR PREÇO",
+    inst: "12X",
+    val: "333,08",
+    per: "/mês",
+    avista: "por R$3.997,00 à vista",
+    cta: "Assinar Ratazana Plus",
+    limits: [
+      ["Ratoeiras Totais", "300"],
+      ["Ratoeiras Automáticas", "300"],
+      ["Integrações / Webhooks", "Ilimitado"],
+      ["Perfis/E-mail Google Ads", "30"],
+    ],
+    platforms: [
+      ["Google Ads", "Ilimitado"],
+      ["Meta Ads", "Em Breve"],
+    ],
+    hub_subs: [],
+  },
+  {
+    index: 10,
+    product: "pages",
+    cycle: "monthly",
+    name: "Rato",
+    badge: "",
+    inst: "",
+    val: "97,00",
+    per: "/mês",
+    avista: "",
+    cta: "Assinar Rato",
+    limits: [
+      ["Acessos mensais", "200.000"],
+      ["Domínios", "10"],
+      ["Páginas", "Ilimitadas"],
+      ["Hospedagem Grátis", "Ilimitada"],
+      ["Conexão com IA", "20"],
+      ["Regras de Tráfego", "20"],
+      ["Site COD", "5"],
+    ],
+    platforms: [],
+    hub_subs: [],
+  },
+  {
+    index: 11,
+    product: "pages",
+    cycle: "monthly",
+    name: "Ratazana",
+    badge: "MAIS ESCOLHIDO",
+    inst: "",
+    val: "117,00",
+    per: "/mês",
+    avista: "",
+    cta: "Assinar Ratazana",
+    limits: [
+      ["Acessos mensais", "500.000"],
+      ["Domínios", "20"],
+      ["Páginas", "Ilimitadas"],
+      ["Hospedagem Grátis", "Ilimitada"],
+      ["Conexão com IA", "50"],
+      ["Regras de Tráfego", "50"],
+      ["Site COD", "10"],
+    ],
+    platforms: [],
+    hub_subs: [],
+  },
+  {
+    index: 12,
+    product: "pages",
+    cycle: "monthly",
+    name: "Ratazana Plus",
+    badge: "MELHOR PREÇO",
+    inst: "",
+    val: "147,00",
+    per: "/mês",
+    avista: "",
+    cta: "Assinar Ratazana Plus",
+    limits: [
+      ["Acessos mensais", "1.000.000"],
+      ["Domínios", "40"],
+      ["Páginas", "Ilimitadas"],
+      ["Hospedagem Grátis", "Ilimitada"],
+      ["Conexão com IA", "100"],
+      ["Regras de Tráfego", "100"],
+      ["Site COD", "20"],
+    ],
+    platforms: [],
+    hub_subs: [],
+  },
+  {
+    index: 13,
+    product: "pages",
+    cycle: "semiannual",
+    name: "Rato",
+    badge: "",
+    inst: "6X",
+    val: "82,83",
+    per: "/mês",
+    avista: "ou R$497,00 à vista",
+    cta: "Assinar Rato",
+    limits: [
+      ["Acessos mensais", "200.000"],
+      ["Domínios", "10"],
+      ["Páginas", "Ilimitadas"],
+      ["Hospedagem Grátis", "Ilimitada"],
+      ["Conexão com IA", "20"],
+      ["Regras de Tráfego", "20"],
+      ["Site COD", "5"],
+    ],
+    platforms: [],
+    hub_subs: [],
+  },
+  {
+    index: 14,
+    product: "pages",
+    cycle: "semiannual",
+    name: "Ratazana",
+    badge: "MAIS ESCOLHIDO",
+    inst: "6X",
+    val: "99,50",
+    per: "/mês",
+    avista: "ou R$597,00 à vista",
+    cta: "Assinar Ratazana",
+    limits: [
+      ["Acessos mensais", "500.000"],
+      ["Domínios", "20"],
+      ["Páginas", "Ilimitadas"],
+      ["Hospedagem Grátis", "Ilimitada"],
+      ["Conexão com IA", "50"],
+      ["Regras de Tráfego", "50"],
+      ["Site COD", "10"],
+    ],
+    platforms: [],
+    hub_subs: [],
+  },
+  {
+    index: 15,
+    product: "pages",
+    cycle: "semiannual",
+    name: "Ratazana Plus",
+    badge: "MELHOR PREÇO",
+    inst: "6X",
+    val: "132,83",
+    per: "/mês",
+    avista: "ou R$797,00 à vista",
+    cta: "Assinar Ratazana Plus",
+    limits: [
+      ["Acessos mensais", "1.000.000"],
+      ["Domínios", "40"],
+      ["Páginas", "Ilimitadas"],
+      ["Hospedagem Grátis", "Ilimitada"],
+      ["Conexão com IA", "100"],
+      ["Regras de Tráfego", "100"],
+      ["Site COD", "20"],
+    ],
+    platforms: [],
+    hub_subs: [],
+  },
+  {
+    index: 16,
+    product: "pages",
+    cycle: "annual",
+    name: "Rato",
+    badge: "",
+    inst: "12X",
+    val: "54,75",
+    per: "/mês",
+    avista: "ou R$657,00 à vista",
+    cta: "Assinar Rato",
+    limits: [
+      ["Acessos mensais", "200.000"],
+      ["Domínios", "10"],
+      ["Páginas", "Ilimitadas"],
+      ["Hospedagem Grátis", "Ilimitada"],
+      ["Conexão com IA", "20"],
+      ["Regras de Tráfego", "20"],
+      ["Site COD", "5"],
+    ],
+    platforms: [],
+    hub_subs: [],
+  },
+  {
+    index: 17,
+    product: "pages",
+    cycle: "annual",
+    name: "Ratazana",
+    badge: "MAIS ESCOLHIDO",
+    inst: "12X",
+    val: "73,08",
+    per: "/mês",
+    avista: "ou R$877,00 à vista",
+    cta: "Assinar Ratazana",
+    limits: [
+      ["Acessos mensais", "500.000"],
+      ["Domínios", "20"],
+      ["Páginas", "Ilimitadas"],
+      ["Hospedagem Grátis", "Ilimitada"],
+      ["Conexão com IA", "50"],
+      ["Regras de Tráfego", "50"],
+      ["Site COD", "10"],
+    ],
+    platforms: [],
+    hub_subs: [],
+  },
+  {
+    index: 18,
+    product: "pages",
+    cycle: "annual",
+    name: "Ratazana Plus",
+    badge: "MELHOR PREÇO",
+    inst: "12X",
+    val: "116,42",
+    per: "/mês",
+    avista: "ou R$1.397,00 à vista",
+    cta: "Assinar Ratazana Plus",
+    limits: [
+      ["Acessos mensais", "1.000.000"],
+      ["Domínios", "40"],
+      ["Páginas", "Ilimitadas"],
+      ["Hospedagem Grátis", "Ilimitada"],
+      ["Conexão com IA", "100"],
+      ["Regras de Tráfego", "100"],
+      ["Site COD", "20"],
+    ],
+    platforms: [],
+    hub_subs: [],
+  },
+  {
+    index: 19,
+    product: "hub",
+    cycle: "monthly",
+    name: "Rato",
+    badge: "",
+    inst: "",
+    val: "197,00",
+    per: "/mês",
+    avista: "",
+    cta: "Assinar Rato",
+    limits: [
+      ["Ratoeiras Totais", "50"],
+      ["Ratoeiras Automáticas", "5"],
+      ["Integrações / Webhooks", "Ilimitado"],
+      ["Perfis/E-mail Google Ads", "3"],
+      ["Acessos mensais", "200.000"],
+      ["Domínios", "10"],
+      ["Páginas", "Ilimitadas"],
+      ["Hospedagem Grátis", "Ilimitada"],
+    ],
+    platforms: [
+      ["Google Ads", "10"],
+      ["Meta Ads", "Em Breve"],
+    ],
+    hub_subs: ["RATOEIRA ADS", "RATOEIRA PAGES"],
+  },
+  {
+    index: 20,
+    product: "hub",
+    cycle: "monthly",
+    name: "Ratazana",
+    badge: "MAIS ESCOLHIDO",
+    inst: "",
+    val: "297,00",
+    per: "/mês",
+    avista: "",
+    cta: "Assinar Ratazana",
+    limits: [
+      ["Ratoeiras Totais", "100"],
+      ["Ratoeiras Automáticas", "50"],
+      ["Integrações / Webhooks", "Ilimitado"],
+      ["Perfis/E-mail Google Ads", "10"],
+      ["Acessos mensais", "500.000"],
+      ["Domínios", "20"],
+      ["Páginas", "Ilimitadas"],
+      ["Hospedagem Grátis", "Ilimitada"],
+    ],
+    platforms: [
+      ["Google Ads", "20"],
+      ["Meta Ads", "Em Breve"],
+    ],
+    hub_subs: ["RATOEIRA ADS", "RATOEIRA PAGES"],
+  },
+  {
+    index: 21,
+    product: "hub",
+    cycle: "monthly",
+    name: "Ratazana Plus",
+    badge: "MELHOR PREÇO",
+    inst: "",
+    val: "497,00",
+    per: "/mês",
+    avista: "",
+    cta: "Assinar Ratazana Plus",
+    limits: [
+      ["Ratoeiras Totais", "300"],
+      ["Ratoeiras Automáticas", "300"],
+      ["Integrações / Webhooks", "Ilimitado"],
+      ["Perfis/E-mail Google Ads", "30"],
+      ["Acessos mensais", "1.000.000"],
+      ["Domínios", "40"],
+      ["Páginas", "Ilimitadas"],
+      ["Hospedagem Grátis", "Ilimitada"],
+    ],
+    platforms: [
+      ["Google Ads", "Ilimitado"],
+      ["Meta Ads", "Em Breve"],
+    ],
+    hub_subs: ["RATOEIRA ADS", "RATOEIRA PAGES"],
+  },
+  {
+    index: 22,
+    product: "hub",
+    cycle: "semiannual",
+    name: "Rato",
+    badge: "",
+    inst: "6X",
+    val: "182,83",
+    per: "/mês",
+    avista: "ou R$1.097,00 à vista",
+    cta: "Assinar Rato",
+    limits: [
+      ["Ratoeiras Totais", "50"],
+      ["Ratoeiras Automáticas", "5"],
+      ["Integrações / Webhooks", "Ilimitado"],
+      ["Perfis/E-mail Google Ads", "3"],
+      ["Acessos mensais", "200.000"],
+      ["Domínios", "10"],
+      ["Páginas", "Ilimitadas"],
+      ["Hospedagem Grátis", "Ilimitada"],
+    ],
+    platforms: [
+      ["Google Ads", "10"],
+      ["Meta Ads", "Em Breve"],
+    ],
+    hub_subs: ["RATOEIRA ADS", "RATOEIRA PAGES"],
+  },
+  {
+    index: 23,
+    product: "hub",
+    cycle: "semiannual",
+    name: "Ratazana",
+    badge: "MAIS ESCOLHIDO",
+    inst: "6X",
+    val: "266,17",
+    per: "/mês",
+    avista: "ou R$1.597,00 à vista",
+    cta: "Assinar Ratazana",
+    limits: [
+      ["Ratoeiras Totais", "100"],
+      ["Ratoeiras Automáticas", "50"],
+      ["Integrações / Webhooks", "Ilimitado"],
+      ["Perfis/E-mail Google Ads", "10"],
+      ["Acessos mensais", "500.000"],
+      ["Domínios", "20"],
+      ["Páginas", "Ilimitadas"],
+      ["Hospedagem Grátis", "Ilimitada"],
+    ],
+    platforms: [
+      ["Google Ads", "20"],
+      ["Meta Ads", "Em Breve"],
+    ],
+    hub_subs: ["RATOEIRA ADS", "RATOEIRA PAGES"],
+  },
+  {
+    index: 24,
+    product: "hub",
+    cycle: "semiannual",
+    name: "Ratazana Plus",
+    badge: "MELHOR PREÇO",
+    inst: "6X",
+    val: "432,83",
+    per: "/mês",
+    avista: "ou R$2.497,00 à vista",
+    cta: "Assinar Ratazana Plus",
+    limits: [
+      ["Ratoeiras Totais", "300"],
+      ["Ratoeiras Automáticas", "300"],
+      ["Integrações / Webhooks", "Ilimitado"],
+      ["Perfis/E-mail Google Ads", "30"],
+      ["Acessos mensais", "1.000.000"],
+      ["Domínios", "40"],
+      ["Páginas", "Ilimitadas"],
+      ["Hospedagem Grátis", "Ilimitada"],
+    ],
+    platforms: [
+      ["Google Ads", "Ilimitado"],
+      ["Meta Ads", "Em Breve"],
+    ],
+    hub_subs: ["RATOEIRA ADS", "RATOEIRA PAGES"],
+  },
+  {
+    index: 25,
+    product: "hub",
+    cycle: "annual",
+    name: "Rato",
+    badge: "",
+    inst: "12X",
+    val: "158,08",
+    per: "/mês",
+    avista: "ou R$1.897,00 à vista",
+    cta: "Assinar Rato",
+    limits: [
+      ["Ratoeiras Totais", "50"],
+      ["Ratoeiras Automáticas", "5"],
+      ["Integrações / Webhooks", "Ilimitado"],
+      ["Perfis/E-mail Google Ads", "3"],
+      ["Acessos mensais", "200.000"],
+      ["Domínios", "10"],
+      ["Páginas", "Ilimitadas"],
+      ["Hospedagem Grátis", "Ilimitada"],
+    ],
+    platforms: [
+      ["Google Ads", "10"],
+      ["Meta Ads", "Em Breve"],
+    ],
+    hub_subs: ["RATOEIRA ADS", "RATOEIRA PAGES"],
+  },
+  {
+    index: 26,
+    product: "hub",
+    cycle: "annual",
+    name: "Ratazana",
+    badge: "MAIS ESCOLHIDO",
+    inst: "12X",
+    val: "208,08",
+    per: "/mês",
+    avista: "ou R$2.497,00 à vista",
+    cta: "Assinar Ratazana",
+    limits: [
+      ["Ratoeiras Totais", "100"],
+      ["Ratoeiras Automáticas", "50"],
+      ["Integrações / Webhooks", "Ilimitado"],
+      ["Perfis/E-mail Google Ads", "10"],
+      ["Acessos mensais", "500.000"],
+      ["Domínios", "20"],
+      ["Páginas", "Ilimitadas"],
+      ["Hospedagem Grátis", "Ilimitada"],
+    ],
+    platforms: [
+      ["Google Ads", "20"],
+      ["Meta Ads", "Em Breve"],
+    ],
+    hub_subs: ["RATOEIRA ADS", "RATOEIRA PAGES"],
+  },
+  {
+    index: 27,
+    product: "hub",
+    cycle: "annual",
+    name: "Ratazana Plus",
+    badge: "MELHOR PREÇO",
+    inst: "12X",
+    val: "416,42",
+    per: "/mês",
+    avista: "ou R$4.997,00 à vista",
+    cta: "Assinar Ratazana Plus",
+    limits: [
+      ["Ratoeiras Totais", "300"],
+      ["Ratoeiras Automáticas", "300"],
+      ["Integrações / Webhooks", "Ilimitado"],
+      ["Perfis/E-mail Google Ads", "30"],
+      ["Acessos mensais", "1.000.000"],
+      ["Domínios", "40"],
+      ["Páginas", "Ilimitadas"],
+      ["Hospedagem Grátis", "Ilimitada"],
+    ],
+    platforms: [
+      ["Google Ads", "Ilimitado"],
+      ["Meta Ads", "Em Breve"],
+    ],
+    hub_subs: ["RATOEIRA ADS", "RATOEIRA PAGES"],
+  },
+];
+
+type PricingCard = {
+  index: number;
+  product: PlanType;
+  cycle: BillingCycle;
+  name: string;
+  badge: string;
+  inst: string;
+  val: string;
+  per: string;
+  avista: string;
+  cta: string;
+  limits: [string, string][];
+  platforms: [string, string][];
+  hub_subs: string[];
 };
 
-function PremiumValueBadge({ value }: { value: string }) {
-  const v = value.trim();
+type CompareRow =
+  | { type: "section"; target: string; label: string }
+  | {
+      type: "row";
+      section: string;
+      label: string;
+      rato: string;
+      ratazana: string;
+      ratazana_plus: string;
+    };
 
-  const isCustom = /custom/i.test(v);
-  const isUnlimited = /ilimitad/i.test(v);
-  const isSupportTier = ["VIP", "SLA + dedicado", "E-mail", "Padrão"].includes(
-    v,
-  );
+// Source: /tmp/pricing_compare.json
+const COMPARE_ROWS: CompareRow[] = [
+  { type: "section", target: "rows-ads", label: "Ratoeira Ads" },
+  { type: "section", target: "rows-pgs", label: "Ratoeira Pages" },
+  { type: "section", target: "rows-hub", label: "Ratoeira Hub" },
+  {
+    type: "row",
+    section: "rows-ads",
+    label: "Ratoeiras Totais",
+    rato: "50",
+    ratazana: "100",
+    ratazana_plus: "300",
+  },
+  {
+    type: "row",
+    section: "rows-ads",
+    label: "Ratoeiras Automáticas",
+    rato: "5",
+    ratazana: "50",
+    ratazana_plus: "300",
+  },
+  {
+    type: "row",
+    section: "rows-ads",
+    label: "Integrações / Webhooks",
+    rato: "Ilimitado",
+    ratazana: "Ilimitado",
+    ratazana_plus: "Ilimitado",
+  },
+  {
+    type: "row",
+    section: "rows-ads",
+    label: "Perfis/E-mail Google Ads",
+    rato: "3",
+    ratazana: "10",
+    ratazana_plus: "30",
+  },
+  {
+    type: "row",
+    section: "rows-ads",
+    label: "Contas Google Ads",
+    rato: "10",
+    ratazana: "20",
+    ratazana_plus: "Ilimitado",
+  },
+  {
+    type: "row",
+    section: "rows-ads",
+    label: "Contas Meta Ads",
+    rato: "Em Breve",
+    ratazana: "Em Breve",
+    ratazana_plus: "Em Breve",
+  },
+  {
+    type: "row",
+    section: "rows-ads",
+    label: "Gerenciador Integrado",
+    rato: "",
+    ratazana: "",
+    ratazana_plus: "",
+  },
+  {
+    type: "row",
+    section: "rows-ads",
+    label: "Dashboard Financeiro",
+    rato: "",
+    ratazana: "",
+    ratazana_plus: "",
+  },
+  {
+    type: "row",
+    section: "rows-ads",
+    label: "Acesso aos leads",
+    rato: "",
+    ratazana: "",
+    ratazana_plus: "",
+  },
+  {
+    type: "row",
+    section: "rows-ads",
+    label: "Analytics Avançado",
+    rato: "",
+    ratazana: "",
+    ratazana_plus: "",
+  },
+  {
+    type: "row",
+    section: "rows-ads",
+    label: "Aulas e tutoriais",
+    rato: "",
+    ratazana: "",
+    ratazana_plus: "",
+  },
+  {
+    type: "row",
+    section: "rows-ads",
+    label: "Integração com IA (MCP)",
+    rato: "",
+    ratazana: "",
+    ratazana_plus: "",
+  },
+  {
+    type: "row",
+    section: "rows-ads",
+    label: "Acesso Beta VIP à novas funcionalidades",
+    rato: "",
+    ratazana: "",
+    ratazana_plus: "",
+  },
+  {
+    type: "row",
+    section: "rows-ads",
+    label: "Acesso a todos os eventos",
+    rato: "",
+    ratazana: "",
+    ratazana_plus: "",
+  },
+  {
+    type: "row",
+    section: "rows-ads",
+    label: "Acesso às vendas com detalhes",
+    rato: "",
+    ratazana: "",
+    ratazana_plus: "",
+  },
+  {
+    type: "row",
+    section: "rows-ads",
+    label: "Acesso à todas as visitas",
+    rato: "",
+    ratazana: "",
+    ratazana_plus: "",
+  },
+  {
+    type: "row",
+    section: "rows-ads",
+    label: "Suporte WhatsApp",
+    rato: "",
+    ratazana: "",
+    ratazana_plus: "",
+  },
+  {
+    type: "row",
+    section: "rows-pgs",
+    label: "Acessos mensais",
+    rato: "200.000",
+    ratazana: "500.000",
+    ratazana_plus: "1.000.000",
+  },
+  {
+    type: "row",
+    section: "rows-pgs",
+    label: "Domínios customizados",
+    rato: "10",
+    ratazana: "20",
+    ratazana_plus: "40",
+  },
+  {
+    type: "row",
+    section: "rows-pgs",
+    label: "Páginas",
+    rato: "Ilimitadas",
+    ratazana: "Ilimitadas",
+    ratazana_plus: "Ilimitadas",
+  },
+  {
+    type: "row",
+    section: "rows-pgs",
+    label: "Hospedagem Turbo",
+    rato: "Ilimitada",
+    ratazana: "Ilimitada",
+    ratazana_plus: "Ilimitada",
+  },
+  {
+    type: "row",
+    section: "rows-pgs",
+    label: "Construtor de página intuitivo",
+    rato: "",
+    ratazana: "",
+    ratazana_plus: "",
+  },
+  {
+    type: "row",
+    section: "rows-pgs",
+    label: "Analytics Avançado",
+    rato: "",
+    ratazana: "",
+    ratazana_plus: "",
+  },
+  {
+    type: "row",
+    section: "rows-pgs",
+    label: "Templates Exclusivos",
+    rato: "",
+    ratazana: "",
+    ratazana_plus: "",
+  },
+  {
+    type: "row",
+    section: "rows-pgs",
+    label: "Aulas e tutoriais",
+    rato: "",
+    ratazana: "",
+    ratazana_plus: "",
+  },
+  {
+    type: "row",
+    section: "rows-pgs",
+    label: "Clonador de páginas",
+    rato: "",
+    ratazana: "",
+    ratazana_plus: "",
+  },
+  {
+    type: "row",
+    section: "rows-pgs",
+    label: "Integração com IA (MCP)",
+    rato: "",
+    ratazana: "",
+    ratazana_plus: "",
+  },
+  {
+    type: "row",
+    section: "rows-pgs",
+    label: "Teste A/B Nativo",
+    rato: "20",
+    ratazana: "50",
+    ratazana_plus: "100",
+  },
+  {
+    type: "row",
+    section: "rows-pgs",
+    label: "Regras de Tráfego",
+    rato: "20",
+    ratazana: "50",
+    ratazana_plus: "100",
+  },
+  {
+    type: "row",
+    section: "rows-pgs",
+    label: "Acesso Beta VIP à novas funcionalidades",
+    rato: "",
+    ratazana: "",
+    ratazana_plus: "",
+  },
+  {
+    type: "row",
+    section: "rows-pgs",
+    label: "Site COD",
+    rato: "5",
+    ratazana: "10",
+    ratazana_plus: "20",
+  },
+  {
+    type: "row",
+    section: "rows-pgs",
+    label: "Suporte WhatsApp",
+    rato: "",
+    ratazana: "",
+    ratazana_plus: "",
+  },
+  {
+    type: "row",
+    section: "rows-hub",
+    label: "Tudo acima de Ads e Pages",
+    rato: "",
+    ratazana: "",
+    ratazana_plus: "",
+  },
+  {
+    type: "row",
+    section: "rows-hub",
+    label: "Maior performance",
+    rato: "",
+    ratazana: "",
+    ratazana_plus: "",
+  },
+  {
+    type: "row",
+    section: "rows-hub",
+    label: "Segurança reforçada",
+    rato: "",
+    ratazana: "",
+    ratazana_plus: "",
+  },
+  {
+    type: "row",
+    section: "rows-hub",
+    label: "Maior economia",
+    rato: "",
+    ratazana: "",
+    ratazana_plus: "",
+  },
+  {
+    type: "row",
+    section: "rows-hub",
+    label: "Maior taxa de rastreamento",
+    rato: "",
+    ratazana: "",
+    ratazana_plus: "",
+  },
+  {
+    type: "row",
+    section: "rows-hub",
+    label: "Login unificado",
+    rato: "",
+    ratazana: "",
+    ratazana_plus: "",
+  },
+];
 
-  if (isCustom) {
-    return (
-      <span className="inline-flex items-center rounded-full border border-yellow-500/35 bg-yellow-500/12 px-2.5 py-1 text-xs font-semibold text-yellow-500 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.04)]">
-        {value}
-      </span>
-    );
-  }
-
-  if (isUnlimited) {
-    return (
-      <span className="inline-flex items-center rounded-full border border-white/10 bg-white/[0.05] px-2.5 py-1 text-xs font-semibold text-white">
-        {value}
-      </span>
-    );
-  }
-
-  if (isSupportTier) {
-    return (
-      <span className="inline-flex items-center rounded-full border border-white/10 bg-white/[0.04] px-2.5 py-1 text-xs font-medium text-white">
-        {value}
-      </span>
-    );
-  }
-
-  return <span className="font-medium text-white">{value}</span>;
+function getCards(product: PlanType, cycle: BillingCycle): PricingCard[] {
+  return PRICING_CARDS.filter((c) => c.product === product && c.cycle === cycle);
 }
 
-function FeatureCell({ value }: { value: PlanFeatureValue }) {
-  if (value === null) {
-    return (
-      <span className="flex justify-center">
-        <X className="mx-auto h-5 w-5 text-rose-400 drop-shadow-[0_0_10px_rgba(251,113,133,0.18)]" />
-      </span>
-    );
-  }
-  if (value === true) {
-    return (
-      <span className="flex justify-center">
-        <Check className="mx-auto h-5 w-5 text-emerald-400 drop-shadow-[0_0_10px_rgba(52,211,153,0.22)]" />
-      </span>
-    );
-  }
-  return (
-    <span className="flex justify-center">
-      <PremiumValueBadge value={String(value)} />
-    </span>
-  );
+function getPlanHref() {
+  return "/planos#vamos-transformar";
 }
 
 function Tooltip({
@@ -802,1061 +1193,443 @@ function Tooltip({
   );
 }
 
-export default function PricingTabs() {
-  const getPlanList = (tab: PlanType, cycle: BillingCycle) =>
-    cycle !== "monthly"
-      ? plansData[tab].filter((p) => p.name !== "Gratuito")
-      : plansData[tab];
-  const getPlanHref = (cta: string) =>
-    cta.toLowerCase() === "assinar agora"
-      ? "/planos#pricing-cards"
-      : "/planos#vamos-transformar";
+function LimitValue({ value }: { value: string }) {
+  if (value === "✓" || value.toLowerCase() === "incluído") {
+    return <Check className="h-4 w-4 text-[#22c55e]" />;
+  }
+  if (/^ilimit/i.test(value)) {
+    return (
+      <span className="inline-flex items-center rounded-full border border-white/10 bg-white/[0.05] px-2 py-0.5 text-[11px] font-semibold text-white whitespace-nowrap">
+        {value}
+      </span>
+    );
+  }
+  return <span className="text-xs font-bold text-white whitespace-nowrap">{value}</span>;
+}
 
-  const [activeTab, setActiveTab] = useState<PlanType>("hub");
-  const [billingCycle, setBillingCycle] = useState<BillingCycle>("annual");
-  const [activePlanIndex, setActivePlanIndex] = useState<number>(() => {
-    const idx = getPlanList("hub", "annual").findIndex((p) => p.popular);
-    return idx >= 0 ? idx : 0;
+function PricingCardComponent({
+  card,
+  description,
+  product,
+}: {
+  card: PricingCard;
+  description: string;
+  product: PlanType;
+}) {
+  const isYellow = card.badge === "MAIS ESCOLHIDO";
+  const isGreen = card.badge === "MELHOR PREÇO";
+
+  const ctaClass = isGreen
+    ? "bg-[#22c55e] text-[#0d0d0d] hover:bg-[#16a34a]"
+    : isYellow
+      ? "bg-[#f59f0a] text-[#0d0d0d] hover:bg-[#d97706]"
+      : "bg-white/[0.08] text-white hover:bg-white/[0.14]";
+
+  // Render limits with optional subsection headers for Hub
+  const renderLimits = () => {
+    if (product === "hub" && card.hub_subs.length > 0) {
+      // Split limits between Ratoeira Ads and Ratoeira Pages sections
+      const adsLimitCount = 4;
+      const adsLimits = card.limits.slice(0, adsLimitCount);
+      const pagesLimits = card.limits.slice(adsLimitCount);
+
+      return (
+        <>
+          <div className="text-[10px] font-extrabold uppercase tracking-[0.1em] text-[#f59f0a] mb-1.5">
+            RATOEIRA ADS
+          </div>
+          {adsLimits.map(([label, value]) => (
+            <div key={label} className="flex justify-between items-center gap-2 mb-1.5">
+              <span className="text-xs text-[#aaaaaa]">{label}</span>
+              <LimitValue value={value} />
+            </div>
+          ))}
+          <div className="text-[10px] font-extrabold uppercase tracking-[0.1em] text-[#f59f0a] mt-2.5 mb-1.5">
+            RATOEIRA PAGES
+          </div>
+          {pagesLimits.map(([label, value]) => (
+            <div key={label} className="flex justify-between items-center gap-2 mb-1.5">
+              <span className="text-xs text-[#aaaaaa]">{label}</span>
+              <LimitValue value={value} />
+            </div>
+          ))}
+        </>
+      );
+    }
+
+    return card.limits.map(([label, value]) => (
+      <div key={label} className="flex justify-between items-center gap-2 mb-1.5">
+        <span className="text-xs text-[#aaaaaa]">{label}</span>
+        <LimitValue value={value} />
+      </div>
+    ));
+  };
+
+  return (
+    <div
+      className={cn(
+        "relative flex flex-col rounded-[20px] p-6 transition-all duration-200",
+        "bg-[#111111] border",
+        isYellow
+          ? "border-[#f59f0a]"
+          : isGreen
+            ? "border-[#22c55e]"
+            : "border-white/[0.08]",
+      )}
+    >
+      {card.badge && (
+        <span
+          className={cn(
+            "absolute -top-3 left-1/2 -translate-x-1/2 px-3.5 py-0.5 rounded-full text-[11px] font-bold whitespace-nowrap",
+            isYellow
+              ? "bg-[#f59f0a] text-[#0d0d0d]"
+              : "bg-[#22c55e] text-[#0d0d0d]",
+          )}
+        >
+          {card.badge}
+        </span>
+      )}
+
+      <div className="text-xl font-extrabold text-white mb-1">{card.name}</div>
+      <div className="text-[13px] text-[#888888] mb-4 min-h-[36px]">{description}</div>
+
+      {card.inst && (
+        <div className="text-[11px] font-bold text-[#f59f0a] uppercase tracking-[0.08em] mb-0.5">
+          {card.inst}
+        </div>
+      )}
+      <div className="flex items-baseline gap-1 mb-1">
+        <span className="text-base text-[#aaaaaa]">R$</span>
+        <span className="text-[32px] font-black text-white leading-none">{card.val}</span>
+        <span className="text-[13px] text-[#888888]">{card.per}</span>
+      </div>
+      {card.avista && (
+        <div className="text-xs text-[#666666] mb-3">{card.avista}</div>
+      )}
+
+      <div className="h-px bg-white/[0.07] my-4" />
+
+      <div className="text-[10px] font-extrabold uppercase tracking-[0.1em] text-[#666666] mb-2.5">
+        Limites do Plano
+      </div>
+
+      {renderLimits()}
+
+      {product === "ads" && card.platforms.length > 0 && (
+        <>
+          <div className="text-[10px] font-extrabold uppercase tracking-[0.1em] text-[#666666] mt-3 mb-2">
+            Contas de Anúncio
+          </div>
+          <div className="flex flex-col gap-1.5">
+            {card.platforms.map(([name, value]) => (
+              <div
+                key={name}
+                className="flex justify-between items-center bg-white/[0.03] rounded-lg px-2.5 py-1.5"
+              >
+                <div className="flex items-center gap-2">
+                  <img
+                    src={name === "Google Ads" ? GOOGLE_ADS_LOGO : META_ADS_LOGO}
+                    alt={name}
+                    className="w-[18px] h-[18px] object-contain rounded-[3px]"
+                  />
+                  <span className="text-xs text-[#cccccc]">{name}</span>
+                </div>
+                <LimitValue value={value} />
+              </div>
+            ))}
+          </div>
+        </>
+      )}
+
+      {product === "hub" && card.platforms.length > 0 && (
+        <>
+          <div className="text-[10px] font-extrabold uppercase tracking-[0.1em] text-[#666666] mt-3 mb-2">
+            Contas de Anúncio
+          </div>
+          <div className="flex flex-col gap-1.5">
+            {card.platforms.map(([name, value]) => (
+              <div
+                key={name}
+                className="flex justify-between items-center bg-white/[0.03] rounded-lg px-2.5 py-1.5"
+              >
+                <div className="flex items-center gap-2">
+                  <img
+                    src={name === "Google Ads" ? GOOGLE_ADS_LOGO : META_ADS_LOGO}
+                    alt={name}
+                    className="w-[18px] h-[18px] object-contain rounded-[3px]"
+                  />
+                  <span className="text-xs text-[#cccccc]">{name}</span>
+                </div>
+                <LimitValue value={value} />
+              </div>
+            ))}
+          </div>
+        </>
+      )}
+
+      <div className="flex-1" />
+
+      <a
+        href={getPlanHref()}
+        className={cn(
+          "w-full mt-4 py-3 rounded-xl text-sm font-bold text-center transition-colors",
+          ctaClass,
+        )}
+      >
+        {card.cta}
+      </a>
+    </div>
+  );
+}
+
+function ComparisonTable() {
+  const [collapsed, setCollapsed] = useState<Record<string, boolean>>({
+    "rows-ads": true,
+    "rows-pgs": true,
+    "rows-hub": false,
   });
 
-  const getFeaturedIndex = (tab: PlanType, cycle: BillingCycle) => {
-    const planList = getPlanList(tab, cycle);
-    const idx = planList.findIndex((p) => p.popular);
-    return idx >= 0 ? idx : 0;
+  const toggleSection = (target: string) => {
+    setCollapsed((prev) => ({ ...prev, [target]: !prev[target] }));
   };
 
-  const plans = getPlanList(activeTab, billingCycle);
-  const comparisonPlans = plansData[activeTab]; // Sempre usa todos os 4 planos para a tabela de comparação
-  const comparisonColumnCount = comparisonPlans.length;
-  const comparisonGroups = featureGroupsByTab[activeTab]; // Usa todos os features para todos os planos
+  const sections: { target: string; label: string }[] = [
+    { target: "rows-ads", label: "Ratoeira Ads" },
+    { target: "rows-pgs", label: "Ratoeira Pages" },
+    { target: "rows-hub", label: "Ratoeira Hub" },
+  ];
 
-  const handleBillingCycleChange = (nextCycle: BillingCycle) => {
-    setBillingCycle(nextCycle);
-    const nextPlans = getPlanList(activeTab, nextCycle);
-    setActivePlanIndex((current) => {
-      if (current < nextPlans.length) return current;
-      return getFeaturedIndex(activeTab, nextCycle);
-    });
+  const renderCell = (value: string) => {
+    if (value === "") {
+      return (
+        <div className="flex justify-center">
+          <Check className="h-[18px] w-[18px] text-[#34d399]" strokeWidth={2.5} />
+        </div>
+      );
+    }
+    if (/^ilimit/i.test(value)) {
+      return (
+        <span className="inline-flex items-center rounded-full border border-white/10 bg-white/[0.05] px-2 py-0.5 text-[11px] font-semibold text-white whitespace-nowrap">
+          {value}
+        </span>
+      );
+    }
+    return <span className="text-[13px] text-neutral-300">{value}</span>;
   };
+
+  return (
+    <div className="overflow-x-auto">
+      <table className="w-full min-w-[720px] border-separate border-spacing-0 text-[13px] compare-table">
+        <colgroup>
+          <col className="w-[40%]" />
+          <col className="w-[20%]" />
+          <col className="w-[20%]" />
+          <col className="w-[20%]" />
+        </colgroup>
+        <thead>
+          <tr className="sticky top-0 z-10">
+            <th className="bg-[#0d0d0d] text-[#aaaaaa] text-xs font-bold uppercase tracking-[0.06em] text-left py-3 px-3.5 border-b border-white/[0.06]">
+              Recursos
+            </th>
+            <th className="bg-[#0d0d0d] text-[#aaaaaa] text-xs font-bold uppercase tracking-[0.06em] text-center py-3 px-3.5 border-b border-white/[0.06]">
+              Rato
+            </th>
+            <th className="bg-[#0d0d0d] text-[#aaaaaa] text-xs font-bold uppercase tracking-[0.06em] text-center py-3 px-3.5 border-b border-white/[0.06]">
+              Ratazana
+            </th>
+            <th className="bg-[#0d0d0d] text-[#f59f0a] text-xs font-bold uppercase tracking-[0.06em] text-center py-3 px-3.5 border-b border-white/[0.06]">
+              <span className="block text-[10px] text-[#22c55e] font-bold uppercase tracking-[0.08em] mb-0.5">
+                Recomendado
+              </span>
+              Ratazana Plus
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          {sections.map((section) => {
+            const sectionRows = COMPARE_ROWS.filter(
+              (r): r is Extract<CompareRow, { type: "row" }> =>
+                r.type === "row" && r.section === section.target,
+            );
+            const isCollapsed = collapsed[section.target];
+
+            return (
+              <Fragment key={section.target}>
+                <tr
+                  className="cursor-pointer"
+                  onClick={() => toggleSection(section.target)}
+                >
+                  <td colSpan={4} className="p-0 border-b border-white/[0.06]">
+                    <div className="flex justify-between items-center bg-white/[0.04] rounded-lg mx-0 my-1 py-2.5 px-3.5">
+                      <span className="text-xs font-bold uppercase tracking-[0.18em] text-white">
+                        {section.label}
+                      </span>
+                      <span className="flex items-center gap-1.5 text-xs text-[#aaaaaa]">
+                        <span>{isCollapsed ? "Expandir" : "Fechar"}</span>
+                        <ChevronDown
+                          className={cn(
+                            "h-4 w-4 transition-transform duration-200",
+                            isCollapsed ? "-rotate-90" : "",
+                          )}
+                        />
+                      </span>
+                    </div>
+                  </td>
+                </tr>
+                {!isCollapsed &&
+                  sectionRows.map((row, i) => (
+                    <tr
+                      key={row.label}
+                      className={cn(
+                        "transition-colors hover:bg-white/[0.02]",
+                        i % 2 === 0 ? "bg-white/[0.02]" : "bg-transparent",
+                      )}
+                    >
+                      <td className="py-3 px-3.5 text-left text-[13px] font-medium text-[#cccccc] border-b border-white/[0.06]">
+                        {row.label === "Gerenciador Integrado" ? (
+                          <span className="inline-flex items-center gap-1.5">
+                            {row.label}
+                            <img
+                              src={GOOGLE_ADS_LOGO}
+                              alt="Google Ads"
+                              className="w-[18px] h-[18px] object-contain rounded-[3px] inline-block"
+                            />
+                          </span>
+                        ) : (
+                          row.label
+                        )}
+                      </td>
+                      <td className="py-3 px-3.5 text-center border-b border-white/[0.06]">
+                        {renderCell(row.rato)}
+                      </td>
+                      <td className="py-3 px-3.5 text-center border-b border-white/[0.06]">
+                        {renderCell(row.ratazana)}
+                      </td>
+                      <td className="py-3 px-3.5 text-center border-b border-white/[0.06]">
+                        {renderCell(row.ratazana_plus)}
+                      </td>
+                    </tr>
+                  ))}
+              </Fragment>
+            );
+          })}
+        </tbody>
+      </table>
+    </div>
+  );
+}
+
+export default function PricingTabs() {
+  const [activeTab, setActiveTab] = useState<PlanType>("hub");
+  const [billingCycle, setBillingCycle] = useState<BillingCycle>("annual");
+
+  const cards = getCards(activeTab, billingCycle);
+  const descriptions = DESCRIPTIONS[activeTab][billingCycle];
 
   return (
     <section
       id="pricing-cards"
-      className="scroll-mt-24 py-16 md:scroll-mt-28 md:py-24 bg-black"
+      className="scroll-mt-24 py-12 md:scroll-mt-28 md:py-16 bg-[#0d0d0d] text-white"
     >
-      <div className="max-w-7xl 2xl:max-w-[90rem] 4xl:max-w-[120rem] 5xl:max-w-[140rem] 6xl:max-w-[160rem] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-16 4xl:px-36 5xl:px-44 6xl:px-52">
-        {/* Tabs and Billing Toggle */}
-        <div className="flex flex-col items-center gap-8 mb-16">
-          {/* Tabs */}
-          <div className="flex flex-wrap justify-center gap-3">
-            {tabs.map((tab) => {
-              const Icon = tab.icon;
-              const isActive = activeTab === tab.id;
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Tabs */}
+        <div className="flex flex-wrap justify-center gap-2 pt-8 pb-5">
+          {TABS.map((tab) => {
+            const isActive = activeTab === tab.id;
+            return (
+              <button
+                key={tab.id}
+                onClick={() => setActiveTab(tab.id)}
+                className={cn(
+                  "relative inline-flex items-center gap-2 px-5 py-2.5 rounded-full border text-sm font-semibold transition-all duration-200",
+                  isActive
+                    ? "bg-[#f59f0a] text-[#0d0d0d] border-[#f59f0a]"
+                    : "bg-white/[0.04] text-[#aaaaaa] border-white/[0.12] hover:border-[#f59f0a]/50 hover:bg-white/[0.08]",
+                )}
+              >
+                <img
+                  src={tab.icon}
+                  alt={tab.label}
+                  className="w-5 h-5 object-contain"
+                />
+                {tab.label}
+                {tab.badge && (
+                  <span className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-2 py-0.5 bg-[#22c55e] text-white text-[10px] font-bold rounded-full whitespace-nowrap">
+                    {tab.badge}
+                  </span>
+                )}
+              </button>
+            );
+          })}
+        </div>
+
+        {/* Billing cycle */}
+        <div className="flex justify-center pb-6">
+          <div className="inline-flex items-center gap-1 p-1 bg-white/[0.05] border border-white/[0.1] rounded-full">
+            {PERIODS.map((p) => {
+              const isActive = billingCycle === p.id;
               return (
                 <button
-                  key={tab.id}
-                  onClick={() => {
-                    const nextTab = tab.id as PlanType;
-                    setActiveTab(nextTab);
-                    setActivePlanIndex(getFeaturedIndex(nextTab, billingCycle));
-                  }}
+                  key={p.id}
+                  onClick={() => setBillingCycle(p.id)}
                   className={cn(
-                    "relative inline-flex items-center gap-2 px-6 py-3.5 rounded-button font-semibold text-sm transition-all duration-300",
+                    "relative px-5 py-2 rounded-full text-sm font-semibold transition-all duration-200",
                     isActive
-                      ? "bg-gradient-to-r from-yellow-500 to-orange-500 text-white shadow-lg shadow-yellow-500/25"
-                      : "bg-white/5 text-gray-300 border border-white/10 hover:border-orange-500/50 hover:bg-white/10",
+                      ? "bg-[#1a1a1a] text-white"
+                      : "text-[#888888] hover:text-white",
                   )}
                 >
-                  <Icon className="w-4 h-4" />
-                  {tab.label}
-                  {tab.badge && (
-                    <span className="absolute -top-3 -right-3 px-2 py-0.5 bg-emerald-500 text-black text-[10px] font-bold rounded-full uppercase tracking-wider">
-                      {tab.badge}
+                  {p.label}
+                  {p.id === "annual" && (
+                    <span className="absolute -top-3 -right-1 px-2.5 py-0.5 bg-[#22c55e] text-white text-[11px] font-bold rounded-full whitespace-nowrap">
+                      -20%
                     </span>
                   )}
                 </button>
               );
             })}
           </div>
-
-          {/* Billing Cycle Toggle */}
-          <div className="flex items-center p-1.5 bg-white/5 border border-white/10 rounded-full">
-            <button
-              onClick={() => handleBillingCycleChange("monthly")}
-              className={cn(
-                "px-6 py-2.5 rounded-full text-sm font-semibold transition-all duration-300",
-                billingCycle === "monthly"
-                  ? "bg-[#161616] text-white shadow-md border border-white/10"
-                  : "text-gray-400 hover:text-white",
-              )}
-            >
-              Mensal
-            </button>
-            <button
-              onClick={() => handleBillingCycleChange("semiannual")}
-              className={cn(
-                "px-6 py-2.5 rounded-full text-sm font-semibold transition-all duration-300",
-                billingCycle === "semiannual"
-                  ? "bg-[#161616] text-white shadow-md border border-white/10"
-                  : "text-gray-400 hover:text-white",
-              )}
-            >
-              Semestral
-            </button>
-            <button
-              onClick={() => handleBillingCycleChange("annual")}
-              className={cn(
-                "relative px-6 py-2.5 rounded-full text-sm font-semibold transition-all duration-300",
-                billingCycle === "annual"
-                  ? "bg-[#161616] text-white shadow-md border border-brand-primary/50"
-                  : "text-gray-400 hover:text-white",
-              )}
-            >
-              Anual
-              <span className="absolute -top-3 -right-2 px-2 py-0.5 bg-brand-primary text-black text-[10px] font-bold rounded-full uppercase tracking-wider">
-                -20%
-              </span>
-            </button>
-          </div>
         </div>
 
-        {/* Mobile View */}
-        <div className="md:hidden mt-12">
-          {/* Mobile Pricing Cards */}
-          <div className="space-y-6 mb-12">
-            {plans.map((plan) => (
-              <div
-                key={plan.name}
-                className={cn(
-                  "relative flex flex-col rounded-3xl p-6 transition-all duration-300",
-                  plan.popular
-                    ? "bg-[#161616] border-2 border-brand-primary shadow-xl shadow-brand-primary/10"
-                    : "bg-[#111111] border border-white/10",
-                )}
-              >
-                {plan.popular && (
-                  <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 px-4 py-1 bg-brand-primary text-black text-xs font-black uppercase tracking-widest rounded-full">
-                    <span className="whitespace-normal sm:whitespace-nowrap">
-                      Mais Escolhido
-                    </span>
-                  </div>
-                )}
-                <div className="mb-6">
-                  <h3 className="text-xl font-bold text-white mb-2">
-                    {plan.name}
-                  </h3>
-                  <p className="text-gray-400 text-sm">{plan.description}</p>
-                </div>
-                <div className="mb-6">
-                  {activeTab === "ads" && billingCycle === "annual" ? (
-                    <div className="flex flex-col">
-                      <span className="text-xs font-bold text-brand-primary uppercase tracking-wider mb-1">
-                        12X
-                      </span>
-                      <div className="flex items-baseline gap-1">
-                        <span className="text-gray-400 text-lg">R$</span>
-                        <span className="text-2xl sm:text-4xl font-black text-white">
-                          {plan.price.annual}
-                        </span>
-                        <span className="text-gray-400 text-sm">/mês</span>
-                      </div>
-                      {plan.yearlyTotal ? (
-                        <span className="text-xs text-gray-400 mt-1">
-                          por R${plan.yearlyTotal} à vista
-                        </span>
-                      ) : null}
-                    </div>
-                  ) : activeTab === "ads" && billingCycle === "semiannual" ? (
-                    <div className="flex flex-col">
-                      <span className="text-xs font-bold text-brand-primary uppercase tracking-wider mb-1">
-                        6X
-                      </span>
-                      <div className="flex items-baseline gap-1">
-                        <span className="text-gray-400 text-lg">R$</span>
-                        <span className="text-2xl sm:text-4xl font-black text-white">
-                          {plan.price.semiannual}
-                        </span>
-                        <span className="text-gray-400 text-sm">/mês</span>
-                      </div>
-                      {plan.semiannualTotal ? (
-                        <span className="text-xs text-gray-400 mt-1">
-                          por R${plan.semiannualTotal} à vista
-                        </span>
-                      ) : null}
-                    </div>
-                  ) : activeTab === "pages" && billingCycle === "annual" ? (
-                    <div className="flex flex-col">
-                      <span className="text-xs font-bold text-brand-primary uppercase tracking-wider mb-1">
-                        12X
-                      </span>
-                      <div className="flex items-baseline gap-1">
-                        <span className="text-gray-400 text-lg">R$</span>
-                        <span className="text-2xl sm:text-4xl font-black text-white">
-                          {plan.price.annual}
-                        </span>
-                        <span className="text-gray-400 text-sm">/mês</span>
-                      </div>
-                      {plan.yearlyTotal ? (
-                        <span className="text-xs text-gray-400 mt-1">
-                          ou R${plan.yearlyTotal} à vista
-                        </span>
-                      ) : null}
-                    </div>
-                  ) : activeTab === "pages" && billingCycle === "semiannual" ? (
-                    <div className="flex flex-col">
-                      <span className="text-xs font-bold text-brand-primary uppercase tracking-wider mb-1">
-                        6X
-                      </span>
-                      <div className="flex items-baseline gap-1">
-                        <span className="text-gray-400 text-lg">R$</span>
-                        <span className="text-2xl sm:text-4xl font-black text-white">
-                          {plan.price.semiannual}
-                        </span>
-                        <span className="text-gray-400 text-sm">/mês</span>
-                      </div>
-                      {plan.semiannualTotal ? (
-                        <span className="text-xs text-gray-400 mt-1">
-                          ou R${plan.semiannualTotal} à vista
-                        </span>
-                      ) : null}
-                    </div>
-                  ) : activeTab === "hub" && billingCycle === "annual" ? (
-                    <div className="flex flex-col">
-                      <span className="text-xs font-bold text-brand-primary uppercase tracking-wider mb-1">
-                        12X
-                      </span>
-                      <div className="flex items-baseline gap-1">
-                        <span className="text-gray-400 text-lg">R$</span>
-                        <span className="text-2xl sm:text-4xl font-black text-white">
-                          {plan.price.annual}
-                        </span>
-                        <span className="text-gray-400 text-sm">/mês</span>
-                      </div>
-                      {plan.yearlyTotal ? (
-                        <span className="text-xs text-gray-400 mt-1">
-                          ou R${plan.yearlyTotal} à vista
-                        </span>
-                      ) : null}
-                    </div>
-                  ) : activeTab === "hub" && billingCycle === "semiannual" ? (
-                    <div className="flex flex-col">
-                      <span className="text-xs font-bold text-brand-primary uppercase tracking-wider mb-1">
-                        6X
-                      </span>
-                      <div className="flex items-baseline gap-1">
-                        <span className="text-gray-400 text-lg">R$</span>
-                        <span className="text-2xl sm:text-4xl font-black text-white">
-                          {plan.price.semiannual}
-                        </span>
-                        <span className="text-gray-400 text-sm">/mês</span>
-                      </div>
-                      {plan.semiannualTotal ? (
-                        <span className="text-xs text-gray-400 mt-1">
-                          ou R${plan.semiannualTotal} à vista
-                        </span>
-                      ) : null}
-                    </div>
-                  ) : (
-                    <div className="flex items-baseline gap-1">
-                      {plan.price.monthly !== "Custom" &&
-                        plan.price.monthly !== "0" && (
-                          <span className="text-gray-400">R$</span>
-                        )}
-                      <span className="text-2xl sm:text-4xl font-black text-white">
-                        {plan.price[billingCycle as keyof typeof plan.price] ===
-                        "0"
-                          ? "Grátis"
-                          : plan.price[billingCycle as keyof typeof plan.price]}
-                      </span>
-                      {plan.price.monthly !== "Custom" &&
-                        plan.price.monthly !== "0" && (
-                          <span className="text-gray-400 text-sm">
-                            {billingCycle === "monthly" ? "/mês" : "/semestre"}
-                          </span>
-                        )}
-                    </div>
-                  )}
-                </div>
-
-                {activeTab === "ads" && ADS_LIMITS_BY_PLAN[plan.name] && (
-                  <div className="mb-6">
-                    <div className="h-px w-full bg-brand-primary" />
-                    <div className="mt-4 space-y-2">
-                      <div className="text-xs font-black uppercase tracking-widest gradient-text-animated">
-                        Limites do Plano
-                      </div>
-                      <div className="flex items-center justify-between gap-2 text-xs">
-                        <span className="text-gray-300 truncate">
-                          Perfis Google Ads
-                        </span>
-                        <span className="font-bold text-white tabular-nums flex-shrink-0">
-                          {ADS_LIMITS_BY_PLAN[plan.name].googleAdsProfiles}
-                        </span>
-                      </div>
-                      <div className="flex items-center justify-between gap-2 text-xs">
-                        <span className="text-gray-300 truncate">
-                          Ratoeiras Automáticas
-                        </span>
-                        <span className="font-bold text-white tabular-nums flex-shrink-0">
-                          {ADS_LIMITS_BY_PLAN[plan.name].automaticTraps}
-                        </span>
-                      </div>
-                      <div className="flex items-center justify-between gap-2 text-xs">
-                        <span className="text-gray-300 truncate">
-                          Integrações
-                        </span>
-                        <span className="font-bold text-white flex-shrink-0">
-                          {ADS_LIMITS_BY_PLAN[plan.name].integrations}
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                )}
-
-                {activeTab === "pages" && PAGES_LIMITS_BY_PLAN[plan.name] && (
-                  <div className="mb-6">
-                    <div className="h-px w-full bg-brand-primary" />
-                    <div className="mt-4 space-y-2">
-                      <div className="text-xs font-black uppercase tracking-widest gradient-text-animated">
-                        Limites do Plano
-                      </div>
-                      <div className="flex items-center justify-between gap-2 text-xs">
-                        <span className="text-gray-300 truncate">
-                          Acessos mensais
-                        </span>
-                        <span className="font-bold text-white tabular-nums flex-shrink-0">
-                          {PAGES_LIMITS_BY_PLAN[plan.name].monthlyAccesses}
-                        </span>
-                      </div>
-                      <div className="flex items-center justify-between gap-2 text-xs">
-                        <span className="text-gray-300 truncate">Domínios</span>
-                        <span className="font-bold text-white tabular-nums flex-shrink-0">
-                          {PAGES_LIMITS_BY_PLAN[plan.name].connectedDomains}
-                        </span>
-                      </div>
-                      <div className="flex items-center justify-between gap-2 text-xs">
-                        <span className="text-gray-300 truncate">Páginas</span>
-                        <span className="font-bold text-white flex-shrink-0">
-                          {PAGES_LIMITS_BY_PLAN[plan.name].unlimitedPages}
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                )}
-
-                {activeTab === "hub" &&
-                  ADS_LIMITS_BY_PLAN[plan.name] &&
-                  PAGES_LIMITS_BY_PLAN[plan.name] && (
-                    <div className="mb-6">
-                      <div className="h-px w-full bg-brand-primary" />
-                      <div className="mt-4 space-y-4">
-                        <div className="text-xs font-black uppercase tracking-widest gradient-text-animated">
-                          Limites do Plano
-                        </div>
-
-                        <div className="space-y-2">
-                          <div className="text-[11px] font-black uppercase tracking-widest text-[#FFB800]">
-                            Ratoeira Ads
-                          </div>
-                          <div className="flex items-center justify-between gap-2 text-xs">
-                            <span className="text-gray-300 truncate">
-                              Perfis Google Ads
-                            </span>
-                            <span className="font-bold text-white tabular-nums flex-shrink-0">
-                              {ADS_LIMITS_BY_PLAN[plan.name].googleAdsProfiles}
-                            </span>
-                          </div>
-                          <div className="flex items-center justify-between gap-2 text-xs">
-                            <span className="text-gray-300 truncate">
-                              Ratoeiras Automáticas
-                            </span>
-                            <span className="font-bold text-white tabular-nums flex-shrink-0">
-                              {ADS_LIMITS_BY_PLAN[plan.name].automaticTraps}
-                            </span>
-                          </div>
-                          <div className="flex items-center justify-between gap-2 text-xs">
-                            <span className="text-gray-300 truncate">
-                              Integrações
-                            </span>
-                            <span className="font-bold text-white flex-shrink-0">
-                              {ADS_LIMITS_BY_PLAN[plan.name].integrations}
-                            </span>
-                          </div>
-                        </div>
-
-                        <div className="space-y-2">
-                          <div className="text-[11px] font-black uppercase tracking-widest text-[#FF7E4A]">
-                            Ratoeira Pages
-                          </div>
-                          <div className="flex items-center justify-between gap-2 text-xs">
-                            <span className="text-gray-300 truncate">
-                              Acessos mensais
-                            </span>
-                            <span className="font-bold text-white tabular-nums flex-shrink-0">
-                              {PAGES_LIMITS_BY_PLAN[plan.name].monthlyAccesses}
-                            </span>
-                          </div>
-                          <div className="flex items-center justify-between gap-2 text-xs">
-                            <span className="text-gray-300 truncate">
-                              Domínios
-                            </span>
-                            <span className="font-bold text-white tabular-nums flex-shrink-0">
-                              {PAGES_LIMITS_BY_PLAN[plan.name].connectedDomains}
-                            </span>
-                          </div>
-                          <div className="flex items-center justify-between gap-2 text-xs">
-                            <span className="text-gray-300 truncate">
-                              Páginas
-                            </span>
-                            <span className="font-bold text-white flex-shrink-0">
-                              {PAGES_LIMITS_BY_PLAN[plan.name].unlimitedPages}
-                            </span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  )}
-                <a
-                  href={getPlanHref(plan.cta)}
-                  className={cn(
-                    "w-full py-4 rounded-button font-bold text-sm transition-colors text-center block",
-                    plan.popular
-                      ? "bg-brand-primary text-black hover:bg-brand-primary-hover shadow-lg shadow-brand-primary/20"
-                      : "bg-white/10 text-white hover:bg-white/20",
-                  )}
-                >
-                  {plan.cta}
-                </a>
-              </div>
-            ))}
-          </div>
-          <div className="mb-12 text-center">
-            <p className="text-xs text-brand-primary">
-              * Renovação automática - Ao prosseguir você concorda que a
-              assinatura será renovada automaticamente.
-            </p>
-          </div>
-
-          <div className="mb-8 text-center">
-            <h3 className="text-2xl font-black text-white tracking-tight">
-              Compare em detalhes
-            </h3>
-          </div>
-
-          <div className="rounded-[28px] border border-white/10 bg-[#111111] overflow-hidden">
-            <div className="flex border-b border-white/10">
-              {plans.map((plan, i) => (
-                <button
-                  key={plan.name}
-                  onClick={() => setActivePlanIndex(i)}
-                  className={cn(
-                    "flex-1 px-3 py-4 text-xs font-bold uppercase tracking-wider transition-colors",
-                    activePlanIndex === i
-                      ? "border-b-2 border-brand-primary text-brand-primary bg-brand-primary/5"
-                      : "text-gray-500 hover:text-gray-300",
-                  )}
-                >
-                  {plan.name}
-                </button>
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={activeTab + billingCycle}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.3 }}
+          >
+            {/* Cards */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 pt-4 pb-6">
+              {cards.map((card, i) => (
+                <PricingCardComponent
+                  key={card.index}
+                  card={card}
+                  description={descriptions[i]}
+                  product={activeTab}
+                />
               ))}
             </div>
+          </motion.div>
+        </AnimatePresence>
 
-            {comparisonGroups.map((group) => (
-              <div key={group.group}>
-                <div className="bg-white/5 px-6 py-3 border-y border-white/10 first:border-t-0">
-                  <span className="text-xs font-bold uppercase tracking-wider text-brand-primary">
-                    {group.group}
-                  </span>
-                </div>
+        {/* Footer note */}
+        <p className="text-center text-xs text-[#555555] pb-10 px-6">
+          * Renovação automática – Ao prosseguir você concorda que a assinatura
+          será renovada automaticamente.
+        </p>
 
-                {group.features.map((feature, fi) => (
-                  <div key={feature.label}>
-                    <div className="flex items-center justify-between px-6 py-4">
-                      <div className="flex items-center gap-2 text-sm text-gray-300 font-medium">
-                        {feature.label}
-                        {feature.tooltip && (
-                          <Tooltip content={feature.tooltip}>
-                            <div className="p-1 hover:text-brand-primary cursor-pointer transition-colors text-gray-500 flex items-center justify-center pointer-events-auto">
-                              <Info className="w-4 h-4" />
-                            </div>
-                          </Tooltip>
-                        )}
-                      </div>
-                      <div className="text-sm font-semibold text-white">
-                        <FeatureCell value={feature.values[activePlanIndex]} />
-                      </div>
-                    </div>
-                    {fi < group.features.length - 1 && (
-                      <div className="mx-6 h-px bg-white/5" />
-                    )}
-                  </div>
-                ))}
-              </div>
-            ))}
+        {/* Comparison table */}
+        <div className="pt-10 pb-16">
+          <div className="text-center mb-6">
+            <h2 className="text-2xl font-extrabold text-white mb-1.5">
+              Compare os Planos
+            </h2>
+            <p className="text-sm text-[#888888]">
+              Encontre a configuração ideal para sua operação
+            </p>
           </div>
-        </div>
-
-        {/* Desktop View: Shared grid for cards & features alignment */}
-        <div className="hidden md:block w-full mx-auto">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={activeTab}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.4 }}
-              className="w-full mx-auto"
-            >
-              {/* Cards Row (desktop) */}
-              <div>
-                <div
-                  className={cn(
-                    "mx-auto grid items-stretch",
-                    plans.length === 4
-                      ? "grid-cols-4 gap-5"
-                      : "grid-cols-3 gap-8",
-                    "max-w-7xl",
-                  )}
-                >
-                  {plans.map((plan) => (
-                    <div
-                      key={plan.name}
-                      className={cn(
-                        "relative flex flex-col rounded-3xl transition-all duration-300",
-                        plans.length === 4 ? "p-5" : "p-8",
-                        plan.popular
-                          ? "bg-[#161616] border-2 border-brand-primary shadow-2xl shadow-brand-primary/10 z-10"
-                          : "bg-[#111111] border border-white/10 hover:border-white/20",
-                      )}
-                    >
-                      {plan.popular && (
-                        <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 px-4 py-1 bg-brand-primary text-black text-xs font-black uppercase tracking-widest rounded-full">
-                          <span className="whitespace-normal sm:whitespace-nowrap">
-                            Mais Escolhido
-                          </span>
-                        </div>
-                      )}
-
-                      <div className="flex-1 flex flex-col">
-                        <div className="mb-8">
-                          <h3 className="text-2xl font-bold text-white mb-2">
-                            {plan.name}
-                          </h3>
-                          <p className="text-gray-400 text-sm h-10">
-                            {plan.description}
-                          </p>
-                        </div>
-
-                        <div className="mb-8">
-                          {activeTab === "ads" && billingCycle === "annual" ? (
-                            <div className="flex flex-col">
-                              <span className="text-xs font-bold text-brand-primary uppercase tracking-wider mb-1">
-                                12X
-                              </span>
-                              <div className="flex items-baseline gap-1">
-                                <span className="text-gray-400 text-lg">
-                                  R$
-                                </span>
-                                <span className="text-3xl sm:text-5xl font-black text-white">
-                                  {plan.price.annual}
-                                </span>
-                                <span className="text-gray-400">/mês</span>
-                              </div>
-                              {plan.yearlyTotal ? (
-                                <span className="text-xs text-gray-400 mt-1">
-                                  por R${plan.yearlyTotal} à vista
-                                </span>
-                              ) : null}
-                            </div>
-                          ) : activeTab === "ads" &&
-                            billingCycle === "semiannual" ? (
-                            <div className="flex flex-col">
-                              <span className="text-xs font-bold text-brand-primary uppercase tracking-wider mb-1">
-                                6X
-                              </span>
-                              <div className="flex items-baseline gap-1">
-                                <span className="text-gray-400 text-lg">
-                                  R$
-                                </span>
-                                <span className="text-3xl sm:text-5xl font-black text-white">
-                                  {plan.price.semiannual}
-                                </span>
-                                <span className="text-gray-400">/mês</span>
-                              </div>
-                              {plan.semiannualTotal ? (
-                                <span className="text-xs text-gray-400 mt-1">
-                                  por R${plan.semiannualTotal} à vista
-                                </span>
-                              ) : null}
-                            </div>
-                          ) : activeTab === "pages" &&
-                            billingCycle === "semiannual" ? (
-                            <div className="flex flex-col">
-                              <span className="text-xs font-bold text-brand-primary uppercase tracking-wider mb-1">
-                                6X
-                              </span>
-                              <div className="flex items-baseline gap-1">
-                                <span className="text-gray-400 text-lg">
-                                  R$
-                                </span>
-                                <span className="text-3xl sm:text-5xl font-black text-white">
-                                  {plan.price.semiannual}
-                                </span>
-                                <span className="text-gray-400">/mês</span>
-                              </div>
-                              {plan.semiannualTotal ? (
-                                <span className="text-xs text-gray-400 mt-1">
-                                  ou R${plan.semiannualTotal} à vista
-                                </span>
-                              ) : null}
-                            </div>
-                          ) : activeTab === "pages" &&
-                            billingCycle === "annual" ? (
-                            <div className="flex flex-col">
-                              <span className="text-xs font-bold text-brand-primary uppercase tracking-wider mb-1">
-                                12X
-                              </span>
-                              <div className="flex items-baseline gap-1">
-                                <span className="text-gray-400 text-lg">
-                                  R$
-                                </span>
-                                <span className="text-3xl sm:text-5xl font-black text-white">
-                                  {plan.price.annual}
-                                </span>
-                                <span className="text-gray-400">/mês</span>
-                              </div>
-                              {plan.yearlyTotal ? (
-                                <span className="text-xs text-gray-400 mt-1">
-                                  ou R${plan.yearlyTotal} à vista
-                                </span>
-                              ) : null}
-                            </div>
-                          ) : activeTab === "hub" &&
-                            billingCycle === "annual" ? (
-                            <div className="flex flex-col">
-                              <span className="text-xs font-bold text-brand-primary uppercase tracking-wider mb-1">
-                                12X
-                              </span>
-                              <div className="flex items-baseline gap-1">
-                                <span className="text-gray-400 text-lg">
-                                  R$
-                                </span>
-                                <span className="text-3xl sm:text-5xl font-black text-white">
-                                  {plan.price.annual}
-                                </span>
-                                <span className="text-gray-400">/mês</span>
-                              </div>
-                              {plan.yearlyTotal ? (
-                                <span className="text-xs text-gray-400 mt-1">
-                                  ou R${plan.yearlyTotal} à vista
-                                </span>
-                              ) : null}
-                            </div>
-                          ) : activeTab === "hub" &&
-                            billingCycle === "semiannual" ? (
-                            <div className="flex flex-col">
-                              <span className="text-xs font-bold text-brand-primary uppercase tracking-wider mb-1">
-                                6X
-                              </span>
-                              <div className="flex items-baseline gap-1">
-                                <span className="text-gray-400 text-lg">
-                                  R$
-                                </span>
-                                <span className="text-3xl sm:text-5xl font-black text-white">
-                                  {plan.price.semiannual}
-                                </span>
-                                <span className="text-gray-400">/mês</span>
-                              </div>
-                              {plan.semiannualTotal ? (
-                                <span className="text-xs text-gray-400 mt-1">
-                                  ou R${plan.semiannualTotal} à vista
-                                </span>
-                              ) : null}
-                            </div>
-                          ) : (
-                            <div className="flex items-baseline gap-1">
-                              {plan.price.monthly !== "Custom" &&
-                                plan.price.monthly !== "0" && (
-                                  <span className="text-gray-400 text-lg">
-                                    R$
-                                  </span>
-                                )}
-                              <span className="text-3xl sm:text-5xl font-black text-white">
-                                {plan.price[
-                                  billingCycle as keyof typeof plan.price
-                                ] === "0"
-                                  ? "Grátis"
-                                  : plan.price[
-                                      billingCycle as keyof typeof plan.price
-                                    ]}
-                              </span>
-                              {plan.price.monthly !== "Custom" &&
-                                plan.price.monthly !== "0" && (
-                                  <span className="text-gray-400">
-                                    {billingCycle === "monthly"
-                                      ? "/mês"
-                                      : "/semestre"}
-                                  </span>
-                                )}
-                            </div>
-                          )}
-                        </div>
-
-                        {activeTab === "ads" &&
-                          ADS_LIMITS_BY_PLAN[plan.name] && (
-                            <div className="mb-8">
-                              <div className="h-px w-full bg-brand-primary" />
-                              <div className="mt-5 space-y-3">
-                                <div className="text-xs font-black uppercase tracking-widest gradient-text-animated">
-                                  Limites do Plano
-                                </div>
-                                <div className="flex items-center justify-between gap-2 text-sm">
-                                  <span className="text-gray-300 truncate">
-                                    Perfis Google Ads
-                                  </span>
-                                  <span className="font-bold text-white tabular-nums flex-shrink-0">
-                                    {
-                                      ADS_LIMITS_BY_PLAN[plan.name]
-                                        .googleAdsProfiles
-                                    }
-                                  </span>
-                                </div>
-                                <div className="flex items-center justify-between gap-2 text-sm">
-                                  <span className="text-gray-300 truncate">
-                                    Ratoeiras Automáticas
-                                  </span>
-                                  <span className="font-bold text-white tabular-nums flex-shrink-0">
-                                    {
-                                      ADS_LIMITS_BY_PLAN[plan.name]
-                                        .automaticTraps
-                                    }
-                                  </span>
-                                </div>
-                                <div className="flex items-center justify-between gap-2 text-sm">
-                                  <span className="text-gray-300 truncate">
-                                    Integrações
-                                  </span>
-                                  <span className="font-bold text-white flex-shrink-0">
-                                    {ADS_LIMITS_BY_PLAN[plan.name].integrations}
-                                  </span>
-                                </div>
-                              </div>
-                            </div>
-                          )}
-
-                        {activeTab === "pages" &&
-                          PAGES_LIMITS_BY_PLAN[plan.name] && (
-                            <div className="mb-8">
-                              <div className="h-px w-full bg-brand-primary" />
-                              <div className="mt-5 space-y-3">
-                                <div className="text-xs font-black uppercase tracking-widest gradient-text-animated">
-                                  Limites do Plano
-                                </div>
-                                <div className="flex items-center justify-between gap-2 text-sm">
-                                  <span className="text-gray-300 truncate">
-                                    Acessos mensais
-                                  </span>
-                                  <span className="font-bold text-white tabular-nums flex-shrink-0">
-                                    {
-                                      PAGES_LIMITS_BY_PLAN[plan.name]
-                                        .monthlyAccesses
-                                    }
-                                  </span>
-                                </div>
-                                <div className="flex items-center justify-between gap-2 text-sm">
-                                  <span className="text-gray-300 truncate">
-                                    Domínios
-                                  </span>
-                                  <span className="font-bold text-white tabular-nums flex-shrink-0">
-                                    {
-                                      PAGES_LIMITS_BY_PLAN[plan.name]
-                                        .connectedDomains
-                                    }
-                                  </span>
-                                </div>
-                                <div className="flex items-center justify-between gap-2 text-sm">
-                                  <span className="text-gray-300 truncate">
-                                    Páginas
-                                  </span>
-                                  <span className="font-bold text-white flex-shrink-0">
-                                    {
-                                      PAGES_LIMITS_BY_PLAN[plan.name]
-                                        .unlimitedPages
-                                    }
-                                  </span>
-                                </div>
-                              </div>
-                            </div>
-                          )}
-
-                        {activeTab === "hub" &&
-                          ADS_LIMITS_BY_PLAN[plan.name] &&
-                          PAGES_LIMITS_BY_PLAN[plan.name] && (
-                            <div className="mb-8">
-                              <div className="h-px w-full bg-brand-primary" />
-                              <div className="mt-5 space-y-5">
-                                <div className="text-xs font-black uppercase tracking-widest gradient-text-animated">
-                                  Limites do Plano
-                                </div>
-
-                                <div className="space-y-3">
-                                  <div className="text-[11px] font-black uppercase tracking-widest text-[#FFB800]">
-                                    Ratoeira Ads
-                                  </div>
-                                  <div className="flex items-center justify-between gap-2 text-sm">
-                                    <span className="text-gray-300 truncate">
-                                      Perfis Google Ads
-                                    </span>
-                                    <span className="font-bold text-white tabular-nums flex-shrink-0">
-                                      {
-                                        ADS_LIMITS_BY_PLAN[plan.name]
-                                          .googleAdsProfiles
-                                      }
-                                    </span>
-                                  </div>
-                                  <div className="flex items-center justify-between gap-2 text-sm">
-                                    <span className="text-gray-300 truncate">
-                                      Ratoeiras Automáticas
-                                    </span>
-                                    <span className="font-bold text-white tabular-nums flex-shrink-0">
-                                      {
-                                        ADS_LIMITS_BY_PLAN[plan.name]
-                                          .automaticTraps
-                                      }
-                                    </span>
-                                  </div>
-                                  <div className="flex items-center justify-between gap-2 text-sm">
-                                    <span className="text-gray-300 truncate">
-                                      Integrações
-                                    </span>
-                                    <span className="font-bold text-white flex-shrink-0">
-                                      {
-                                        ADS_LIMITS_BY_PLAN[plan.name]
-                                          .integrations
-                                      }
-                                    </span>
-                                  </div>
-                                </div>
-
-                                <div className="space-y-3">
-                                  <div className="text-[11px] font-black uppercase tracking-widest text-[#FF7E4A]">
-                                    Ratoeira Pages
-                                  </div>
-                                  <div className="flex items-center justify-between gap-2 text-sm">
-                                    <span className="text-gray-300 truncate">
-                                      Acessos mensais
-                                    </span>
-                                    <span className="font-bold text-white tabular-nums flex-shrink-0">
-                                      {
-                                        PAGES_LIMITS_BY_PLAN[plan.name]
-                                          .monthlyAccesses
-                                      }
-                                    </span>
-                                  </div>
-                                  <div className="flex items-center justify-between gap-2 text-sm">
-                                    <span className="text-gray-300 truncate">
-                                      Domínios
-                                    </span>
-                                    <span className="font-bold text-white tabular-nums flex-shrink-0">
-                                      {
-                                        PAGES_LIMITS_BY_PLAN[plan.name]
-                                          .connectedDomains
-                                      }
-                                    </span>
-                                  </div>
-                                  <div className="flex items-center justify-between gap-2 text-sm">
-                                    <span className="text-gray-300 truncate">
-                                      Páginas
-                                    </span>
-                                    <span className="font-bold text-white flex-shrink-0">
-                                      {
-                                        PAGES_LIMITS_BY_PLAN[plan.name]
-                                          .unlimitedPages
-                                      }
-                                    </span>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          )}
-                      </div>
-                      <a
-                        href={getPlanHref(plan.cta)}
-                        className={cn(
-                          "w-full py-4 rounded-button font-bold text-sm transition-colors mt-auto text-center block",
-                          plan.popular
-                            ? "bg-brand-primary text-black hover:bg-brand-primary-hover shadow-lg shadow-brand-primary/20"
-                            : "bg-white/10 text-white hover:bg-white/20",
-                        )}
-                      >
-                        {plan.cta}
-                      </a>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <div className="mt-6 text-center">
-                <p className="text-xs text-brand-primary">
-                  * Renovação automática - Ao prosseguir você concorda que a
-                  assinatura será renovada automaticamente.
-                </p>
-              </div>
-
-              {(() => {
-                return (
-                  <div className="mt-20">
-                    <div className="mb-10 text-center">
-                      <h3 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
-                        Compare os Planos
-                      </h3>
-                      <p className="mt-4 text-lg text-neutral-400">
-                        Encontre a configuração ideal para sua operação
-                      </p>
-                    </div>
-
-                    <div className="overflow-x-auto pt-4">
-                      <div className="inline-block min-w-full align-middle">
-                        <div className="rounded-2xl border border-white/10 bg-neutral-950/60 shadow-[0_30px_120px_rgba(0,0,0,0.45)] backdrop-blur-xl">
-                          <table className="w-full min-w-[980px] table-fixed divide-y divide-white/10">
-                            <colgroup>
-                              <col style={{ width: "30%" }} />
-                              {comparisonPlans.map((plan) => (
-                                <col
-                                  key={`col-${plan.name}`}
-                                  style={{
-                                    width: `${70 / comparisonPlans.length}%`,
-                                  }}
-                                />
-                              ))}
-                            </colgroup>
-
-                            <thead>
-                              <tr className="bg-[linear-gradient(180deg,rgba(255,255,255,0.05),rgba(255,255,255,0.015))]">
-                                <th
-                                  scope="col"
-                                  className="w-1/4 py-6 pl-6 pr-4 text-left text-sm font-semibold text-white/95 sm:pl-8 rounded-tl-2xl"
-                                >
-                                  Recursos
-                                </th>
-
-                                {comparisonPlans.map((plan, index) => {
-                                  const isLast =
-                                    index === comparisonPlans.length - 1;
-                                  const getPlanHeaderClass = cn(
-                                    "w-1/4 bg-neutral-900/50 px-3 py-6 text-center text-sm font-semibold text-white/95 relative",
-                                    plan.popular &&
-                                      "bg-[linear-gradient(180deg,rgba(255,255,255,0.06),rgba(255,255,255,0.02))] text-white",
-                                    isLast && "rounded-tr-2xl",
-                                  );
-                                  return (
-                                    <th
-                                      key={plan.name}
-                                      scope="col"
-                                      className={getPlanHeaderClass}
-                                    >
-                                      {plan.popular && (
-                                        <div className="absolute top-0 right-2 md:right-4 -translate-y-1/2">
-                                          <span className="inline-flex items-center rounded-full border border-yellow-500/25 bg-yellow-500/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-[0.16em] text-yellow-500 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.04)] whitespace-nowrap backdrop-blur-md">
-                                            Recomendado
-                                          </span>
-                                        </div>
-                                      )}
-                                      <div className="flex items-center justify-center">
-                                        <span className="whitespace-nowrap">
-                                          {plan.name}
-                                        </span>
-                                      </div>
-                                    </th>
-                                  );
-                                })}
-                              </tr>
-                            </thead>
-
-                            <tbody className="divide-y divide-white/10 bg-transparent">
-                              {comparisonGroups.map((group) => (
-                                <Fragment key={group.group}>
-                                  <tr className="bg-black/25">
-                                    <td className="py-4 pl-6 pr-4 sm:pl-8">
-                                      <span className="text-[11px] font-semibold uppercase tracking-[0.18em] text-yellow-500 whitespace-pre-line">
-                                        {group.group}
-                                      </span>
-                                    </td>
-                                    {comparisonPlans.map((plan) => {
-                                      const getPlanCellClass = cn(
-                                        "px-3 py-5 text-center text-sm text-neutral-300",
-                                        plan.popular &&
-                                          "bg-[linear-gradient(180deg,rgba(255,255,255,0.035),rgba(255,255,255,0.01))]",
-                                      );
-                                      return (
-                                        <td
-                                          key={`${plan.name}-cat-${group.group}`}
-                                          className={getPlanCellClass}
-                                        />
-                                      );
-                                    })}
-                                  </tr>
-                                  {group.features.map((feature, index) => (
-                                    <tr
-                                      key={feature.label}
-                                      className={cn(
-                                        index % 2 === 0
-                                          ? "bg-white/[0.02]"
-                                          : "bg-transparent",
-                                        "transition-colors hover:bg-white/[0.035]",
-                                      )}
-                                    >
-                                      <td className="py-5 pl-6 pr-4 text-sm font-medium text-neutral-200 sm:pl-8 whitespace-normal">
-                                        <div className="flex items-center gap-2">
-                                          <span className="leading-snug">
-                                            {feature.label}
-                                          </span>
-                                          {feature.tooltip && (
-                                            <Tooltip content={feature.tooltip}>
-                                              <div className="p-1 hover:text-brand-primary cursor-pointer transition-colors text-white/30 hover:text-white/70 flex items-center justify-center pointer-events-auto">
-                                                <Info className="h-4 w-4" />
-                                              </div>
-                                            </Tooltip>
-                                          )}
-                                        </div>
-                                      </td>
-
-                                      {feature.values
-                                        .slice(0, comparisonColumnCount)
-                                        .map((val, vi) => {
-                                          const plan = comparisonPlans[vi];
-                                          const getPlanCellClass = cn(
-                                            "px-3 py-5 text-center text-sm text-neutral-400",
-                                            plan.popular &&
-                                              "bg-[linear-gradient(180deg,rgba(255,255,255,0.035),rgba(255,255,255,0.01))]",
-                                          );
-                                          return (
-                                            <td
-                                              key={vi}
-                                              className={getPlanCellClass}
-                                            >
-                                              <div className="flex items-center justify-center">
-                                                <FeatureCell value={val} />
-                                              </div>
-                                            </td>
-                                          );
-                                        })}
-                                    </tr>
-                                  ))}
-                                </Fragment>
-                              ))}
-                            </tbody>
-                          </table>
-                          {/* linha de acabamento inferior (bem sutil) */}
-                          <div className="h-px w-full bg-[linear-gradient(90deg,rgba(0,0,0,0),rgba(255,255,255,0.12),rgba(0,0,0,0))]" />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                );
-              })()}
-            </motion.div>
-          </AnimatePresence>
+          <ComparisonTable />
         </div>
       </div>
     </section>
