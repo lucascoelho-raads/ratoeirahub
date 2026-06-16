@@ -2,9 +2,8 @@
 
 import { useState, useRef, useCallback, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, ChevronDown, ChevronLeft, Menu, X, Zap } from "lucide-react";
+import { ArrowRight, ChevronDown, ChevronLeft, Menu, X } from "lucide-react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { NAV_LINKS, type NavMenu } from "./header/nav-data";
 import { MegaMenu } from "./header/mega-menu";
 import { cn } from "@/lib/utils";
@@ -97,17 +96,7 @@ function HeaderActions({
   mobile?: boolean;
   onAction?: () => void;
 }) {
-  const pathname = usePathname();
-  const primaryLabel =
-    pathname === "/solucoes/ratoeira-ads" ||
-    pathname === "/solucoes/ratoeira-pages" ||
-    pathname === "/solucoes/ratoeira-hub" ||
-    pathname === "/integracoes/conexoes-com-ia" ||
-    pathname === "/fontes-de-trafego/google-ads" ||
-    pathname === "/fontes-de-trafego/meta-ads" ||
-    pathname === "/quem-somos"
-      ? "Assinar Agora"
-      : "Assinar Agora";
+  const primaryLabel = "Começar grátis";
 
   return (
     <div

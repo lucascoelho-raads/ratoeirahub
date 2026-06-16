@@ -1,8 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Link from "next/link";
-import { ArrowRight, Zap, BarChart3, ShieldCheck } from "lucide-react";
+import { Zap, BarChart3, ShieldCheck } from "lucide-react";
 
 export default function PlatformCTAAbout() {
   return (
@@ -54,64 +53,6 @@ export default function PlatformCTAAbout() {
             </div>
           </div>
         </motion.div>
-
-        {/* Final CTA "Vamos transformar" */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-[1.3fr_1fr] 3xl:grid-cols-[1.4fr_1fr] 4xl:grid-cols-[1.5fr_1fr] gap-16 items-center">
-          <motion.div
-            initial={{ opacity: 0, x: -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="space-y-8"
-          >
-            <h2 className="text-2xl sm:text-5xl lg:text-7xl font-black text-gray-900 tracking-tight leading-tight text-center lg:text-left ">
-              Vamos <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-amber-500">Transformar</span> sua operação?
-            </h2>
-            <p className="text-gray-600 text-lg sm:text-xl max-w-md 2xl:max-w-[50rem] 4xl:max-w-[64rem] leading-relaxed text-center lg:text-left mx-auto lg:mx-0 ">
-              Pare de perder dinheiro com cliques desqualificados. Dê o próximo passo na sua jornada de escala.
-            </p>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="bg-white p-8 lg:p-10 rounded-3xl shadow-xl border border-gray-100"
-          >
-            <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
-              <div className="space-y-2">
-                <label className="text-sm font-bold text-gray-700">Nome Completo</label>
-                <input 
-                  type="text" 
-                  className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-gray-900 focus:outline-none focus:ring-2 focus:ring-orange-500/20 focus:border-orange-500 transition-all"
-                  placeholder="Seu nome"
-                />
-              </div>
-              <div className="space-y-2">
-                <label className="text-sm font-bold text-gray-700">E-mail Profissional</label>
-                <input 
-                  type="email" 
-                  className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-gray-900 focus:outline-none focus:ring-2 focus:ring-orange-500/20 focus:border-orange-500 transition-all"
-                  placeholder="seu@email.com"
-                />
-              </div>
-              <div className="space-y-2">
-                <label className="text-sm font-bold text-gray-700">Investimento Mensal em Tráfego</label>
-                <select className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-gray-900 focus:outline-none focus:ring-2 focus:ring-orange-500/20 focus:border-orange-500 transition-all appearance-none">
-                  <option>Até R$ 10.000</option>
-                  <option>R$ 10.000 a R$ 50.000</option>
-                  <option>R$ 50.000 a R$ 100.000</option>
-                  <option>Acima de R$ 100.000</option>
-                </select>
-              </div>
-              <button className="w-full flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white font-bold rounded-xl text-lg transition-all duration-300 shadow-lg shadow-orange-500/30 hover:shadow-orange-500/50 hover:-translate-y-0.5 group mt-6">
-                Falar com Especialista
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </button>
-            </form>
-          </motion.div>
-        </div>
 
       </div>
     </section>

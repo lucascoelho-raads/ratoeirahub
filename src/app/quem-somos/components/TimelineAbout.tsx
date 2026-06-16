@@ -14,7 +14,7 @@ const milestones = [
   {
     year: "Out 2023",
     title: "O mercado descobre o método",
-    description: "Eitor publica um vídeo no YouTube explicando o método. Explode em visualizações. Afiliados que faziam 50 a 100 mil reais passam a enxergar — e a atingir — resultados acima de um milhão. Eitor se torna referência nacional no assunto.",
+    description: "Eitor publica um vídeo no YouTube explicando o método. Explode em visualizações. Afiliados que faziam de 50 a 100 mil reais passam a enxergar — e a atingir — resultados acima de um milhão. Eitor se torna referência nacional no assunto.",
     align: "right",
   },
   {
@@ -32,13 +32,13 @@ const milestones = [
   {
     year: "2025",
     title: "Expansão do ecossistema",
-    description: "Nasce o Ratoeira Pages — construtor de páginas com hospedagem inclusa e trackeamento já integrado. Os dois produtos se tornam Ratoeira Hub: quando conectados, rastreiam além do que cada um entrega separado. Suas funcionalidades passam a ser ainda mais automáticas e diretas. A Ratoeira consolida sua posição como referência do mercado.",
+    description: "Nasce a Ratoeira Pages — construtor de páginas com hospedagem inclusa e trackeamento já integrado. Os dois produtos se tornam Ratoeira Hub: quando conectados, rastreiam além do que cada um entrega separado. Suas funcionalidades passam a ser ainda mais automáticas e diretas. A Ratoeira consolida sua posição como referência do mercado.",
     align: "left",
   },
   {
     year: "2026",
     title: "IA e novos canais",
-    description: "MCP do Ratoeira Ads e do Ratoeira Pages: o Claude e o ChatGPT passam a consultar, analisar e executar ações diretamente nas contas dos anunciantes. Expansão para Meta Ads com envio enriquecido via browser + CAPI. A plataforma expande para atender produtores, infoprodutores, gestores de tráfego e agências — com mais de 2.500 assinantes ativos.",
+    description: "MCP da Ratoeira Ads e da Ratoeira Pages: o Claude e o ChatGPT passam a consultar, analisar e executar ações diretamente nas contas dos anunciantes. Expansão para Meta Ads com envio enriquecido via browser + CAPI. A plataforma expande para atender produtores, infoprodutores, gestores de tráfego e agências — com mais de 2.500 assinantes ativos.",
     align: "right",
   }
 ];
@@ -74,7 +74,7 @@ export default function TimelineAbout() {
           />
 
           <div className="space-y-12 md:space-y-24">
-            {milestones.map((item, index) => {
+            {milestones.map((item) => {
               const isLeft = item.align === "left";
               return (
                 <div key={item.year} className="relative flex flex-col md:flex-row items-center justify-center">

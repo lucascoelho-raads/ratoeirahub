@@ -74,8 +74,8 @@ export default function HeroPages() {
             >
               <div className="relative mx-auto h-[clamp(14rem,30vw,28rem)] w-full max-w-5xl xl:max-w-6xl 2xl:max-w-[85rem] 3xl:max-w-[92rem] 4xl:max-w-[100rem] rounded-2xl border border-white/10 bg-black/20 shadow-2xl shadow-black/60 overflow-hidden">
                 <Image
-                  src="/imagem pages/draganddrop.png"
-                  alt="Editor visual em uso"
+                  src="/herosectionpages.png"
+                  alt="Ratoeira Pages em destaque"
                   fill
                   priority
                   sizes="(min-width: 1024px) 900px, 100vw"
