@@ -122,10 +122,19 @@ function getYouTubeId(url: string) {
 /* ─── Data ─── */
 const decks: SocialCard[][] = [
   // ── Deck A ──
-  // Layout: 4 colunas x 2 linhas
-  // [ short | short | quote-wide(2) ]
-  // [ short | short | image-small(2) ]
+  // Layout customizado no render:
+  // [ short | short | short ]  (Amanda & Lígia | Michel Pogne | Bruno Matos)
+  // [    quote-wide    | image-small ]  (Larissa Gomes | Karina)
   [
+    {
+      type: "youtube-short",
+      colSpan: "col-span-1",
+      rowSpan: "row-span-1 sm:row-span-2 lg:row-span-2",
+      url: "https://www.youtube.com/shorts/5edTCBZu-ds",
+      thumbnail: "https://img.youtube.com/vi/5edTCBZu-ds/maxresdefault.jpg",
+      title: "Depoimento 1",
+      speaker: "Amanda & Lígia - Fênix",
+    },
     {
       type: "youtube-short",
       colSpan: "col-span-1",
@@ -140,10 +149,10 @@ const decks: SocialCard[][] = [
       type: "youtube-short",
       colSpan: "col-span-1",
       rowSpan: "row-span-1 sm:row-span-2 lg:row-span-2",
-      url: "https://www.youtube.com/shorts/5edTCBZu-ds",
-      thumbnail: "https://img.youtube.com/vi/5edTCBZu-ds/maxresdefault.jpg",
-      title: "Depoimento 1",
-      speaker: "Amanda & Lígia - Fênix",
+      url: "https://www.youtube.com/shorts/fmfF1_7g0mM",
+      thumbnail: "https://img.youtube.com/vi/fmfF1_7g0mM/maxresdefault.jpg",
+      title: "Depoimento Bruno",
+      speaker: "Bruno Matos",
     },
     {
       type: "quote-wide",
