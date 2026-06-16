@@ -85,7 +85,7 @@ function MegaMenuPanel({
                 >
                   <span className="block text-sm font-semibold text-gray-100">{item.label}</span>
                   {item.description && (
-                    <span className="mt-1 block text-xs text-gray-400">
+                    <span className="mt-1 block text-xs text-gray-400 whitespace-nowrap">
                       {item.description}
                     </span>
                   )}

@@ -161,12 +161,12 @@ export default function Metrics() {
           </h2>
         </motion.div>
 
-        {/* Featured metric — full width */}
+        {/* Featured metric — aligned with secondary grid */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7, delay: 0.1 }}
-          className="mb-6 relative bg-white/10 hover:bg-white/15 rounded-3xl p-8 md:p-10 border border-white/10 hover:border-white/25 transition-all duration-300"
+          className="mx-auto mb-6 max-w-5xl 2xl:max-w-6xl relative bg-white/10 hover:bg-white/15 rounded-3xl p-8 md:p-10 border border-white/10 hover:border-white/25 transition-all duration-300"
         >
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 2xl:gap-10">
             <div className="flex items-center gap-4">
@@ -174,11 +174,11 @@ export default function Metrics() {
                 <featured.icon className="w-7 h-7 text-yellow-500" />
               </div>
               <div>
-                <p className="text-white font-bold text-lg 3xl:text-3xl leading-tight">{featured.label}</p>
+                <p className="text-white font-bold text-base md:text-lg 2xl:text-xl leading-tight">{featured.label}</p>
                 <p className="text-yellow-200/70 text-sm mt-0.5">{featured.description}</p>
               </div>
             </div>
-            <div className="text-5xl sm:text-6xl md:text-7xl 2xl:text-[6rem] font-black text-white tabular-nums md:text-right">
+            <div className="text-4xl sm:text-5xl md:text-6xl 2xl:text-7xl font-black text-white tabular-nums whitespace-nowrap md:text-right">
               {featured.display ? (
                 <span>{featured.display}</span>
               ) : (

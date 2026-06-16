@@ -68,17 +68,17 @@ export const NAV_LINKS: NavLink[] = [
           items: [
             {
               label: "Ratoeira Ads",
-              description: "Rastreie, proteja e escale ads.",
+              description: "Traqueamento de Elite",
               href: "/solucoes/ratoeira-ads",
             },
             {
               label: "Ratoeira Pages",
-              description: "Landing pages com tracking integrado.",
+              description: "Páginas Conversivas",
               href: "/solucoes/ratoeira-pages",
             },
             {
               label: "Ratoeira Hub",
-              description: "Ads e Pages unificados.",
+              description: "Ecossistema Integrado",
               href: "/solucoes/ratoeira-hub",
             },
           ],
@@ -88,12 +88,12 @@ export const NAV_LINKS: NavLink[] = [
           items: [
             {
               label: "Google Ads",
-              description: "Campanhas de pesquisa e YouTube.",
+              description: "Conheça as soluções",
               href: "/fontes-de-trafego/google-ads",
             },
             {
               label: "Meta Ads",
-              description: "Otimize Facebook e Instagram Ads.",
+              description: "Facebook & Instagram",
               href: "/fontes-de-trafego/meta-ads",
             },
           ],
@@ -103,12 +103,12 @@ export const NAV_LINKS: NavLink[] = [
           items: [
             {
               label: "Mais de 70 plataformas",
-              description: "Conexão em minutos. Zero retrabalho.",
+              description: "Conexão em minutos",
               href: "/integracoes/mais-de-70-plataformas",
             },
             {
               label: "Conexões com IA",
-              description: "Dados integrados com inteligência artificial.",
+              description: "MCP em tempo real",
               href: "/integracoes/conexoes-com-ia",
             },
           ],
