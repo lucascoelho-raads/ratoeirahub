@@ -66,31 +66,54 @@ function MegaMenuPanel({
               {column.heading}
             </p>
             <div className="space-y-1">
-              {column.items.map((item) => (
-                <motion.a
-                  key={`${column.heading}-${item.label}`}
-                  href={item.href || "#"}
-                  whileHover={{ x: 2 }}
-                  transition={{ duration: 0.18 }}
-                  onMouseEnter={() => setHoveredItem(`${column.heading}-${item.label}`)}
-                  onMouseLeave={() => setHoveredItem(null)}
-                  onFocus={() => setHoveredItem(`${column.heading}-${item.label}`)}
-                  onBlur={() => setHoveredItem(null)}
-                  className={cn(
-                    "block w-full rounded-button px-3 py-2 text-left transition-colors border border-transparent bg-transparent focus-visible:outline-none",
-                    hoveredItem === `${column.heading}-${item.label}`
-                      ? "bg-brand-100/30 ring-2 ring-orange-400 ring-offset-2 ring-offset-surface-default"
-                      : "hover:bg-brand-100/20",
-                  )}
-                >
-                  <span className="block text-sm font-semibold text-gray-100">{item.label}</span>
-                  {item.description && (
-                    <span className="mt-1 block text-xs text-gray-400 whitespace-nowrap">
-                      {item.description}
+              {column.items.map((item) => {
+                const itemKey = `${column.heading}-${item.label}`;
+                const content = (
+                  <>
+                    <span className={cn("block text-sm font-semibold whitespace-nowrap", item.disabled ? "text-gray-500" : "text-gray-100")}>
+                      {item.label}
                     </span>
-                  )}
-                </motion.a>
-              ))}
+                    {item.description && (
+                      <span className="mt-1 block text-xs text-gray-500 whitespace-nowrap">
+                        {item.description}
+                      </span>
+                    )}
+                  </>
+                );
+
+                if (item.disabled) {
+                  return (
+                    <div
+                      key={itemKey}
+                      className="block w-full rounded-button px-3 py-2 text-left border border-transparent bg-transparent opacity-60 cursor-not-allowed select-none"
+                      aria-disabled="true"
+                    >
+                      {content}
+                    </div>
+                  );
+                }
+
+                return (
+                  <motion.a
+                    key={itemKey}
+                    href={item.href || "#"}
+                    whileHover={{ x: 2 }}
+                    transition={{ duration: 0.18 }}
+                    onMouseEnter={() => setHoveredItem(itemKey)}
+                    onMouseLeave={() => setHoveredItem(null)}
+                    onFocus={() => setHoveredItem(itemKey)}
+                    onBlur={() => setHoveredItem(null)}
+                    className={cn(
+                      "block w-full rounded-button px-3 py-2 text-left transition-colors border border-transparent bg-transparent focus-visible:outline-none",
+                      hoveredItem === itemKey
+                        ? "bg-brand-100/30 ring-2 ring-orange-400 ring-offset-2 ring-offset-surface-default"
+                        : "hover:bg-brand-100/20",
+                    )}
+                  >
+                    {content}
+                  </motion.a>
+                );
+              })}
             </div>
           </div>
         ))}

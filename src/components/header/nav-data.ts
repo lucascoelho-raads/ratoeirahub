@@ -2,6 +2,7 @@ export type NavItem = {
   label: string;
   description?: string;
   href?: string;
+  disabled?: boolean;
 };
 
 export type NavColumn = {
@@ -92,9 +93,10 @@ export const NAV_LINKS: NavLink[] = [
               href: "/fontes-de-trafego/google-ads",
             },
             {
-              label: "Meta Ads",
+              label: "Meta Ads *em breve",
               description: "Facebook & Instagram",
-              href: "/fontes-de-trafego/meta-ads",
+              href: "#",
+              disabled: true,
             },
           ],
         },

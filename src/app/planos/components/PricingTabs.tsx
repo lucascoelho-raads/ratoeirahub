@@ -1405,8 +1405,8 @@ function ComparisonTable() {
           <col className="w-[20%]" />
           <col className="w-[20%]" />
         </colgroup>
-        <thead>
-          <tr className="sticky top-16 z-10">
+        <thead className="sticky top-16 z-10">
+          <tr>
             <th className="bg-[#0d0d0d] text-[#aaaaaa] text-xs font-bold uppercase tracking-[0.06em] text-left py-3 px-3.5 border-b border-white/[0.06]">
               Recursos
             </th>

@@ -24,14 +24,14 @@ const testimonials: Testimonial[] = [
   {
     img: "/depoimentos/lucassilva-avatar.png",
     quote:
-      "Pô, muito obrigado Eitor, sensacional esse suporte de vcs cara, assisti todas as aulas e migrei minha operação toda ontem com muita facilidade, estou muito feliz com a ferramenta!! Parabéns cara, nota 10 pra vcs de vdd!! Estava tendo muita dor de cabeça com a filtropixel e o suporte deles quase sempre era mal educado, então essa atenção de vcs está sendo algo nota 10!",
+      "Pô, muito obrigado Eitor, sensacional esse suporte de vcs cara, assisti todas as aulas e migrei minha operação toda ontem com muita facilidade, estou muito feliz com a ferramenta!! Parabéns cara, nota 10 pra vcs de vdd!! Estava tendo muita dor de cabeça com a Fil***xel e o suporte deles quase sempre era mal educado, então essa atenção de vcs está sendo algo nota 10!",
     name: "Lucas Silva",
     role: "Assinante",
   },
   {
     img: "/depoimentos/rafinha-avatar.png",
     quote:
-      "Cara, só pra falar tbm que o ratoeira é muito mais simples que o canoli, parabéns pelo projeto",
+      "Cara, só pra falar tbm que o ratoeira é muito mais simples que o Ca***li, parabéns pelo projeto",
     name: "Rafinha",
     role: "Assinante",
   },
@@ -90,8 +90,12 @@ export default function Testimonials() {
             <MessageSquare className="w-4 h-4" /> Depoimentos Reais
           </div>
           <h2 className="text-2xl sm:text-3xl lg:text-5xl 3xl:text-7xl font-black text-white leading-tight  max-w-4xl mx-auto">
-            Quem{" "}
-            <span className="text-orange-600">domina o tráfego</span>, confia na Ratoeira
+            <span className="block">
+              Quem <span className="text-orange-600">domina o tráfego</span>,
+            </span>
+            <span className="block">
+              confia na <span className="text-brand-500">Ratoeira</span>
+            </span>
           </h2>
           <p className="text-gray-400/70 text-lg sm:text-xl 3xl:text-[1.75rem] max-w-xl 2xl:max-w-[34rem] 3xl:max-w-[48rem] 4xl:max-w-[56rem] 5xl:max-w-[64rem] 6xl:max-w-[72rem] mx-auto ">
             Veja o que anunciantes de Google Ads, Meta Ads e gestores de tráfego dizem sobre operar com dado real.
