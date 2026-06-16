@@ -21,7 +21,6 @@ interface BaseCard {
   type: CardType;
   colSpan: string;
   rowSpan: string;
-  centered?: boolean;
 }
 
 interface AwardCard extends BaseCard {
@@ -122,9 +121,6 @@ function getYouTubeId(url: string) {
 /* ─── Data ─── */
 const decks: SocialCard[][] = [
   // ── Deck A ──
-  // Layout customizado no render:
-  // [ short | short | short ]  (Amanda & Lígia | Michel Pogne | Bruno Matos)
-  // [    quote-wide    | image-small ]  (Larissa Gomes | Karina)
   [
     {
       type: "youtube-short",
@@ -176,9 +172,6 @@ const decks: SocialCard[][] = [
   ],
 
   // ── Deck B ──
-  // Layout: 4 colunas x 2 linhas
-  // [ award(2) | audio(2)          ]
-  // [ award(2) | short | short     ]
   [
     {
       type: "award",
@@ -191,16 +184,9 @@ const decks: SocialCard[][] = [
       position: "bottom",
     },
     {
-      type: "audio",
-      colSpan: "col-span-2",
-      rowSpan: "row-span-1",
-      image: "/depoimentos/depoimento4.jpeg",
-      quote: "Com a Ratoeira tenho mais cliques qualificados",
-    },
-    {
       type: "youtube-short",
       colSpan: "col-span-1",
-      rowSpan: "row-span-1 sm:row-span-2 lg:row-span-1",
+      rowSpan: "row-span-1 sm:row-span-2 lg:row-span-2",
       url: "https://www.youtube.com/shorts/qdP5z0bFfP8",
       thumbnail: "https://img.youtube.com/vi/qdP5z0bFfP8/maxresdefault.jpg",
       title: "Depoimento 3",
@@ -209,11 +195,18 @@ const decks: SocialCard[][] = [
     {
       type: "youtube-short",
       colSpan: "col-span-1",
-      rowSpan: "row-span-1 sm:row-span-2 lg:row-span-1",
+      rowSpan: "row-span-1 sm:row-span-2 lg:row-span-2",
       url: "https://www.youtube.com/shorts/04xowV0-fPw",
       thumbnail: "https://img.youtube.com/vi/04xowV0-fPw/maxresdefault.jpg",
       title: "Depoimento 4",
       speaker: "Alexander Lopes",
+    },
+    {
+      type: "audio",
+      colSpan: "col-span-2 lg:col-start-2",
+      rowSpan: "row-span-1",
+      image: "/depoimentos/depoimento4.png",
+      quote: "Com a Ratoeira tenho mais cliques qualificados",
     },
   ],
 ];
@@ -521,14 +514,12 @@ function YoutubeShortCard({
     <button
       type="button"
       onClick={onClick}
-      className="bg-[#161616] border border-white/5 rounded-[24px] sm:rounded-[32px] overflow-hidden relative group cursor-pointer h-full text-left w-full hover:border-brand-primary/30 transition-colors aspect-[9/16] sm:aspect-auto"
+      className="bg-[#161616] border border-white/5 rounded-[24px] sm:rounded-[32px] overflow-hidden relative group cursor-pointer h-full text-left w-full hover:border-brand-primary/30 transition-colors"
     >
-      <Image
+      <img
         src={card.thumbnail}
         alt={card.title}
-        fill
-        className="object-cover opacity-90 group-hover:opacity-100 transition-transform duration-700 group-hover:scale-105"
-        sizes="(max-width: 768px) 100vw, 25vw"
+        className="absolute inset-0 w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-transform duration-700 group-hover:scale-105"
       />
       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
 
@@ -640,35 +631,132 @@ export default function CasesSocialProof() {
 
           {/* Bento Grid with deck swap */}
           <AnimatePresence mode="wait">
-            <motion.div
-              key={deckIndex}
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.8 }}
-              transition={{ duration: 0.5, ease: "easeInOut" }}
-              className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-6 auto-rows-[minmax(180px,auto)] sm:auto-rows-[minmax(220px,auto)] lg:auto-rows-[minmax(200px,auto)]"
-            >
-              {decks[deckIndex].map((card, i) => (
-                <motion.div
-                  key={`${deckIndex}-${card.type}-${i}`}
-                  initial={{ opacity: 0, scale: 0.5 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{
-                    duration: 0.4,
-                    delay: i * 0.07,
-                    ease: "easeOut",
-                  }}
-                  className={`${card.colSpan} ${card.rowSpan} ${card.centered ? "md:col-start-2" : ""} w-full h-full`}
-                >
-                  <CardSwitch
-                    card={card}
-                    onVideoClick={setActiveVideo}
-                    onImageClick={setActiveImage}
-                    onYouTubeShortClick={setActiveYouTubeShort}
-                  />
-                </motion.div>
-              ))}
-            </motion.div>
+            {deckIndex === 0 ? (
+              <motion.div
+                key="deck0"
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.8 }}
+                transition={{ duration: 0.5, ease: "easeInOut" }}
+              >
+                {/* Mobile: grid original preservado */}
+                <div className="grid grid-cols-2 gap-3 sm:gap-4 auto-rows-[minmax(180px,auto)] sm:auto-rows-[minmax(220px,auto)] lg:hidden">
+                  {decks[0].map((card, i) => (
+                    <motion.div
+                      key={`0-${card.type}-${i}`}
+                      initial={{ opacity: 0, scale: 0.5 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{
+                        duration: 0.4,
+                        delay: i * 0.07,
+                        ease: "easeOut",
+                      }}
+                      className={`${card.colSpan} ${card.rowSpan} w-full h-full`}
+                    >
+                      <CardSwitch
+                        card={card}
+                        onVideoClick={setActiveVideo}
+                        onImageClick={setActiveImage}
+                        onYouTubeShortClick={setActiveYouTubeShort}
+                      />
+                    </motion.div>
+                  ))}
+                </div>
+                {/* Desktop: 3 shorts centralizados + 2 cards */}
+                <div className="hidden lg:grid lg:grid-cols-4 lg:gap-6 lg:auto-rows-[minmax(200px,auto)]">
+                  {/* 3 shorts via sub-grid para manter dimensões exatas */}
+                  <div className="col-span-4">
+                    <div className="grid grid-cols-3 gap-6 auto-rows-[minmax(200px,auto)] w-[calc(75%-6px)] mx-auto">
+                      {decks[0].slice(0, 3).map((card, i) => (
+                        <motion.div
+                          key={`0-${card.type}-${i}`}
+                          initial={{ opacity: 0, scale: 0.5 }}
+                          animate={{ opacity: 1, scale: 1 }}
+                          transition={{
+                            duration: 0.4,
+                            delay: i * 0.07,
+                            ease: "easeOut",
+                          }}
+                          className="col-span-1 row-span-2 w-full h-full"
+                        >
+                          <CardSwitch
+                            card={card}
+                            onVideoClick={setActiveVideo}
+                            onImageClick={setActiveImage}
+                            onYouTubeShortClick={setActiveYouTubeShort}
+                          />
+                        </motion.div>
+                      ))}
+                    </div>
+                  </div>
+                  {/* quote-wide + image-small */}
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.5 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{
+                      duration: 0.4,
+                      delay: 3 * 0.07,
+                      ease: "easeOut",
+                    }}
+                    className="col-span-2 row-span-1 w-full h-full"
+                  >
+                    <CardSwitch
+                      card={decks[0][3]}
+                      onVideoClick={setActiveVideo}
+                      onImageClick={setActiveImage}
+                      onYouTubeShortClick={setActiveYouTubeShort}
+                    />
+                  </motion.div>
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.5 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{
+                      duration: 0.4,
+                      delay: 4 * 0.07,
+                      ease: "easeOut",
+                    }}
+                    className="col-span-2 row-span-1 w-full h-full"
+                  >
+                    <CardSwitch
+                      card={decks[0][4]}
+                      onVideoClick={setActiveVideo}
+                      onImageClick={setActiveImage}
+                      onYouTubeShortClick={setActiveYouTubeShort}
+                    />
+                  </motion.div>
+                </div>
+              </motion.div>
+            ) : (
+              <motion.div
+                key="deck1"
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.8 }}
+                transition={{ duration: 0.5, ease: "easeInOut" }}
+                className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-6 auto-rows-[minmax(180px,auto)] sm:auto-rows-[minmax(220px,auto)] lg:auto-rows-[minmax(200px,auto)]"
+              >
+                {decks[1].map((card, i) => (
+                  <motion.div
+                    key={`1-${card.type}-${i}`}
+                    initial={{ opacity: 0, scale: 0.5 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{
+                      duration: 0.4,
+                      delay: i * 0.07,
+                      ease: "easeOut",
+                    }}
+                    className={`${card.colSpan} ${card.rowSpan} w-full h-full`}
+                  >
+                    <CardSwitch
+                      card={card}
+                      onVideoClick={setActiveVideo}
+                      onImageClick={setActiveImage}
+                      onYouTubeShortClick={setActiveYouTubeShort}
+                    />
+                  </motion.div>
+                ))}
+              </motion.div>
+            )}
           </AnimatePresence>
         </div>
       </section>
