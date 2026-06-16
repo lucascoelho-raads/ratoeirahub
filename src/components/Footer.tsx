@@ -186,7 +186,7 @@ export default function Footer() {
                           onClick={() => setStep(2)}
                           className="w-full rounded-2xl bg-orange-500 text-white font-bold text-lg py-5 shadow-xl shadow-orange-500/20 hover:bg-orange-400 transition-colors flex items-center justify-center gap-3"
                         >
-                          Começar Grátis <ArrowRight className="w-5 h-5" />
+                          Assinar Agora <ArrowRight className="w-5 h-5" />
                         </button>
                       </>
                     )}

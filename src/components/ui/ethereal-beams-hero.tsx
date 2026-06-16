@@ -481,7 +481,7 @@ export default function EtherealBeamsHero() {
               href="/planos#pricing-cards"
               className="inline-flex items-center gap-2 px-8 py-4 2xl:px-10 2xl:py-5 rounded-button bg-yellow-500 text-black font-bold hover:bg-yellow-400 transition-colors"
             >
-              Começar grátis
+              Assinar Agora
               <ArrowRight className="w-4 h-4" />
             </a>
           </motion.div>

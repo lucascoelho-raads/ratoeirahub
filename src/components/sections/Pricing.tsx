@@ -21,7 +21,7 @@ const plans = [
       "Suporte via e-mail",
     ],
     missing: ["IA generativa", "CRM integrado", "API avançada"],
-    cta: "Começar grátis",
+    cta: "Assinar Agora",
     popular: false,
   },
   {
@@ -71,7 +71,7 @@ export default function Pricing() {
   const inView = useInView(ref, { once: true, margin: "-80px" });
   const [yearly, setYearly] = useState(false);
   const getPlanHref = (cta: string) =>
-    cta.toLowerCase() === "começar grátis" ? "/planos#pricing-cards" : "/planos#vamos-transformar";
+    cta.toLowerCase() === "assinar agora" ? "/planos#pricing-cards" : "/planos#vamos-transformar";
 
   return (
     <section ref={ref} className="py-16 md:py-28 bg-gray-50/50" id="planos">

@@ -61,7 +61,7 @@ export default function CTAPartnerships() {
                 [ Embed do Formulário Aqui ]
               </span>
               <button className="inline-flex items-center gap-2 px-8 py-3 rounded-button font-bold text-black bg-brand-primary hover:bg-brand-primary-hover transition-colors">
-                Começar Grátis
+                Assinar Agora
                 <ArrowRight className="w-4 h-4" />
               </button>
             </div>

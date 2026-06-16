@@ -6,16 +6,18 @@ import { TrendingUp, Users, MessageSquare, Layers, BarChart3 } from "lucide-reac
 
 const metrics = [
   {
-    value: 16000000,
+    value: 81000000,
     suffix: "",
+    display: "+ US$81.000.000",
     label: "em conversões rastreadas",
     description: "total acumulado no ecossistema Ratoeira",
     icon: TrendingUp,
     iconColor: "text-yellow-500",
   },
   {
-    value: 65000,
+    value: 200000,
     suffix: "+",
+    display: "+ 200.000",
     label: "ratoeiras armadas",
     description: "campanhas monitoradas ativamente",
     icon: Layers,
@@ -177,8 +179,14 @@ export default function Metrics() {
               </div>
             </div>
             <div className="text-5xl sm:text-6xl md:text-7xl 2xl:text-[6rem] font-black text-white tabular-nums md:text-right">
-              <Counter target={featured.value} suffix="" />
-              <span className="text-yellow-500">{featured.suffix}</span>
+              {featured.display ? (
+                <span>{featured.display}</span>
+              ) : (
+                <>
+                  <Counter target={featured.value} suffix="" />
+                  <span className="text-yellow-500">{featured.suffix}</span>
+                </>
+              )}
             </div>
           </div>
         </motion.div>
@@ -198,8 +206,14 @@ export default function Metrics() {
                   <metric.icon className={`w-5 h-5 ${metric.iconColor}`} />
                 </div>
                 <div className="text-3xl sm:text-4xl 2xl:text-[3.75rem] font-black text-white tabular-nums">
-                  <Counter target={metric.value} suffix="" />
-                  <span className="text-yellow-500">{metric.suffix}</span>
+                  {metric.display ? (
+                    <span>{metric.display}</span>
+                  ) : (
+                    <>
+                      <Counter target={metric.value} suffix="" />
+                      <span className="text-yellow-500">{metric.suffix}</span>
+                    </>
+                  )}
                 </div>
               </div>
               <p className="text-white font-semibold text-base 2xl:text-xl leading-tight">{metric.label}</p>

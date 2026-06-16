@@ -129,7 +129,7 @@ const plansData: Record<PlanType, Plan[]> = {
         "1 domínio customizado",
         "Suporte por e-mail",
       ],
-      cta: "Começar Grátis",
+      cta: "Assinar Agora",
       popular: false,
     },
     {
@@ -209,7 +209,7 @@ const plansData: Record<PlanType, Plan[]> = {
         "1 domínio customizado",
         "Hospedagem inclusa",
       ],
-      cta: "Começar Grátis",
+      cta: "Assinar Agora",
       popular: false,
     },
     {
@@ -289,7 +289,7 @@ const plansData: Record<PlanType, Plan[]> = {
         "Templates limitados",
         "Suporte por e-mail",
       ],
-      cta: "Começar Grátis",
+      cta: "Assinar Agora",
       popular: false,
     },
     {
@@ -808,7 +808,7 @@ export default function PricingTabs() {
       ? plansData[tab].filter((p) => p.name !== "Gratuito")
       : plansData[tab];
   const getPlanHref = (cta: string) =>
-    cta.toLowerCase() === "começar grátis"
+    cta.toLowerCase() === "assinar agora"
       ? "/planos#pricing-cards"
       : "/planos#vamos-transformar";
 

@@ -101,7 +101,7 @@ export default function RatoeiraHubPage() {
                   href="/planos#pricing-cards"
                   className="inline-flex items-center gap-2 px-8 py-4 2xl:px-10 2xl:py-5 rounded-button bg-gradient-to-r from-yellow-500 to-orange-500 text-black font-semibold hover:from-yellow-400 hover:to-orange-400 transition-colors"
                 >
-                  Começar grátis
+                  Assinar Agora
                   <ArrowRight className="w-5 h-5" />
                 </a>
               </div>
@@ -1240,7 +1240,7 @@ export default function RatoeiraHubPage() {
             href="/planos"
             className="relative z-30 inline-flex items-center gap-2 px-10 py-5 mt-6 bg-gradient-to-r from-yellow-500 to-orange-500 text-black font-bold rounded-button hover:from-yellow-400 hover:to-orange-400 transition-all text-xl shadow-xl shadow-orange-500/20 hover:scale-105 active:scale-95"
           >
-            Ver planos e começar grátis
+            Ver planos e assinar agora
             <ArrowRight className="w-6 h-6" />
           </Link>
         </div>

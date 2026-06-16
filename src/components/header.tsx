@@ -106,8 +106,8 @@ function HeaderActions({
     pathname === "/fontes-de-trafego/google-ads" ||
     pathname === "/fontes-de-trafego/meta-ads" ||
     pathname === "/quem-somos"
-      ? "Começar Grátis"
-      : "Começar Grátis";
+      ? "Assinar Agora"
+      : "Assinar Agora";
 
   return (
     <div

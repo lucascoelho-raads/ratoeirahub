@@ -211,7 +211,7 @@ export default function Hero() {
                       href="/planos#pricing-cards"
                       className="inline-flex self-center lg:self-start items-center justify-center px-6 py-3 bg-brand-primary text-white font-semibold text-sm rounded-button hover:bg-brand-primary-hover transition-colors duration-200 text-center"
                     >
-                      Começar grátis
+                      Assinar Agora
                     </Link>
                     <span className="text-gray-400/60 text-sm text-center lg:text-left">Plano gratuito disponível. Sem cartão.</span>
                   </motion.div>
@@ -366,7 +366,7 @@ export default function Hero() {
                     href="/planos#pricing-cards"
                     className="inline-flex self-center lg:self-start items-center justify-center px-6 py-3 bg-brand-primary text-white font-semibold text-sm rounded-button hover:bg-brand-primary-hover transition-colors duration-200 text-center"
                   >
-                    Começar grátis
+                    Assinar Agora
                   </Link>
                   <span className="text-gray-400/60 text-sm text-center lg:text-left">Plano gratuito disponível. Sem cartão.</span>
                 </motion.div>

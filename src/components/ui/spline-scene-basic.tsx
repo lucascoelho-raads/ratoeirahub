@@ -24,7 +24,7 @@ export function SplineSceneBasic() {
               href="/planos#pricing-cards"
               className="inline-flex items-center gap-2 px-8 py-4 rounded-button bg-gradient-to-r from-[#FFB800] to-orange-500 text-black font-semibold hover:from-yellow-400 hover:to-orange-400 transition-colors"
             >
-              Começar grátis
+              Assinar Agora
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
             </a>
           </div>
