@@ -13,46 +13,41 @@ interface Testimonial {
   role: string;
 }
 
-const avatarFromInitial = (initial: string) =>
-  `data:image/svg+xml;utf8,${encodeURIComponent(
-    `<svg xmlns="http://www.w3.org/2000/svg" width="56" height="56"><rect width="100%" height="100%" rx="28" fill="#EA580C"/><text x="50%" y="54%" dominant-baseline="middle" text-anchor="middle" font-family="Arial" font-size="24" font-weight="700" fill="#FFFFFF">${initial}</text></svg>`,
-  )}`;
-
 const testimonials: Testimonial[] = [
   {
-    img: avatarFromInitial("R"),
+    img: "/depoimentos/francisco-avatar.png",
     quote:
-      "Nas primeiras semanas já vi 30% a mais de conversões subindo pro Google. Consegui otimizar a campanha que estava parada há semanas.",
-    name: "Roberto Santiago",
-    role: "Mentor de Tráfego",
+      "Eitor sem palavras. Certeza que a ratoeira vai mudar meu jogo, estava na ansiedade que assinei 5 dias antes da black friday kkkk Mas a plataforma me deu ânimo, que subi na campanha que não estava vendendo e saiu venda..... Ratoeira chama vendas 🙌🏻",
+    name: "Francisco",
+    role: "Assinante",
   },
   {
-    img: avatarFromInitial("C"),
+    img: "/depoimentos/lucassilva-avatar.png",
     quote:
-      "Economizei mais de R$X no primeiro mês só com o bloqueio. Isso já pagou a ferramenta.",
-    name: "Carla Mendes",
-    role: "Anunciante Top",
+      "Pô, muito obrigado Eitor, sensacional esse suporte de vcs cara, assisti todas as aulas e migrei minha operação toda ontem com muita facilidade, estou muito feliz com a ferramenta!! Parabéns cara, nota 10 pra vcs de vdd!! Estava tendo muita dor de cabeça com a filtropixel e o suporte deles quase sempre era mal educado, então essa atenção de vcs está sendo algo nota 10!",
+    name: "Lucas Silva",
+    role: "Assinante",
   },
   {
-    img: avatarFromInitial("T"),
+    img: "/depoimentos/rafinha-avatar.png",
     quote:
-      "Gerencio X clientes num único painel. O que levava horas agora vejo em minutos.",
-    name: "Thiago Ferreira",
-    role: "Gestor de Tráfego",
+      "Cara, só pra falar tbm que o ratoeira é muito mais simples que o canoli, parabéns pelo projeto",
+    name: "Rafinha",
+    role: "Assinante",
   },
   {
-    img: avatarFromInitial("J"),
+    img: "/depoimentos/manuela-avatar.png",
     quote:
-      "O Meta parou de jogar verba em público errado. O CPL caiu e o ROAS subiu em menos de 30 dias.",
-    name: "Juliana Costa",
-    role: "Criadora de Cursos",
+      "Muito top a ferramenta de vocês!!!\nParabéns pelo empenho de todos!!!",
+    name: "Manuela",
+    role: "Assinante",
   },
   {
-    img: avatarFromInitial("M"),
+    img: "/depoimentos/renata-avatar.png",
     quote:
-      "Pela primeira vez eu sabia exatamente de onde vinha cada venda. Dobrei o investimento com confiança — e o resultado acompanhou.",
-    name: "Marcos Vinícius",
-    role: "Investidor em Tráfego",
+      "Comprei hoje...estou gostando bastante da plataforma....\ntudo beeeem explicado!👏🏻👏🏻👏🏻",
+    name: "Renata",
+    role: "Assinante",
   },
 ];
 
@@ -153,7 +148,7 @@ export default function Testimonials() {
                   leaveTo="opacity-0 translate-x-4"
                   beforeEnter={heightFix}
                 >
-                  <div className="text-xl sm:text-2xl 3xl:text-[2rem] 5xl:text-[2.5rem] 6xl:text-[2.75rem] font-bold text-orange-600 before:content-['\201C'] after:content-['\201D']">
+                  <div className="text-xl sm:text-2xl 3xl:text-[2rem] 5xl:text-[2.5rem] 6xl:text-[2.75rem] font-bold text-orange-600 whitespace-pre-line before:content-['\201C'] after:content-['\201D']">
                     {testimonial.quote}
                   </div>
                 </Transition>
