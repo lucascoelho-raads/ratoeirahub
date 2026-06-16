@@ -68,17 +68,17 @@ export const NAV_LINKS: NavLink[] = [
           items: [
             {
               label: "Ratoeira Ads",
-              description: "A única ferramenta brasileira que rastreia, protege e dá visão total da suas operações no Google Ads e Meta Ads.",
+              description: "Rastreie, proteja e escale ads.",
               href: "/solucoes/ratoeira-ads",
             },
             {
               label: "Ratoeira Pages",
-              description: "Templates e construtor visual integrados ao tracking.",
+              description: "Landing pages com tracking integrado.",
               href: "/solucoes/ratoeira-pages",
             },
             {
               label: "Ratoeira Hub",
-              description: "Ads + Pages em um único dashboard operacional.",
+              description: "Ads e Pages unificados.",
               href: "/solucoes/ratoeira-hub",
             },
           ],
@@ -88,12 +88,12 @@ export const NAV_LINKS: NavLink[] = [
           items: [
             {
               label: "Google Ads",
-              description: "Escale campanhas de pesquisa e YouTube com dados limpos.",
+              description: "Campanhas de pesquisa e YouTube.",
               href: "/fontes-de-trafego/google-ads",
             },
             {
               label: "Meta Ads",
-              description: "Otimize criativos e escale no Facebook e Instagram.",
+              description: "Otimize Facebook e Instagram Ads.",
               href: "/fontes-de-trafego/meta-ads",
             },
           ],
@@ -108,7 +108,7 @@ export const NAV_LINKS: NavLink[] = [
             },
             {
               label: "Conexões com IA",
-              description: "Integre dados com ferramentas de inteligência artificial.",
+              description: "Dados integrados com inteligência artificial.",
               href: "/integracoes/conexoes-com-ia",
             },
           ],
