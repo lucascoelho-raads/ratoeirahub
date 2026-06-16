@@ -1225,6 +1225,42 @@ function PricingCardComponent({
       ? "bg-[#f59f0a] text-[#0d0d0d] hover:bg-[#d97706]"
       : "bg-white/[0.08] text-white hover:bg-white/[0.14]";
 
+  const renderAdAccounts = () => {
+    if (card.platforms.length === 0) return null;
+    return (
+      <>
+        <div className="text-[10px] font-extrabold uppercase tracking-[0.1em] text-[#666666] mt-3 mb-2">
+          Contas de Anúncio
+        </div>
+        <div className="flex flex-col gap-1.5">
+          {card.platforms.map(([name, value]) => (
+            <div
+              key={name}
+              className="flex justify-between items-center bg-white/[0.03] rounded-lg px-2.5 py-1.5"
+            >
+              <div className="flex items-center gap-2">
+                <img
+                  src={name === "Google Ads" ? GOOGLE_ADS_LOGO : META_ADS_LOGO}
+                  alt={name}
+                  className="w-[18px] h-[18px] object-contain rounded-[3px]"
+                />
+                <span className="text-xs text-[#cccccc]">{name}</span>
+              </div>
+              <LimitValue value={value} />
+            </div>
+          ))}
+        </div>
+      </>
+    );
+  };
+
+  const renderLimitRow = (label: string, value: string) => (
+    <div key={label} className="flex justify-between items-center gap-2 mb-1.5">
+      <span className="text-xs text-[#aaaaaa]">{label}</span>
+      <LimitValue value={value} />
+    </div>
+  );
+
   // Render limits with optional subsection headers for Hub
   const renderLimits = () => {
     if (product === "hub" && card.hub_subs.length > 0) {
@@ -1239,29 +1275,24 @@ function PricingCardComponent({
             RATOEIRA ADS
           </div>
           {adsLimits.map(([label, value]) => (
-            <div key={label} className="flex justify-between items-center gap-2 mb-1.5">
-              <span className="text-xs text-[#aaaaaa]">{label}</span>
-              <LimitValue value={value} />
-            </div>
+            <Fragment key={label}>
+              {renderLimitRow(label, value)}
+              {label === "Perfis/E-mail Google Ads" && renderAdAccounts()}
+            </Fragment>
           ))}
           <div className="text-[10px] font-extrabold uppercase tracking-[0.1em] text-[#f59f0a] mt-2.5 mb-1.5">
             RATOEIRA PAGES
           </div>
-          {pagesLimits.map(([label, value]) => (
-            <div key={label} className="flex justify-between items-center gap-2 mb-1.5">
-              <span className="text-xs text-[#aaaaaa]">{label}</span>
-              <LimitValue value={value} />
-            </div>
-          ))}
+          {pagesLimits.map(([label, value]) => renderLimitRow(label, value))}
         </>
       );
     }
 
     return card.limits.map(([label, value]) => (
-      <div key={label} className="flex justify-between items-center gap-2 mb-1.5">
-        <span className="text-xs text-[#aaaaaa]">{label}</span>
-        <LimitValue value={value} />
-      </div>
+      <Fragment key={label}>
+        {renderLimitRow(label, value)}
+        {label === "Perfis/E-mail Google Ads" && renderAdAccounts()}
+      </Fragment>
     ));
   };
 
@@ -1315,58 +1346,6 @@ function PricingCardComponent({
 
       {renderLimits()}
 
-      {product === "ads" && card.platforms.length > 0 && (
-        <>
-          <div className="text-[10px] font-extrabold uppercase tracking-[0.1em] text-[#666666] mt-3 mb-2">
-            Contas de Anúncio
-          </div>
-          <div className="flex flex-col gap-1.5">
-            {card.platforms.map(([name, value]) => (
-              <div
-                key={name}
-                className="flex justify-between items-center bg-white/[0.03] rounded-lg px-2.5 py-1.5"
-              >
-                <div className="flex items-center gap-2">
-                  <img
-                    src={name === "Google Ads" ? GOOGLE_ADS_LOGO : META_ADS_LOGO}
-                    alt={name}
-                    className="w-[18px] h-[18px] object-contain rounded-[3px]"
-                  />
-                  <span className="text-xs text-[#cccccc]">{name}</span>
-                </div>
-                <LimitValue value={value} />
-              </div>
-            ))}
-          </div>
-        </>
-      )}
-
-      {product === "hub" && card.platforms.length > 0 && (
-        <>
-          <div className="text-[10px] font-extrabold uppercase tracking-[0.1em] text-[#666666] mt-3 mb-2">
-            Contas de Anúncio
-          </div>
-          <div className="flex flex-col gap-1.5">
-            {card.platforms.map(([name, value]) => (
-              <div
-                key={name}
-                className="flex justify-between items-center bg-white/[0.03] rounded-lg px-2.5 py-1.5"
-              >
-                <div className="flex items-center gap-2">
-                  <img
-                    src={name === "Google Ads" ? GOOGLE_ADS_LOGO : META_ADS_LOGO}
-                    alt={name}
-                    className="w-[18px] h-[18px] object-contain rounded-[3px]"
-                  />
-                  <span className="text-xs text-[#cccccc]">{name}</span>
-                </div>
-                <LimitValue value={value} />
-              </div>
-            ))}
-          </div>
-        </>
-      )}
-
       <div className="flex-1" />
 
       <a
@@ -1418,7 +1397,7 @@ function ComparisonTable() {
   };
 
   return (
-    <div className="overflow-x-auto">
+    <div className="max-md:overflow-auto max-md:max-h-[70vh] rounded-lg">
       <table className="w-full min-w-[720px] border-separate border-spacing-0 text-[13px] compare-table">
         <colgroup>
           <col className="w-[40%]" />
@@ -1427,7 +1406,7 @@ function ComparisonTable() {
           <col className="w-[20%]" />
         </colgroup>
         <thead>
-          <tr className="sticky top-0 z-10">
+          <tr className="sticky top-16 z-10">
             <th className="bg-[#0d0d0d] text-[#aaaaaa] text-xs font-bold uppercase tracking-[0.06em] text-left py-3 px-3.5 border-b border-white/[0.06]">
               Recursos
             </th>
@@ -1464,11 +1443,11 @@ function ComparisonTable() {
                       <span className="text-xs font-bold uppercase tracking-[0.18em] text-white">
                         {section.label}
                       </span>
-                      <span className="flex items-center gap-1.5 text-xs text-[#aaaaaa]">
+                      <span className="inline-flex items-center gap-1.5 rounded-full bg-[#f59f0a] px-3 py-1 text-xs font-bold text-[#0d0d0d]">
                         <span>{isCollapsed ? "Expandir" : "Fechar"}</span>
                         <ChevronDown
                           className={cn(
-                            "h-4 w-4 transition-transform duration-200",
+                            "h-4 w-4 transition-transform duration-200 text-[#d97706]",
                             isCollapsed ? "-rotate-90" : "",
                           )}
                         />
