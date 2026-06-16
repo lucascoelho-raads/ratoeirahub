@@ -761,7 +761,43 @@ export default function CasesSocialProof() {
         </div>
       </section>
 
-      {/* Video Modal */}
+      {/* Players Section */}
+      <section className="py-16 md:py-24 bg-[#050505] relative overflow-hidden">
+        <div className="max-w-7xl 2xl:max-w-[90rem] 4xl:max-w-[120rem] 5xl:max-w-[140rem] 6xl:max-w-[160rem] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-12 4xl:px-20 5xl:px-28 6xl:px-36 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-10"
+          >
+            <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black text-white leading-tight tracking-tight">
+              Os maiores <span className="text-brand-500">players</span> do{" "}
+              <span className="text-brand-500">mercado</span>
+            </h2>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 20, scale: 0.98 }}
+            whileInView={{ opacity: 1, y: 0, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            whileHover={{ scale: 1.015 }}
+            className="group relative w-full overflow-hidden rounded-2xl border border-white/10 shadow-2xl transition-shadow duration-500 hover:shadow-[0_0_60px_rgba(255,184,0,0.25)] hover:border-brand-500/40"
+          >
+            <div className="absolute inset-0 z-10 bg-gradient-to-tr from-brand-500/0 via-white/0 to-brand-500/0 opacity-0 transition-opacity duration-500 group-hover:opacity-10 pointer-events-none" />
+            <Image
+              src="/depoimentos/players.png"
+              alt="Players que confiam na Ratoeira"
+              width={1600}
+              height={900}
+              className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+              priority
+            />
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Video Modal -->
       <AnimatePresence>
         {activeVideo && (
           <motion.div
