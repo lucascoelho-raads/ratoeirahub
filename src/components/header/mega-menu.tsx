@@ -59,7 +59,7 @@ function MegaMenuPanel({
             key={column.heading}
             className={cn(
               "rounded-card p-4",
-              column.accent ? "bg-white/5 border border-white/10 min-w-[280px]" : "bg-transparent flex-1",
+              column.accent ? "bg-white/5 border border-white/10 min-w-[200px] lg:min-w-[220px]" : "bg-transparent flex-1 min-w-0",
             )}
           >
             <p className="mb-3 text-[11px] font-semibold uppercase tracking-wide text-gray-100">
@@ -70,11 +70,11 @@ function MegaMenuPanel({
                 const itemKey = `${column.heading}-${item.label}`;
                 const content = (
                   <>
-                    <span className={cn("block text-sm font-semibold whitespace-nowrap", item.disabled ? "text-gray-500" : "text-gray-100")}>
+                    <span className={cn("block text-sm font-semibold", item.disabled ? "text-gray-500" : "text-gray-100")}>
                       {item.label}
                     </span>
                     {item.description && (
-                      <span className="mt-1 block text-xs text-gray-500 whitespace-nowrap">
+                      <span className="mt-1 block text-xs text-gray-500">
                         {item.description}
                       </span>
                     )}

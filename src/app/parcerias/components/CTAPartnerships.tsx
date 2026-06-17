@@ -46,9 +46,7 @@ export default function CTAPartnerships() {
             <br className="sm:hidden" /> sua operação?
           </h2>
           <p className="text-gray-400 text-base sm:text-lg mb-8 max-w-xl mx-auto ">
-            Preencha seu cadastro. Ative agora mesmo seu plano{" "}
-            <span className="text-brand-primary font-bold">GRATUITO</span>. Sem
-            cartão, sem pix. Apenas cadastre-se e receba o acesso.
+            Preencha seu cadastro e ative seu plano agora mesmo.
           </p>
 
           <div className="bg-[#0a0a0a] border border-white/5 rounded-3xl p-4 sm:p-8 relative">

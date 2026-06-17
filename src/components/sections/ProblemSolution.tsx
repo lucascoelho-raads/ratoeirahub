@@ -2,12 +2,12 @@
 
 import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion, useInView } from "framer-motion";
-import { Radar, LayoutTemplate, Link2 } from "lucide-react";
+
 
 const tabs = [
-  { id: "rastreamento", label: "Rastreamento Inteligente", icon: Radar },
-  { id: "paginas", label: "Páginas de Alta Conversão", icon: LayoutTemplate },
-  { id: "ecossistema", label: "Ratoeira Hub", icon: Link2 },
+  { id: "rastreamento", label: "Rastreamento Inteligente", logo: "/icons/pricing/ads-icon.png" },
+  { id: "paginas", label: "Páginas de Alta Conversão", logo: "/icons/pricing/pages-icon.png" },
+  { id: "ecossistema", label: "Ratoeira Hub", logo: "/icons/pricing/hub-icon.png" },
 ];
 
 const trackingHighlights = [
@@ -104,7 +104,6 @@ export default function ProblemSolution() {
           className="flex flex-wrap justify-center gap-3 mb-12"
         >
           {tabs.map((tab) => {
-            const Icon = tab.icon;
             const isActive = activeTab === tab.id;
             return (
               <button
@@ -119,7 +118,11 @@ export default function ProblemSolution() {
                     : "bg-black/5 text-[#374151] border border-black/10 hover:border-orange-400 hover:bg-black/10"
                 }`}
               >
-                <Icon className="w-4 h-4" />
+                <img
+                  src={tab.logo}
+                  alt={tab.label}
+                  className="w-4 h-4 object-contain"
+                />
                 {tab.label}
               </button>
             );
@@ -179,7 +182,11 @@ export default function ProblemSolution() {
                 <div className="aspect-video flex items-center justify-center">
                   <div className="text-center">
                     <div className="w-20 h-20 rounded-2xl mx-auto mb-4 flex items-center justify-center bg-linear-to-r from-yellow-500 to-orange-500">
-                      <Link2 className="w-10 h-10 text-white" />
+                      <img
+                        src={tabs.find((t) => t.id === activeTab)?.logo}
+                        alt={tabs.find((t) => t.id === activeTab)?.label}
+                        className="w-10 h-10 object-contain"
+                      />
                     </div>
                     <div className="min-h-[56px] flex items-center justify-center px-4">
                       <AnimatePresence mode="wait">

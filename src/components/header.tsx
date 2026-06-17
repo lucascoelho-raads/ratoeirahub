@@ -96,7 +96,7 @@ function HeaderActions({
   mobile?: boolean;
   onAction?: () => void;
 }) {
-  const primaryLabel = "Começar grátis";
+  const primaryLabel = "Assinar Agora";
 
   return (
     <div

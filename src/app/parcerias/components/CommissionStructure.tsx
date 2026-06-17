@@ -2,26 +2,30 @@
 
 import { motion } from "framer-motion";
 
-const tiers = [
+type Tier = {
+  name: string;
+  comission: string;
+  perks: string[];
+  note?: string;
+  req?: string;
+};
+
+const tiers: Tier[] = [
   {
     name: "Assinante da Ratoeira",
-    req: "1 a 10 clientes ativos",
     comission: "10%",
     perks: ["Dashboard Básico", "Material de Apoio"],
-    note: "Para entrar neste tier, basta entrar em contato pelo WhatsApp e solicitar.",
+    note: "Para entrar neste tier, clique no ícone do WhatsApp no canto inferior direito desta página, informe seu e-mail de assinante e solicite a afiliação.",
   },
   {
-    name: "Top10 Parceiro Gold",
-    req: "11 a 50 clientes ativos",
+    name: "Top 10 Parceiro Gold",
     comission: "20%",
-    perks: ["Gerente Dedicado", "Grupo VIP WhatsApp c/ time dedicado", "Prêmios físicos", "Acesso liberado da Ratoeira Ads", "Módulo de trackeamento completo para o seu curso"],
-    featured: true,
+    perks: ["Prêmios físicos", "Acesso liberado da Ratoeira Ads", "Módulo de trackeamento completo para o seu curso"],
   },
   {
-    name: "Embaixador Top5",
-    req: "51+ clientes ativos",
+    name: "Embaixador Top 5",
     comission: "30%",
-    perks: ["Mastermind Exclusivo", "Premiações Físicas", "Co-marketing"],
+    perks: ["Prêmios físicos", "Acesso liberado da Ratoeira Ads", "Módulo de trackeamento completo para o seu curso", "Grupo VIP WhatsApp c/ time dedicado"],
   },
 ];
 
@@ -46,21 +50,12 @@ export default function CommissionStructure() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className={`relative flex flex-col rounded-3xl p-8 border ${
-                tier.featured 
-                  ? "bg-[#161616] border-brand-primary scale-105 z-10 shadow-2xl shadow-brand-primary/10" 
-                  : "bg-[#111111] border-white/10"
-              }`}
+              className="relative flex flex-col rounded-3xl p-8 border bg-[#111111] border-white/10"
             >
-              {tier.featured && (
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 px-4 py-1 bg-brand-primary text-black text-xs font-black uppercase tracking-widest rounded-full">
-                  Mais Popular
-                </div>
-              )}
               
               <div className="text-center mb-8">
                 <h3 className="text-2xl font-bold text-white mb-2">{tier.name}</h3>
-                <p className="text-gray-500 text-sm">{tier.req}</p>
+                {tier.req && <p className="text-gray-500 text-sm">{tier.req}</p>}
               </div>
 
               <div className="text-center mb-8">
