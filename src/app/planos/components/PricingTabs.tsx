@@ -704,7 +704,7 @@ const PRICING_CARDS: PricingCard[] = [
     inst: "6X",
     val: "432,83",
     per: "/mês",
-    avista: "ou R$2.497,00 à vista",
+    avista: "ou R$2.597,00 à vista",
     cta: "Assinar Ratazana Plus",
     href: "https://clkdmg.site/subscribe/a17b7aae-f76f-49b8-856c-ca6da46f391d",
     limits: [
@@ -764,9 +764,9 @@ const PRICING_CARDS: PricingCard[] = [
     name: "Ratazana",
     badge: "MAIS ESCOLHIDO",
     inst: "12X",
-    val: "208,08",
+    val: "216,42",
     per: "/mês",
-    avista: "ou R$2.497,00 à vista",
+    avista: "ou R$2.597,00 à vista",
     cta: "Assinar Ratazana",
     href: "https://clkdmg.site/subscribe/a17b7a02-ea67-4937-8f7d-6e598562ca50",
     limits: [
