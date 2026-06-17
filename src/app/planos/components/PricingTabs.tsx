@@ -119,6 +119,7 @@ const PRICING_CARDS: PricingCard[] = [
     per: "/mês",
     avista: "",
     cta: "Assinar Rato",
+    href: "https://clkdmg.site/subscribe/ratoeiraads-ratomensal",
     limits: [
       ["Ratoeiras Totais", "50"],
       ["Ratoeiras Automáticas", "5"],
@@ -142,6 +143,7 @@ const PRICING_CARDS: PricingCard[] = [
     per: "/mês",
     avista: "",
     cta: "Assinar Ratazana",
+    href: "https://clkdmg.site/subscribe/a0fc08d6-ae0a-4d89-9cb6-98bfc9763851",
     limits: [
       ["Ratoeiras Totais", "100"],
       ["Ratoeiras Automáticas", "50"],
@@ -165,6 +167,7 @@ const PRICING_CARDS: PricingCard[] = [
     per: "/mês",
     avista: "",
     cta: "Assinar Ratazana Plus",
+    href: "https://clkdmg.site/subscribe/a17d51c4-6013-4e7e-81c1-619b60bcc628",
     limits: [
       ["Ratoeiras Totais", "300"],
       ["Ratoeiras Automáticas", "300"],
@@ -188,6 +191,7 @@ const PRICING_CARDS: PricingCard[] = [
     per: "/mês",
     avista: "por R$797,00 à vista",
     cta: "Assinar Rato",
+    href: "https://clkdmg.site/subscribe/ratoeiraads-ratosemestral",
     limits: [
       ["Ratoeiras Totais", "50"],
       ["Ratoeiras Automáticas", "5"],
@@ -211,6 +215,7 @@ const PRICING_CARDS: PricingCard[] = [
     per: "/mês",
     avista: "por R$1.097,00 à vista",
     cta: "Assinar Ratazana",
+    href: "https://clkdmg.site/subscribe/a0fc08d6-bf5e-4475-963e-40960af2d577",
     limits: [
       ["Ratoeiras Totais", "100"],
       ["Ratoeiras Automáticas", "50"],
@@ -234,6 +239,7 @@ const PRICING_CARDS: PricingCard[] = [
     per: "/mês",
     avista: "por R$2.097,00 à vista",
     cta: "Assinar Ratazana Plus",
+    href: "https://clkdmg.site/subscribe/a10ab249-68b1-4c16-a081-bb62cfc0b884",
     limits: [
       ["Ratoeiras Totais", "300"],
       ["Ratoeiras Automáticas", "300"],
@@ -257,6 +263,7 @@ const PRICING_CARDS: PricingCard[] = [
     per: "/mês",
     avista: "por R$1.347,00 à vista",
     cta: "Assinar Rato",
+    href: "https://clkdmg.site/subscribe/a0fe91e6-3880-48db-833d-e2db3576154d",
     limits: [
       ["Ratoeiras Totais", "50"],
       ["Ratoeiras Automáticas", "5"],
@@ -280,6 +287,7 @@ const PRICING_CARDS: PricingCard[] = [
     per: "/mês",
     avista: "por R$1.797,00 à vista",
     cta: "Assinar Ratazana",
+    href: "https://clkdmg.site/subscribe/a0fc08d6-cfb7-4321-ab3b-01e729162465",
     limits: [
       ["Ratoeiras Totais", "100"],
       ["Ratoeiras Automáticas", "50"],
@@ -303,6 +311,7 @@ const PRICING_CARDS: PricingCard[] = [
     per: "/mês",
     avista: "por R$3.997,00 à vista",
     cta: "Assinar Ratazana Plus",
+    href: "https://clkdmg.site/subscribe/a17d5279-c049-440a-8d3a-ebd700504842",
     limits: [
       ["Ratoeiras Totais", "300"],
       ["Ratoeiras Automáticas", "300"],
@@ -326,6 +335,7 @@ const PRICING_CARDS: PricingCard[] = [
     per: "/mês",
     avista: "",
     cta: "Assinar Rato",
+    href: "https://clkdmg.site/subscribe/a1b36ef2-2e9f-489a-a7c1-eb05767cf2f3",
     limits: [
       ["Acessos mensais", "200.000"],
       ["Domínios", "10"],
@@ -349,6 +359,7 @@ const PRICING_CARDS: PricingCard[] = [
     per: "/mês",
     avista: "",
     cta: "Assinar Ratazana",
+    href: "https://clkdmg.site/subscribe/a1b36fd8-db05-4763-9812-8fa6065d65b0",
     limits: [
       ["Acessos mensais", "500.000"],
       ["Domínios", "20"],
@@ -372,6 +383,7 @@ const PRICING_CARDS: PricingCard[] = [
     per: "/mês",
     avista: "",
     cta: "Assinar Ratazana Plus",
+    href: "https://clkdmg.site/subscribe/a1b37046-3ae8-47a8-ac8c-5ceac8de02e9",
     limits: [
       ["Acessos mensais", "1.000.000"],
       ["Domínios", "40"],
@@ -395,6 +407,7 @@ const PRICING_CARDS: PricingCard[] = [
     per: "/mês",
     avista: "ou R$497,00 à vista",
     cta: "Assinar Rato",
+    href: "https://clkdmg.site/subscribe/a1b37270-31b7-426f-bd98-b789e79d1c55",
     limits: [
       ["Acessos mensais", "200.000"],
       ["Domínios", "10"],
@@ -418,6 +431,7 @@ const PRICING_CARDS: PricingCard[] = [
     per: "/mês",
     avista: "ou R$597,00 à vista",
     cta: "Assinar Ratazana",
+    href: "https://clkdmg.site/subscribe/a1b373fb-40f0-496c-afc8-2bda6aaaeec2",
     limits: [
       ["Acessos mensais", "500.000"],
       ["Domínios", "20"],
@@ -441,6 +455,7 @@ const PRICING_CARDS: PricingCard[] = [
     per: "/mês",
     avista: "ou R$797,00 à vista",
     cta: "Assinar Ratazana Plus",
+    href: "https://clkdmg.site/subscribe/a1b375cf-d00d-448c-be15-b29cb2edc57c",
     limits: [
       ["Acessos mensais", "1.000.000"],
       ["Domínios", "40"],
@@ -464,6 +479,7 @@ const PRICING_CARDS: PricingCard[] = [
     per: "/mês",
     avista: "ou R$657,00 à vista",
     cta: "Assinar Rato",
+    href: "https://clkdmg.site/subscribe/a1b3721b-9c6c-4276-b81c-9224b8be4a71",
     limits: [
       ["Acessos mensais", "200.000"],
       ["Domínios", "10"],
@@ -487,6 +503,7 @@ const PRICING_CARDS: PricingCard[] = [
     per: "/mês",
     avista: "ou R$877,00 à vista",
     cta: "Assinar Ratazana",
+    href: "https://clkdmg.site/subscribe/a1b37447-b087-4e02-aaf8-22baae5e8ad8",
     limits: [
       ["Acessos mensais", "500.000"],
       ["Domínios", "20"],
@@ -510,6 +527,7 @@ const PRICING_CARDS: PricingCard[] = [
     per: "/mês",
     avista: "ou R$1.397,00 à vista",
     cta: "Assinar Ratazana Plus",
+    href: "https://clkdmg.site/subscribe/a1b3755f-f052-4a3a-8dd4-98e56c03ecc2",
     limits: [
       ["Acessos mensais", "1.000.000"],
       ["Domínios", "40"],
@@ -533,6 +551,7 @@ const PRICING_CARDS: PricingCard[] = [
     per: "/mês",
     avista: "",
     cta: "Assinar Rato",
+    href: "https://clkdmg.site/subscribe/a172f1f0-1a94-44f6-b1c3-33c086144459",
     limits: [
       ["Ratoeiras Totais", "50"],
       ["Ratoeiras Automáticas", "5"],
@@ -560,6 +579,7 @@ const PRICING_CARDS: PricingCard[] = [
     per: "/mês",
     avista: "",
     cta: "Assinar Ratazana",
+    href: "https://clkdmg.site/subscribe/a17b698f-2997-474a-8a36-fe7424fd09d8",
     limits: [
       ["Ratoeiras Totais", "100"],
       ["Ratoeiras Automáticas", "50"],
@@ -587,6 +607,7 @@ const PRICING_CARDS: PricingCard[] = [
     per: "/mês",
     avista: "",
     cta: "Assinar Ratazana Plus",
+    href: "https://clkdmg.site/subscribe/a17b7a64-dbe8-4325-b864-7078281fe0d6",
     limits: [
       ["Ratoeiras Totais", "300"],
       ["Ratoeiras Automáticas", "300"],
@@ -614,6 +635,7 @@ const PRICING_CARDS: PricingCard[] = [
     per: "/mês",
     avista: "ou R$1.097,00 à vista",
     cta: "Assinar Rato",
+    href: "https://clkdmg.site/subscribe/a17b67b2-9424-4d5b-a25b-a3c675256b40",
     limits: [
       ["Ratoeiras Totais", "50"],
       ["Ratoeiras Automáticas", "5"],
@@ -641,6 +663,7 @@ const PRICING_CARDS: PricingCard[] = [
     per: "/mês",
     avista: "ou R$1.597,00 à vista",
     cta: "Assinar Ratazana",
+    href: "https://clkdmg.site/subscribe/a17b79c4-9997-4916-ae61-3f9a2c644284",
     limits: [
       ["Ratoeiras Totais", "100"],
       ["Ratoeiras Automáticas", "50"],
@@ -668,6 +691,7 @@ const PRICING_CARDS: PricingCard[] = [
     per: "/mês",
     avista: "ou R$2.497,00 à vista",
     cta: "Assinar Ratazana Plus",
+    href: "https://clkdmg.site/subscribe/a17b7aae-f76f-49b8-856c-ca6da46f391d",
     limits: [
       ["Ratoeiras Totais", "300"],
       ["Ratoeiras Automáticas", "300"],
@@ -695,6 +719,7 @@ const PRICING_CARDS: PricingCard[] = [
     per: "/mês",
     avista: "ou R$1.897,00 à vista",
     cta: "Assinar Rato",
+    href: "https://clkdmg.site/subscribe/a17b688b-ff5d-4a4f-b171-74b16652a239",
     limits: [
       ["Ratoeiras Totais", "50"],
       ["Ratoeiras Automáticas", "5"],
@@ -722,6 +747,7 @@ const PRICING_CARDS: PricingCard[] = [
     per: "/mês",
     avista: "ou R$2.497,00 à vista",
     cta: "Assinar Ratazana",
+    href: "https://clkdmg.site/subscribe/a17b7a02-ea67-4937-8f7d-6e598562ca50",
     limits: [
       ["Ratoeiras Totais", "100"],
       ["Ratoeiras Automáticas", "50"],
@@ -749,6 +775,7 @@ const PRICING_CARDS: PricingCard[] = [
     per: "/mês",
     avista: "ou R$4.997,00 à vista",
     cta: "Assinar Ratazana Plus",
+    href: "https://clkdmg.site/subscribe/a17b7b12-a65c-4a48-84f9-ac1d2c1dc8a5",
     limits: [
       ["Ratoeiras Totais", "300"],
       ["Ratoeiras Automáticas", "300"],
@@ -778,6 +805,7 @@ type PricingCard = {
   per: string;
   avista: string;
   cta: string;
+  href?: string;
   limits: [string, string][];
   platforms: [string, string][];
   hub_subs: string[];
@@ -1109,8 +1137,8 @@ function getCards(product: PlanType, cycle: BillingCycle): PricingCard[] {
   return PRICING_CARDS.filter((c) => c.product === product && c.cycle === cycle);
 }
 
-function getPlanHref() {
-  return "/planos#vamos-transformar";
+function getPlanHref(card: PricingCard) {
+  return card.href || "/planos#vamos-transformar";
 }
 
 function Tooltip({
@@ -1349,7 +1377,9 @@ function PricingCardComponent({
       <div className="flex-1" />
 
       <a
-        href={getPlanHref()}
+        href={getPlanHref(card)}
+        target={card.href?.startsWith("http") ? "_blank" : undefined}
+        rel={card.href?.startsWith("http") ? "noopener noreferrer" : undefined}
         className={cn(
           "w-full mt-4 py-3 rounded-xl text-sm font-bold text-center transition-colors",
           ctaClass,
