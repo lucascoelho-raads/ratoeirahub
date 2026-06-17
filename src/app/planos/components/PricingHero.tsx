@@ -20,7 +20,9 @@ export default function PricingHero() {
           className="max-w-3xl 2xl:max-w-[60rem] 4xl:max-w-[80rem] mx-auto mb-16"
         >
           <h1 className="text-2xl sm:text-4xl lg:text-6xl font-black text-white leading-tight mb-6  max-w-4xl 2xl:max-w-5xl 4xl:max-w-6xl mx-auto">
-            Escolha o Plano Ideal Para <span className="text-brand-primary">Escalar sua Operação</span>
+            Escolha o Plano<br />
+            Ideal Para<br />
+            <span className="text-brand-primary">Escalar sua Operação</span>
           </h1>
           <p className="text-base sm:text-xl text-gray-400 px-4 sm:px-0 ">
             Sem surpresas ou letras miúdas. Entenda os limites de cada plano e escolha a estrutura que vai multiplicar seus resultados.

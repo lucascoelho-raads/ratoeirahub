@@ -36,9 +36,7 @@ export const HeroMetaAds = () => {
                 </Link>
               </Button>
             </div>
-            <div className="mt-3 text-sm text-gray-400/60 font-semibold">
-              Plano gratuito disponível. Sem cartão.
-            </div>
+
           </div>
         </div>
 

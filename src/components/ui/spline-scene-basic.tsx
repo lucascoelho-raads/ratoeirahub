@@ -29,7 +29,7 @@ export function SplineSceneBasic() {
             </a>
           </div>
 
-          <p className="mt-3 text-sm text-neutral-400 text-center lg:text-left">Plano gratuito disponível. Sem cartão.</p>
+
         </div>
 
         <div className="flex-1 relative h-[420px] sm:h-[520px] lg:h-[620px]">

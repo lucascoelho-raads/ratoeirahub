@@ -57,14 +57,7 @@ export default function HeroPages() {
               </a>
             </motion.div>
 
-            <motion.p
-              initial={{ opacity: 0, y: 14 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.38 }}
-              className="mt-4 text-sm text-gray-50"
-            >
-              Plano gratuito disponível. Sem cartão.
-            </motion.p>
+
 
             <motion.div
               initial={{ opacity: 0, y: 18 }}

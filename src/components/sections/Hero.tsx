@@ -213,7 +213,7 @@ export default function Hero() {
                     >
                       Assinar Agora
                     </Link>
-                    <span className="text-gray-400/60 text-sm text-center lg:text-left">Plano gratuito disponível. Sem cartão.</span>
+
                   </motion.div>
                 </motion.div>
 
@@ -368,7 +368,7 @@ export default function Hero() {
                   >
                     Assinar Agora
                   </Link>
-                  <span className="text-gray-400/60 text-sm text-center lg:text-left">Plano gratuito disponível. Sem cartão.</span>
+
                 </motion.div>
               </div>
             </SpotlightBackground>

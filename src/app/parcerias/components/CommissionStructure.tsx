@@ -14,7 +14,7 @@ const tiers: Tier[] = [
   {
     name: "Assinante da Ratoeira",
     comission: "10%",
-    perks: ["Dashboard Básico", "Material de Apoio"],
+    perks: ["Dashboard Básico"],
     note: "Para entrar neste tier, clique no ícone do WhatsApp no canto inferior direito desta página, informe seu e-mail de assinante e solicite a afiliação.",
   },
   {

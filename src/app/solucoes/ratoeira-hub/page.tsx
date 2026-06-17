@@ -106,9 +106,7 @@ export default function RatoeiraHubPage() {
                 </a>
               </div>
 
-              <p className="mt-4 text-sm text-neutral-400">
-                Plano gratuito disponível. Sem cartão.
-              </p>
+
 
               <div className="mx-auto mt-12 w-full max-w-6xl 2xl:max-w-[90rem] 4xl:max-w-[110rem] 5xl:max-w-[130rem] 6xl:max-w-[150rem]">
                 <div className="relative mx-auto h-[clamp(14rem,30vw,28rem)] w-full max-w-5xl xl:max-w-6xl 2xl:max-w-[85rem] 3xl:max-w-[92rem] 4xl:max-w-[100rem] rounded-2xl border border-white/10 bg-black/20 shadow-2xl shadow-black/60 overflow-hidden">
