@@ -3,6 +3,7 @@
 import { Bot, Ghost, LineChart, Server, Settings2, SlidersHorizontal, BarChart3, Target, Zap } from "lucide-react";
 import { BlurTextEffect } from "@/components/ui/blur-text-effect";
 import { GradientText } from "@/components/ui/gradient-text";
+import { cn } from "@/lib/utils";
 import Image from "next/image";
 
 const features = [
@@ -62,25 +63,38 @@ export default function FeaturesAds() {
       feature.title === "Tracking Server-Side"
         ? "/Tracking Server-Side.png"
         : feature.title === "Bloqueio Automático de IP"
-          ? "/ip_bloqueado.png"
-          : feature.title === "Recuperação de Conversões Invisíveis"
-            ? "/slide2home.png"
+          ? "/bloqueioips.png"
+          : feature.title === "Conversões Otimizadas com Dado Enriquecido"
+            ? "/conversoesotimizadas.png"
+            : feature.title === "Recuperação de Conversões Invisíveis"
+              ? "/slide2home.png"
             : feature.title === "Dados em Tempo Real"
               ? "/dash.png"
-              : feature.title === "Dashboard Consolidado"
-                ? "/slide4home.png"
+              : feature.title === "Gerenciador Integrado"
+                ? "/gerenciadorgoogle.png"
+                : feature.title === "Dashboard Consolidado"
+                  ? "/slide4home.png"
                 : feature.title === "Funil Completo Visível"
-                  ? "/analytics2.png"
+                  ? "/funil.webp"
                   : null;
 
     const imageClassName =
       feature.title === "Tracking Server-Side"
         ? "object-cover scale-[1.02]"
-        : imageSrc
-          ? "object-contain"
-          : null;
+        : feature.title === "Bloqueio Automático de IP"
+          ? "object-cover object-center"
+          : imageSrc
+            ? "object-contain"
+            : null;
 
-    return { ...feature, imageSrc, imageClassName } as const;
+    const aspectRatio =
+      feature.title === "Bloqueio Automático de IP" || feature.title === "Funil Completo Visível"
+        ? "aspect-[16/9]"
+        : feature.title === "Conversões Otimizadas com Dado Enriquecido" || feature.title === "Gerenciador Integrado"
+          ? "aspect-[3/2]"
+          : "aspect-[4/3]";
+
+    return { ...feature, imageSrc, imageClassName, aspectRatio } as const;
   });
 
   return (
@@ -121,7 +135,7 @@ export default function FeaturesAds() {
                 </div>
 
                 <div className="flex-1 w-full">
-                  <div className="relative aspect-[4/3] rounded-2xl border border-white/10 bg-[#111111] overflow-hidden">
+                  <div className={cn("relative rounded-2xl border border-white/10 bg-[#111111] overflow-hidden", slide.aspectRatio)}>
                     <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(80%_70%_at_50%_40%,rgba(255,184,0,0.12)_0%,rgba(0,0,0,0)_70%)]" />
 
                     {slide.imageSrc ? (
