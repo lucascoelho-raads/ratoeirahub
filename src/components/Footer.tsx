@@ -30,7 +30,7 @@ export default function Footer() {
   return (
     <>
       <SpotlightBackground>
-        <footer className="text-gray-400">
+        <footer className="text-gray-400 safe-area-bottom">
           <div className="max-w-7xl 2xl:max-w-[90rem] 4xl:max-w-[120rem] 5xl:max-w-[140rem] 6xl:max-w-[160rem] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-12 4xl:px-20 5xl:px-28 6xl:px-36">
             {/* Main footer */}
             <div className="py-12 md:py-16 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-6 gap-8 text-center sm:text-left">
@@ -62,7 +62,7 @@ export default function Footer() {
                       key={social.label}
                       href={social.href}
                       aria-label={social.label}
-                      className="w-9 h-9 rounded-button bg-gray-800 hover:bg-yellow-500 border border-gray-700 hover:border-yellow-400 flex items-center justify-center text-gray-400 hover:text-white transition-all duration-200 hover:scale-110"
+                      className="w-11 h-11 md:w-9 md:h-9 rounded-button bg-gray-800 hover:bg-yellow-500 border border-gray-700 hover:border-yellow-400 flex items-center justify-center text-gray-400 hover:text-white transition-all duration-200 hover:scale-110"
                     >
                       <social.icon className="w-4 h-4" />
                     </a>
@@ -92,7 +92,7 @@ export default function Footer() {
                         <li key={link.label}>
                           <Link
                             href={link.href}
-                            className="text-sm text-gray-50 hover:text-yellow-400 transition-colors duration-200"
+                            className="inline-flex min-h-11 items-center text-sm text-gray-50 hover:text-yellow-400 transition-colors duration-200"
                           >
                             {link.label}
                           </Link>

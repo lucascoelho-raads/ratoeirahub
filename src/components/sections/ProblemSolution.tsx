@@ -88,7 +88,7 @@ export default function ProblemSolution() {
           <h2 className="text-2xl sm:text-3xl lg:text-5xl 3xl:text-7xl font-black text-[#111827] leading-tight  max-w-4xl 3xl:max-w-5xl 4xl:max-w-6xl 5xl:max-w-[70rem] 6xl:max-w-[78rem] mx-auto">
             <span className="text-brand-primary">Tudo</span> que você precisa para dominar o <span className="text-brand-primary">tráfego pago</span>. Em um só <span className="text-brand-primary">lugar</span>.
           </h2>
-          <p className="text-lg sm:text-xl 3xl:text-[1.75rem] text-[#4b5563] max-w-4xl 2xl:max-w-[56rem] 3xl:max-w-[64rem] 4xl:max-w-[70rem] 5xl:max-w-[72rem] 6xl:max-w-[80rem] mx-auto leading-relaxed ">
+          <p className="text-base sm:text-xl 3xl:text-[1.75rem] text-[#4b5563] max-w-4xl 2xl:max-w-[56rem] 3xl:max-w-[64rem] 4xl:max-w-[70rem] 5xl:max-w-[72rem] 6xl:max-w-[80rem] mx-auto leading-relaxed ">
             Quem escala no Google e no Meta não usa ferramentas soltas. Usa um ecossistema onde trackeamento, páginas e dados conversam entre si — e cada real investido tem uma origem rastreada. Operações que migram para o Hub reportam aumento de lucro em até 60%.
           </p>
           <p className="text-base sm:text-lg 3xl:text-xl text-orange-400 font-semibold ">
@@ -112,7 +112,7 @@ export default function ProblemSolution() {
                   setActiveTab(tab.id);
                   setHighlightIndex(0);
                 }}
-                className={`inline-flex items-center gap-2 px-5 py-3 rounded-button font-semibold text-sm 3xl:text-base transition-all duration-300 ${
+                className={`inline-flex items-center gap-2 px-5 py-3 min-h-12 rounded-button font-semibold text-sm 3xl:text-base transition-all duration-300 ${
                   isActive
                     ? "bg-linear-to-r from-yellow-500 to-orange-500 text-white shadow-lg shadow-yellow-500/30"
                     : "bg-black/5 text-[#374151] border border-black/10 hover:border-orange-400 hover:bg-black/10"
@@ -147,7 +147,7 @@ export default function ProblemSolution() {
               activeTab === "rastreamento" ? "max-w-5xl 3xl:max-w-[72rem] 4xl:max-w-[78rem] 5xl:max-w-[84rem] 6xl:max-w-[92rem]" : "max-w-4xl 3xl:max-w-[64rem] 4xl:max-w-[70rem] 5xl:max-w-[76rem] 6xl:max-w-[84rem]"
             }`}
           >
-            <p className="text-lg 3xl:text-[1.75rem] text-[#4b5563] leading-relaxed whitespace-pre-line text-center">
+            <p className="text-base sm:text-lg 3xl:text-[1.75rem] text-[#4b5563] leading-relaxed whitespace-pre-line text-center">
               {contentParts[0]}
             </p>
           </div>

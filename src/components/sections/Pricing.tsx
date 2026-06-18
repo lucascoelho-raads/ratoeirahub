@@ -90,7 +90,7 @@ export default function Pricing() {
             Simples, transparente,{" "}
             <span className="gradient-text">sem surpresas</span>
           </h2>
-          <p className="text-gray-500 text-lg sm:text-xl 3xl:text-[1.75rem] max-w-xl 2xl:max-w-[34rem] 3xl:max-w-[44rem] 4xl:max-w-[52rem] 5xl:max-w-[58rem] 6xl:max-w-[64rem] mx-auto ">
+          <p className="text-gray-500 text-base sm:text-xl 3xl:text-[1.75rem] max-w-xl 2xl:max-w-[34rem] 3xl:max-w-[44rem] 4xl:max-w-[52rem] 5xl:max-w-[58rem] 6xl:max-w-[64rem] mx-auto ">
             Comece gratuitamente. Escale conforme seus resultados.
           </p>
 
@@ -102,13 +102,13 @@ export default function Pricing() {
             <button
               onClick={() => setYearly((y) => !y)}
               id="billing-toggle"
-              className={`relative w-12 h-6 rounded-button border-2 transition-all duration-300 ${
+              className={`relative w-14 h-7 md:w-12 md:h-6 rounded-button border-2 transition-all duration-300 ${
                 yearly ? "bg-yellow-500 border-yellow-500" : "bg-gray-200 border-gray-200"
               }`}
             >
               <div
-                className={`absolute top-0.5 w-4 h-4 rounded-full bg-white shadow transition-all duration-300 ${
-                  yearly ? "left-6" : "left-0.5"
+                className={`absolute top-0.5 md:top-0.5 w-5 h-5 md:w-4 md:h-4 rounded-full bg-white shadow transition-all duration-300 ${
+                  yearly ? "left-7 md:left-6" : "left-0.5"
                 }`}
               />
             </button>
@@ -149,7 +149,7 @@ export default function Pricing() {
               <div className="p-8 2xl:p-9 flex-1 flex flex-col">
                 {/* Plan info */}
                 <div className="mb-8">
-                  <h3 className={`text-xl 2xl:text-[1.75rem] font-black mb-1 ${plan.popular ? "text-white" : "text-gray-900"}`}>
+                  <h3 className={`text-xl md:text-xl 2xl:text-[1.75rem] font-black mb-1 ${plan.popular ? "text-white" : "text-gray-900"}`}>
                     {plan.name}
                   </h3>
                   <p className={`text-sm 2xl:text-base ${plan.popular ? "text-yellow-200" : "text-gray-500"}`}>
@@ -192,7 +192,7 @@ export default function Pricing() {
                 {/* CTA */}
                 <a
                   href={getPlanHref(plan.cta)}
-                  className={`flex items-center justify-center gap-2 px-6 py-3.5 rounded-button font-bold text-sm transition-all duration-200 group ${
+                  className={`flex items-center justify-center gap-2 px-6 py-3.5 min-h-12 rounded-button font-bold text-sm transition-all duration-200 group ${
                     plan.popular
                       ? "bg-white text-orange-600 hover:bg-orange-50 shadow-lg"
                       : "bg-yellow-500 text-white hover:bg-yellow-600 shadow-lg shadow-yellow-500/20"

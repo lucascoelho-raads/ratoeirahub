@@ -184,7 +184,7 @@ export default function Hero() {
                 >
                   <motion.h1
                     variants={itemVariants}
-                    className="text-[clamp(1.25rem,8vw,5.25rem)] lg:text-[clamp(2.75rem,3.8vw,4.5rem)] 3xl:text-[clamp(3.5rem,3.2vw,5.5rem)] font-extrabold tracking-tight leading-[1.04] text-center lg:text-left max-w-2xl lg:max-w-none mx-auto lg:mx-0"
+                    className="text-[clamp(1.75rem,8vw,5.25rem)] lg:text-[clamp(2.75rem,3.8vw,4.5rem)] 3xl:text-[clamp(3.5rem,3.2vw,5.5rem)] font-extrabold tracking-tight leading-[1.04] text-center lg:text-left max-w-2xl lg:max-w-none mx-auto lg:mx-0"
                   >
                     <span className="text-white lg:hidden">Cada venda tem uma origem.</span>
                     <span className="hidden text-white lg:block">
@@ -200,7 +200,7 @@ export default function Hero() {
 
                   <motion.p
                     variants={itemVariants}
-                    className="text-[clamp(1rem,1.15vw,1.125rem)] 3xl:text-[clamp(1.125rem,1.2vw,1.5rem)] text-gray-400/70 leading-relaxed max-w-xl 2xl:max-w-[34rem] 3xl:max-w-[46rem] 4xl:max-w-[56rem] 5xl:max-w-[48rem] 6xl:max-w-[56rem] text-center lg:text-left"
+                    className="text-base md:text-[clamp(1rem,1.15vw,1.125rem)] 3xl:text-[clamp(1.125rem,1.2vw,1.5rem)] text-gray-400/70 leading-relaxed max-w-xl 2xl:max-w-[34rem] 3xl:max-w-[46rem] 4xl:max-w-[56rem] 5xl:max-w-[48rem] 6xl:max-w-[56rem] text-center lg:text-left"
                   >
                     Operações reais reportam aumento de lucro em até 60% quando passam a rastrear com dado real. Cada clique, cada lead, cada venda — origem rastreada no Google e no Meta, em tempo real.
                   </motion.p>
@@ -209,7 +209,7 @@ export default function Hero() {
                   <motion.div variants={itemVariants} className="hidden lg:flex flex-col gap-2">
                     <Link
                       href="/planos#pricing-cards"
-                      className="inline-flex self-center lg:self-start items-center justify-center px-6 py-3 bg-brand-primary text-white font-semibold text-sm rounded-button hover:bg-brand-primary-hover transition-colors duration-200 text-center"
+                      className="inline-flex self-center lg:self-start items-center justify-center px-6 py-3 min-h-12 bg-brand-primary text-white font-semibold text-sm rounded-button hover:bg-brand-primary-hover transition-colors duration-200 text-center"
                     >
                       Assinar Agora
                     </Link>
@@ -238,7 +238,7 @@ export default function Hero() {
                           initial={{ opacity: 0 }}
                           animate={{ opacity: 1 }}
                           exit={{ opacity: 0 }}
-                          className="text-neutral-500 text-[10px] font-semibold tracking-widest uppercase absolute left-1/2 -translate-x-1/2"
+                          className="text-neutral-500 text-xs font-semibold tracking-widest uppercase absolute left-1/2 -translate-x-1/2"
                         >
                           {slides[activeSlide].label}
                         </motion.span>
@@ -295,7 +295,7 @@ export default function Hero() {
                     </div>
                     <div>
                       <p className="text-text-primary text-xs font-bold">~100%</p>
-                      <p className="text-text-secondary text-[10px]">conversões rastreadas</p>
+                      <p className="text-text-secondary text-xs">conversões rastreadas</p>
                     </div>
                   </motion.div>
 
@@ -316,7 +316,7 @@ export default function Hero() {
                     </div>
                     <div>
                       <p className="text-text-primary text-xs font-bold">+2.600</p>
-                      <p className="text-text-secondary text-[10px]">anunciantes ativos</p>
+                      <p className="text-text-secondary text-xs">anunciantes ativos</p>
                     </div>
                   </motion.div>
                 </motion.div>
@@ -386,7 +386,7 @@ export default function Hero() {
               <div className="relative w-full h-full max-w-7xl 2xl:max-w-[90rem] 4xl:max-w-[105rem] 5xl:max-w-[110rem] 6xl:max-w-[120rem] mx-auto px-4 sm:px-6 lg:px-12 2xl:px-16 4xl:px-28 5xl:px-32 6xl:px-60 flex flex-col lg:grid lg:grid-cols-[1fr_1.1fr] 2xl:grid-cols-[1fr_1.15fr] 3xl:grid-cols-[1fr_1.2fr] 4xl:grid-cols-[1fr_1fr] 5xl:grid-cols-[0.95fr_1.05fr] 6xl:grid-cols-[0.8fr_1fr] gap-6 lg:gap-10 2xl:gap-14 3xl:gap-20 5xl:gap-16 6xl:gap-20 lg:items-start 5xl:items-center min-w-0 pt-16 lg:pt-20 pb-16 lg:pb-24">
                 {/* Texto */}
                 <div className="flex flex-col gap-6 lg:col-start-1 lg:row-start-1">
-                  <h2 className="text-[clamp(1.15rem,6vw,3.5rem)] sm:text-[clamp(1.5rem,5vw,4rem)] lg:text-[clamp(2.75rem,3.8vw,4.5rem)] 3xl:text-[clamp(3.5rem,3.2vw,5.5rem)] font-extrabold tracking-tight leading-tight lg:leading-[1.04] text-white text-center lg:text-left max-w-2xl lg:max-w-none mx-auto lg:mx-0">
+                  <h2 className="text-[clamp(1.5rem,6vw,3.5rem)] sm:text-[clamp(1.5rem,5vw,4rem)] lg:text-[clamp(2.75rem,3.8vw,4.5rem)] 3xl:text-[clamp(3.5rem,3.2vw,5.5rem)] font-extrabold tracking-tight leading-tight lg:leading-[1.04] text-white text-center lg:text-left max-w-2xl lg:max-w-none mx-auto lg:mx-0">
                     <span className="lg:hidden">Páginas que convertem. </span>
                     <span className="hidden lg:block">
                       <span className="block whitespace-nowrap">Páginas que</span>
@@ -401,7 +401,7 @@ export default function Hero() {
                       <span className="block whitespace-nowrap">o primeiro clique.</span>
                     </span>
                   </h2>
-                  <p className="text-[clamp(0.875rem,3vw,1.125rem)] sm:text-[clamp(1rem,2vw,1.125rem)] 3xl:text-[clamp(1.125rem,1.2vw,1.5rem)] text-gray-400/70 leading-relaxed max-w-2xl 2xl:max-w-[34rem] 3xl:max-w-[46rem] 4xl:max-w-[56rem] 5xl:max-w-[48rem] text-center lg:text-left">
+                  <p className="text-base sm:text-[clamp(1rem,2vw,1.125rem)] 3xl:text-[clamp(1.125rem,1.2vw,1.5rem)] text-gray-400/70 leading-relaxed max-w-2xl 2xl:max-w-[34rem] 3xl:max-w-[46rem] 4xl:max-w-[56rem] 5xl:max-w-[48rem] text-center lg:text-left">
                     Templates prontos e validados, Flash Pages que abrem em menos de 1 segundo e criação por IA com 1 clique. Cada página já nasce com o trackeamento integrado — sem scripts avulsos, sem configuração manual, sem dado perdido entre a página e a campanha.
                   </p>
                 </div>
@@ -426,7 +426,7 @@ export default function Hero() {
                           initial={{ opacity: 0 }}
                           animate={{ opacity: 1 }}
                           exit={{ opacity: 0 }}
-                          className="text-neutral-500 text-[10px] font-semibold tracking-widest uppercase absolute left-1/2 -translate-x-1/2"
+                          className="text-neutral-500 text-xs font-semibold tracking-widest uppercase absolute left-1/2 -translate-x-1/2"
                         >
                           Páginas que Convertem
                         </motion.span>
@@ -470,7 +470,7 @@ export default function Hero() {
                 <div className="hidden lg:flex items-center justify-start gap-3 lg:col-start-1 lg:row-start-2 self-end pb-2">
                   <Link
                     href="/solucoes/ratoeira-pages"
-                    className="inline-flex items-center gap-2 px-6 py-3 bg-brand-primary text-white font-semibold text-sm rounded-button hover:bg-brand-primary-hover transition-colors duration-200 text-center"
+                    className="inline-flex items-center gap-2 px-6 py-3 min-h-12 bg-brand-primary text-white font-semibold text-sm rounded-button hover:bg-brand-primary-hover transition-colors duration-200 text-center"
                   >
                     Conhecer o Ratoeira Pages →
                   </Link>
@@ -514,7 +514,7 @@ export default function Hero() {
                 <div className="flex lg:hidden items-center justify-center gap-3 pt-2 order-4">
                   <Link
                     href="/solucoes/ratoeira-pages"
-                    className="inline-flex items-center gap-2 px-6 py-3 bg-brand-primary text-white font-semibold text-sm rounded-button hover:bg-brand-primary-hover transition-colors duration-200"
+                    className="inline-flex items-center gap-2 px-6 py-3 min-h-12 bg-brand-primary text-white font-semibold text-sm rounded-button hover:bg-brand-primary-hover transition-colors duration-200"
                   >
                     Conhecer o Ratoeira Pages →
                   </Link>

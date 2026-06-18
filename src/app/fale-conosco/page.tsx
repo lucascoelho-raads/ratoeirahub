@@ -16,10 +16,10 @@ export default function FaleConoscoPage() {
       {/* Hero pequeno para dar contexto */}
       <section className="pt-28 pb-8 bg-[#050505]">
         <div className="max-w-6xl 2xl:max-w-6xl 4xl:max-w-[110rem] 5xl:max-w-[130rem] 6xl:max-w-[150rem] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-12 4xl:px-20 5xl:px-28 6xl:px-36 text-center">
-          <h1 className="text-2xl sm:text-4xl lg:text-5xl font-black text-white leading-tight ">
+          <h1 className="text-[1.75rem] sm:text-4xl lg:text-5xl font-black text-white leading-tight ">
             Fale com a <span className="text-brand-primary">gente</span>
           </h1>
-          <p className="mt-4 text-gray-400 text-lg max-w-2xl 2xl:max-w-[50rem] 4xl:max-w-[70rem] mx-auto ">
+          <p className="mt-4 text-gray-400 text-base sm:text-lg max-w-2xl 2xl:max-w-[50rem] 4xl:max-w-[70rem] mx-auto ">
             Confira nossos horários de atendimento e fale com a gente no momento que for melhor para você.
           </p>
         </div>

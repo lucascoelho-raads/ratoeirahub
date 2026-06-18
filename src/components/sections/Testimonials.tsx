@@ -97,7 +97,7 @@ export default function Testimonials() {
               confia na <span className="text-brand-500">Ratoeira</span>
             </span>
           </h2>
-          <p className="text-gray-400/70 text-lg sm:text-xl 3xl:text-[1.75rem] max-w-xl 2xl:max-w-[34rem] 3xl:max-w-[48rem] 4xl:max-w-[56rem] 5xl:max-w-[64rem] 6xl:max-w-[72rem] mx-auto ">
+          <p className="text-gray-400/70 text-base sm:text-xl 3xl:text-[1.75rem] max-w-xl 2xl:max-w-[34rem] 3xl:max-w-[48rem] 4xl:max-w-[56rem] 5xl:max-w-[64rem] 6xl:max-w-[72rem] mx-auto ">
             Veja o que anunciantes de Google Ads, Meta Ads e gestores de tráfego dizem sobre operar com dado real.
           </p>
         </motion.div>
@@ -164,7 +164,7 @@ export default function Testimonials() {
             {testimonials.map((testimonial, index) => (
               <button
                 key={index}
-                className={`m-1.5 inline-flex justify-center whitespace-normal sm:whitespace-nowrap rounded-badge px-3 py-1.5 text-xs 3xl:text-sm shadow-sm transition-colors duration-150 focus-visible:outline-none focus-visible:ring focus-visible:ring-orange-300 ${
+                className={`m-1.5 inline-flex justify-center items-center min-h-11 whitespace-normal sm:whitespace-nowrap rounded-badge px-3 py-1.5 text-xs 3xl:text-sm shadow-sm transition-colors duration-150 focus-visible:outline-none focus-visible:ring focus-visible:ring-orange-300 ${
                   active === index
                     ? "bg-orange-600 text-white shadow-orange-950/10"
                     : "bg-white text-orange-600 hover:bg-orange-100"

@@ -117,7 +117,7 @@ export default function CaseClientView({ caseData }: { caseData: CaseData }) {
                 transition: { staggerChildren: 0.1, delayChildren: 0.3 },
               },
             }}
-            className="text-2xl sm:text-6xl md:text-8xl font-black mb-8 sm:mb-12 tracking-tight text-white drop-shadow-2xl flex flex-wrap justify-center gap-x-4 px-4"
+            className="text-[1.75rem] sm:text-6xl md:text-8xl font-black mb-8 sm:mb-12 tracking-tight text-white drop-shadow-2xl flex flex-wrap justify-center gap-x-4 px-4"
           >
             {caseData.name.split(" ").map((word, i) => (
               <motion.span

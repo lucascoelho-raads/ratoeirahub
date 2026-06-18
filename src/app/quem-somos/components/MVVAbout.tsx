@@ -77,10 +77,10 @@ export default function MVVAbout() {
             <div className="w-14 h-14 bg-orange-500/15 border border-orange-500/20 rounded-2xl flex items-center justify-center mb-5 mx-auto sm:mx-0">
               <Target className="w-7 h-7 text-orange-300" />
             </div>
-            <h2 className="text-2xl sm:text-2xl sm:text-3xl font-black text-white tracking-tight mb-4">
+            <h2 className="text-2xl sm:text-3xl font-black text-white tracking-tight mb-4">
               <GradientText className="font-black">Missão</GradientText>
             </h2>
-            <p className="text-gray-400 font-medium leading-relaxed text-sm sm:text-base">
+            <p className="text-gray-400 font-medium leading-relaxed text-base">
               {mvvData[0].content}
             </p>
           </motion.div>
@@ -99,7 +99,7 @@ export default function MVVAbout() {
             <h2 className="text-2xl sm:text-3xl font-black text-white tracking-tight mb-4">
               <GradientText className="font-black">Visão</GradientText>
             </h2>
-            <p className="text-gray-400 font-medium leading-relaxed">
+            <p className="text-gray-400 font-medium leading-relaxed text-base">
               {mvvData[1].content}
             </p>
           </motion.div>

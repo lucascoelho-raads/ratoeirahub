@@ -26,7 +26,7 @@ export default function HeroAbout() {
               <span className="text-sm font-semibold">NOSSA HISTÓRIA</span>
             </div>
 
-            <h1 className="text-[clamp(1.25rem,4.2vw,4.5rem)] lg:text-[clamp(1.25rem,3.2vw,5rem)] font-black text-[#111827] leading-[1.04] tracking-tight  max-w-3xl lg:max-w-4xl mx-auto lg:mx-0">
+            <h1 className="text-[clamp(1.75rem,4.2vw,4.5rem)] lg:text-[clamp(1.25rem,3.2vw,5rem)] font-black text-[#111827] leading-[1.04] tracking-tight  max-w-3xl lg:max-w-4xl mx-auto lg:mx-0">
               A <GradientText className="font-black">Ratoeira</GradientText> nasceu de <GradientText className="font-black">dentro</GradientText> do mercado.
               <br />
               Não de fora.

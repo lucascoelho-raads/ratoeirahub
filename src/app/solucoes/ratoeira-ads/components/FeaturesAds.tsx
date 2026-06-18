@@ -62,7 +62,7 @@ export default function FeaturesAds() {
   const slides = features.map((feature) => {
     const imageSrc =
       feature.title === "Tracking Server-Side"
-        ? "/serverasidefinal.png"
+        ? "/serveraside.webp"
         : feature.title === "Bloqueio Automático de IP"
           ? "/bloqueioips.png"
           : feature.title === "Conversões Otimizadas com Dado Enriquecido"
@@ -103,7 +103,8 @@ export default function FeaturesAds() {
       <div className="max-w-7xl 2xl:max-w-[90rem] 4xl:max-w-[120rem] 5xl:max-w-[140rem] 6xl:max-w-[160rem] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-12 4xl:px-20 5xl:px-28 6xl:px-36">
         <div className="text-center mb-16 max-w-4xl xl:max-w-5xl 2xl:max-w-[65rem] 3xl:max-w-[80rem] 4xl:max-w-[90rem] 5xl:max-w-[100rem] 6xl:max-w-[110rem] mx-auto">
           <h2 className="text-2xl sm:text-3xl md:text-5xl 3xl:text-7xl font-black text-white mb-6 text-center">
-            O fim do <span className="text-brand-primary">achismo</span> no tráfego pago.
+            O fim do <span className="text-brand-primary">achismo</span> no<br className="sm:hidden" />{" "}
+            <span className="block sm:inline">tráfego pago.</span>
           </h2>
           <p className="text-gray-400 text-base sm:text-lg 3xl:text-3xl max-w-3xl xl:max-w-4xl 2xl:max-w-5xl 4xl:max-w-[80rem] 5xl:max-w-[90rem] 6xl:max-w-[100rem] mx-auto text-center">
             A Ratoeira Ads atua em 6 frentes para garantir que você saiba exatamente qual anúncio do Google Ads gerou cada centavo de
@@ -127,7 +128,11 @@ export default function FeaturesAds() {
                   </div>
                   <h3 className="text-2xl sm:text-3xl md:text-4xl 3xl:text-6xl font-black leading-tight">
                     <GradientText className="font-black">
-                      {slide.title}
+                      {slide.title === "Recuperação de Conversões Invisíveis" ? (
+                        <>Recuperação de<br className="md:hidden" /> Conversões Invisíveis</>
+                      ) : (
+                        slide.title
+                      )}
                     </GradientText>
                   </h3>
                   <p className={`text-base sm:text-xl 3xl:text-3xl leading-relaxed ${index % 2 === 0 ? "text-[#4b5563]" : "text-gray-400"}`}>

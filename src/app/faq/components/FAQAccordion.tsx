@@ -60,7 +60,7 @@ export default function FAQAccordion() {
           >
             <button
               onClick={() => toggleFAQ(index)}
-              className="w-full flex items-center justify-between p-6 text-left"
+              className="w-full flex min-h-12 items-center justify-between p-6 text-left"
             >
               <span className="text-lg font-bold text-white pr-8">{faq.question}</span>
               <motion.div
@@ -82,7 +82,7 @@ export default function FAQAccordion() {
                   exit={{ height: 0, opacity: 0 }}
                   transition={{ duration: 0.3, ease: "easeInOut" }}
                 >
-                  <div className="px-6 pb-6 text-gray-400 leading-relaxed">
+                  <div className="px-6 pb-6 text-base text-gray-400 leading-relaxed">
                     {faq.answer}
                   </div>
                 </motion.div>

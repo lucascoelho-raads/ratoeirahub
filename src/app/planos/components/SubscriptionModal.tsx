@@ -188,7 +188,7 @@ export default function SubscriptionModal({
   }
 
   const inputBaseClass =
-    "w-full bg-[#1a1a1a] border rounded-input px-4 py-3 text-white placeholder:text-[#666666] transition-all duration-200 " +
+    "w-full bg-[#1a1a1a] border rounded-input px-4 py-3 text-base text-white placeholder:text-[#666666] transition-all duration-200 " +
     "focus:outline-none focus:ring-2 focus:ring-[#FF7E4A]/20 focus:border-[#FF7E4A] " +
     "disabled:opacity-50 disabled:cursor-not-allowed";
 
@@ -220,7 +220,7 @@ export default function SubscriptionModal({
             <button
               type="button"
               onClick={onClose}
-              className="absolute right-4 top-4 inline-flex h-8 w-8 items-center justify-center rounded-full text-[#888888] transition-colors hover:bg-white/[0.08] hover:text-white"
+              className="absolute right-4 top-4 inline-flex h-11 w-11 md:h-8 md:w-8 items-center justify-center rounded-full text-[#888888] transition-colors hover:bg-white/[0.08] hover:text-white"
               aria-label="Fechar modal"
             >
               <X className="h-5 w-5" />

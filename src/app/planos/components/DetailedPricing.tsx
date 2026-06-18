@@ -54,7 +54,7 @@ export default function DetailedPricing() {
           <h2 className="mb-4 text-2xl sm:text-3xl font-black tracking-tight md:text-5xl text-white ">
             Compare os planos em detalhes
           </h2>
-          <p className="text-sm text-gray-400 sm:text-base max-w-2xl 2xl:max-w-[40rem] 4xl:max-w-[70rem] mx-auto ">
+          <p className="text-base text-gray-400 sm:text-base max-w-2xl 2xl:max-w-[40rem] 4xl:max-w-[70rem] mx-auto ">
             Descubra exatamente o que cada plano oferece e escolha a melhor opção para a escala da sua operação.
           </p>
         </div>
@@ -63,7 +63,7 @@ export default function DetailedPricing() {
           <div className="inline-flex rounded-full border border-white/10 bg-white/5 p-1.5">
             <button
               onClick={() => setSubscriptionType("MONTHLY")}
-              className={`rounded-full px-6 py-2.5 text-sm font-semibold transition-all ${
+              className={`rounded-full px-6 py-2.5 min-h-11 text-sm font-semibold transition-all ${
                 isMonthly
                   ? "bg-[#161616] text-white shadow-md border border-white/10"
                   : "text-gray-400 hover:text-white"
@@ -80,7 +80,7 @@ export default function DetailedPricing() {
               }`}
             >
               Anual
-              <span className="absolute -top-3 -right-2 px-2 py-0.5 bg-brand-primary text-black text-[10px] font-bold rounded-full uppercase tracking-wider">
+              <span className="absolute -top-3 -right-2 px-2 py-0.5 bg-brand-primary text-black text-xs font-bold rounded-full uppercase tracking-wider">
                 -20%
               </span>
             </button>
@@ -94,7 +94,7 @@ export default function DetailedPricing() {
               <button
                 key={plan.id}
                 onClick={() => setActivePlanIndex(i)}
-                className={`flex-1 px-3 py-4 text-xs font-bold uppercase tracking-wider transition-colors ${
+                className={`flex-1 px-3 py-4 min-h-11 text-sm font-bold uppercase tracking-wider transition-colors ${
                   activePlanIndex === i
                     ? "border-b-2 border-brand-primary text-brand-primary bg-brand-primary/5"
                     : "text-gray-500 hover:text-gray-300"
@@ -137,13 +137,13 @@ export default function DetailedPricing() {
               {group.features.map((feature, fi) => (
                 <div key={feature.label}>
                   <div className="flex items-center justify-between px-6 py-4">
-                    <div className="flex items-center gap-2 text-sm text-gray-300 font-medium">
+                    <div className="flex items-center gap-2 text-base text-gray-300 font-medium">
                       {feature.label}
                       {feature.tooltip && (
                         <Info className="w-4 h-4 text-gray-600" />
                       )}
                     </div>
-                    <div className="text-sm font-semibold text-white">
+                    <div className="text-base font-semibold text-white">
                       <FeatureCell value={feature.values[activePlanIndex]} />
                     </div>
                   </div>
@@ -179,11 +179,11 @@ export default function DetailedPricing() {
                     <PlanIcon planId={plan.id} />
                   </div>
                   <div className="mb-6 flex items-end gap-1">
-                    <span className="text-gray-400 text-sm mb-1">R$</span>
+                    <span className="text-gray-400 text-base mb-1">R$</span>
                     <span className="text-2xl sm:text-4xl font-black text-white">
                       <NumberFlow value={price} />
                     </span>
-                    <span className="text-xs text-gray-500 mb-1">
+                    <span className="text-sm text-gray-500 mb-1">
                       {isMonthly ? "/mês" : "/ano"}
                     </span>
                   </div>
@@ -205,7 +205,7 @@ export default function DetailedPricing() {
             {PRICING_PAGE_PLANS.map((plan, i) => (
               <div
                 key={`col-label-${plan.id}`}
-                className={`flex items-center justify-center px-8 py-3 text-xs font-bold uppercase tracking-wider text-gray-300 ${
+                className={`flex items-center justify-center px-8 py-3 min-h-11 text-sm font-bold uppercase tracking-wider text-gray-300 ${
                   i === 1 ? "bg-white/[0.02]" : ""
                 }`}
               >
@@ -229,7 +229,7 @@ export default function DetailedPricing() {
               {group.features.map((feature, fi) => (
                 <div key={feature.label}>
                   <div className="grid grid-cols-[1fr_repeat(3,_220px)] items-center">
-                    <div className="flex items-center gap-2 px-8 py-5 text-sm text-gray-300 font-medium">
+                    <div className="flex items-center gap-2 px-8 py-5 text-base text-gray-300 font-medium">
                       {feature.label}
                       {feature.tooltip && (
                         <div className="group relative">

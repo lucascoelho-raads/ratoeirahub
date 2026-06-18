@@ -105,7 +105,7 @@ export function Features() {
       <div className="mx-auto max-w-7xl 2xl:max-w-[90rem] 4xl:max-w-[120rem] 5xl:max-w-[140rem] 6xl:max-w-[160rem] space-y-10 px-4 sm:px-6 lg:px-8 2xl:px-12 4xl:px-20 5xl:px-28 6xl:px-36">
         <div className="relative z-10 mx-auto max-w-2xl lg:max-w-4xl xl:max-w-5xl 2xl:max-w-[60rem] 3xl:max-w-[75rem] 4xl:max-w-[72rem] 5xl:max-w-[80rem] 6xl:max-w-[90rem] text-center">
           <h2 className="text-4xl font-black tracking-tight text-white md:text-5xl 3xl:text-7xl">
-            Tudo que você precisa para<br />construir páginas que <span className="text-[#FF7E4A]">convertem</span>.
+            Tudo que você precisa<br className="md:hidden" /> para<br className="hidden md:block" />construir páginas que <span className="text-[#FF7E4A]">convertem</span>.
           </h2>
           <p className="mt-6 text-lg 3xl:text-3xl leading-relaxed text-gray-400 ">
             Construtor, hospedagem e tracking numa plataforma só — feita para<br />anunciantes que não têm tempo a perder com configuração.
@@ -128,7 +128,19 @@ export function Features() {
                   </div>
                   <h3 className="text-3xl md:text-4xl 3xl:text-6xl font-black leading-tight">
                     <GradientText variant="orange" className="font-black">
-                      {slide.titlePrefix}<br />{slide.titleHighlight}
+                      {slide.key === "flash-pages" ? (
+                        <>Flash Pages:<br />Valide qualquer<br className="md:hidden" /> oferta em minutos.</>
+                      ) : slide.key === "drag-and-drop" ? (
+                        <>Editor Drag-and-Drop. Sem código.</>
+                      ) : slide.key === "presell-ia" ? (
+                        <>Geração de Página por IA</>
+                      ) : slide.key === "integracao-ads" ? (
+                        <>Tracking Integrado<br className="md:hidden" /> Desde o Primeiro Clique</>
+                      ) : slide.key === "templates-nicho" ? (
+                        <>Biblioteca de<br className="md:hidden" /> Templates por Nicho.</>
+                      ) : (
+                        <>{slide.titlePrefix}<br />{slide.titleHighlight}</>
+                      )}
                     </GradientText>
                   </h3>
                   <p className={`text-xl 3xl:text-3xl leading-relaxed ${isLight ? "text-[#4b5563]" : "text-gray-400"}`}>

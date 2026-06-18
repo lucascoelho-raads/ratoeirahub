@@ -496,7 +496,7 @@ function QuoteSmallCard({ card }: { card: QuoteSmallCard }) {
         </div>
         <div>
           <p className="text-white font-bold text-xs">{card.name}</p>
-          <p className="text-gray-500 text-[10px]">{card.role}</p>
+          <p className="text-gray-500 text-xs">{card.role}</p>
         </div>
       </div>
     </div>

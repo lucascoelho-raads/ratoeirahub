@@ -16,7 +16,7 @@ export default function PricingHero() {
           transition={{ duration: 0.6 }}
           className="max-w-3xl 2xl:max-w-[60rem] 4xl:max-w-[80rem] mx-auto mb-16"
         >
-          <h1 className="text-2xl sm:text-4xl lg:text-6xl font-black text-white leading-tight mb-6  max-w-4xl 2xl:max-w-5xl 4xl:max-w-6xl mx-auto">
+          <h1 className="text-[1.75rem] sm:text-4xl lg:text-6xl font-black text-white leading-tight mb-6  max-w-4xl 2xl:max-w-5xl 4xl:max-w-6xl mx-auto">
             <span className="whitespace-nowrap">Escolha o Plano Ideal Para</span><br />
             <span className="text-brand-primary whitespace-nowrap">Escalar sua Operação</span>
           </h1>

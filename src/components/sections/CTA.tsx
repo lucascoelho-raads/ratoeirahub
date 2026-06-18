@@ -31,7 +31,7 @@ export default function CTA() {
           {/* Title */}
           <h2 className="text-2xl sm:text-4xl lg:text-5xl 3xl:text-7xl font-black text-[#111827] leading-tight  max-w-4xl 5xl:max-w-[70rem] 6xl:max-w-[78rem] mx-auto">
             <span className="block text-[#111827]">Pare de operar no escuro.</span>
-            <span className="block text-lg sm:text-2xl lg:text-3xl 3xl:text-5xl font-black text-brand-primary">
+            <span className="block text-base sm:text-2xl lg:text-3xl 3xl:text-5xl font-black text-brand-primary">
               Cada real investido merece uma origem rastreada.
             </span>
           </h2>
@@ -51,7 +51,7 @@ export default function CTA() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Link
               href="/planos#vamos-transformar"
-              className="inline-flex items-center gap-2.5 px-10 py-5 bg-brand-primary text-white font-black rounded-button text-lg hover:bg-brand-primary-hover transition-all duration-200 shadow-2xl shadow-orange-900/25 hover:-translate-y-0.5 group"
+              className="inline-flex items-center gap-2.5 px-10 py-5 min-h-12 bg-brand-primary text-white font-black rounded-button text-lg hover:bg-brand-primary-hover transition-all duration-200 shadow-2xl shadow-orange-900/25 hover:-translate-y-0.5 group"
             >
               Quero Acessar a Ratoeira Hub
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />

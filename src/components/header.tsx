@@ -178,7 +178,7 @@ export default function Header() {
   return (
     <header
       ref={navRef}
-      className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-[#0a0a0a]/92 backdrop-blur-xl supports-[backdrop-filter]:bg-[#0a0a0a]/88"
+      className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-[#0a0a0a]/92 backdrop-blur-xl supports-[backdrop-filter]:bg-[#0a0a0a]/88 safe-area-top"
     >
       <div className="mx-auto w-full max-w-7xl 2xl:max-w-[90rem] 4xl:max-w-[120rem] px-4 sm:px-6 lg:px-8 2xl:px-12 4xl:px-20">
         <div className="flex h-16 items-center justify-between">
@@ -250,7 +250,7 @@ export default function Header() {
                 return next;
               })
             }
-            className="inline-flex h-10 w-10 items-center justify-center rounded-button border border-white/10 text-gray-200 transition-colors hover:bg-white/10 lg:hidden"
+            className="inline-flex h-11 w-11 items-center justify-center rounded-button border border-white/10 text-gray-200 transition-colors hover:bg-white/10 lg:hidden"
           >
             {mobileOpen ? (
               <X className="size-5" strokeWidth={1.9} />
@@ -285,7 +285,7 @@ export default function Header() {
                     <button
                       type="button"
                       onClick={() => setMobileStack((prev) => prev.slice(0, -1))}
-                      className="inline-flex items-center gap-2 rounded-button px-2 py-1 text-sm font-semibold text-gray-200 hover:bg-white/10"
+                      className="inline-flex min-h-11 items-center gap-2 rounded-button px-2 py-1 text-sm font-semibold text-gray-200 hover:bg-white/10"
                     >
                       <ChevronLeft className="size-4" />
                       Voltar
@@ -310,7 +310,7 @@ export default function Header() {
                                 href={item.href || "#"}
                                 className="block w-full rounded-button px-2 py-2 text-left hover:bg-brand-100/30"
                               >
-                                <span className="block text-sm font-semibold text-gray-100">
+                                <span className="block min-h-11 py-2.5 text-sm md:text-sm font-semibold text-gray-100">
                                   {item.label}
                                 </span>
                               </a>
@@ -345,9 +345,9 @@ export default function Header() {
                             setMobileOpen(false);
                           }
                         }}
-                        className="flex w-full items-center justify-between rounded-button border border-border-default px-4 py-3 text-left"
+                        className="flex w-full min-h-12 items-center justify-between rounded-button border border-border-default px-4 py-3 text-left"
                       >
-                        <span className="text-sm font-semibold text-gray-100">
+                        <span className="text-base md:text-sm font-semibold text-gray-100">
                           {link.label}
                         </span>
                         {link.menu ? (

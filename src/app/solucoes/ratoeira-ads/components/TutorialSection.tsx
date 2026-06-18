@@ -35,7 +35,7 @@ export default function TutorialSection() {
           </div>
 
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white mb-6 tracking-tight ">
-            Confira Nosso <span className="text-yellow-500">Tutorial Completo</span>
+            Confira Nosso<br className="md:hidden" /> <span className="text-yellow-500">Tutorial Completo</span>
           </h2>
 
           <p className="text-lg text-gray-400 leading-relaxed max-w-2xl mx-auto ">
