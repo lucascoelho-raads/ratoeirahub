@@ -12,7 +12,7 @@ const galleryItems = [
   { id: 7, title: "Integração IA", year: "2026", aspect: "aspect-video", src: "/time7.jpeg", type: "image" as const },
   { id: 8, title: "Nossa Cultura", year: "Hoje", aspect: "aspect-square", src: "/time8.jpeg", type: "image" as const },
   { id: 9, title: "Nosso Time", year: "Hoje", aspect: "aspect-square", src: "/time9.jpeg", type: "image" as const },
-  { id: 10, title: "Nosso Time em Ação", year: "Hoje", aspect: "aspect-[3/4]", src: "/time10-HD 720p.mov", type: "video" as const },
+  { id: 10, title: "Nosso Time em Ação", year: "Hoje", aspect: "aspect-[3/4]", src: "/time10-HD 720p.mp4", type: "video" as const },
 ];
 
 export default function GalleryAbout() {
