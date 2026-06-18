@@ -1,6 +1,7 @@
 "use client";
 
-import { Bot, Ghost, LineChart, Server, Settings2, SlidersHorizontal, BarChart3, Target, Zap } from "lucide-react";
+import { motion } from "framer-motion";
+import { Bot, LineChart, Server, Settings2, SlidersHorizontal, BarChart3, Target, Zap } from "lucide-react";
 import { BlurTextEffect } from "@/components/ui/blur-text-effect";
 import { GradientText } from "@/components/ui/gradient-text";
 import { cn } from "@/lib/utils";
@@ -65,18 +66,18 @@ export default function FeaturesAds() {
         : feature.title === "Bloqueio Automático de IP"
           ? "/bloqueioips.png"
           : feature.title === "Conversões Otimizadas com Dado Enriquecido"
-            ? "/conversoesotimizadas.png"
+            ? "/conversoesotimizadas.webp"
             : feature.title === "Recuperação de Conversões Invisíveis"
               ? "/slide2home.png"
-            : feature.title === "Dados em Tempo Real"
-              ? "/dash.png"
-              : feature.title === "Gerenciador Integrado"
-                ? "/gerenciadorgoogle.png"
-                : feature.title === "Dashboard Consolidado"
-                  ? "/slide4home.png"
-                : feature.title === "Funil Completo Visível"
-                  ? "/funil.webp"
-                  : null;
+              : feature.title === "Dados em Tempo Real"
+                ? "/dash.png"
+                : feature.title === "Gerenciador Integrado"
+                  ? "/gerenciadorgoogle.png"
+                  : feature.title === "Dashboard Consolidado"
+                    ? "/slide4home.png"
+                    : feature.title === "Funil Completo Visível"
+                      ? "/funil.webp"
+                      : null;
 
     const imageClassName =
       feature.title === "Tracking Server-Side"
@@ -135,8 +136,12 @@ export default function FeaturesAds() {
                 </div>
 
                 <div className="flex-1 w-full">
-                  <div className={cn("relative rounded-2xl border border-white/10 bg-[#111111] overflow-hidden", slide.aspectRatio)}>
-                    <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(80%_70%_at_50%_40%,rgba(255,184,0,0.12)_0%,rgba(0,0,0,0)_70%)]" />
+                  <motion.div
+                    whileHover={{ scale: 1.35, zIndex: 20 }}
+                    transition={{ duration: 0.35, ease: "easeOut" }}
+                    className={cn("relative rounded-2xl border border-white/10 bg-[#111111] overflow-hidden group cursor-zoom-in shadow-xl", slide.aspectRatio)}
+                  >
+                    <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(80%_70%_at_50%_40%,rgba(255,184,0,0.12)_0%,rgba(0,0,0,0)_70%)] z-10" />
 
                     {slide.imageSrc ? (
                       <Image
@@ -144,7 +149,7 @@ export default function FeaturesAds() {
                         alt={slide.title}
                         fill
                         sizes="(min-width: 1024px) 900px, 100vw"
-                        className={slide.imageClassName ?? undefined}
+                        className={cn("transition-transform duration-500", slide.imageClassName ?? undefined)}
                         priority={index === 0}
                       />
                     ) : (
@@ -156,14 +161,15 @@ export default function FeaturesAds() {
                       </div>
                     )}
 
-                    <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/45 via-black/15 to-transparent" />
-                  </div>
+                    <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/45 via-black/15 to-transparent z-10" />
+                  </motion.div>
                 </div>
               </div>
             );
           })}
         </div>
       </div>
+
     </section>
   );
 }
