@@ -419,3 +419,12 @@ body {
   border-top-color: #ffb800;
   animation: loader-spin 0.9s linear infinite;
 }
+
+/* Hide scrollbar for carousel elements */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

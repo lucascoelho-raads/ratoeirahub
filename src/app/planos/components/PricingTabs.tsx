@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, Fragment } from "react";
+import { useState, Fragment, useRef, useCallback, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Check, ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -1464,7 +1464,7 @@ function ComparisonTable() {
           <col className="w-[20%]" />
           <col className="w-[20%]" />
         </colgroup>
-        <thead className="sticky top-16 z-10">
+        <thead className="sticky top-0 md:top-16 z-10">
           <tr>
             <th className="bg-[#0d0d0d] text-[#aaaaaa] text-xs font-bold uppercase tracking-[0.06em] text-left py-3 px-3.5 border-b border-white/[0.06]">
               Recursos
@@ -1562,9 +1562,36 @@ export default function PricingTabs() {
   const [billingCycle, setBillingCycle] = useState<BillingCycle>("annual");
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedPlan, setSelectedPlan] = useState<{ name: string; checkoutUrl: string } | null>(null);
+  const [activeSlide, setActiveSlide] = useState(0);
+  const carouselRef = useRef<HTMLDivElement>(null);
 
   const cards = getCards(activeTab, billingCycle);
   const descriptions = DESCRIPTIONS[activeTab][billingCycle];
+
+  const handleScroll = useCallback(() => {
+    const el = carouselRef.current;
+    if (!el) return;
+    const scrollLeft = el.scrollLeft;
+    const cardWidth = el.children[0]?.getBoundingClientRect().width ?? 1;
+    const gap = 16;
+    const index = Math.round(scrollLeft / (cardWidth + gap));
+    setActiveSlide(Math.min(Math.max(index, 0), cards.length - 1));
+  }, [cards.length]);
+
+  useEffect(() => {
+    const el = carouselRef.current;
+    if (!el) return;
+    el.addEventListener("scroll", handleScroll, { passive: true });
+    return () => el.removeEventListener("scroll", handleScroll);
+  }, [handleScroll]);
+
+  // Reset active slide when tab/cycle changes
+  useEffect(() => {
+    setActiveSlide(0);
+    if (carouselRef.current) {
+      carouselRef.current.scrollTo({ left: 0, behavior: "instant" });
+    }
+  }, [activeTab, billingCycle]);
 
   function handleSubscribe(planName: string, checkoutUrl: string) {
     setSelectedPlan({ name: planName, checkoutUrl });
@@ -1650,25 +1677,51 @@ export default function PricingTabs() {
             transition={{ duration: 0.3 }}
           >
             {/* Cards */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 pt-4 pb-6">
+            <div ref={carouselRef} className="md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-4 pt-4 pb-6 flex gap-4 overflow-x-auto snap-x snap-mandatory scroll-smooth -mx-4 px-4 md:mx-0 md:px-0 pb-4 md:pb-6 scrollbar-hide" style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}>
               {cards.map((card, i) => (
-                <PricingCardComponent
-                  key={card.index}
-                  card={card}
-                  description={descriptions[i]}
-                  product={activeTab}
-                  onSubscribe={handleSubscribe}
-                />
+                <div key={card.index} className="snap-center shrink-0 w-[85vw] max-w-[340px] md:w-auto md:max-w-none md:snap-align-none md:shrink md:flex-none">
+                  <PricingCardComponent
+                    card={card}
+                    description={descriptions[i]}
+                    product={activeTab}
+                    onSubscribe={handleSubscribe}
+                  />
+                </div>
               ))}
             </div>
           </motion.div>
         </AnimatePresence>
 
         {/* Footer note */}
-        <p className="text-center text-xs text-[#555555] pb-10 px-6">
+        <p className="text-center text-xs text-[#555555] pb-4 md:pb-10 px-6">
           * Renovação automática – Ao prosseguir você concorda que a assinatura
           será renovada automaticamente.
         </p>
+
+        {/* Mobile slide indicators */}
+        <div className="flex justify-center gap-2 pb-10 md:hidden">
+          {cards.map((_, i) => (
+            <button
+              key={i}
+              type="button"
+              onClick={() => {
+                const el = carouselRef.current;
+                if (!el) return;
+                const child = el.children[i] as HTMLElement;
+                if (child) {
+                  child.scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
+                }
+              }}
+              className={cn(
+                "rounded-full transition-all duration-300",
+                i === activeSlide
+                  ? "w-6 h-2 bg-[#f59f0a]"
+                  : "w-2 h-2 bg-white/20 hover:bg-white/40",
+              )}
+              aria-label={`Slide ${i + 1}`}
+            />
+          ))}
+        </div>
 
         <SubscriptionModal
           isOpen={modalOpen}
