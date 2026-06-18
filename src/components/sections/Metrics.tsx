@@ -206,7 +206,7 @@ export default function Metrics() {
                 <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center">
                   <metric.icon className={`w-5 h-5 ${metric.iconColor}`} />
                 </div>
-                <div className="text-3xl sm:text-4xl 2xl:text-[3.75rem] font-black text-white tabular-nums">
+                <div className="text-3xl sm:text-4xl 2xl:text-[3.75rem] font-black text-white tabular-nums whitespace-nowrap">
                   {metric.display ? (
                     <span>{metric.display}</span>
                   ) : (
