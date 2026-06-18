@@ -174,8 +174,8 @@ export default function RatoeiraHubPage() {
                   </div>
 
                   <div className="flex-1 w-full">
-                    <div className="relative aspect-[4/3] rounded-2xl border border-white/10 bg-[#111111] overflow-hidden group">
-                      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(80%_70%_at_50%_40%,rgba(255,184,0,0.12)_0%,rgba(0,0,0,0)_70%)]" />
+                    <div className="relative aspect-[4/3] rounded-2xl border border-white/10 bg-[#111111] overflow-hidden group cursor-zoom-in shadow-xl hover:scale-[1.35] hover:z-20 transition-transform duration-300 ease-out">
+                      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(80%_70%_at_50%_40%,rgba(255,184,0,0.12)_0%,rgba(0,0,0,0)_70%)] z-10" />
 
                       {feature.title === "Integração nativa via API" ? (
                         <div className="absolute inset-0">
@@ -491,7 +491,7 @@ export default function RatoeiraHubPage() {
                           <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/55 via-black/20 to-transparent" />
                         </>
                       )}
-                      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/45 via-black/15 to-transparent" />
+                      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/45 via-black/15 to-transparent z-10" />
                     </div>
                   </div>
                 </div>

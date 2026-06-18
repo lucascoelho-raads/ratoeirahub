@@ -62,7 +62,7 @@ export default function FeaturesAds() {
   const slides = features.map((feature) => {
     const imageSrc =
       feature.title === "Tracking Server-Side"
-        ? "/Tracking Server-Side.png"
+        ? "/serverasidefinal.png"
         : feature.title === "Bloqueio Automático de IP"
           ? "/bloqueioips.png"
           : feature.title === "Conversões Otimizadas com Dado Enriquecido"
@@ -81,7 +81,7 @@ export default function FeaturesAds() {
 
     const imageClassName =
       feature.title === "Tracking Server-Side"
-        ? "object-cover scale-[1.02]"
+        ? "object-contain"
         : feature.title === "Bloqueio Automático de IP"
           ? "object-cover object-center"
           : imageSrc
@@ -102,10 +102,10 @@ export default function FeaturesAds() {
     <section id="como-funciona" className="py-16 md:py-24 bg-[#0a0a0a]">
       <div className="max-w-7xl 2xl:max-w-[90rem] 4xl:max-w-[120rem] 5xl:max-w-[140rem] 6xl:max-w-[160rem] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-12 4xl:px-20 5xl:px-28 6xl:px-36">
         <div className="text-center mb-16 max-w-4xl xl:max-w-5xl 2xl:max-w-[65rem] 3xl:max-w-[80rem] 4xl:max-w-[90rem] 5xl:max-w-[100rem] 6xl:max-w-[110rem] mx-auto">
-          <h2 className="text-2xl sm:text-3xl md:text-5xl 3xl:text-7xl font-black text-white mb-6 text-center md:text-left ">
+          <h2 className="text-2xl sm:text-3xl md:text-5xl 3xl:text-7xl font-black text-white mb-6 text-center">
             O fim do <span className="text-brand-primary">achismo</span> no tráfego pago.
           </h2>
-          <p className="text-gray-400 text-base sm:text-lg 3xl:text-3xl max-w-3xl xl:max-w-4xl 2xl:max-w-5xl 4xl:max-w-[80rem] 5xl:max-w-[90rem] 6xl:max-w-[100rem] mx-auto text-center md:text-left ">
+          <p className="text-gray-400 text-base sm:text-lg 3xl:text-3xl max-w-3xl xl:max-w-4xl 2xl:max-w-5xl 4xl:max-w-[80rem] 5xl:max-w-[90rem] 6xl:max-w-[100rem] mx-auto text-center">
             A Ratoeira Ads atua em 6 frentes para garantir que você saiba exatamente qual anúncio do Google Ads gerou cada centavo de
             resultado — do clique à venda.
           </p>
