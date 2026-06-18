@@ -53,7 +53,7 @@ export default function Footer() {
                 </Link>
                 <p className="text-sm text-gray-50 leading-relaxed mb-6 max-w-xs mx-auto sm:mx-0">
                   A plataforma completa de rastreamento e páginas para
-                  anunciantes que querem escalar com dado real.
+                  anunciantes que<br className="md:hidden" /> querem escalar com dado real.
                 </p>
                 {/* Social */}
                 <div className="flex items-center gap-3 justify-center sm:justify-start">
@@ -80,26 +80,28 @@ export default function Footer() {
                 </div>
               </div>
 
-              {/* Links columns */}
-              {Object.entries(footerLinks).map(([category, links]) => (
-                <div key={category}>
-                  <h4 className="text-white font-bold text-sm mb-4 tracking-wide">
-                    {category}
-                  </h4>
-                  <ul className="space-y-2.5">
-                    {links.map((link) => (
-                      <li key={link.label}>
-                        <Link
-                          href={link.href}
-                          className="text-sm text-gray-50 hover:text-yellow-400 transition-colors duration-200"
-                        >
-                          {link.label}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
+              {/* Links columns — 2-col grid on mobile, 4-col on md */}
+              <div className="col-span-1 sm:col-span-2 grid grid-cols-2 gap-8 sm:contents">
+                {Object.entries(footerLinks).map(([category, links]) => (
+                  <div key={category}>
+                    <h4 className="text-white font-bold text-sm mb-4 tracking-wide">
+                      {category}
+                    </h4>
+                    <ul className="space-y-2.5">
+                      {links.map((link) => (
+                        <li key={link.label}>
+                          <Link
+                            href={link.href}
+                            className="text-sm text-gray-50 hover:text-yellow-400 transition-colors duration-200"
+                          >
+                            {link.label}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
             </div>
 
             {/* Bottom bar */}
