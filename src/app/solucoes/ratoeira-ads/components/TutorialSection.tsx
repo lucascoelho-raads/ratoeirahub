@@ -39,7 +39,7 @@ export default function TutorialSection() {
           </h2>
 
           <p className="text-lg text-gray-400 leading-relaxed max-w-2xl mx-auto ">
-            Aprenda a configurar o Ratoeira Ads passo a passo, desde a instalação do pixel até a ativação do bloqueio automático de fraude. Em menos de 15 minutos, sua operação estará protegida e rastreando ~100% das conversões.
+            Aprenda a configurar a Ratoeira Ads passo a passo, desde a instalação da tag até a ativação do bloqueio automático de fraude. Em menos de 15 minutos, sua operação estará protegida e rastreando ~100% das conversões do Google Ads.
           </p>
 
           <div className="mt-8 flex items-center justify-center">

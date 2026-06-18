@@ -3,6 +3,7 @@
 import { useRef, useEffect, useState } from "react";
 import { motion, useInView } from "framer-motion";
 import { TrendingUp, Users, MessageSquare, Layers, BarChart3 } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 const metrics = [
   {
@@ -216,8 +217,8 @@ export default function Metrics() {
                   )}
                 </div>
               </div>
-              <p className="text-white font-semibold text-base 2xl:text-xl leading-tight">{metric.label}</p>
-              <p className="text-gray-400 text-sm mt-1">{metric.description}</p>
+              <p className={cn("text-white font-semibold text-base 2xl:text-xl leading-tight", metric.label === "ratoeiras armadas" && "whitespace-nowrap")}>{metric.label}</p>
+              <p className={cn("text-gray-400 text-sm mt-1", metric.label === "ratoeiras armadas" && "whitespace-nowrap")}>{metric.description}</p>
             </motion.div>
           ))}
         </div>

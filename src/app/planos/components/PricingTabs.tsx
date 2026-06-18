@@ -4,6 +4,7 @@ import { useState, Fragment } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Check, ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
+import SubscriptionModal from "./SubscriptionModal";
 import {
   useFloating,
   offset,
@@ -1266,10 +1267,12 @@ function PricingCardComponent({
   card,
   description,
   product,
+  onSubscribe,
 }: {
   card: PricingCard;
   description: string;
   product: PlanType;
+  onSubscribe: (planName: string, checkoutUrl: string) => void;
 }) {
   const isYellow = card.badge === "MAIS ESCOLHIDO";
   const isGreen = card.badge === "MELHOR PREÇO";
@@ -1403,17 +1406,16 @@ function PricingCardComponent({
 
       <div className="flex-1" />
 
-      <a
-        href={getPlanHref(card)}
-        target={card.href?.startsWith("http") ? "_blank" : undefined}
-        rel={card.href?.startsWith("http") ? "noopener noreferrer" : undefined}
+      <button
+        type="button"
+        onClick={() => onSubscribe(card.name, getPlanHref(card))}
         className={cn(
           "w-full mt-4 py-3 rounded-xl text-sm font-bold text-center transition-colors",
           ctaClass,
         )}
       >
         {card.cta}
-      </a>
+      </button>
     </div>
   );
 }
@@ -1558,9 +1560,21 @@ function ComparisonTable() {
 export default function PricingTabs() {
   const [activeTab, setActiveTab] = useState<PlanType>("hub");
   const [billingCycle, setBillingCycle] = useState<BillingCycle>("annual");
+  const [modalOpen, setModalOpen] = useState(false);
+  const [selectedPlan, setSelectedPlan] = useState<{ name: string; checkoutUrl: string } | null>(null);
 
   const cards = getCards(activeTab, billingCycle);
   const descriptions = DESCRIPTIONS[activeTab][billingCycle];
+
+  function handleSubscribe(planName: string, checkoutUrl: string) {
+    setSelectedPlan({ name: planName, checkoutUrl });
+    setModalOpen(true);
+  }
+
+  function handleCloseModal() {
+    setModalOpen(false);
+    setSelectedPlan(null);
+  }
 
   return (
     <section
@@ -1643,6 +1657,7 @@ export default function PricingTabs() {
                   card={card}
                   description={descriptions[i]}
                   product={activeTab}
+                  onSubscribe={handleSubscribe}
                 />
               ))}
             </div>
@@ -1654,6 +1669,13 @@ export default function PricingTabs() {
           * Renovação automática – Ao prosseguir você concorda que a assinatura
           será renovada automaticamente.
         </p>
+
+        <SubscriptionModal
+          isOpen={modalOpen}
+          onClose={handleCloseModal}
+          planName={selectedPlan?.name ?? ""}
+          checkoutUrl={selectedPlan?.checkoutUrl ?? ""}
+        />
 
         {/* Comparison table */}
         <div className="pt-10 pb-16">

@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
 
 export default function CTAPartnerships() {
   return (
@@ -49,20 +48,20 @@ export default function CTAPartnerships() {
             Preencha seu cadastro e ative seu plano agora mesmo.
           </p>
 
-          <div className="bg-[#0a0a0a] border border-white/5 rounded-3xl p-4 sm:p-8 relative">
+          <div className="bg-[#0a0a0a] border border-white/5 rounded-3xl p-4 sm:p-8 relative overflow-hidden">
             <p className="text-gray-500 font-medium text-sm mb-4 uppercase tracking-widest">
               Formulário de Aplicação
             </p>
-            {/* Placeholder para integração real de formulário (ex: Typeform, Hubspot, etc) */}
-            <div className="h-64 flex flex-col items-center justify-center border-2 border-dashed border-white/10 rounded-2xl bg-white/[0.02]">
-              <span className="text-gray-400 font-medium mb-4">
-                [ Embed do Formulário Aqui ]
-              </span>
-              <button className="inline-flex items-center gap-2 px-8 py-3 rounded-button font-bold text-black bg-brand-primary hover:bg-brand-primary-hover transition-colors">
-                Assinar Agora
-                <ArrowRight className="w-4 h-4" />
-              </button>
-            </div>
+            <iframe
+              src="https://brand-colors-project.vibepreview.com"
+              width="100%"
+              height="800px"
+              frameBorder={0}
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              loading="lazy"
+              title="Formulário de Aplicação para Parcerias"
+              style={{ border: "none", overflow: "hidden" }}
+            />
           </div>
         </motion.div>
       </div>
