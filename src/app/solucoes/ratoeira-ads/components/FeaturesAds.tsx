@@ -68,7 +68,7 @@ export default function FeaturesAds() {
           : feature.title === "Conversões Otimizadas com Dado Enriquecido"
             ? "/conversoesotimizadas.webp"
             : feature.title === "Recuperação de Conversões Invisíveis"
-              ? "/slide2home.png"
+              ? "/recupera.webp"
               : feature.title === "Dados em Tempo Real"
                 ? "/dash.png"
                 : feature.title === "Gerenciador Integrado"
@@ -84,9 +84,11 @@ export default function FeaturesAds() {
         ? "object-contain"
         : feature.title === "Bloqueio Automático de IP"
           ? "object-cover object-center"
-          : imageSrc
+          : feature.title === "Recuperação de Conversões Invisíveis"
             ? "object-contain"
-            : null;
+            : imageSrc
+              ? "object-contain"
+              : null;
 
     const aspectRatio =
       feature.title === "Bloqueio Automático de IP" || feature.title === "Funil Completo Visível"
