@@ -1,0 +1,108 @@
+# ---------------------------------------------------------------------------
+# Configuracao Apache para site estatico Next.js exportado
+# Ratoeira Hub - hospedado em cPanel/Apache
+# ---------------------------------------------------------------------------
+
+# Forca o charset UTF-8 em todo o site
+AddDefaultCharset UTF-8
+
+# Desabilita a listagem de diretorios
+Options -Indexes
+
+# ---------------------------------------------------------------------------
+# 1. Compressao de textos e assets (Gzip/Deflate)
+# ---------------------------------------------------------------------------
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css
+  AddOutputFilterByType DEFLATE application/javascript application/json
+  AddOutputFilterByType DEFLATE application/rss+xml application/atom+xml
+  AddOutputFilterByType DEFLATE image/svg+xml
+</IfModule>
+
+# ---------------------------------------------------------------------------
+# 2. Cache de assets estaticos (imagens, fontes, JS, CSS, videos)
+# ---------------------------------------------------------------------------
+<IfModule mod_expires.c>
+  ExpiresActive On
+
+  # Padrao: 1 hora
+  ExpiresDefault "access plus 1 hour"
+
+  # HTML: curto, pois pode mudar
+  ExpiresByType text/html "access plus 1 hour"
+
+  # Assets versionados pelo Next.js: 1 ano
+  ExpiresByType application/javascript "access plus 1 year"
+  ExpiresByType text/css "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 year"
+  ExpiresByType font/woff2 "access plus 1 year"
+  ExpiresByType application/font-woff2 "access plus 1 year"
+
+  # Imagens e midia: 1 mes
+  ExpiresByType image/jpeg "access plus 1 month"
+  ExpiresByType image/png "access plus 1 month"
+  ExpiresByType image/webp "access plus 1 month"
+  ExpiresByType image/avif "access plus 1 month"
+  ExpiresByType image/gif "access plus 1 month"
+  ExpiresByType image/x-icon "access plus 1 month"
+  ExpiresByType video/mp4 "access plus 1 month"
+  ExpiresByType video/webm "access plus 1 month"
+</IfModule>
+
+# ---------------------------------------------------------------------------
+# 3. Cache-Control complementar (caso mod_expires nao esteja ativo)
+# ---------------------------------------------------------------------------
+<IfModule mod_headers.c>
+  # Assets versionados pelo Next.js (caminho /_next/...)
+  <FilesMatch "^_next/.*\.(js|css|woff2|svg|png|jpg|jpeg|gif|webp|avico|mp4|webm)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+
+  # Imagens e midia da pasta public
+  <FilesMatch "\.(jpg|jpeg|png|gif|webp|avif|svg|ico|mp4|webm|mov|woff2)$">
+    Header set Cache-Control "public, max-age=2592000"
+  </FilesMatch>
+
+  # HTML: curto
+  <FilesMatch "\.html$">
+    Header set Cache-Control "public, max-age=3600"
+  </FilesMatch>
+</IfModule>
+
+# ---------------------------------------------------------------------------
+# 4. MIME types para fontes, favicon e videos modernos
+# ---------------------------------------------------------------------------
+<IfModule mod_mime.c>
+  AddType image/x-icon .ico
+  AddType font/woff2 .woff2
+  AddType video/mp4 .mp4
+  AddType video/webm .webm
+  AddType image/avif .avif
+  AddType image/webp .webp
+</IfModule>
+
+# ---------------------------------------------------------------------------
+# 5. Redirecionamento de erros 404 para a pagina de erro estatica
+# ---------------------------------------------------------------------------
+ErrorDocument 404 /404.html
+
+# ---------------------------------------------------------------------------
+# 6. HTTPS (descomente as linhas abaixo se quiser forcar SSL)
+# ---------------------------------------------------------------------------
+# <IfModule mod_rewrite.c>
+#   RewriteEngine On
+#   RewriteCond %{HTTPS} off
+#   RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+# </IfModule>
+
+# ---------------------------------------------------------------------------
+# 7. Remover extensao .html das URLs (Next.js ja exporta com index.html)
+#    Descomente se preferir URLs sem .html ao acessar diretamente
+# ---------------------------------------------------------------------------
+# <IfModule mod_rewrite.c>
+#   RewriteEngine On
+#   RewriteCond %{REQUEST_FILENAME} !-d
+#   RewriteCond %{REQUEST_FILENAME} !-f
+#   RewriteCond %{REQUEST_FILENAME}.html -f
+#   RewriteRule ^(.*)$ $1.html [L]
+# </IfModule>

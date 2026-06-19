@@ -786,7 +786,7 @@ export default function CasesSocialProof() {
           >
             <div className="absolute inset-0 z-10 bg-gradient-to-tr from-brand-500/0 via-white/0 to-brand-500/0 opacity-0 transition-opacity duration-500 group-hover:opacity-10 pointer-events-none" />
             <Image
-              src="/depoimentos/players.png"
+              src="/depoimentos/players.webp"
               alt="Players que confiam na Ratoeira"
               width={1600}
               height={900}

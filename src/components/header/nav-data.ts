@@ -98,6 +98,12 @@ export const NAV_LINKS: NavLink[] = [
               href: "#",
               disabled: true,
             },
+            {
+              label: "Native Ads *em breve",
+              description: "Taboola, Outbrain e mais",
+              href: "#",
+              disabled: true,
+            },
           ],
         },
         {

@@ -17,9 +17,12 @@ export const metadata: Metadata = {
     "Plataforma de atendimento ao cliente com IA para aumentar conversões e reduzir o tempo de resposta. Integre WhatsApp, Instagram e muito mais.",
   keywords: "atendimento, CRM, chatbot, IA, WhatsApp, suporte ao cliente",
   icons: {
-    icon: "/logohub.png",
-    shortcut: "/logohub.png",
-    apple: "/logohub.png",
+    icon: [
+      { url: "/favicon.png", type: "image/png", sizes: "32x32" },
+      { url: "/favicon.ico", sizes: "any" },
+    ],
+    shortcut: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
   },
   openGraph: {
     title: "Ratoeira Hub — Atendimento inteligente",

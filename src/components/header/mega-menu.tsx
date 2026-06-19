@@ -70,7 +70,7 @@ function MegaMenuPanel({
                 const itemKey = `${column.heading}-${item.label}`;
                 const content = (
                   <>
-                    <span className={cn("block text-sm font-semibold", item.disabled ? "text-gray-500" : "text-gray-100")}>
+                    <span className={cn("block text-sm font-semibold whitespace-nowrap", item.disabled ? "text-gray-500" : "text-gray-100")}>
                       {item.label}
                     </span>
                     {item.description && (
