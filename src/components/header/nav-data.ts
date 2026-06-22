@@ -142,6 +142,10 @@ export const NAV_LINKS: NavLink[] = [
     href: "/cases",
   },
   {
+    label: "Design System",
+    href: "/design-system",
+  },
+  {
     label: "Materiais",
     href: "#materiais",
     menu: {
