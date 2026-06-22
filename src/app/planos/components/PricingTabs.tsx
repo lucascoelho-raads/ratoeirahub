@@ -43,6 +43,7 @@ const TABS: { id: PlanType; label: string; icon: string; badge?: string }[] = [
 
 const GOOGLE_ADS_LOGO = "/icons/pricing/google-ads.webp";
 const META_ADS_LOGO = "/icons/pricing/meta-ads.png";
+const NATIVE_ADS_LOGO = "/icons/pricing/native-ads.svg";
 
 const PERIODS: { id: BillingCycle; label: string }[] = [
   { id: "monthly", label: "Mensal" },
@@ -130,6 +131,7 @@ const PRICING_CARDS: PricingCard[] = [
     platforms: [
       ["Google Ads", "10"],
       ["Meta Ads", "Em Breve"],
+      ["Native Ads", "Em Breve"],
     ],
     hub_subs: [],
   },
@@ -154,6 +156,7 @@ const PRICING_CARDS: PricingCard[] = [
     platforms: [
       ["Google Ads", "20"],
       ["Meta Ads", "Em Breve"],
+      ["Native Ads", "Em Breve"],
     ],
     hub_subs: [],
   },
@@ -178,6 +181,7 @@ const PRICING_CARDS: PricingCard[] = [
     platforms: [
       ["Google Ads", "Ilimitado"],
       ["Meta Ads", "Em Breve"],
+      ["Native Ads", "Em Breve"],
     ],
     hub_subs: [],
   },
@@ -202,6 +206,7 @@ const PRICING_CARDS: PricingCard[] = [
     platforms: [
       ["Google Ads", "10"],
       ["Meta Ads", "Em Breve"],
+      ["Native Ads", "Em Breve"],
     ],
     hub_subs: [],
   },
@@ -226,6 +231,7 @@ const PRICING_CARDS: PricingCard[] = [
     platforms: [
       ["Google Ads", "20"],
       ["Meta Ads", "Em Breve"],
+      ["Native Ads", "Em Breve"],
     ],
     hub_subs: [],
   },
@@ -250,6 +256,7 @@ const PRICING_CARDS: PricingCard[] = [
     platforms: [
       ["Google Ads", "Ilimitado"],
       ["Meta Ads", "Em Breve"],
+      ["Native Ads", "Em Breve"],
     ],
     hub_subs: [],
   },
@@ -274,6 +281,7 @@ const PRICING_CARDS: PricingCard[] = [
     platforms: [
       ["Google Ads", "10"],
       ["Meta Ads", "Em Breve"],
+      ["Native Ads", "Em Breve"],
     ],
     hub_subs: [],
   },
@@ -298,6 +306,7 @@ const PRICING_CARDS: PricingCard[] = [
     platforms: [
       ["Google Ads", "20"],
       ["Meta Ads", "Em Breve"],
+      ["Native Ads", "Em Breve"],
     ],
     hub_subs: [],
   },
@@ -322,6 +331,7 @@ const PRICING_CARDS: PricingCard[] = [
     platforms: [
       ["Google Ads", "Ilimitado"],
       ["Meta Ads", "Em Breve"],
+      ["Native Ads", "Em Breve"],
     ],
     hub_subs: [],
   },
@@ -569,6 +579,7 @@ const PRICING_CARDS: PricingCard[] = [
     platforms: [
       ["Google Ads", "10"],
       ["Meta Ads", "Em Breve"],
+      ["Native Ads", "Em Breve"],
     ],
     hub_subs: ["RATOEIRA ADS", "RATOEIRA PAGES"],
   },
@@ -600,6 +611,7 @@ const PRICING_CARDS: PricingCard[] = [
     platforms: [
       ["Google Ads", "20"],
       ["Meta Ads", "Em Breve"],
+      ["Native Ads", "Em Breve"],
     ],
     hub_subs: ["RATOEIRA ADS", "RATOEIRA PAGES"],
   },
@@ -631,6 +643,7 @@ const PRICING_CARDS: PricingCard[] = [
     platforms: [
       ["Google Ads", "Ilimitado"],
       ["Meta Ads", "Em Breve"],
+      ["Native Ads", "Em Breve"],
     ],
     hub_subs: ["RATOEIRA ADS", "RATOEIRA PAGES"],
   },
@@ -662,6 +675,7 @@ const PRICING_CARDS: PricingCard[] = [
     platforms: [
       ["Google Ads", "10"],
       ["Meta Ads", "Em Breve"],
+      ["Native Ads", "Em Breve"],
     ],
     hub_subs: ["RATOEIRA ADS", "RATOEIRA PAGES"],
   },
@@ -693,6 +707,7 @@ const PRICING_CARDS: PricingCard[] = [
     platforms: [
       ["Google Ads", "20"],
       ["Meta Ads", "Em Breve"],
+      ["Native Ads", "Em Breve"],
     ],
     hub_subs: ["RATOEIRA ADS", "RATOEIRA PAGES"],
   },
@@ -724,6 +739,7 @@ const PRICING_CARDS: PricingCard[] = [
     platforms: [
       ["Google Ads", "Ilimitado"],
       ["Meta Ads", "Em Breve"],
+      ["Native Ads", "Em Breve"],
     ],
     hub_subs: ["RATOEIRA ADS", "RATOEIRA PAGES"],
   },
@@ -755,6 +771,7 @@ const PRICING_CARDS: PricingCard[] = [
     platforms: [
       ["Google Ads", "10"],
       ["Meta Ads", "Em Breve"],
+      ["Native Ads", "Em Breve"],
     ],
     hub_subs: ["RATOEIRA ADS", "RATOEIRA PAGES"],
   },
@@ -786,6 +803,7 @@ const PRICING_CARDS: PricingCard[] = [
     platforms: [
       ["Google Ads", "20"],
       ["Meta Ads", "Em Breve"],
+      ["Native Ads", "Em Breve"],
     ],
     hub_subs: ["RATOEIRA ADS", "RATOEIRA PAGES"],
   },
@@ -817,6 +835,7 @@ const PRICING_CARDS: PricingCard[] = [
     platforms: [
       ["Google Ads", "Ilimitado"],
       ["Meta Ads", "Em Breve"],
+      ["Native Ads", "Em Breve"],
     ],
     hub_subs: ["RATOEIRA ADS", "RATOEIRA PAGES"],
   },
@@ -899,6 +918,14 @@ const COMPARE_ROWS: CompareRow[] = [
     type: "row",
     section: "rows-ads",
     label: "Contas Meta Ads",
+    rato: "Em Breve",
+    ratazana: "Em Breve",
+    ratazana_plus: "Em Breve",
+  },
+  {
+    type: "row",
+    section: "rows-ads",
+    label: "Contas Native Ads",
     rato: "Em Breve",
     ratazana: "Em Breve",
     ratazana_plus: "Em Breve",
@@ -1298,7 +1325,13 @@ function PricingCardComponent({
             >
               <div className="flex items-center gap-2">
                 <img
-                  src={name === "Google Ads" ? GOOGLE_ADS_LOGO : META_ADS_LOGO}
+                  src={
+                    name === "Google Ads"
+                      ? GOOGLE_ADS_LOGO
+                      : name === "Native Ads"
+                        ? NATIVE_ADS_LOGO
+                        : META_ADS_LOGO
+                  }
                   alt={name}
                   className="w-[18px] h-[18px] object-contain rounded-[3px]"
                 />
