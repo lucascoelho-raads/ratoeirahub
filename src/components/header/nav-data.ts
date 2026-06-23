@@ -100,7 +100,7 @@ export const NAV_LINKS: NavLink[] = [
             },
             {
               label: "Native Ads",
-              description: "Taboola, Outbrain e mais",
+              description: "Taboola e NewsBreak",
               href: "/fontes-de-trafego/native-ads",
             },
           ],

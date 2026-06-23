@@ -43,7 +43,8 @@ const TABS: { id: PlanType; label: string; icon: string; badge?: string }[] = [
 
 const GOOGLE_ADS_LOGO = "/icons/pricing/google-ads.webp";
 const META_ADS_LOGO = "/icons/pricing/meta-ads.png";
-const NATIVE_ADS_LOGO = "/icons/pricing/native-ads.svg";
+const TABOOLA_LOGO = "/taboolalogo.png";
+const NEWSBREAK_LOGO = "/newbreaklogo.webp";
 
 const PERIODS: { id: BillingCycle; label: string }[] = [
   { id: "monthly", label: "Mensal" },
@@ -131,7 +132,8 @@ const PRICING_CARDS: PricingCard[] = [
     platforms: [
       ["Google Ads", "10"],
       ["Meta Ads", "Em Breve"],
-      ["Native Ads", "Em Breve"],
+      ["Taboola", "Em Breve"],
+      ["NewsBreak", "Em Breve"],
     ],
     hub_subs: [],
   },
@@ -156,7 +158,8 @@ const PRICING_CARDS: PricingCard[] = [
     platforms: [
       ["Google Ads", "20"],
       ["Meta Ads", "Em Breve"],
-      ["Native Ads", "Em Breve"],
+      ["Taboola", "Em Breve"],
+      ["NewsBreak", "Em Breve"],
     ],
     hub_subs: [],
   },
@@ -181,7 +184,8 @@ const PRICING_CARDS: PricingCard[] = [
     platforms: [
       ["Google Ads", "Ilimitado"],
       ["Meta Ads", "Em Breve"],
-      ["Native Ads", "Em Breve"],
+      ["Taboola", "Em Breve"],
+      ["NewsBreak", "Em Breve"],
     ],
     hub_subs: [],
   },
@@ -206,7 +210,8 @@ const PRICING_CARDS: PricingCard[] = [
     platforms: [
       ["Google Ads", "10"],
       ["Meta Ads", "Em Breve"],
-      ["Native Ads", "Em Breve"],
+      ["Taboola", "Em Breve"],
+      ["NewsBreak", "Em Breve"],
     ],
     hub_subs: [],
   },
@@ -231,7 +236,8 @@ const PRICING_CARDS: PricingCard[] = [
     platforms: [
       ["Google Ads", "20"],
       ["Meta Ads", "Em Breve"],
-      ["Native Ads", "Em Breve"],
+      ["Taboola", "Em Breve"],
+      ["NewsBreak", "Em Breve"],
     ],
     hub_subs: [],
   },
@@ -256,7 +262,8 @@ const PRICING_CARDS: PricingCard[] = [
     platforms: [
       ["Google Ads", "Ilimitado"],
       ["Meta Ads", "Em Breve"],
-      ["Native Ads", "Em Breve"],
+      ["Taboola", "Em Breve"],
+      ["NewsBreak", "Em Breve"],
     ],
     hub_subs: [],
   },
@@ -281,7 +288,8 @@ const PRICING_CARDS: PricingCard[] = [
     platforms: [
       ["Google Ads", "10"],
       ["Meta Ads", "Em Breve"],
-      ["Native Ads", "Em Breve"],
+      ["Taboola", "Em Breve"],
+      ["NewsBreak", "Em Breve"],
     ],
     hub_subs: [],
   },
@@ -306,7 +314,8 @@ const PRICING_CARDS: PricingCard[] = [
     platforms: [
       ["Google Ads", "20"],
       ["Meta Ads", "Em Breve"],
-      ["Native Ads", "Em Breve"],
+      ["Taboola", "Em Breve"],
+      ["NewsBreak", "Em Breve"],
     ],
     hub_subs: [],
   },
@@ -331,7 +340,8 @@ const PRICING_CARDS: PricingCard[] = [
     platforms: [
       ["Google Ads", "Ilimitado"],
       ["Meta Ads", "Em Breve"],
-      ["Native Ads", "Em Breve"],
+      ["Taboola", "Em Breve"],
+      ["NewsBreak", "Em Breve"],
     ],
     hub_subs: [],
   },
@@ -579,7 +589,8 @@ const PRICING_CARDS: PricingCard[] = [
     platforms: [
       ["Google Ads", "10"],
       ["Meta Ads", "Em Breve"],
-      ["Native Ads", "Em Breve"],
+      ["Taboola", "Em Breve"],
+      ["NewsBreak", "Em Breve"],
     ],
     hub_subs: ["RATOEIRA ADS", "RATOEIRA PAGES"],
   },
@@ -611,7 +622,8 @@ const PRICING_CARDS: PricingCard[] = [
     platforms: [
       ["Google Ads", "20"],
       ["Meta Ads", "Em Breve"],
-      ["Native Ads", "Em Breve"],
+      ["Taboola", "Em Breve"],
+      ["NewsBreak", "Em Breve"],
     ],
     hub_subs: ["RATOEIRA ADS", "RATOEIRA PAGES"],
   },
@@ -643,7 +655,8 @@ const PRICING_CARDS: PricingCard[] = [
     platforms: [
       ["Google Ads", "Ilimitado"],
       ["Meta Ads", "Em Breve"],
-      ["Native Ads", "Em Breve"],
+      ["Taboola", "Em Breve"],
+      ["NewsBreak", "Em Breve"],
     ],
     hub_subs: ["RATOEIRA ADS", "RATOEIRA PAGES"],
   },
@@ -675,7 +688,8 @@ const PRICING_CARDS: PricingCard[] = [
     platforms: [
       ["Google Ads", "10"],
       ["Meta Ads", "Em Breve"],
-      ["Native Ads", "Em Breve"],
+      ["Taboola", "Em Breve"],
+      ["NewsBreak", "Em Breve"],
     ],
     hub_subs: ["RATOEIRA ADS", "RATOEIRA PAGES"],
   },
@@ -707,7 +721,8 @@ const PRICING_CARDS: PricingCard[] = [
     platforms: [
       ["Google Ads", "20"],
       ["Meta Ads", "Em Breve"],
-      ["Native Ads", "Em Breve"],
+      ["Taboola", "Em Breve"],
+      ["NewsBreak", "Em Breve"],
     ],
     hub_subs: ["RATOEIRA ADS", "RATOEIRA PAGES"],
   },
@@ -739,7 +754,8 @@ const PRICING_CARDS: PricingCard[] = [
     platforms: [
       ["Google Ads", "Ilimitado"],
       ["Meta Ads", "Em Breve"],
-      ["Native Ads", "Em Breve"],
+      ["Taboola", "Em Breve"],
+      ["NewsBreak", "Em Breve"],
     ],
     hub_subs: ["RATOEIRA ADS", "RATOEIRA PAGES"],
   },
@@ -771,7 +787,8 @@ const PRICING_CARDS: PricingCard[] = [
     platforms: [
       ["Google Ads", "10"],
       ["Meta Ads", "Em Breve"],
-      ["Native Ads", "Em Breve"],
+      ["Taboola", "Em Breve"],
+      ["NewsBreak", "Em Breve"],
     ],
     hub_subs: ["RATOEIRA ADS", "RATOEIRA PAGES"],
   },
@@ -803,7 +820,8 @@ const PRICING_CARDS: PricingCard[] = [
     platforms: [
       ["Google Ads", "20"],
       ["Meta Ads", "Em Breve"],
-      ["Native Ads", "Em Breve"],
+      ["Taboola", "Em Breve"],
+      ["NewsBreak", "Em Breve"],
     ],
     hub_subs: ["RATOEIRA ADS", "RATOEIRA PAGES"],
   },
@@ -835,7 +853,8 @@ const PRICING_CARDS: PricingCard[] = [
     platforms: [
       ["Google Ads", "Ilimitado"],
       ["Meta Ads", "Em Breve"],
-      ["Native Ads", "Em Breve"],
+      ["Taboola", "Em Breve"],
+      ["NewsBreak", "Em Breve"],
     ],
     hub_subs: ["RATOEIRA ADS", "RATOEIRA PAGES"],
   },
@@ -1328,9 +1347,11 @@ function PricingCardComponent({
                   src={
                     name === "Google Ads"
                       ? GOOGLE_ADS_LOGO
-                      : name === "Native Ads"
-                        ? NATIVE_ADS_LOGO
-                        : META_ADS_LOGO
+                      : name === "Taboola"
+                        ? TABOOLA_LOGO
+                        : name === "NewsBreak"
+                          ? NEWSBREAK_LOGO
+                          : META_ADS_LOGO
                   }
                   alt={name}
                   className="w-[18px] h-[18px] object-contain rounded-[3px]"
