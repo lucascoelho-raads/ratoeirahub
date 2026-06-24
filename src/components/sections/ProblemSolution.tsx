@@ -85,8 +85,8 @@ export default function ProblemSolution() {
           transition={{ duration: 0.7 }}
           className="text-center mb-16 space-y-6"
         >
-          <h2 className="text-2xl sm:text-3xl lg:text-5xl 3xl:text-7xl font-black text-[#111827] leading-tight  max-w-4xl 3xl:max-w-5xl 4xl:max-w-6xl 5xl:max-w-[70rem] 6xl:max-w-[78rem] mx-auto">
-            <span className="text-brand-primary">Tudo</span> que você precisa para dominar o <span className="text-brand-primary">tráfego pago</span>. Em um só <span className="text-brand-primary">lugar</span>.
+          <h2 className="text-2xl sm:text-3xl lg:text-5xl 3xl:text-7xl font-black text-[#111827] leading-tight  max-w-4xl 3xl:max-w-5xl 4xl:max-w-6xl 5xl:max-w-[70rem] 6xl:max-w-[78rem] mx-auto text-balance hyphens-none">
+            <span className="text-brand-primary">Tudo</span> que você precisa para dominar o <span className="text-brand-primary">tráfego pago</span>. Em um só&nbsp;<span className="text-brand-primary">lugar</span>.
           </h2>
           <p className="text-base sm:text-xl 3xl:text-[1.75rem] text-[#4b5563] max-w-4xl 2xl:max-w-[56rem] 3xl:max-w-[64rem] 4xl:max-w-[70rem] 5xl:max-w-[72rem] 6xl:max-w-[80rem] mx-auto leading-relaxed ">
             Quem escala no Google e no Meta não usa ferramentas soltas. Usa um ecossistema onde trackeamento, páginas e dados conversam entre si — e cada real investido tem uma origem rastreada. Operações que migram para o Hub reportam aumento de lucro em até 60%.
@@ -137,7 +137,7 @@ export default function ProblemSolution() {
           transition={{ duration: 0.5 }}
           className="flex flex-col items-center gap-10"
         >
-          <h3 className="text-xl sm:text-2xl lg:text-3xl 3xl:text-4xl 5xl:text-[3.5rem] 6xl:text-[4rem] font-bold text-[#111827] text-center  max-w-3xl 5xl:max-w-5xl 6xl:max-w-6xl mx-auto">
+          <h3 className="text-xl sm:text-2xl lg:text-3xl 3xl:text-4xl 5xl:text-[3.5rem] 6xl:text-[4rem] font-bold text-[#111827] text-center  max-w-3xl 5xl:max-w-5xl 6xl:max-w-6xl mx-auto text-balance hyphens-none">
             {activeContent.title}
           </h3>
 

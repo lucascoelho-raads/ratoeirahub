@@ -120,10 +120,7 @@ export default function Benefits() {
     return () => clearInterval(interval);
   }, [activeIndex]);
 
-  const controlsSpacingClassName =
-    isMobile && (activeIndex === 1 || activeIndex === 4)
-      ? "mt-12 pb-16"
-      : "mt-8 pb-12";
+  const controlsSpacingClassName = "mt-12 pb-16";
 
   const renderCard = (index: number, options?: { measure?: boolean }) => {
     const benefit = benefits[index];
@@ -164,7 +161,7 @@ export default function Benefits() {
             <BackgroundPaths reverse={benefit.imageLeft} />
             <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-[1.2fr_1fr] 3xl:grid-cols-[1.3fr_1fr] 4xl:grid-cols-[1.35fr_1fr] 5xl:grid-cols-[1fr_1fr] 6xl:grid-cols-[1fr_1fr] gap-10 5xl:gap-14 6xl:gap-16 items-center h-full">
               <div className={`${benefit.imageLeft ? "order-2" : "order-1"} 5xl:px-4 6xl:px-6`}>
-                <h3 className="mt-4 sm:mt-6 text-xl sm:text-xl lg:text-4xl 3xl:text-5xl 4xl:text-[3.5rem] 5xl:text-[5.5rem] 6xl:text-[6.75rem] font-black text-gray-50 leading-tight text-center lg:text-left  max-w-2xl lg:max-w-3xl 5xl:max-w-[60rem] 6xl:max-w-[70rem]">
+                <h3 className="mt-4 sm:mt-6 text-xl sm:text-xl lg:text-4xl 3xl:text-5xl 4xl:text-[3.5rem] 5xl:text-[5.5rem] 6xl:text-[6.75rem] font-black text-gray-50 leading-tight text-center lg:text-left  max-w-2xl lg:max-w-3xl 5xl:max-w-[60rem] 6xl:max-w-[70rem] text-balance hyphens-none">
                   {benefit.title}
                 </h3>
                 <p className="mt-4 sm:mt-5 4xl:mt-8 5xl:mt-10 text-base sm:text-lg 3xl:text-2xl 4xl:text-3xl 5xl:text-[2.75rem] 6xl:text-[3rem] text-gray-200 leading-relaxed text-center lg:text-left ">
@@ -227,18 +224,27 @@ export default function Benefits() {
           transition={{ duration: 0.7 }}
           className="text-center mb-6 md:mb-8 4xl:mb-4 space-y-4"
         >
-          <h2 className="text-2xl sm:text-2xl lg:text-5xl 3xl:text-7xl 4xl:text-[5rem] 5xl:text-[5.75rem] 6xl:text-[6.5rem] font-black text-text-inverse leading-tight  max-w-4xl 3xl:max-w-5xl 4xl:max-w-[72rem] 5xl:max-w-[82rem] 6xl:max-w-[92rem] mx-auto">
-            Por que <span style={{ color: "var(--color-brand-primary)" }}>+2.600 anunciantes</span> escolheram a{" "}
-            <span className="whitespace-normal lg:whitespace-nowrap">Ratoeira Hub</span>
+          <h2 className="text-[1.375rem] sm:text-2xl lg:text-5xl 3xl:text-7xl 4xl:text-[5rem] 5xl:text-[5.75rem] 6xl:text-[6.5rem] font-black text-text-inverse leading-tight  max-w-4xl 3xl:max-w-5xl 4xl:max-w-[72rem] 5xl:max-w-[82rem] 6xl:max-w-[92rem] mx-auto text-balance hyphens-none">
+            <span className="lg:hidden">
+              Por que <span style={{ color: "var(--color-brand-primary)" }}>+2.600</span>
+              <br />
+              <span style={{ color: "var(--color-brand-primary)" }}>anunciantes</span> escolheram
+              <br />
+              a <span className="whitespace-nowrap">Ratoeira&nbsp;Hub</span>
+            </span>
+            <span className="hidden lg:block">
+              Por que <span style={{ color: "var(--color-brand-primary)" }}>+2.600 anunciantes</span> escolheram a{" "}
+              <span className="whitespace-nowrap">Ratoeira&nbsp;Hub</span>
+            </span>
           </h2>
-          <p className="text-gray-400/80 text-base sm:text-lg 3xl:text-[1.75rem] max-w-2xl 3xl:max-w-[54rem] 4xl:max-w-[62rem] 5xl:max-w-[68rem] 6xl:max-w-[74rem] mx-auto">
-            Do primeiro anúncio ao gestor que escala múltiplos clientes —<br />a Ratoeira transforma cada real investido em tráfego numa origem rastreada e numa decisão mais inteligente.
+          <p className="text-gray-400/80 text-base sm:text-lg 3xl:text-[1.75rem] max-w-2xl 3xl:max-w-[54rem] 4xl:max-w-[62rem] 5xl:max-w-[68rem] 6xl:max-w-[74rem] mx-auto text-balance hyphens-none">
+            Do primeiro anúncio ao gestor que escala múltiplos clientes — a Ratoeira transforma cada real investido em tráfego numa origem rastreada e numa decisão mais inteligente.
           </p>
         </motion.div>
 
       </div>
 
-      <div className="relative z-10 h-[520px] sm:h-[82vh] 4xl:h-[76vh] 5xl:h-[70vh] 6xl:h-[70vh] overflow-visible sm:overflow-hidden flex items-center mt-10 sm:-mt-8 4xl:-mt-10 5xl:-mt-12">
+      <div className="relative z-10 h-[640px] sm:h-[82vh] 4xl:h-[76vh] 5xl:h-[70vh] 6xl:h-[70vh] overflow-visible sm:overflow-hidden flex items-start mt-14 sm:-mt-8 4xl:-mt-10 5xl:-mt-12">
         <div className="relative w-full h-full">
           {isMobile ? (
             <div aria-hidden className="pointer-events-none absolute inset-0 opacity-0 -z-10">
