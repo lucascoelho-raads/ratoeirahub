@@ -42,10 +42,10 @@ export default function PlatformCTAAbout() {
             </div>
 
             <div className="space-y-6">
-              <h2 className="text-2xl sm:text-3xl lg:text-5xl font-black text-gray-900 tracking-tight leading-tight text-center lg:text-left ">
+              <h2 className="text-2xl sm:text-3xl lg:text-5xl font-black text-gray-900 tracking-tight leading-tight text-center lg:text-left text-pretty hyphens-none">
                 Somos o ecossistema <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-amber-500">definitivo</span> para escala.
               </h2>
-              <p className="text-gray-600 leading-relaxed text-base sm:text-lg text-center lg:text-left">
+              <p className="text-gray-600 leading-relaxed text-base sm:text-lg text-center lg:text-left text-pretty hyphens-none">
                 Projetamos a Ratoeira Hub para aniquilar o desperdício de verba e a complexidade técnica. 
                 Oferecemos uma solução segura, rápida e abrangente que une rastreamento cirúrgico e páginas 
                 de altíssima conversão em um único lugar.

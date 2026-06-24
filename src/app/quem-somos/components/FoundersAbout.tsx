@@ -8,12 +8,12 @@ export default function FoundersAbout() {
     <section className="py-16 md:py-32 bg-[#050505] relative overflow-hidden">
       <div className="max-w-7xl 2xl:max-w-[90rem] 4xl:max-w-[120rem] 5xl:max-w-[140rem] 6xl:max-w-[160rem] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-12 4xl:px-20 5xl:px-28 6xl:px-36 relative z-10">
         <div className="text-center mb-24">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight ">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight text-pretty hyphens-none">
             <span className="text-brand-primary">Três</span> pessoas. Um{" "}
             <span className="text-brand-primary">problema</span> real. Uma{" "}
             <span className="text-brand-primary">plataforma</span>
           </h2>
-          <p className="mt-4 text-base sm:text-xl text-gray-400 mx-auto text-center px-4 ">
+          <p className="mt-4 text-base sm:text-xl text-gray-400 mx-auto text-center px-4 text-pretty hyphens-none">
             As mentes por trás do ecossistema que está revolucionando o tráfego
             pago.
           </p>
@@ -49,7 +49,7 @@ export default function FoundersAbout() {
                 </p>
               </div>
 
-              <div className="space-y-4 text-gray-400 leading-relaxed text-base sm:text-lg text-center md:text-left">
+              <div className="space-y-4 text-gray-400 leading-relaxed text-base sm:text-lg text-center md:text-left text-pretty hyphens-none">
                 <p>
                   Formado pela UNICAMP, Eitor construiu sua carreira em
                   analytics e inteligência de mercado — passando por 3M e
@@ -116,7 +116,7 @@ export default function FoundersAbout() {
                 </p>
               </div>
 
-              <div className="space-y-4 text-gray-400 leading-relaxed text-lg">
+              <div className="space-y-4 text-gray-400 leading-relaxed text-lg text-pretty hyphens-none">
                 <p>
                   Formado em análise de sistemas em 2012, Paulo passou mais de
                   uma década construindo sistemas robustos — incluindo passagem
@@ -180,7 +180,7 @@ export default function FoundersAbout() {
                 </p>
               </div>
 
-              <div className="space-y-4 text-gray-400 leading-relaxed text-base sm:text-lg text-center md:text-left">
+              <div className="space-y-4 text-gray-400 leading-relaxed text-base sm:text-lg text-center md:text-left text-pretty hyphens-none">
                 <p>
                   Especialista em arquitetura de software e MBA em Banco de Dados,
                   Brayan construiu sua trajetória atuando no desenvolvimento de

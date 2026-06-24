@@ -435,7 +435,7 @@ import { motion } from "framer-motion"
 export default function EtherealBeamsHero() {
   return (
     <BeamsBackground
-      className="min-h-screen"
+      className="min-h-[85svh] sm:min-h-screen"
       beamsProps={{
         beamWidth: 3,
         beamHeight: 20,
@@ -447,7 +447,7 @@ export default function EtherealBeamsHero() {
         rotation: 45,
       }}
     >
-      <div className="flex flex-col items-center justify-center min-h-screen px-4 pt-28 sm:pt-[clamp(7rem,16vh,12rem)] pb-12 sm:pb-[clamp(4.5rem,10vh,8.5rem)]">
+      <div className="flex flex-col items-center justify-center min-h-[85svh] sm:min-h-screen px-4 pt-28 sm:pt-[clamp(7rem,16vh,12rem)] pb-12 sm:pb-[clamp(4.5rem,10vh,8.5rem)]">
         {/* Hero Content */}
         <div className="max-w-6xl 2xl:max-w-[90rem] 4xl:max-w-[110rem] 5xl:max-w-[130rem] 6xl:max-w-[150rem] text-center">
           <motion.div
@@ -465,7 +465,7 @@ export default function EtherealBeamsHero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-[clamp(1.75rem,6vw,3rem)] sm:text-[clamp(1.75rem,4.2vw,4.5rem)] lg:text-[clamp(1.25rem,3.2vw,5rem)] 3xl:text-[clamp(4.5rem,3.2vw,6.5rem)] font-black text-white tracking-tight leading-[1.1] mb-6 sm:mb-8 max-w-4xl lg:max-w-6xl 2xl:max-w-7xl mx-auto"
+            className="text-[clamp(2rem,7vw,3rem)] sm:text-[clamp(2.5rem,5vw,4rem)] lg:text-[clamp(3rem,4vw,5rem)] 3xl:text-[clamp(3.5rem,3.5vw,6rem)] font-black text-white tracking-tight leading-[1.04] mb-6 sm:mb-8 max-w-4xl lg:max-w-6xl 2xl:max-w-7xl mx-auto text-pretty hyphens-none"
           >
             <span className="sm:whitespace-nowrap">
               <span className="block sm:inline">Rastreamento <span className="text-[#E6A600]">~100%</span>.</span>{" "}
@@ -479,7 +479,7 @@ export default function EtherealBeamsHero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-base sm:text-[clamp(1.05rem,1.25vw,1.35rem)] 3xl:text-[clamp(1.5rem,1.2vw,2.25rem)] text-gray-50 mb-8 sm:mb-12 max-w-3xl lg:max-w-4xl 2xl:max-w-5xl 4xl:max-w-6xl mx-auto "
+            className="text-lg sm:text-[clamp(1.05rem,1.25vw,1.35rem)] 3xl:text-[clamp(1.5rem,1.2vw,2.25rem)] text-gray-50 mb-8 sm:mb-12 max-w-3xl lg:max-w-4xl 2xl:max-w-5xl 4xl:max-w-6xl mx-auto text-pretty hyphens-none"
           >
             Para anunciantes no Google Ads que precisam de clareza total — não de estimativas. Cada venda rastreada,
             cada fraude bloqueada, cada decisão tomada com dado real.

@@ -24,11 +24,11 @@ export default function AppSection() {
         >
           {/* Text Content */}
           <div className="flex-1 text-center lg:text-left">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#111827] leading-tight mb-6 ">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#111827] leading-tight tracking-tight mb-6 text-pretty hyphens-none">
               Que tal uma ratoeira no seu{" "}
               <span className="text-brand-primary">bolso</span>?
             </h2>
-            <p className="text-base sm:text-lg text-[#4b5563] leading-relaxed max-w-xl 2xl:max-w-[50rem] 4xl:max-w-[60rem] mx-auto lg:mx-0 ">
+            <p className="text-lg sm:text-xl text-[#4b5563] leading-relaxed max-w-xl 2xl:max-w-[50rem] 4xl:max-w-[60rem] mx-auto lg:mx-0 text-pretty hyphens-none">
               Com o APP da Ratoeira Ads, você recebe as notificações e tem acesso ao seu
               Dashboard de vendas, tudo em tempo real.
             </p>

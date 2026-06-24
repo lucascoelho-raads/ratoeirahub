@@ -26,13 +26,11 @@ export default function HeroAbout() {
               <span className="text-sm font-semibold">NOSSA HISTÓRIA</span>
             </div>
 
-            <h1 className="text-[clamp(1.75rem,4.2vw,4.5rem)] lg:text-[clamp(1.25rem,3.2vw,5rem)] font-black text-[#111827] leading-[1.04] tracking-tight  max-w-3xl lg:max-w-4xl mx-auto lg:mx-0">
-              A <GradientText className="font-black">Ratoeira</GradientText> nasceu de <GradientText className="font-black">dentro</GradientText> do mercado.
-              <br />
-              Não de fora.
+            <h1 className="text-[clamp(1.75rem,4.2vw,4.5rem)] lg:text-[clamp(1.25rem,3.2vw,5rem)] font-black text-[#111827] leading-[1.04] tracking-tight max-w-3xl lg:max-w-4xl mx-auto lg:mx-0 text-pretty hyphens-none">
+              A <GradientText className="font-black">Ratoeira</GradientText> nasceu de <GradientText className="font-black">dentro</GradientText> do mercado. Não de fora.
             </h1>
 
-            <div className="space-y-6 text-[#4b5563] font-medium leading-relaxed max-w-xl 2xl:max-w-[50rem] 4xl:max-w-[64rem] text-[clamp(1rem,1.1vw,1.125rem)] mx-auto lg:mx-0">
+            <div className="space-y-6 text-[#4b5563] font-medium leading-relaxed max-w-xl 2xl:max-w-[50rem] 4xl:max-w-[64rem] text-[clamp(1rem,1.1vw,1.125rem)] mx-auto lg:mx-0 text-pretty hyphens-none">
               <p>
                 Em dezembro de 2022, Eitor Guimarães anunciava como afiliado de Google Ads e aplicava o que sabia de
                 analytics corporativo a um problema que o mercado brasileiro ainda não havia resolvido: como capturar os
