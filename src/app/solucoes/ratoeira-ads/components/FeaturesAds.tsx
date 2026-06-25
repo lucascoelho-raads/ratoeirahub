@@ -104,12 +104,11 @@ export default function FeaturesAds() {
     <section id="como-funciona" className="py-16 md:py-24 bg-[#0a0a0a]">
       <div className="max-w-7xl 2xl:max-w-[90rem] 4xl:max-w-[120rem] 5xl:max-w-[140rem] 6xl:max-w-[160rem] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-12 4xl:px-20 5xl:px-28 6xl:px-36">
         <div className="text-center mb-16 max-w-4xl xl:max-w-5xl 2xl:max-w-[65rem] 3xl:max-w-[80rem] 4xl:max-w-[90rem] 5xl:max-w-[100rem] 6xl:max-w-[110rem] mx-auto">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl 3xl:text-7xl font-black text-white mb-6 text-center tracking-tight leading-tight text-pretty hyphens-none">
-            O fim do <span className="text-brand-primary">achismo</span> no tráfego pago.
+          <h2 className="text-[1.75rem] sm:text-4xl md:text-5xl 3xl:text-6xl font-black text-white mb-6 text-center tracking-tight leading-tight hyphens-none">
+            O fim do <span className="text-brand-primary">achismo</span> no <span className="whitespace-nowrap">tráfego pago</span>.
           </h2>
-          <p className="text-gray-400 text-lg sm:text-xl 3xl:text-3xl max-w-3xl xl:max-w-4xl 2xl:max-w-5xl 4xl:max-w-[80rem] 5xl:max-w-[90rem] 6xl:max-w-[100rem] mx-auto text-center text-pretty hyphens-none">
-            A Ratoeira Ads atua em 6 frentes para garantir que você saiba exatamente qual anúncio do Google Ads gerou cada centavo de
-            resultado — do clique à venda.
+          <p className="text-gray-400 text-lg sm:text-xl 3xl:text-3xl max-w-3xl xl:max-w-4xl 2xl:max-w-5xl 4xl:max-w-[80rem] 5xl:max-w-[90rem] 6xl:max-w-[100rem] mx-auto text-center hyphens-none">
+            A Ratoeira Ads atua em 6 frentes para garantir que você saiba exatamente qual anúncio do Google Ads gerou cada centavo de resultado — do clique à venda.
           </p>
         </div>
 
@@ -127,16 +126,12 @@ export default function FeaturesAds() {
                   <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br from-yellow-500/15 to-orange-500/15 flex items-center justify-center border ${index % 2 === 0 ? "border-black/10" : "border-white/10"}`}>
                     <Icon className="w-8 h-8 text-brand-primary" />
                   </div>
-                  <h3 className="text-2xl sm:text-3xl md:text-4xl 3xl:text-6xl font-black leading-tight tracking-tight text-pretty hyphens-none">
+                  <h3 className="text-2xl sm:text-3xl md:text-4xl 3xl:text-6xl font-black leading-tight tracking-tight hyphens-none">
                     <GradientText className="font-black">
-                      {slide.title === "Recuperação de Conversões Invisíveis" ? (
-                        <>Recuperação de<br className="md:hidden" /> Conversões Invisíveis</>
-                      ) : (
-                        slide.title
-                      )}
+                      {slide.title}
                     </GradientText>
                   </h3>
-                  <p className={`text-lg sm:text-xl 3xl:text-3xl leading-relaxed text-pretty hyphens-none ${index % 2 === 0 ? "text-[#4b5563]" : "text-gray-400"}`}>
+                  <p className={`text-lg sm:text-xl 3xl:text-3xl leading-relaxed hyphens-none ${index % 2 === 0 ? "text-[#4b5563]" : "text-gray-400"}`}>
                     <BlurTextEffect key={`${slide.title}-desc`}>{slide.description}</BlurTextEffect>
                   </p>
                 </div>

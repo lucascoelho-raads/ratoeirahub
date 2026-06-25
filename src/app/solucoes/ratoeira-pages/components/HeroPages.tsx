@@ -28,9 +28,9 @@ export default function HeroPages() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="text-[clamp(1.25rem,4.2vw,4.5rem)] lg:text-[clamp(1.25rem,3.2vw,5rem)] 3xl:text-[clamp(4.5rem,3.2vw,6.5rem)] font-black text-white tracking-tight leading-[1.04] mb-8 max-w-3xl lg:max-w-5xl 2xl:max-w-6xl 4xl:max-w-7xl mx-auto"
+              className="text-[2rem] sm:text-5xl md:text-6xl lg:text-7xl 3xl:text-[5rem] font-black text-white tracking-tight leading-[1.04] mb-8 max-w-3xl lg:max-w-5xl 2xl:max-w-6xl 4xl:max-w-7xl mx-auto hyphens-none"
             >
-              <span className="text-orange-500">Páginas rápidas</span>, integradas<br className="md:hidden" /> ao seu <span className="text-orange-500">tracking</span>. Prontas em minutos.
+              <span className="text-orange-500">Páginas rápidas</span>, integradas ao seu <span className="text-orange-500">tracking</span>. Prontas em minutos.
             </motion.h1>
 
             <motion.p

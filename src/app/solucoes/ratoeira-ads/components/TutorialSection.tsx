@@ -34,12 +34,12 @@ export default function TutorialSection() {
             <span>Tutorial</span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white mb-6 tracking-tight leading-tight text-pretty hyphens-none">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white mb-6 tracking-tight leading-tight hyphens-none">
             Confira Nosso <span className="text-yellow-500">Tutorial Completo</span>
           </h2>
 
-          <p className="text-lg sm:text-xl text-gray-400 leading-relaxed max-w-2xl mx-auto text-pretty hyphens-none">
-            Aprenda a configurar a Ratoeira Ads passo a passo, desde a instalação da tag até a ativação do bloqueio automático de fraude. Em menos de 15 minutos, sua operação estará protegida e rastreando ~100% das conversões do Google Ads.
+          <p className="text-lg sm:text-xl text-gray-400 leading-relaxed max-w-2xl mx-auto hyphens-none">
+            Aprenda a configurar a <span className="whitespace-nowrap">Ratoeira Ads</span> passo a passo, desde a instalação da tag até a ativação do bloqueio automático de fraude. Em menos de 15 minutos, sua operação estará protegida e rastreando ~100% das conversões do <span className="whitespace-nowrap">Google Ads</span>.
           </p>
 
           <div className="mt-8 flex items-center justify-center">

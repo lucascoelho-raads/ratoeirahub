@@ -66,6 +66,25 @@ const benefits = [
   },
 ];
 
+function renderNoBreak(text: string) {
+  const patterns = [
+    "tráfego pago",
+    "Google Ads",
+    "Ratoeira Ads",
+    "Ratoeira Hub",
+    "Meta Ads",
+  ];
+  const regex = new RegExp(`(${patterns.map((p) => p.replace(/[.*+?^${}()|[\\]\\\\]/g, "\\\\$&")).join("|")})`, "gi");
+  const parts = text.split(regex);
+  return parts.map((part, i) =>
+    patterns.some((p) => part.toLowerCase() === p.toLowerCase()) ? (
+      <span key={i} className="whitespace-nowrap">{part}</span>
+    ) : (
+      part
+    )
+  );
+}
+
 export default function Benefits() {
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
@@ -161,11 +180,11 @@ export default function Benefits() {
             <BackgroundPaths reverse={benefit.imageLeft} />
             <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-[1.2fr_1fr] 3xl:grid-cols-[1.3fr_1fr] 4xl:grid-cols-[1.35fr_1fr] 5xl:grid-cols-[1fr_1fr] 6xl:grid-cols-[1fr_1fr] gap-10 5xl:gap-14 6xl:gap-16 items-center h-full">
               <div className={`${benefit.imageLeft ? "order-2" : "order-1"} 5xl:px-4 6xl:px-6`}>
-                <h3 className="mt-4 sm:mt-6 text-xl sm:text-xl lg:text-4xl 3xl:text-5xl 4xl:text-[3.5rem] 5xl:text-[5.5rem] 6xl:text-[6.75rem] font-black text-gray-50 leading-tight text-center lg:text-left  max-w-2xl lg:max-w-3xl 5xl:max-w-[60rem] 6xl:max-w-[70rem] text-balance hyphens-none">
-                  {benefit.title}
+                <h3 className="mt-4 sm:mt-6 text-xl sm:text-xl lg:text-4xl 3xl:text-5xl 4xl:text-[3.5rem] 5xl:text-[5.5rem] 6xl:text-[6.75rem] font-black text-gray-50 leading-tight text-center lg:text-left  max-w-2xl lg:max-w-3xl 5xl:max-w-[60rem] 6xl:max-w-[70rem] hyphens-none">
+                  {renderNoBreak(benefit.title)}
                 </h3>
                 <p className="mt-4 sm:mt-5 4xl:mt-8 5xl:mt-10 text-base sm:text-lg 3xl:text-2xl 4xl:text-3xl 5xl:text-[2.75rem] 6xl:text-[3rem] text-gray-200 leading-relaxed text-center lg:text-left ">
-                  {benefit.description}
+                  {renderNoBreak(benefit.description)}
                 </p>
               </div>
 
@@ -224,7 +243,7 @@ export default function Benefits() {
           transition={{ duration: 0.7 }}
           className="text-center mb-6 md:mb-8 4xl:mb-4 space-y-4"
         >
-          <h2 className="text-[1.375rem] sm:text-2xl lg:text-5xl 3xl:text-7xl 4xl:text-[5rem] 5xl:text-[5.75rem] 6xl:text-[6.5rem] font-black text-text-inverse leading-tight  max-w-4xl 3xl:max-w-5xl 4xl:max-w-[72rem] 5xl:max-w-[82rem] 6xl:max-w-[92rem] mx-auto text-balance hyphens-none">
+          <h2 className="text-[1.375rem] sm:text-2xl lg:text-5xl 3xl:text-6xl font-black text-text-inverse leading-tight max-w-4xl mx-auto hyphens-none">
             <span className="lg:hidden">
               Por que <span style={{ color: "var(--color-brand-primary)" }}>+2.600</span>
               <br />
@@ -237,7 +256,7 @@ export default function Benefits() {
               <span className="whitespace-nowrap">Ratoeira&nbsp;Hub</span>
             </span>
           </h2>
-          <p className="text-gray-400/80 text-base sm:text-lg 3xl:text-[1.75rem] max-w-2xl 3xl:max-w-[54rem] 4xl:max-w-[62rem] 5xl:max-w-[68rem] 6xl:max-w-[74rem] mx-auto text-balance hyphens-none">
+          <p className="text-gray-400/80 text-base sm:text-lg 3xl:text-[1.75rem] max-w-2xl 3xl:max-w-[54rem] 4xl:max-w-[62rem] 5xl:max-w-[68rem] 6xl:max-w-[74rem] mx-auto hyphens-none">
             Do primeiro anúncio ao gestor que escala múltiplos clientes — a Ratoeira transforma cada real investido em tráfego numa origem rastreada e numa decisão mais inteligente.
           </p>
         </motion.div>

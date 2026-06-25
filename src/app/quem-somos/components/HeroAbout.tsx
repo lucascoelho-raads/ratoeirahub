@@ -26,13 +26,13 @@ export default function HeroAbout() {
               <span className="text-sm font-semibold">NOSSA HISTÓRIA</span>
             </div>
 
-            <h1 className="text-[clamp(1.75rem,4.2vw,4.5rem)] lg:text-[clamp(1.25rem,3.2vw,5rem)] font-black text-[#111827] leading-[1.04] tracking-tight max-w-3xl lg:max-w-4xl mx-auto lg:mx-0 text-pretty hyphens-none">
+            <h1 className="text-[2rem] sm:text-5xl md:text-6xl lg:text-7xl 3xl:text-[5rem] font-black text-[#111827] leading-[1.04] tracking-tight max-w-3xl lg:max-w-4xl mx-auto lg:mx-0 hyphens-none">
               A <GradientText className="font-black">Ratoeira</GradientText> nasceu de <GradientText className="font-black">dentro</GradientText> do mercado. Não de fora.
             </h1>
 
-            <div className="space-y-6 text-[#4b5563] font-medium leading-relaxed max-w-xl 2xl:max-w-[50rem] 4xl:max-w-[64rem] text-[clamp(1rem,1.1vw,1.125rem)] mx-auto lg:mx-0 text-pretty hyphens-none">
+            <div className="space-y-6 text-[#4b5563] font-medium leading-relaxed max-w-xl 2xl:max-w-[50rem] 4xl:max-w-[64rem] text-[clamp(1rem,1.1vw,1.125rem)] mx-auto lg:mx-0 hyphens-none">
               <p>
-                Em dezembro de 2022, Eitor Guimarães anunciava como afiliado de Google Ads e aplicava o que sabia de
+                Em dezembro de 2022, Eitor Guimarães anunciava como afiliado de <span className="whitespace-nowrap">Google Ads</span> e aplicava o que sabia de
                 analytics corporativo a um problema que o mercado brasileiro ainda não havia resolvido: como capturar os
                 dados do clique, cruzar com a conversão e devolver esse sinal limpo ao algoritmo do Google para ele
                 otimizar para quem realmente compra. Ferramentas gringas faziam isso — e não afetavam. Chegavam a custar
@@ -40,9 +40,9 @@ export default function HeroAbout() {
               </p>
               <p>
                 Eitor sistematizou o método e publicou um vídeo no YouTube em outubro de 2023. Explodiu. O mercado de
-                afiliados de Google Ads mudou de patamar: operações que antes travavam em só a R$100 mil passaram a
+                afiliados de <span className="whitespace-nowrap">Google Ads</span> mudou de patamar: operações que antes travavam em só a R$100 mil passaram a
                 escalar além de um milhão. Em janeiro de 2024, Paulo Furtado viu o vídeo e foi direto ao Instagram de
-                Eitor propor construir o software. Em 15 de abril de 2024, a Ratoeira Ads entrava no ar. Hoje, mais de
+                Eitor propor construir o software. Em 15 de abril de 2024, a <span className="whitespace-nowrap">Ratoeira Ads</span> entrava no ar. Hoje, mais de
                 2.500 anunciantes são assinantes ativos — e mais de 10.000 já passaram pela plataforma.
               </p>
             </div>

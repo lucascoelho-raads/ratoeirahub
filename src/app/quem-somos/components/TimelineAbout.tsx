@@ -8,7 +8,7 @@ const milestones = [
   {
     year: "Dez 2022",
     title: "A Descoberta",
-    description: "Eitor Guimarães, com background em analytics corporativo, começa a anunciar como afiliado de Google Ads e sistematiza um método inédito no Brasil: capturar o dado do clique, cruzar com a conversão e alimentar o algoritmo com sinal limpo. O que antes parecia impossível para afiliados começa a funcionar.",
+    description: <>Eitor Guimarães, com background em analytics corporativo, começa a anunciar como afiliado de <span className="whitespace-nowrap">Google Ads</span> e sistematiza um método inédito no Brasil: capturar o dado do clique, cruzar com a conversão e alimentar o algoritmo com sinal limpo. O que antes parecia impossível para afiliados começa a funcionar.</>,
     align: "left",
   },
   {
@@ -25,20 +25,20 @@ const milestones = [
   },
   {
     year: "Abr 2024",
-    title: "Ratoeira Ads vai ao ar",
-    description: "Em 15 de abril de 2024, a Ratoeira Ads é lançada — focada em afiliados de Google Ads. Trackeamento server-side via API de Conversões, bloqueio de IPs inválidos e atribuição real do clique à venda. O sistema ainda era muito manual, mas já revolucionário. O que Eitor sistematizou como método, Paulo transformou em plataforma.",
+    title: <><span className="whitespace-nowrap">Ratoeira Ads</span> vai ao ar</>,
+    description: <>Em 15 de abril de 2024, a <span className="whitespace-nowrap">Ratoeira Ads</span> é lançada — focada em afiliados de <span className="whitespace-nowrap">Google Ads</span>. Trackeamento server-side via API de Conversões, bloqueio de IPs inválidos e atribuição real do clique à venda. O sistema ainda era muito manual, mas já revolucionário. O que Eitor sistematizou como método, Paulo transformou em plataforma.</>,
     align: "right",
   },
   {
     year: "2025",
     title: "Expansão do ecossistema",
-    description: "Nasce a Ratoeira Pages — construtor de páginas com hospedagem inclusa e trackeamento já integrado. Os dois produtos se tornam Ratoeira Hub: quando conectados, rastreiam além do que cada um entrega separado. Suas funcionalidades passam a ser ainda mais automáticas e diretas. A Ratoeira consolida sua posição como referência do mercado.",
+    description: <>Nasce a <span className="whitespace-nowrap">Ratoeira Pages</span> — construtor de páginas com hospedagem inclusa e trackeamento já integrado. Os dois produtos se tornam <span className="whitespace-nowrap">Ratoeira Hub</span>: quando conectados, rastreiam além do que cada um entrega separado. Suas funcionalidades passam a ser ainda mais automáticas e diretas. A Ratoeira consolida sua posição como referência do mercado.</>,
     align: "left",
   },
   {
     year: "2026",
     title: "IA e novos canais",
-    description: "MCP da Ratoeira Ads e da Ratoeira Pages: o Claude e o ChatGPT passam a consultar, analisar e executar ações diretamente nas contas dos anunciantes. Expansão para Meta Ads com envio enriquecido via browser + CAPI. A plataforma expande para atender produtores, infoprodutores, gestores de tráfego e agências — com mais de 2.500 assinantes ativos.",
+    description: <>MCP da <span className="whitespace-nowrap">Ratoeira Ads</span> e da <span className="whitespace-nowrap">Ratoeira Pages</span>: o Claude e o ChatGPT passam a consultar, analisar e executar ações diretamente nas contas dos anunciantes. Expansão para <span className="whitespace-nowrap">Meta Ads</span> com envio enriquecido via browser + CAPI. A plataforma expande para atender produtores, infoprodutores, gestores de tráfego e agências — com mais de 2.500 assinantes ativos.</>,
     align: "right",
   }
 ];
@@ -57,8 +57,8 @@ export default function TimelineAbout() {
       <div className="max-w-7xl 2xl:max-w-[90rem] 4xl:max-w-[120rem] 5xl:max-w-[140rem] 6xl:max-w-[160rem] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-12 4xl:px-20 5xl:px-28 6xl:px-36 relative z-10">
         
         <div className="text-center mb-20">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight text-pretty hyphens-none">Dois anos. O <span className="text-[#FFB800]">mercado</span> não é mais o <span className="text-[#FFB800]">mesmo</span></h2>
-          <p className="mt-4 text-base sm:text-xl text-gray-400 max-w-2xl 2xl:max-w-[50rem] 4xl:max-w-[70rem] mx-auto px-4 sm:px-0 text-pretty hyphens-none">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight hyphens-none">Dois anos. O <span className="text-[#FFB800]">mercado</span> não é mais o <span className="text-[#FFB800]">mesmo</span></h2>
+          <p className="mt-4 text-base sm:text-xl text-gray-400 max-w-2xl 2xl:max-w-[50rem] 4xl:max-w-[70rem] mx-auto px-4 sm:px-0 hyphens-none">
             De uma descoberta individual a mais de 2.500 anunciantes que escalam com dado real.
           </p>
         </div>
@@ -96,12 +96,12 @@ export default function TimelineAbout() {
                       <span className="inline-block px-4 py-1.5 rounded-full bg-orange-500/15 border border-orange-500/20 text-orange-300 font-bold text-sm mb-4">
                         {item.year}
                       </span>
-                      <h3 className="text-xl sm:text-2xl font-bold text-white mb-3 tracking-tight text-pretty hyphens-none">
+                      <h3 className="text-xl sm:text-2xl font-bold text-white mb-3 tracking-tight hyphens-none">
                         <GradientText className="font-bold">
                           {item.title}
                         </GradientText>
                       </h3>
-                      <p className="text-gray-400 leading-relaxed text-sm sm:text-base text-pretty hyphens-none">
+                      <p className="text-gray-400 leading-relaxed text-sm sm:text-base hyphens-none">
                         {item.description}
                       </p>
                     </div>

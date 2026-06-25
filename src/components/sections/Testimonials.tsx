@@ -89,7 +89,7 @@ export default function Testimonials() {
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-badge bg-orange-50 border border-orange-200 text-orange-600 text-sm font-semibold">
             <MessageSquare className="w-4 h-4" /> Depoimentos Reais
           </div>
-          <h2 className="text-2xl sm:text-3xl lg:text-5xl 3xl:text-7xl font-black text-white leading-tight  max-w-4xl mx-auto text-balance hyphens-none">
+          <h2 className="text-2xl sm:text-3xl lg:text-5xl 3xl:text-6xl font-black text-white leading-tight max-w-4xl mx-auto hyphens-none">
             <span className="block">
               Quem <span className="text-orange-600">domina o tráfego</span>,
             </span>
@@ -98,7 +98,7 @@ export default function Testimonials() {
             </span>
           </h2>
           <p className="text-gray-400/70 text-base sm:text-xl 3xl:text-[1.75rem] max-w-xl 2xl:max-w-[34rem] 3xl:max-w-[48rem] 4xl:max-w-[56rem] 5xl:max-w-[64rem] 6xl:max-w-[72rem] mx-auto ">
-            Veja o que anunciantes de Google Ads, Meta Ads e gestores de tráfego dizem sobre operar com dado real.
+            Veja o que anunciantes de <span className="whitespace-nowrap">Google Ads</span>, <span className="whitespace-nowrap">Meta Ads</span> e gestores de tráfego dizem sobre operar com dado real.
           </p>
         </motion.div>
 

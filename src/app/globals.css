@@ -161,11 +161,13 @@ html {
   overflow-x: clip;
 }
 
-/* Prevent text overflow in clamp headings */
+/* Prevent text overflow without breaking words with hyphens */
 h1, h2, h3 {
   overflow-wrap: break-word;
   word-wrap: break-word;
-  hyphens: auto;
+  hyphens: none;
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
 }
 
 body {

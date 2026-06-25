@@ -80,7 +80,7 @@ export default function MVVAbout() {
             <h2 className="text-2xl sm:text-3xl font-black text-white tracking-tight mb-4">
               <GradientText className="font-black">Missão</GradientText>
             </h2>
-            <p className="text-gray-400 font-medium leading-relaxed text-base text-pretty hyphens-none">
+            <p className="text-gray-400 font-medium leading-relaxed text-base hyphens-none">
               {mvvData[0].content}
             </p>
           </motion.div>
@@ -99,7 +99,7 @@ export default function MVVAbout() {
             <h2 className="text-2xl sm:text-3xl font-black text-white tracking-tight mb-4">
               <GradientText className="font-black">Visão</GradientText>
             </h2>
-            <p className="text-gray-400 font-medium leading-relaxed text-base text-pretty hyphens-none">
+            <p className="text-gray-400 font-medium leading-relaxed text-base hyphens-none">
               {mvvData[1].content}
             </p>
           </motion.div>
@@ -129,7 +129,7 @@ export default function MVVAbout() {
                   className="absolute inset-0 flex flex-col items-center sm:flex-row sm:items-start gap-3"
                 >
                   <div className="w-2 h-2 bg-amber-500 rounded-full mt-2 flex-shrink-0" />
-                  <p className="text-gray-400 font-medium text-sm leading-relaxed text-pretty hyphens-none">
+                  <p className="text-gray-400 font-medium text-sm leading-relaxed hyphens-none">
                     <strong className="text-white font-bold">{valoresItems[activeValueIndex].title}:</strong> {valoresItems[activeValueIndex].body}
                   </p>
                 </motion.div>

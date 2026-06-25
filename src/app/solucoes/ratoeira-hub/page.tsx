@@ -85,10 +85,8 @@ export default function RatoeiraHubPage() {
           />
           <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-4 pt-[clamp(3rem,8vh,5rem)] md:pt-[clamp(7rem,16vh,12rem)] pb-[clamp(4.5rem,10vh,8.5rem)]">
             <div className="max-w-6xl 2xl:max-w-[90rem] 4xl:max-w-[110rem] 5xl:max-w-[130rem] 6xl:max-w-[150rem] text-center">
-              <h1 className="text-[clamp(1.25rem,4.2vw,4.5rem)] lg:text-[clamp(1.25rem,3.2vw,5rem)] 3xl:text-[clamp(4.5rem,3.2vw,6.5rem)] font-black text-white tracking-tight leading-[1.1] mb-8 max-w-4xl lg:max-w-6xl 2xl:max-w-7xl mx-auto">
-                Quando Ads e Pages trabalham juntos, sua operação chega onde
-                <br className="sm:hidden" />
-                nenhuma ferramenta sozinha chega.
+              <h1 className="text-[2rem] sm:text-5xl md:text-6xl lg:text-7xl 3xl:text-[5rem] font-black text-white tracking-tight leading-[1.1] mb-8 max-w-4xl lg:max-w-6xl 2xl:max-w-7xl mx-auto hyphens-none">
+                Quando Ads e Pages trabalham juntos, sua operação chega onde nenhuma ferramenta sozinha chega.
               </h1>
 
               <p className="text-base sm:text-[clamp(1.05rem,1.25vw,1.35rem)] 3xl:text-[clamp(1.5rem,1.2vw,2.25rem)] text-neutral-400 mb-12 max-w-3xl lg:max-w-4xl 2xl:max-w-5xl 4xl:max-w-6xl mx-auto px-4 sm:px-0 ">
@@ -132,7 +130,7 @@ export default function RatoeiraHubPage() {
       >
         <div className="max-w-7xl 2xl:max-w-[90rem] 4xl:max-w-[120rem] 5xl:max-w-[140rem] 6xl:max-w-[160rem] mx-auto px-4 2xl:px-12 4xl:px-20 5xl:px-28 6xl:px-36 relative z-10">
           <div className="text-center mb-20">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl 3xl:text-7xl font-black text-white mb-6 ">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl 3xl:text-6xl font-black text-white mb-6">
               Integrado é diferente de{" "}
               <span className="bg-gradient-to-r from-yellow-400 to-orange-500 bg-clip-text text-transparent">
                 conectado
@@ -504,7 +502,7 @@ export default function RatoeiraHubPage() {
 
       <section className="bg-[#050505] flex items-center justify-center min-h-[auto] md:min-h-[clamp(600px,70vh,900px)] py-16 md:py-24">
         <div className="max-w-6xl 2xl:max-w-[90rem] 4xl:max-w-[110rem] 5xl:max-w-[130rem] 6xl:max-w-[150rem] mx-auto px-4 2xl:px-12 4xl:px-20 5xl:px-28 6xl:px-36 relative z-20 text-center w-full">
-          <h2 className="text-[clamp(1.75rem,6vw,4.5rem)] 3xl:text-[clamp(3.5rem,3.2vw,5.5rem)] font-black text-white mb-6 tracking-tight px-4">
+          <h2 className="text-[1.75rem] sm:text-4xl md:text-5xl 3xl:text-6xl font-black text-white mb-6 tracking-tight px-4 hyphens-none">
             O{" "}
             <GradientText variant="orange" className="font-black">
               ecossistema completo

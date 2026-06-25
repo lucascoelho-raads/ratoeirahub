@@ -10,6 +10,22 @@ export const metadata = {
   description: "Escale suas campanhas de pesquisa e YouTube com dados 100% limpos e integração server-side nativa.",
 };
 
+function renderNoBreakTitle(title: string) {
+  const patterns = ["Google Ads", "Ratoeira Pages", "iOS 14+"];
+  const regex = new RegExp(
+    `(${patterns.map((p) => p.replace(/[.*+?^${}()|[\\]\\\\]/g, "\\\\$&")).join("|")})`,
+    "gi"
+  );
+  const parts = title.split(regex);
+  return parts.map((part, i) =>
+    patterns.some((p) => part.toLowerCase() === p.toLowerCase()) ? (
+      <span key={i} className="whitespace-nowrap">{part}</span>
+    ) : (
+      part
+    )
+  );
+}
+
 export default function GoogleAdsPage() {
   return (
     <main className="flex flex-col flex-1 bg-[#050505] text-white">
@@ -20,11 +36,11 @@ export default function GoogleAdsPage() {
         <div className="max-w-7xl 2xl:max-w-[90rem] 4xl:max-w-[120rem] 5xl:max-w-[140rem] 6xl:max-w-[160rem] mx-auto px-6 2xl:px-12 4xl:px-20 5xl:px-28 6xl:px-36">
           <div className="text-center mb-20 max-w-3xl 2xl:max-w-[60rem] 4xl:max-w-[80rem] mx-auto">
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white mb-6 tracking-tight ">
-              O <span className="text-brand-primary">Google Ads</span> só otimiza tão bem quanto o dado que recebe.
+              O <span className="text-brand-primary whitespace-nowrap">Google Ads</span> só otimiza tão bem quanto o dado que recebe.
             </h2>
             <p className="text-base sm:text-xl text-gray-300 px-4 sm:px-0 ">
               Quando apenas parte das suas vendas chega ao Google, o algoritmo aprende errado — e você paga por isso. A Ratoeira garante que cada
-              conversão real chegue ao Google Ads com qualidade máxima, do clique ao pagamento.
+              conversão real chegue ao <span className="whitespace-nowrap">Google Ads</span> com qualidade máxima, do clique ao pagamento.
             </p>
           </div>
 
@@ -95,8 +111,8 @@ export default function GoogleAdsPage() {
                     <div className="w-16 h-16 rounded-2xl bg-brand-primary/10 flex items-center justify-center">
                       <feature.icon className="w-8 h-8 text-brand-primary" />
                     </div>
-                    <h3 className={`${feature.image === "/ios14.png" ? "text-xl sm:text-2xl md:text-3xl" : "text-2xl sm:text-3xl md:text-4xl"} font-black leading-tight text-balance ${isDark ? "text-white" : "text-[#111111]"}`}>
-                      {feature.title}
+                    <h3 className={`${feature.image === "/ios14.png" ? "text-xl sm:text-2xl md:text-3xl" : "text-2xl sm:text-3xl md:text-4xl"} font-black leading-tight hyphens-none ${isDark ? "text-white" : "text-[#111111]"}`}>
+                      {renderNoBreakTitle(feature.title)}
                     </h3>
                     <p className={`text-base sm:text-xl leading-relaxed ${isDark ? "text-gray-300" : "text-[#4b5563]"}`}>{feature.description}</p>
                   </div>
@@ -184,7 +200,7 @@ export default function GoogleAdsPage() {
                   <div className="text-xs font-black uppercase tracking-widest text-brand-primary">
                     {step.number}
                   </div>
-                  <h3 className="mt-4 text-2xl font-black text-white">{step.title}</h3>
+                  <h3 className="mt-4 text-2xl font-black text-white hyphens-none">{step.title}</h3>
                   <p className="mt-3 text-gray-300 leading-relaxed">{step.description}</p>
                 </div>
               </ShineBorder>

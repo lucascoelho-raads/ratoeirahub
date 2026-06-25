@@ -127,9 +127,9 @@ export default function NativeAdsTrafficSourcePage() {
       <section className="py-16 md:py-24 bg-[#050505]">
         <div className="max-w-7xl 2xl:max-w-[90rem] 4xl:max-w-[120rem] 5xl:max-w-[140rem] 6xl:max-w-[160rem] mx-auto px-6 2xl:px-12 4xl:px-20 5xl:px-28 6xl:px-36">
           <div className="text-center mb-20 max-w-5xl 2xl:max-w-[80rem] 4xl:max-w-[100rem] mx-auto">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-white mb-6 tracking-tight">
-              <span className="block whitespace-nowrap"><span className="text-brand-primary">Native Ads</span> precisam de <span className="text-brand-primary">atribuição</span></span>
-              <span className="block whitespace-nowrap">tão robusta quanto qualquer outro canal.</span>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-white mb-6 tracking-tight hyphens-none">
+              <span className="block"><span className="whitespace-nowrap text-brand-primary">Native Ads</span> precisam de atribuição</span>
+              <span className="block">tão robusta quanto qualquer outro canal.</span>
             </h2>
             <p className="text-base sm:text-xl text-gray-300 px-4 sm:px-0">
               Quando você não sabe qual anúncio nativo gerou a venda, acaba
@@ -141,8 +141,8 @@ export default function NativeAdsTrafficSourcePage() {
 
           <div className="mb-24">
             <div className="text-center mb-12">
-              <h3 className="text-2xl sm:text-3xl md:text-4xl font-black text-brand-primary tracking-tight">
-                Taboola
+              <h3 className="text-2xl sm:text-3xl md:text-4xl font-black text-brand-primary tracking-tight hyphens-none">
+                <span className="whitespace-nowrap">Taboola</span>
               </h3>
               <p className="mt-3 text-base sm:text-lg text-gray-300 max-w-2xl mx-auto">
                 Rastreie cada widget, campanha e criativo da Taboola com precisão.
@@ -168,9 +168,21 @@ export default function NativeAdsTrafficSourcePage() {
                         <feature.icon className="w-8 h-8 text-brand-primary" />
                       </div>
                       <h3
-                        className={`text-2xl sm:text-3xl md:text-4xl font-black leading-tight text-balance ${isDark ? "text-white" : "text-[#111111]"}`}
+                        className={`text-2xl sm:text-3xl md:text-4xl font-black leading-tight hyphens-none ${isDark ? "text-white" : "text-[#111111]"}`}
                       >
-                        {feature.title}
+                        {feature.title === "Rastreamento completo da Taboola" ? (
+                          <>Rastreamento completo da <span className="whitespace-nowrap">Taboola</span></>
+                        ) : feature.title === "Atribuição por widget e criativo" ? (
+                          feature.title
+                        ) : feature.title === "Dados mais rápidos que o dashboard da rede" ? (
+                          feature.title
+                        ) : feature.title === "Rastreamento completo do NewsBreak" ? (
+                          <>Rastreamento completo do <span className="whitespace-nowrap">NewsBreak</span></>
+                        ) : feature.title === "Criativos que realmente convertem" ? (
+                          feature.title
+                        ) : (
+                          <><span className="whitespace-nowrap">NewsBreak</span> junto com os outros canais</>
+                        )}
                       </h3>
                       <p
                         className={`text-base sm:text-xl leading-relaxed ${isDark ? "text-gray-300" : "text-[#4b5563]"}`}
@@ -217,8 +229,8 @@ export default function NativeAdsTrafficSourcePage() {
 
           <div className="mb-24">
             <div className="text-center mb-12">
-              <h3 className="text-2xl sm:text-3xl md:text-4xl font-black text-brand-primary tracking-tight">
-                NewsBreak
+              <h3 className="text-2xl sm:text-3xl md:text-4xl font-black text-brand-primary tracking-tight hyphens-none">
+                <span className="whitespace-nowrap">NewsBreak</span>
               </h3>
               <p className="mt-3 text-base sm:text-lg text-gray-300 max-w-2xl mx-auto">
                 Atribua receita a cada campanha e criativo do NewsBreak.
@@ -244,9 +256,21 @@ export default function NativeAdsTrafficSourcePage() {
                         <feature.icon className="w-8 h-8 text-brand-primary" />
                       </div>
                       <h3
-                        className={`text-2xl sm:text-3xl md:text-4xl font-black leading-tight text-balance ${isDark ? "text-white" : "text-[#111111]"}`}
+                        className={`text-2xl sm:text-3xl md:text-4xl font-black leading-tight hyphens-none ${isDark ? "text-white" : "text-[#111111]"}`}
                       >
-                        {feature.title}
+                        {feature.title === "Rastreamento completo da Taboola" ? (
+                          <>Rastreamento completo da <span className="whitespace-nowrap">Taboola</span></>
+                        ) : feature.title === "Atribuição por widget e criativo" ? (
+                          feature.title
+                        ) : feature.title === "Dados mais rápidos que o dashboard da rede" ? (
+                          feature.title
+                        ) : feature.title === "Rastreamento completo do NewsBreak" ? (
+                          <>Rastreamento completo do <span className="whitespace-nowrap">NewsBreak</span></>
+                        ) : feature.title === "Criativos que realmente convertem" ? (
+                          feature.title
+                        ) : (
+                          <><span className="whitespace-nowrap">NewsBreak</span> junto com os outros canais</>
+                        )}
                       </h3>
                       <p
                         className={`text-base sm:text-xl leading-relaxed ${isDark ? "text-gray-300" : "text-[#4b5563]"}`}
@@ -319,7 +343,7 @@ export default function NativeAdsTrafficSourcePage() {
                   <div className="text-xs font-black uppercase tracking-widest text-brand-primary">
                     {step.number}
                   </div>
-                  <h3 className="mt-4 text-2xl font-black text-white">
+                  <h3 className="mt-4 text-2xl font-black text-white hyphens-none">
                     {step.title}
                   </h3>
                   <p className="mt-3 text-gray-300 leading-relaxed">
@@ -336,10 +360,10 @@ export default function NativeAdsTrafficSourcePage() {
         <div className="mx-auto max-w-6xl 2xl:max-w-[90rem] 4xl:max-w-[110rem] 5xl:max-w-[130rem] 6xl:max-w-[150rem] px-4 sm:px-6 lg:px-8 2xl:px-12 4xl:px-20 5xl:px-28 6xl:px-36">
           <div className="rounded-[32px] border border-white/10 bg-[#0A0A0A] p-6 sm:p-10 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 sm:gap-8">
             <div>
-              <h3 className="text-2xl sm:text-3xl font-black text-white tracking-tight">
+              <h3 className="text-2xl sm:text-3xl font-black text-white tracking-tight hyphens-none">
                 Pronto para escalar{" "}
-                <span className="text-brand-primary">Taboola</span> e{" "}
-                <span className="text-brand-primary">NewsBreak</span>
+                <span className="text-brand-primary whitespace-nowrap">Taboola</span> e{" "}
+                <span className="text-brand-primary whitespace-nowrap">NewsBreak</span>
                 <br />
                 com dados limpos?
               </h3>

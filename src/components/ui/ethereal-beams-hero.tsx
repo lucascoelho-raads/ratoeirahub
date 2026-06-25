@@ -457,7 +457,7 @@ export default function EtherealBeamsHero() {
             className="mb-6"
           >
             <span className="inline-flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full bg-brand-primary/10 border border-brand-primary/20 text-brand-primary text-xs sm:text-sm font-bold uppercase tracking-wider">
-              Trackeamento ~100% para Google Ads
+              Trackeamento ~100% para <span className="whitespace-nowrap">Google Ads</span>
             </span>
           </motion.div>
 
@@ -465,23 +465,23 @@ export default function EtherealBeamsHero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-[clamp(2rem,7vw,3rem)] sm:text-[clamp(2.5rem,5vw,4rem)] lg:text-[clamp(3rem,4vw,5rem)] 3xl:text-[clamp(3.5rem,3.5vw,6rem)] font-black text-white tracking-tight leading-[1.04] mb-6 sm:mb-8 max-w-4xl lg:max-w-6xl 2xl:max-w-7xl mx-auto text-pretty hyphens-none"
+            className="text-[2rem] sm:text-5xl md:text-6xl lg:text-7xl 3xl:text-[5rem] font-black text-white tracking-tight leading-[1.04] mb-6 sm:mb-8 max-w-4xl lg:max-w-6xl 2xl:max-w-7xl mx-auto hyphens-none"
           >
             <span className="sm:whitespace-nowrap">
               <span className="block sm:inline">Rastreamento <span className="text-[#E6A600]">~100%</span>.</span>{" "}
               <span className="block sm:inline"><span className="text-[#E6A600]">Anti-fraude automático.</span></span>
             </span>
             <br className="hidden sm:block" />
-            <span className="sm:whitespace-nowrap">Os dados que o Google Ads não te entrega sozinho.</span>
+            <span className="sm:whitespace-nowrap">Os dados que o <span className="whitespace-nowrap">Google Ads</span> não te entrega sozinho.</span>
           </motion.h1>
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-lg sm:text-[clamp(1.05rem,1.25vw,1.35rem)] 3xl:text-[clamp(1.5rem,1.2vw,2.25rem)] text-gray-50 mb-8 sm:mb-12 max-w-3xl lg:max-w-4xl 2xl:max-w-5xl 4xl:max-w-6xl mx-auto text-pretty hyphens-none"
+            className="text-lg sm:text-[clamp(1.05rem,1.25vw,1.35rem)] 3xl:text-[clamp(1.5rem,1.2vw,2.25rem)] text-gray-50 mb-8 sm:mb-12 max-w-3xl lg:max-w-4xl 2xl:max-w-5xl 4xl:max-w-6xl mx-auto hyphens-none"
           >
-            Para anunciantes no Google Ads que precisam de clareza total — não de estimativas. Cada venda rastreada,
+            Para anunciantes no <span className="whitespace-nowrap">Google Ads</span> que precisam de clareza total — não de estimativas. Cada venda rastreada,
             cada fraude bloqueada, cada decisão tomada com dado real.
           </motion.p>
 
