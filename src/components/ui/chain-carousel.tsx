@@ -1,6 +1,6 @@
 "use client";
 
-import { type ComponentType, useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { type ComponentType, memo, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
 import { Search, TrendingUp, X } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -30,6 +30,50 @@ interface ChainCarouselProps {
   className?: string;
   onChainSelect?: (chainId: ChainItem["id"], chainName: string) => void;
 }
+
+const LogoMarquee = memo(({
+  items,
+  direction,
+}: {
+  items: ChainItem[];
+  direction: "left" | "right";
+}) => {
+  const duplicatedItems = useMemo(() => Array.from({ length: 3 }).flatMap(() => items), [items]);
+
+  return (
+    <div className="relative w-full overflow-hidden py-3">
+      <div className="absolute inset-y-0 left-0 w-12 bg-gradient-to-r from-[#050505] to-transparent z-10 pointer-events-none" />
+      <div className="absolute inset-y-0 right-0 w-12 bg-gradient-to-l from-[#050505] to-transparent z-10 pointer-events-none" />
+      <div
+        className={cn(
+          "flex items-center gap-4 w-max will-change-transform",
+          direction === "left" ? "animate-marquee-left" : "animate-marquee-right"
+        )}
+      >
+        {duplicatedItems.map((item, idx) => (
+          <div
+            key={`${item.id}-${idx}`}
+            className="flex-shrink-0 w-11 h-11 sm:w-12 sm:h-12 rounded-full border border-white/10 bg-white/90 p-2"
+          >
+            {item.logo ? (
+              <img
+                src={item.logo}
+                alt={`${item.name} logo`}
+                className="w-full h-full object-contain rounded-full"
+                draggable={false}
+              />
+            ) : (
+              <item.icon className="w-full h-full text-black" />
+            )}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+});
+
+LogoMarquee.displayName = "LogoMarquee";
+
 
 const CarouselItemCard = ({ chain, side }: CarouselItemProps) => {
   const { distanceFromCenter, id, name, logo, icon: FallbackIcon } = chain;
@@ -166,6 +210,10 @@ export default function ChainCarousel({
         </motion.div>
 
         <div className="flex flex-col text-center gap-4 max-w-md w-full">
+          <div className="md:hidden">
+            <LogoMarquee items={items} direction="left" />
+          </div>
+
           {currentItem && (
             <div className="flex flex-col items-center justify-center gap-0 mt-2">
               <div className="p-2 bg-white/90 rounded-full border border-white/10">
@@ -249,11 +297,15 @@ export default function ChainCarousel({
               </div>
             )}
           </div>
+
+          <div className="md:hidden">
+            <LogoMarquee items={items} direction="right" />
+          </div>
         </div>
 
         <motion.div
           ref={rightSectionRef}
-          className="relative w-full max-w-md xl:max-w-2xl 3xl:max-w-[40rem] 4xl:max-w-[50rem] h-[450px] flex items-center justify-center"
+          className="relative w-full max-w-md xl:max-w-2xl 3xl:max-w-[40rem] 4xl:max-w-[50rem] h-[450px] hidden md:flex items-center justify-center"
           onMouseEnter={() => !searchTerm && setIsPaused(true)}
           onMouseLeave={() => !searchTerm && setIsPaused(false)}
           initial={{ x: "100%", opacity: 0 }}
