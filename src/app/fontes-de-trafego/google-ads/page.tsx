@@ -119,7 +119,7 @@ export default function GoogleAdsPage() {
 
                   <div className={index % 2 === 1 ? `w-full lg:order-1 ${feature.image === "/ios14.png" ? "lg:h-full lg:flex lg:items-start" : ""}` : `w-full lg:order-2 ${feature.image === "/ios14.png" ? "lg:h-full lg:flex lg:items-start" : ""}`}>
                     {feature.image === "/ios14.png" ? (
-                      <div className="relative w-full lg:h-full lg:max-h-[560px] lg:mt-[100px]">
+                      <div className="relative w-full h-[300px] sm:h-[400px] md:h-[500px] lg:h-full lg:max-h-[560px] lg:mt-[100px]">
                         <Image
                           src={feature.image}
                           alt={feature.title}
@@ -159,8 +159,8 @@ export default function GoogleAdsPage() {
       <section id="como-funciona" className="py-16 md:py-24 bg-[#0a0a0a]">
         <div className="max-w-7xl 2xl:max-w-[90rem] 4xl:max-w-[120rem] 5xl:max-w-[140rem] 6xl:max-w-[160rem] mx-auto px-6 2xl:px-12 4xl:px-20 5xl:px-28 6xl:px-36">
           <div className="text-center mb-16 max-w-3xl 2xl:max-w-[60rem] 4xl:max-w-[80rem] mx-auto">
-            <h2 className="text-4xl md:text-5xl font-black text-white mb-6 tracking-tight">
-              Da ativação ao primeiro dado real em minutos
+            <h2 className="text-4xl md:text-5xl font-black text-white mb-6 tracking-tight hyphens-none">
+              Da ativação ao primeiro dado real <span className="whitespace-nowrap">em minutos</span>
             </h2>
             <p className="text-xl text-gray-300">
               Um fluxo simples para transformar cliques em dados acionáveis e decisões com confiança.
