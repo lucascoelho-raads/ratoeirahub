@@ -128,8 +128,9 @@ export default function NativeAdsTrafficSourcePage() {
         <div className="max-w-7xl 2xl:max-w-[90rem] 4xl:max-w-[120rem] 5xl:max-w-[140rem] 6xl:max-w-[160rem] mx-auto px-6 2xl:px-12 4xl:px-20 5xl:px-28 6xl:px-36">
           <div className="text-center mb-20 max-w-5xl 2xl:max-w-[80rem] 4xl:max-w-[100rem] mx-auto">
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-white mb-6 tracking-tight hyphens-none">
-              <span className="block"><span className="whitespace-nowrap text-brand-primary">Native Ads</span> precisam de atribuição</span>
-              <span className="block">tão robusta quanto qualquer outro canal.</span>
+              <span className="block sm:inline"><span className="text-brand-primary">Native Ads</span>:</span>{" "}
+              <span className="block sm:inline">atribuição robusta.</span>{" "}
+              <span className="block sm:inline">Como qualquer canal.</span>
             </h2>
             <p className="text-base sm:text-xl text-gray-300 px-4 sm:px-0">
               Quando você não sabe qual anúncio nativo gerou a venda, acaba
