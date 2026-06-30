@@ -42,3 +42,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# kimi skills (submodule sem url, ignorado para deploy)
+.kimi/skills/raads-mkt
