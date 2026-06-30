@@ -50,7 +50,7 @@ export default function TutorialSection() {
               className="inline-flex items-center gap-2 px-8 py-4 bg-yellow-500 text-black font-black rounded-button hover:bg-yellow-400 transition-all text-lg shadow-xl shadow-yellow-500/20 hover:scale-105 active:scale-95"
             >
               <span className="text-black">Ver tutorial</span>
-              <ArrowRight className="w-5 h-5 text-white" />
+              <ArrowRight className="w-5 h-5 text-black" />
             </Link>
           </div>
         </motion.div>
