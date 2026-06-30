@@ -85,11 +85,11 @@ export default function RatoeiraHubPage() {
           />
           <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-4 pt-[clamp(3rem,8vh,5rem)] md:pt-[clamp(7rem,16vh,12rem)] pb-[clamp(4.5rem,10vh,8.5rem)]">
             <div className="max-w-6xl 2xl:max-w-[90rem] 4xl:max-w-[110rem] 5xl:max-w-[130rem] 6xl:max-w-[150rem] text-center">
-              <h1 className="text-[2rem] sm:text-5xl md:text-6xl lg:text-7xl 3xl:text-[5rem] font-black text-white tracking-tight leading-[1.1] mb-8 max-w-4xl lg:max-w-6xl 2xl:max-w-7xl mx-auto hyphens-none">
-                Quando Ads e Pages trabalham juntos, sua operação chega onde nenhuma ferramenta sozinha chega.
+              <h1 className="text-h1 font-black text-white tracking-tight leading-tight mb-6 sm:mb-8 max-w-4xl lg:max-w-6xl 2xl:max-w-7xl mx-auto hyphens-none">
+                Quando <span style={{ color: "#FFB800" }}>Ads</span> e <span style={{ color: "#FF7E4A" }}>Pages</span> trabalham juntos, sua <span style={{ color: "#FFB800" }}>operação</span> chega onde nenhuma <span style={{ color: "#FFB800" }}>ferramenta</span> sozinha chega.
               </h1>
 
-              <p className="text-base sm:text-[clamp(1.05rem,1.25vw,1.35rem)] 3xl:text-[clamp(1.5rem,1.2vw,2.25rem)] text-neutral-400 mb-12 max-w-3xl lg:max-w-4xl 2xl:max-w-5xl 4xl:max-w-6xl mx-auto px-4 sm:px-0 ">
+              <p className="text-body-lg text-neutral-400 mb-12 max-w-3xl lg:max-w-4xl 2xl:max-w-5xl 4xl:max-w-6xl mx-auto px-4 sm:px-0 hyphens-none">
                 Rastreamento ~100%. Páginas que carregam em menos de 1 segundo.
                 Bloqueio automático de fraude. Tudo integrado via API — e
                 funcionando melhor do que a soma das partes.
@@ -108,7 +108,7 @@ export default function RatoeiraHubPage() {
 
 
               <div className="mx-auto mt-12 w-full max-w-6xl 2xl:max-w-[90rem] 4xl:max-w-[110rem] 5xl:max-w-[130rem] 6xl:max-w-[150rem]">
-                <div className="relative mx-auto h-[clamp(14rem,30vw,28rem)] w-full max-w-5xl xl:max-w-6xl 2xl:max-w-[85rem] 3xl:max-w-[92rem] 4xl:max-w-[100rem] rounded-2xl border border-white/10 bg-black/20 shadow-2xl shadow-black/60 overflow-hidden">
+                <div className="relative mx-auto w-full max-w-5xl xl:max-w-6xl 2xl:max-w-[85rem] 3xl:max-w-[92rem] 4xl:max-w-[100rem] aspect-[3414/1888] rounded-2xl border border-white/10 bg-black/20 shadow-2xl shadow-black/60 overflow-hidden">
                   <Image
                     src="/dashboard.png"
                     alt="Dashboard unificado"
@@ -130,14 +130,14 @@ export default function RatoeiraHubPage() {
       >
         <div className="max-w-7xl 2xl:max-w-[90rem] 4xl:max-w-[120rem] 5xl:max-w-[140rem] 6xl:max-w-[160rem] mx-auto px-4 2xl:px-12 4xl:px-20 5xl:px-28 6xl:px-36 relative z-10">
           <div className="text-center mb-20">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl 3xl:text-6xl font-black text-white mb-6">
+            <h2 className="text-h1 font-black text-white mb-6 tracking-tight leading-tight hyphens-none">
               Integrado é diferente de{" "}
               <span className="bg-gradient-to-r from-yellow-400 to-orange-500 bg-clip-text text-transparent">
                 conectado
               </span>
               .
             </h2>
-            <p className="text-base sm:text-xl 3xl:text-3xl text-gray-400 max-w-2xl lg:max-w-4xl 2xl:max-w-5xl mx-auto px-4 sm:px-0 ">
+            <p className="text-body-lg text-gray-400 max-w-3xl mx-auto px-4 sm:px-0 hyphens-none">
               A maioria das ferramentas se conecta. O Ratoeira Hub se integra —
               via API, em tempo real, sem gap entre o clique na página e o dado
               na campanha.
@@ -158,13 +158,13 @@ export default function RatoeiraHubPage() {
                     >
                       <Icon className="w-8 h-8 text-orange-400" />
                     </div>
-                    <h3 className="text-2xl sm:text-3xl md:text-4xl 3xl:text-6xl font-black leading-tight">
+                    <h3 className="text-h2 font-black leading-tight tracking-tight hyphens-none">
                       <GradientText variant="orange" className="font-black">
                         {feature.title}
                       </GradientText>
                     </h3>
                     <p
-                      className={`text-base sm:text-xl 3xl:text-3xl leading-relaxed ${index % 2 === 1 ? "text-[#4b5563]" : "text-gray-400"}`}
+                      className={`text-body leading-relaxed hyphens-none ${index % 2 === 1 ? "text-[#4b5563]" : "text-gray-400"}`}
                     >
                       <BlurTextEffect key={`${feature.title}-desc`}>
                         {feature.description}
@@ -502,14 +502,14 @@ export default function RatoeiraHubPage() {
 
       <section className="bg-[#050505] flex items-center justify-center min-h-[auto] md:min-h-[clamp(600px,70vh,900px)] py-16 md:py-24">
         <div className="max-w-6xl 2xl:max-w-[90rem] 4xl:max-w-[110rem] 5xl:max-w-[130rem] 6xl:max-w-[150rem] mx-auto px-4 2xl:px-12 4xl:px-20 5xl:px-28 6xl:px-36 relative z-20 text-center w-full">
-          <h2 className="text-[1.75rem] sm:text-4xl md:text-5xl 3xl:text-6xl font-black text-white mb-6 tracking-tight px-4 hyphens-none">
+          <h2 className="text-h1 font-black text-white mb-6 tracking-tight leading-tight px-4 hyphens-none">
             O{" "}
             <GradientText variant="orange" className="font-black">
               ecossistema completo
             </GradientText>{" "}
             do tráfego pago. Em um lugar.
           </h2>
-          <p className="text-base sm:text-[clamp(1.1rem,1.25vw,1.5rem)] 3xl:text-[clamp(1.6rem,1.2vw,2.5rem)] text-gray-400 max-w-3xl 2xl:max-w-[60rem] 4xl:max-w-[80rem] mx-auto mb-10 leading-relaxed px-4">
+          <p className="text-body-lg text-gray-400 max-w-3xl mx-auto mb-10 leading-relaxed px-4 hyphens-none">
             Ads + Pages integrados via API. Rastreamento ~100%. Páginas abaixo
             de 1 segundo. Bloqueio automático de fraude. Tudo que você precisa
             para escalar com dado real.

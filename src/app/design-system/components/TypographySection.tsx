@@ -20,7 +20,7 @@ function TypographySpec({ label, token, className, example }: TypographySpecProp
     >
       {/* Coluna da Esquerda: Metainformações */}
       <div className="space-y-2">
-        <span className="text-body-label text-text-secondary block">{label}</span>
+        <span className="text-small text-text-secondary block">{label}</span>
         <code className="text-[11px] font-mono text-brand-secondary bg-orange-50 px-2 py-1 rounded border border-orange-100 block w-fit">
           .{token}
         </code>
@@ -44,8 +44,8 @@ function TypographyGroup({ title, description, children }: TypographyGroupProps)
   return (
     <div className="space-y-6">
       <div>
-        <h3 className="text-heading-subtitle text-text-primary mb-2">{title}</h3>
-        <p className="text-body-base text-text-secondary">{description}</p>
+        <h3 className="text-h3 text-text-primary mb-2">{title}</h3>
+        <p className="text-body text-text-secondary">{description}</p>
       </div>
       <div className="space-y-4">
         {children}
@@ -58,11 +58,11 @@ export default function TypographySection() {
   return (
     <section id="tipografia" className="space-y-12">
       <div>
-        <h2 className="text-heading-section text-text-primary mb-4">
+        <h2 className="text-h2 text-text-primary mb-4">
           Tipografia
         </h2>
-        <p className="text-body-base text-text-secondary max-w-2xl 2xl:max-w-[50rem] 4xl:max-w-[70rem] ">
-          Sistema tipográfico baseado na família Inter. Cada estilo possui uma intenção clara de uso e escala definida.
+        <p className="text-body text-text-secondary max-w-2xl 2xl:max-w-[50rem] 4xl:max-w-[70rem] ">
+          Sistema tipográfico modular baseado na família Inter. Escala com proporção ~1.25x entre níveis, line-height e letter-spacing consistentes para cada função.
         </p>
       </div>
 
@@ -71,52 +71,64 @@ export default function TypographySection() {
         description="Estilos de grande escala para títulos de impacto e hierarquia de seções."
       >
         <TypographySpec
-          label="Display Hero"
-          token="text-display-hero"
-          className="text-display-hero text-text-primary"
+          label="Display"
+          token="text-display"
+          className="text-display text-text-primary"
           example="Escalar no Tráfego"
         />
         <TypographySpec
-          label="Heading Section"
-          token="text-heading-section"
-          className="text-heading-section text-text-primary"
+          label="Heading 1"
+          token="text-h1"
+          className="text-h1 text-text-primary"
           example="Nossa Trajetória"
         />
         <TypographySpec
-          label="Heading Subtitle"
-          token="text-heading-subtitle"
-          className="text-heading-subtitle text-text-primary"
+          label="Heading 2"
+          token="text-h2"
+          className="text-h2 text-text-primary"
+          example="Integração Nativa"
+        />
+        <TypographySpec
+          label="Heading 3"
+          token="text-h3"
+          className="text-h3 text-text-primary"
           example="Missão, Visão e Valores"
+        />
+        <TypographySpec
+          label="Heading 4"
+          token="text-h4"
+          className="text-h4 text-text-primary"
+          example="Detalhes da Oferta"
         />
       </TypographyGroup>
 
       <TypographyGroup
-        title="Body & Labels"
-        description="Estilos para leitura contínua, descrições e elementos de interface."
+        title="Body, Labels & Code"
+        description="Estilos para leitura contínua, descrições, elementos de interface e código."
       >
         <TypographySpec
-          label="Body Description"
-          token="text-body-description"
-          className="text-body-description text-text-secondary"
+          label="Body Large"
+          token="text-body-lg"
+          className="text-body-lg text-text-secondary"
           example="Rastreamento cirúrgico e páginas de alta conversão em um único lugar. Pare de perder dinheiro."
         />
         <TypographySpec
-          label="Body Base"
-          token="text-body-base"
-          className="text-body-base text-text-secondary"
+          label="Body"
+          token="text-body"
+          className="text-body text-text-secondary"
           example="Texto descritivo padrão para parágrafos e descrições de seções que exigem leitura clara."
         />
         <TypographySpec
-          label="Body Label"
-          token="text-body-label"
-          className="text-body-label text-text-primary"
+          label="Small"
+          token="text-small"
+          className="text-small text-text-primary"
           example="Nome Completo / E-mail de Trabalho"
         />
         <TypographySpec
-          label="Body Badge"
-          token="text-body-badge"
-          className="text-body-badge text-text-primary uppercase tracking-widest"
-          example="Badge Status"
+          label="Code"
+          token="text-code"
+          className="text-code text-text-primary"
+          example="npm install ratoeira"
         />
       </TypographyGroup>
     </section>

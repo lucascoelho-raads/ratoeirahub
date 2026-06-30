@@ -151,67 +151,85 @@ const semanticColors = [
 
 const typeTokens: TypeToken[] = [
   {
-    name: "Display Hero",
-    token: "text-display-hero",
-    className: "text-display-hero",
-    mobile: { size: "32px / 2rem", lineHeight: "1.1", weight: "900 Black", letterSpacing: "-0.025em" },
-    desktop: { size: "72px / 4.5rem", lineHeight: "1.1", weight: "900 Black", letterSpacing: "-0.025em" },
+    name: "Display",
+    token: "text-display",
+    className: "text-display",
+    mobile: { size: "39.1px / 2.441rem", lineHeight: "1.15", weight: "900 Black", letterSpacing: "-0.02em" },
+    desktop: { size: "48.8px / 3.052rem", lineHeight: "1.15", weight: "900 Black", letterSpacing: "-0.02em" },
     usage: "Título principal de hero sections. Máximo impacto visual.",
     example: "Escalar no Tráfego",
   },
   {
-    name: "Heading Section",
-    token: "text-heading-section",
-    className: "text-heading-section",
-    mobile: { size: "24px / 1.5rem", lineHeight: "1.2", weight: "700 Bold" },
-    desktop: { size: "36px / 2.25rem", lineHeight: "1.1", weight: "700 Bold" },
-    usage: "Títulos de seção e headings de página.",
+    name: "Heading 1",
+    token: "text-h1",
+    className: "text-h1",
+    mobile: { size: "31.2px / 1.953rem", lineHeight: "1.15", weight: "700 Bold", letterSpacing: "-0.02em" },
+    desktop: { size: "39.1px / 2.441rem", lineHeight: "1.15", weight: "700 Bold", letterSpacing: "-0.02em" },
+    usage: "Títulos de página e headings principais.",
     example: "Nossa Trajetória",
   },
   {
-    name: "Heading Subtitle",
-    token: "text-heading-subtitle",
-    className: "text-heading-subtitle",
-    mobile: { size: "20px / 1.25rem", lineHeight: "1.2", weight: "700 Bold" },
-    desktop: { size: "24px / 1.5rem", lineHeight: "1.1", weight: "700 Bold" },
+    name: "Heading 2",
+    token: "text-h2",
+    className: "text-h2",
+    mobile: { size: "25px / 1.563rem", lineHeight: "1.15", weight: "700 Bold", letterSpacing: "-0.02em" },
+    desktop: { size: "31.2px / 1.953rem", lineHeight: "1.15", weight: "700 Bold", letterSpacing: "-0.02em" },
+    usage: "Títulos de seção e headings de página.",
+    example: "Integração Nativa",
+  },
+  {
+    name: "Heading 3",
+    token: "text-h3",
+    className: "text-h3",
+    mobile: { size: "20px / 1.25rem", lineHeight: "1.15", weight: "600 SemiBold", letterSpacing: "-0.02em" },
+    desktop: { size: "25px / 1.563rem", lineHeight: "1.15", weight: "600 SemiBold", letterSpacing: "-0.02em" },
     usage: "Subtítulos, títulos de cards e blocos de conteúdo.",
     example: "Missão, Visão e Valores",
   },
   {
-    name: "Body Description",
-    token: "text-body-description",
-    className: "text-body-description",
-    mobile: { size: "16px / 1rem", lineHeight: "1.5", weight: "500 Medium" },
-    desktop: { size: "18px / 1.125rem", lineHeight: "1.625", weight: "500 Medium" },
+    name: "Heading 4",
+    token: "text-h4",
+    className: "text-h4",
+    mobile: { size: "16px / 1rem", lineHeight: "1.15", weight: "600 SemiBold", letterSpacing: "-0.02em" },
+    desktop: { size: "20px / 1.25rem", lineHeight: "1.15", weight: "600 SemiBold", letterSpacing: "-0.02em" },
+    usage: "Labels de destaque e títulos menores.",
+    example: "Detalhes da Oferta",
+  },
+  {
+    name: "Body Large",
+    token: "text-body-lg",
+    className: "text-body-lg",
+    mobile: { size: "17.9px / 1.118rem", lineHeight: "1.6", weight: "400 Regular" },
+    desktop: { size: "17.9px / 1.118rem", lineHeight: "1.6", weight: "400 Regular" },
     usage: "Parágrafos descritivos e textos de leitura contínua.",
     example: "Rastreamento cirúrgico e páginas de alta conversão em um único lugar.",
   },
   {
-    name: "Body Base",
-    token: "text-body-base",
-    className: "text-body-base",
-    mobile: { size: "16px / 1rem", lineHeight: "1.5", weight: "500 Medium" },
-    desktop: { size: "16px / 1rem", lineHeight: "1.5", weight: "500 Medium" },
+    name: "Body",
+    token: "text-body",
+    className: "text-body",
+    mobile: { size: "16px / 1rem", lineHeight: "1.6", weight: "400 Regular" },
+    desktop: { size: "16px / 1rem", lineHeight: "1.6", weight: "400 Regular" },
     usage: "Texto padrão de interface e conteúdo geral.",
     example: "Texto descritivo padrão para parágrafos e descrições.",
   },
   {
-    name: "Body Label",
-    token: "text-body-label",
-    className: "text-body-label",
-    mobile: { size: "13px / 0.8125rem", lineHeight: "1.5", weight: "600 SemiBold" },
-    desktop: { size: "14px / 0.875rem", lineHeight: "1.5", weight: "600 SemiBold" },
-    usage: "Labels de formulário, navegação e elementos de UI.",
-    example: "Nome Completo / E-mail de Trabalho",
+    name: "Small",
+    token: "text-small",
+    className: "text-small",
+    mobile: { size: "12.8px / 0.8rem", lineHeight: "1.6", weight: "400 Regular" },
+    desktop: { size: "12.8px / 0.8rem", lineHeight: "1.6", weight: "400 Regular" },
+    usage: "Legendas, metadados e textos auxiliares.",
+    example: "Atualizado em 30 de junho de 2026",
   },
   {
-    name: "Body Badge",
-    token: "text-body-badge",
-    className: "text-body-badge uppercase tracking-widest",
-    mobile: { size: "12px / 0.75rem", lineHeight: "1.5", weight: "700 Bold" },
-    desktop: { size: "12px / 0.75rem", lineHeight: "1.5", weight: "700 Bold" },
-    usage: "Badges, tags, labels de status e categorias.",
-    example: "Badge Status",
+    name: "Code",
+    token: "text-code",
+    className: "text-code",
+    mobile: { size: "14.3px / 0.894rem", lineHeight: "1.6", weight: "400 Regular" },
+    desktop: { size: "14.3px / 0.894rem", lineHeight: "1.6", weight: "400 Regular" },
+    usage: "Código inline, snippets e elementos técnicos.",
+    example: "npm install ratoeira",
   },
 ];
 
@@ -291,9 +309,9 @@ function hexToRgb(hex: string) {
 function hexToHsl(hex: string) {
   const clean = hex.replace("#", "");
   const bigint = parseInt(clean, 16);
-  let r = ((bigint >> 16) & 255) / 255;
-  let g = ((bigint >> 8) & 255) / 255;
-  let b = (bigint & 255) / 255;
+  const r = ((bigint >> 16) & 255) / 255;
+  const g = ((bigint >> 8) & 255) / 255;
+  const b = (bigint & 255) / 255;
   const max = Math.max(r, g, b);
   const min = Math.min(r, g, b);
   let h = 0;
@@ -958,8 +976,8 @@ export default function DesignSystem() {
             <section id="typography" className="space-y-10">
               <SectionHeader
                 eyebrow="Tipografia"
-                title="Escala Tipográfica"
-                description="Sistema baseado na família Inter, com escalas distintas para mobile e desktop. Cada estilo possui intenção clara de uso, peso e proporção."
+                title="Escala Tipográfica Modular"
+                description="Sistema baseado na família Inter, com proporção ~1.25x entre níveis. Tokens unificados para heading, body e código, com line-height e letter-spacing consistentes."
               />
 
               <div className="rounded-2xl bg-surface-subdued border border-border-default p-5 flex flex-wrap items-center gap-4">

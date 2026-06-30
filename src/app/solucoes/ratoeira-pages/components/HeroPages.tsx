@@ -28,16 +28,17 @@ export default function HeroPages() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="text-[2rem] sm:text-5xl md:text-6xl lg:text-7xl 3xl:text-[5rem] font-black text-white tracking-tight leading-[1.04] mb-8 max-w-3xl lg:max-w-5xl 2xl:max-w-6xl 4xl:max-w-7xl mx-auto hyphens-none"
+              className="text-h1 font-black text-white tracking-tight leading-tight mb-6 sm:mb-8 max-w-3xl lg:max-w-5xl 2xl:max-w-6xl 4xl:max-w-7xl mx-auto hyphens-none"
             >
-              <span className="text-orange-500">Páginas rápidas</span>, integradas ao seu <span className="text-orange-500">tracking</span>. Prontas em minutos.
+              <span className="block md:whitespace-nowrap"><span className="text-orange-500">Páginas rápidas</span>, integradas ao seu <span className="text-orange-500">tracking</span>.</span>
+              <span className="block md:whitespace-nowrap">Prontas em minutos.</span>
             </motion.h1>
 
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="text-[clamp(1.05rem,1.25vw,1.35rem)] 3xl:text-[clamp(1.5rem,1.2vw,2.25rem)] text-gray-50 mb-12 max-w-3xl lg:max-w-4xl 2xl:max-w-5xl 4xl:max-w-6xl mx-auto "
+              className="text-body-lg text-gray-50 mb-12 max-w-3xl lg:max-w-4xl 2xl:max-w-5xl 4xl:max-w-6xl mx-auto hyphens-none"
             >
               Construtor visual com templates testados para conversão, Flash Pages ultra-rápidas e geração por IA. Cada página já nasce com o tracking do Ratoeira Ads integrado — sem scripts avulsos, sem configuração manual.
             </motion.p>

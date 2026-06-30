@@ -41,26 +41,51 @@ O Ratoeira Hub utiliza um design system **clean e moderno**, com característica
 
 ### Fontes
 - **Família Principal**: `Inter` (Google Fonts) com fallback para `system-ui, -apple-system, sans-serif`
+- **Heading**: `font-heading` — Inter, system-ui, sans-serif
+- **Body**: `font-body` — Inter, system-ui, sans-serif
+- **Mono**: `font-mono` — JetBrains Mono, SFMono-Regular, monospace
 - **Pesos Utilizados**:
-  - `font-black` (900): Títulos principais de impacto
-  - `font-bold` (700): Subtítulos e destaques
-  - `font-semibold` (600): Labels e navegação
+  - `font-black` (900): Display e títulos principais de impacto
+  - `font-bold` (700): H1, H2 e destaques
+  - `font-semibold` (600): H3, H4, labels e navegação
   - `font-medium` (500): Corpo de texto descritivo
+  - `font-normal` (400): Body e textos auxiliares
 
-### Tamanhos
-| Classe | Tamanho | Uso |
-|--------|---------|-----|
-| `text-5xl` a `text-7xl` | 3rem - 4.5rem | Títulos de hero section |
-| `text-4xl` a `text-5xl` | 2.25rem - 3rem | Títulos de seções |
-| `text-2xl` a `text-3xl` | 1.5rem - 1.875rem | Subtítulos |
-| `text-lg` a `text-xl` | 1.125rem - 1.25rem | Descrições |
-| `text-sm` a `text-base` | 0.875rem - 1rem | Labels, textos auxiliares |
-| `text-xs` | 0.75rem | Badges, tags |
+### Escala Tipográfica Modular
+A escala segue uma proporção modular baseada em ~1.25x entre níveis, configurada via Tailwind.
 
-### Especificações de Título
-- `tracking-tight`: Espaçamento negativo entre letras para títulos Impacto
-- `leading-tight` (1.1): Altura de linha compacta para títulos
-- `leading-relaxed` (1.625): Altura de linha generosa para descrições
+| Token | Tamanho | Line Height | Letter Spacing | Uso |
+|-------|---------|-------------|----------------|-----|
+| `text-display` | 3.052rem (~48.8px) | 1.15 | -0.02em | Hero sections, títulos de maior impacto |
+| `text-h1` | 2.441rem (~39.1px) | 1.15 | -0.02em | Títulos de página |
+| `text-h2` | 1.953rem (~31.2px) | 1.15 | -0.02em | Títulos de seções |
+| `text-h3` | 1.563rem (~25px) | 1.15 | -0.02em | Subtítulos, títulos de cards |
+| `text-h4` | 1.25rem (~20px) | 1.15 | -0.02em | Labels de destaque |
+| `text-body-lg` | 1.118rem (~17.9px) | 1.6 | 0em | Descrições em destaque |
+| `text-body` | 1rem (~16px) | 1.6 | 0em | Corpo de texto |
+| `text-small` | 0.8rem (~12.8px) | 1.6 | 0em | Legendas, metadados |
+| `text-code` | 0.894rem (~14.3px) | 1.6 | 0em | Código inline, snippets |
+
+### Tokens de Espaçamento Tipográfico
+| Token | Valor | Uso |
+|-------|-------|-----|
+| `leading-heading` | 1.15 | Títulos (display, h1, h2, h3, h4) |
+| `leading-body` | 1.6 | Body, descrições, legendas |
+| `tracking-heading` | -0.02em | Títulos — letras mais compactas para impacto |
+| `tracking-body` | 0em | Corpo de texto — espaçamento neutro |
+
+### Exemplo de Uso
+```tsx
+<h1 className="font-heading text-h1 tracking-heading leading-heading">
+  Título de página
+</h1>
+
+<p className="font-body text-body tracking-body leading-body">
+  Corpo de texto descritivo.
+</p>
+
+<code className="font-mono text-code">npm install</code>
+```
 
 ---
 

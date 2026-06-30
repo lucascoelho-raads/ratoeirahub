@@ -465,14 +465,10 @@ export default function EtherealBeamsHero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-[2rem] sm:text-5xl md:text-6xl lg:text-7xl 3xl:text-[5rem] font-black text-white tracking-tight leading-[1.04] mb-6 sm:mb-8 max-w-4xl lg:max-w-6xl 2xl:max-w-7xl mx-auto hyphens-none"
+            className="text-h1 text-white mb-6 sm:mb-8 max-w-5xl mx-auto hyphens-none"
           >
-            <span className="sm:whitespace-nowrap">
-              <span className="block sm:inline">Rastreamento <span className="text-[#E6A600]">~100%</span>.</span>{" "}
-              <span className="block sm:inline"><span className="text-[#E6A600]">Anti-fraude automático.</span></span>
-            </span>
-            <br className="hidden sm:block" />
-            <span className="sm:whitespace-nowrap">Os dados que o <span className="whitespace-nowrap">Google Ads</span> não te entrega sozinho.</span>
+            <span className="block md:whitespace-nowrap">Rastreamento <span className="text-[#E6A600]">~100%</span>. <span className="text-[#E6A600]">Anti-fraude automático.</span></span>
+            <span className="block md:whitespace-nowrap">Os dados que o Google Ads não te entrega sozinho.</span>
           </motion.h1>
 
           <motion.p

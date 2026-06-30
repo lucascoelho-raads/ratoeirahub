@@ -29,16 +29,16 @@ export default function TutorialSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-yellow-500/10 border border-yellow-500/20 text-yellow-400 text-sm font-bold tracking-wider uppercase mb-6">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-yellow-500/10 border border-yellow-500/20 text-yellow-400 text-small font-bold tracking-wider uppercase mb-6">
             <Play className="w-4 h-4" />
             <span>Tutorial</span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white mb-6 tracking-tight leading-tight hyphens-none">
-            Confira Nosso <span className="text-yellow-500">Tutorial Completo</span>
+          <h2 className="text-h1 text-white mb-6 hyphens-none">
+            <span className="block md:whitespace-nowrap">Confira Nosso <span className="text-yellow-500">Tutorial Completo</span></span>
           </h2>
 
-          <p className="text-lg sm:text-xl text-gray-400 leading-relaxed max-w-2xl mx-auto hyphens-none">
+          <p className="text-body-lg text-gray-400 max-w-2xl mx-auto hyphens-none">
             Aprenda a configurar a <span className="whitespace-nowrap">Ratoeira Ads</span> passo a passo, desde a instalação da tag até a ativação do bloqueio automático de fraude. Em menos de 15 minutos, sua operação estará protegida e rastreando ~100% das conversões do <span className="whitespace-nowrap">Google Ads</span>.
           </p>
 

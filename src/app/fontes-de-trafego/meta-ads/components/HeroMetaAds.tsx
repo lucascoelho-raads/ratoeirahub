@@ -18,11 +18,11 @@ export const HeroMetaAds = () => {
       <section className="relative">
         <div className="relative mx-auto max-w-6xl 2xl:max-w-[90rem] 4xl:max-w-[110rem] 5xl:max-w-[130rem] 6xl:max-w-[150rem] px-6 pt-[clamp(7rem,12vh,10rem)] pb-10">
           <div className="relative z-10 mx-auto max-w-3xl 2xl:max-w-[60rem] 4xl:max-w-[80rem] text-center">
-            <h1 className=" text-[clamp(1.15rem,3.6vw,4.5rem)] lg:text-[clamp(1.15rem,3.2vw,5rem)] font-black text-white tracking-tight leading-[1.04] mb-6 max-w-3xl lg:max-w-4xl mx-auto">
+            <h1 className="text-h1 font-black text-white tracking-tight leading-tight mb-6 max-w-3xl lg:max-w-4xl mx-auto hyphens-none">
               O <span className="text-[#f59e0b]">pixel padrão</span> perde até <span className="text-[#f59e0b]">40%</span> das
               suas conversões. A <span className="text-[#f59e0b]">Ratoeira</span> fecha esse gap.
             </h1>
-            <p className="mx-auto my-8 max-w-3xl 2xl:max-w-[60rem] 4xl:max-w-[80rem] text-[clamp(1.1rem,1.25vw,1.4rem)] text-gray-300 leading-relaxed">
+            <p className="mx-auto my-8 max-w-3xl 2xl:max-w-[60rem] 4xl:max-w-[80rem] text-body-lg text-gray-300 leading-relaxed hyphens-none">
               Envio duplo via browser e CAPI com deduplicação automática. Dados enriquecidos que elevam seu Pixel Quality
               Score. Funil completo — visitas, leads e vendas — numa tela só. Tudo que o Meta precisa para encontrar quem
               realmente compra.

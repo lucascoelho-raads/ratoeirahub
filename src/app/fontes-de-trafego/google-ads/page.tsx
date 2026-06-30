@@ -35,10 +35,10 @@ export default function GoogleAdsPage() {
       <section className="py-16 md:py-24 bg-[#050505]">
         <div className="max-w-7xl 2xl:max-w-[90rem] 4xl:max-w-[120rem] 5xl:max-w-[140rem] 6xl:max-w-[160rem] mx-auto px-6 2xl:px-12 4xl:px-20 5xl:px-28 6xl:px-36">
           <div className="text-center mb-20 max-w-3xl 2xl:max-w-[60rem] 4xl:max-w-[80rem] mx-auto">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white mb-6 tracking-tight ">
+            <h2 className="text-h1 font-black text-white mb-6 tracking-tight leading-tight hyphens-none">
               O <span className="text-brand-primary whitespace-nowrap">Google Ads</span> só otimiza tão bem quanto o dado que recebe.
             </h2>
-            <p className="text-base sm:text-xl text-gray-300 px-4 sm:px-0 ">
+            <p className="text-body-lg text-gray-300 max-w-3xl mx-auto px-4 sm:px-0 hyphens-none">
               Quando apenas parte das suas vendas chega ao Google, o algoritmo aprende errado — e você paga por isso. A Ratoeira garante que cada
               conversão real chegue ao <span className="whitespace-nowrap">Google Ads</span> com qualidade máxima, do clique ao pagamento.
             </p>
@@ -111,10 +111,10 @@ export default function GoogleAdsPage() {
                     <div className="w-16 h-16 rounded-2xl bg-brand-primary/10 flex items-center justify-center">
                       <feature.icon className="w-8 h-8 text-brand-primary" />
                     </div>
-                    <h3 className={`${feature.image === "/ios14.png" ? "text-xl sm:text-2xl md:text-3xl" : "text-2xl sm:text-3xl md:text-4xl"} font-black leading-tight hyphens-none ${isDark ? "text-white" : "text-[#111111]"}`}>
+                    <h3 className={`text-h2 font-black leading-tight tracking-tight hyphens-none ${isDark ? "text-white" : "text-[#111111]"}`}>
                       {renderNoBreakTitle(feature.title)}
                     </h3>
-                    <p className={`text-base sm:text-xl leading-relaxed ${isDark ? "text-gray-300" : "text-[#4b5563]"}`}>{feature.description}</p>
+                    <p className={`text-body leading-relaxed hyphens-none ${isDark ? "text-gray-300" : "text-[#4b5563]"}`}>{feature.description}</p>
                   </div>
 
                   <div className={index % 2 === 1 ? `w-full lg:order-1 ${feature.image === "/ios14.png" ? "lg:h-full lg:flex lg:items-start" : ""}` : `w-full lg:order-2 ${feature.image === "/ios14.png" ? "lg:h-full lg:flex lg:items-start" : ""}`}>
@@ -159,10 +159,10 @@ export default function GoogleAdsPage() {
       <section id="como-funciona" className="py-16 md:py-24 bg-[#0a0a0a]">
         <div className="max-w-7xl 2xl:max-w-[90rem] 4xl:max-w-[120rem] 5xl:max-w-[140rem] 6xl:max-w-[160rem] mx-auto px-6 2xl:px-12 4xl:px-20 5xl:px-28 6xl:px-36">
           <div className="text-center mb-16 max-w-3xl 2xl:max-w-[60rem] 4xl:max-w-[80rem] mx-auto">
-            <h2 className="text-4xl md:text-5xl font-black text-white mb-6 tracking-tight hyphens-none">
+            <h2 className="text-h1 font-black text-white mb-6 tracking-tight leading-tight hyphens-none">
               Da ativação ao primeiro dado real <span className="whitespace-nowrap">em minutos</span>
             </h2>
-            <p className="text-xl text-gray-300">
+            <p className="text-body-lg text-gray-300 max-w-2xl mx-auto hyphens-none">
               Um fluxo simples para transformar cliques em dados acionáveis e decisões com confiança.
             </p>
           </div>
@@ -200,8 +200,8 @@ export default function GoogleAdsPage() {
                   <div className="text-xs font-black uppercase tracking-widest text-brand-primary">
                     {step.number}
                   </div>
-                  <h3 className="mt-4 text-2xl font-black text-white hyphens-none">{step.title}</h3>
-                  <p className="mt-3 text-gray-300 leading-relaxed">{step.description}</p>
+                  <h3 className="mt-4 text-h2 font-black text-white hyphens-none">{step.title}</h3>
+                  <p className="mt-3 text-body text-gray-300 leading-relaxed hyphens-none">{step.description}</p>
                 </div>
               </ShineBorder>
             ))}

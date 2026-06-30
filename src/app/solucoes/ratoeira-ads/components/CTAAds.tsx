@@ -104,10 +104,10 @@ export default function CTAAds() {
           transition={{ duration: 0.7, ease: "easeOut" }}
           className="flex flex-col items-center w-full max-w-6xl 2xl:max-w-[90rem] 4xl:max-w-[110rem] 5xl:max-w-[130rem] 6xl:max-w-[150rem] mx-auto"
         >
-          <h2 className="text-[clamp(2.25rem,6vw,4.5rem)] font-black text-white mb-6 tracking-tight leading-tight drop-shadow-[0_0_15px_rgba(0,0,0,0.8)] px-4 hyphens-none">
-            Pare de tomar decisão com dado <span className="text-brand-primary">incompleto</span>.
+          <h2 className="text-h1 text-white mb-6 drop-shadow-[0_0_15px_rgba(0,0,0,0.8)] px-4 hyphens-none">
+            <span className="block md:whitespace-nowrap">Pare de tomar decisão com dado <span className="text-brand-primary">incompleto</span>.</span>
           </h2>
-          <p className="text-lg sm:text-xl text-gray-300 max-w-3xl 2xl:max-w-[50rem] 4xl:max-w-[80rem] mx-auto drop-shadow-[0_0_10px_rgba(0,0,0,0.8)] leading-relaxed px-4 hyphens-none">
+          <p className="text-body-lg text-gray-300 max-w-3xl 2xl:max-w-[50rem] 4xl:max-w-[80rem] mx-auto drop-shadow-[0_0_10px_rgba(0,0,0,0.8)] px-4 hyphens-none">
             Configure a <span className="text-brand-primary font-semibold whitespace-nowrap">Ratoeira Ads</span> em minutos e descubra o ROI real das suas campanhas com trackeamento ~100% e proteção automática no <span className="whitespace-nowrap">Google Ads</span>.
           </p>
         </motion.div>
