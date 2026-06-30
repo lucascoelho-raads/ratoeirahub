@@ -209,7 +209,7 @@ export default function Hero() {
                   <motion.div variants={itemVariants} className="hidden lg:flex flex-col gap-2">
                     <Link
                       href="/planos#pricing-cards"
-                      className="inline-flex self-center lg:self-start items-center justify-center px-6 py-3 min-h-12 bg-brand-primary text-white font-semibold text-sm rounded-button hover:bg-brand-primary-hover transition-colors duration-200 text-center"
+                      className="inline-flex self-center lg:self-start items-center justify-center px-6 py-3 min-h-12 bg-brand-primary text-black font-semibold text-sm rounded-button hover:bg-brand-primary-hover transition-colors duration-200 text-center"
                     >
                       Assinar Agora
                     </Link>
@@ -364,7 +364,7 @@ export default function Hero() {
                 >
                   <Link
                     href="/planos#pricing-cards"
-                    className="inline-flex self-center lg:self-start items-center justify-center px-6 py-3 bg-brand-primary text-white font-semibold text-sm rounded-button hover:bg-brand-primary-hover transition-colors duration-200 text-center"
+                    className="inline-flex self-center lg:self-start items-center justify-center px-6 py-3 bg-brand-primary text-black font-semibold text-sm rounded-button hover:bg-brand-primary-hover transition-colors duration-200 text-center"
                   >
                     Assinar Agora
                   </Link>
@@ -470,7 +470,7 @@ export default function Hero() {
                 <div className="hidden lg:flex items-center justify-start gap-3 lg:col-start-1 lg:row-start-2 self-end pb-2">
                   <Link
                     href="/solucoes/ratoeira-pages"
-                    className="inline-flex items-center gap-2 px-6 py-3 min-h-12 bg-brand-primary text-white font-semibold text-sm rounded-button hover:bg-brand-primary-hover transition-colors duration-200 text-center"
+                    className="inline-flex items-center gap-2 px-6 py-3 min-h-12 bg-brand-primary text-black font-semibold text-sm rounded-button hover:bg-brand-primary-hover transition-colors duration-200 text-center"
                   >
                     Conhecer o Ratoeira Pages →
                   </Link>
@@ -514,7 +514,7 @@ export default function Hero() {
                 <div className="flex lg:hidden items-center justify-center gap-3 pt-2 order-4">
                   <Link
                     href="/solucoes/ratoeira-pages"
-                    className="inline-flex items-center gap-2 px-6 py-3 min-h-12 bg-brand-primary text-white font-semibold text-sm rounded-button hover:bg-brand-primary-hover transition-colors duration-200"
+                    className="inline-flex items-center gap-2 px-6 py-3 min-h-12 bg-brand-primary text-black font-semibold text-sm rounded-button hover:bg-brand-primary-hover transition-colors duration-200"
                   >
                     Conhecer o Ratoeira Pages →
                   </Link>

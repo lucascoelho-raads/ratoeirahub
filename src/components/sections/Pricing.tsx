@@ -195,7 +195,7 @@ export default function Pricing() {
                   className={`flex items-center justify-center gap-2 px-6 py-3.5 min-h-12 rounded-button font-bold text-sm transition-all duration-200 group ${
                     plan.popular
                       ? "bg-white text-orange-600 hover:bg-orange-50 shadow-lg"
-                      : "bg-yellow-500 text-white hover:bg-yellow-600 shadow-lg shadow-yellow-500/20"
+                      : "bg-yellow-500 text-black hover:bg-yellow-600 shadow-lg shadow-yellow-500/20"
                   }`}
                 >
                   {plan.cta}

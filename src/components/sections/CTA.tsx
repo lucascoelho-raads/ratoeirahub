@@ -51,7 +51,7 @@ export default function CTA() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Link
               href="/planos#vamos-transformar"
-              className="inline-flex items-center gap-2.5 px-10 py-5 min-h-12 bg-brand-primary text-white font-black rounded-button text-lg hover:bg-brand-primary-hover transition-all duration-200 shadow-2xl shadow-orange-900/25 hover:-translate-y-0.5 group"
+              className="inline-flex items-center gap-2.5 px-10 py-5 min-h-12 bg-brand-primary text-black font-black rounded-button text-lg hover:bg-brand-primary-hover transition-all duration-200 shadow-2xl shadow-orange-900/25 hover:-translate-y-0.5 group"
             >
               Quero Acessar a Ratoeira Hub
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
