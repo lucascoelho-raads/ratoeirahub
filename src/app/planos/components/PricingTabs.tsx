@@ -54,10 +54,11 @@ const PERIODS: { id: BillingCycle; label: string }[] = [
 
 const DESCRIPTIONS: Record<
   PlanType,
-  Record<BillingCycle, [string, string, string]>
+  Record<BillingCycle, string[]>
 > = {
   ads: {
     monthly: [
+      "Para testar o rastreamento sem compromisso.",
       "Para quem está validando as primeiras campanhas.",
       "Para anunciantes que já escalam com consistência.",
       "Para operações robustas de alto volume.",
@@ -75,6 +76,7 @@ const DESCRIPTIONS: Record<
   },
   pages: {
     monthly: [
+      "Para testar a performance da Ratoeira Pages.",
       "Para quem está iniciando e precisa de mais páginas.",
       "Ideal para te dar flexibilidade de domínios.",
       "Plano ideal para não travar sua escala.",
@@ -92,6 +94,7 @@ const DESCRIPTIONS: Record<
   },
   hub: {
     monthly: [
+      "Conheça o ecossistema Ratoeira sem compromisso.",
       "O combo ideal para iniciar sua escala integrada.",
       "Ideal para ter flexibilidade de teste e escala.",
       "Ideal para não travar sua escala.",
@@ -112,6 +115,33 @@ const DESCRIPTIONS: Record<
 // Source: /tmp/pricing_cards.json
 const PRICING_CARDS: PricingCard[] = [
   {
+    index: 30,
+    product: "ads",
+    cycle: "monthly",
+    name: "Gratuito",
+    badge: "",
+    inst: "",
+    val: "0,00",
+    per: "/mês",
+    avista: "",
+    cta: "Começar Grátis",
+    href: "https://clkdmg.site/subscribe/gratuito-ads",
+    limits: [
+      ["Tag Ratoeira Automática", "1"],
+      ["Integrações / Webhooks", "1"],
+      ["Perfis/E-mail Google Ads", "1"],
+      ["Vendas aprovadas/mês", "Até 10 *"],
+    ],
+    platforms: [
+      ["Google Ads", "1"],
+      ["Meta Ads", "1"],
+      ["Taboola", "1"],
+      ["NewsBreak", "1"],
+    ],
+    hub_subs: [],
+    footnote: "* Sem cobrança adicional – após é necessário upgrade",
+  },
+  {
     index: 1,
     product: "ads",
     cycle: "monthly",
@@ -124,18 +154,19 @@ const PRICING_CARDS: PricingCard[] = [
     cta: "Assinar Rato",
     href: "https://clkdmg.site/subscribe/ratoeiraads-ratomensal",
     limits: [
-      ["Ratoeiras Totais", "50"],
-      ["Ratoeiras Automáticas", "5"],
-      ["Integrações / Webhooks", "Ilimitado"],
+      ["Tag Ratoeira Automática", "15"],
+      ["Integrações / Webhooks", "7"],
       ["Perfis/E-mail Google Ads", "3"],
+      ["Vendas aprovadas/mês", "Até 1.000 *"],
     ],
     platforms: [
       ["Google Ads", "10"],
-      ["Meta Ads", "Em Breve"],
-      ["Taboola", "Em Breve"],
-      ["NewsBreak", "Em Breve"],
+      ["Meta Ads", "3"],
+      ["Taboola", "2"],
+      ["NewsBreak", "2"],
     ],
     hub_subs: [],
+    footnote: "* R$0,12 por venda extra aprovada",
   },
   {
     index: 2,
@@ -150,18 +181,19 @@ const PRICING_CARDS: PricingCard[] = [
     cta: "Assinar Ratazana",
     href: "https://clkdmg.site/subscribe/a0fc08d6-ae0a-4d89-9cb6-98bfc9763851",
     limits: [
-      ["Ratoeiras Totais", "100"],
-      ["Ratoeiras Automáticas", "50"],
-      ["Integrações / Webhooks", "Ilimitado"],
+      ["Tag Ratoeira Automática", "80"],
+      ["Integrações / Webhooks", "15"],
       ["Perfis/E-mail Google Ads", "10"],
+      ["Vendas aprovadas/mês", "Até 2.500 *"],
     ],
     platforms: [
       ["Google Ads", "20"],
-      ["Meta Ads", "Em Breve"],
-      ["Taboola", "Em Breve"],
-      ["NewsBreak", "Em Breve"],
+      ["Meta Ads", "7"],
+      ["Taboola", "5"],
+      ["NewsBreak", "5"],
     ],
     hub_subs: [],
+    footnote: "* R$0,10 por venda extra aprovada",
   },
   {
     index: 3,
@@ -176,18 +208,19 @@ const PRICING_CARDS: PricingCard[] = [
     cta: "Assinar Ratazana Plus",
     href: "https://clkdmg.site/subscribe/a17d51c4-6013-4e7e-81c1-619b60bcc628",
     limits: [
-      ["Ratoeiras Totais", "300"],
-      ["Ratoeiras Automáticas", "300"],
+      ["Tag Ratoeira Automática", "300"],
       ["Integrações / Webhooks", "Ilimitado"],
       ["Perfis/E-mail Google Ads", "30"],
+      ["Vendas aprovadas/mês", "Até 5.000 *"],
     ],
     platforms: [
       ["Google Ads", "Ilimitado"],
-      ["Meta Ads", "Em Breve"],
-      ["Taboola", "Em Breve"],
-      ["NewsBreak", "Em Breve"],
+      ["Meta Ads", "Ilimitado"],
+      ["Taboola", "Ilimitado"],
+      ["NewsBreak", "Ilimitado"],
     ],
     hub_subs: [],
+    footnote: "* R$0,07 por venda extra aprovada",
   },
   {
     index: 4,
@@ -202,18 +235,19 @@ const PRICING_CARDS: PricingCard[] = [
     cta: "Assinar Rato",
     href: "https://clkdmg.site/subscribe/ratoeiraads-ratosemestral",
     limits: [
-      ["Ratoeiras Totais", "50"],
-      ["Ratoeiras Automáticas", "5"],
-      ["Integrações / Webhooks", "Ilimitado"],
+      ["Tag Ratoeira Automática", "15"],
+      ["Integrações / Webhooks", "7"],
       ["Perfis/E-mail Google Ads", "3"],
+      ["Vendas aprovadas/mês", "Até 1.000 *"],
     ],
     platforms: [
       ["Google Ads", "10"],
-      ["Meta Ads", "Em Breve"],
-      ["Taboola", "Em Breve"],
-      ["NewsBreak", "Em Breve"],
+      ["Meta Ads", "3"],
+      ["Taboola", "2"],
+      ["NewsBreak", "2"],
     ],
     hub_subs: [],
+    footnote: "* R$0,12 por venda extra aprovada",
   },
   {
     index: 5,
@@ -228,18 +262,19 @@ const PRICING_CARDS: PricingCard[] = [
     cta: "Assinar Ratazana",
     href: "https://clkdmg.site/subscribe/a0fc08d6-bf5e-4475-963e-40960af2d577",
     limits: [
-      ["Ratoeiras Totais", "100"],
-      ["Ratoeiras Automáticas", "50"],
-      ["Integrações / Webhooks", "Ilimitado"],
+      ["Tag Ratoeira Automática", "80"],
+      ["Integrações / Webhooks", "15"],
       ["Perfis/E-mail Google Ads", "10"],
+      ["Vendas aprovadas/mês", "Até 2.500 *"],
     ],
     platforms: [
       ["Google Ads", "20"],
-      ["Meta Ads", "Em Breve"],
-      ["Taboola", "Em Breve"],
-      ["NewsBreak", "Em Breve"],
+      ["Meta Ads", "7"],
+      ["Taboola", "5"],
+      ["NewsBreak", "5"],
     ],
     hub_subs: [],
+    footnote: "* R$0,10 por venda extra aprovada",
   },
   {
     index: 6,
@@ -254,18 +289,19 @@ const PRICING_CARDS: PricingCard[] = [
     cta: "Assinar Ratazana Plus",
     href: "https://clkdmg.site/subscribe/a10ab249-68b1-4c16-a081-bb62cfc0b884",
     limits: [
-      ["Ratoeiras Totais", "300"],
-      ["Ratoeiras Automáticas", "300"],
+      ["Tag Ratoeira Automática", "300"],
       ["Integrações / Webhooks", "Ilimitado"],
       ["Perfis/E-mail Google Ads", "30"],
+      ["Vendas aprovadas/mês", "Até 5.000 *"],
     ],
     platforms: [
       ["Google Ads", "Ilimitado"],
-      ["Meta Ads", "Em Breve"],
-      ["Taboola", "Em Breve"],
-      ["NewsBreak", "Em Breve"],
+      ["Meta Ads", "Ilimitado"],
+      ["Taboola", "Ilimitado"],
+      ["NewsBreak", "Ilimitado"],
     ],
     hub_subs: [],
+    footnote: "* R$0,07 por venda extra aprovada",
   },
   {
     index: 7,
@@ -280,18 +316,19 @@ const PRICING_CARDS: PricingCard[] = [
     cta: "Assinar Rato",
     href: "https://clkdmg.site/subscribe/a0fe91e6-3880-48db-833d-e2db3576154d",
     limits: [
-      ["Ratoeiras Totais", "50"],
-      ["Ratoeiras Automáticas", "5"],
-      ["Integrações / Webhooks", "Ilimitado"],
+      ["Tag Ratoeira Automática", "15"],
+      ["Integrações / Webhooks", "7"],
       ["Perfis/E-mail Google Ads", "3"],
+      ["Vendas aprovadas/mês", "Até 1.000 *"],
     ],
     platforms: [
       ["Google Ads", "10"],
-      ["Meta Ads", "Em Breve"],
-      ["Taboola", "Em Breve"],
-      ["NewsBreak", "Em Breve"],
+      ["Meta Ads", "3"],
+      ["Taboola", "2"],
+      ["NewsBreak", "2"],
     ],
     hub_subs: [],
+    footnote: "* R$0,12 por venda extra aprovada",
   },
   {
     index: 8,
@@ -306,18 +343,19 @@ const PRICING_CARDS: PricingCard[] = [
     cta: "Assinar Ratazana",
     href: "https://clkdmg.site/subscribe/a0fc08d6-cfb7-4321-ab3b-01e729162465",
     limits: [
-      ["Ratoeiras Totais", "100"],
-      ["Ratoeiras Automáticas", "50"],
-      ["Integrações / Webhooks", "Ilimitado"],
+      ["Tag Ratoeira Automática", "80"],
+      ["Integrações / Webhooks", "15"],
       ["Perfis/E-mail Google Ads", "10"],
+      ["Vendas aprovadas/mês", "Até 2.500 *"],
     ],
     platforms: [
       ["Google Ads", "20"],
-      ["Meta Ads", "Em Breve"],
-      ["Taboola", "Em Breve"],
-      ["NewsBreak", "Em Breve"],
+      ["Meta Ads", "7"],
+      ["Taboola", "5"],
+      ["NewsBreak", "5"],
     ],
     hub_subs: [],
+    footnote: "* R$0,10 por venda extra aprovada",
   },
   {
     index: 9,
@@ -332,17 +370,40 @@ const PRICING_CARDS: PricingCard[] = [
     cta: "Assinar Ratazana Plus",
     href: "https://clkdmg.site/subscribe/a17d5279-c049-440a-8d3a-ebd700504842",
     limits: [
-      ["Ratoeiras Totais", "300"],
-      ["Ratoeiras Automáticas", "300"],
+      ["Tag Ratoeira Automática", "300"],
       ["Integrações / Webhooks", "Ilimitado"],
       ["Perfis/E-mail Google Ads", "30"],
+      ["Vendas aprovadas/mês", "Até 5.000 *"],
     ],
     platforms: [
       ["Google Ads", "Ilimitado"],
-      ["Meta Ads", "Em Breve"],
-      ["Taboola", "Em Breve"],
-      ["NewsBreak", "Em Breve"],
+      ["Meta Ads", "Ilimitado"],
+      ["Taboola", "Ilimitado"],
+      ["NewsBreak", "Ilimitado"],
     ],
+    hub_subs: [],
+    footnote: "* R$0,07 por venda extra aprovada",
+  },
+  {
+    index: 29,
+    product: "pages",
+    cycle: "monthly",
+    name: "Gratuito",
+    badge: "",
+    inst: "",
+    val: "0,00",
+    per: "/mês",
+    avista: "",
+    cta: "Começar Grátis",
+    href: "https://clkdmg.site/subscribe/gratuito-pages",
+    limits: [
+      ["Acessos mensais", "500"],
+      ["Domínios", "1"],
+      ["Páginas", "1"],
+      ["Hospedagem Grátis", "Ilimitada"],
+      ["Conexão com IA", "✓"],
+    ],
+    platforms: [],
     hub_subs: [],
   },
   {
@@ -362,9 +423,7 @@ const PRICING_CARDS: PricingCard[] = [
       ["Domínios", "10"],
       ["Páginas", "Ilimitadas"],
       ["Hospedagem Grátis", "Ilimitada"],
-      ["Teste A/B Nativo", "20"],
-      ["Regras de Tráfego", "20"],
-      ["Site COD", "5"],
+      ["Conexão com IA", "✓"],
     ],
     platforms: [],
     hub_subs: [],
@@ -386,9 +445,7 @@ const PRICING_CARDS: PricingCard[] = [
       ["Domínios", "20"],
       ["Páginas", "Ilimitadas"],
       ["Hospedagem Grátis", "Ilimitada"],
-      ["Teste A/B Nativo", "50"],
-      ["Regras de Tráfego", "50"],
-      ["Site COD", "10"],
+      ["Conexão com IA", "✓"],
     ],
     platforms: [],
     hub_subs: [],
@@ -410,9 +467,7 @@ const PRICING_CARDS: PricingCard[] = [
       ["Domínios", "40"],
       ["Páginas", "Ilimitadas"],
       ["Hospedagem Grátis", "Ilimitada"],
-      ["Teste A/B Nativo", "100"],
-      ["Regras de Tráfego", "100"],
-      ["Site COD", "20"],
+      ["Conexão com IA", "✓"],
     ],
     platforms: [],
     hub_subs: [],
@@ -434,9 +489,7 @@ const PRICING_CARDS: PricingCard[] = [
       ["Domínios", "10"],
       ["Páginas", "Ilimitadas"],
       ["Hospedagem Grátis", "Ilimitada"],
-      ["Teste A/B Nativo", "20"],
-      ["Regras de Tráfego", "20"],
-      ["Site COD", "5"],
+      ["Conexão com IA", "✓"],
     ],
     platforms: [],
     hub_subs: [],
@@ -458,9 +511,7 @@ const PRICING_CARDS: PricingCard[] = [
       ["Domínios", "20"],
       ["Páginas", "Ilimitadas"],
       ["Hospedagem Grátis", "Ilimitada"],
-      ["Teste A/B Nativo", "50"],
-      ["Regras de Tráfego", "50"],
-      ["Site COD", "10"],
+      ["Conexão com IA", "✓"],
     ],
     platforms: [],
     hub_subs: [],
@@ -482,9 +533,7 @@ const PRICING_CARDS: PricingCard[] = [
       ["Domínios", "40"],
       ["Páginas", "Ilimitadas"],
       ["Hospedagem Grátis", "Ilimitada"],
-      ["Teste A/B Nativo", "100"],
-      ["Regras de Tráfego", "100"],
-      ["Site COD", "20"],
+      ["Conexão com IA", "✓"],
     ],
     platforms: [],
     hub_subs: [],
@@ -506,9 +555,7 @@ const PRICING_CARDS: PricingCard[] = [
       ["Domínios", "10"],
       ["Páginas", "Ilimitadas"],
       ["Hospedagem Grátis", "Ilimitada"],
-      ["Teste A/B Nativo", "20"],
-      ["Regras de Tráfego", "20"],
-      ["Site COD", "5"],
+      ["Conexão com IA", "✓"],
     ],
     platforms: [],
     hub_subs: [],
@@ -530,9 +577,7 @@ const PRICING_CARDS: PricingCard[] = [
       ["Domínios", "20"],
       ["Páginas", "Ilimitadas"],
       ["Hospedagem Grátis", "Ilimitada"],
-      ["Teste A/B Nativo", "50"],
-      ["Regras de Tráfego", "50"],
-      ["Site COD", "10"],
+      ["Conexão com IA", "✓"],
     ],
     platforms: [],
     hub_subs: [],
@@ -554,12 +599,42 @@ const PRICING_CARDS: PricingCard[] = [
       ["Domínios", "40"],
       ["Páginas", "Ilimitadas"],
       ["Hospedagem Grátis", "Ilimitada"],
-      ["Teste A/B Nativo", "100"],
-      ["Regras de Tráfego", "100"],
-      ["Site COD", "20"],
+      ["Conexão com IA", "✓"],
     ],
     platforms: [],
     hub_subs: [],
+  },
+  {
+    index: 28,
+    product: "hub",
+    cycle: "monthly",
+    name: "Gratuito",
+    badge: "",
+    inst: "",
+    val: "0,00",
+    per: "/mês",
+    avista: "",
+    cta: "Começar Grátis",
+    href: "https://clkdmg.site/subscribe/gratuito",
+    limits: [
+      ["Tag Ratoeira Automática", "1"],
+      ["Integrações / Webhooks", "1"],
+      ["Perfis/E-mail Google Ads", "1"],
+      ["Vendas aprovadas/mês", "Até 10 *"],
+      ["Acessos mensais", "500"],
+      ["Domínios", "1"],
+      ["Páginas", "1"],
+      ["Hospedagem Grátis", "Ilimitada"],
+      ["Conexão com IA", "✓"],
+    ],
+    platforms: [
+      ["Google Ads", "1"],
+      ["Meta Ads", "1"],
+      ["Taboola", "1"],
+      ["NewsBreak", "1"],
+    ],
+    hub_subs: ["RATOEIRA ADS", "RATOEIRA PAGES"],
+    footnote: "* Sem cobrança adicional – após é necessário upgrade",
   },
   {
     index: 19,
@@ -574,25 +649,24 @@ const PRICING_CARDS: PricingCard[] = [
     cta: "Assinar Rato",
     href: "https://clkdmg.site/subscribe/a172f1f0-1a94-44f6-b1c3-33c086144459",
     limits: [
-      ["Ratoeiras Totais", "50"],
-      ["Ratoeiras Automáticas", "5"],
-      ["Integrações / Webhooks", "Ilimitado"],
+      ["Tag Ratoeira Automática", "15"],
+      ["Integrações / Webhooks", "7"],
       ["Perfis/E-mail Google Ads", "3"],
+      ["Vendas aprovadas/mês", "Até 1.000 *"],
       ["Acessos mensais", "200.000"],
       ["Domínios", "10"],
       ["Páginas", "Ilimitadas"],
       ["Hospedagem Grátis", "Ilimitada"],
-      ["Teste A/B Nativo", "20"],
-      ["Regras de Tráfego", "20"],
-      ["Site COD", "5"],
+      ["Conexão com IA", "✓"],
     ],
     platforms: [
       ["Google Ads", "10"],
-      ["Meta Ads", "Em Breve"],
-      ["Taboola", "Em Breve"],
-      ["NewsBreak", "Em Breve"],
+      ["Meta Ads", "3"],
+      ["Taboola", "2"],
+      ["NewsBreak", "2"],
     ],
     hub_subs: ["RATOEIRA ADS", "RATOEIRA PAGES"],
+    footnote: "* R$0,12 por venda extra aprovada",
   },
   {
     index: 20,
@@ -607,25 +681,24 @@ const PRICING_CARDS: PricingCard[] = [
     cta: "Assinar Ratazana",
     href: "https://clkdmg.site/subscribe/a17b698f-2997-474a-8a36-fe7424fd09d8",
     limits: [
-      ["Ratoeiras Totais", "100"],
-      ["Ratoeiras Automáticas", "50"],
-      ["Integrações / Webhooks", "Ilimitado"],
+      ["Tag Ratoeira Automática", "80"],
+      ["Integrações / Webhooks", "15"],
       ["Perfis/E-mail Google Ads", "10"],
+      ["Vendas aprovadas/mês", "Até 2.500 *"],
       ["Acessos mensais", "500.000"],
       ["Domínios", "20"],
       ["Páginas", "Ilimitadas"],
       ["Hospedagem Grátis", "Ilimitada"],
-      ["Teste A/B Nativo", "50"],
-      ["Regras de Tráfego", "50"],
-      ["Site COD", "10"],
+      ["Conexão com IA", "✓"],
     ],
     platforms: [
       ["Google Ads", "20"],
-      ["Meta Ads", "Em Breve"],
-      ["Taboola", "Em Breve"],
-      ["NewsBreak", "Em Breve"],
+      ["Meta Ads", "7"],
+      ["Taboola", "5"],
+      ["NewsBreak", "5"],
     ],
     hub_subs: ["RATOEIRA ADS", "RATOEIRA PAGES"],
+    footnote: "* R$0,10 por venda extra aprovada",
   },
   {
     index: 21,
@@ -640,25 +713,24 @@ const PRICING_CARDS: PricingCard[] = [
     cta: "Assinar Ratazana Plus",
     href: "https://clkdmg.site/subscribe/a17b7a64-dbe8-4325-b864-7078281fe0d6",
     limits: [
-      ["Ratoeiras Totais", "300"],
-      ["Ratoeiras Automáticas", "300"],
+      ["Tag Ratoeira Automática", "300"],
       ["Integrações / Webhooks", "Ilimitado"],
       ["Perfis/E-mail Google Ads", "30"],
+      ["Vendas aprovadas/mês", "Até 5.000 *"],
       ["Acessos mensais", "1.000.000"],
       ["Domínios", "40"],
       ["Páginas", "Ilimitadas"],
       ["Hospedagem Grátis", "Ilimitada"],
-      ["Teste A/B Nativo", "100"],
-      ["Regras de Tráfego", "100"],
-      ["Site COD", "20"],
+      ["Conexão com IA", "✓"],
     ],
     platforms: [
       ["Google Ads", "Ilimitado"],
-      ["Meta Ads", "Em Breve"],
-      ["Taboola", "Em Breve"],
-      ["NewsBreak", "Em Breve"],
+      ["Meta Ads", "Ilimitado"],
+      ["Taboola", "Ilimitado"],
+      ["NewsBreak", "Ilimitado"],
     ],
     hub_subs: ["RATOEIRA ADS", "RATOEIRA PAGES"],
+    footnote: "* R$0,07 por venda extra aprovada",
   },
   {
     index: 22,
@@ -673,25 +745,24 @@ const PRICING_CARDS: PricingCard[] = [
     cta: "Assinar Rato",
     href: "https://clkdmg.site/subscribe/a17b67b2-9424-4d5b-a25b-a3c675256b40",
     limits: [
-      ["Ratoeiras Totais", "50"],
-      ["Ratoeiras Automáticas", "5"],
-      ["Integrações / Webhooks", "Ilimitado"],
+      ["Tag Ratoeira Automática", "15"],
+      ["Integrações / Webhooks", "7"],
       ["Perfis/E-mail Google Ads", "3"],
+      ["Vendas aprovadas/mês", "Até 1.000 *"],
       ["Acessos mensais", "200.000"],
       ["Domínios", "10"],
       ["Páginas", "Ilimitadas"],
       ["Hospedagem Grátis", "Ilimitada"],
-      ["Teste A/B Nativo", "20"],
-      ["Regras de Tráfego", "20"],
-      ["Site COD", "5"],
+      ["Conexão com IA", "✓"],
     ],
     platforms: [
       ["Google Ads", "10"],
-      ["Meta Ads", "Em Breve"],
-      ["Taboola", "Em Breve"],
-      ["NewsBreak", "Em Breve"],
+      ["Meta Ads", "3"],
+      ["Taboola", "2"],
+      ["NewsBreak", "2"],
     ],
     hub_subs: ["RATOEIRA ADS", "RATOEIRA PAGES"],
+    footnote: "* R$0,12 por venda extra aprovada",
   },
   {
     index: 23,
@@ -706,25 +777,24 @@ const PRICING_CARDS: PricingCard[] = [
     cta: "Assinar Ratazana",
     href: "https://clkdmg.site/subscribe/a17b79c4-9997-4916-ae61-3f9a2c644284",
     limits: [
-      ["Ratoeiras Totais", "100"],
-      ["Ratoeiras Automáticas", "50"],
-      ["Integrações / Webhooks", "Ilimitado"],
+      ["Tag Ratoeira Automática", "80"],
+      ["Integrações / Webhooks", "15"],
       ["Perfis/E-mail Google Ads", "10"],
+      ["Vendas aprovadas/mês", "Até 2.500 *"],
       ["Acessos mensais", "500.000"],
       ["Domínios", "20"],
       ["Páginas", "Ilimitadas"],
       ["Hospedagem Grátis", "Ilimitada"],
-      ["Teste A/B Nativo", "50"],
-      ["Regras de Tráfego", "50"],
-      ["Site COD", "10"],
+      ["Conexão com IA", "✓"],
     ],
     platforms: [
       ["Google Ads", "20"],
-      ["Meta Ads", "Em Breve"],
-      ["Taboola", "Em Breve"],
-      ["NewsBreak", "Em Breve"],
+      ["Meta Ads", "7"],
+      ["Taboola", "5"],
+      ["NewsBreak", "5"],
     ],
     hub_subs: ["RATOEIRA ADS", "RATOEIRA PAGES"],
+    footnote: "* R$0,10 por venda extra aprovada",
   },
   {
     index: 24,
@@ -739,25 +809,24 @@ const PRICING_CARDS: PricingCard[] = [
     cta: "Assinar Ratazana Plus",
     href: "https://clkdmg.site/subscribe/a17b7aae-f76f-49b8-856c-ca6da46f391d",
     limits: [
-      ["Ratoeiras Totais", "300"],
-      ["Ratoeiras Automáticas", "300"],
+      ["Tag Ratoeira Automática", "300"],
       ["Integrações / Webhooks", "Ilimitado"],
       ["Perfis/E-mail Google Ads", "30"],
+      ["Vendas aprovadas/mês", "Até 5.000 *"],
       ["Acessos mensais", "1.000.000"],
       ["Domínios", "40"],
       ["Páginas", "Ilimitadas"],
       ["Hospedagem Grátis", "Ilimitada"],
-      ["Teste A/B Nativo", "100"],
-      ["Regras de Tráfego", "100"],
-      ["Site COD", "20"],
+      ["Conexão com IA", "✓"],
     ],
     platforms: [
       ["Google Ads", "Ilimitado"],
-      ["Meta Ads", "Em Breve"],
-      ["Taboola", "Em Breve"],
-      ["NewsBreak", "Em Breve"],
+      ["Meta Ads", "Ilimitado"],
+      ["Taboola", "Ilimitado"],
+      ["NewsBreak", "Ilimitado"],
     ],
     hub_subs: ["RATOEIRA ADS", "RATOEIRA PAGES"],
+    footnote: "* R$0,07 por venda extra aprovada",
   },
   {
     index: 25,
@@ -772,25 +841,24 @@ const PRICING_CARDS: PricingCard[] = [
     cta: "Assinar Rato",
     href: "https://clkdmg.site/subscribe/a17b688b-ff5d-4a4f-b171-74b16652a239",
     limits: [
-      ["Ratoeiras Totais", "50"],
-      ["Ratoeiras Automáticas", "5"],
-      ["Integrações / Webhooks", "Ilimitado"],
+      ["Tag Ratoeira Automática", "15"],
+      ["Integrações / Webhooks", "7"],
       ["Perfis/E-mail Google Ads", "3"],
+      ["Vendas aprovadas/mês", "Até 1.000 *"],
       ["Acessos mensais", "200.000"],
       ["Domínios", "10"],
       ["Páginas", "Ilimitadas"],
       ["Hospedagem Grátis", "Ilimitada"],
-      ["Teste A/B Nativo", "20"],
-      ["Regras de Tráfego", "20"],
-      ["Site COD", "5"],
+      ["Conexão com IA", "✓"],
     ],
     platforms: [
       ["Google Ads", "10"],
-      ["Meta Ads", "Em Breve"],
-      ["Taboola", "Em Breve"],
-      ["NewsBreak", "Em Breve"],
+      ["Meta Ads", "3"],
+      ["Taboola", "2"],
+      ["NewsBreak", "2"],
     ],
     hub_subs: ["RATOEIRA ADS", "RATOEIRA PAGES"],
+    footnote: "* R$0,12 por venda extra aprovada",
   },
   {
     index: 26,
@@ -805,25 +873,24 @@ const PRICING_CARDS: PricingCard[] = [
     cta: "Assinar Ratazana",
     href: "https://clkdmg.site/subscribe/a17b7a02-ea67-4937-8f7d-6e598562ca50",
     limits: [
-      ["Ratoeiras Totais", "100"],
-      ["Ratoeiras Automáticas", "50"],
-      ["Integrações / Webhooks", "Ilimitado"],
+      ["Tag Ratoeira Automática", "80"],
+      ["Integrações / Webhooks", "15"],
       ["Perfis/E-mail Google Ads", "10"],
+      ["Vendas aprovadas/mês", "Até 2.500 *"],
       ["Acessos mensais", "500.000"],
       ["Domínios", "20"],
       ["Páginas", "Ilimitadas"],
       ["Hospedagem Grátis", "Ilimitada"],
-      ["Teste A/B Nativo", "50"],
-      ["Regras de Tráfego", "50"],
-      ["Site COD", "10"],
+      ["Conexão com IA", "✓"],
     ],
     platforms: [
       ["Google Ads", "20"],
-      ["Meta Ads", "Em Breve"],
-      ["Taboola", "Em Breve"],
-      ["NewsBreak", "Em Breve"],
+      ["Meta Ads", "7"],
+      ["Taboola", "5"],
+      ["NewsBreak", "5"],
     ],
     hub_subs: ["RATOEIRA ADS", "RATOEIRA PAGES"],
+    footnote: "* R$0,10 por venda extra aprovada",
   },
   {
     index: 27,
@@ -838,25 +905,24 @@ const PRICING_CARDS: PricingCard[] = [
     cta: "Assinar Ratazana Plus",
     href: "https://clkdmg.site/subscribe/a17b7b12-a65c-4a48-84f9-ac1d2c1dc8a5",
     limits: [
-      ["Ratoeiras Totais", "300"],
-      ["Ratoeiras Automáticas", "300"],
+      ["Tag Ratoeira Automática", "300"],
       ["Integrações / Webhooks", "Ilimitado"],
       ["Perfis/E-mail Google Ads", "30"],
+      ["Vendas aprovadas/mês", "Até 5.000 *"],
       ["Acessos mensais", "1.000.000"],
       ["Domínios", "40"],
       ["Páginas", "Ilimitadas"],
       ["Hospedagem Grátis", "Ilimitada"],
-      ["Teste A/B Nativo", "100"],
-      ["Regras de Tráfego", "100"],
-      ["Site COD", "20"],
+      ["Conexão com IA", "✓"],
     ],
     platforms: [
       ["Google Ads", "Ilimitado"],
-      ["Meta Ads", "Em Breve"],
-      ["Taboola", "Em Breve"],
-      ["NewsBreak", "Em Breve"],
+      ["Meta Ads", "Ilimitado"],
+      ["Taboola", "Ilimitado"],
+      ["NewsBreak", "Ilimitado"],
     ],
     hub_subs: ["RATOEIRA ADS", "RATOEIRA PAGES"],
+    footnote: "* R$0,07 por venda extra aprovada",
   },
 ];
 
@@ -875,6 +941,7 @@ type PricingCard = {
   limits: [string, string][];
   platforms: [string, string][];
   hub_subs: string[];
+  footnote?: string;
 };
 
 type CompareRow =
@@ -883,6 +950,7 @@ type CompareRow =
       type: "row";
       section: string;
       label: string;
+      gratuito: string;
       rato: string;
       ratazana: string;
       ratazana_plus: string;
@@ -896,31 +964,26 @@ const COMPARE_ROWS: CompareRow[] = [
   {
     type: "row",
     section: "rows-ads",
-    label: "Ratoeiras Totais",
-    rato: "50",
-    ratazana: "100",
-    ratazana_plus: "300",
-  },
-  {
-    type: "row",
-    section: "rows-ads",
-    label: "Ratoeiras Automáticas",
-    rato: "5",
-    ratazana: "50",
+    label: "Tag Ratoeira Automática",
+    gratuito: "1",
+    rato: "15",
+    ratazana: "80",
     ratazana_plus: "300",
   },
   {
     type: "row",
     section: "rows-ads",
     label: "Integrações / Webhooks",
-    rato: "Ilimitado",
-    ratazana: "Ilimitado",
+    gratuito: "1",
+    rato: "7",
+    ratazana: "15",
     ratazana_plus: "Ilimitado",
   },
   {
     type: "row",
     section: "rows-ads",
     label: "Perfis/E-mail Google Ads",
+    gratuito: "1",
     rato: "3",
     ratazana: "10",
     ratazana_plus: "30",
@@ -928,7 +991,17 @@ const COMPARE_ROWS: CompareRow[] = [
   {
     type: "row",
     section: "rows-ads",
+    label: "Vendas aprovadas/mês",
+    gratuito: "Até 10 *",
+    rato: "Até 1.000 *",
+    ratazana: "Até 2.500 *",
+    ratazana_plus: "Até 5.000 *",
+  },
+  {
+    type: "row",
+    section: "rows-ads",
     label: "Contas Google Ads",
+    gratuito: "1",
     rato: "10",
     ratazana: "20",
     ratazana_plus: "Ilimitado",
@@ -937,22 +1010,34 @@ const COMPARE_ROWS: CompareRow[] = [
     type: "row",
     section: "rows-ads",
     label: "Contas Meta Ads",
-    rato: "Em Breve",
-    ratazana: "Em Breve",
-    ratazana_plus: "Em Breve",
+    gratuito: "1",
+    rato: "3",
+    ratazana: "7",
+    ratazana_plus: "Ilimitado",
   },
   {
     type: "row",
     section: "rows-ads",
-    label: "Contas Native Ads",
-    rato: "Em Breve",
-    ratazana: "Em Breve",
-    ratazana_plus: "Em Breve",
+    label: "Contas Taboola",
+    gratuito: "1",
+    rato: "2",
+    ratazana: "5",
+    ratazana_plus: "Ilimitado",
+  },
+  {
+    type: "row",
+    section: "rows-ads",
+    label: "Contas NewsBreak",
+    gratuito: "1",
+    rato: "2",
+    ratazana: "5",
+    ratazana_plus: "Ilimitado",
   },
   {
     type: "row",
     section: "rows-ads",
     label: "Gerenciador Integrado",
+    gratuito: "",
     rato: "",
     ratazana: "",
     ratazana_plus: "",
@@ -961,6 +1046,7 @@ const COMPARE_ROWS: CompareRow[] = [
     type: "row",
     section: "rows-ads",
     label: "Dashboard Financeiro",
+    gratuito: "",
     rato: "",
     ratazana: "",
     ratazana_plus: "",
@@ -969,6 +1055,7 @@ const COMPARE_ROWS: CompareRow[] = [
     type: "row",
     section: "rows-ads",
     label: "Acesso aos leads",
+    gratuito: "",
     rato: "",
     ratazana: "",
     ratazana_plus: "",
@@ -977,6 +1064,7 @@ const COMPARE_ROWS: CompareRow[] = [
     type: "row",
     section: "rows-ads",
     label: "Analytics Avançado",
+    gratuito: "",
     rato: "",
     ratazana: "",
     ratazana_plus: "",
@@ -985,6 +1073,7 @@ const COMPARE_ROWS: CompareRow[] = [
     type: "row",
     section: "rows-ads",
     label: "Aulas e tutoriais",
+    gratuito: "",
     rato: "",
     ratazana: "",
     ratazana_plus: "",
@@ -993,6 +1082,7 @@ const COMPARE_ROWS: CompareRow[] = [
     type: "row",
     section: "rows-ads",
     label: "Integração com IA (MCP)",
+    gratuito: "",
     rato: "",
     ratazana: "",
     ratazana_plus: "",
@@ -1001,6 +1091,7 @@ const COMPARE_ROWS: CompareRow[] = [
     type: "row",
     section: "rows-ads",
     label: "Acesso Beta VIP à novas funcionalidades",
+    gratuito: "",
     rato: "",
     ratazana: "",
     ratazana_plus: "",
@@ -1009,6 +1100,7 @@ const COMPARE_ROWS: CompareRow[] = [
     type: "row",
     section: "rows-ads",
     label: "Acesso a todos os eventos",
+    gratuito: "",
     rato: "",
     ratazana: "",
     ratazana_plus: "",
@@ -1017,6 +1109,7 @@ const COMPARE_ROWS: CompareRow[] = [
     type: "row",
     section: "rows-ads",
     label: "Acesso às vendas com detalhes",
+    gratuito: "",
     rato: "",
     ratazana: "",
     ratazana_plus: "",
@@ -1025,6 +1118,7 @@ const COMPARE_ROWS: CompareRow[] = [
     type: "row",
     section: "rows-ads",
     label: "Acesso à todas as visitas",
+    gratuito: "",
     rato: "",
     ratazana: "",
     ratazana_plus: "",
@@ -1033,6 +1127,7 @@ const COMPARE_ROWS: CompareRow[] = [
     type: "row",
     section: "rows-ads",
     label: "Suporte WhatsApp",
+    gratuito: "",
     rato: "",
     ratazana: "",
     ratazana_plus: "",
@@ -1041,6 +1136,7 @@ const COMPARE_ROWS: CompareRow[] = [
     type: "row",
     section: "rows-pgs",
     label: "Acessos mensais",
+    gratuito: "500",
     rato: "200.000",
     ratazana: "500.000",
     ratazana_plus: "1.000.000",
@@ -1049,6 +1145,7 @@ const COMPARE_ROWS: CompareRow[] = [
     type: "row",
     section: "rows-pgs",
     label: "Domínios customizados",
+    gratuito: "1",
     rato: "10",
     ratazana: "20",
     ratazana_plus: "40",
@@ -1057,6 +1154,7 @@ const COMPARE_ROWS: CompareRow[] = [
     type: "row",
     section: "rows-pgs",
     label: "Páginas",
+    gratuito: "1",
     rato: "Ilimitadas",
     ratazana: "Ilimitadas",
     ratazana_plus: "Ilimitadas",
@@ -1065,6 +1163,7 @@ const COMPARE_ROWS: CompareRow[] = [
     type: "row",
     section: "rows-pgs",
     label: "Hospedagem Turbo",
+    gratuito: "Ilimitada",
     rato: "Ilimitada",
     ratazana: "Ilimitada",
     ratazana_plus: "Ilimitada",
@@ -1073,6 +1172,7 @@ const COMPARE_ROWS: CompareRow[] = [
     type: "row",
     section: "rows-pgs",
     label: "Construtor de página intuitivo",
+    gratuito: "",
     rato: "",
     ratazana: "",
     ratazana_plus: "",
@@ -1081,6 +1181,7 @@ const COMPARE_ROWS: CompareRow[] = [
     type: "row",
     section: "rows-pgs",
     label: "Analytics Avançado",
+    gratuito: "",
     rato: "",
     ratazana: "",
     ratazana_plus: "",
@@ -1089,6 +1190,7 @@ const COMPARE_ROWS: CompareRow[] = [
     type: "row",
     section: "rows-pgs",
     label: "Templates Exclusivos",
+    gratuito: "",
     rato: "",
     ratazana: "",
     ratazana_plus: "",
@@ -1097,6 +1199,7 @@ const COMPARE_ROWS: CompareRow[] = [
     type: "row",
     section: "rows-pgs",
     label: "Aulas e tutoriais",
+    gratuito: "",
     rato: "",
     ratazana: "",
     ratazana_plus: "",
@@ -1105,6 +1208,7 @@ const COMPARE_ROWS: CompareRow[] = [
     type: "row",
     section: "rows-pgs",
     label: "Clonador de páginas",
+    gratuito: "",
     rato: "",
     ratazana: "",
     ratazana_plus: "",
@@ -1113,6 +1217,7 @@ const COMPARE_ROWS: CompareRow[] = [
     type: "row",
     section: "rows-pgs",
     label: "Integração com IA (MCP)",
+    gratuito: "",
     rato: "",
     ratazana: "",
     ratazana_plus: "",
@@ -1120,23 +1225,17 @@ const COMPARE_ROWS: CompareRow[] = [
   {
     type: "row",
     section: "rows-pgs",
-    label: "Teste A/B Nativo",
-    rato: "20",
-    ratazana: "50",
-    ratazana_plus: "100",
-  },
-  {
-    type: "row",
-    section: "rows-pgs",
-    label: "Regras de Tráfego",
-    rato: "20",
-    ratazana: "50",
-    ratazana_plus: "100",
+    label: "Conexão com IA",
+    gratuito: "",
+    rato: "",
+    ratazana: "",
+    ratazana_plus: "",
   },
   {
     type: "row",
     section: "rows-pgs",
     label: "Acesso Beta VIP à novas funcionalidades",
+    gratuito: "",
     rato: "",
     ratazana: "",
     ratazana_plus: "",
@@ -1144,15 +1243,8 @@ const COMPARE_ROWS: CompareRow[] = [
   {
     type: "row",
     section: "rows-pgs",
-    label: "Site COD",
-    rato: "5",
-    ratazana: "10",
-    ratazana_plus: "20",
-  },
-  {
-    type: "row",
-    section: "rows-pgs",
     label: "Suporte WhatsApp",
+    gratuito: "",
     rato: "",
     ratazana: "",
     ratazana_plus: "",
@@ -1161,6 +1253,7 @@ const COMPARE_ROWS: CompareRow[] = [
     type: "row",
     section: "rows-hub",
     label: "Tudo acima de Ads e Pages",
+    gratuito: "",
     rato: "",
     ratazana: "",
     ratazana_plus: "",
@@ -1169,6 +1262,7 @@ const COMPARE_ROWS: CompareRow[] = [
     type: "row",
     section: "rows-hub",
     label: "Maior performance",
+    gratuito: "",
     rato: "",
     ratazana: "",
     ratazana_plus: "",
@@ -1177,6 +1271,7 @@ const COMPARE_ROWS: CompareRow[] = [
     type: "row",
     section: "rows-hub",
     label: "Segurança reforçada",
+    gratuito: "",
     rato: "",
     ratazana: "",
     ratazana_plus: "",
@@ -1185,6 +1280,7 @@ const COMPARE_ROWS: CompareRow[] = [
     type: "row",
     section: "rows-hub",
     label: "Maior economia",
+    gratuito: "",
     rato: "",
     ratazana: "",
     ratazana_plus: "",
@@ -1193,6 +1289,7 @@ const COMPARE_ROWS: CompareRow[] = [
     type: "row",
     section: "rows-hub",
     label: "Maior taxa de rastreamento",
+    gratuito: "",
     rato: "",
     ratazana: "",
     ratazana_plus: "",
@@ -1201,6 +1298,7 @@ const COMPARE_ROWS: CompareRow[] = [
     type: "row",
     section: "rows-hub",
     label: "Login unificado",
+    gratuito: "",
     rato: "",
     ratazana: "",
     ratazana_plus: "",
@@ -1297,7 +1395,7 @@ function Tooltip({
 
 function LimitValue({ value }: { value: string }) {
   if (value === "✓" || value.toLowerCase() === "incluído") {
-    return <Check className="h-4 w-4 text-[#22c55e]" />;
+    return <Check className="h-4 w-4 text-[#FFB800]" />;
   }
   if (/^ilimit/i.test(value)) {
     return (
@@ -1386,12 +1484,13 @@ function PricingCardComponent({
           <div className="text-[10px] font-extrabold uppercase tracking-[0.1em] text-[#f59f0a] mb-1.5">
             RATOEIRA ADS
           </div>
-          {adsLimits.map(([label, value]) => (
-            <Fragment key={label}>
-              {renderLimitRow(label, value)}
-              {label === "Perfis/E-mail Google Ads" && renderAdAccounts()}
-            </Fragment>
-          ))}
+          {adsLimits.map(([label, value]) => renderLimitRow(label, value))}
+          {renderAdAccounts()}
+          {card.footnote && (
+            <div className="text-xs text-[#888888] mt-1.5 mb-1">
+              {card.footnote}
+            </div>
+          )}
           <div className="text-[10px] font-extrabold uppercase tracking-[0.1em] text-[#f59f0a] mt-2.5 mb-1.5">
             RATOEIRA PAGES
           </div>
@@ -1400,18 +1499,23 @@ function PricingCardComponent({
       );
     }
 
-    return card.limits.map(([label, value]) => (
-      <Fragment key={label}>
-        {renderLimitRow(label, value)}
-        {label === "Perfis/E-mail Google Ads" && renderAdAccounts()}
-      </Fragment>
-    ));
+    return (
+      <>
+        {card.limits.map(([label, value]) => renderLimitRow(label, value))}
+        {renderAdAccounts()}
+        {card.footnote && (
+          <div className="text-xs text-[#888888] mt-1.5 mb-1">
+            {card.footnote}
+          </div>
+        )}
+      </>
+    );
   };
 
   return (
     <div
       className={cn(
-        "relative flex flex-col rounded-[20px] p-6 transition-all duration-200",
+        "relative flex flex-col rounded-[20px] p-6 transition-all duration-200 h-full",
         "bg-[#111111] border",
         isYellow
           ? "border-[#f59f0a]"
@@ -1442,9 +1546,15 @@ function PricingCardComponent({
         </div>
       )}
       <div className="flex items-baseline gap-1 mb-1">
-        <span className="text-base text-[#aaaaaa]">R$</span>
-        <span className="text-[32px] font-black text-white leading-none">{card.val}</span>
-        <span className="text-[13px] text-[#888888]">{card.per}</span>
+        {card.val === "0,00" ? (
+          <span className="text-[32px] font-black text-white leading-none">Grátis</span>
+        ) : (
+          <>
+            <span className="text-base text-[#aaaaaa]">R$</span>
+            <span className="text-[32px] font-black text-white leading-none">{card.val}</span>
+            <span className="text-[13px] text-[#888888]">{card.per}</span>
+          </>
+        )}
       </div>
       {card.avista && (
         <div className="text-xs text-[#666666] mb-3">{card.avista}</div>
@@ -1495,7 +1605,7 @@ function ComparisonTable() {
     if (value === "") {
       return (
         <div className="flex justify-center">
-          <Check className="h-[18px] w-[18px] text-[#34d399]" strokeWidth={2.5} />
+          <Check className="h-[18px] w-[18px] text-[#FFB800]" strokeWidth={2.5} />
         </div>
       );
     }
@@ -1513,15 +1623,19 @@ function ComparisonTable() {
     <div className="max-md:overflow-auto max-md:max-h-[70vh] rounded-lg">
       <table className="w-full min-w-[720px] border-separate border-spacing-0 text-[13px] compare-table">
         <colgroup>
-          <col className="w-[40%]" />
-          <col className="w-[20%]" />
-          <col className="w-[20%]" />
-          <col className="w-[20%]" />
+          <col className="w-[35%]" />
+          <col className="w-[16.25%]" />
+          <col className="w-[16.25%]" />
+          <col className="w-[16.25%]" />
+          <col className="w-[16.25%]" />
         </colgroup>
         <thead className="sticky top-0 md:top-16 z-10">
           <tr>
             <th className="bg-[#0d0d0d] text-[#aaaaaa] text-xs font-bold uppercase tracking-[0.06em] text-left py-3 px-3.5 border-b border-white/[0.06]">
               Recursos
+            </th>
+            <th className="bg-[#0d0d0d] text-[#aaaaaa] text-xs font-bold uppercase tracking-[0.06em] text-center py-3 px-3.5 border-b border-white/[0.06]">
+              Gratuito
             </th>
             <th className="bg-[#0d0d0d] text-[#aaaaaa] text-xs font-bold uppercase tracking-[0.06em] text-center py-3 px-3.5 border-b border-white/[0.06]">
               Rato
@@ -1551,7 +1665,7 @@ function ComparisonTable() {
                   className="cursor-pointer"
                   onClick={() => toggleSection(section.target)}
                 >
-                  <td colSpan={4} className="p-0 border-b border-white/[0.06]">
+                  <td colSpan={5} className="p-0 border-b border-white/[0.06]">
                     <div className="flex justify-between items-center bg-white/[0.04] rounded-lg mx-0 my-1 py-2.5 px-3.5">
                       <span className="text-xs font-bold uppercase tracking-[0.18em] text-white">
                         {section.label}
@@ -1590,6 +1704,9 @@ function ComparisonTable() {
                         ) : (
                           row.label
                         )}
+                      </td>
+                      <td className="py-3 px-3.5 text-center border-b border-white/[0.06]">
+                        {renderCell(row.gratuito)}
                       </td>
                       <td className="py-3 px-3.5 text-center border-b border-white/[0.06]">
                         {renderCell(row.rato)}
@@ -1731,9 +1848,9 @@ export default function PricingTabs() {
             transition={{ duration: 0.3 }}
           >
             {/* Cards */}
-            <div ref={carouselRef} className="md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-4 pt-4 pb-6 flex gap-4 overflow-x-auto snap-x snap-mandatory scroll-smooth -mx-4 px-4 md:mx-0 md:px-0 pb-4 md:pb-6 scrollbar-hide" style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}>
+            <div ref={carouselRef} className={cn("md:grid md:grid-cols-2 md:gap-4 pt-4 pb-6 flex gap-4 overflow-x-auto snap-x snap-mandatory scroll-smooth -mx-4 px-4 md:mx-0 md:px-0 pb-4 md:pb-6 scrollbar-hide", cards.length >= 4 ? "lg:grid-cols-4" : "lg:grid-cols-3")} style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}>
               {cards.map((card, i) => (
-                <div key={card.index} className="snap-center shrink-0 w-[85vw] max-w-[340px] md:w-auto md:max-w-none md:snap-align-none md:shrink md:flex-none">
+                <div key={card.index} className="snap-center shrink-0 w-[85vw] max-w-[340px] md:w-auto md:max-w-none md:snap-align-none md:shrink md:flex-none md:h-full">
                   <PricingCardComponent
                     card={card}
                     description={descriptions[i]}
@@ -1747,7 +1864,7 @@ export default function PricingTabs() {
         </AnimatePresence>
 
         {/* Footer note */}
-        <p className="text-center text-xs text-[#555555] pb-4 md:pb-10 px-6">
+        <p className="text-center text-xs text-[#FFB800] pb-4 md:pb-10 px-6">
           * Renovação automática – Ao prosseguir você concorda que a assinatura
           será renovada automaticamente.
         </p>
