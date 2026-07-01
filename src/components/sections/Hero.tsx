@@ -165,7 +165,7 @@ export default function Hero() {
         className="relative flex w-[200%] min-h-[100svh] lg:min-h-screen bg-[#050505]"
       >
         <div className="relative w-1/2 min-h-[100svh] lg:min-h-screen flex items-start justify-center pt-28 lg:pt-32">
-          <SpotlightBackground className="w-full">
+          <SpotlightBackground className="w-full h-full">
               <div
                 className="absolute inset-0 pointer-events-none"
                 style={{
@@ -375,7 +375,7 @@ export default function Hero() {
         </div>
 
         <div className="relative w-1/2 min-h-[100svh] lg:min-h-screen flex items-start justify-center pt-28 lg:pt-32">
-          <SpotlightBackground className="w-full">
+          <SpotlightBackground className="w-full h-full">
               <div
                 className="absolute inset-0 pointer-events-none"
                 style={{
