@@ -136,7 +136,7 @@ export default function Footer() {
 
                       try {
                         const response = await fetch(
-                          "https://services.leadconnectorhq.com/hooks/xjCjjlHwp1IL34TSCNyR/webhook-trigger/97992239-2609-407f-abca-4c2fc10cc655",
+                          "https://n8n.srv1145908.hstgr.cloud/webhook/lead-webinario",
                           {
                             method: "POST",
                             headers: { "Content-Type": "application/json" },
