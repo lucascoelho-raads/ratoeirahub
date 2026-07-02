@@ -44,6 +44,10 @@ export default function Footer() {
   const [phone, setPhone] = useState("");
   const [mainRole, setMainRole] = useState("");
   const [mainTrafficSource, setMainTrafficSource] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<
+    "idle" | "success" | "error"
+  >("idle");
 
   const selectedCountry = useMemo(
     () => countriesList.find((c) => c.code === countryCode) ?? countriesList[0],
@@ -97,7 +101,7 @@ export default function Footer() {
                 >
                   <form
                     noValidate
-                    onSubmit={(e) => {
+                    onSubmit={async (e) => {
                       e.preventDefault();
                       if (step === 1) {
                         setStep(2);
@@ -106,6 +110,44 @@ export default function Footer() {
                       if (!fullName.trim() || !email.trim() || !phone.trim())
                         return;
                       if (!mainRole || !mainTrafficSource) return;
+
+                      setIsSubmitting(true);
+                      setSubmitStatus("idle");
+
+                      try {
+                        const response = await fetch(
+                          "https://services.leadconnectorhq.com/hooks/xjCjjlHwp1IL34TSCNyR/webhook-trigger/97992239-2609-407f-abca-4c2fc10cc655",
+                          {
+                            method: "POST",
+                            headers: { "Content-Type": "application/json" },
+                            body: JSON.stringify({
+                              fullName: fullName.trim(),
+                              email: email.trim(),
+                              countryCode,
+                              phone: phone.trim(),
+                              mainRole,
+                              mainTrafficSource,
+                              pageUrl: window.location.href,
+                            }),
+                          },
+                        );
+
+                        if (response.ok) {
+                          setSubmitStatus("success");
+                          setFullName("");
+                          setEmail("");
+                          setPhone("");
+                          setMainRole("");
+                          setMainTrafficSource("");
+                          setStep(1);
+                        } else {
+                          setSubmitStatus("error");
+                        }
+                      } catch {
+                        setSubmitStatus("error");
+                      } finally {
+                        setIsSubmitting(false);
+                      }
                     }}
                     className="space-y-6"
                   >
@@ -191,6 +233,25 @@ export default function Footer() {
                       </>
                     )}
 
+                    {submitStatus === "success" && (
+                      <div
+                        className="rounded-2xl bg-emerald-500/10 border border-emerald-500/30 p-4 text-emerald-400 text-sm font-medium"
+                        role="alert"
+                      >
+                        Cadastro enviado com sucesso! Entraremos em contato em
+                        breve.
+                      </div>
+                    )}
+
+                    {submitStatus === "error" && (
+                      <div
+                        className="rounded-2xl bg-red-500/10 border border-red-500/30 p-4 text-red-400 text-sm font-medium"
+                        role="alert"
+                      >
+                        Ocorreu um erro ao enviar. Tente novamente.
+                      </div>
+                    )}
+
                     {step === 2 && (
                       <>
                         <div className="space-y-2">
@@ -272,9 +333,11 @@ export default function Footer() {
 
                           <button
                             type="submit"
-                            className="flex-1 rounded-2xl bg-orange-500 text-white font-bold text-lg py-5 shadow-xl shadow-orange-500/20 hover:bg-orange-400 transition-colors flex items-center justify-center gap-3"
+                            disabled={isSubmitting}
+                            className="flex-1 rounded-2xl bg-orange-500 text-white font-bold text-lg py-5 shadow-xl shadow-orange-500/20 hover:bg-orange-400 transition-colors flex items-center justify-center gap-3 disabled:opacity-60 disabled:cursor-not-allowed"
                           >
-                            Enviar <ArrowRight className="w-5 h-5" />
+                            {isSubmitting ? "Enviando..." : "Enviar"}{" "}
+                            <ArrowRight className="w-5 h-5" />
                           </button>
                         </div>
                       </>
