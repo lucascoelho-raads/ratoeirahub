@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { ArrowRight, Instagram } from "lucide-react";
-import { usePathname } from "next/navigation";
+import { usePathname, useSearchParams } from "next/navigation";
 import { useMemo, useState } from "react";
 import { AuroraBackground } from "@/components/ui/aurora-background";
 import SpotlightBackground from "@/components/ui/spotlight-background";
@@ -32,7 +32,18 @@ const socialLinks = [{ href: "#", icon: Instagram, label: "Instagram" }];
 
 export default function Footer() {
   const pathname = usePathname();
+  const searchParams = useSearchParams();
   const showTransformSection = true;
+
+  const utmParams = useMemo(() => {
+    return {
+      utm_source: searchParams.get("utm_source") || "",
+      utm_medium: searchParams.get("utm_medium") || "",
+      utm_campaign: searchParams.get("utm_campaign") || "",
+      utm_term: searchParams.get("utm_term") || "",
+      utm_content: searchParams.get("utm_content") || "",
+    };
+  }, [searchParams]);
   const isLightBackground = pathname === "/design-system";
 
   const countriesList = useMemo(() => countries, []);
@@ -128,6 +139,7 @@ export default function Footer() {
                               mainRole,
                               mainTrafficSource,
                               pageUrl: window.location.href,
+                              ...utmParams,
                             }),
                           },
                         );
