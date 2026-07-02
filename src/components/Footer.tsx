@@ -226,7 +226,7 @@ export default function Footer() {
                             <input
                               type="tel"
                               inputMode="tel"
-                              placeholder={`${selectedCountry.dial} (DDD) 99999-9999`}
+                              placeholder="(DDD) 99999-9999"
                               value={phone}
                               onChange={(e) => setPhone(e.target.value)}
                               className={`flex-1 rounded-2xl border px-5 py-4 text-base outline-none focus:ring-2 ${inputClassName}`}
