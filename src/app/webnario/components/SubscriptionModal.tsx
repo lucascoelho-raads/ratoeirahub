@@ -168,11 +168,18 @@ export default function SubscriptionModal({
     // Monta URL do checkout com os dados para pré-preenchimento
     const phoneDigits = stripPhone(formData.phone);
     const checkout = new URL(checkoutUrl, window.location.href);
-    checkout.searchParams.set("name", formData.fullName.trim());
-    checkout.searchParams.set("email", formData.email.trim());
-    checkout.searchParams.set("phone", phoneDigits.slice(2));
-    checkout.searchParams.set("phone_local_code", phoneDigits.slice(0, 2));
 
+    // Dados pessoais
+    checkout.searchParams.set("name", formData.fullName.trim());
+    checkout.searchParams.set("full_name", formData.fullName.trim());
+    checkout.searchParams.set("email", formData.email.trim());
+
+    // Telefone: DDI (2 primeiros dígitos), DDD + número (restante) e número completo
+    checkout.searchParams.set("phone_local_code", phoneDigits.slice(0, 2));
+    checkout.searchParams.set("phone", phoneDigits.slice(2));
+    checkout.searchParams.set("phone_full", phoneDigits);
+
+    // Cupom de desconto (se preenchido)
     if (formData.coupon.trim()) {
       checkout.searchParams.set("coupon", formData.coupon.trim());
     }
