@@ -138,6 +138,10 @@ export const NAV_LINKS: NavLink[] = [
     href: "/planos",
   },
   {
+    label: "Webnario",
+    href: "/webnario",
+  },
+  {
     label: "Cases",
     href: "/cases",
   },
