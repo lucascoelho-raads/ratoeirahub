@@ -42,7 +42,7 @@ export default function PlatformCTAAbout() {
             </div>
 
             <div className="space-y-6">
-              <h2 className="text-2xl sm:text-3xl lg:text-5xl font-black text-gray-900 tracking-tight leading-tight text-center lg:text-left hyphens-none">
+              <h2 className="text-h1 font-black text-gray-900 tracking-tight leading-tight text-center lg:text-left hyphens-none">
                 Somos o ecossistema <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-amber-500">definitivo</span> para escala.
               </h2>
               <p className="text-gray-600 leading-relaxed text-base sm:text-lg text-center lg:text-left hyphens-none">

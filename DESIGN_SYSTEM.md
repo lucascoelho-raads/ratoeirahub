@@ -56,15 +56,15 @@ A escala segue uma proporção modular baseada em ~1.25x entre níveis, configur
 
 | Token | Tamanho | Line Height | Letter Spacing | Uso |
 |-------|---------|-------------|----------------|-----|
-| `text-display` | 3.052rem (~48.8px) | 1.15 | -0.02em | Hero sections, títulos de maior impacto |
-| `text-h1` | 2.441rem (~39.1px) | 1.15 | -0.02em | Títulos de página |
-| `text-h2` | 1.953rem (~31.2px) | 1.15 | -0.02em | Títulos de seções |
-| `text-h3` | 1.563rem (~25px) | 1.15 | -0.02em | Subtítulos, títulos de cards |
-| `text-h4` | 1.25rem (~20px) | 1.15 | -0.02em | Labels de destaque |
-| `text-body-lg` | 1.118rem (~17.9px) | 1.6 | 0em | Descrições em destaque |
-| `text-body` | 1rem (~16px) | 1.6 | 0em | Corpo de texto |
-| `text-small` | 0.8rem (~12.8px) | 1.6 | 0em | Legendas, metadados |
-| `text-code` | 0.894rem (~14.3px) | 1.6 | 0em | Código inline, snippets |
+| `text-display` | 3rem (48px) | 1.15 | -0.02em | Hero sections, títulos de maior impacto |
+| `text-h1` | 2.625rem (42px) | 1.15 | -0.02em | Títulos das demais seções de cada página |
+| `text-h2` | 2rem (32px) | 1.15 | -0.02em | Títulos de seções |
+| `text-h3` | 1.5625rem (25px) | 1.15 | -0.02em | Subtítulos, títulos de cards |
+| `text-h4` | 1.25rem (20px) | 1.15 | -0.02em | Labels de destaque |
+| `text-body-lg` | 1.125rem (18px) | 1.6 | 0em | Descrições em destaque |
+| `text-body` | 1rem (16px) | 1.6 | 0em | Corpo de texto |
+| `text-small` | 0.8125rem (13px) | 1.6 | 0em | Legendas, metadados |
+| `text-code` | 0.875rem (14px) | 1.6 | 0em | Código inline, snippets |
 
 ### Tokens de Espaçamento Tipográfico
 | Token | Valor | Uso |

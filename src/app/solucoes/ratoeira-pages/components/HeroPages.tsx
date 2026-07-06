@@ -28,10 +28,10 @@ export default function HeroPages() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="text-h1 font-black text-white tracking-tight leading-tight mb-6 sm:mb-8 max-w-3xl lg:max-w-5xl 2xl:max-w-6xl 4xl:max-w-7xl mx-auto hyphens-none"
+              className="text-display font-black text-white tracking-tight leading-tight mb-6 sm:mb-8 max-w-3xl lg:max-w-5xl 2xl:max-w-6xl 4xl:max-w-7xl mx-auto text-center hyphens-none"
             >
-              <span className="block md:whitespace-nowrap"><span className="text-orange-500">Páginas rápidas</span>, integradas ao seu <span className="text-orange-500">tracking</span>.</span>
-              <span className="block md:whitespace-nowrap">Prontas em minutos.</span>
+              <span className="text-orange-500">Páginas rápidas</span>, integradas ao seu <span className="text-orange-500">tracking</span>.{' '}
+              Prontas em minutos.
             </motion.h1>
 
             <motion.p

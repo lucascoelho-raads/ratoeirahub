@@ -12,7 +12,7 @@ export function SplineSceneBasic() {
 
       <div className="relative z-10 mx-auto flex min-h-[696px] lg:min-h-[100svh] max-w-7xl 3xl:max-w-[100rem] 4xl:max-w-[120rem] flex-col px-4 py-[clamp(5.5rem,10vh,8.5rem)] sm:px-6 lg:flex-row lg:items-center lg:gap-12 lg:px-8 3xl:px-12 4xl:px-20 lg:py-[clamp(6.5rem,10vh,9rem)]">
         <div className="relative z-20 flex-1 flex flex-col justify-center mt-36 lg:mt-0">
-          <h1 className="text-4xl md:text-5xl font-black bg-clip-text text-transparent bg-gradient-to-b from-[#FFB800] to-neutral-300  text-center lg:text-left">
+          <h1 className="text-display font-black bg-clip-text text-transparent bg-gradient-to-b from-[#FFB800] to-neutral-300 text-center">
             Conexões com IA
           </h1>
           <p className="mt-4 text-neutral-300 max-w-lg  text-center lg:text-left">

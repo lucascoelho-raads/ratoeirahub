@@ -117,7 +117,7 @@ export default function CaseClientView({ caseData }: { caseData: CaseData }) {
                 transition: { staggerChildren: 0.1, delayChildren: 0.3 },
               },
             }}
-            className="text-[1.75rem] sm:text-6xl md:text-8xl font-black mb-8 sm:mb-12 tracking-tight text-white drop-shadow-2xl flex flex-wrap justify-center gap-x-4 px-4"
+            className="text-display font-black mb-8 sm:mb-12 tracking-tight text-white drop-shadow-2xl flex flex-wrap justify-center gap-x-4 px-4 text-center"
           >
             {caseData.name.split(" ").map((word, i) => (
               <motion.span
@@ -187,7 +187,7 @@ export default function CaseClientView({ caseData }: { caseData: CaseData }) {
             >
               <Target className="w-6 h-6 text-red-500" />
             </motion.div>
-            <h2 className="text-2xl sm:text-4xl font-black text-white">O Desafio</h2>
+            <h2 className="text-h1 font-black text-white">O Desafio</h2>
           </div>
           <AnimatedText 
             text={caseData.challenge} 
@@ -251,7 +251,7 @@ export default function CaseClientView({ caseData }: { caseData: CaseData }) {
             >
               <CheckCircle className="w-6 h-6 text-emerald-500" />
             </motion.div>
-            <h2 className="text-2xl sm:text-4xl font-black text-white">A Solução Ratoeira</h2>
+            <h2 className="text-h1 font-black text-white">A Solução Ratoeira</h2>
           </div>
           <AnimatedText 
             text={caseData.solution} 
@@ -348,7 +348,7 @@ export default function CaseClientView({ caseData }: { caseData: CaseData }) {
           {/* Efeito hover background */}
           <div className="absolute inset-0 bg-brand-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
           
-          <h3 className="text-2xl sm:text-4xl md:text-5xl font-black mb-4 sm:mb-6 relative z-10">Pronto para ser o próximo case de sucesso?</h3>
+          <h3 className="text-h1 font-black mb-4 sm:mb-6 relative z-10">Pronto para ser o próximo case de sucesso?</h3>
           <p className="text-base sm:text-xl text-gray-400 mb-8 sm:mb-10 max-w-2xl 2xl:max-w-[50rem] 4xl:max-w-[70rem] mx-auto relative z-10">
             Pare de perder dinheiro com tráfego sujo e páginas lentas. Venha para o ecossistema Ratoeira Hub.
           </p>

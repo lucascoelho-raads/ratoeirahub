@@ -58,7 +58,7 @@ export default function TypographySection() {
   return (
     <section id="tipografia" className="space-y-12">
       <div>
-        <h2 className="text-h2 text-text-primary mb-4">
+        <h2 className="text-h1 text-text-primary mb-4">
           Tipografia
         </h2>
         <p className="text-body text-text-secondary max-w-2xl 2xl:max-w-[50rem] 4xl:max-w-[70rem] ">
@@ -71,13 +71,13 @@ export default function TypographySection() {
         description="Estilos de grande escala para títulos de impacto e hierarquia de seções."
       >
         <TypographySpec
-          label="Display"
+          label="Display (48px desktop)"
           token="text-display"
           className="text-display text-text-primary"
           example="Escalar no Tráfego"
         />
         <TypographySpec
-          label="Heading 1"
+          label="Heading 1 (42px desktop)"
           token="text-h1"
           className="text-h1 text-text-primary"
           example="Nossa Trajetória"

@@ -28,10 +28,10 @@ const networks = [
 const taboolaCards = [
   {
     icon: Network,
-    title: "Do widget até a venda",
+    title: "Do anúncio até a venda",
     description:
-      "A jornada do usuário no native é longa. A Ratoeira rastreia cada etapa — do clique no widget até a conversão — mesmo quando ele volta depois ou troca de dispositivo. Você enxerga o funil real, sem buracos.",
-    image: "/serveraside.png",
+      "No tráfego nativo a jornada é longa: o usuário clica, sai, volta depois e pode trocar de dispositivo no meio do caminho. A Ratoeira rastreia cada etapa — do clique no anúncio até a conversão — para você enxergar o funil real, sem buracos, e saber exatamente qual criativo está gerando receita.",
+    image: "/card1nativeads.webp",
   },
   {
     icon: Target,

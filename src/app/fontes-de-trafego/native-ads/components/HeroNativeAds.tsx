@@ -18,10 +18,9 @@ export const HeroNativeAds = () => {
       <section className="relative">
         <div className="relative mx-auto max-w-6xl 2xl:max-w-[90rem] 4xl:max-w-[110rem] 5xl:max-w-[130rem] 6xl:max-w-[150rem] px-6 pt-[clamp(7rem,12vh,10rem)] pb-10">
           <div className="relative z-10 mx-auto max-w-3xl 2xl:max-w-[60rem] 4xl:max-w-[80rem] text-center">
-            <h1 className="text-h1 font-black text-white tracking-tight leading-tight mb-6 max-w-3xl lg:max-w-4xl mx-auto hyphens-none">
+            <h1 className="text-display font-black text-white tracking-tight leading-tight mb-6 max-w-3xl lg:max-w-4xl mx-auto text-center hyphens-none">
               <span style={{ color: "#FFB800" }}>Taboola</span> e{" "}
-              <span style={{ color: "#FFB800" }}>NewsBreak</span>
-              <br />
+              <span style={{ color: "#FFB800" }}>NewsBreak</span>{" "}
               com rastreamento de elite.
             </h1>
             <p className="mx-auto my-8 max-w-5xl 2xl:max-w-[80rem] 4xl:max-w-[100rem] text-center text-body-lg text-gray-300 leading-relaxed hyphens-none">

@@ -57,7 +57,7 @@ export default function ComponentsSection() {
   return (
     <section id="componentes" className="space-y-16">
       <div>
-        <h2 className="text-heading-section text-text-primary mb-4">
+        <h2 className="text-h1 text-text-primary mb-4">
           Componentes & Anatomia
         </h2>
         <p className="text-body-base text-text-secondary max-w-2xl 2xl:max-w-[50rem] 4xl:max-w-[70rem] ">

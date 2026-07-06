@@ -85,7 +85,7 @@ export default function RatoeiraHubPage() {
           />
           <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-4 pt-[clamp(3rem,8vh,5rem)] md:pt-[clamp(7rem,16vh,12rem)] pb-[clamp(4.5rem,10vh,8.5rem)]">
             <div className="max-w-6xl 2xl:max-w-[90rem] 4xl:max-w-[110rem] 5xl:max-w-[130rem] 6xl:max-w-[150rem] text-center">
-              <h1 className="text-h1 font-black text-white tracking-tight leading-tight mb-6 sm:mb-8 max-w-4xl lg:max-w-6xl 2xl:max-w-7xl mx-auto hyphens-none">
+              <h1 className="text-display font-black text-white tracking-tight leading-tight mb-6 sm:mb-8 max-w-4xl lg:max-w-6xl 2xl:max-w-7xl mx-auto text-center hyphens-none">
                 Quando <span style={{ color: "#FFB800" }}>Ads</span> e <span style={{ color: "#FF7E4A" }}>Pages</span> trabalham juntos, sua <span style={{ color: "#FFB800" }}>operação</span> chega onde nenhuma <span style={{ color: "#FFB800" }}>ferramenta</span> sozinha chega.
               </h1>
 

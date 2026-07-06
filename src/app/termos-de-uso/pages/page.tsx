@@ -22,7 +22,7 @@ export default function TermosDeUsoPagesPage() {
             <ArrowLeft className="w-4 h-4" />
             Voltar para a Home
           </Link>
-          <h1 className="text-2xl sm:text-4xl md:text-5xl font-black text-white mb-4 tracking-tight">
+          <h1 className="text-h1 font-black text-white mb-4 tracking-tight">
             Termos de Uso
           </h1>
           <p className="text-brand-primary font-bold uppercase tracking-widest text-sm">
@@ -58,7 +58,7 @@ export default function TermosDeUsoPagesPage() {
 
           {/* 1. Aceitação */}
           <section>
-            <h2 className="text-2xl font-bold text-white mb-4">
+            <h2 className="text-h1 font-bold text-white mb-4">
               1. DA ACEITAÇÃO DO CONTRATO E DOCUMENTOS INTEGRANTES
             </h2>
             <div className="space-y-4">
@@ -154,7 +154,7 @@ export default function TermosDeUsoPagesPage() {
 
           {/* 2. Objeto */}
           <section>
-            <h2 className="text-2xl font-bold text-white mb-4">2. DO OBJETO</h2>
+            <h2 className="text-h1 font-bold text-white mb-4">2. DO OBJETO</h2>
             <p>
               <strong className="text-white">2.1.</strong> O presente
               Instrumento tem por objeto a contratação e afiliação aos serviços
@@ -172,7 +172,7 @@ export default function TermosDeUsoPagesPage() {
 
           {/* 3. Definições */}
           <section>
-            <h2 className="text-2xl font-bold text-white mb-4">
+            <h2 className="text-h1 font-bold text-white mb-4">
               3. DAS DEFINIÇÕES
             </h2>
             <p className="mb-4">
@@ -282,7 +282,7 @@ export default function TermosDeUsoPagesPage() {
 
           {/* 4. Cadastro */}
           <section>
-            <h2 className="text-2xl font-bold text-white mb-4">
+            <h2 className="text-h1 font-bold text-white mb-4">
               4. DO CADASTRO DO USUÁRIO
             </h2>
             <div className="space-y-4">
@@ -367,7 +367,7 @@ export default function TermosDeUsoPagesPage() {
 
           {/* 5. Planos */}
           <section>
-            <h2 className="text-2xl font-bold text-white mb-4">
+            <h2 className="text-h1 font-bold text-white mb-4">
               5. DOS PLANOS, LIMITES, VALORES E RENOVAÇÃO
             </h2>
             <div className="space-y-4">
@@ -535,7 +535,7 @@ export default function TermosDeUsoPagesPage() {
 
           {/* 6. Hospedagem */}
           <section>
-            <h2 className="text-2xl font-bold text-white mb-4">
+            <h2 className="text-h1 font-bold text-white mb-4">
               6. DA HOSPEDAGEM, DOMÍNIOS, CONTEÚDO E INTEGRAÇÕES
             </h2>
             <div className="space-y-4">
@@ -579,7 +579,7 @@ export default function TermosDeUsoPagesPage() {
 
           {/* 7. Obrigações da Ratoeira Pages */}
           <section>
-            <h2 className="text-2xl font-bold text-white mb-4">
+            <h2 className="text-h1 font-bold text-white mb-4">
               7. DAS OBRIGAÇÕES DA RATOEIRA PAGES
             </h2>
             <div className="space-y-4">
@@ -685,7 +685,7 @@ export default function TermosDeUsoPagesPage() {
 
           {/* 8. Confidencialidade */}
           <section>
-            <h2 className="text-2xl font-bold text-white mb-4">
+            <h2 className="text-h1 font-bold text-white mb-4">
               8. DA CONFIDENCIALIDADE E PROTEÇÃO DE DADOS
             </h2>
             <div className="space-y-4">
@@ -766,7 +766,7 @@ export default function TermosDeUsoPagesPage() {
 
           {/* 9. Suas obrigações */}
           <section>
-            <h2 className="text-2xl font-bold text-white mb-4">
+            <h2 className="text-h1 font-bold text-white mb-4">
               9. DAS SUAS OBRIGAÇÕES
             </h2>
             <p className="mb-4">
@@ -799,7 +799,7 @@ export default function TermosDeUsoPagesPage() {
 
           {/* 10. Prazo e Rescisão */}
           <section>
-            <h2 className="text-2xl font-bold text-white mb-4">
+            <h2 className="text-h1 font-bold text-white mb-4">
               10. DO PRAZO E DA RESCISÃO
             </h2>
             <div className="space-y-4">
@@ -860,7 +860,7 @@ export default function TermosDeUsoPagesPage() {
 
           {/* 11. Propriedade Intelectual */}
           <section>
-            <h2 className="text-2xl font-bold text-white mb-4">
+            <h2 className="text-h1 font-bold text-white mb-4">
               11. DA PROPRIEDADE INTELECTUAL E MONITORAMENTO DE USO
             </h2>
             <div className="space-y-4">
@@ -970,7 +970,7 @@ export default function TermosDeUsoPagesPage() {
 
           {/* 12. Disposições Gerais */}
           <section>
-            <h2 className="text-2xl font-bold text-white mb-4">
+            <h2 className="text-h1 font-bold text-white mb-4">
               12. DAS DISPOSIÇÕES GERAIS
             </h2>
             <div className="space-y-4">
@@ -1054,7 +1054,7 @@ export default function TermosDeUsoPagesPage() {
 
           {/* 13. Canais de Atendimento */}
           <section className="bg-brand-primary/10 p-6 md:p-8 rounded-3xl border border-brand-primary/20">
-            <h2 className="text-2xl font-bold text-white mb-4">
+            <h2 className="text-h1 font-bold text-white mb-4">
               13. DOS CANAIS DE ATENDIMENTO
             </h2>
             <p className="mb-4">

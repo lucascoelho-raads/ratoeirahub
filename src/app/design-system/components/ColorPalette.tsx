@@ -80,7 +80,7 @@ export default function ColorPalette() {
   return (
     <section id="cores" className="space-y-12">
       <div>
-        <h2 className="text-heading-section text-text-primary mb-4">
+        <h2 className="text-h1 text-text-primary mb-4">
           Paleta de Cores
         </h2>
         <p className="text-body-base text-text-secondary max-w-2xl 2xl:max-w-[50rem] 4xl:max-w-[70rem] ">

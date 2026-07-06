@@ -154,8 +154,8 @@ const typeTokens: TypeToken[] = [
     name: "Display",
     token: "text-display",
     className: "text-display",
-    mobile: { size: "39.1px / 2.441rem", lineHeight: "1.15", weight: "900 Black", letterSpacing: "-0.02em" },
-    desktop: { size: "48.8px / 3.052rem", lineHeight: "1.15", weight: "900 Black", letterSpacing: "-0.02em" },
+    mobile: { size: "32px / 2rem", lineHeight: "1.15", weight: "900 Black", letterSpacing: "-0.02em" },
+    desktop: { size: "48px / 3rem", lineHeight: "1.15", weight: "900 Black", letterSpacing: "-0.02em" },
     usage: "Título principal de hero sections. Máximo impacto visual.",
     example: "Escalar no Tráfego",
   },
@@ -163,17 +163,17 @@ const typeTokens: TypeToken[] = [
     name: "Heading 1",
     token: "text-h1",
     className: "text-h1",
-    mobile: { size: "31.2px / 1.953rem", lineHeight: "1.15", weight: "700 Bold", letterSpacing: "-0.02em" },
-    desktop: { size: "39.1px / 2.441rem", lineHeight: "1.15", weight: "700 Bold", letterSpacing: "-0.02em" },
-    usage: "Títulos de página e headings principais.",
+    mobile: { size: "28px / 1.75rem", lineHeight: "1.15", weight: "700 Bold", letterSpacing: "-0.02em" },
+    desktop: { size: "42px / 2.625rem", lineHeight: "1.15", weight: "700 Bold", letterSpacing: "-0.02em" },
+    usage: "Títulos das demais seções de cada página.",
     example: "Nossa Trajetória",
   },
   {
     name: "Heading 2",
     token: "text-h2",
     className: "text-h2",
-    mobile: { size: "25px / 1.563rem", lineHeight: "1.15", weight: "700 Bold", letterSpacing: "-0.02em" },
-    desktop: { size: "31.2px / 1.953rem", lineHeight: "1.15", weight: "700 Bold", letterSpacing: "-0.02em" },
+    mobile: { size: "25px / 1.5625rem", lineHeight: "1.15", weight: "700 Bold", letterSpacing: "-0.02em" },
+    desktop: { size: "32px / 2rem", lineHeight: "1.15", weight: "700 Bold", letterSpacing: "-0.02em" },
     usage: "Títulos de seção e headings de página.",
     example: "Integração Nativa",
   },
@@ -182,7 +182,7 @@ const typeTokens: TypeToken[] = [
     token: "text-h3",
     className: "text-h3",
     mobile: { size: "20px / 1.25rem", lineHeight: "1.15", weight: "600 SemiBold", letterSpacing: "-0.02em" },
-    desktop: { size: "25px / 1.563rem", lineHeight: "1.15", weight: "600 SemiBold", letterSpacing: "-0.02em" },
+    desktop: { size: "25px / 1.5625rem", lineHeight: "1.15", weight: "600 SemiBold", letterSpacing: "-0.02em" },
     usage: "Subtítulos, títulos de cards e blocos de conteúdo.",
     example: "Missão, Visão e Valores",
   },
@@ -199,8 +199,8 @@ const typeTokens: TypeToken[] = [
     name: "Body Large",
     token: "text-body-lg",
     className: "text-body-lg",
-    mobile: { size: "17.9px / 1.118rem", lineHeight: "1.6", weight: "400 Regular" },
-    desktop: { size: "17.9px / 1.118rem", lineHeight: "1.6", weight: "400 Regular" },
+    mobile: { size: "18px / 1.125rem", lineHeight: "1.6", weight: "400 Regular" },
+    desktop: { size: "18px / 1.125rem", lineHeight: "1.6", weight: "400 Regular" },
     usage: "Parágrafos descritivos e textos de leitura contínua.",
     example: "Rastreamento cirúrgico e páginas de alta conversão em um único lugar.",
   },
@@ -217,8 +217,8 @@ const typeTokens: TypeToken[] = [
     name: "Small",
     token: "text-small",
     className: "text-small",
-    mobile: { size: "12.8px / 0.8rem", lineHeight: "1.6", weight: "400 Regular" },
-    desktop: { size: "12.8px / 0.8rem", lineHeight: "1.6", weight: "400 Regular" },
+    mobile: { size: "13px / 0.8125rem", lineHeight: "1.6", weight: "400 Regular" },
+    desktop: { size: "13px / 0.8125rem", lineHeight: "1.6", weight: "400 Regular" },
     usage: "Legendas, metadados e textos auxiliares.",
     example: "Atualizado em 30 de junho de 2026",
   },
@@ -226,8 +226,8 @@ const typeTokens: TypeToken[] = [
     name: "Code",
     token: "text-code",
     className: "text-code",
-    mobile: { size: "14.3px / 0.894rem", lineHeight: "1.6", weight: "400 Regular" },
-    desktop: { size: "14.3px / 0.894rem", lineHeight: "1.6", weight: "400 Regular" },
+    mobile: { size: "14px / 0.875rem", lineHeight: "1.6", weight: "400 Regular" },
+    desktop: { size: "14px / 0.875rem", lineHeight: "1.6", weight: "400 Regular" },
     usage: "Código inline, snippets e elementos técnicos.",
     example: "npm install ratoeira",
   },
@@ -389,7 +389,7 @@ function SectionHeader({ eyebrow, title, description }: { eyebrow: string; title
         <span className="w-6 h-px bg-brand-secondary" />
         {eyebrow}
       </span>
-      <h2 className="text-heading-section text-text-primary">{title}</h2>
+      <h2 className="text-h1 text-text-primary">{title}</h2>
       <p className="text-body-description text-text-secondary max-w-3xl">{description}</p>
     </motion.div>
   );
@@ -866,7 +866,7 @@ function Hero() {
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-primary/10 border border-brand-primary/20 text-brand-secondary font-bold text-body-badge uppercase tracking-widest">
             <Sparkles className="w-4 h-4" /> Documentação Visual
           </div>
-          <h1 className="text-display-hero text-text-primary">
+          <h1 className="text-display text-text-primary text-center">
             Design System
           </h1>
           <p className="text-body-description text-text-secondary max-w-2xl">
@@ -1072,7 +1072,7 @@ export default function DesignSystem() {
               className="rounded-3xl bg-text-primary text-surface-default p-10 md:p-16 text-center space-y-6"
             >
               <Terminal className="w-10 h-10 mx-auto text-brand-primary" />
-              <h2 className="text-heading-section">Pronto para construir?</h2>
+              <h2 className="text-h1">Pronto para construir?</h2>
               <p className="text-body-description text-text-inverse/80 max-w-2xl mx-auto">
                 Use os tokens e componentes documentados aqui para manter a identidade visual do Ratoeira Hub consistente em todas as páginas.
               </p>

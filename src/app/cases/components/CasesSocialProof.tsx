@@ -253,9 +253,8 @@ export default function CasesSocialProof() {
             <div className="inline-flex items-center gap-2 px-4 py-2 mb-6 rounded-full bg-brand-primary/10 border border-brand-primary/20 text-brand-primary text-sm font-bold uppercase tracking-widest">
               Cases de Sucesso
             </div>
-            <h1 className="text-2xl sm:text-5xl lg:text-7xl font-black text-white leading-tight mb-6 tracking-tight">
-              Eles confiaram. <br />
-              <span className="text-brand-primary">Eles escalaram.</span>
+            <h1 className="text-display font-black text-white leading-tight mb-6 tracking-tight text-center">
+              Eles confiaram. <span className="text-brand-primary">Eles escalaram.</span>
             </h1>
             <p className="text-base sm:text-xl text-gray-400 max-w-2xl 2xl:max-w-[50rem] 4xl:max-w-[70rem] mx-auto">
               Não acredite apenas em nós. Veja o que os maiores players do
@@ -278,7 +277,7 @@ export default function CasesSocialProof() {
             transition={{ duration: 0.6 }}
             className="text-center mb-10"
           >
-            <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black text-white leading-tight tracking-tight">
+            <h2 className="text-h1 font-black text-white leading-tight tracking-tight">
               Os maiores <span className="text-brand-500">players</span> do{" "}
               <span className="text-brand-500">mercado</span>
             </h2>

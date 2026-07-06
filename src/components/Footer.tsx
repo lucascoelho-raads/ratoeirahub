@@ -32,7 +32,7 @@ const socialLinks = [{ href: "#", icon: Instagram, label: "Instagram" }];
 
 export default function Footer() {
   const pathname = usePathname();
-  const showTransformSection = true;
+  const showTransformSection = false;
 
   const utmParams = useMemo(() => {
     if (typeof window === "undefined") {

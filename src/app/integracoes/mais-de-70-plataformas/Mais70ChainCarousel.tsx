@@ -89,6 +89,26 @@ const LOGO_FILES = [
   "traffic_light.png",
   "webvork.png",
   "yampi.png",
+  "actionpay.png",
+  "bearpay.png",
+  "blitzads.png",
+  "brgateway.svg",
+  "cakto.svg",
+  "cashfactories.svg",
+  "clickbankv8.png",
+  "clickdealer.svg",
+  "digipag.webp",
+  "digistore24.svg",
+  "directpag.png",
+  "ezaff.svg",
+  "hwaffiliate.png",
+  "leadbit.svg",
+  "mobidea.svg",
+  "netvork.svg",
+  "skylead.png",
+  "smartadv.png",
+  "sweeply.svg",
+  "trivexpay.avif",
 ] as const;
 
 function humanizeLogoName(fileName: string) {
@@ -99,6 +119,13 @@ function humanizeLogoName(fileName: string) {
   if (withoutExt.toLowerCase() === "blitzads_limited_logo") return "Blitzads Limited";
   if (withoutExt.toLowerCase() === "clickdealerltd_logo") return "Clickdealerltd";
   if (withoutExt.toLowerCase() === "shark-platform-logo") return "SHARK Platform";
+  if (withoutExt.toLowerCase() === "clickbankv8") return "ClickBankV8";
+  if (withoutExt.toLowerCase() === "digistore24") return "Digistore24";
+  if (withoutExt.toLowerCase() === "ezaff") return "EzAff";
+  if (withoutExt.toLowerCase() === "hwaffiliate") return "HWAffiliate";
+  if (withoutExt.toLowerCase() === "skylead") return "SkyLead";
+  if (withoutExt.toLowerCase() === "smartadv") return "SmartAdv";
+  if (withoutExt.toLowerCase() === "trivexpay") return "TrivexPay";
   return withoutExt
     .replace(/[_-]+/g, " ")
     .replace(/\b\w/g, (m) => m.toUpperCase())
@@ -107,7 +134,7 @@ function humanizeLogoName(fileName: string) {
 
 export default function Mais70ChainCarousel() {
   const safeFiles = LOGO_FILES.filter((name) => !name.includes(" "));
-  const items: ChainItem[] = safeFiles.slice(0, 70).map((file, idx) => ({
+  const items: ChainItem[] = safeFiles.slice(0, 150).map((file, idx) => ({
     id: `${idx}-${file}`,
     name: humanizeLogoName(file),
     icon: TrendingUp,
@@ -117,7 +144,7 @@ export default function Mais70ChainCarousel() {
   return (
     <section className="py-20 bg-[#050505]">
       <div className="max-w-7xl 2xl:max-w-[90rem] 4xl:max-w-[120rem] 5xl:max-w-[140rem] 6xl:max-w-[160rem] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-12 4xl:px-20 5xl:px-28 6xl:px-36">
-        <h2 className="text-center text-2xl md:text-4xl font-black text-[#FFB800] tracking-tight">
+        <h2 className="text-center text-h1 font-black text-[#FFB800] tracking-tight">
           Conexão em minutos. Zero retrabalho.
         </h2>
         <div className="h-10" />

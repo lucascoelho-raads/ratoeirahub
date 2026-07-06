@@ -125,13 +125,13 @@ export default function ConexoesComIAPage() {
         <div className="relative z-10 max-w-7xl 2xl:max-w-[90rem] 4xl:max-w-[120rem] 5xl:max-w-[140rem] 6xl:max-w-[160rem] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-12 4xl:px-20 5xl:px-28 6xl:px-36">
           <div className="relative z-10 grid gap-10 lg:grid-cols-2 lg:items-center">
             <div className="flex flex-col gap-4 lg:col-span-2">
-              <h2 className="text-4xl lg:text-5xl font-black tracking-tight text-[#FFB800] text-center">
+              <h2 className="text-h1 font-black tracking-tight text-[#FFB800] text-center">
                 MCP RATOEIRA ADS
               </h2>
 
               <p className="text-center text-xs text-gray-400/60">Compatível com Claude · ChatGPT</p>
 
-              <h2 className="text-2xl sm:text-4xl font-black tracking-tight text-white text-center lg:text-left">
+              <h2 className="text-h1 font-black tracking-tight text-white text-center lg:text-left">
                 Controle suas campanhas sem abrir o painel.
               </h2>
 
@@ -154,7 +154,7 @@ export default function ConexoesComIAPage() {
           <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-[#0b0b0b] px-8 py-12 sm:px-12 sm:py-14">
             <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(60%_60%_at_50%_20%,rgba(255,184,0,0.18),rgba(11,11,11,0))]" />
             <div className="relative mx-auto max-w-3xl 2xl:max-w-[60rem] 4xl:max-w-[80rem] text-center">
-              <h2 className="text-2xl sm:text-4xl font-black tracking-tight text-white">
+              <h2 className="text-h1 font-black tracking-tight text-white">
                 Sua operação, onde você estiver.
               </h2>
               <p className="mt-4 text-base sm:text-lg text-gray-400/70 leading-relaxed">
@@ -174,13 +174,13 @@ export default function ConexoesComIAPage() {
             className="grid gap-10 lg:grid-cols-2 lg:items-center"
           >
             <div className="flex flex-col gap-4 lg:col-span-2">
-              <h2 className="text-4xl lg:text-5xl font-black tracking-tight text-[#FF7E4A] text-center">
+              <h2 className="text-h1 font-black tracking-tight text-[#FF7E4A] text-center">
                 MCP RATOEIRA PAGES
               </h2>
 
               <p className="text-center text-xs text-gray-400/60">Compatível com Claude</p>
 
-              <h2 className="text-2xl sm:text-4xl font-black tracking-tight text-white text-center lg:text-left">
+              <h2 className="text-h1 font-black tracking-tight text-white text-center lg:text-left">
                 Crie qualquer página com um comando.
               </h2>
 

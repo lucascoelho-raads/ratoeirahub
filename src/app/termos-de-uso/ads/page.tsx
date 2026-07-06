@@ -22,7 +22,7 @@ export default function TermosDeUsoAdsPage() {
             <ArrowLeft className="w-4 h-4" />
             Voltar para a Home
           </Link>
-          <h1 className="text-2xl sm:text-4xl md:text-5xl font-black text-white mb-4 tracking-tight">
+          <h1 className="text-h1 font-black text-white mb-4 tracking-tight">
             Termos de Uso
           </h1>
           <p className="text-brand-primary font-bold uppercase tracking-widest text-sm">
@@ -55,7 +55,7 @@ export default function TermosDeUsoAdsPage() {
 
           {/* 1. Aceitação */}
           <section>
-            <h2 className="text-2xl font-bold text-white mb-4">
+            <h2 className="text-h1 font-bold text-white mb-4">
               1. DA ACEITAÇÃO DO CONTRATO E DOCUMENTOS INTEGRANTES
             </h2>
             <div className="space-y-4">
@@ -158,7 +158,7 @@ export default function TermosDeUsoAdsPage() {
 
           {/* 2. Objeto */}
           <section>
-            <h2 className="text-2xl font-bold text-white mb-4">
+            <h2 className="text-h1 font-bold text-white mb-4">
               2. DO OBJETO
             </h2>
             <p>
@@ -173,7 +173,7 @@ export default function TermosDeUsoAdsPage() {
 
           {/* 3. Definições */}
           <section>
-            <h2 className="text-2xl font-bold text-white mb-4">
+            <h2 className="text-h1 font-bold text-white mb-4">
               3. DAS DEFINIÇÕES
             </h2>
             <p className="mb-4">
@@ -255,7 +255,7 @@ export default function TermosDeUsoAdsPage() {
 
           {/* 4. Cadastro */}
           <section>
-            <h2 className="text-2xl font-bold text-white mb-4">
+            <h2 className="text-h1 font-bold text-white mb-4">
               4. DO CADASTRO DO USUÁRIO
             </h2>
             <div className="space-y-4">
@@ -346,7 +346,7 @@ export default function TermosDeUsoAdsPage() {
 
           {/* 5. Planos e Valores */}
           <section>
-            <h2 className="text-2xl font-bold text-white mb-4">
+            <h2 className="text-h1 font-bold text-white mb-4">
               5. DOS PLANOS E VALORES
             </h2>
             <div className="space-y-4">
@@ -515,7 +515,7 @@ export default function TermosDeUsoAdsPage() {
 
           {/* 6. Obrigações da Ratoeira */}
           <section>
-            <h2 className="text-2xl font-bold text-white mb-4">
+            <h2 className="text-h1 font-bold text-white mb-4">
               6. DAS OBRIGAÇÕES DA RATOEIRA ADS
             </h2>
             <div className="space-y-4">
@@ -603,7 +603,7 @@ export default function TermosDeUsoAdsPage() {
 
           {/* 7. Confidencialidade */}
           <section>
-            <h2 className="text-2xl font-bold text-white mb-4">
+            <h2 className="text-h1 font-bold text-white mb-4">
               7. DA CONFIDENCIALIDADE E PROTEÇÃO DE DADOS
             </h2>
             <div className="space-y-4">
@@ -690,7 +690,7 @@ export default function TermosDeUsoAdsPage() {
 
           {/* 8. Suas obrigações */}
           <section>
-            <h2 className="text-2xl font-bold text-white mb-4">
+            <h2 className="text-h1 font-bold text-white mb-4">
               8. DAS SUAS OBRIGAÇÕES
             </h2>
             <p className="mb-4">
@@ -722,7 +722,7 @@ export default function TermosDeUsoAdsPage() {
 
           {/* 9. Prazo e Rescisão */}
           <section>
-            <h2 className="text-2xl font-bold text-white mb-4">
+            <h2 className="text-h1 font-bold text-white mb-4">
               9. DO PRAZO E DA RESCISÃO
             </h2>
             <div className="space-y-4">
@@ -840,7 +840,7 @@ export default function TermosDeUsoAdsPage() {
 
           {/* 10. Propriedade Intelectual */}
           <section>
-            <h2 className="text-2xl font-bold text-white mb-4">
+            <h2 className="text-h1 font-bold text-white mb-4">
               10. DA PROPRIEDADE INTELECTUAL
             </h2>
             <div className="space-y-4">
@@ -925,7 +925,7 @@ export default function TermosDeUsoAdsPage() {
 
           {/* 10.5 Monitoramento */}
           <section>
-            <h2 className="text-2xl font-bold text-white mb-4">
+            <h2 className="text-h1 font-bold text-white mb-4">
               10.5. DO MONITORAMENTO DE USO E PROTEÇÃO CONTRA USO CONCORRENCIAL
             </h2>
             <div className="space-y-4">
@@ -971,7 +971,7 @@ export default function TermosDeUsoAdsPage() {
 
           {/* 10.6 Planos Vitalícios */}
           <section>
-            <h2 className="text-2xl font-bold text-white mb-4">
+            <h2 className="text-h1 font-bold text-white mb-4">
               10.6. PLANOS VITALÍCIOS E TRANSFERÊNCIA DE CONTROLE
             </h2>
             <div className="space-y-4">
@@ -1012,7 +1012,7 @@ export default function TermosDeUsoAdsPage() {
 
           {/* 11. Disposições Gerais */}
           <section>
-            <h2 className="text-2xl font-bold text-white mb-4">
+            <h2 className="text-h1 font-bold text-white mb-4">
               11. DAS DISPOSIÇÕES GERAIS
             </h2>
             <div className="space-y-4">
@@ -1088,7 +1088,7 @@ export default function TermosDeUsoAdsPage() {
 
           {/* 12. Canais de Atendimento */}
           <section className="bg-brand-primary/10 p-6 md:p-8 rounded-3xl border border-brand-primary/20">
-            <h2 className="text-2xl font-bold text-white mb-4">
+            <h2 className="text-h1 font-bold text-white mb-4">
               12. DOS CANAIS DE ATENDIMENTO
             </h2>
             <p className="mb-4">

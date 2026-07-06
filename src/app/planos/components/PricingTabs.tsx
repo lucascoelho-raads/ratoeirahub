@@ -1306,7 +1306,9 @@ const COMPARE_ROWS: CompareRow[] = [
 ];
 
 function getCards(product: PlanType, cycle: BillingCycle): PricingCard[] {
-  return PRICING_CARDS.filter((c) => c.product === product && c.cycle === cycle);
+  return PRICING_CARDS.filter(
+    (c) => c.product === product && c.cycle === cycle && c.name !== "Gratuito",
+  );
 }
 
 function getPlanHref(card: PricingCard) {
@@ -1624,18 +1626,14 @@ function ComparisonTable() {
       <table className="w-full min-w-[720px] border-separate border-spacing-0 text-[13px] compare-table">
         <colgroup>
           <col className="w-[35%]" />
-          <col className="w-[16.25%]" />
-          <col className="w-[16.25%]" />
-          <col className="w-[16.25%]" />
-          <col className="w-[16.25%]" />
+          <col className="w-[21.67%]" />
+          <col className="w-[21.67%]" />
+          <col className="w-[21.67%]" />
         </colgroup>
         <thead className="sticky top-0 md:top-16 z-10">
           <tr>
             <th className="bg-[#0d0d0d] text-[#aaaaaa] text-xs font-bold uppercase tracking-[0.06em] text-left py-3 px-3.5 border-b border-white/[0.06]">
               Recursos
-            </th>
-            <th className="bg-[#0d0d0d] text-[#aaaaaa] text-xs font-bold uppercase tracking-[0.06em] text-center py-3 px-3.5 border-b border-white/[0.06]">
-              Gratuito
             </th>
             <th className="bg-[#0d0d0d] text-[#aaaaaa] text-xs font-bold uppercase tracking-[0.06em] text-center py-3 px-3.5 border-b border-white/[0.06]">
               Rato
@@ -1665,7 +1663,7 @@ function ComparisonTable() {
                   className="cursor-pointer"
                   onClick={() => toggleSection(section.target)}
                 >
-                  <td colSpan={5} className="p-0 border-b border-white/[0.06]">
+                  <td colSpan={4} className="p-0 border-b border-white/[0.06]">
                     <div className="flex justify-between items-center bg-white/[0.04] rounded-lg mx-0 my-1 py-2.5 px-3.5">
                       <span className="text-xs font-bold uppercase tracking-[0.18em] text-white">
                         {section.label}
@@ -1704,9 +1702,6 @@ function ComparisonTable() {
                         ) : (
                           row.label
                         )}
-                      </td>
-                      <td className="py-3 px-3.5 text-center border-b border-white/[0.06]">
-                        {renderCell(row.gratuito)}
                       </td>
                       <td className="py-3 px-3.5 text-center border-b border-white/[0.06]">
                         {renderCell(row.rato)}
@@ -1904,7 +1899,7 @@ export default function PricingTabs() {
         {/* Comparison table */}
         <div className="pt-10 pb-16">
           <div className="text-center mb-6">
-            <h2 className="text-2xl font-extrabold text-white mb-1.5">
+            <h2 className="text-h1 font-extrabold text-white mb-1.5">
               Compare os Planos
             </h2>
             <p className="text-sm text-[#888888]">

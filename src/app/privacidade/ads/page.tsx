@@ -22,7 +22,7 @@ export default function PrivacidadeAdsPage() {
             <ArrowLeft className="w-4 h-4" />
             Voltar para a Home
           </Link>
-          <h1 className="text-2xl sm:text-4xl md:text-5xl font-black text-white mb-4 tracking-tight">
+          <h1 className="text-h1 font-black text-white mb-4 tracking-tight">
             Política de Privacidade
           </h1>
           <p className="text-brand-primary font-bold uppercase tracking-widest text-sm mb-4">
@@ -53,7 +53,7 @@ export default function PrivacidadeAdsPage() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-white mb-4 flex items-center gap-3">
+            <h2 className="text-h1 font-bold text-white mb-4 flex items-center gap-3">
               <span className="flex items-center justify-center w-8 h-8 rounded-full bg-brand-primary/10 text-brand-primary text-sm">
                 1
               </span>
@@ -85,7 +85,7 @@ export default function PrivacidadeAdsPage() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+            <h2 className="text-h1 font-bold text-white mb-6 flex items-center gap-3">
               <span className="flex items-center justify-center w-8 h-8 rounded-full bg-brand-primary/10 text-brand-primary text-sm">
                 2
               </span>
@@ -133,7 +133,7 @@ export default function PrivacidadeAdsPage() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-white mb-4 flex items-center gap-3">
+            <h2 className="text-h1 font-bold text-white mb-4 flex items-center gap-3">
               <span className="flex items-center justify-center w-8 h-8 rounded-full bg-brand-primary/10 text-brand-primary text-sm">
                 3
               </span>
@@ -190,7 +190,7 @@ export default function PrivacidadeAdsPage() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-white mb-4 flex items-center gap-3">
+            <h2 className="text-h1 font-bold text-white mb-4 flex items-center gap-3">
               <span className="flex items-center justify-center w-8 h-8 rounded-full bg-brand-primary/10 text-brand-primary text-sm">
                 4
               </span>
@@ -236,7 +236,7 @@ export default function PrivacidadeAdsPage() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-white mb-4 flex items-center gap-3">
+            <h2 className="text-h1 font-bold text-white mb-4 flex items-center gap-3">
               <span className="flex items-center justify-center w-8 h-8 rounded-full bg-brand-primary/10 text-brand-primary text-sm">
                 5
               </span>
@@ -289,7 +289,7 @@ export default function PrivacidadeAdsPage() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-white mb-4 flex items-center gap-3">
+            <h2 className="text-h1 font-bold text-white mb-4 flex items-center gap-3">
               <span className="flex items-center justify-center w-8 h-8 rounded-full bg-brand-primary/10 text-brand-primary text-sm">
                 6
               </span>
@@ -325,7 +325,7 @@ export default function PrivacidadeAdsPage() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-white mb-4 flex items-center gap-3">
+            <h2 className="text-h1 font-bold text-white mb-4 flex items-center gap-3">
               <span className="flex items-center justify-center w-8 h-8 rounded-full bg-brand-primary/10 text-brand-primary text-sm">
                 7
               </span>
@@ -371,7 +371,7 @@ export default function PrivacidadeAdsPage() {
           </section>
 
           <section className="bg-[#111111] p-6 md:p-8 rounded-3xl border border-white/10">
-            <h2 className="text-2xl font-bold text-white mb-4 flex items-center gap-3">
+            <h2 className="text-h1 font-bold text-white mb-4 flex items-center gap-3">
               <span className="flex items-center justify-center w-8 h-8 rounded-full bg-brand-primary text-black text-sm">
                 8
               </span>
@@ -416,7 +416,7 @@ export default function PrivacidadeAdsPage() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-white mb-4 flex items-center gap-3">
+            <h2 className="text-h1 font-bold text-white mb-4 flex items-center gap-3">
               <span className="flex items-center justify-center w-8 h-8 rounded-full bg-brand-primary/10 text-brand-primary text-sm">
                 9
               </span>
@@ -435,7 +435,7 @@ export default function PrivacidadeAdsPage() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-white mb-4 flex items-center gap-3">
+            <h2 className="text-h1 font-bold text-white mb-4 flex items-center gap-3">
               <span className="flex items-center justify-center w-8 h-8 rounded-full bg-brand-primary/10 text-brand-primary text-sm">
                 10
               </span>
@@ -451,7 +451,7 @@ export default function PrivacidadeAdsPage() {
           </section>
 
           <section className="bg-brand-primary/10 p-6 md:p-8 rounded-3xl border border-brand-primary/20">
-            <h2 className="text-2xl font-bold text-white mb-4 flex items-center gap-3">
+            <h2 className="text-h1 font-bold text-white mb-4 flex items-center gap-3">
               <span className="flex items-center justify-center w-8 h-8 rounded-full bg-brand-primary text-black text-sm">
                 11
               </span>

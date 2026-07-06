@@ -93,10 +93,9 @@ export const NAV_LINKS: NavLink[] = [
               href: "/fontes-de-trafego/google-ads",
             },
             {
-              label: "Meta Ads *em breve",
+              label: "Meta Ads",
               description: "Facebook & Instagram",
-              href: "#",
-              disabled: true,
+              href: "/fontes-de-trafego/meta-ads",
             },
             {
               label: "Native Ads",
