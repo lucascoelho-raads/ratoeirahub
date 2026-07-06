@@ -184,7 +184,7 @@ export default function Hero() {
                 >
                   <motion.h1
                     variants={itemVariants}
-                    className="text-display font-extrabold tracking-tight leading-[1.04] text-center max-w-2xl lg:max-w-none mx-auto hyphens-none"
+                    className="text-display font-black tracking-tight leading-[1.04] text-left max-w-4xl lg:max-w-6xl 2xl:max-w-7xl hyphens-none"
                   >
                     <span className="text-white">Cada venda tem uma origem.</span>{" "}
                     <span className="text-[#FFB800]">A Ratoeira te mostra qual é.</span>
@@ -378,7 +378,7 @@ export default function Hero() {
               <div className="relative w-full h-full max-w-7xl 2xl:max-w-[90rem] 4xl:max-w-[105rem] 5xl:max-w-[110rem] 6xl:max-w-[120rem] mx-auto px-4 sm:px-6 lg:px-12 2xl:px-16 4xl:px-28 5xl:px-32 6xl:px-60 flex flex-col lg:grid lg:grid-cols-[1fr_1.1fr] 2xl:grid-cols-[1fr_1.15fr] 3xl:grid-cols-[1fr_1.2fr] 4xl:grid-cols-[1fr_1fr] 5xl:grid-cols-[0.95fr_1.05fr] 6xl:grid-cols-[0.8fr_1fr] gap-6 lg:gap-10 2xl:gap-14 3xl:gap-20 5xl:gap-16 6xl:gap-20 lg:items-start 5xl:items-center min-w-0 pt-16 lg:pt-20 pb-16 lg:pb-24">
                 {/* Texto */}
                 <div className="flex flex-col gap-6 lg:col-start-1 lg:row-start-1">
-                  <h2 className="text-display font-extrabold tracking-tight leading-tight lg:leading-[1.04] text-white text-center max-w-2xl lg:max-w-none mx-auto hyphens-none">
+                  <h2 className="text-display font-black tracking-tight leading-tight lg:leading-[1.04] text-white text-left max-w-4xl lg:max-w-6xl 2xl:max-w-7xl hyphens-none">
                     <span>Páginas que convertem. </span>
                     <span style={{ color: "var(--color-brand-primary)" }}>
                       Integradas ao seu trackeamento desde o primeiro clique.

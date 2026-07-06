@@ -41,11 +41,16 @@ export default function CTA() {
             Configure em minutos. Rastreie cada venda, cada lead, cada clique — no Google e no Meta. Tome as decisões que a maioria adia por falta de dado real.
           </p>
 
+          {/* CTA -- badge de garantia removido */}
           {/* Garantia */}
-          <h3 className="text-xl 3xl:text-3xl font-black text-[#111827]">Risco Zero</h3>
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-gray-50 border border-yellow-600/30 rounded-full text-yellow-600 text-sm 3xl:text-lg">
-            <span className="text-green-600">✓</span> Comece no plano gratuito. Sem compromisso, sem cartão. Faça upgrade quando quiser.
-          </div>
+          {false && (
+            <>
+              <h3 className="text-xl 3xl:text-3xl font-black text-[#111827]">Risco Zero</h3>
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-gray-50 border border-yellow-600/30 rounded-full text-yellow-600 text-sm 3xl:text-lg">
+                <span className="text-green-600">✓</span> Comece no plano gratuito. Sem compromisso, sem cartão. Faça upgrade quando quiser.
+              </div>
+            </>
+          )}
 
           {/* CTA */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
