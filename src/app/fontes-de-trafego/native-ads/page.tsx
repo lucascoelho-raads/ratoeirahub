@@ -1,5 +1,6 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowRight,
@@ -21,8 +22,8 @@ export const metadata = {
 };
 
 const networks = [
-  { name: "Taboola", color: "#0033A0" },
-  { name: "NewsBreak", color: "#FB0000" },
+  { name: "Taboola", logo: "/taboolalogo.png" },
+  { name: "NewsBreak", logo: "/newbreaklogo.webp" },
 ];
 
 const taboolaCards = [
@@ -38,7 +39,7 @@ const taboolaCards = [
     title: "Saiba qual criativo lucra",
     description:
       "A Taboola mostra cliques, mas não receita. A Ratoeira cruza tráfego, leads e vendas, atribuindo cada conversão ao widget, título e imagem certos. Descubra o que lucra — e o que só consome verba.",
-    image: "/dashboard.png",
+    image: "/qualcriativolucra.webp",
   },
   {
     icon: Gauge,
@@ -55,21 +56,21 @@ const newsbreakCards = [
     title: "Rastreie o feed até a venda",
     description:
       "O NewsBreak entrega volume, mas a jornada entre o feed e a conversão costuma se perder. A Ratoeira preserva campanha, criativo e dispositivo — mesmo quando o comprador retorna horas depois.",
-    image: "/dashboard_resumo.png",
+    image: "/feedateavenda.webp",
   },
   {
     icon: Eye,
     title: "Manchetes que realmente convertem",
     description:
       "No NewsBreak, a manchete e a thumbnail fazem toda a diferença. A Ratoeira atribui cada venda ao criativo exato, para você escalar o que gera receita e pausar o que só traz clique barato.",
-    image: "/dashboard.png",
+    image: "/manchetesqueconvertem.webp",
   },
   {
     icon: LayoutDashboard,
     title: "Tudo no mesmo painel",
     description:
       "Pare de alternar entre dashboards. A Ratoeira consolida NewsBreak, Taboola, Google Ads e Meta Ads em um só lugar. Você vê o funil completo por rede, campanha e criativo.",
-    image: "/dashboard_resumo.png",
+    image: "/mesmopainel.webp",
   },
 ];
 
@@ -112,9 +113,12 @@ export default function NativeAdsTrafficSourcePage() {
                   key={network.name}
                   className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm font-black text-white"
                 >
-                  <span
-                    className="h-2 w-2 rounded-full"
-                    style={{ backgroundColor: network.color }}
+                  <Image
+                    src={network.logo}
+                    alt={network.name}
+                    width={20}
+                    height={20}
+                    className="object-contain"
                   />
                   {network.name}
                 </span>

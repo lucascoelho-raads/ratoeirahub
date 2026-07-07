@@ -16,6 +16,7 @@ import {
   Search,
 } from "lucide-react";
 import SpotlightBackground from "@/components/ui/spotlight-background";
+import LogoMarquee from "./LogoMarquee";
 
 import { useFloating, offset, autoUpdate } from "@floating-ui/react";
 
@@ -164,7 +165,28 @@ export default function Hero() {
         transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
         className="relative flex w-[200%] min-h-[100svh] lg:min-h-screen bg-[#050505]"
       >
-        <div className="relative w-1/2 min-h-[100svh] lg:min-h-screen flex items-start justify-center pt-28 lg:pt-32">
+        <div className="relative w-1/2 min-h-[100svh] lg:min-h-screen flex items-start justify-center pt-16 lg:pt-20">
+          <button
+            type="button"
+            onClick={() => setActivePanel((prev) => (prev === 0 ? 1 : 0))}
+            className="absolute left-4 lg:left-8 top-1/2 -translate-y-1/2 z-30 w-10 h-10 lg:w-12 lg:h-12 rounded-full bg-white/10 hover:bg-white/20 border border-white/10 flex items-center justify-center transition-colors backdrop-blur-sm"
+            aria-label="Painel anterior"
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <polyline points="15 18 9 12 15 6" />
+            </svg>
+          </button>
+          <button
+            type="button"
+            onClick={() => setActivePanel((prev) => (prev === 0 ? 1 : 0))}
+            className="absolute right-4 lg:right-8 top-1/2 -translate-y-1/2 z-30 w-10 h-10 lg:w-12 lg:h-12 rounded-full bg-white/10 hover:bg-white/20 border border-white/10 flex items-center justify-center transition-colors backdrop-blur-sm"
+            aria-label="Próximo painel"
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <polyline points="9 18 15 12 9 6" />
+            </svg>
+          </button>
+
           <SpotlightBackground className="w-full h-full">
               <div
                 className="absolute inset-0 pointer-events-none"
@@ -180,7 +202,7 @@ export default function Hero() {
                   variants={containerVariants}
                   initial="hidden"
                   animate="visible"
-                  className="flex flex-col gap-6"
+                  className="flex flex-col gap-4"
                 >
                   <motion.h1
                     variants={itemVariants}
@@ -313,46 +335,12 @@ export default function Hero() {
                   </motion.div>
                 </motion.div>
 
-                {/* Slider Controls */}
-                <div className="relative z-30 flex items-center justify-center gap-3 bg-black/80 backdrop-blur-md px-4 py-2 rounded-full border border-brand-primary/50 mt-4 w-fit mx-auto order-3 lg:order-none lg:col-span-2">
-                  <button 
-                    onClick={() => setActivePanel((prev) => (prev === 0 ? 1 : 0))}
-                    className="w-8 h-8 rounded-full bg-white flex items-center justify-center hover:bg-neutral-200 transition-colors"
-                  >
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="black" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <polyline points="15 18 9 12 15 6"></polyline>
-                    </svg>
-                  </button>
-                  
-                  <div className="flex gap-2 items-center px-2">
-                    <button 
-                      onClick={() => setActivePanel(0)}
-                      className={`transition-all duration-300 rounded-full ${activePanel === 0 ? 'w-8 h-3 bg-[#FFB800]' : 'w-3 h-3 bg-white/40 hover:bg-white/60'}`}
-                      aria-label="Slide 1"
-                    />
-                    <button 
-                      onClick={() => setActivePanel(1)}
-                      className={`transition-all duration-300 rounded-full ${activePanel === 1 ? 'w-8 h-3 bg-[#FFB800]' : 'w-3 h-3 bg-white/40 hover:bg-white/60'}`}
-                      aria-label="Slide 2"
-                    />
-                  </div>
-
-                  <button 
-                    onClick={() => setActivePanel((prev) => (prev === 0 ? 1 : 0))}
-                    className="w-8 h-8 rounded-full bg-white flex items-center justify-center hover:bg-neutral-200 transition-colors"
-                  >
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="black" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <polyline points="9 18 15 12 9 6"></polyline>
-                    </svg>
-                  </button>
-                </div>
-
-                {/* CTA — mobile only, after slider */}
+                {/* CTA — mobile only */}
                 <motion.div 
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.7, delay: 0.6, ease: [0.215, 0.61, 0.355, 1] }}
-                  className="flex lg:hidden flex-col gap-2 pt-2 order-4"
+                  className="flex lg:hidden flex-col gap-2 pt-2 order-3"
                 >
                   <Link
                     href="/planos#pricing-cards"
@@ -362,11 +350,38 @@ export default function Hero() {
                   </Link>
 
                 </motion.div>
+
+                <div className="order-4 lg:order-none lg:col-span-2 mt-4">
+                  <LogoMarquee />
+                </div>
+
+
               </div>
             </SpotlightBackground>
         </div>
 
-        <div className="relative w-1/2 min-h-[100svh] lg:min-h-screen flex items-start justify-center pt-28 lg:pt-32">
+        <div className="relative w-1/2 min-h-[100svh] lg:min-h-screen flex items-start justify-center pt-16 lg:pt-20">
+          <button
+            type="button"
+            onClick={() => setActivePanel((prev) => (prev === 0 ? 1 : 0))}
+            className="absolute left-4 lg:left-8 top-1/2 -translate-y-1/2 z-30 w-10 h-10 lg:w-12 lg:h-12 rounded-full bg-white/10 hover:bg-white/20 border border-white/10 flex items-center justify-center transition-colors backdrop-blur-sm"
+            aria-label="Painel anterior"
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <polyline points="15 18 9 12 15 6" />
+            </svg>
+          </button>
+          <button
+            type="button"
+            onClick={() => setActivePanel((prev) => (prev === 0 ? 1 : 0))}
+            className="absolute right-4 lg:right-8 top-1/2 -translate-y-1/2 z-30 w-10 h-10 lg:w-12 lg:h-12 rounded-full bg-white/10 hover:bg-white/20 border border-white/10 flex items-center justify-center transition-colors backdrop-blur-sm"
+            aria-label="Próximo painel"
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <polyline points="9 18 15 12 9 6" />
+            </svg>
+          </button>
+
           <SpotlightBackground className="w-full h-full">
               <div
                 className="absolute inset-0 pointer-events-none"
@@ -375,7 +390,7 @@ export default function Hero() {
                   backgroundSize: "120px 120px",
                 }}
               />
-              <div className="relative w-full h-full max-w-7xl 2xl:max-w-[90rem] 4xl:max-w-[105rem] 5xl:max-w-[110rem] 6xl:max-w-[120rem] mx-auto px-4 sm:px-6 lg:px-12 2xl:px-16 4xl:px-28 5xl:px-32 6xl:px-60 flex flex-col lg:grid lg:grid-cols-[1fr_1.1fr] 2xl:grid-cols-[1fr_1.15fr] 3xl:grid-cols-[1fr_1.2fr] 4xl:grid-cols-[1fr_1fr] 5xl:grid-cols-[0.95fr_1.05fr] 6xl:grid-cols-[0.8fr_1fr] gap-6 lg:gap-10 2xl:gap-14 3xl:gap-20 5xl:gap-16 6xl:gap-20 lg:items-start 5xl:items-center min-w-0 pt-16 lg:pt-20 pb-16 lg:pb-24">
+              <div className="relative w-full h-full max-w-7xl 2xl:max-w-[90rem] 4xl:max-w-[105rem] 5xl:max-w-[110rem] 6xl:max-w-[120rem] mx-auto px-4 sm:px-6 lg:px-12 2xl:px-16 4xl:px-28 5xl:px-32 6xl:px-60 flex flex-col lg:grid lg:grid-cols-[1fr_1.1fr] 2xl:grid-cols-[1fr_1.15fr] 3xl:grid-cols-[1fr_1.2fr] 4xl:grid-cols-[1fr_1fr] 5xl:grid-cols-[0.95fr_1.05fr] 6xl:grid-cols-[0.8fr_1fr] gap-x-6 lg:gap-x-10 2xl:gap-x-14 3xl:gap-x-20 5xl:gap-x-16 6xl:gap-x-20 gap-y-4 lg:items-start 5xl:items-center min-w-0 pt-16 lg:pt-20 pb-8 lg:pb-12">
                 {/* Texto */}
                 <div className="flex flex-col gap-6 lg:col-start-1 lg:row-start-1">
                   <h2 className="text-display font-black tracking-tight leading-tight lg:leading-[1.04] text-white text-left max-w-4xl lg:max-w-6xl 2xl:max-w-7xl hyphens-none">
@@ -385,7 +400,7 @@ export default function Hero() {
                     </span>
                   </h2>
                   <p className="text-base sm:text-[clamp(1rem,2vw,1.125rem)] 3xl:text-[clamp(1.125rem,1.2vw,1.5rem)] text-gray-400/70 leading-relaxed max-w-2xl 2xl:max-w-[34rem] 3xl:max-w-[46rem] 4xl:max-w-[56rem] 5xl:max-w-[48rem] text-center lg:text-left">
-                    Templates prontos e validados, Flash Pages que abrem em menos de 1 segundo e criação por IA com 1 clique. Cada página já nasce com o trackeamento integrado — sem scripts avulsos, sem configuração manual, sem dado perdido entre a página e a campanha.
+                    Crie páginas rápidas e rastreáveis em minutos. Com templates, Flash Pages em menos de 1 segundo e IA em 1 clique. O tracking da Ratoeira já vem integrado — nenhuma conversão se perde.
                   </p>
                 </div>
 
@@ -450,7 +465,7 @@ export default function Hero() {
                 </motion.div>
 
                 {/* CTA — desktop only, aligned with slider */}
-                <div className="hidden lg:flex items-center justify-start gap-3 lg:col-start-1 lg:row-start-2 self-end pb-2">
+                <div className="hidden lg:flex items-center justify-start gap-3 lg:col-start-1 lg:row-start-2 self-end pb-2 -mt-4">
                   <Link
                     href="/solucoes/ratoeira-pages"
                     className="inline-flex items-center gap-2 px-6 py-3 min-h-12 bg-brand-primary text-black font-semibold text-sm rounded-button hover:bg-brand-primary-hover transition-colors duration-200 text-center"
@@ -459,42 +474,8 @@ export default function Hero() {
                   </Link>
                 </div>
 
-                {/* Slider Controls */}
-                <div className="relative z-30 flex items-center justify-center gap-3 bg-black/80 backdrop-blur-md px-4 py-2 rounded-full border border-brand-primary/50 mt-4 w-fit mx-auto order-3 lg:col-start-2 lg:row-start-2 lg:justify-self-start lg:self-end mb-2">
-                  <button 
-                    onClick={() => setActivePanel((prev) => (prev === 0 ? 1 : 0))}
-                    className="w-8 h-8 rounded-full bg-white flex items-center justify-center hover:bg-neutral-200 transition-colors"
-                  >
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="black" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <polyline points="15 18 9 12 15 6"></polyline>
-                    </svg>
-                  </button>
-                  
-                  <div className="flex gap-2 items-center px-2">
-                    <button 
-                      onClick={() => setActivePanel(0)}
-                      className={`transition-all duration-300 rounded-full ${activePanel === 0 ? 'w-8 h-3 bg-[#FFB800]' : 'w-3 h-3 bg-white/40 hover:bg-white/60'}`}
-                      aria-label="Slide 1"
-                    />
-                    <button 
-                      onClick={() => setActivePanel(1)}
-                      className={`transition-all duration-300 rounded-full ${activePanel === 1 ? 'w-8 h-3 bg-[#FFB800]' : 'w-3 h-3 bg-white/40 hover:bg-white/60'}`}
-                      aria-label="Slide 2"
-                    />
-                  </div>
-
-                  <button 
-                    onClick={() => setActivePanel((prev) => (prev === 0 ? 1 : 0))}
-                    className="w-8 h-8 rounded-full bg-white flex items-center justify-center hover:bg-neutral-200 transition-colors"
-                  >
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="black" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <polyline points="9 18 15 12 9 6"></polyline>
-                    </svg>
-                  </button>
-                </div>
-
-                {/* CTA — mobile only, after slider */}
-                <div className="flex lg:hidden items-center justify-center gap-3 pt-2 order-4">
+                {/* CTA — mobile only */}
+                <div className="flex lg:hidden items-center justify-center gap-3 pt-2 order-3">
                   <Link
                     href="/solucoes/ratoeira-pages"
                     className="inline-flex items-center gap-2 px-6 py-3 min-h-12 bg-brand-primary text-black font-semibold text-sm rounded-button hover:bg-brand-primary-hover transition-colors duration-200"
@@ -502,6 +483,12 @@ export default function Hero() {
                     Conhecer o Ratoeira Pages →
                   </Link>
                 </div>
+
+                <div className="order-4 lg:order-none lg:col-span-2 mt-4">
+                  <LogoMarquee />
+                </div>
+
+
               </div>
             </SpotlightBackground>
         </div>

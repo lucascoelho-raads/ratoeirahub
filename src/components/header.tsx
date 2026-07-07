@@ -178,7 +178,7 @@ export default function Header() {
   return (
     <header
       ref={navRef}
-      className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-[#0a0a0a]/92 backdrop-blur-xl supports-[backdrop-filter]:bg-[#0a0a0a]/88 safe-area-top"
+      className="fixed inset-x-0 top-0 z-50 bg-[#0a0a0a]/92 backdrop-blur-xl supports-[backdrop-filter]:bg-[#0a0a0a]/88 safe-area-top"
     >
       <div className="mx-auto w-full max-w-7xl 2xl:max-w-[90rem] 4xl:max-w-[120rem] px-4 sm:px-6 lg:px-8 2xl:px-12 4xl:px-20">
         <div className="flex h-16 items-center justify-between">

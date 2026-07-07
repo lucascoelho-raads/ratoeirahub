@@ -9,10 +9,7 @@ const platforms = [
 
 export default function LogoMarquee() {
   return (
-    <section className="relative bg-[#050505] border-y border-white/5 py-8 md:py-10 overflow-hidden">
-      <div className="pointer-events-none absolute inset-y-0 left-0 w-16 md:w-32 z-10 bg-gradient-to-r from-[#050505] to-transparent" />
-      <div className="pointer-events-none absolute inset-y-0 right-0 w-16 md:w-32 z-10 bg-gradient-to-l from-[#050505] to-transparent" />
-
+    <section className="relative py-8 md:py-10 overflow-hidden">
       <div className="logo-marquee-track flex">
         {[0, 1, 2, 3].map((group) => (
           <div key={group} className="flex shrink-0">
@@ -24,7 +21,7 @@ export default function LogoMarquee() {
                 <img
                   src={platform.logo}
                   alt={platform.name}
-                  className="h-9 md:h-12 w-auto object-contain"
+                  className="h-6 md:h-8 w-auto object-contain"
                 />
                 <span className="text-xs md:text-sm font-semibold text-gray-400 tracking-wide">
                   {platform.name}
