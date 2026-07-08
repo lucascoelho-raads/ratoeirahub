@@ -484,7 +484,7 @@ export default function Hero() {
                   </Link>
                 </div>
 
-                <div className="order-4 lg:order-none lg:col-span-2 mt-4">
+                <div className="order-4 lg:order-none lg:col-span-2 -mt-4">
                   <LogoMarquee />
                 </div>
 

@@ -1573,6 +1573,7 @@ function PricingCardComponent({
       <div className="flex-1" />
 
       <button
+        id="btn_checkout_ratoeira"
         type="button"
         onClick={() => onSubscribe(card.name, getPlanHref(card))}
         className={cn(

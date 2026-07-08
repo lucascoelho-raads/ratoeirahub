@@ -46,6 +46,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR" className={`${inter.variable} h-full scroll-smooth`}>
+      <head>
+        <script
+          defer
+          src="https://cdn.radimarkt.com/tag.js"
+          data-tag-id="10873-f428b3e4bff049caa88e66d10cf89b33"
+          data-event-host="api.radimarkt.com"
+          data-plat-params="src,sck,utm_medium,utm_campaign,utm_content,utm_source"
+        />
+      </head>
       <body className="min-h-full flex flex-col antialiased">
         {children}
         <WhatsAppButton />

@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Script from "next/script";
 import { ArrowRight, Instagram } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { useMemo, useState } from "react";
@@ -452,6 +453,19 @@ export default function Footer() {
                 © {new Date().getFullYear()} Ratoeira Hub Technologies. Todos os
                 direitos reservados.
               </p>
+              <div
+                id="ra-verified-seal"
+                className="flex items-center justify-center"
+              >
+                <Script
+                  id="ra-embed-verified-seal"
+                  src="https://s3.amazonaws.com/raichu-beta/ra-verified/bundle.js"
+                  data-id="SVExaFB6azFCZWNJbmp1ZjpyYXRvZWlyYS1hZHMtZGlnaXRhbC1tYXJrZXRpbmc="
+                  data-target="ra-verified-seal"
+                  data-model="horizontal_1"
+                  strategy="afterInteractive"
+                />
+              </div>
               <div className="flex items-center gap-1.5 text-xs">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
                 <span className="text-gray-50">
