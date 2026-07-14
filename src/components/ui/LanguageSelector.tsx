@@ -36,7 +36,7 @@ export function LanguageSelector() {
       <button
         onClick={() => setIsOpen(!isOpen)}
         className={cn(
-          "flex items-center gap-2 rounded-button px-3 py-2 text-sm font-semibold transition-colors",
+          "flex items-center gap-2.5 rounded-button px-4 py-2.5 text-base font-semibold transition-colors",
           "text-[#FFB800] hover:bg-white/10",
           isOpen && "bg-white/10",
         )}
@@ -44,11 +44,11 @@ export function LanguageSelector() {
         aria-expanded={isOpen}
         aria-haspopup="listbox"
       >
-        <Globe className="size-4" strokeWidth={1.6} />
-        <span className="hidden sm:inline">{currentLang.flag}</span>
+        <Globe className="size-5" strokeWidth={1.6} />
+        <span className="hidden sm:inline text-lg leading-none">{currentLang.flag}</span>
         <ChevronDown
           className={cn(
-            "size-3.5 transition-transform duration-200",
+            "size-4 transition-transform duration-200",
             isOpen && "rotate-180",
           )}
           strokeWidth={1.6}
@@ -64,8 +64,8 @@ export function LanguageSelector() {
           <div
             role="listbox"
             className={cn(
-              "absolute right-0 top-full mt-1 z-50",
-              "min-w-40 rounded-button border border-white/10",
+              "absolute right-0 top-full mt-2 z-50",
+              "min-w-48 rounded-button border border-white/10",
               "bg-[#0a0a0a] backdrop-blur-xl shadow-xl",
               "overflow-hidden",
             )}
@@ -80,13 +80,13 @@ export function LanguageSelector() {
                   setIsOpen(false);
                 }}
                 className={cn(
-                  "flex w-full items-center gap-3 px-4 py-3 text-sm",
+                  "flex w-full items-center gap-3 px-4 py-3.5 text-base",
                   "transition-colors duration-150",
                   "hover:bg-white/10",
                   lang.code === language && "bg-white/5",
                 )}
               >
-                <span className="text-base">{lang.flag}</span>
+                <span className="text-xl leading-none">{lang.flag}</span>
                 <span className="flex-1 text-left text-[#FFB800]">{lang.label}</span>
                 {lang.code === language && (
                   <span className="text-[#FFB800]">✓</span>
