@@ -9,6 +9,7 @@ import { PerspectiveCamera } from "@react-three/drei"
 import { degToRad } from "three/src/math/MathUtils.js"
 import { ArrowRight } from "lucide-react"
 import Image from "next/image"
+import { useLanguage } from "@/contexts/LanguageContext"
 
 // ============================================================================
 // BEAMS COMPONENT (3D Background)
@@ -433,6 +434,8 @@ export const BeamsBackground: FC<{
 import { motion } from "framer-motion"
 
 export default function EtherealBeamsHero() {
+  const { t } = useLanguage();
+
   return (
     <BeamsBackground
       className="min-h-[85svh] sm:min-h-screen"
@@ -457,7 +460,7 @@ export default function EtherealBeamsHero() {
             className="mb-6"
           >
             <span className="inline-flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full bg-brand-primary/10 border border-brand-primary/20 text-brand-primary text-xs sm:text-sm font-bold uppercase tracking-wider">
-              Trackeamento ~100% para <span className="whitespace-nowrap">Google Ads</span>
+              {t("heroAds.badge")}
             </span>
           </motion.div>
 
@@ -466,21 +469,16 @@ export default function EtherealBeamsHero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
             className="text-display text-white mb-6 sm:mb-8 max-w-5xl mx-auto text-center hyphens-none"
-          >
-            Rastreamento <span className="text-[#E6A600]">~100%</span>.{" "}
-            <span className="text-[#E6A600]">Anti-fraude automático.</span>{" "}
-            Os dados que o Google Ads não te entrega sozinho.
-          </motion.h1>
+            dangerouslySetInnerHTML={{ __html: t("heroAds.title") }}
+          />
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
             className="text-lg sm:text-[clamp(1.05rem,1.25vw,1.35rem)] 3xl:text-[clamp(1.5rem,1.2vw,2.25rem)] text-gray-50 mb-8 sm:mb-12 max-w-3xl lg:max-w-4xl 2xl:max-w-5xl 4xl:max-w-6xl mx-auto hyphens-none"
-          >
-            Para anunciantes no <span className="whitespace-nowrap">Google Ads</span> que precisam de clareza total — não de estimativas. Cada venda rastreada,
-            cada fraude bloqueada, cada decisão tomada com dado real.
-          </motion.p>
+            dangerouslySetInnerHTML={{ __html: t("heroAds.subtitle") }}
+          />
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -492,7 +490,7 @@ export default function EtherealBeamsHero() {
               href="/planos#pricing-cards"
               className="inline-flex items-center gap-2 px-8 py-4 min-h-12 rounded-button bg-yellow-500 text-black font-bold hover:bg-yellow-400 transition-colors"
             >
-              Assinar Agora
+              {t("header.signIn")}
               <ArrowRight className="w-4 h-4" />
             </a>
           </motion.div>

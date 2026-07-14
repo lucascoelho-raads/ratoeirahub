@@ -1,46 +1,10 @@
 "use client";
 
-import { useRef, useEffect, useState } from "react";
+import { useRef, useEffect, useState, useMemo } from "react";
 import { motion, useInView } from "framer-motion";
 import { TrendingUp, Users, MessageSquare, Layers, BarChart3 } from "lucide-react";
 import { cn } from "@/lib/utils";
-
-const metrics = [
-  {
-    value: 81000000,
-    suffix: "",
-    display: "+ US$81.000.000",
-    label: "em conversões rastreadas",
-    description: "total acumulado no ecossistema Ratoeira",
-    icon: TrendingUp,
-    iconColor: "text-yellow-500",
-  },
-  {
-    value: 200000,
-    suffix: "+",
-    display: "+ 200.000",
-    label: "ratoeiras armadas",
-    description: "campanhas monitoradas ativamente",
-    icon: Layers,
-    iconColor: "text-emerald-400",
-  },
-  {
-    value: 85,
-    suffix: "%",
-    label: "atendimentos em até 10 minutos",
-    description: "*no horário de atendimento",
-    icon: Users,
-    iconColor: "text-blue-400",
-  },
-  {
-    value: 2600,
-    suffix: "+",
-    label: "anunciantes",
-    description: "escalando com dado real",
-    icon: MessageSquare,
-    iconColor: "text-rose-400",
-  },
-];
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const lineWrapperTops = ["top-[10%]", "top-[30%]", "top-[50%]", "top-[70%]", "top-[90%]"];
 
@@ -79,8 +43,46 @@ function Counter({ target, suffix }: { target: number; suffix: string }) {
 }
 
 export default function Metrics() {
+  const { t } = useLanguage();
   const sectionRef = useRef<HTMLDivElement>(null);
   const inView = useInView(sectionRef, { once: true, margin: "-80px" });
+
+  const metrics = useMemo(() => [
+    {
+      value: 81000000,
+      suffix: "",
+      display: "+ US$81.000.000",
+      label: t("metrics.card1.label"),
+      description: t("metrics.card1.description"),
+      icon: TrendingUp,
+      iconColor: "text-yellow-500",
+    },
+    {
+      value: 200000,
+      suffix: "+",
+      display: "+ 200.000",
+      label: t("metrics.card2.label"),
+      description: t("metrics.card2.description"),
+      icon: Layers,
+      iconColor: "text-emerald-400",
+    },
+    {
+      value: 85,
+      suffix: "%",
+      label: t("metrics.card3.label"),
+      description: t("metrics.card3.description"),
+      icon: Users,
+      iconColor: "text-blue-400",
+    },
+    {
+      value: 2600,
+      suffix: "+",
+      label: t("metrics.card4.label"),
+      description: t("metrics.card4.description"),
+      icon: MessageSquare,
+      iconColor: "text-rose-400",
+    },
+  ], [t]);
 
   const featured = metrics[0];
   const secondary = metrics.slice(1);
@@ -152,13 +154,10 @@ export default function Metrics() {
           className="text-center mb-16 space-y-4"
         >
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 text-yellow-200 text-sm font-medium">
-            <BarChart3 className="w-4 h-4" /> Resultados comprovados
+            <BarChart3 className="w-4 h-4" /> {t("metrics.badge")}
           </div>
           <h2 className="text-h1 font-black text-white leading-tight max-w-4xl mx-auto hyphens-none">
-            <span className="block">
-              <span style={{ color: "var(--color-brand-primary)" }}>Números</span> que falam mais alto
-            </span>
-            <span className="block">que qualquer discurso</span>
+            <span className="block" dangerouslySetInnerHTML={{ __html: t("metrics.title") }} />
           </h2>
         </motion.div>
 
@@ -217,8 +216,8 @@ export default function Metrics() {
                   )}
                 </div>
               </div>
-              <p className={cn("text-white font-semibold text-base 2xl:text-xl leading-tight", metric.label === "ratoeiras armadas" && "whitespace-nowrap")}>{metric.label}</p>
-              <p className={cn("text-gray-400 text-sm mt-1", metric.label === "ratoeiras armadas" && "whitespace-nowrap")}>{metric.description}</p>
+              <p className={cn("text-white font-semibold text-base 2xl:text-xl leading-tight", i === 0 && "whitespace-nowrap")}>{metric.label}</p>
+              <p className={cn("text-gray-400 text-sm mt-1", i === 0 && "whitespace-nowrap")}>{metric.description}</p>
             </motion.div>
           ))}
         </div>

@@ -1,8 +1,9 @@
 "use client";
 
-import React, { useEffect, useId, useRef, useState } from "react";
+import React, { useEffect, useId, useRef, useState, useMemo } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useOutsideClick } from "@/hooks/use-outside-click";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const imgReceita =
   "data:image/svg+xml," +
@@ -380,15 +381,15 @@ const imgPremios =
     </svg>`
   );
 
-const cards = [
+const getCards = (t: (key: string) => string) => [
   {
-    description: "Receita recorrente sobre assinaturas",
-    title: "Receita Recorrente Real",
+    description: t("parcerias.benefits.desc1").substring(0, 40) + "...",
+    title: t("parcerias.benefits.title"),
     src: imgReceita,
     content: () => {
       return (
         <p>
-          Enquanto seu indicado usar a Ratoeira, você recebe comissão recorrente sobre o valor da assinatura todos os meses. Comece em 10% e evolua conforme o número de indicados ativos.
+          {t("parcerias.benefits.desc1")}
           <br />
           <br />
           Não é comissão de uma vez só — é receita previsível que cresce enquanto seus indicados permanecem ativos. Quanto mais você indica, mais sua renda mensal aumenta.
@@ -397,13 +398,13 @@ const cards = [
     },
   },
   {
-    description: "Solução que resolve a dor do mercado",
-    title: "Produto que se Vende Sozinho",
+    description: t("parcerias.benefits.desc2").substring(0, 40) + "...",
+    title: t("parcerias.benefits.title2"),
     src: imgProduto,
     content: () => {
       return (
         <p>
-          Indique uma solução que resolve a maior dor do mercado: bloqueios e perda de ROI. O Ratoeira Hub tem altíssima taxa de retenção.
+          {t("parcerias.benefits.desc2")}
           <br />
           <br />
           Anunciantes que usam a Ratoeira não voltam atrás. O produto entrega resultado real — trackeamento ~100%, bloqueio automático de fraude e dashboard consolidado. Sua indicação se converte em assinatura com facilidade.
@@ -412,13 +413,13 @@ const cards = [
     },
   },
   {
-    description: "Saques direto pelo dashboard",
-    title: "Saques Rápidos",
+    description: t("parcerias.benefits.desc3").substring(0, 40) + "...",
+    title: t("parcerias.benefits.title3"),
     src: imgSaques,
     content: () => {
       return (
         <p>
-          Sem burocracia. Solicite seus saques diretamente pelo dashboard. Pagamentos processados via ASAAS, recebidos na sua conta com agilidade e transparência.
+          {t("parcerias.benefits.desc3")}
           <br />
           <br />
           Você acompanha cada centavo em tempo real: comissões acumuladas, saques realizados e próximos pagamentos. Tudo transparente, sem surpresas.
@@ -427,13 +428,13 @@ const cards = [
     },
   },
   {
-    description: "Recompensas por marcos de faturamento",
-    title: "Premiações por Metas",
+    description: t("parcerias.benefits.desc4").substring(0, 40) + "...",
+    title: t("parcerias.benefits.title4"),
     src: imgPremios,
     content: () => {
       return (
         <p>
-          Alcance marcos de faturamento e desbloqueie prêmios físicos. O crescimento da sua operação tem recompensas concretas.
+          {t("parcerias.benefits.desc4")}
           <br />
           <br />
           Além da comissão recorrente, você concorre a prêmios exclusivos conforme escala seu número de indicados. Quanto mais clientes ativos, maiores as recompensas.
@@ -444,6 +445,9 @@ const cards = [
 ];
 
 export function ExpandableCardDemo() {
+  const { t } = useLanguage();
+  const cards = useMemo(() => getCards(t), [t]);
+  
   const [active, setActive] = useState<(typeof cards)[number] | boolean | null>(
     null
   );

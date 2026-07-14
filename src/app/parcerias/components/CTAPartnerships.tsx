@@ -1,8 +1,15 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { useMemo } from "react";
 
 export default function CTAPartnerships() {
+  const { t } = useLanguage();
+
+  const ctaTitle = useMemo(() => t("parcerias.cta.title"), [t]);
+  const ctaDescription = useMemo(() => t("parcerias.cta.description"), [t]);
+
   return (
     <section
       id="formulario-parceria"
@@ -21,11 +28,10 @@ export default function CTAPartnerships() {
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[80%] h-32 bg-brand-primary/20 blur-[80px] rounded-full pointer-events-none" />
 
           <h2 className="text-h1 font-black text-white mb-6 tracking-tight relative z-10 ">
-            Pronto para multiplicar seus ganhos?
+            {ctaTitle}
           </h2>
           <p className="text-gray-400 text-base sm:text-lg mb-0 max-w-xl 2xl:max-w-[50rem] 4xl:max-w-[60rem] mx-auto relative z-10 ">
-            Já indicou alguém ou quer entrar para o programa? Fale com nosso
-            time agora mesmo.
+            {ctaDescription}
           </p>
         </motion.div>
 
@@ -39,19 +45,15 @@ export default function CTAPartnerships() {
             className="text-center"
           >
             <h2 className="text-h1 font-black text-white mb-4 tracking-tight leading-tight">
-              Vamos{" "}
-              <span className="text-brand-primary whitespace-nowrap">
-                estruturar
-              </span>
-              <br className="sm:hidden" /> sua operação?
+              {t("parcerias.form.title")}
             </h2>
             <p className="text-gray-400 text-base sm:text-lg mb-8 max-w-xl mx-auto ">
-              Preencha seu cadastro e ative seu plano agora mesmo.
+              {t("parcerias.form.description")}
             </p>
 
             <div className="bg-[#0a0a0a] border border-white/5 rounded-3xl p-4 sm:p-8 relative overflow-hidden">
               <p className="text-gray-500 font-medium text-sm mb-4 uppercase tracking-widest">
-                Formulário de Aplicação
+                {t("parcerias.form.label")}
               </p>
               <iframe
                 src="https://brand-colors-project.vibepreview.com"
@@ -60,7 +62,7 @@ export default function CTAPartnerships() {
                 frameBorder={0}
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 loading="lazy"
-                title="Formulário de Aplicação para Parcerias"
+                title={t("parcerias.form.iframeTitle")}
                 style={{ border: "none", overflow: "hidden" }}
               />
             </div>

@@ -1,68 +1,66 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useMemo } from "react";
 import { AnimatePresence, motion, useInView } from "framer-motion";
-
-
-const tabs = [
-  { id: "rastreamento", label: "Rastreamento Inteligente", logo: "/icons/pricing/ads-icon.png" },
-  { id: "paginas", label: "Páginas de Alta Conversão", logo: "/icons/pricing/pages-icon.png" },
-  { id: "ecossistema", label: "Ratoeira Hub", logo: "/icons/pricing/hub-icon.png" },
-];
-
-const trackingHighlights = [
-  "Trackeamento server-side com ~100% de conversões rastreadas",
-  "Bloqueio automático de bots e IPs fraudulentos",
-  "Dashboard consolidado: Google Ads + Plataformas + Anti-Fraude",
-  "+60 plataformas de vendas conectadas",
-  "Notificações em tempo real via app e Telegram",
-];
-
-const pagesHighlights = [
-  "Templates prontos e testados para conversão",
-  "Editor visual drag-and-drop (sem código)",
-  "Flash Pages: páginas prontas em segundos",
-  "Geração de páginas por IA",
-  "Hospedagem gratuita com SSL e domínios customizados",
-  "Integração nativa com o Ratoeira Ads",
-];
-
-const ecosystemHighlights = [
-  "Integração nativa Ads + Pages (sem configuração manual)",
-  "Dashboard único com +50 métricas consolidadas",
-  "ROAS real calculado com vendas confirmadas",
-  "Dados de tráfego + páginas + vendas em uma tela",
-];
-
-const tabHighlights = {
-  rastreamento: trackingHighlights,
-  paginas: pagesHighlights,
-  ecossistema: ecosystemHighlights,
-} as const;
-
-const contents = {
-  rastreamento: {
-    title: "Rastreie cada venda. Bloqueie cada fraude. Decida mais rápido.",
-    description:
-      "O pixel padrão desperdiça entre 25% e 40% das suas vendas — elas acontecem, mas o Google nunca fica sabendo. A Ratoeira usa a tecnologia de trackeamento server-side mais avançada disponível hoje, com envio via browser e API simultaneamente, chegando a ~100% de conversões rastreadas. O algoritmo passa a otimizar para quem realmente compra — e o lucro sobe.\n\nPara quem anuncia no Google Ads: a Ratoeira identifica e bloqueia automaticamente os IPs que clicam no seu anúncio sem intenção de comprar — concorrentes, bots, tráfego inválido. Na maioria das operações, o que você economiza com bloqueio já cobre o custo do plano inteiro no primeiro mês.",
-  },
-  paginas: {
-    title: "Construa páginas que vendem em minutos. Sem código.",
-    description:
-      "A Ratoeira Pages é o construtor nativo do ecossistema. Templates prontos e validados, Flash Pages que abrem em menos de 1 segundo, criação por IA com 1 clique e hospedagem inclusa. O diferencial: cada página já nasce com o trackeamento integrado — zero configuração, zero dado perdido entre a página e a campanha.",
-  },
-  ecossistema: {
-    title: "Ads + Pages juntos. Um login. Zero fricção.",
-    description:
-      "O verdadeiro poder da Ratoeira está na integração nativa. Quando o Ads e o Pages operam juntos, o trackeamento vai além do que cada produto entrega separado — porque o dado da página alimenta a campanha em tempo real. Enquanto outros anunciantes operam com três ou mais ferramentas que não conversam entre si, você tem tudo consolidado num único dashboard. Um login. Zero fricção. Resultado máximo.",
-  },
-};
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function ProblemSolution() {
+  const { t } = useLanguage();
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
   const [activeTab, setActiveTab] = useState("rastreamento");
   const [highlightIndex, setHighlightIndex] = useState(0);
+
+  const tabs = useMemo(() => [
+    { id: "rastreamento", label: t("problem.tabs.tracking"), logo: "/icons/pricing/ads-icon.png" },
+    { id: "paginas", label: t("problem.tabs.pages"), logo: "/icons/pricing/pages-icon.png" },
+    { id: "ecossistema", label: t("problem.tabs.ecossystem"), logo: "/icons/pricing/hub-icon.png" },
+  ], [t]);
+
+  const trackingHighlights = useMemo(() => [
+    t("problem.tracking.highlight1"),
+    t("problem.tracking.highlight2"),
+    t("problem.tracking.highlight3"),
+    t("problem.tracking.highlight4"),
+    t("problem.tracking.highlight5"),
+  ], [t]);
+
+  const pagesHighlights = useMemo(() => [
+    t("problem.pages.highlight1"),
+    t("problem.pages.highlight2"),
+    t("problem.pages.highlight3"),
+    t("problem.pages.highlight4"),
+    t("problem.pages.highlight5"),
+    t("problem.pages.highlight6"),
+  ], [t]);
+
+  const ecosystemHighlights = useMemo(() => [
+    t("problem.ecossystem.highlight1"),
+    t("problem.ecossystem.highlight2"),
+    t("problem.ecossystem.highlight3"),
+    t("problem.ecossystem.highlight4"),
+  ], [t]);
+
+  const tabHighlights = useMemo(() => ({
+    rastreamento: trackingHighlights,
+    paginas: pagesHighlights,
+    ecossistema: ecosystemHighlights,
+  }), [trackingHighlights, pagesHighlights, ecosystemHighlights]);
+
+  const contents = useMemo(() => ({
+    rastreamento: {
+      title: t("problem.tracking.title"),
+      description: t("problem.tracking.description"),
+    },
+    paginas: {
+      title: t("problem.pages.title"),
+      description: t("problem.pages.description"),
+    },
+    ecossistema: {
+      title: t("problem.ecossystem.title"),
+      description: t("problem.ecossystem.description"),
+    },
+  }), [t]);
 
   const activeContent = contents[activeTab as keyof typeof contents];
   const activeHighlights = tabHighlights[activeTab as keyof typeof tabHighlights];
@@ -86,13 +84,13 @@ export default function ProblemSolution() {
           className="text-center mb-16 space-y-6"
         >
           <h2 className="text-h1 font-black text-[#111827] leading-tight max-w-4xl mx-auto hyphens-none">
-            <span className="text-brand-primary">Tudo</span> que você precisa para dominar o <span className="text-brand-primary whitespace-nowrap">tráfego pago</span>. Em um só&nbsp;<span className="text-brand-primary">lugar</span>.
+            <span className="text-brand-primary">{t("problem.header.title1")}</span> {t("problem.header.title2")} <span className="text-brand-primary whitespace-nowrap">{t("problem.header.title3")}</span>. {t("problem.header.title4")}&nbsp;<span className="text-brand-primary">{t("problem.header.title5")}</span>.
           </h2>
           <p className="text-base sm:text-xl 3xl:text-[1.75rem] text-[#4b5563] max-w-4xl 2xl:max-w-[56rem] 3xl:max-w-[64rem] 4xl:max-w-[70rem] 5xl:max-w-[72rem] 6xl:max-w-[80rem] mx-auto leading-relaxed ">
-            Quem escala no Google e no Meta não usa ferramentas soltas. Usa um ecossistema onde trackeamento, páginas e dados conversam entre si — e cada real investido tem uma origem rastreada. Operações que migram para o Hub reportam aumento de lucro em até 60%.
+            {t("problem.header.subtitle")}
           </p>
           <p className="text-base sm:text-lg 3xl:text-xl text-orange-400 font-semibold ">
-            Conheça as ferramentas ou combine tudo no Hub para resultado máximo.
+            {t("problem.header.note")}
           </p>
         </motion.div>
 
@@ -163,19 +161,19 @@ export default function ProblemSolution() {
               {activeTab === "paginas" ? (
                 <img
                   src="/paginaaltaconversao.png"
-                  alt="Páginas de Alta Conversão"
+                  alt={t("problem.pages.alt")}
                   className="w-full h-auto rounded-2xl"
                 />
               ) : activeTab === "rastreamento" ? (
                 <img
                   src="/rastreamentointeligente.png"
-                  alt="Rastreamento Inteligente"
+                  alt={t("problem.tracking.alt")}
                   className="w-full h-auto rounded-2xl"
                 />
               ) : activeTab === "ecossistema" ? (
                 <img
                   src="/loginunico.png"
-                  alt="Ratoeira Hub"
+                  alt={t("problem.ecossystem.alt")}
                   className="w-full h-auto rounded-2xl"
                 />
               ) : (

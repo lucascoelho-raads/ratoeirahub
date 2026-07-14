@@ -1,3 +1,5 @@
+"use client";
+
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Image from "next/image";
@@ -14,88 +16,88 @@ import { Button } from "@/components/ui/button";
 import { ShineBorder } from "@/components/ui/ShineBorder";
 import { HeroNativeAds } from "./components/HeroNativeAds";
 import { MotionImageCard } from "./components/MotionImageCard";
-
-export const metadata = {
-  title: "Native Ads com Ratoeira Hub | Taboola e NewsBreak",
-  description:
-    "Rastreie e atribua visitas, leads e vendas da Taboola e NewsBreak com precisão. Escale anúncios nativos com dados limpos e sem buracos no funil.",
-};
-
-const networks = [
-  { name: "Taboola", logo: "/taboolalogo.png" },
-  { name: "NewsBreak", logo: "/newbreaklogo.webp" },
-];
-
-const taboolaCards = [
-  {
-    icon: Network,
-    title: "Do anúncio até a venda",
-    description:
-      "No tráfego nativo a jornada é longa: o usuário clica, sai, volta depois e pode trocar de dispositivo no meio do caminho. A Ratoeira rastreia cada etapa — do clique no anúncio até a conversão — para você enxergar o funil real, sem buracos, e saber exatamente qual criativo está gerando receita.",
-    image: "/card1nativeads.webp",
-  },
-  {
-    icon: Target,
-    title: "Saiba qual criativo lucra",
-    description:
-      "A Taboola mostra cliques, mas não receita. A Ratoeira cruza tráfego, leads e vendas, atribuindo cada conversão ao widget, título e imagem certos. Descubra o que lucra — e o que só consome verba.",
-    image: "/qualcriativolucra.webp",
-  },
-  {
-    icon: Gauge,
-    title: "Otimize antes do dashboard da rede",
-    description:
-      "O painel da Taboola demora a consolidar conversões. A Ratoeira entrega dados integrados mais rápido, para você ajustar orçamentos, pausar o ruim e dobrar a aposta no que dá lucro.",
-    image: "/dash.png",
-  },
-];
-
-const newsbreakCards = [
-  {
-    icon: Network,
-    title: "Rastreie o feed até a venda",
-    description:
-      "O NewsBreak entrega volume, mas a jornada entre o feed e a conversão costuma se perder. A Ratoeira preserva campanha, criativo e dispositivo — mesmo quando o comprador retorna horas depois.",
-    image: "/feedateavenda.webp",
-  },
-  {
-    icon: Eye,
-    title: "Manchetes que realmente convertem",
-    description:
-      "No NewsBreak, a manchete e a thumbnail fazem toda a diferença. A Ratoeira atribui cada venda ao criativo exato, para você escalar o que gera receita e pausar o que só traz clique barato.",
-    image: "/manchetesqueconvertem.webp",
-  },
-  {
-    icon: LayoutDashboard,
-    title: "Tudo no mesmo painel",
-    description:
-      "Pare de alternar entre dashboards. A Ratoeira consolida NewsBreak, Taboola, Google Ads e Meta Ads em um só lugar. Você vê o funil completo por rede, campanha e criativo.",
-    image: "/mesmopainel.webp",
-  },
-];
-
-const steps = [
-  {
-    number: "01",
-    title: "Conecte as redes em minutos",
-    description:
-      "Integre Taboola e NewsBreak sem código complexo, planilhas ou APIs diferentes. Em poucos cliques, tudo pronto para rastrear.",
-  },
-  {
-    number: "02",
-    title: "Rastreie cada clique",
-    description:
-      "Capture campanha, widget e criativo de cada visita. Mesmo com jornadas longas ou troca de dispositivo, a atribuição chega intacta.",
-  },
-  {
-    number: "03",
-    title: "Escale com conversão real",
-    description:
-      "Veja o funil completo e invista só no que gera lucro. Decisões baseadas em dado real — não em estimativas.",
-  },
-];
+import { useLanguage } from "@/contexts/LanguageContext";
+import { useMemo } from "react";
 
 export default function NativeAdsTrafficSourcePage() {
+  const { t } = useLanguage();
+
+  const networks = useMemo(() => [
+    { name: "Taboola", logo: "/taboolalogo.png" },
+    { name: "NewsBreak", logo: "/newbreaklogo.webp" },
+  ], []);
+
+  const taboolaCards = useMemo(() => [
+    {
+      icon: Network,
+      title: t("nativeAds.taboola.cards.adToSale.title"),
+      description: t("nativeAds.taboola.cards.adToSale.description"),
+      image: "/card1nativeads.webp",
+    },
+    {
+      icon: Target,
+      title: t("nativeAds.taboola.cards.creativeProfits.title"),
+      description: t("nativeAds.taboola.cards.creativeProfits.description"),
+      image: "/qualcriativolucra.webp",
+    },
+    {
+      icon: Gauge,
+      title: t("nativeAds.taboola.cards.fastOptimize.title"),
+      description: t("nativeAds.taboola.cards.fastOptimize.description"),
+      image: "/dash.png",
+    },
+  ], [t]);
+
+  const newsbreakCards = useMemo(() => [
+    {
+      icon: Network,
+      title: t("nativeAds.newsbreak.cards.feedToSale.title"),
+      description: t("nativeAds.newsbreak.cards.feedToSale.description"),
+      image: "/feedateavenda.webp",
+    },
+    {
+      icon: Eye,
+      title: t("nativeAds.newsbreak.cards.headlines.title"),
+      description: t("nativeAds.newsbreak.cards.headlines.description"),
+      image: "/manchetesqueconvertem.webp",
+    },
+    {
+      icon: LayoutDashboard,
+      title: t("nativeAds.newsbreak.cards.unifiedPanel.title"),
+      description: t("nativeAds.newsbreak.cards.unifiedPanel.description"),
+      image: "/mesmopainel.webp",
+    },
+  ], [t]);
+
+  const steps = useMemo(() => [
+    {
+      number: "01",
+      title: t("nativeAds.steps.connect.title"),
+      description: t("nativeAds.steps.connect.description"),
+    },
+    {
+      number: "02",
+      title: t("nativeAds.steps.track.title"),
+      description: t("nativeAds.steps.track.description"),
+    },
+    {
+      number: "03",
+      title: t("nativeAds.steps.scale.title"),
+      description: t("nativeAds.steps.scale.description"),
+    },
+  ], [t]);
+
+  const sectionTitle = useMemo(() => t("nativeAds.section.title"), [t]);
+  const sectionSubtitle = useMemo(() => t("nativeAds.section.subtitle"), [t]);
+  const taboolaSubtitle = useMemo(() => t("nativeAds.taboola.subtitle"), [t]);
+  const newsbreakSubtitle = useMemo(() => t("nativeAds.newsbreak.subtitle"), [t]);
+  const howItWorksTitle = useMemo(() => t("nativeAds.howItWorks.title"), [t]);
+  const howItWorksSubtitle = useMemo(() => t("nativeAds.howItWorks.subtitle"), [t]);
+  const ctaTitle = useMemo(() => t("nativeAds.cta.title"), [t]);
+  const ctaDescription = useMemo(() => t("nativeAds.cta.description"), [t]);
+  const ctaButton = useMemo(() => t("nativeAds.cta.button"), [t]);
+  const networksLabel = useMemo(() => t("nativeAds.networks.label"), [t]);
+
   return (
     <main className="flex flex-col flex-1 bg-[#050505] text-white">
       <Navbar />
@@ -105,7 +107,7 @@ export default function NativeAdsTrafficSourcePage() {
         <div className="max-w-7xl 2xl:max-w-[90rem] 4xl:max-w-[120rem] 5xl:max-w-[140rem] 6xl:max-w-[160rem] mx-auto px-6 2xl:px-12 4xl:px-20 5xl:px-28 6xl:px-36">
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8">
             <span className="text-sm font-semibold uppercase tracking-wider text-gray-400">
-              Redes suportadas
+              {networksLabel}
             </span>
             <div className="flex flex-wrap items-center justify-center gap-3">
               {networks.map((network) => (
@@ -131,15 +133,9 @@ export default function NativeAdsTrafficSourcePage() {
       <section className="py-16 md:py-24 bg-[#050505]">
         <div className="max-w-7xl 2xl:max-w-[90rem] 4xl:max-w-[120rem] 5xl:max-w-[140rem] 6xl:max-w-[160rem] mx-auto px-6 2xl:px-12 4xl:px-20 5xl:px-28 6xl:px-36">
           <div className="text-center mb-20 max-w-5xl 2xl:max-w-[80rem] 4xl:max-w-[100rem] mx-auto">
-            <h2 className="text-h1 font-black text-white mb-6 tracking-tight leading-tight hyphens-none">
-              <span className="block sm:inline"><span className="text-brand-primary">Native Ads</span>:</span>{" "}
-              <span className="block sm:inline">pare de adivinhar</span>{" "}
-              <span className="block sm:inline">o que vende.</span>
-            </h2>
+            <h2 className="text-h1 font-black text-white mb-6 tracking-tight leading-tight hyphens-none" dangerouslySetInnerHTML={{ __html: sectionTitle }} />
             <p className="text-body-lg text-gray-300 max-w-3xl mx-auto px-4 sm:px-0 hyphens-none">
-              Se você não sabe qual widget ou manchete gerou a conversão, está
-              financiando campanha errada. A Ratoeira traz clareza total do
-              clique à venda na Taboola e no NewsBreak.
+              {sectionSubtitle}
             </p>
           </div>
 
@@ -149,7 +145,7 @@ export default function NativeAdsTrafficSourcePage() {
                 <span className="whitespace-nowrap">Taboola</span>
               </h3>
               <p className="mt-3 text-body-lg text-gray-300 max-w-2xl mx-auto hyphens-none">
-                Rastreie cada widget, campanha e criativo com precisão.
+                {taboolaSubtitle}
               </p>
             </div>
 
@@ -207,7 +203,7 @@ export default function NativeAdsTrafficSourcePage() {
                 <span className="whitespace-nowrap">NewsBreak</span>
               </h3>
               <p className="mt-3 text-body-lg text-gray-300 max-w-2xl mx-auto hyphens-none">
-                Atribua receita a cada campanha e criativo.
+                {newsbreakSubtitle}
               </p>
             </div>
 
@@ -265,10 +261,10 @@ export default function NativeAdsTrafficSourcePage() {
         <div className="max-w-7xl 2xl:max-w-[90rem] 4xl:max-w-[120rem] 5xl:max-w-[140rem] 6xl:max-w-[160rem] mx-auto px-6 2xl:px-12 4xl:px-20 5xl:px-28 6xl:px-36">
           <div className="text-center mb-16 max-w-3xl 2xl:max-w-[60rem] 4xl:max-w-[80rem] mx-auto">
             <h2 className="text-h1 font-black text-white mb-6 tracking-tight leading-tight hyphens-none">
-              Do clique ao dado real em minutos
+              {howItWorksTitle}
             </h2>
             <p className="text-body-lg text-gray-300 max-w-2xl mx-auto hyphens-none">
-              Fluxo simples. Configuração rápida. Decisões sem achismo.
+              {howItWorksSubtitle}
             </p>
           </div>
 
@@ -303,21 +299,14 @@ export default function NativeAdsTrafficSourcePage() {
         <div className="mx-auto max-w-6xl 2xl:max-w-[90rem] 4xl:max-w-[110rem] 5xl:max-w-[130rem] 6xl:max-w-[150rem] px-4 sm:px-6 lg:px-8 2xl:px-12 4xl:px-20 5xl:px-28 6xl:px-36">
           <div className="rounded-[32px] border border-white/10 bg-[#0A0A0A] p-6 sm:p-10 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 sm:gap-8">
             <div>
-              <h3 className="text-h2 font-black text-white tracking-tight leading-tight hyphens-none">
-                Pronto para escalar{" "}
-                <span className="text-brand-primary whitespace-nowrap">Taboola</span> e{" "}
-                <span className="text-brand-primary whitespace-nowrap">NewsBreak</span>
-                <br />
-                com dados limpos?
-              </h3>
+              <h3 className="text-h2 font-black text-white tracking-tight leading-tight hyphens-none" dangerouslySetInnerHTML={{ __html: ctaTitle }} />
               <p className="mt-3 text-body-lg text-gray-300 max-w-2xl 2xl:max-w-[50rem] 4xl:max-w-[70rem] hyphens-none">
-                Escolha o plano ideal para o seu volume de tráfego e comece a
-                rastrear com precisão.
+                {ctaDescription}
               </p>
             </div>
             <Button asChild size="lg" className="h-12 px-8 text-base whitespace-nowrap">
               <Link href="/planos">
-                Ver Planos <ArrowRight className="ml-2 h-5 w-5" />
+                {ctaButton} <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
             </Button>
           </div>

@@ -1,43 +1,45 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 type FAQItem = {
   question: string;
   answer: string;
 };
 
-const faqs: FAQItem[] = [
-  {
-    question: "O que é o Ratoeira Hub?",
-    answer: "O Ratoeira Hub é o ecossistema definitivo para escalar suas operações de tráfego pago. Integramos ferramentas de tracking avançado (Ratoeira Ads) com um construtor de páginas otimizado (Ratoeira Pages) em um único dashboard para garantir máxima conversão e proteção contra fraudes.",
-  },
-  {
-    question: "Como funciona a proteção contra fraudes?",
-    answer: "Nossa tecnologia utiliza algoritmos de inteligência artificial e bloqueio de IPs dinâmicos em tempo real para identificar e barrar tráfego de bots, cliques fraudulentos e agentes mal-intencionados antes que eles consumam seu orçamento.",
-  },
-  {
-    question: "Posso usar meus próprios domínios?",
-    answer: "Sim! Dependendo do seu plano, você pode conectar de 1 a ilimitados domínios customizados, mantendo a identidade visual da sua marca enquanto aproveita toda a nossa infraestrutura de rastreamento server-side.",
-  },
-  {
-    question: "Qual a diferença entre os planos Mensal e Anual?",
-    answer: "Ao optar pelo plano Anual, além de garantir o acesso ininterrupto à plataforma por 12 meses, você ganha um desconto exclusivo de 20% no valor total. Todos os recursos do plano escolhido permanecem os mesmos independentemente do ciclo de faturamento.",
-  },
-  {
-    question: "O Ratoeira Hub tem período de teste ou garantia?",
-    answer: "Sim, você está protegido por nossa garantia incondicional de 14 dias (conforme o CDC). Se dentro desse período você achar que a plataforma não atende às suas necessidades, basta solicitar o cancelamento e devolvemos 100% do seu dinheiro.",
-  },
-  {
-    question: "Preciso de conhecimento técnico para configurar o tracking?",
-    answer: "Não! Desenvolvemos o Ratoeira Hub com foco na facilidade de uso. Nossas integrações nativas permitem conectar o Ratoeira Ads às principais fontes de tráfego (Google, Meta, etc.) e gateways de pagamento com apenas alguns cliques.",
-  },
-];
-
 export default function FAQAccordion() {
+  const { t } = useLanguage();
+
+  const faqs = useMemo<FAQItem[]>(() => [
+    {
+      question: t("faq.q1.question"),
+      answer: t("faq.q1.answer"),
+    },
+    {
+      question: t("faq.q2.question"),
+      answer: t("faq.q2.answer"),
+    },
+    {
+      question: t("faq.q3.question"),
+      answer: t("faq.q3.answer"),
+    },
+    {
+      question: t("faq.q4.question"),
+      answer: t("faq.q4.answer"),
+    },
+    {
+      question: t("faq.q5.question"),
+      answer: t("faq.q5.answer"),
+    },
+    {
+      question: t("faq.q6.question"),
+      answer: t("faq.q6.answer"),
+    },
+  ], [t]);
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   const toggleFAQ = (index: number) => {

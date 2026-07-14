@@ -1,6 +1,8 @@
 "use client";
 
+import { useMemo } from "react";
 import { motion } from "framer-motion";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 type Tier = {
   name: string;
@@ -10,35 +12,37 @@ type Tier = {
   req?: string;
 };
 
-const tiers: Tier[] = [
-  {
-    name: "Assinante da Ratoeira",
-    comission: "10%",
-    perks: ["Dashboard Básico"],
-    note: "Para entrar neste tier, clique no ícone do WhatsApp no canto inferior direito desta página, informe seu e-mail de assinante e solicite a afiliação.",
-  },
-  {
-    name: "Top 10 Parceiro Gold",
-    comission: "20%",
-    perks: ["Prêmios físicos", "Acesso liberado da Ratoeira Ads", "Módulo de trackeamento completo para o seu curso"],
-  },
-  {
-    name: "Embaixador Top 5",
-    comission: "30%",
-    perks: ["Prêmios físicos", "Acesso liberado da Ratoeira Ads", "Módulo de trackeamento completo para o seu curso", "Grupo VIP WhatsApp c/ time dedicado"],
-  },
-];
+const CommissionStructure = () => {
+  const { t } = useLanguage();
 
-export default function CommissionStructure() {
+  const tiers: Tier[] = useMemo(() => [
+    {
+      name: t("parcerias.commission.tier1.name"),
+      comission: t("parcerias.commission.tier1.comission"),
+      perks: [t("parcerias.commission.tier1.perks1")],
+      note: t("parcerias.commission.tier1.note"),
+    },
+    {
+      name: t("parcerias.commission.tier2.name"),
+      comission: t("parcerias.commission.tier2.comission"),
+      perks: [t("parcerias.commission.tier2.perks1"), t("parcerias.commission.tier2.perks2"), t("parcerias.commission.tier2.perks3")],
+    },
+    {
+      name: t("parcerias.commission.tier3.name"),
+      comission: t("parcerias.commission.tier3.comission"),
+      perks: [t("parcerias.commission.tier3.perks1"), t("parcerias.commission.tier3.perks2"), t("parcerias.commission.tier3.perks3"), t("parcerias.commission.tier3.perks4")],
+    },
+  ], [t]);
+
   return (
     <section className="py-16 md:py-24 bg-[#050505]">
       <div className="max-w-7xl 2xl:max-w-[90rem] 4xl:max-w-[120rem] 5xl:max-w-[140rem] 6xl:max-w-[160rem] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-12 4xl:px-20 5xl:px-28 6xl:px-36">
         <div className="text-center mb-16">
           <h2 className="text-h1 font-black text-white mb-4 tracking-tight ">
-            Estrutura de <span className="text-brand-primary">Comissionamento</span>
+            {t("parcerias.commission.title")} <span className="text-brand-primary">{t("parcerias.commission.titleHighlight")}</span>
           </h2>
           <p className="text-gray-400 text-base sm:text-lg max-w-2xl 2xl:max-w-[50rem] 4xl:max-w-[70rem] mx-auto px-4 sm:px-0 ">
-            Seu esforço é recompensado. Quanto mais clientes você traz para a Ratoeira, maior é a sua participação na receita.
+            {t("parcerias.commission.subtitle")}
           </p>
         </div>
 
@@ -60,7 +64,7 @@ export default function CommissionStructure() {
 
               <div className="text-center mb-8">
                 <div className="text-4xl sm:text-5xl font-black text-white mb-2">{tier.comission}</div>
-                <p className="text-brand-primary font-bold text-sm uppercase tracking-widest">Recorrente</p>
+                <p className="text-brand-primary font-bold text-sm uppercase tracking-widest">{t("parcerias.commission.recorrente")}</p>
               </div>
 
               <ul className="space-y-4 flex-1">
@@ -80,4 +84,6 @@ export default function CommissionStructure() {
       </div>
     </section>
   );
-}
+};
+
+export default CommissionStructure;

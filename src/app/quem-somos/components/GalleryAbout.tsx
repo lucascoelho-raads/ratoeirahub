@@ -1,25 +1,32 @@
 "use client";
 
 import { motion } from "framer-motion";
-
-const galleryItems = [
-  { id: 1, title: "Primeiro Escritório", year: "2024", aspect: "aspect-square", src: "/time1.peg.jpeg", type: "image" as const },
-  { id: 2, title: "Lançamento V2", year: "2024", aspect: "aspect-[4/5]", src: "/time2.jpeg", type: "image" as const },
-  { id: 3, title: "Evento São Paulo", year: "2024", aspect: "aspect-square", src: "/time3.jpeg", type: "image" as const },
-  { id: 4, title: "Expansão Equipe", year: "2025", aspect: "aspect-[4/3]", src: "/time4.jpeg", type: "image" as const },
-  { id: 5, title: "Prêmio Inovação", year: "2025", aspect: "aspect-square", src: "/time5.jpeg", type: "image" as const },
-  { id: 6, title: "Summit Ratoeira", year: "2024", aspect: "aspect-[3/4]", src: "/time6.jpeg", type: "image" as const },
-  { id: 7, title: "Integração IA", year: "2026", aspect: "aspect-video", src: "/time7.jpeg", type: "image" as const },
-  { id: 8, title: "Nossa Cultura", year: "Hoje", aspect: "aspect-square", src: "/time8.jpeg", type: "image" as const },
-  { id: 9, title: "Nosso Time", year: "Hoje", aspect: "aspect-square", src: "/time9.jpeg", type: "image" as const },
-  { id: 10, title: "Nosso Time em Ação", year: "Hoje", aspect: "aspect-[3/4]", src: "/time10-HD 720p.mp4", type: "video" as const },
-];
+import { useLanguage } from "@/contexts/LanguageContext";
+import { useMemo } from "react";
 
 export default function GalleryAbout() {
+  const { t } = useLanguage();
+
+  const galleryItems = useMemo(() => [
+    { id: 1, title: t("about.gallery.item1"), year: t("about.gallery.year1"), aspect: "aspect-square", src: "/time1.peg.jpeg", type: "image" as const },
+    { id: 2, title: t("about.gallery.item2"), year: t("about.gallery.year2"), aspect: "aspect-[4/5]", src: "/time2.jpeg", type: "image" as const },
+    { id: 3, title: t("about.gallery.item3"), year: t("about.gallery.year3"), aspect: "aspect-square", src: "/time3.jpeg", type: "image" as const },
+    { id: 4, title: t("about.gallery.item4"), year: t("about.gallery.year4"), aspect: "aspect-[4/3]", src: "/time4.jpeg", type: "image" as const },
+    { id: 5, title: t("about.gallery.item5"), year: t("about.gallery.year5"), aspect: "aspect-square", src: "/time5.jpeg", type: "image" as const },
+    { id: 6, title: t("about.gallery.item6"), year: t("about.gallery.year6"), aspect: "aspect-[3/4]", src: "/time6.jpeg", type: "image" as const },
+    { id: 7, title: t("about.gallery.item7"), year: t("about.gallery.year7"), aspect: "aspect-video", src: "/time7.jpeg", type: "image" as const },
+    { id: 8, title: t("about.gallery.item8"), year: t("about.gallery.year8"), aspect: "aspect-square", src: "/time8.jpeg", type: "image" as const },
+    { id: 9, title: t("about.gallery.item9"), year: t("about.gallery.year9"), aspect: "aspect-square", src: "/time9.jpeg", type: "image" as const },
+    { id: 10, title: t("about.gallery.item10"), year: t("about.gallery.year10"), aspect: "aspect-[3/4]", src: "/time10-HD 720p.mp4", type: "video" as const },
+  ], [t]);
+
+  const headerTitle = useMemo(() => t("about.gallery.title"), [t]);
+  const headerSubtitle = useMemo(() => t("about.gallery.subtitle"), [t]);
+
   return (
     <section className="py-16 md:py-32 bg-[#050505]">
       <div className="max-w-7xl 2xl:max-w-[90rem] 4xl:max-w-[120rem] 5xl:max-w-[140rem] 6xl:max-w-[160rem] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-12 4xl:px-20 5xl:px-28 6xl:px-36">
-        
+
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -27,11 +34,9 @@ export default function GalleryAbout() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-h1 font-black text-white tracking-tight hyphens-none">
-            O <span className="text-brand-primary">time</span> por trás da <span className="text-brand-primary">plataforma</span>.
-          </h2>
+          <h2 className="text-h1 font-black text-white tracking-tight hyphens-none" dangerouslySetInnerHTML={{ __html: headerTitle }} />
           <p className="mt-4 text-base sm:text-xl text-gray-400 max-w-2xl 2xl:max-w-[50rem] 4xl:max-w-[70rem] mx-auto px-4 sm:px-0 hyphens-none">
-            Um time técnico, direto e obcecado com o problema do anunciante. A Ratoeira não foi construída em sala de reunião — foi construída por quem viveu o problema por dentro.
+            {headerSubtitle}
           </p>
         </motion.div>
 

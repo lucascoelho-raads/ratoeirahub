@@ -1,49 +1,51 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useMemo } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { GradientText } from "@/components/ui/gradient-text";
-
-const milestones = [
-  {
-    year: "Dez 2022",
-    title: "A Descoberta",
-    description: <>Eitor Guimarães, com background em analytics corporativo, começa a anunciar como afiliado de <span className="whitespace-nowrap">Google Ads</span> e sistematiza um método inédito no Brasil: capturar o dado do clique, cruzar com a conversão e alimentar o algoritmo com sinal limpo. O que antes parecia impossível para afiliados começa a funcionar.</>,
-    align: "left",
-  },
-  {
-    year: "Out 2023",
-    title: "O mercado descobre o método",
-    description: "Eitor publica um vídeo no YouTube explicando o método. Explode em visualizações. Afiliados que faziam de 50 a 100 mil reais passam a enxergar — e a atingir — resultados acima de um milhão. Eitor se torna referência nacional no assunto.",
-    align: "right",
-  },
-  {
-    year: "Jan 2024",
-    title: "Paulo encontra Eitor",
-    description: "Paulo Furtado, desenvolvedor com mais de dez anos de experiência incluindo passagem pela Localiza, assiste ao vídeo e vai direto ao Instagram de Eitor propor transformar o método em software. A parceria começa.",
-    align: "left",
-  },
-  {
-    year: "Abr 2024",
-    title: <><span className="whitespace-nowrap">Ratoeira Ads</span> vai ao ar</>,
-    description: <>Em 15 de abril de 2024, a <span className="whitespace-nowrap">Ratoeira Ads</span> é lançada — focada em afiliados de <span className="whitespace-nowrap">Google Ads</span>. Trackeamento server-side via API de Conversões, bloqueio de IPs inválidos e atribuição real do clique à venda. O sistema ainda era muito manual, mas já revolucionário. O que Eitor sistematizou como método, Paulo transformou em plataforma.</>,
-    align: "right",
-  },
-  {
-    year: "2025",
-    title: "Expansão do ecossistema",
-    description: <>Nasce a <span className="whitespace-nowrap">Ratoeira Pages</span> — construtor de páginas com hospedagem inclusa e trackeamento já integrado. Os dois produtos se tornam <span className="whitespace-nowrap">Ratoeira Hub</span>: quando conectados, rastreiam além do que cada um entrega separado. Suas funcionalidades passam a ser ainda mais automáticas e diretas. A Ratoeira consolida sua posição como referência do mercado.</>,
-    align: "left",
-  },
-  {
-    year: "2026",
-    title: "IA e novos canais",
-    description: <>MCP da <span className="whitespace-nowrap">Ratoeira Ads</span> e da <span className="whitespace-nowrap">Ratoeira Pages</span>: o Claude e o ChatGPT passam a consultar, analisar e executar ações diretamente nas contas dos anunciantes. Expansão para <span className="whitespace-nowrap">Meta Ads</span> com envio enriquecido via browser + CAPI. A plataforma expande para atender produtores, infoprodutores, gestores de tráfego e agências — com mais de 2.500 assinantes ativos.</>,
-    align: "right",
-  }
-];
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function TimelineAbout() {
+  const { t } = useLanguage();
+
+  const milestones = useMemo(() => [
+    {
+      year: "Dez 2022",
+      title: t("about.timeline.discovery"),
+      description: t("about.timeline.discoveryDesc"),
+      align: "left" as const,
+    },
+    {
+      year: "Out 2023",
+      title: t("about.timeline.method"),
+      description: t("about.timeline.methodDesc"),
+      align: "right" as const,
+    },
+    {
+      year: "Jan 2024",
+      title: t("about.timeline.meeting"),
+      description: t("about.timeline.meetingDesc"),
+      align: "left" as const,
+    },
+    {
+      year: "Abr 2024",
+      title: t("about.timeline.launch"),
+      description: t("about.timeline.launchDesc"),
+      align: "right" as const,
+    },
+    {
+      year: "2025",
+      title: t("about.timeline.expansion"),
+      description: t("about.timeline.expansionDesc"),
+      align: "left" as const,
+    },
+    {
+      year: "2026",
+      title: t("about.timeline.ai"),
+      description: t("about.timeline.aiDesc"),
+      align: "right" as const,
+    }
+  ], [t]);
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -57,9 +59,9 @@ export default function TimelineAbout() {
       <div className="max-w-7xl 2xl:max-w-[90rem] 4xl:max-w-[120rem] 5xl:max-w-[140rem] 6xl:max-w-[160rem] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-12 4xl:px-20 5xl:px-28 6xl:px-36 relative z-10">
         
         <div className="text-center mb-20">
-          <h2 className="text-h1 font-black text-white tracking-tight hyphens-none">Dois anos. O <span className="text-[#FFB800]">mercado</span> não é mais o <span className="text-[#FFB800]">mesmo</span></h2>
+          <h2 className="text-h1 font-black text-white tracking-tight hyphens-none" dangerouslySetInnerHTML={{ __html: t("about.timeline.header") }} />
           <p className="mt-4 text-base sm:text-xl text-gray-400 max-w-2xl 2xl:max-w-[50rem] 4xl:max-w-[70rem] mx-auto px-4 sm:px-0 hyphens-none">
-            De uma descoberta individual a mais de 2.500 anunciantes que escalam com dado real.
+            {t("about.timeline.subtitle")}
           </p>
         </div>
 

@@ -1,57 +1,52 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useMemo } from "react";
 import Image from "next/image";
 import { Transition } from "@headlessui/react";
 import { motion, useInView } from "framer-motion";
 import { MessageSquare, BarChart3 } from "lucide-react";
-
-interface Testimonial {
-  img: string;
-  quote: string;
-  name: string;
-  role: string;
-}
-
-const testimonials: Testimonial[] = [
-  {
-    img: "/depoimentos/francisco-avatar.png",
-    quote:
-      "Eitor sem palavras. Certeza que a ratoeira vai mudar meu jogo, estava na ansiedade que assinei 5 dias antes da black friday kkkk Mas a plataforma me deu ânimo, que subi na campanha que não estava vendendo e saiu venda..... Ratoeira chama vendas 🙌🏻",
-    name: "Francisco",
-    role: "Assinante",
-  },
-  {
-    img: "/depoimentos/lucassilva-avatar.png",
-    quote:
-      "Pô, muito obrigado Eitor, sensacional esse suporte de vcs cara, assisti todas as aulas e migrei minha operação toda ontem com muita facilidade, estou muito feliz com a ferramenta!! Parabéns cara, nota 10 pra vcs de vdd!! Estava tendo muita dor de cabeça com a Fil***xel e o suporte deles quase sempre era mal educado, então essa atenção de vcs está sendo algo nota 10!",
-    name: "Lucas Silva",
-    role: "Assinante",
-  },
-  {
-    img: "/depoimentos/rafinha-avatar.png",
-    quote:
-      "Cara, só pra falar tbm que o ratoeira é muito mais simples que o Ca***li, parabéns pelo projeto",
-    name: "Rafinha",
-    role: "Assinante",
-  },
-  {
-    img: "/depoimentos/manuela-avatar.png",
-    quote:
-      "Muito top a ferramenta de vocês!!!\nParabéns pelo empenho de todos!!!",
-    name: "Manuela",
-    role: "Assinante",
-  },
-  {
-    img: "/depoimentos/renata-avatar.png",
-    quote:
-      "Comprei hoje...estou gostando bastante da plataforma....\ntudo beeeem explicado!👏🏻👏🏻👏🏻",
-    name: "Renata",
-    role: "Assinante",
-  },
-];
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function Testimonials() {
+  const { t } = useLanguage();
+
+  const testimonials = useMemo(() => [
+    {
+      img: "/depoimentos/francisco-avatar.png",
+      quote:
+        t("testimonials.card1.quote"),
+      name: t("testimonials.card1.name"),
+      role: t("testimonials.card1.role"),
+    },
+    {
+      img: "/depoimentos/lucassilva-avatar.png",
+      quote:
+        t("testimonials.card2.quote"),
+      name: t("testimonials.card2.name"),
+      role: t("testimonials.card2.role"),
+    },
+    {
+      img: "/depoimentos/rafinha-avatar.png",
+      quote:
+        t("testimonials.card3.quote"),
+      name: t("testimonials.card3.name"),
+      role: t("testimonials.card3.role"),
+    },
+    {
+      img: "/depoimentos/manuela-avatar.png",
+      quote:
+        t("testimonials.card4.quote"),
+      name: t("testimonials.card4.name"),
+      role: t("testimonials.card4.role"),
+    },
+    {
+      img: "/depoimentos/renata-avatar.png",
+      quote:
+        t("testimonials.card5.quote"),
+      name: t("testimonials.card5.name"),
+      role: t("testimonials.card5.role"),
+    },
+  ], [t]);
   const sectionRef = useRef<HTMLDivElement>(null);
   const inView = useInView(sectionRef, { once: true, margin: "-80px" });
   const testimonialsRef = useRef<HTMLDivElement>(null);
@@ -75,6 +70,14 @@ export default function Testimonials() {
 
   useEffect(() => {
     heightFix();
+    const timeout = setTimeout(heightFix, 100);
+    return () => clearTimeout(timeout);
+  }, [t, testimonials]);
+
+  useEffect(() => {
+    const onResize = () => heightFix();
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
   }, []);
 
   return (
@@ -87,18 +90,13 @@ export default function Testimonials() {
           className="text-center mb-16 space-y-4"
         >
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-badge bg-orange-50 border border-orange-200 text-orange-600 text-sm font-semibold">
-            <MessageSquare className="w-4 h-4" /> Depoimentos Reais
+            <MessageSquare className="w-4 h-4" /> {t("testimonials.badge")}
           </div>
           <h2 className="text-h1 font-black text-white leading-tight max-w-4xl mx-auto hyphens-none">
-            <span className="block">
-              Quem <span className="text-orange-600">domina o tráfego</span>,
-            </span>
-            <span className="block">
-              confia na <span className="text-brand-500">Ratoeira</span>
-            </span>
+            <span className="block" dangerouslySetInnerHTML={{ __html: t("testimonials.title") }} />
           </h2>
           <p className="text-gray-400/70 text-base sm:text-xl 3xl:text-[1.75rem] max-w-xl 2xl:max-w-[34rem] 3xl:max-w-[48rem] 4xl:max-w-[56rem] 5xl:max-w-[64rem] 6xl:max-w-[72rem] mx-auto ">
-            Veja o que anunciantes de <span className="whitespace-nowrap">Google Ads</span>, <span className="whitespace-nowrap">Meta Ads</span> e gestores de tráfego dizem sobre operar com dado real.
+            <span dangerouslySetInnerHTML={{ __html: t("testimonials.subtitle") }} />
           </p>
         </motion.div>
 
@@ -106,7 +104,7 @@ export default function Testimonials() {
           initial={{ opacity: 0, y: 40 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7, delay: 0.2 }}
-          className="mx-auto w-full max-w-3xl 3xl:max-w-[60rem] 4xl:max-w-[72rem] 5xl:max-w-[84rem] 6xl:max-w-[96rem] text-center"
+          className="mx-auto w-full max-w-3xl 3xl:max-w-[60rem] 4xl:max-w-[72rem] 5xl:max-w-[84rem] 6xl:max-w-[96rem] text-center relative z-10"
         >
           <div className="relative h-32">
             <div className="pointer-events-none absolute left-1/2 top-0 h-[480px] w-[480px] 5xl:h-[540px] 5xl:w-[540px] 6xl:h-[680px] 6xl:w-[680px] -translate-x-1/2 before:absolute before:inset-0 before:-z-10 before:rounded-full before:bg-gradient-to-b before:from-orange-600/25 before:via-orange-600/5 before:via-25% before:to-orange-600/0 before:to-75%">
@@ -139,7 +137,7 @@ export default function Testimonials() {
           </div>
 
           <div className="mb-9 transition-all delay-300 duration-150 ease-in-out">
-            <div className="relative flex flex-col" ref={testimonialsRef}>
+            <div className="relative flex flex-col min-h-[200px]" ref={testimonialsRef}>
               {testimonials.map((testimonial, index) => (
                 <Transition
                   key={index}
@@ -147,7 +145,7 @@ export default function Testimonials() {
                   enter="transition ease-in-out duration-500 delay-200 order-first"
                   enterFrom="opacity-0 -translate-x-4"
                   enterTo="opacity-100 translate-x-0"
-                  leave="transition ease-out duration-300 delay-300 absolute"
+                  leave="transition ease-out duration-300 delay-300 absolute inset-0"
                   leaveFrom="opacity-100 translate-x-0"
                   leaveTo="opacity-0 translate-x-4"
                   beforeEnter={heightFix}

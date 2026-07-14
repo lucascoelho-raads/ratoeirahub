@@ -8,30 +8,10 @@ import { useMemo, useState } from "react";
 import { AuroraBackground } from "@/components/ui/aurora-background";
 import SpotlightBackground from "@/components/ui/spotlight-background";
 import { countries } from "@/lib/countries";
-
-const footerLinks = {
-  Produto: [
-    { href: "/#solucoes", label: "Funcionalidades" },
-    { href: "/integracoes/mais-de-70-plataformas", label: "Integrações" },
-    { href: "/planos#pricing-cards", label: "Preços" },
-  ],
-  Empresa: [
-    { href: "/quem-somos", label: "Sobre nós" },
-    { href: "/parcerias", label: "Parcerias" },
-  ],
-  Suporte: [
-    { href: "/faq", label: "Central de Ajuda" },
-    { href: "/fale-conosco", label: "Falar com vendas" },
-  ],
-  Legal: [
-    { href: "/privacidade/ads", label: "Privacidade" },
-    { href: "/termos-de-uso/ads", label: "Termos de uso" },
-  ],
-};
-
-const socialLinks = [{ href: "#", icon: Instagram, label: "Instagram" }];
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function Footer() {
+  const { t } = useLanguage();
   const pathname = usePathname();
   const showTransformSection = false;
 
@@ -78,6 +58,28 @@ export default function Footer() {
   const sectionClassName = isLightBackground
     ? "bg-surface-default text-text-primary"
     : "bg-[#050505] text-white";
+
+  const footerLinks = useMemo(() => ({
+    [t("footer.product")]: [
+      { href: "/#solucoes", label: t("footer.features") },
+      { href: "/integracoes/mais-de-70-plataformas", label: t("nav.integrations") },
+      { href: "/planos#pricing-cards", label: t("footer.pricing") },
+    ],
+    [t("footer.company")]: [
+      { href: "/quem-somos", label: t("footer.aboutUs") },
+      { href: "/parcerias", label: t("nav.partners") },
+    ],
+    [t("footer.support")]: [
+      { href: "/faq", label: t("footer.helpCenter") },
+      { href: "/fale-conosco", label: t("button.contactSales") },
+    ],
+    [t("footer.legal")]: [
+      { href: "/privacidade/ads", label: t("footer.privacy") },
+      { href: "/termos-de-uso/ads", label: t("footer.terms") },
+    ],
+  }), [t]);
+
+  const socialLinks = [{ href: "#", icon: Instagram, label: "Instagram" }];
   const subtitleClassName = isLightBackground
     ? "text-gray-50"
     : "text-gray-300";

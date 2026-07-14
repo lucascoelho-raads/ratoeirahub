@@ -4,8 +4,11 @@ import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { BeamsBackground } from "@/components/ui/ethereal-beams-hero";
 import Image from "next/image";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function HeroPages() {
+  const { t } = useLanguage();
+
   return (
     <section className="relative overflow-hidden bg-[#050505]">
       <BeamsBackground
@@ -29,10 +32,8 @@ export default function HeroPages() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
               className="text-display font-black text-white tracking-tight leading-tight mb-6 sm:mb-8 max-w-3xl lg:max-w-5xl 2xl:max-w-6xl 4xl:max-w-7xl mx-auto text-center hyphens-none"
-            >
-              <span className="text-orange-500">Páginas rápidas</span>, integradas ao seu <span className="text-orange-500">tracking</span>.{' '}
-              Prontas em minutos.
-            </motion.h1>
+              dangerouslySetInnerHTML={{ __html: t("heroPages.title") }}
+            />
 
             <motion.p
               initial={{ opacity: 0, y: 20 }}
@@ -40,7 +41,7 @@ export default function HeroPages() {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="text-body-lg text-gray-50 mb-12 max-w-3xl lg:max-w-4xl 2xl:max-w-5xl 4xl:max-w-6xl mx-auto hyphens-none"
             >
-              Construtor visual com templates testados para conversão, Flash Pages ultra-rápidas e geração por IA. Cada página já nasce com o tracking do Ratoeira Ads integrado — sem scripts avulsos, sem configuração manual.
+              {t("heroPages.subtitle")}
             </motion.p>
 
             <motion.div
@@ -53,7 +54,7 @@ export default function HeroPages() {
                 href="/planos#pricing-cards"
                 className="inline-flex items-center gap-2 px-8 py-4 2xl:px-10 2xl:py-5 rounded-button bg-[#FF7E4A] text-black font-bold hover:bg-[#e86b3b] transition-colors"
               >
-                Assinar Agora
+                {t("header.signIn")}
                 <ArrowRight className="w-5 h-5" />
               </a>
             </motion.div>

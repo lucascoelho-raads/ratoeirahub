@@ -1,22 +1,12 @@
 "use client";
 
 import { Check, Info, Box } from "lucide-react";
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import NumberFlow from "@number-flow/react";
 import { Button } from "@/components/ui/button";
-
-import {
-  PRICING_PAGE_PLANS,
-  PRICING_FEATURE_GROUPS,
-  type PlanFeatureValue,
-} from "./pricing-data";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 type TPricing = "YEARLY" | "MONTHLY";
-
-const currencyFormatter = new Intl.NumberFormat("pt-BR", {
-  minimumFractionDigits: 0,
-  maximumFractionDigits: 2,
-});
 
 function PlanIcon({ planId }: { planId: string }) {
   return (
@@ -26,7 +16,7 @@ function PlanIcon({ planId }: { planId: string }) {
   );
 }
 
-function FeatureCell({ value }: { value: PlanFeatureValue }) {
+function FeatureCell({ value }: { value: string | boolean | null }) {
   if (value === null) {
     return <span className="text-gray-500">—</span>;
   }
@@ -41,9 +31,69 @@ function FeatureCell({ value }: { value: PlanFeatureValue }) {
 }
 
 export default function DetailedPricing() {
+  const { t } = useLanguage();
   const [subscriptionType, setSubscriptionType] = useState<TPricing>("YEARLY");
-  const [activePlanIndex, setActivePlanIndex] = useState(1); // Default to featured
+  const [activePlanIndex, setActivePlanIndex] = useState(1);
   const isMonthly = subscriptionType === "MONTHLY";
+
+  const plans = useMemo(() => [
+    {
+      id: "rato",
+      name: t("pricing.plan.rato.name"),
+      description: t("pricing.plan.rato.description"),
+      monthlyPrice: 497,
+      yearlyPrice: 397,
+      cta: t("pricing.plan.rato.cta"),
+    },
+    {
+      id: "ratazana",
+      name: t("pricing.plan.ratazana.name"),
+      description: t("pricing.plan.ratazana.description"),
+      monthlyPrice: 797,
+      yearlyPrice: 597,
+      cta: t("pricing.plan.ratazana.cta"),
+      featured: true,
+    },
+    {
+      id: "ratazana_plus",
+      name: t("pricing.plan.ratazana_plus.name"),
+      description: t("pricing.plan.ratazana_plus.description"),
+      monthlyPrice: 1497,
+      yearlyPrice: 1197,
+      cta: t("pricing.plan.ratazana_plus.cta"),
+    },
+  ], [t]);
+
+  const featureGroups = useMemo(() => [
+    {
+      group: t("pricing.group.tracking"),
+      features: [
+        { label: t("pricing.feature.events"), tooltip: t("pricing.tooltip.events"), values: [t("pricing.value.10k"), t("pricing.value.50k"), t("pricing.value.unlimited")] as (string | boolean | null)[] },
+        { label: t("pricing.feature.serverSide"), tooltip: t("pricing.tooltip.serverSide"), values: [true, true, true] },
+        { label: t("pricing.feature.fraudBlock"), tooltip: t("pricing.tooltip.fraudBlock"), values: [t("pricing.value.basic"), t("pricing.value.advanced"), t("pricing.value.realtime")] },
+        { label: t("pricing.feature.customDomains"), tooltip: t("pricing.tooltip.customDomains"), values: [t("pricing.value.2"), t("pricing.value.5"), t("pricing.value.unlimited")] },
+      ],
+    },
+    {
+      group: t("pricing.group.pages"),
+      features: [
+        { label: t("pricing.feature.visits"), tooltip: t("pricing.tooltip.visits"), values: [t("pricing.value.5k"), t("pricing.value.25k"), t("pricing.value.unlimited")] as (string | boolean | null)[] },
+        { label: t("pricing.feature.templates"), tooltip: t("pricing.tooltip.templates"), values: [t("pricing.value.10"), t("pricing.value.all"), t("pricing.value.allEarly")] },
+        { label: t("pricing.feature.dragDrop"), tooltip: t("pricing.tooltip.dragDrop"), values: [true, true, true] },
+        { label: t("pricing.feature.aiGeneration"), tooltip: t("pricing.tooltip.aiGeneration"), values: [null, true, t("pricing.value.unlimited")] },
+        { label: t("pricing.feature.abTest"), tooltip: t("pricing.tooltip.abTest"), values: [null, true, true] },
+      ],
+    },
+    {
+      group: t("pricing.group.support"),
+      features: [
+        { label: t("pricing.feature.integrations"), tooltip: t("pricing.tooltip.integrations"), values: [true, true, true] },
+        { label: t("pricing.feature.roiDashboard"), tooltip: t("pricing.tooltip.roiDashboard"), values: [true, true, true] },
+        { label: t("pricing.feature.support"), tooltip: t("pricing.tooltip.support"), values: [t("pricing.value.email"), t("pricing.value.whatsapp"), t("pricing.value.whatsappVip")] },
+        { label: t("pricing.feature.accountManager"), tooltip: t("pricing.tooltip.accountManager"), values: [null, null, true] },
+      ],
+    },
+  ], [t]);
 
   return (
     <section className="py-16 md:py-24 bg-[#050505] relative overflow-hidden">
@@ -52,10 +102,10 @@ export default function DetailedPricing() {
       <div className="mx-auto max-w-5xl 2xl:max-w-[90rem] 4xl:max-w-[100rem] 5xl:max-w-[120rem] 6xl:max-w-[140rem] px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="mb-12 text-center sm:mb-16">
           <h2 className="mb-4 text-h1 font-black tracking-tight text-white ">
-            Compare os planos em detalhes
+            {t("pricing.compare.title")}
           </h2>
           <p className="text-base text-gray-400 sm:text-base max-w-2xl 2xl:max-w-[40rem] 4xl:max-w-[70rem] mx-auto ">
-            Descubra exatamente o que cada plano oferece e escolha a melhor opção para a escala da sua operação.
+            {t("pricing.compare.subtitle")}
           </p>
         </div>
 
@@ -69,7 +119,7 @@ export default function DetailedPricing() {
                   : "text-gray-400 hover:text-white"
               }`}
             >
-              Mensal
+              {t("pricing.billing.monthly")}
             </button>
             <button
               onClick={() => setSubscriptionType("YEARLY")}
@@ -79,7 +129,7 @@ export default function DetailedPricing() {
                   : "text-gray-400 hover:text-white"
               }`}
             >
-              Anual
+              {t("pricing.billing.yearly")}
               <span className="absolute -top-3 -right-2 px-2 py-0.5 bg-brand-primary text-black text-xs font-bold rounded-full uppercase tracking-wider">
                 -20%
               </span>
@@ -90,7 +140,7 @@ export default function DetailedPricing() {
         {/* Mobile View */}
         <div className="rounded-[24px] border border-white/10 bg-[#111111] overflow-hidden md:hidden">
           <div className="flex border-b border-white/10">
-            {PRICING_PAGE_PLANS.map((plan, i) => (
+            {plans.map((plan, i) => (
               <button
                 key={plan.id}
                 onClick={() => setActivePlanIndex(i)}
@@ -110,23 +160,23 @@ export default function DetailedPricing() {
               <span className="text-gray-400 text-lg">R$</span>
               <span className="text-4xl sm:text-5xl font-black text-white">
                 <NumberFlow
-                  value={isMonthly ? PRICING_PAGE_PLANS[activePlanIndex].monthlyPrice : PRICING_PAGE_PLANS[activePlanIndex].yearlyPrice}
+                  value={isMonthly ? plans[activePlanIndex].monthlyPrice : plans[activePlanIndex].yearlyPrice}
                 />
               </span>
               <span className="mb-1 text-sm text-gray-500">
-                {isMonthly ? "/mês" : "/ano"}
+                {isMonthly ? t("pricing.billing.perMonth") : t("pricing.billing.perYear")}
               </span>
             </div>
             <Button
-              variant={PRICING_PAGE_PLANS[activePlanIndex].featured ? "default" : "outline"}
+              variant={plans[activePlanIndex].featured ? "default" : "outline"}
               size="lg"
               className="w-full"
             >
-              {PRICING_PAGE_PLANS[activePlanIndex].cta}
+              {plans[activePlanIndex].cta}
             </Button>
           </div>
 
-          {PRICING_FEATURE_GROUPS.map((group, gi) => (
+          {featureGroups.map((group, gi) => (
             <div key={group.group}>
               <div className="bg-white/5 px-6 py-3 border-y border-white/10 first:border-t-0">
                 <span className="text-xs font-bold uppercase tracking-wider text-brand-primary">
@@ -162,10 +212,10 @@ export default function DetailedPricing() {
           <div className="grid grid-cols-[1fr_repeat(3,_220px)] border-b border-white/10">
             <div className="p-8 flex items-end">
               <span className="text-lg font-bold text-white">
-                Recursos inclusos
+                {t("pricing.table.features")}
               </span>
             </div>
-            {PRICING_PAGE_PLANS.map((plan) => {
+            {plans.map((plan) => {
               const price = isMonthly ? plan.monthlyPrice : plan.yearlyPrice;
               return (
                 <div key={plan.id} className={`p-8 flex flex-col ${plan.featured ? 'bg-white/5 relative' : ''}`}>
@@ -184,7 +234,7 @@ export default function DetailedPricing() {
                       <NumberFlow value={price} />
                     </span>
                     <span className="text-sm text-gray-500 mb-1">
-                      {isMonthly ? "/mês" : "/ano"}
+                      {isMonthly ? t("pricing.billing.perMonth") : t("pricing.billing.perYear")}
                     </span>
                   </div>
                   <Button
@@ -202,7 +252,7 @@ export default function DetailedPricing() {
           {/* Features Rows */}
           <div className="grid grid-cols-[1fr_repeat(3,_220px)] border-b border-white/10 bg-[#0A0A0A]">
             <div className="px-8 py-3" />
-            {PRICING_PAGE_PLANS.map((plan, i) => (
+            {plans.map((plan, i) => (
               <div
                 key={`col-label-${plan.id}`}
                 className={`flex items-center justify-center px-8 py-3 min-h-11 text-sm font-bold uppercase tracking-wider text-gray-300 ${
@@ -213,7 +263,7 @@ export default function DetailedPricing() {
               </div>
             ))}
           </div>
-          {PRICING_FEATURE_GROUPS.map((group, gi) => (
+          {featureGroups.map((group, gi) => (
             <div key={group.group}>
               <div className="px-8 py-4 border-y border-white/10 first:border-t-0 grid grid-cols-[1fr_repeat(3,_220px)] relative">
                 <div className="flex items-center">

@@ -1,9 +1,19 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { useMemo } from "react";
 
 export const HeroNativeAds = () => {
+  const { t } = useLanguage();
+
+  const title = useMemo(() => t("nativeAds.hero.title"), [t]);
+  const subtitle = useMemo(() => t("nativeAds.hero.subtitle"), [t]);
+  const button = useMemo(() => t("header.signIn"), [t]);
+
   return (
     <div className="relative overflow-hidden bg-[#050505]">
       <div
@@ -18,14 +28,9 @@ export const HeroNativeAds = () => {
       <section className="relative">
         <div className="relative mx-auto max-w-6xl 2xl:max-w-[90rem] 4xl:max-w-[110rem] 5xl:max-w-[130rem] 6xl:max-w-[150rem] px-6 pt-[clamp(7rem,12vh,10rem)] pb-10">
           <div className="relative z-10 mx-auto max-w-3xl 2xl:max-w-[60rem] 4xl:max-w-[80rem] text-center">
-            <h1 className="text-display font-black text-white tracking-tight leading-tight mb-6 max-w-3xl lg:max-w-4xl mx-auto text-center hyphens-none">
-              <span style={{ color: "#FFB800" }}>Taboola</span> e{" "}
-              <span style={{ color: "#FFB800" }}>NewsBreak</span>{" "}
-              com rastreamento de elite.
-            </h1>
+            <h1 className="text-display font-black text-white tracking-tight leading-tight mb-6 max-w-3xl lg:max-w-4xl mx-auto text-center hyphens-none" dangerouslySetInnerHTML={{ __html: title }} />
             <p className="mx-auto my-8 max-w-5xl 2xl:max-w-[80rem] 4xl:max-w-[100rem] text-center text-body-lg text-gray-300 leading-relaxed hyphens-none">
-              <span className="block">Anúncios nativos têm jornada longa.</span>
-              <span className="block">A Ratoeira conecta visitas, leads e vendas aos seus criativos na Taboola e no NewsBreak.</span>
+              {subtitle}
             </p>
 
             <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
@@ -35,7 +40,7 @@ export const HeroNativeAds = () => {
                 className="h-14 px-8 2xl:h-16 2xl:px-10 2xl:text-xl font-bold text-black whitespace-nowrap"
               >
                 <Link href="/planos#pricing-cards">
-                  Assinar Agora
+                  {button}
                   <ArrowRight className="w-5 h-5 ml-2" />
                 </Link>
               </Button>

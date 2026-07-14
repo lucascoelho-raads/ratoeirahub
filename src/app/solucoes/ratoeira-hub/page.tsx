@@ -1,3 +1,5 @@
+"use client";
+
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Image from "next/image";
@@ -14,53 +16,51 @@ import {
 import { BeamsBackground } from "@/components/ui/ethereal-beams-hero";
 import { GradientText } from "@/components/ui/gradient-text";
 import { BlurTextEffect } from "@/components/ui/blur-text-effect";
-
-export const metadata = {
-  title: "Ratoeira Hub | Ads + Pages em um único dashboard",
-  description:
-    "Integre Ratoeira Ads e Ratoeira Pages em um único fluxo: dados consistentes, operação simples e visão total para escalar.",
-};
-
-const features = [
-  {
-    title: "Integração nativa via API",
-    description:
-      "Quando Ads e Pages operam no mesmo ecossistema, o dado da página alimenta o tracking em tempo real — sem delay, sem gap, sem configuração manual. A taxa de rastreamento sobe além do que cada produto entrega separado. É a integração que faz o algoritmo trabalhar com informação completa.",
-    icon: Link2,
-  },
-  {
-    title: "Um dashboard. Toda a operação.",
-    description:
-      "Campanhas do Google Ads e Meta Ads, performance das páginas, conversões rastreadas e bloqueios ativos — tudo numa tela. Sem alternar entre ferramentas, sem perder tempo consolidando planilha. Você vê o que está funcionando e age antes da concorrência.",
-    icon: Radar,
-  },
-  {
-    title: "Páginas que carregam em menos de 1 segundo",
-    description:
-      "Velocidade de carregamento abaixo de 1 segundo, hospedagem inclusa e domínios conectados no mesmo ecossistema. Cada página já nasce rastreada — sem script avulso, sem perda de dado entre o clique e a conversão. Cria, publica e escala o que converte.",
-    icon: LayoutTemplate,
-  },
-  {
-    title: "Precisão de ~100% — porque os dois lados estão conectados",
-    description:
-      "Com Ads e Pages integrados via API, a precisão do tracking sobe além do que cada produto entrega separado. O dado da página confirma o dado da campanha — e vice-versa. O resultado: quase nenhuma conversão fica de fora, e o algoritmo recebe o sinal mais limpo possível para otimizar.",
-    icon: Server,
-  },
-  {
-    title: "Mais fraude bloqueada. Mais verba protegida. (Google Ads)",
-    description:
-      "Exclusivo para Google Ads. Com Pages e Ads integrados, o sistema identifica padrões de tráfego inválido com mais precisão — e bloqueia automaticamente mais IPs do que cada produto faria sozinho. Menos clique fraudulento, mais orçamento chegando em quem tem chance real de comprar.",
-    icon: ShieldCheck,
-  },
-  {
-    title: "Crie, rastreie e escale — sem sair da plataforma",
-    description:
-      "Criar uma página, ativar o tracking, subir a campanha e acompanhar o resultado em tempo real — tudo dentro do Hub, sem trocar de ferramenta. Menos tempo operacional, mais tempo tomando a decisão que escala. Para quem opera no digital, velocidade de iteração é vantagem competitiva.",
-    icon: LineChart,
-  },
-];
+import { useLanguage } from "@/contexts/LanguageContext";
+import { useMemo } from "react";
 
 export default function RatoeiraHubPage() {
+  const { t } = useLanguage();
+
+  const features = useMemo(() => [
+    {
+      id: "integration",
+      title: t("hub.features.integration"),
+      description: t("hub.features.integrationDesc"),
+      icon: Link2,
+    },
+    {
+      id: "dashboard",
+      title: t("hub.features.dashboard"),
+      description: t("hub.features.dashboardDesc"),
+      icon: Radar,
+    },
+    {
+      id: "pages",
+      title: t("hub.features.pages"),
+      description: t("hub.features.pagesDesc"),
+      icon: LayoutTemplate,
+    },
+    {
+      id: "precision",
+      title: t("hub.features.precision"),
+      description: t("hub.features.precisionDesc"),
+      icon: Server,
+    },
+    {
+      id: "fraud",
+      title: t("hub.features.fraud"),
+      description: t("hub.features.fraudDesc"),
+      icon: ShieldCheck,
+    },
+    {
+      id: "create",
+      title: t("hub.features.create"),
+      description: t("hub.features.createDesc"),
+      icon: LineChart,
+    },
+  ], [t]);
+
   return (
     <main className="flex flex-col flex-1 bg-[#050505] text-white">
       <Navbar />
@@ -85,22 +85,16 @@ export default function RatoeiraHubPage() {
           />
           <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-4 pt-[clamp(3rem,8vh,5rem)] md:pt-[clamp(7rem,16vh,12rem)] pb-[clamp(4.5rem,10vh,8.5rem)]">
             <div className="max-w-6xl 2xl:max-w-[90rem] 4xl:max-w-[110rem] 5xl:max-w-[130rem] 6xl:max-w-[150rem] text-center">
-              <h1 className="text-display font-black text-white tracking-tight leading-tight mb-6 sm:mb-8 max-w-4xl lg:max-w-6xl 2xl:max-w-7xl mx-auto text-center hyphens-none">
-                Quando <span style={{ color: "#FFB800" }}>Ads</span> e <span style={{ color: "#FF7E4A" }}>Pages</span> trabalham juntos, sua <span style={{ color: "#FFB800" }}>operação</span> chega onde nenhuma <span style={{ color: "#FFB800" }}>ferramenta</span> sozinha chega.
-              </h1>
+              <h1 className="text-display font-black text-white tracking-tight leading-tight mb-6 sm:mb-8 max-w-4xl lg:max-w-6xl 2xl:max-w-7xl mx-auto text-center hyphens-none" dangerouslySetInnerHTML={{ __html: t("hub.hero.title") }} />
 
-              <p className="text-body-lg text-neutral-400 mb-12 max-w-3xl lg:max-w-4xl 2xl:max-w-5xl 4xl:max-w-6xl mx-auto px-4 sm:px-0 hyphens-none">
-                Rastreamento ~100%. Páginas que carregam em menos de 1 segundo.
-                Bloqueio automático de fraude. Tudo integrado via API — e
-                funcionando melhor do que a soma das partes.
-              </p>
+              <p className="text-body-lg text-neutral-400 mb-12 max-w-3xl lg:max-w-4xl 2xl:max-w-5xl 4xl:max-w-6xl mx-auto px-4 sm:px-0 hyphens-none" dangerouslySetInnerHTML={{ __html: t("hub.hero.subtitle") }} />
 
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <a
                   href="/planos#pricing-cards"
                   className="inline-flex items-center gap-2 px-8 py-4 2xl:px-10 2xl:py-5 rounded-button bg-gradient-to-r from-yellow-500 to-orange-500 text-black font-semibold hover:from-yellow-400 hover:to-orange-400 transition-colors"
                 >
-                  Assinar Agora
+                  {t("header.signIn")}
                   <ArrowRight className="w-5 h-5" />
                 </a>
               </div>
@@ -130,18 +124,8 @@ export default function RatoeiraHubPage() {
       >
         <div className="max-w-7xl 2xl:max-w-[90rem] 4xl:max-w-[120rem] 5xl:max-w-[140rem] 6xl:max-w-[160rem] mx-auto px-4 2xl:px-12 4xl:px-20 5xl:px-28 6xl:px-36 relative z-10">
           <div className="text-center mb-20">
-            <h2 className="text-h1 font-black text-white mb-6 tracking-tight leading-tight hyphens-none">
-              Integrado é diferente de{" "}
-              <span className="bg-gradient-to-r from-yellow-400 to-orange-500 bg-clip-text text-transparent">
-                conectado
-              </span>
-              .
-            </h2>
-            <p className="text-body-lg text-gray-400 max-w-3xl mx-auto px-4 sm:px-0 hyphens-none">
-              A maioria das ferramentas se conecta. O Ratoeira Hub se integra —
-              via API, em tempo real, sem gap entre o clique na página e o dado
-              na campanha.
-            </p>
+            <h2 className="text-h1 font-black text-white mb-6 tracking-tight leading-tight hyphens-none" dangerouslySetInnerHTML={{ __html: t("hub.section.title") }} />
+            <p className="text-body-lg text-gray-400 max-w-3xl mx-auto px-4 sm:px-0 hyphens-none" dangerouslySetInnerHTML={{ __html: t("hub.section.subtitle") }} />
           </div>
 
           <div className="space-y-16 md:space-y-32">
@@ -176,7 +160,7 @@ export default function RatoeiraHubPage() {
                     <div className="relative aspect-[4/3] rounded-2xl border border-white/10 bg-[#111111] overflow-hidden group cursor-zoom-in shadow-xl hover:scale-[1.35] hover:z-20 transition-transform duration-300 ease-out">
                       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(80%_70%_at_50%_40%,rgba(255,184,0,0.12)_0%,rgba(0,0,0,0)_70%)] z-10" />
 
-                      {feature.title === "Integração nativa via API" ? (
+                      {feature.title === t("hub.features.integration") ? (
                         <div className="absolute inset-0">
                           <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-yellow-500/15 via-orange-500/10 to-transparent" />
                           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(70%_80%_at_50%_50%,rgba(255,184,0,0.16)_0%,rgba(17,17,17,0)_70%)]" />
@@ -189,7 +173,7 @@ export default function RatoeiraHubPage() {
                                     P
                                   </span>
                                   <span className="text-sm font-semibold text-gray-400/80">
-                                    Página
+                                    {t("hub.diagram.page")}
                                   </span>
                                 </div>
                                 <div className="flex items-center gap-2">
@@ -197,7 +181,7 @@ export default function RatoeiraHubPage() {
                                     A
                                   </span>
                                   <span className="text-sm font-semibold text-gray-400/80">
-                                    Ads
+                                    {t("hub.diagram.ads")}
                                   </span>
                                 </div>
                               </div>
@@ -205,10 +189,10 @@ export default function RatoeiraHubPage() {
                               <div className="mt-7 grid grid-cols-1 sm:grid-cols-3 items-center gap-3">
                                 <div className="rounded-xl border border-white/10 bg-black/30 p-3">
                                   <p className="text-[11px] font-semibold text-gray-400/60">
-                                    Página
+                                    {t("hub.diagram.page")}
                                   </p>
                                   <p className="mt-1 text-xs font-bold text-white">
-                                    Click
+                                    {t("hub.diagram.click")}
                                   </p>
                                 </div>
 
@@ -222,10 +206,10 @@ export default function RatoeiraHubPage() {
 
                                 <div className="rounded-xl border border-white/10 bg-black/30 p-3 text-right">
                                   <p className="text-[11px] font-semibold text-gray-400/60">
-                                    Ads
+                                    {t("hub.diagram.ads")}
                                   </p>
                                   <p className="mt-1 text-xs font-bold text-white">
-                                    Conversão
+                                    {t("hub.diagram.conversion")}
                                   </p>
                                 </div>
                               </div>
@@ -241,13 +225,12 @@ export default function RatoeiraHubPage() {
                               </div>
 
                               <p className="mt-5 text-center text-[11px] font-semibold text-gray-400/60">
-                                Integração via API · loop fechado
+                                {t("hub.diagram.caption")}
                               </p>
                             </div>
                           </div>
                         </div>
-                      ) : feature.title ===
-                        "Páginas que carregam em menos de 1 segundo" ? (
+                      ) : feature.title === t("hub.features.pages") ? (
                         <div className="absolute inset-0">
                           <Image
                             src="/imagem pages/flashpages.png"
@@ -280,8 +263,7 @@ export default function RatoeiraHubPage() {
                             </div>
                           </div>
                         </div>
-                      ) : feature.title ===
-                        "Precisão de ~100% — porque os dois lados estão conectados" ? (
+                      ) : feature.id === "precision" ? (
                         <div className="absolute inset-0">
                           <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-yellow-500/12 via-orange-500/10 to-transparent" />
                           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(70%_80%_at_50%_40%,rgba(255,184,0,0.14)_0%,rgba(17,17,17,0)_70%)]" />
@@ -330,8 +312,7 @@ export default function RatoeiraHubPage() {
                             </div>
                           </div>
                         </div>
-                      ) : feature.title ===
-                        "Mais fraude bloqueada. Mais verba protegida. (Google Ads)" ? (
+                      ) : feature.id === "fraud" ? (
                         <div className="absolute inset-0">
                           <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-yellow-500/10 via-orange-500/10 to-transparent" />
                           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(70%_80%_at_50%_50%,rgba(255,184,0,0.12)_0%,rgba(17,17,17,0)_70%)]" />
@@ -417,8 +398,7 @@ export default function RatoeiraHubPage() {
                             </div>
                           </div>
                         </div>
-                      ) : feature.title ===
-                        "Crie, rastreie e escale — sem sair da plataforma" ? (
+                      ) : feature.id === "create" ? (
                         <div className="absolute inset-0">
                           <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-yellow-500/12 via-orange-500/10 to-transparent" />
                           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(70%_80%_at_50%_40%,rgba(255,184,0,0.12)_0%,rgba(17,17,17,0)_70%)]" />
@@ -502,18 +482,8 @@ export default function RatoeiraHubPage() {
 
       <section className="bg-[#050505] flex items-center justify-center min-h-[auto] md:min-h-[clamp(600px,70vh,900px)] py-16 md:py-24">
         <div className="max-w-6xl 2xl:max-w-[90rem] 4xl:max-w-[110rem] 5xl:max-w-[130rem] 6xl:max-w-[150rem] mx-auto px-4 2xl:px-12 4xl:px-20 5xl:px-28 6xl:px-36 relative z-20 text-center w-full">
-          <h2 className="text-h1 font-black text-white mb-6 tracking-tight leading-tight px-4 hyphens-none">
-            O{" "}
-            <GradientText variant="orange" className="font-black">
-              ecossistema completo
-            </GradientText>{" "}
-            do tráfego pago. Em um lugar.
-          </h2>
-          <p className="text-body-lg text-gray-400 max-w-3xl mx-auto mb-10 leading-relaxed px-4 hyphens-none">
-            Ads + Pages integrados via API. Rastreamento ~100%. Páginas abaixo
-            de 1 segundo. Bloqueio automático de fraude. Tudo que você precisa
-            para escalar com dado real.
-          </p>
+          <h2 className="text-h1 font-black text-white mb-6 tracking-tight leading-tight px-4 hyphens-none" dangerouslySetInnerHTML={{ __html: t("hub.cta.title") }} />
+          <p className="text-body-lg text-gray-400 max-w-3xl mx-auto mb-10 leading-relaxed px-4 hyphens-none" dangerouslySetInnerHTML={{ __html: t("hub.cta.subtitle") }} />
 
           <div className="relative mx-auto mb-10 w-full max-w-6xl 2xl:max-w-[90rem] 4xl:max-w-[110rem] 5xl:max-w-[130rem] 6xl:max-w-[150rem] pointer-events-none">
             <div
@@ -1237,7 +1207,7 @@ export default function RatoeiraHubPage() {
             href="/planos"
             className="relative z-30 inline-flex items-center gap-2 px-10 py-5 mt-6 bg-gradient-to-r from-yellow-500 to-orange-500 text-black font-bold rounded-button hover:from-yellow-400 hover:to-orange-400 transition-all text-xl shadow-xl shadow-orange-500/20 hover:scale-105 active:scale-95"
           >
-            Ver planos e assinar agora
+            {t("hub.cta.button")}
             <ArrowRight className="w-6 h-6" />
           </Link>
         </div>

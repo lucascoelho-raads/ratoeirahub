@@ -4,8 +4,10 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import Image from "next/image";
 import { Bell, BarChart3 } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function AppSection() {
+  const { t } = useLanguage();
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
@@ -24,13 +26,8 @@ export default function AppSection() {
         >
           {/* Text Content */}
           <div className="flex-1 text-center lg:text-left">
-            <h2 className="text-h1 text-[#111827] mb-6 hyphens-none">
-              <span className="block md:whitespace-nowrap">Que tal uma ratoeira no seu <span className="text-brand-primary">bolso</span>?</span>
-            </h2>
-            <p className="text-body-lg text-[#4b5563] max-w-xl 2xl:max-w-[50rem] 4xl:max-w-[60rem] mx-auto lg:mx-0 hyphens-none">
-              Com o APP da <span className="whitespace-nowrap">Ratoeira Ads</span>, você recebe as notificações e tem acesso ao seu
-              Dashboard de vendas, tudo em tempo real.
-            </p>
+            <h2 className="text-h1 text-[#111827] mb-6 hyphens-none" dangerouslySetInnerHTML={{ __html: t("heroAds.app.title") }} />
+            <p className="text-body-lg text-[#4b5563] max-w-xl 2xl:max-w-[50rem] 4xl:max-w-[60rem] mx-auto lg:mx-0 hyphens-none" dangerouslySetInnerHTML={{ __html: t("heroAds.app.description") }} />
 
             {/* Feature highlights */}
             <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
@@ -38,13 +35,13 @@ export default function AppSection() {
                 <div className="w-10 h-10 rounded-lg bg-brand-primary/20 flex items-center justify-center shrink-0">
                   <Bell className="w-5 h-5 text-brand-primary" />
                 </div>
-                <span className="text-body font-semibold text-[#374151]">Notificações em tempo real</span>
+                <span className="text-body font-semibold text-[#374151]">{t("heroAds.app.notifications")}</span>
               </div>
               <div className="flex items-center gap-3 px-4 py-3 bg-white border border-black/10 rounded-xl">
                 <div className="w-10 h-10 rounded-lg bg-brand-primary/20 flex items-center justify-center shrink-0">
                   <BarChart3 className="w-5 h-5 text-brand-primary" />
                 </div>
-                <span className="text-body font-semibold text-[#374151]">Dashboard de vendas</span>
+                <span className="text-body font-semibold text-[#374151]">{t("heroAds.app.dashboard")}</span>
               </div>
             </div>
           </div>

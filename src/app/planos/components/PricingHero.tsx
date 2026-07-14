@@ -2,8 +2,10 @@
 
 import { motion } from "framer-motion";
 import VturbPlayer from "./VturbPlayer";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function PricingHero() {
+  const { t } = useLanguage();
   return (
     <section className="relative pt-20 sm:pt-32 pb-12 sm:pb-20 overflow-hidden bg-black">
       {/* Decorative background elements */}
@@ -16,11 +18,9 @@ export default function PricingHero() {
           transition={{ duration: 0.6 }}
           className="max-w-3xl 2xl:max-w-[60rem] 4xl:max-w-[80rem] mx-auto mb-16"
         >
-          <h1 className="text-display font-black text-white leading-tight mb-6 max-w-4xl 2xl:max-w-5xl 4xl:max-w-6xl mx-auto text-center">
-            Escolha o Plano Ideal Para <span className="text-brand-primary">Escalar sua Operação</span>
-          </h1>
+          <h1 className="text-display font-black text-white leading-tight mb-6 max-w-4xl 2xl:max-w-5xl 4xl:max-w-6xl mx-auto text-center" dangerouslySetInnerHTML={{ __html: t("pricing.hero.title") }} />
           <p className="text-base sm:text-xl text-gray-400 px-4 sm:px-0 ">
-            Sem surpresas ou letras miúdas. Entenda os limites de cada plano e escolha a estrutura que vai multiplicar seus resultados.
+            {t("pricing.hero.subtitle")}
           </p>
         </motion.div>
 

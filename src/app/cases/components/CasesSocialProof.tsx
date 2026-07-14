@@ -3,6 +3,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { Play, ChevronLeft, ChevronRight, X } from "lucide-react";
 import { useState, useRef, useEffect, useCallback } from "react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 /* ─── Types ─── */
 interface YoutubeShortCard {
@@ -10,8 +11,10 @@ interface YoutubeShortCard {
   url?: string;
   videoSrc?: string;
   thumbnail: string;
-  title: string;
-  speaker: string;
+  // Títulos e speakers são resolvidos via i18n no componente
+  // para suportar tradução por idioma.
+  titleKey: string;
+  speakerKey: string;
 }
 
 /* ─── Data ─── */
@@ -20,37 +23,37 @@ const videos: YoutubeShortCard[] = [
     id: "amanda-ligia",
     url: "https://www.youtube.com/shorts/5edTCBZu-ds",
     thumbnail: "https://img.youtube.com/vi/5edTCBZu-ds/maxresdefault.jpg",
-    title: "Depoimento 1",
-    speaker: "Amanda & Lígia - Fênix",
+    titleKey: "cases.socialProof.video.amanda-ligia.title",
+    speakerKey: "cases.socialProof.video.amanda-ligia.speaker",
   },
   {
     id: "michel-pogne",
     videoSrc:
       "/depoimentos/Michael%20Pogne%20indica%20a%20Ratoeira%20Ads%20para%20afiliados.mp4",
     thumbnail: "/depoimentos/michel_pogne_thumb.jpg",
-    title: "Customer Story",
-    speaker: "Michel Pogne",
+    titleKey: "cases.socialProof.video.michel-pogne.title",
+    speakerKey: "cases.socialProof.video.michel-pogne.speaker",
   },
   {
     id: "bruno-matos",
     url: "https://www.youtube.com/shorts/fmfF1_7g0mM",
     thumbnail: "https://img.youtube.com/vi/fmfF1_7g0mM/maxresdefault.jpg",
-    title: "Depoimento Bruno",
-    speaker: "Bruno Matos",
+    titleKey: "cases.socialProof.video.bruno-matos.title",
+    speakerKey: "cases.socialProof.video.bruno-matos.speaker",
   },
   {
     id: "jessica-maciel",
     url: "https://www.youtube.com/shorts/qdP5z0bFfP8",
     thumbnail: "https://img.youtube.com/vi/qdP5z0bFfP8/maxresdefault.jpg",
-    title: "Depoimento 3",
-    speaker: "Jéssica Maciel",
+    titleKey: "cases.socialProof.video.jessica-maciel.title",
+    speakerKey: "cases.socialProof.video.jessica-maciel.speaker",
   },
   {
     id: "alexander-lopes",
     url: "https://www.youtube.com/shorts/04xowV0-fPw",
     thumbnail: "https://img.youtube.com/vi/04xowV0-fPw/maxresdefault.jpg",
-    title: "Depoimento 4",
-    speaker: "Alexander Lopes",
+    titleKey: "cases.socialProof.video.alexander-lopes.title",
+    speakerKey: "cases.socialProof.video.alexander-lopes.speaker",
   },
 ];
 
@@ -69,6 +72,7 @@ function VideoCard({
   card: YoutubeShortCard;
   onClick: () => void;
 }) {
+  const { t } = useLanguage();
   return (
     <button
       type="button"
@@ -77,7 +81,7 @@ function VideoCard({
     >
       <img
         src={card.thumbnail}
-        alt={card.title}
+        alt={t(card.titleKey)}
         className="absolute inset-0 w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-transform duration-700 group-hover:scale-105"
       />
       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
@@ -90,7 +94,7 @@ function VideoCard({
 
       <div className="absolute bottom-0 left-0 w-full p-5">
         <p className="text-white font-bold text-sm leading-tight">
-          {card.speaker}
+          {t(card.speakerKey)}
         </p>
       </div>
     </button>
@@ -107,6 +111,7 @@ function VideoCarousel({
   items: YoutubeShortCard[];
   onVideoClick: (card: YoutubeShortCard) => void;
 }) {
+  const { t } = useLanguage();
   const itemCount = items.length;
   const loopedItems = [...items, ...items];
   const [activeIndex, setActiveIndex] = useState(0);
@@ -186,7 +191,7 @@ function VideoCarousel({
       <button
         type="button"
         onClick={() => goTo("left")}
-        aria-label="Anterior"
+        aria-label={t("cases.socialProof.carousel.prev")}
         className="absolute left-0 sm:-left-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-black/60 hover:bg-black/80 backdrop-blur-md border border-white/10 flex items-center justify-center text-white transition-all"
       >
         <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" />
@@ -194,7 +199,7 @@ function VideoCarousel({
       <button
         type="button"
         onClick={() => goTo("right")}
-        aria-label="Próximo"
+        aria-label={t("cases.socialProof.carousel.next")}
         className="absolute right-0 sm:-right-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-black/60 hover:bg-black/80 backdrop-blur-md border border-white/10 flex items-center justify-center text-white transition-all"
       >
         <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6" />
@@ -210,7 +215,7 @@ function VideoCarousel({
               if (noTransition) return;
               setActiveIndex(i);
             }}
-            aria-label={`Ir para vídeo ${i + 1}`}
+            aria-label={t("cases.socialProof.carousel.goto").replace("{number}", String(i + 1))}
             className={`h-2 rounded-full transition-all ${
               i === safeIndex
                 ? "bg-brand-primary w-6"
@@ -225,6 +230,7 @@ function VideoCarousel({
 
 /* ─── Main Component ─── */
 export default function CasesSocialProof() {
+  const { t } = useLanguage();
   const [activeVideo, setActiveVideo] = useState<string | null>(null);
   const [activeYouTubeShort, setActiveYouTubeShort] = useState<string | null>(null);
 
@@ -251,14 +257,14 @@ export default function CasesSocialProof() {
             className="text-center mb-12 md:mb-16"
           >
             <div className="inline-flex items-center gap-2 px-4 py-2 mb-6 rounded-full bg-brand-primary/10 border border-brand-primary/20 text-brand-primary text-sm font-bold uppercase tracking-widest">
-              Cases de Sucesso
+              {t("cases.socialProof.badge")}
             </div>
             <h1 className="text-display font-black text-white leading-tight mb-6 tracking-tight text-center">
-              Eles confiaram. <span className="text-brand-primary">Eles escalaram.</span>
+              {t("cases.socialProof.title1")}{" "}
+              <span className="text-brand-primary">{t("cases.socialProof.title2")}</span>
             </h1>
             <p className="text-base sm:text-xl text-gray-400 max-w-2xl 2xl:max-w-[50rem] 4xl:max-w-[70rem] mx-auto">
-              Não acredite apenas em nós. Veja o que os maiores players do
-              mercado estão falando sobre o ecossistema Ratoeira Hub.
+              {t("cases.socialProof.description")}
             </p>
           </motion.div>
 
@@ -278,8 +284,7 @@ export default function CasesSocialProof() {
             className="text-center mb-10"
           >
             <h2 className="text-h1 font-black text-white leading-tight tracking-tight">
-              Os maiores <span className="text-brand-500">players</span> do{" "}
-              <span className="text-brand-500">mercado</span>
+              {t("cases.socialProof.playersTitle")}
             </h2>
           </motion.div>
           <motion.div
@@ -293,7 +298,7 @@ export default function CasesSocialProof() {
             <div className="absolute inset-0 z-10 bg-gradient-to-tr from-brand-500/0 via-white/0 to-brand-500/0 opacity-0 transition-opacity duration-500 group-hover:opacity-10 pointer-events-none" />
             <img
               src="/depoimentos/players.webp"
-              alt="Players que confiam na Ratoeira"
+              alt={t("cases.socialProof.playersAlt")}
               width={1600}
               height={900}
               className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-[1.03]"
@@ -362,7 +367,7 @@ export default function CasesSocialProof() {
               </button>
               <iframe
                 src={`https://www.youtube.com/embed/${activeYouTubeShort}?autoplay=1&rel=0`}
-                title="YouTube Short"
+                title={t("cases.socialProof.youtube.title")}
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
                 className="w-full h-full"

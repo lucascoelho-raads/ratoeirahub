@@ -2,8 +2,11 @@
 
 import { SplineScene } from "@/components/ui/splite"
 import { Spotlight } from "@/components/ui/spotlight"
+import { useLanguage } from "@/contexts/LanguageContext"
 
 export function SplineSceneBasic() {
+  const { t } = useLanguage();
+
   return (
     <div className="relative w-full min-h-[696px] lg:min-h-[100svh] overflow-hidden">
       <Spotlight className="-top-40 left-0 md:left-60 md:-top-20" fill="#FFB800" />
@@ -12,11 +15,11 @@ export function SplineSceneBasic() {
 
       <div className="relative z-10 mx-auto flex min-h-[696px] lg:min-h-[100svh] max-w-7xl 3xl:max-w-[100rem] 4xl:max-w-[120rem] flex-col px-4 py-[clamp(5.5rem,10vh,8.5rem)] sm:px-6 lg:flex-row lg:items-center lg:gap-12 lg:px-8 3xl:px-12 4xl:px-20 lg:py-[clamp(6.5rem,10vh,9rem)]">
         <div className="relative z-20 flex-1 flex flex-col justify-center mt-36 lg:mt-0">
-          <h1 className="text-display font-black bg-clip-text text-transparent bg-gradient-to-b from-[#FFB800] to-neutral-300 text-center">
-            Conexões com IA
+          <h1 className="text-display font-black bg-clip-text text-transparent bg-gradient-to-b from-[#FFB800] to-neutral-300 text-center lg:text-left">
+            {t("aiConnection.hero.title")}
           </h1>
           <p className="mt-4 text-neutral-300 max-w-lg  text-center lg:text-left">
-            Sua operação de anúncios, acessível para o Claude e o ChatGPT. Consulte, decida e execute — sem abrir o painel.
+            {t("aiConnection.hero.subtitle")}
           </p>
 
           <div className="mt-6 flex justify-center lg:justify-start">
@@ -24,7 +27,7 @@ export function SplineSceneBasic() {
               href="/planos#pricing-cards"
               className="inline-flex items-center gap-2 px-8 py-4 rounded-button bg-gradient-to-r from-[#FFB800] to-orange-500 text-black font-semibold hover:from-yellow-400 hover:to-orange-400 transition-colors"
             >
-              Assinar Agora
+              {t("header.signIn")}
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
             </a>
           </div>

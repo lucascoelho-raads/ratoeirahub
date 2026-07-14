@@ -1,3 +1,5 @@
+"use client";
+
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Link from "next/link";
@@ -5,59 +7,60 @@ import Image from "next/image";
 import { ArrowRight, Clapperboard, Gauge, LayoutDashboard, Network, Sparkles, TrendingUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { HeroMetaAds } from "./components/HeroMetaAds";
-
-export const metadata = {
-  title: "Meta Ads | Fonte de Tráfego | Ratoeira Hub",
-  description:
-    "Otimize criativos e escale no Facebook e Instagram com dados limpos, proteção contra fraude e visão total de performance.",
-};
-
-const pillars = [
-  {
-    title: "Envio duplo: browser + CAPI com deduplicação",
-    description:
-      "O pixel no navegador perde entre 25% e 40% das conversões por bloqueadores de anúncio, restrições de iOS e falhas de conexão. A Ratoeira envia cada evento pelos dois caminhos ao mesmo tempo — via browser e via API de Conversões (CAPI) — com deduplicação automática para que nenhuma venda seja contada duas vezes. O resultado: ~100% de cobertura, sem ruído, sem gap.",
-    icon: TrendingUp,
-    image: "/serveraside.png",
-  },
-  {
-    title: "Enriquecimento de dados — Pixel Quality Score mais alto",
-    description:
-      "Além de enviar o evento de conversão, a Ratoeira enriquece o dado enviado ao Meta com informações do comprador — email, telefone e outros identificadores com hash seguro. O Meta cruza esses dados com os perfis reais da plataforma, eleva seu Pixel Quality Score e passa a encontrar pessoas com perfil verdadeiro de compra — não só de clique. CPL cai. ROAS sobe. O algoritmo finalmente trabalha com dado verdadeiro.",
-    icon: Sparkles,
-    image: "/dashboard_resumo.png",
-  },
-  {
-    title: "Saiba exatamente qual criativo gerou cada venda",
-    description:
-      "Com rastreamento ~100% e envio enriquecido via CAPI, você para de depender de \"conversões estimadas\" e começa a ver conversões reais — atribuídas ao conjunto de anúncios, ao criativo e ao público que as gerou. Chega de escalar criativo por achismo. Você escala o que converte com dado real e pausa o que drena antes de queimar mais verba.",
-    icon: Clapperboard,
-    image: "/dashboard.png",
-  },
-  {
-    title: "Visitas, leads e vendas. Tudo visível numa tela.",
-    description:
-      "Enquanto outras ferramentas mostram só de onde vieram os cliques, a Ratoeira mostra de onde vieram as vendas — com visitas, leads e conversões integradas num único dashboard. Você enxerga o funil completo: quantos entraram, quantos viraram lead e quantos compraram — por campanha, por criativo, por público. Mais dado real no pixel significa públicos melhores, criativos mais inteligentes e um custo por aquisição que cai enquanto o lucro sobe.",
-    icon: Network,
-    image: "/dashboard_resumo.png",
-  },
-  {
-    title: "Dados mais rápidos que o Ads Manager.",
-    description:
-      "O Meta Ads Manager demora para consolidar conversões — e nesse intervalo o algoritmo pode continuar otimizando para o público errado. A Ratoeira mostra seus dados integrados — visitas, leads e vendas — mais rápido do que o próprio painel do Meta. Você vê o que está funcionando e toma a decisão certa antes que o algoritmo tome a errada. Para quem escala no Meta, velocidade de leitura é vantagem competitiva.",
-    icon: Gauge,
-    image: "/dash.png",
-  },
-  {
-    title: "Meta Ads e Google Ads. Um único dashboard.",
-    description:
-      "Gerencie suas campanhas no Meta e no Google sem alternar entre ferramentas. Investimento, conversões, leads e ROI de cada canal — consolidados numa tela. Sem exportar relatório, sem montar planilha, sem perder tempo consolidando dado. Você vê o que está funcionando em cada canal e age antes de desperdiçar mais verba.",
-    icon: LayoutDashboard,
-    image: "/dashboard.png",
-  },
-];
+import { useLanguage } from "@/contexts/LanguageContext";
+import { useMemo } from "react";
 
 export default function MetaAdsTrafficSourcePage() {
+  const { t } = useLanguage();
+
+  const sectionTitle = useMemo(() => t("metaAds.section.title"), [t]);
+  const sectionSubtitle = useMemo(() => t("metaAds.section.subtitle"), [t]);
+  const ctaTitle = useMemo(() => t("metaAds.cta.title"), [t]);
+  const ctaDescription = useMemo(() => t("metaAds.cta.description"), [t]);
+  const ctaButton = useMemo(() => t("metaAds.cta.button"), [t]);
+
+  const pillars = useMemo(
+    () => [
+      {
+        title: t("metaAds.pillars.dualSend.title"),
+        description: t("metaAds.pillars.dualSend.description"),
+        icon: TrendingUp,
+        image: "/serveraside.png",
+      },
+      {
+        title: t("metaAds.pillars.enrichment.title"),
+        description: t("metaAds.pillars.enrichment.description"),
+        icon: Sparkles,
+        image: "/dashboard_resumo.png",
+      },
+      {
+        title: t("metaAds.pillars.creative.title"),
+        description: t("metaAds.pillars.creative.description"),
+        icon: Clapperboard,
+        image: "/dashboard.png",
+      },
+      {
+        title: t("metaAds.pillars.visible.title"),
+        description: t("metaAds.pillars.visible.description"),
+        icon: Network,
+        image: "/dashboard_resumo.png",
+      },
+      {
+        title: t("metaAds.pillars.fastData.title"),
+        description: t("metaAds.pillars.fastData.description"),
+        icon: Gauge,
+        image: "/dash.png",
+      },
+      {
+        title: t("metaAds.pillars.unified.title"),
+        description: t("metaAds.pillars.unified.description"),
+        icon: LayoutDashboard,
+        image: "/dashboard.png",
+      },
+    ],
+    [t]
+  );
+
   return (
     <main className="flex flex-col flex-1 bg-[#050505] text-white">
       <Navbar />
@@ -67,11 +70,10 @@ export default function MetaAdsTrafficSourcePage() {
         <div className="mx-auto max-w-6xl 2xl:max-w-[90rem] 4xl:max-w-[110rem] 5xl:max-w-[130rem] 6xl:max-w-[150rem] px-4 sm:px-6 lg:px-8 2xl:px-12 4xl:px-20 5xl:px-28 6xl:px-36">
           <div className="mb-10">
             <h2 className="text-h1 font-black text-white tracking-tight leading-tight hyphens-none">
-              O Meta Ads só otimiza tão bem quanto o dado que recebe.
+              {sectionTitle}
             </h2>
             <p className="mt-4 text-body-lg text-gray-300 max-w-3xl 2xl:max-w-[60rem] 4xl:max-w-[80rem] hyphens-none">
-              Quando o pixel perde conversões, o algoritmo aprende errado — e vai buscar o público errado. A Ratoeira garante
-              que cada venda real chegue ao Meta com qualidade máxima, do clique ao pagamento.
+              {sectionSubtitle}
             </p>
           </div>
 
@@ -122,18 +124,14 @@ export default function MetaAdsTrafficSourcePage() {
         <div className="mx-auto max-w-6xl 2xl:max-w-[90rem] 4xl:max-w-[110rem] 5xl:max-w-[130rem] 6xl:max-w-[150rem] px-4 sm:px-6 lg:px-8 2xl:px-12 4xl:px-20 5xl:px-28 6xl:px-36">
           <div className="rounded-[32px] border border-white/10 bg-[#0A0A0A] p-6 sm:p-10 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 sm:gap-8">
             <div>
-              <h3 className="text-h2 font-black text-white tracking-tight leading-tight hyphens-none">
-                Pronto para escalar{" "}
-                <span className="text-brand-primary">Meta Ads</span>{" "}
-                com dados limpos?
-              </h3>
+              <h3 className="text-h2 font-black text-white tracking-tight leading-tight hyphens-none" dangerouslySetInnerHTML={{ __html: ctaTitle }} />
               <p className="mt-3 text-body-lg text-gray-300 max-w-2xl 2xl:max-w-[50rem] 4xl:max-w-[70rem] hyphens-none">
-                Veja os planos e escolha a melhor configuração para seu volume de tráfego.
+                {ctaDescription}
               </p>
             </div>
             <Button asChild size="lg" className="h-12 px-8 text-base">
               <Link href="/planos">
-                Ver Planos <ArrowRight className="ml-2 h-5 w-5" />
+                {ctaButton} <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
             </Button>
           </div>

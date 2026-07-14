@@ -1,10 +1,11 @@
 "use client";
 
-import { useState, Fragment, useRef, useCallback, useEffect } from "react";
+import { useState, Fragment, useRef, useCallback, useEffect, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Check, ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 import SubscriptionModal from "./SubscriptionModal";
+import { useLanguage } from "@/contexts/LanguageContext";
 import {
   useFloating,
   offset,
@@ -22,95 +23,188 @@ import {
 type PlanType = "ads" | "pages" | "hub";
 type BillingCycle = "monthly" | "semiannual" | "annual";
 
-const TABS: { id: PlanType; label: string; icon: string; badge?: string }[] = [
-  {
-    id: "ads",
-    label: "Ratoeira Ads",
-    icon: "/icons/pricing/ads-icon.png",
-  },
-  {
-    id: "pages",
-    label: "Ratoeira Pages",
-    icon: "/icons/pricing/pages-icon.png",
-  },
-  {
-    id: "hub",
-    label: "Ratoeira Hub",
-    icon: "/icons/pricing/hub-icon.png",
-    badge: "RECOMENDADO",
-  },
-];
+type TranslateFn = (key: string) => string;
 
 const GOOGLE_ADS_LOGO = "/icons/pricing/google-ads.webp";
 const META_ADS_LOGO = "/icons/pricing/meta-ads.png";
 const TABOOLA_LOGO = "/taboolalogo.png";
 const NEWSBREAK_LOGO = "/newbreaklogo.webp";
 
-const PERIODS: { id: BillingCycle; label: string }[] = [
-  { id: "monthly", label: "Mensal" },
-  { id: "semiannual", label: "Semestral" },
-  { id: "annual", label: "Anual" },
-];
+// Mapeia o nome hardcoded do plano para a chave i18n correspondente
+const PLAN_NAME_KEY: Record<string, string> = {
+  Gratuito: "planos.card.name.gratuito",
+  Rato: "planos.card.name.rato",
+  Ratazana: "planos.card.name.ratazana",
+  "Ratazana Plus": "planos.card.name.ratazanaPlus",
+};
 
-const DESCRIPTIONS: Record<
-  PlanType,
-  Record<BillingCycle, string[]>
-> = {
+// Mapeia labels de features/limites (primeira coluna) para chaves i18n
+const LIMIT_LABEL_KEY: Record<string, string> = {
+  "Tag Ratoeira Automática": "planos.feature.tagAuto",
+  "Integrações / Webhooks": "planos.feature.integrations",
+  "Perfis/E-mail Google Ads": "planos.feature.profilesGoogle",
+  "Vendas aprovadas/mês": "planos.feature.approvedSales",
+  "Acessos mensais": "planos.feature.monthlyVisits",
+  "Domínios": "planos.feature.customDomains",
+  "Domínios customizados": "planos.feature.customDomains",
+  "Páginas": "planos.feature.pages",
+  "Hospedagem Grátis": "planos.feature.freeHosting",
+  "Hospedagem Turbo": "planos.feature.turboHosting",
+  "Conexão com IA": "planos.feature.aiConnection",
+  "Contas Google Ads": "planos.feature.accountsGoogle",
+  "Contas Meta Ads": "planos.feature.accountsMeta",
+  "Contas Taboola": "planos.feature.accountsTaboola",
+  "Contas NewsBreak": "planos.feature.accountsNewsbreak",
+  "Gerenciador Integrado": "planos.feature.integratedManager",
+  "Dashboard Financeiro": "planos.feature.financialDashboard",
+  "Acesso aos leads": "planos.feature.leadAccess",
+  "Analytics Avançado": "planos.feature.advancedAnalytics",
+  "Aulas e tutoriais": "planos.feature.lessonsTutorials",
+  "Integração com IA (MCP)": "planos.feature.aiIntegration",
+  "Acesso Beta VIP à novas funcionalidades": "planos.feature.betaVip",
+  "Acesso a todos os eventos": "planos.feature.allEvents",
+  "Acesso às vendas com detalhes": "planos.feature.detailedSales",
+  "Acesso à todas as visitas": "planos.feature.allVisits",
+  "Suporte WhatsApp": "planos.feature.whatsappSupport",
+  "Construtor de página intuitivo": "planos.feature.intuitiveBuilder",
+  "Templates Exclusivos": "planos.feature.exclusiveTemplates",
+  "Clonador de páginas": "planos.feature.pageCloner",
+  "Tudo acima de Ads e Pages": "planos.feature.allAbove",
+  "Maior performance": "planos.feature.higherPerformance",
+  "Segurança reforçada": "planos.feature.enhancedSecurity",
+  "Maior economia": "planos.feature.higherSavings",
+  "Maior taxa de rastreamento": "planos.feature.higherTracking",
+  "Login unificado": "planos.feature.unifiedLogin",
+};
+
+// Mapeia labels de plataformas (primeira coluna) para chaves i18n
+const PLATFORM_LABEL_KEY: Record<string, string> = {
+  "Google Ads": "planos.platform.googleAds",
+  "Meta Ads": "planos.platform.metaAds",
+  "Taboola": "planos.platform.taboola",
+  "NewsBreak": "planos.platform.newsbreak",
+};
+
+// Mapeia footnotes hardcoded para chaves i18n
+const FOOTNOTE_KEY: Record<string, string> = {
+  "* Sem cobrança adicional – após é necessário upgrade":
+    "planos.footnote.extraSales",
+  "* R$0,12 por venda extra aprovada":
+    "planos.footnote.extraSalesRate",
+  "* R$0,10 por venda extra aprovada":
+    "planos.footnote.extraSalesRate2",
+  "* R$0,07 por venda extra aprovada":
+    "planos.footnote.extraSalesRate3",
+};
+
+// Detecta "Até N *" e devolve a versão traduzida com placeholder
+function translateLimitValue(value: string, t: TranslateFn): string {
+  const match = value.match(/^Até ([\d.]+) \*$/);
+  if (match) {
+    return t("planos.feature.upTo").replace("{amount}", match[1]);
+  }
+  // Valores com gênero em PT (Ilimitado / Ilimitada / Ilimitadas)
+  if (/^Ilimit/i.test(value)) {
+    return t("planos.value.unlimited");
+  }
+  return value;
+}
+
+// Traduz o valor de "avista" (ex: "ou R$657,00 à vista" / "por R$797,00 à vista")
+function translateAvista(avista: string, t: TranslateFn): string {
+  const match = avista.match(/^(ou|por) R\$([\d.,]+) à vista$/);
+  if (!match) return avista;
+  const [, prefix, price] = match;
+  const key = prefix === "por" ? "planos.forAVista" : "planos.orAVista";
+  return t(key).replace("{price}", `R$${price}`);
+}
+
+// Mapeia o badge hardcoded para a chave i18n
+const PLAN_BADGE_KEY: Record<string, string> = {
+  "MAIS ESCOLHIDO": "planos.card.badge.mostChosen",
+  "MELHOR PREÇO": "planos.card.badge.bestPrice",
+};
+
+// Mapeia o CTA hardcoded para a chave i18n
+const PLAN_CTA_KEY: Record<string, string> = {
+  "Começar Grátis": "planos.cta.startFree",
+  "Assinar Rato": "planos.cta.signRato",
+  "Assinar Ratazana": "planos.cta.signRatazana",
+  "Assinar Ratazana Plus": "planos.cta.signRatazanaPlus",
+};
+
+// Resolve a chave de tradução a partir do valor hardcoded; faz fallback
+// para o valor original caso ele não esteja mapeado (ex: textos novos).
+function resolvePlanText(
+  original: string,
+  keyMap: Record<string, string>,
+  t: TranslateFn,
+): string {
+  const key = keyMap[original];
+  if (!key) return original;
+  const translated = t(key);
+  // se a tradução não existir (t() devolve a key original), mantém o texto
+  return translated === key ? original : translated;
+}
+
+const buildDescriptions = (
+  t: TranslateFn,
+): Record<PlanType, Record<BillingCycle, string[]>> => ({
   ads: {
     monthly: [
-      "Para testar o rastreamento sem compromisso.",
-      "Para quem está validando as primeiras campanhas.",
-      "Para anunciantes que já escalam com consistência.",
-      "Para operações robustas de alto volume.",
+      t("planos.desc.ads.monthly.1"),
+      t("planos.desc.ads.monthly.2"),
+      t("planos.desc.ads.monthly.3"),
+      t("planos.desc.ads.monthly.4"),
     ],
     semiannual: [
-      "Para quem está validando as primeiras campanhas.",
-      "Para anunciantes que já escalam com consistência.",
-      "Para operações robustas de alto volume.",
+      t("planos.desc.ads.semiannual.1"),
+      t("planos.desc.ads.semiannual.2"),
+      t("planos.desc.ads.semiannual.3"),
     ],
     annual: [
-      "Para quem está validando as primeiras campanhas.",
-      "Para anunciantes que já escalam com consistência.",
-      "Para operações robustas de alto volume.",
+      t("planos.desc.ads.annual.1"),
+      t("planos.desc.ads.annual.2"),
+      t("planos.desc.ads.annual.3"),
     ],
   },
   pages: {
     monthly: [
-      "Para testar a performance da Ratoeira Pages.",
-      "Para quem está iniciando e precisa de mais páginas.",
-      "Ideal para te dar flexibilidade de domínios.",
-      "Plano ideal para não travar sua escala.",
+      t("planos.desc.pages.monthly.1"),
+      t("planos.desc.pages.monthly.2"),
+      t("planos.desc.pages.monthly.3"),
+      t("planos.desc.pages.monthly.4"),
     ],
     semiannual: [
-      "Para quem está iniciando e precisa de mais páginas.",
-      "Ideal para te dar flexibilidade de domínios.",
-      "Plano ideal para não travar sua escala.",
+      t("planos.desc.pages.semiannual.1"),
+      t("planos.desc.pages.semiannual.2"),
+      t("planos.desc.pages.semiannual.3"),
     ],
     annual: [
-      "Para quem está iniciando e precisa de mais páginas.",
-      "Ideal para te dar flexibilidade de domínios.",
-      "Plano ideal para não travar sua escala.",
+      t("planos.desc.pages.annual.1"),
+      t("planos.desc.pages.annual.2"),
+      t("planos.desc.pages.annual.3"),
     ],
   },
   hub: {
     monthly: [
-      "Conheça o ecossistema Ratoeira sem compromisso.",
-      "O combo ideal para iniciar sua escala integrada.",
-      "Ideal para ter flexibilidade de teste e escala.",
-      "Ideal para não travar sua escala.",
+      t("planos.desc.hub.monthly.1"),
+      t("planos.desc.hub.monthly.2"),
+      t("planos.desc.hub.monthly.3"),
+      t("planos.desc.hub.monthly.4"),
     ],
     semiannual: [
-      "O combo ideal para iniciar sua escala integrada.",
-      "Ideal para ter flexibilidade de teste e escala.",
-      "Ideal para não travar sua escala.",
+      t("planos.desc.hub.semiannual.1"),
+      t("planos.desc.hub.semiannual.2"),
+      t("planos.desc.hub.semiannual.3"),
     ],
     annual: [
-      "O combo ideal para iniciar sua escala integrada.",
-      "Ideal para ter flexibilidade de teste e escala.",
-      "Ideal para não travar sua escala.",
+      t("planos.desc.hub.annual.1"),
+      t("planos.desc.hub.annual.2"),
+      t("planos.desc.hub.annual.3"),
     ],
   },
-};
+});
 
 // Source: /tmp/pricing_cards.json
 const PRICING_CARDS: PricingCard[] = [
@@ -1420,8 +1514,12 @@ function PricingCardComponent({
   product: PlanType;
   onSubscribe: (planName: string, checkoutUrl: string) => void;
 }) {
-  const isYellow = card.badge === "MAIS ESCOLHIDO";
-  const isGreen = card.badge === "MELHOR PREÇO";
+  const { t } = useLanguage();
+  // Identifica a variante do badge pelo KEY original (não pela string
+  // traduzida) para que a cor funcione em todos os idiomas.
+  const badgeKey = PLAN_BADGE_KEY[card.badge] ?? null;
+  const isYellow = badgeKey === "planos.card.badge.mostChosen";
+  const isGreen = badgeKey === "planos.card.badge.bestPrice";
 
   const ctaClass = isGreen
     ? "bg-[#22c55e] text-[#0d0d0d] hover:bg-[#16a34a]"
@@ -1434,7 +1532,7 @@ function PricingCardComponent({
     return (
       <>
         <div className="text-[10px] font-extrabold uppercase tracking-[0.1em] text-[#666666] mt-3 mb-2">
-          Contas de Anúncio
+          {t("planos.card.adAccounts")}
         </div>
         <div className="flex flex-col gap-1.5">
           {card.platforms.map(([name, value]) => (
@@ -1456,9 +1554,11 @@ function PricingCardComponent({
                   alt={name}
                   className="w-[18px] h-[18px] object-contain rounded-[3px]"
                 />
-                <span className="text-xs text-[#cccccc]">{name}</span>
+                <span className="text-xs text-[#cccccc]">
+                  {resolvePlanText(name, PLATFORM_LABEL_KEY, t)}
+                </span>
               </div>
-              <LimitValue value={value} />
+              <LimitValue value={translateLimitValue(value, t)} />
             </div>
           ))}
         </div>
@@ -1468,13 +1568,19 @@ function PricingCardComponent({
 
   const renderLimitRow = (label: string, value: string) => (
     <div key={label} className="flex justify-between items-center gap-2 mb-1.5">
-      <span className="text-xs text-[#aaaaaa]">{label}</span>
-      <LimitValue value={value} />
+      <span className="text-xs text-[#aaaaaa]">
+        {resolvePlanText(label, LIMIT_LABEL_KEY, t)}
+      </span>
+      <LimitValue value={translateLimitValue(value, t)} />
     </div>
   );
 
   // Render limits with optional subsection headers for Hub
   const renderLimits = () => {
+    const footnoteText = card.footnote
+      ? resolvePlanText(card.footnote, FOOTNOTE_KEY, t)
+      : null;
+
     if (product === "hub" && card.hub_subs.length > 0) {
       // Split limits between Ratoeira Ads and Ratoeira Pages sections
       const adsLimitCount = 4;
@@ -1484,17 +1590,17 @@ function PricingCardComponent({
       return (
         <>
           <div className="text-[10px] font-extrabold uppercase tracking-[0.1em] text-[#f59f0a] mb-1.5">
-            RATOEIRA ADS
+            {t("planos.card.hubSubsectionAds")}
           </div>
           {adsLimits.map(([label, value]) => renderLimitRow(label, value))}
           {renderAdAccounts()}
-          {card.footnote && (
+          {footnoteText && (
             <div className="text-xs text-[#888888] mt-1.5 mb-1">
-              {card.footnote}
+              {footnoteText}
             </div>
           )}
           <div className="text-[10px] font-extrabold uppercase tracking-[0.1em] text-[#f59f0a] mt-2.5 mb-1.5">
-            RATOEIRA PAGES
+            {t("planos.card.hubSubsectionPages")}
           </div>
           {pagesLimits.map(([label, value]) => renderLimitRow(label, value))}
         </>
@@ -1505,9 +1611,9 @@ function PricingCardComponent({
       <>
         {card.limits.map(([label, value]) => renderLimitRow(label, value))}
         {renderAdAccounts()}
-        {card.footnote && (
+        {footnoteText && (
           <div className="text-xs text-[#888888] mt-1.5 mb-1">
-            {card.footnote}
+            {footnoteText}
           </div>
         )}
       </>
@@ -1535,37 +1641,43 @@ function PricingCardComponent({
               : "bg-[#22c55e] text-[#0d0d0d]",
           )}
         >
-          {card.badge}
+          {resolvePlanText(card.badge, PLAN_BADGE_KEY, t)}
         </span>
       )}
 
-      <div className="text-xl font-extrabold text-white mb-1">{card.name}</div>
+      <div className="text-xl font-extrabold text-white mb-1">
+        {resolvePlanText(card.name, PLAN_NAME_KEY, t)}
+      </div>
       <div className="text-[13px] text-[#888888] mb-4 min-h-[36px]">{description}</div>
 
       {card.inst && (
         <div className="text-[11px] font-bold text-[#f59f0a] uppercase tracking-[0.08em] mb-0.5">
-          {card.inst}
+          {card.inst === "6X"
+            ? t("planos.perMonthInstallment")
+            : card.inst === "12X"
+              ? t("planos.perMonthInstallmentAnnual")
+              : card.inst}
         </div>
       )}
       <div className="flex items-baseline gap-1 mb-1">
         {card.val === "0,00" ? (
-          <span className="text-[32px] font-black text-white leading-none">Grátis</span>
+          <span className="text-[32px] font-black text-white leading-none">{t("planos.card.free")}</span>
         ) : (
           <>
-            <span className="text-base text-[#aaaaaa]">R$</span>
+            <span className="text-base text-[#aaaaaa]">{t("planos.card.currency")}</span>
             <span className="text-[32px] font-black text-white leading-none">{card.val}</span>
-            <span className="text-[13px] text-[#888888]">{card.per}</span>
+            <span className="text-[13px] text-[#888888]">{t("planos.perMonth")}</span>
           </>
         )}
       </div>
       {card.avista && (
-        <div className="text-xs text-[#666666] mb-3">{card.avista}</div>
+        <div className="text-xs text-[#666666] mb-3">{translateAvista(card.avista, t)}</div>
       )}
 
       <div className="h-px bg-white/[0.07] my-4" />
 
       <div className="text-[10px] font-extrabold uppercase tracking-[0.1em] text-[#666666] mb-2.5">
-        Limites do Plano
+        {t("planos.card.planLimits")}
       </div>
 
       {renderLimits()}
@@ -1575,19 +1687,22 @@ function PricingCardComponent({
       <button
         id="btn_checkout_ratoeira"
         type="button"
-        onClick={() => onSubscribe(card.name, getPlanHref(card))}
+        onClick={() =>
+          onSubscribe(resolvePlanText(card.name, PLAN_NAME_KEY, t), getPlanHref(card))
+        }
         className={cn(
           "w-full mt-4 py-3 rounded-xl text-sm font-bold text-center transition-colors",
           ctaClass,
         )}
       >
-        {card.cta}
+        {resolvePlanText(card.cta, PLAN_CTA_KEY, t)}
       </button>
     </div>
   );
 }
 
 function ComparisonTable() {
+  const { t } = useLanguage();
   const [collapsed, setCollapsed] = useState<Record<string, boolean>>({
     "rows-ads": true,
     "rows-pgs": true,
@@ -1598,11 +1713,11 @@ function ComparisonTable() {
     setCollapsed((prev) => ({ ...prev, [target]: !prev[target] }));
   };
 
-  const sections: { target: string; label: string }[] = [
-    { target: "rows-ads", label: "Ratoeira Ads" },
-    { target: "rows-pgs", label: "Ratoeira Pages" },
-    { target: "rows-hub", label: "Ratoeira Hub" },
-  ];
+  const sections: { target: string; label: string }[] = useMemo(() => [
+    { target: "rows-ads", label: t("planos.compare.section.ads") },
+    { target: "rows-pgs", label: t("planos.compare.section.pages") },
+    { target: "rows-hub", label: t("planos.compare.section.hub") },
+  ], [t]);
 
   const renderCell = (value: string) => {
     if (value === "") {
@@ -1613,11 +1728,16 @@ function ComparisonTable() {
       );
     }
     if (/^ilimit/i.test(value)) {
+      const translated = translateLimitValue(value, t);
       return (
         <span className="inline-flex items-center rounded-full border border-white/10 bg-white/[0.05] px-2 py-0.5 text-[11px] font-semibold text-white whitespace-nowrap">
-          {value}
+          {translated}
         </span>
       );
+    }
+    // Trata "Até N *" para permanecer traduzido em qualquer idioma
+    if (/^Até /.test(value)) {
+      return <span className="text-[13px] text-neutral-300">{translateLimitValue(value, t)}</span>;
     }
     return <span className="text-[13px] text-neutral-300">{value}</span>;
   };
@@ -1634,19 +1754,19 @@ function ComparisonTable() {
         <thead className="sticky top-0 md:top-16 z-10">
           <tr>
             <th className="bg-[#0d0d0d] text-[#aaaaaa] text-xs font-bold uppercase tracking-[0.06em] text-left py-3 px-3.5 border-b border-white/[0.06]">
-              Recursos
+              {t("planos.compare.tableHeader")}
             </th>
             <th className="bg-[#0d0d0d] text-[#aaaaaa] text-xs font-bold uppercase tracking-[0.06em] text-center py-3 px-3.5 border-b border-white/[0.06]">
-              Rato
+              {t("planos.card.name.rato")}
             </th>
             <th className="bg-[#0d0d0d] text-[#aaaaaa] text-xs font-bold uppercase tracking-[0.06em] text-center py-3 px-3.5 border-b border-white/[0.06]">
-              Ratazana
+              {t("planos.card.name.ratazana")}
             </th>
             <th className="bg-[#0d0d0d] text-[#f59f0a] text-xs font-bold uppercase tracking-[0.06em] text-center py-3 px-3.5 border-b border-white/[0.06]">
               <span className="block text-[10px] text-[#22c55e] font-bold uppercase tracking-[0.08em] mb-0.5">
-                Recomendado
+                {t("planos.compare.recommended")}
               </span>
-              Ratazana Plus
+              {t("planos.card.name.ratazanaPlus")}
             </th>
           </tr>
         </thead>
@@ -1670,7 +1790,7 @@ function ComparisonTable() {
                         {section.label}
                       </span>
                       <span className="inline-flex items-center gap-1.5 rounded-full bg-[#f59f0a] px-3 py-1 text-xs font-bold text-[#0d0d0d]">
-                        <span>{isCollapsed ? "Expandir" : "Fechar"}</span>
+                        <span>{isCollapsed ? t("planos.compare.expand") : t("planos.compare.collapse")}</span>
                         <ChevronDown
                           className={cn(
                             "h-4 w-4 transition-transform duration-200 text-[#d97706]",
@@ -1682,9 +1802,11 @@ function ComparisonTable() {
                   </td>
                 </tr>
                 {!isCollapsed &&
-                  sectionRows.map((row, i) => (
+                  sectionRows.map((row, i) => {
+                    const translatedLabel = resolvePlanText(row.label, LIMIT_LABEL_KEY, t);
+                    return (
                     <tr
-                      key={row.label}
+                      key={i}
                       className={cn(
                         "transition-colors hover:bg-white/[0.02]",
                         i % 2 === 0 ? "bg-white/[0.02]" : "bg-transparent",
@@ -1693,7 +1815,7 @@ function ComparisonTable() {
                       <td className="py-3 px-3.5 text-left text-[13px] font-medium text-[#cccccc] border-b border-white/[0.06]">
                         {row.label === "Gerenciador Integrado" ? (
                           <span className="inline-flex items-center gap-1.5">
-                            {row.label}
+                            {translatedLabel}
                             <img
                               src={GOOGLE_ADS_LOGO}
                               alt="Google Ads"
@@ -1701,7 +1823,7 @@ function ComparisonTable() {
                             />
                           </span>
                         ) : (
-                          row.label
+                          translatedLabel
                         )}
                       </td>
                       <td className="py-3 px-3.5 text-center border-b border-white/[0.06]">
@@ -1714,7 +1836,8 @@ function ComparisonTable() {
                         {renderCell(row.ratazana_plus)}
                       </td>
                     </tr>
-                  ))}
+                    );
+                  })}
               </Fragment>
             );
           })}
@@ -1725,6 +1848,7 @@ function ComparisonTable() {
 }
 
 export default function PricingTabs() {
+  const { t } = useLanguage();
   const [activeTab, setActiveTab] = useState<PlanType>("hub");
   const [billingCycle, setBillingCycle] = useState<BillingCycle>("annual");
   const [modalOpen, setModalOpen] = useState(false);
@@ -1732,8 +1856,24 @@ export default function PricingTabs() {
   const [activeSlide, setActiveSlide] = useState(0);
   const carouselRef = useRef<HTMLDivElement>(null);
 
+  const tabs = useMemo(() => [
+    { id: "ads" as PlanType, label: t("planos.tabs.ads"), icon: "/icons/pricing/ads-icon.png" },
+    { id: "pages" as PlanType, label: t("planos.tabs.pages"), icon: "/icons/pricing/pages-icon.png" },
+    { id: "hub" as PlanType, label: t("planos.tabs.hub"), icon: "/icons/pricing/hub-icon.png", badge: t("planos.tabs.recommended") },
+  ], [t]);
+
+  const periods = useMemo(() => [
+    { id: "monthly" as BillingCycle, label: t("planos.period.monthly") },
+    { id: "semiannual" as BillingCycle, label: t("planos.period.semiannual") },
+    { id: "annual" as BillingCycle, label: t("planos.period.annual") },
+  ], [t]);
+
+  const descriptions = useMemo(
+    () => buildDescriptions(t)[activeTab][billingCycle],
+    [activeTab, billingCycle, t],
+  );
+
   const cards = getCards(activeTab, billingCycle);
-  const descriptions = DESCRIPTIONS[activeTab][billingCycle];
 
   const handleScroll = useCallback(() => {
     const el = carouselRef.current;
@@ -1778,7 +1918,7 @@ export default function PricingTabs() {
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
         {/* Tabs */}
         <div className="flex flex-wrap justify-center gap-2 pt-8 pb-5">
-          {TABS.map((tab) => {
+          {tabs.map((tab) => {
             const isActive = activeTab === tab.id;
             return (
               <button
@@ -1810,7 +1950,7 @@ export default function PricingTabs() {
         {/* Billing cycle */}
         <div className="flex justify-center pb-6">
           <div className="inline-flex items-center gap-1 p-1 bg-white/[0.05] border border-white/[0.1] rounded-full">
-            {PERIODS.map((p) => {
+            {periods.map((p) => {
               const isActive = billingCycle === p.id;
               return (
                 <button
@@ -1861,8 +2001,7 @@ export default function PricingTabs() {
 
         {/* Footer note */}
         <p className="text-center text-xs text-[#FFB800] pb-4 md:pb-10 px-6">
-          * Renovação automática – Ao prosseguir você concorda que a assinatura
-          será renovada automaticamente.
+          {t("planos.card.autoRenewal")}
         </p>
 
         {/* Mobile slide indicators */}
@@ -1885,7 +2024,7 @@ export default function PricingTabs() {
                   ? "w-6 h-2 bg-[#f59f0a]"
                   : "w-2 h-2 bg-white/20 hover:bg-white/40",
               )}
-              aria-label={`Slide ${i + 1}`}
+              aria-label={t("planos.carousel.slideLabel").replace("{number}", String(i + 1))}
             />
           ))}
         </div>
@@ -1901,10 +2040,10 @@ export default function PricingTabs() {
         <div className="pt-10 pb-16">
           <div className="text-center mb-6">
             <h2 className="text-h1 font-extrabold text-white mb-1.5">
-              Compare os Planos
+              {t("planos.compare.title")}
             </h2>
             <p className="text-sm text-[#888888]">
-              Encontre a configuração ideal para sua operação
+              {t("planos.compare.subtitle")}
             </p>
           </div>
           <ComparisonTable />

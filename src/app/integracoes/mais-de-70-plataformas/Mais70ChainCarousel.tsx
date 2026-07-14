@@ -2,6 +2,7 @@
 
 import ChainCarousel, { type ChainItem } from "@/components/ui/chain-carousel";
 import { TrendingUp } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const LOGO_FILES = [
   "AdCombo-logo.png",
@@ -133,6 +134,7 @@ function humanizeLogoName(fileName: string) {
 }
 
 export default function Mais70ChainCarousel() {
+  const { t } = useLanguage();
   const safeFiles = LOGO_FILES.filter((name) => !name.includes(" "));
   const items: ChainItem[] = safeFiles.slice(0, 150).map((file, idx) => ({
     id: `${idx}-${file}`,
@@ -145,7 +147,7 @@ export default function Mais70ChainCarousel() {
     <section className="py-20 bg-[#050505]">
       <div className="max-w-7xl 2xl:max-w-[90rem] 4xl:max-w-[120rem] 5xl:max-w-[140rem] 6xl:max-w-[160rem] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-12 4xl:px-20 5xl:px-28 6xl:px-36">
         <h2 className="text-center text-h1 font-black text-[#FFB800] tracking-tight">
-          Conexão em minutos. Zero retrabalho.
+          {t("mais70.carousel.title")}
         </h2>
         <div className="h-10" />
         <ChainCarousel items={items} visibleItemCount={9} scrollSpeedMs={1200} />

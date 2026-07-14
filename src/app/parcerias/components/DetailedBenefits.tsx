@@ -1,37 +1,41 @@
 "use client";
 
+import { useMemo } from "react";
 import { motion } from "framer-motion";
 import { DollarSign, Repeat, ShieldCheck, Zap, Users, GraduationCap } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useLanguage } from "@/contexts/LanguageContext";
 
-const detailedBenefits = [
-  {
-    icon: Repeat,
-    title: "Receita Recorrente Real",
-    description: "Enquanto seu indicado usar a Ratoeira, você recebe comissão recorrente sobre o valor da assinatura todos os meses. Comece em 10% e evolua conforme o número de indicados ativos.",
-    highlight: true,
-  },
-  {
-    icon: ShieldCheck,
-    title: "Produto que se Vende Sozinho",
-    description: "Indique uma solução que resolve a maior dor do mercado: bloqueios e perda de ROI. O Ratoeira Hub tem altíssima taxa de retenção.",
-    highlight: false,
-  },
-  {
-    icon: Zap,
-    title: "Saques Rápidos",
-    description: "Sem burocracia. Solicite seus saques diretamente pelo dashboard. Pagamentos processados via ASAAS, recebidos na sua conta com agilidade e transparência.",
-    highlight: false,
-  },
-  {
-    icon: DollarSign,
-    title: "Premiações por Metas",
-    description: "Alcance marcos de faturamento e desbloqueie prêmios físicos. O crescimento da sua operação tem recompensas concretas.",
-    highlight: true,
-  },
-];
+const DetailedBenefits = () => {
+  const { t } = useLanguage();
 
-export default function DetailedBenefits() {
+  const detailedBenefits = useMemo(() => [
+    {
+      icon: Repeat,
+      title: t("parcerias.benefits.title"),
+      description: t("parcerias.benefits.desc1"),
+      highlight: true,
+    },
+    {
+      icon: ShieldCheck,
+      title: t("parcerias.benefits.title2"),
+      description: t("parcerias.benefits.desc2"),
+      highlight: false,
+    },
+    {
+      icon: Zap,
+      title: t("parcerias.benefits.title3"),
+      description: t("parcerias.benefits.desc3"),
+      highlight: false,
+    },
+    {
+      icon: DollarSign,
+      title: t("parcerias.benefits.title4"),
+      description: t("parcerias.benefits.desc4"),
+      highlight: true,
+    },
+  ], [t]);
+
   return (
     <section className="py-24 bg-[#0a0a0a] relative">
       <div className="max-w-7xl 2xl:max-w-[90rem] 4xl:max-w-[120rem] 5xl:max-w-[140rem] 6xl:max-w-[160rem] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-12 4xl:px-20 5xl:px-28 6xl:px-36 relative z-10">
@@ -69,4 +73,6 @@ export default function DetailedBenefits() {
       </div>
     </section>
   );
-}
+};
+
+export default DetailedBenefits;

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useMemo } from "react";
 import { AnimatePresence, motion, useInView } from "framer-motion";
 import {
   BarChart3,
@@ -14,57 +14,7 @@ import {
 } from "lucide-react";
 import { ShineBorder } from "@/components/ui/ShineBorder";
 import { BackgroundPaths } from "@/components/ui/background-paths";
-
-const benefits = [
-  {
-    label: "Benefício 1",
-    title: "Pare de Perder Vendas Invisíveis",
-    description:
-      "Anunciantes que migram para o trackeamento server-side da Ratoeira recuperam em média 25% a 40% de conversões que estavam invisíveis. Cada venda recuperada é lucro que você já tinha gerado — e que o pixel padrão estava escondendo do Google.",
-    imageLeft: false,
-    icon: BarChart3,
-  },
-  {
-    label: "Benefício 2",
-    title: "Proteja Seu Orçamento no Google Ads",
-    description:
-      "Para quem anuncia no Google Ads, a Ratoeira bloqueia automaticamente os IPs que clicam no seu anúncio sem intenção de comprar — concorrentes, bots, tráfego inválido. Na maioria das operações, a economia com bloqueio já cobre o custo do plano inteiro no primeiro mês.",
-    imageLeft: true,
-    icon: Bot,
-  },
-  {
-    label: "Benefício 3",
-    title: "Publique Páginas em Minutos, Não Dias",
-    description:
-      "Templates prontos e validados, Flash Pages que abrem em menos de 1 segundo e trackeamento automático desde o primeiro clique. Sua página no ar antes do próximo anúncio subir — e cada visita já rastreada.",
-    imageLeft: false,
-    icon: LayoutTemplate,
-  },
-  {
-    label: "Benefício 4",
-    title: "Tome Decisões Com Dados Reais, Não Intuição",
-    description:
-      "Dashboard consolidado com métricas do Google Ads, Meta Ads e plataformas de vendas numa tela só. Você vê qual campanha escalar, qual pausar — e age antes que o algoritmo tome a decisão errada por você.",
-    imageLeft: true,
-    icon: FileBarChart,
-  },
-  {
-    label: "Benefício 5",
-    title: "Acompanhe De Qualquer Lugar",
-    description:
-      "App próprio para iOS e Android. Notificação de venda em tempo real, acompanhamento de campanhas e alertas de bloqueio — onde quer que você esteja. A operação na palma da mão.",
-    imageLeft: false,
-    icon: BellRing,
-  },
-  {
-    label: "Benefício 6",
-    title: "Risco Zero",
-    description:
-      "Garantia incondicional de 7 dias. Se não gostar, devolvemos 100%. Sem perguntas, sem burocracia. Você não tem nada a perder.",
-    imageLeft: true,
-    icon: ShieldCheck,
-  },
-];
+import { useLanguage } from "@/contexts/LanguageContext";
 
 function renderNoBreak(text: string) {
   const patterns = [
@@ -86,6 +36,7 @@ function renderNoBreak(text: string) {
 }
 
 export default function Benefits() {
+  const { t } = useLanguage();
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
   const [activeIndex, setActiveIndex] = useState(0);
@@ -93,6 +44,51 @@ export default function Benefits() {
   const [isMobile, setIsMobile] = useState(false);
   const referenceCardRef = useRef<HTMLDivElement>(null);
   const [referenceCardHeight, setReferenceCardHeight] = useState<number | null>(null);
+
+  const benefits = useMemo(() => [
+    {
+      label: t("benefits.card.label1"),
+      title: t("benefits.card.title1"),
+      description: t("benefits.card.desc1"),
+      imageLeft: false,
+      icon: BarChart3,
+    },
+    {
+      label: t("benefits.card.label2"),
+      title: t("benefits.card.title2"),
+      description: t("benefits.card.desc2"),
+      imageLeft: true,
+      icon: Bot,
+    },
+    {
+      label: t("benefits.card.label3"),
+      title: t("benefits.card.title3"),
+      description: t("benefits.card.desc3"),
+      imageLeft: false,
+      icon: LayoutTemplate,
+    },
+    {
+      label: t("benefits.card.label4"),
+      title: t("benefits.card.title4"),
+      description: t("benefits.card.desc4"),
+      imageLeft: true,
+      icon: FileBarChart,
+    },
+    {
+      label: t("benefits.card.label5"),
+      title: t("benefits.card.title5"),
+      description: t("benefits.card.desc5"),
+      imageLeft: false,
+      icon: BellRing,
+    },
+    {
+      label: t("benefits.card.label6"),
+      title: t("benefits.card.title6"),
+      description: t("benefits.card.desc6"),
+      imageLeft: true,
+      icon: ShieldCheck,
+    },
+  ], [t]);
 
   const goToNext = () => {
     setSlideDirection(1);
@@ -247,17 +243,17 @@ export default function Benefits() {
             <span className="lg:hidden">
               Por que <span style={{ color: "var(--color-brand-primary)" }}>+2.600</span>
               <br />
-              <span style={{ color: "var(--color-brand-primary)" }}>anunciantes</span> escolheram
+              <span style={{ color: "var(--color-brand-primary)" }}>{t("benefits.header.anunciantes")}</span> {t("benefits.header.escolheram")}
               <br />
               a <span className="whitespace-nowrap">Ratoeira&nbsp;Hub</span>
             </span>
             <span className="hidden lg:block">
-              Por que <span style={{ color: "var(--color-brand-primary)" }}>+2.600 anunciantes</span> escolheram a{" "}
+              {t("benefits.header.porQue")} <span style={{ color: "var(--color-brand-primary)" }}>+2.600 {t("benefits.header.anunciantes")}</span> {t("benefits.header.escolheram")} a{" "}
               <span className="whitespace-nowrap">Ratoeira&nbsp;Hub</span>
             </span>
           </h2>
           <p className="text-gray-400/80 text-base sm:text-lg 3xl:text-[1.75rem] max-w-2xl 3xl:max-w-[54rem] 4xl:max-w-[62rem] 5xl:max-w-[68rem] 6xl:max-w-[74rem] mx-auto hyphens-none">
-            Do primeiro anúncio ao gestor que escala múltiplos clientes — a Ratoeira transforma cada real investido em tráfego numa origem rastreada e numa decisão mais inteligente.
+            {t("benefits.header.description")}
           </p>
         </motion.div>
 

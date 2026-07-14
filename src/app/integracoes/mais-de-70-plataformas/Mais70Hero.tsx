@@ -1,6 +1,7 @@
 "use client";
 
 import { FloatingIconsHero } from "@/components/ui/floating-icons-hero-section";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const logos = [
   // Mobile-only logos — above title and below CTA
@@ -26,13 +27,15 @@ const logos = [
 ] as const;
 
 export default function Mais70Hero() {
+  const { t } = useLanguage();
+
   return (
     <FloatingIconsHero
-      title={<span className="text-[#FFB800]">Mais de 70 plataformas</span>}
-        subtitle="Seus checkouts, plataformas de afiliação e redes conectados de uma vez. Uma configuração, rastreamento de tudo."
-      ctaText="Veja as Plataformas"
+      title={<span className="text-[#FFB800]">{t("mais70.hero.title")}</span>}
+      subtitle={t("mais70.hero.subtitle")}
+      ctaText={t("mais70.hero.cta")}
       ctaHref="#explore-section"
-        icons={[...logos]}
+      icons={[...logos]}
     />
   );
 }

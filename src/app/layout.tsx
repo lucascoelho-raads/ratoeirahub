@@ -3,6 +3,8 @@ import { Inter } from "next/font/google";
 import { GoogleTagManager } from "@next/third-parties/google";
 import "./globals.css";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import TrackingProvider from "@/components/TrackingProvider";
+import { LanguageProvider } from "@/contexts/LanguageContext";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -46,17 +48,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR" className={`${inter.variable} h-full scroll-smooth`}>
-      <head>
-        <script
-          defer
-          src="https://cdn.radimarkt.com/tag.js"
-          data-tag-id="10873-f428b3e4bff049caa88e66d10cf89b33"
-          data-event-host="api.radimarkt.com"
-          data-plat-params="src,sck,utm_medium,utm_campaign,utm_content,utm_source"
-        />
-      </head>
+      <head />
       <body className="min-h-full flex flex-col antialiased">
-        {children}
+        <LanguageProvider>
+          <TrackingProvider />
+          {children}
+        </LanguageProvider>
         <WhatsAppButton />
       </body>
       <GoogleTagManager gtmId="GTM-W9MQ5VQT" />

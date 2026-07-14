@@ -17,6 +17,7 @@ import {
 } from "lucide-react";
 import SpotlightBackground from "@/components/ui/spotlight-background";
 import LogoMarquee from "./LogoMarquee";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 import { useFloating, offset, autoUpdate } from "@floating-ui/react";
 
@@ -95,14 +96,7 @@ function HeroVideoMockup({
   );
 }
 
-// Mockups que alternam no lado direito
-const slides = [
-  {
-    id: 0,
-    label: "Dashboard de Conversões",
-  },
-];
-
+// Animation variants
 const containerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
@@ -121,10 +115,16 @@ const itemVariants: Variants = {
 };
 
 export default function Hero() {
+  const { t } = useLanguage();
   const [activeSlide, setActiveSlide] = useState(0);
   const [activePanel, setActivePanel] = useState(0);
 
   const [referenceElement, setReferenceElement] = useState<HTMLDivElement | null>(null);
+
+  // Translated slides
+  const slides = [
+    { id: 0, label: t("hero.dashboard") },
+  ];
 
   // Floating UI setup for badges
   const { refs: badge1Refs, x: badge1X, y: badge1Y, strategy: badge1Strategy } = useFloating({
@@ -208,15 +208,15 @@ export default function Hero() {
                     variants={itemVariants}
                     className="text-display font-black tracking-tight leading-[1.04] text-left max-w-4xl lg:max-w-6xl 2xl:max-w-7xl hyphens-none"
                   >
-                    <span className="text-white">Cada venda tem uma origem.</span>{" "}
-                    <span className="text-[#FFB800]">A Ratoeira te mostra qual é.</span>
+                    <span className="text-white">{t("hero.title.sale")}</span>{" "}
+                    <span className="text-[#FFB800]">{t("hero.title.highlight")}</span>
                   </motion.h1>
 
                   <motion.p
                     variants={itemVariants}
                     className="text-base md:text-[clamp(1rem,1.15vw,1.125rem)] 3xl:text-[clamp(1.125rem,1.2vw,1.5rem)] text-gray-400/70 leading-relaxed max-w-xl 2xl:max-w-[34rem] 3xl:max-w-[46rem] 4xl:max-w-[56rem] 5xl:max-w-[48rem] 6xl:max-w-[56rem] text-center lg:text-left"
                   >
-                    Operações reais reportam aumento de lucro em até 60% quando passam a rastrear com dado real. Cada clique, cada lead, cada venda — origem rastreada no Google e no Meta, em tempo real.
+                    {t("hero.subtitle")}
                   </motion.p>
 
                   {/* CTA — desktop only, inside text flow */}
@@ -225,7 +225,7 @@ export default function Hero() {
                       href="/planos#pricing-cards"
                       className="inline-flex self-center lg:self-start items-center justify-center px-6 py-3 min-h-12 bg-brand-primary text-black font-semibold text-sm rounded-button hover:bg-brand-primary-hover transition-colors duration-200 text-center"
                     >
-                      Assinar Agora
+                      {t("hero.cta.signNow")}
                     </Link>
 
                   </motion.div>
@@ -309,7 +309,7 @@ export default function Hero() {
                     </div>
                     <div>
                       <p className="text-text-primary text-xs font-bold">~100%</p>
-                      <p className="text-text-secondary text-xs">conversões rastreadas</p>
+                      <p className="text-text-secondary text-xs">{t("hero.badge.tracked")}</p>
                     </div>
                   </motion.div>
 
@@ -330,7 +330,7 @@ export default function Hero() {
                     </div>
                     <div>
                       <p className="text-text-primary text-xs font-bold">+2.600</p>
-                      <p className="text-text-secondary text-xs">anunciantes ativos</p>
+                      <p className="text-text-secondary text-xs">{t("hero.badge.activeAdvertisers")}</p>
                     </div>
                   </motion.div>
                 </motion.div>
@@ -346,7 +346,7 @@ export default function Hero() {
                     href="/planos#pricing-cards"
                     className="inline-flex self-center lg:self-start items-center justify-center px-6 py-3 bg-brand-primary text-black font-semibold text-sm rounded-button hover:bg-brand-primary-hover transition-colors duration-200 text-center"
                   >
-                    Assinar Agora
+                    {t("hero.cta.signNow")}
                   </Link>
 
                 </motion.div>
@@ -365,7 +365,7 @@ export default function Hero() {
             type="button"
             onClick={() => setActivePanel((prev) => (prev === 0 ? 1 : 0))}
             className="absolute left-4 lg:left-8 top-1/2 -translate-y-1/2 z-30 w-10 h-10 lg:w-12 lg:h-12 rounded-full bg-white/10 hover:bg-white/20 border border-white/10 flex items-center justify-center transition-colors backdrop-blur-sm"
-            aria-label="Painel anterior"
+            aria-label={t("hero.panel.previous")}
           >
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <polyline points="15 18 9 12 15 6" />
@@ -375,7 +375,7 @@ export default function Hero() {
             type="button"
             onClick={() => setActivePanel((prev) => (prev === 0 ? 1 : 0))}
             className="absolute right-4 lg:right-8 top-1/2 -translate-y-1/2 z-30 w-10 h-10 lg:w-12 lg:h-12 rounded-full bg-white/10 hover:bg-white/20 border border-white/10 flex items-center justify-center transition-colors backdrop-blur-sm"
-            aria-label="Próximo painel"
+            aria-label={t("hero.panel.next")}
           >
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <polyline points="9 18 15 12 9 6" />
@@ -394,13 +394,10 @@ export default function Hero() {
                 {/* Texto */}
                 <div className="flex flex-col gap-6 lg:col-start-1 lg:row-start-1">
                   <h2 className="text-display font-black tracking-tight leading-tight lg:leading-[1.04] text-white text-left max-w-4xl lg:max-w-6xl 2xl:max-w-7xl hyphens-none">
-                    <span>Páginas que convertem. </span>
-                    <span style={{ color: "var(--color-brand-primary)" }}>
-                      Integradas ao seu trackeamento desde o primeiro clique.
-                    </span>
+                    <span>{t("hero.pages.title")}</span>
                   </h2>
                   <p className="text-base sm:text-[clamp(1rem,2vw,1.125rem)] 3xl:text-[clamp(1.125rem,1.2vw,1.5rem)] text-gray-400/70 leading-relaxed max-w-2xl 2xl:max-w-[34rem] 3xl:max-w-[46rem] 4xl:max-w-[56rem] 5xl:max-w-[48rem] text-center lg:text-left">
-                    Crie páginas rápidas e rastreáveis em minutos. Com templates, Flash Pages em menos de 1 segundo e IA em 1 clique. O tracking da Ratoeira já vem integrado — nenhuma conversão se perde.
+                    {t("hero.pages.subtitle")}
                   </p>
                 </div>
 
@@ -426,7 +423,7 @@ export default function Hero() {
                           exit={{ opacity: 0 }}
                           className="text-neutral-500 text-xs font-semibold tracking-widest uppercase absolute left-1/2 -translate-x-1/2"
                         >
-                          Páginas que Convertem
+                          {t("hero.pages.tabLabel")}
                         </motion.span>
                       </AnimatePresence>
                       <div className="flex gap-1">

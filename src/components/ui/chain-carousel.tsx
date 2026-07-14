@@ -4,6 +4,7 @@ import { type ComponentType, memo, useCallback, useEffect, useMemo, useRef, useS
 import { motion, useInView } from "framer-motion";
 import { Search, TrendingUp, X } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export interface ChainItem {
   id: string | number;
@@ -115,6 +116,7 @@ export default function ChainCarousel({
   className = "",
   onChainSelect,
 }: ChainCarouselProps) {
+  const { t } = useLanguage();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
@@ -239,7 +241,7 @@ export default function ChainCarousel({
               <input
                 type="text"
                 value={searchTerm}
-                placeholder="Buscar plataforma..."
+                placeholder={t("chainCarousel.searchPlaceholder")}
                 onChange={(e) => {
                   const val = e.target.value;
                   setSearchTerm(val);

@@ -3,6 +3,8 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { useMemo } from "react";
 
 const caseStudies = [
   {
@@ -32,21 +34,29 @@ const caseStudies = [
 ];
 
 export default function CasesList() {
+  const { t } = useLanguage();
+
+  const translatedCases = useMemo(() => caseStudies.map(c => ({
+    ...c,
+    translatedRole: t(`cases.list.role.${c.id}`) || c.role,
+    translatedSummary: t(`cases.list.summary.${c.id}`) || c.summary,
+  })), [t]);
+
   return (
     <section className="py-16 md:py-24 bg-[#050505] relative">
       <div className="max-w-7xl 2xl:max-w-[90rem] 4xl:max-w-[120rem] 5xl:max-w-[140rem] 6xl:max-w-[160rem] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-12 4xl:px-20 5xl:px-28 6xl:px-36">
         
         <div className="mb-12 md:mb-16 text-center md:text-left">
           <h2 className="text-h1 font-black text-white mb-4">
-            Aprofunde-se nos <span className="text-brand-primary">Resultados</span>
+            {t("cases.list.title")} <span className="text-brand-primary">{t("cases.list.titleHighlight")}</span>
           </h2>
           <p className="text-gray-400 text-base sm:text-lg">
-            Estudos de caso detalhados com estratégias, métricas e setups completos.
+            {t("cases.list.subtitle")}
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {caseStudies.map((caseStudy, index) => (
+          {translatedCases.map((caseStudy, index) => (
             <motion.div
               key={caseStudy.id}
               initial={{ opacity: 0, y: 30 }}
@@ -67,14 +77,14 @@ export default function CasesList() {
                 {/* Nome e Role sobre a imagem */}
                 <div className="absolute bottom-6 left-8">
                   <p className="text-white font-black text-xl sm:text-2xl">{caseStudy.name}</p>
-                  <p className="text-brand-primary font-semibold text-sm">{caseStudy.role}</p>
+                  <p className="text-brand-primary font-semibold text-sm">{caseStudy.translatedRole}</p>
                 </div>
               </div>
 
               {/* Conteúdo Textual */}
               <div className="flex flex-col flex-1 p-8 pt-4">
                 <p className="text-gray-400 text-sm leading-relaxed mb-6 md:mb-8 flex-1">
-                  {caseStudy.summary}
+                  {caseStudy.translatedSummary}
                 </p>
 
                 {/* Micro Resultados */}
@@ -91,7 +101,7 @@ export default function CasesList() {
                   href={`/cases/${caseStudy.id}`}
                   className="inline-flex items-center justify-center gap-2 w-full py-4 bg-white/5 hover:bg-brand-primary hover:text-black text-white font-bold rounded-2xl transition-all duration-300 group/btn"
                 >
-                  Veja Mais
+                  {t("cases.list.cta")}
                   <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
                 </Link>
               </div>

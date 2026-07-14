@@ -1,53 +1,56 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Target, Eye, ShieldCheck } from "lucide-react";
 import { GradientText } from "@/components/ui/gradient-text";
-
-const mvvData = [
-  {
-    id: "missao",
-    title: "Missão",
-    icon: Target,
-    content: "Transformar operações digitais em máquinas previsíveis de resultado através de tecnologia, dados e inteligência de\u00A0rastreamento."
-  },
-  {
-    id: "visao",
-    title: "Visão",
-    icon: Eye,
-    content: "Ser a empresa que define o padrão global de performance, rastreabilidade e inteligência de dados para quem vende na\u00A0internet."
-  },
-  {
-    id: "valores",
-    title: "Valores",
-    icon: ShieldCheck,
-    items: [
-      {
-        title: "Mudar vidas",
-        body: "A vida dos nossos clientes. A vida da empresa. A nossa. Não construímos tecnologia para impressionar — construímos para que cada anunciante que usa a Ratoeira tome decisões melhores e chegue mais longe.",
-      },
-      {
-        title: "Cliente é o motivo",
-        body: "Cada cliente importa. Nosso negócio só funciona se funcionar para o cliente — por isso tratamos a operação de cada anunciante como se fosse a nossa. Sem isso, não existe Ratoeira.",
-      },
-      {
-        title: "Ser os melhores naquilo que fazemos",
-        body: "Rastreamento, dados, performance. É o que fazemos — e queremos ser a referência global nisso. Não o maior em número de clientes. O melhor em qualidade de solução.",
-      },
-      {
-        title: "A verdade, sempre",
-        body: "Dado claro, comunicação direta, sem relatório que embeleza o que não funcionou. A confiança é a base da empresa — com os clientes, com o time, com o mercado.",
-      },
-      {
-        title: "Inovar é sobreviver",
-        body: "O mundo do tráfego pago muda rápido. Buscar novas formas de resolver o mesmo problema não é diferencial — é sobrevivência. Se a gente não fizer, o concorrente faz.",
-      },
-    ]
-  }
-];
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function MVVAbout() {
+  const { t } = useLanguage();
+
+  const mvvData = useMemo(() => [
+    {
+      id: "missao",
+      title: t("about.mvv.mission"),
+      icon: Target,
+      content: t("about.mvv.missionDesc")
+    },
+    {
+      id: "visao",
+      title: t("about.mvv.vision"),
+      icon: Eye,
+      content: t("about.mvv.visionDesc")
+    },
+    {
+      id: "valores",
+      title: t("about.mvv.values"),
+      icon: ShieldCheck,
+      items: [
+        {
+          title: t("about.mvv.values.title1"),
+          body: t("about.mvv.values.item1"),
+        },
+        {
+          title: t("about.mvv.values.title2"),
+          body: t("about.mvv.values.item2"),
+        },
+        {
+          title: t("about.mvv.values.title3"),
+          body: t("about.mvv.values.item3"),
+        },
+        {
+          title: t("about.mvv.values.title4"),
+          body: t("about.mvv.values.item4"),
+        },
+        {
+          title: t("about.mvv.values.title5"),
+          body: t("about.mvv.values.item5"),
+        },
+      ]
+    }
+  ], [t]);
+
   const [activeValueIndex, setActiveValueIndex] = useState(0);
   const valoresItems = mvvData[2].items || [];
 
@@ -78,7 +81,7 @@ export default function MVVAbout() {
               <Target className="w-7 h-7 text-orange-300" />
             </div>
             <h2 className="text-h1 font-black text-white tracking-tight mb-4">
-              <GradientText className="font-black">Missão</GradientText>
+              <GradientText className="font-black">{mvvData[0].title}</GradientText>
             </h2>
             <p className="text-gray-400 font-medium leading-relaxed text-base hyphens-none">
               {mvvData[0].content}
@@ -97,7 +100,7 @@ export default function MVVAbout() {
               <Eye className="w-7 h-7 text-amber-300" />
             </div>
             <h2 className="text-h1 font-black text-white tracking-tight mb-4">
-              <GradientText className="font-black">Visão</GradientText>
+              <GradientText className="font-black">{mvvData[1].title}</GradientText>
             </h2>
             <p className="text-gray-400 font-medium leading-relaxed text-base hyphens-none">
               {mvvData[1].content}
@@ -116,7 +119,7 @@ export default function MVVAbout() {
               <ShieldCheck className="w-7 h-7 text-orange-300" />
             </div>
             <h2 className="text-h1 font-black text-white tracking-tight mb-4">
-              <GradientText className="font-black">Valores</GradientText>
+              <GradientText className="font-black">{mvvData[2].title}</GradientText>
             </h2>
             <div className="relative min-h-[120px]">
               <AnimatePresence mode="wait">

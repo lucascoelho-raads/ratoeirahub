@@ -1,25 +1,31 @@
+"use client";
+
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { HeroGeometric } from "@/components/ui/shape-landing-hero";
 import { ExpandableCardDemo } from "./components/ExpandableCardDemo";
 import CommissionStructure from "./components/CommissionStructure";
 import CTAPartnerships from "./components/CTAPartnerships";
-
-export const metadata = {
-  title: "Parcerias | Ratoeira Hub",
-  description: "Conheça todas as vantagens, comissões e premiações de ser um parceiro Ratoeira Hub.",
-};
+import { useLanguage } from "@/contexts/LanguageContext";
+import { useMemo } from "react";
 
 export default function ParceriasPage() {
+  const { t } = useLanguage();
+
+  const badge = useMemo(() => t("parcerias.hero.badge"), [t]);
+  const title1 = useMemo(() => t("parcerias.hero.title1"), [t]);
+  const title2 = useMemo(() => t("parcerias.hero.title2"), [t]);
+  const subtitle = useMemo(() => t("parcerias.hero.subtitle"), [t]);
+
   return (
     <main className="flex flex-col flex-1 min-h-screen bg-[#050505] text-white">
       <Navbar />
-      
+
       <HeroGeometric
-        badge="Vantagens Exclusivas"
-        title1="Mais do que comissões."
-        title2="Um Ecossistema de Vantagens."
-        subtitle="Todo assinante da Ratoeira pode ser parceiro. Indique, ganhe recorrente e acesse vantagens exclusivas — enquanto sua operação cresce junto."
+        badge={badge}
+        title1={title1}
+        title2={title2}
+        subtitle={subtitle}
         className="min-h-[60svh] md:min-h-[50svh]"
       />
       <section className="py-4 md:py-8 bg-[#0a0a0a]">
@@ -28,7 +34,7 @@ export default function ParceriasPage() {
         </div>
       </section>
       <CommissionStructure />
-      
+
       <CTAPartnerships />
 
       <Footer />

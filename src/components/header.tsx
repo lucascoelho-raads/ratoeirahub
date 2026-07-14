@@ -7,6 +7,9 @@ import Link from "next/link";
 import { NAV_LINKS, type NavMenu } from "./header/nav-data";
 import { MegaMenu } from "./header/mega-menu";
 import { cn } from "@/lib/utils";
+import { LanguageSelector } from "@/components/ui/LanguageSelector";
+import { useTranslatedNav } from "@/hooks/useTranslatedNav";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 type Direction = "ltr" | "rtl";
 const SHELL_EASE = [0.16, 1, 0.3, 1] as [number, number, number, number];
@@ -96,7 +99,8 @@ function HeaderActions({
   mobile?: boolean;
   onAction?: () => void;
 }) {
-  const primaryLabel = "Assinar Agora";
+  const { t } = useLanguage();
+  const primaryLabel = t("header.signIn");
 
   return (
     <div
@@ -132,8 +136,10 @@ export default function Header() {
   const navRef = useRef<HTMLElement | null>(null);
   const panelRef = useRef<HTMLDivElement | null>(null);
 
+  const navLinks = useTranslatedNav();
+
   const activeMenu: NavMenu | null =
-    activeIndex !== null ? NAV_LINKS[activeIndex]?.menu ?? null : null;
+    activeIndex !== null ? navLinks[activeIndex]?.menu ?? null : null;
 
   const openMenu = useCallback((index: number) => {
     setDirection(activeIndex === null || index >= activeIndex ? "ltr" : "rtl");
@@ -173,7 +179,7 @@ export default function Header() {
 
   const activeMobileIndex = mobileStack[mobileStack.length - 1] ?? null;
   const activeMobileLink =
-    activeMobileIndex !== null ? NAV_LINKS[activeMobileIndex] : null;
+    activeMobileIndex !== null ? navLinks[activeMobileIndex] : null;
 
   return (
     <header
@@ -186,7 +192,7 @@ export default function Header() {
 
           <nav className="relative hidden items-center lg:flex">
             <div className="flex items-center rounded-button border border-white/10 bg-white/5 px-2 py-1">
-              {NAV_LINKS.map((link, index) => {
+              {navLinks.map((link, index) => {
                 const open = activeIndex === index && !!link.menu;
                 return (
                   <div
@@ -236,8 +242,9 @@ export default function Header() {
             </div>
           </nav>
 
-          <div className="hidden lg:flex">
+          <div className="hidden lg:flex items-center gap-2">
             <HeaderActions />
+            <LanguageSelector />
           </div>
 
           <button
@@ -329,7 +336,7 @@ export default function Header() {
                     exit="hidden"
                     className="space-y-2"
                   >
-                    {NAV_LINKS.map((link, index) => (
+                    {navLinks.map((link, index) => (
                       <motion.button
                         key={link.label}
                         variants={itemVariants}

@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { X, Loader2 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 interface SubscriptionModalProps {
   isOpen: boolean;
@@ -60,6 +61,7 @@ export default function SubscriptionModal({
   planName,
   checkoutUrl,
 }: SubscriptionModalProps) {
+  const { t } = useLanguage();
   const [formData, setFormData] = useState<FormData>({
     fullName: "",
     email: "",
@@ -107,22 +109,22 @@ export default function SubscriptionModal({
     const newErrors: FormErrors = {};
 
     if (!formData.fullName.trim()) {
-      newErrors.fullName = "Nome completo é obrigatório";
+      newErrors.fullName = t("planos.modal.fullNameRequired");
     } else if (formData.fullName.trim().length < 3) {
-      newErrors.fullName = "Digite seu nome completo";
+      newErrors.fullName = t("planos.modal.fullNameInvalid");
     }
 
     if (!formData.email.trim()) {
-      newErrors.email = "E-mail é obrigatório";
+      newErrors.email = t("planos.modal.emailRequired");
     } else if (!validateEmail(formData.email.trim())) {
-      newErrors.email = "Digite um e-mail válido";
+      newErrors.email = t("planos.modal.emailInvalid");
     }
 
     const phoneDigits = stripPhone(formData.phone);
     if (!formData.phone.trim()) {
-      newErrors.phone = "Telefone é obrigatório";
+      newErrors.phone = t("planos.modal.phoneRequired");
     } else if (phoneDigits.length < PHONE_MASK_LENGTH) {
-      newErrors.phone = "Digite o telefone completo com DDI e DDD";
+      newErrors.phone = t("planos.modal.phoneInvalid");
     }
 
     setErrors(newErrors);
@@ -221,7 +223,7 @@ export default function SubscriptionModal({
               type="button"
               onClick={onClose}
               className="absolute right-4 top-4 inline-flex h-11 w-11 md:h-8 md:w-8 items-center justify-center rounded-full text-[#888888] transition-colors hover:bg-white/[0.08] hover:text-white"
-              aria-label="Fechar modal"
+              aria-label={t("planos.modal.close")}
             >
               <X className="h-5 w-5" />
             </button>
@@ -231,10 +233,10 @@ export default function SubscriptionModal({
                 id="subscription-modal-title"
                 className="text-heading-subtitle text-white mb-1"
               >
-                Finalizar assinatura
+                {t("planos.modal.title")}
               </h2>
               <p className="text-body-base text-[#888888]">
-                Preencha seus dados para continuar para o checkout do plano{" "}
+                {t("planos.modal.subtitle")}{" "}
                 <span className="text-brand-primary font-semibold">
                   {planName}
                 </span>
@@ -248,14 +250,14 @@ export default function SubscriptionModal({
                   htmlFor="fullName"
                   className="block text-body-label text-white"
                 >
-                  Nome Completo
+                  {t("planos.modal.fullName")}
                 </label>
                 <input
                   id="fullName"
                   type="text"
                   value={formData.fullName}
                   onChange={handleChange("fullName")}
-                  placeholder="Seu nome completo"
+                  placeholder={t("planos.modal.fullNamePlaceholder")}
                   disabled={isSubmitting}
                   className={cn(inputBaseClass, errors.fullName && "border-feedback-error focus:border-feedback-error focus:ring-feedback-error/20")}
                   aria-invalid={errors.fullName ? "true" : "false"}
@@ -273,14 +275,14 @@ export default function SubscriptionModal({
                   htmlFor="email"
                   className="block text-body-label text-white"
                 >
-                  E-mail
+                  {t("planos.modal.email")}
                 </label>
                 <input
                   id="email"
                   type="email"
                   value={formData.email}
                   onChange={handleChange("email")}
-                  placeholder="nome@empresa.com"
+                  placeholder={t("planos.modal.emailPlaceholder")}
                   disabled={isSubmitting}
                   className={cn(inputBaseClass, errors.email && "border-feedback-error focus:border-feedback-error focus:ring-feedback-error/20")}
                   aria-invalid={errors.email ? "true" : "false"}
@@ -298,7 +300,7 @@ export default function SubscriptionModal({
                   htmlFor="phone"
                   className="block text-body-label text-white"
                 >
-                  Telefone
+                  {t("planos.modal.phone")}
                 </label>
                 <input
                   id="phone"
@@ -306,7 +308,7 @@ export default function SubscriptionModal({
                   inputMode="tel"
                   value={formData.phone}
                   onChange={handlePhoneChange}
-                  placeholder="+00 (00) 00000-0000"
+                  placeholder={t("planos.modal.phonePlaceholder")}
                   disabled={isSubmitting}
                   className={cn(inputBaseClass, errors.phone && "border-feedback-error focus:border-feedback-error focus:ring-feedback-error/20")}
                   aria-invalid={errors.phone ? "true" : "false"}
@@ -330,17 +332,16 @@ export default function SubscriptionModal({
                   {isSubmitting ? (
                     <span className="inline-flex items-center gap-2">
                       <Loader2 className="h-5 w-5 animate-spin" />
-                      Processando...
+                      {t("planos.modal.submitting")}
                     </span>
                   ) : (
-                    "Continuar para o checkout"
+                    t("planos.modal.submit")
                   )}
                 </Button>
               </div>
 
               <p className="text-center text-xs text-[#666666]">
-                Ao continuar, você concorda com o processamento dos seus dados
-                para a assinatura.
+                {t("form.messagePlaceholder")}
               </p>
             </form>
           </motion.div>

@@ -4,8 +4,10 @@ import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function CTA() {
+  const { t } = useLanguage();
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
@@ -30,24 +32,24 @@ export default function CTA() {
 
           {/* Title */}
           <h2 className="text-h1 font-black text-[#111827] leading-tight max-w-4xl mx-auto hyphens-none">
-            <span className="block text-[#111827]">Pare de operar no escuro.</span>
+            <span className="block text-[#111827]">{t("cta.title.line1")}</span>
             <span className="block text-base sm:text-2xl lg:text-3xl 3xl:text-5xl font-black text-brand-primary hyphens-none">
-              Cada real investido merece uma origem rastreada.
+              {t("cta.title.line2")}
             </span>
           </h2>
 
           {/* Subtitle */}
           <p className="text-[#4b5563] text-base sm:text-lg 3xl:text-[1.75rem] max-w-2xl 2xl:max-w-[40rem] 3xl:max-w-[52rem] 4xl:max-w-[58rem] 5xl:max-w-[64rem] 6xl:max-w-[72rem] mx-auto leading-relaxed ">
-            Configure em minutos. Rastreie cada venda, cada lead, cada clique — no Google e no Meta. Tome as decisões que a maioria adia por falta de dado real.
+            {t("cta.subtitle")}
           </p>
 
           {/* CTA -- badge de garantia removido */}
           {/* Garantia */}
           {false && (
             <>
-              <h3 className="text-xl 3xl:text-3xl font-black text-[#111827]">Risco Zero</h3>
+              <h3 className="text-xl 3xl:text-3xl font-black text-[#111827]">{t("cta.guarantee.title")}</h3>
               <div className="inline-flex items-center gap-2 px-4 py-2 bg-gray-50 border border-yellow-600/30 rounded-full text-yellow-600 text-sm 3xl:text-lg">
-                <span className="text-green-600">✓</span> Comece no plano gratuito. Sem compromisso, sem cartão. Faça upgrade quando quiser.
+                <span className="text-green-600">✓</span> {t("cta.guarantee.text")}
               </div>
             </>
           )}
@@ -58,7 +60,7 @@ export default function CTA() {
               href="/planos#vamos-transformar"
               className="inline-flex items-center gap-2.5 px-10 py-5 min-h-12 bg-brand-primary text-black font-black rounded-button text-lg hover:bg-brand-primary-hover transition-all duration-200 shadow-2xl shadow-orange-900/25 hover:-translate-y-0.5 group"
             >
-              Quero Acessar a Ratoeira Hub
+              {t("cta.button")}
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Link>
           </div>

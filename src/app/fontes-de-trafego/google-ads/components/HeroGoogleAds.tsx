@@ -1,9 +1,13 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export const HeroGoogleAds = () => {
+  const { t } = useLanguage();
   return (
     <div className="relative overflow-hidden bg-[#050505]">
       <div
@@ -19,12 +23,10 @@ export const HeroGoogleAds = () => {
         <div className="relative mx-auto max-w-6xl 2xl:max-w-[90rem] 4xl:max-w-[110rem] 5xl:max-w-[130rem] 6xl:max-w-[150rem] px-6 pt-[clamp(7rem,12vh,10rem)] pb-10">
           <div className="relative z-10 mx-auto max-w-3xl 2xl:max-w-[60rem] 4xl:max-w-[80rem] text-center">
             <h1 className="text-display font-black text-white tracking-tight leading-tight mb-6 max-w-3xl lg:max-w-4xl mx-auto text-center hyphens-none">
-              Cada venda que o Google Ads não enxerga é lucro que escapa. A Ratoeira fecha esse gap — e faz você lucrar mais no{" "}
-              <span className="text-brand-primary">Google Ads</span>.
+              {t("googleAds.hero.title")}
             </h1>
             <p className="mx-auto my-8 max-w-3xl 2xl:max-w-[60rem] 4xl:max-w-[80rem] text-body-lg text-gray-300 leading-relaxed hyphens-none">
-              Trackeamento server-side via API de Conversões do Google com ~100% de cobertura. Bloqueio automático de IPs
-              inválidos. GCLID e UTMs preservados. Tudo que o algoritmo precisa para otimizar para quem realmente compra.
+              {t("googleAds.hero.subtitle")}
             </p>
 
             <Button
@@ -33,7 +35,7 @@ export const HeroGoogleAds = () => {
               className="h-14 px-8 2xl:h-16 2xl:px-10 2xl:text-xl font-bold text-black"
             >
               <Link href="/planos#pricing-cards">
-                Assinar Agora
+                {t("button.signNow")}
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Link>
             </Button>

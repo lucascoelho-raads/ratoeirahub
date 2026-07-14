@@ -2,15 +2,17 @@
 
 import { motion } from "framer-motion";
 import { useState } from "react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 interface ComponentDemoProps {
-  title: string;
-  description: string;
+  titleKey: string;
+  descriptionKey: string;
   code: string;
   children: React.ReactNode;
 }
 
-function ComponentDemo({ title, description, code, children }: ComponentDemoProps) {
+function ComponentDemo({ titleKey, descriptionKey, code, children }: ComponentDemoProps) {
+  const { t } = useLanguage();
   const [copied, setCopied] = useState(false);
 
   const handleCopy = () => {
@@ -29,14 +31,14 @@ function ComponentDemo({ title, description, code, children }: ComponentDemoProp
     >
       <div className="flex items-start justify-between gap-4">
         <div>
-          <h3 className="text-heading-subtitle text-text-primary mb-2">{title}</h3>
-          <p className="text-body-base text-text-secondary">{description}</p>
+          <h3 className="text-heading-subtitle text-text-primary mb-2">{t(titleKey)}</h3>
+          <p className="text-body-base text-text-secondary">{t(descriptionKey)}</p>
         </div>
         <button
           onClick={handleCopy}
           className="flex-shrink-0 px-4 py-2 bg-surface-subdued border border-border-default rounded-button text-body-label text-text-secondary hover:text-text-primary hover:bg-gray-100 transition-all"
         >
-          {copied ? "Copiado!" : "Copiar código"}
+          {copied ? t("designSystem.components.copied") : t("designSystem.components.copyCode")}
         </button>
       </div>
 
@@ -54,22 +56,24 @@ function ComponentDemo({ title, description, code, children }: ComponentDemoProp
 }
 
 export default function ComponentsSection() {
+  const { t } = useLanguage();
+
   return (
     <section id="componentes" className="space-y-16">
       <div>
         <h2 className="text-h1 text-text-primary mb-4">
-          Componentes & Anatomia
+          {t("designSystem.components.title")}
         </h2>
         <p className="text-body-base text-text-secondary max-w-2xl 2xl:max-w-[50rem] 4xl:max-w-[70rem] ">
-          Especificações técnicas e comportamentais dos elementos base do Ratoeira Hub.
+          {t("designSystem.components.subtitle")}
         </p>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
         {/* Botão Primário com Red Lines */}
         <ComponentDemo
-          title="Botão Primário"
-          description="Anatomia do botão principal com foco em paddings e altura fixa."
+          titleKey="designSystem.components.buttonPrimary"
+          descriptionKey="designSystem.components.buttonPrimaryDesc"
           code={`<button className="bg-brand-primary h-[56px] px-8 rounded-button font-bold text-text-primary shadow-btn-primary">
   Botão Principal
 </button>`}
@@ -100,8 +104,8 @@ export default function ComponentsSection() {
 
         {/* Campo de Texto com Red Lines */}
         <ComponentDemo
-          title="Campo de Texto"
-          description="Especificação de anatomia para inputs com foco em área de clique e espaçamento."
+          titleKey="designSystem.components.textField"
+          descriptionKey="designSystem.components.textFieldDesc"
           code={`<div className="w-full h-[48px] bg-surface-subdued border border-border-default rounded-input px-4 flex items-center">
   <input placeholder="E-mail" className="bg-transparent outline-none w-full" />
 </div>`}
@@ -126,7 +130,7 @@ export default function ComponentsSection() {
               </div>
 
               <div className="w-64 h-[48px] bg-surface-subdued border border-border-default rounded-input px-4 flex items-center">
-                <span className="text-text-secondary text-body-base">E-mail de Trabalho</span>
+                <span className="text-text-secondary text-body-base">{t("designSystem.components.textFieldPlaceholder")}</span>
               </div>
             </div>
           </div>
@@ -134,8 +138,8 @@ export default function ComponentsSection() {
 
         {/* Card Elevado com Red Lines */}
         <ComponentDemo
-          title="Card Elevado"
-          description="Medidas de padding interno e arredondamento de bordas (Radius: 24px)."
+          titleKey="designSystem.components.cardElevated"
+          descriptionKey="designSystem.components.cardElevatedDesc"
           code={`<div className="bg-surface-default rounded-card shadow-card-resting p-8 border border-border-subdued">
   <h3 className="text-heading-subtitle">Conteúdo do Card</h3>
 </div>`}
@@ -161,20 +165,20 @@ export default function ComponentsSection() {
             </div>
 
             <div className="bg-surface-default w-64 rounded-card shadow-card-resting border border-border-subdued p-8 relative">
-              <h3 className="text-heading-subtitle text-text-primary text-center">Plano Pro</h3>
+              <h3 className="text-heading-subtitle text-text-primary text-center">{t("designSystem.components.cardContentTitle")}</h3>
             </div>
           </div>
         </ComponentDemo>
 
         <ComponentDemo
-          title="Badge de Status"
-          description="Componente utilitário para feedbacks rápidos."
+          titleKey="designSystem.components.badgeStatus"
+          descriptionKey="designSystem.components.badgeStatusDesc"
           code={`<span className="bg-orange-50 text-brand-secondary text-body-badge px-3 py-1 rounded-badge font-bold border border-orange-100 uppercase tracking-widest">
   Badge
 </span>`}
         >
           <span className="bg-orange-50 text-brand-secondary text-body-badge px-3 py-1 rounded-badge font-bold border border-orange-100 uppercase tracking-widest">
-            Badge Status
+            {t("designSystem.components.badgeText")}
           </span>
         </ComponentDemo>
       </div>

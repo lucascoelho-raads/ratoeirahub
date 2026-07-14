@@ -1,10 +1,11 @@
 "use client";
 
-import { useState, Fragment, useRef, useCallback, useEffect } from "react";
+import { useState, Fragment, useRef, useCallback, useEffect, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Check, ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 import SubscriptionModal from "./SubscriptionModal";
+import { useLanguage } from "@/contexts/LanguageContext";
 import {
   useFloating,
   offset,

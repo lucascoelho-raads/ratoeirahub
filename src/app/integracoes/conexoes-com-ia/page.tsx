@@ -1,3 +1,5 @@
+"use client";
+
 import Navbar from "@/components/Navbar"
 import Footer from "@/components/Footer"
 import { SplineSceneBasic } from "@/components/ui/spline-scene-basic"
@@ -5,112 +7,105 @@ import { BentoGrid, type BentoItem } from "@/components/ui/bento-grid"
 import { RadialGlowBackground } from "@/components/ui/radial-glow-background"
 import { BarChart3, ListChecks, MessageSquareText } from "lucide-react"
 import type { CSSProperties } from "react"
-
-export const metadata = {
-  title: "Conexões com IA | Ratoeira Hub",
-  description: "Sua operação de anúncios, acessível para o Claude e o ChatGPT. Consulte, decida e execute — sem abrir o painel.",
-}
+import { useLanguage } from "@/contexts/LanguageContext"
+import { useMemo } from "react"
 
 export default function ConexoesComIAPage() {
+  const { t } = useLanguage();
+
   const mcpPagesOrangeStyle = {
     "--color-brand-primary": "var(--color-brand-secondary)",
     "--color-brand-primary-hover": "#E86B3B",
   } as unknown as CSSProperties
 
-  const mcpAdsItems: BentoItem[] = [
+  const mcpAdsItems = useMemo((): BentoItem[] => [
     {
       status: "01",
-      title: "Consulte qualquer métrica",
-      description:
-        "“Qual campanha teve o melhor ROAS essa semana?” A resposta vem com os dados reais da sua conta — sem abrir uma aba sequer.",
+      title: t("ai.connection.ads.consult"),
+      description: t("ai.connection.ads.consultDesc"),
       iconKey: "analytics",
-      tags: ["ROAS", "CPA", "Performance"],
+      tags: [t("ai.connection.tags.roas"), t("ai.connection.tags.cpa"), t("ai.connection.tags.performance")],
       colSpan: 2,
 
     },
     {
       status: "02",
-      title: "Decida de qualquer lugar",
-      description:
-        "No celular, em reunião, no meio de uma viagem. Se você tem o Claude ou o ChatGPT na mão, tem a sua operação na mão.",
+      title: t("ai.connection.ads.decide"),
+      description: t("ai.connection.ads.decideDesc"),
       iconKey: "decision",
-      tags: ["Mobile", "Velocidade"],
+      tags: [t("ai.connection.tags.mobile"), t("ai.connection.tags.speed")],
     },
     {
       status: "03",
-      title: "Execute ações direto pelo chat",
-      description:
-        "Pause uma campanha, duplique um anúncio, altere o orçamento diário ou ajuste o CPA alvo — tudo com um comando em texto.",
+      title: t("ai.connection.ads.execute"),
+      description: t("ai.connection.ads.executeDesc"),
       iconKey: "execute",
-      tags: ["Automação", "Operação"],
+      tags: [t("ai.connection.tags.automation"), t("ai.connection.tags.operation")],
     },
     {
       status: "04",
-      title: "Ações disponíveis via MCP",
-      description: "Atalhos prontos para consultar, decidir e executar — em tempo real.",
+      title: t("ai.connection.ads.actions"),
+      description: t("ai.connection.ads.actionsDesc"),
       iconKey: "actions",
       tags: [
-        "Pausar / ativar campanha",
-        "Duplicar campanha ou anúncio",
-        "Alterar orçamento diário",
-        "Alterar CPA alvo",
-        "Consultar performance por período",
-        "Listar campanhas ativas",
-        "Ver IPs bloqueados",
+        t("ai.connection.ads.action1"),
+        t("ai.connection.ads.action2"),
+        t("ai.connection.ads.action3"),
+        t("ai.connection.ads.action4"),
+        t("ai.connection.ads.action5"),
+        t("ai.connection.ads.action6"),
+        t("ai.connection.ads.action7"),
       ],
       colSpan: 2,
-      cta: "Ver exemplos →",
+      cta: t("ai.connection.cta"),
     },
-  ]
+  ], [t]);
 
-  const mcpPagesItems: BentoItem[] = [
+  const mcpPagesItems = useMemo((): BentoItem[] => [
     {
       status: "01",
-      title: "Crie páginas em linguagem natural",
-      description:
-        "“Cria uma Flash Page de presell para suplemento masculino com foco em energia, tom direto e CTA para WhatsApp.” O Claude interpreta, a Ratoeira Pages constrói.",
+      title: t("ai.connection.pages.create"),
+      description: t("ai.connection.pages.createDesc"),
       icon: <MessageSquareText className="h-4 w-4 text-brand-secondary" />,
       iconKey: "execute",
-      tags: ["Briefing", "Template", "CTA"],
+      tags: [t("ai.connection.tags.briefing"), t("ai.connection.tags.template"), t("ai.connection.tags.cta")],
       colSpan: 2,
 
     },
     {
       status: "02",
-      title: "Analytics das suas páginas",
-      description:
-        "Quantas visitas, de onde vieram, qual página converte mais. Pergunte e receba os dados diretamente no chat — sem trocar de ferramenta.",
+      title: t("ai.connection.pages.analytics"),
+      description: t("ai.connection.pages.analyticsDesc"),
       icon: <BarChart3 className="h-4 w-4 text-brand-secondary" />,
       iconKey: "analytics",
-      tags: ["Visitas", "Fonte", "Conversão"],
+      tags: [t("ai.connection.tags.visits"), t("ai.connection.tags.source"), t("ai.connection.tags.conversion")],
     },
     {
       status: "03",
-      title: "Clone páginas em escala",
-      description:
-        "Precisa de 10 variações do mesmo template para testar ofertas diferentes? Um comando — e estão prontas para publicar.",
+      title: t("ai.connection.pages.clone"),
+      description: t("ai.connection.pages.cloneDesc"),
       icon: <ListChecks className="h-4 w-4 text-brand-secondary" />,
       iconKey: "actions",
-      tags: ["Variações", "Teste", "Escala"],
+      tags: [t("ai.connection.tags.variations"), t("ai.connection.tags.test"), t("ai.connection.tags.scale")],
     },
     {
       status: "04",
-      title: "Ações disponíveis via MCP",
-      description: "Comandos prontos para criar, clonar, publicar, medir e gerenciar domínios — sem abrir painel.",
+      title: t("ai.connection.pages.actions"),
+      description: t("ai.connection.pages.actionsDesc"),
       icon: <ListChecks className="h-4 w-4 text-brand-secondary" />,
       iconKey: "actions",
       tags: [
-        "Criar página a partir de descrição",
-        "Clonar página existente",
-        "Publicar / despublicar página",
-        "Consultar analytics por página",
-        "Listar domínios conectados",
-        "Renomear ou mover página",
+        t("ai.connection.pages.action1"),
+        t("ai.connection.pages.action2"),
+        t("ai.connection.pages.action3"),
+        t("ai.connection.pages.action4"),
+        t("ai.connection.pages.action5"),
+        t("ai.connection.pages.action6"),
       ],
       colSpan: 2,
-      cta: "Ver comandos →",
+      cta: t("ai.connection.cta2"),
     },
-  ]
+  ], [t]);
 
   return (
     <main className="flex flex-col flex-1 min-h-screen bg-[#050505] text-white">
@@ -126,18 +121,17 @@ export default function ConexoesComIAPage() {
           <div className="relative z-10 grid gap-10 lg:grid-cols-2 lg:items-center">
             <div className="flex flex-col gap-4 lg:col-span-2">
               <h2 className="text-h1 font-black tracking-tight text-[#FFB800] text-center">
-                MCP RATOEIRA ADS
+                {t("ai.connection.ads.badge")}
               </h2>
 
-              <p className="text-center text-xs text-gray-400/60">Compatível com Claude · ChatGPT</p>
+              <p className="text-center text-xs text-gray-400/60">{t("ai.connection.compatible")}</p>
 
               <h2 className="text-h1 font-black tracking-tight text-white text-center lg:text-left">
-                Controle suas campanhas sem abrir o painel.
+                {t("ai.connection.ads.title")}
               </h2>
 
               <p className="text-base sm:text-lg text-gray-400/70 leading-relaxed max-w-3xl 2xl:max-w-[60rem] 4xl:max-w-[80rem] text-center lg:text-left">
-                Com o MCP do Ratoeira Ads instalado, o Claude e o ChatGPT têm acesso direto à sua operação. Você pergunta
-                em linguagem natural — eles consultam, analisam e executam em tempo real.
+                {t("ai.connection.ads.subtitle")}
               </p>
 
               <BentoGrid className="mt-2" items={mcpAdsItems} hideStatus hideCta />
@@ -155,11 +149,10 @@ export default function ConexoesComIAPage() {
             <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(60%_60%_at_50%_20%,rgba(255,184,0,0.18),rgba(11,11,11,0))]" />
             <div className="relative mx-auto max-w-3xl 2xl:max-w-[60rem] 4xl:max-w-[80rem] text-center">
               <h2 className="text-h1 font-black tracking-tight text-white">
-                Sua operação, onde você estiver.
+                {t("ai.connection.midSection.title")}
               </h2>
               <p className="mt-4 text-base sm:text-lg text-gray-400/70 leading-relaxed">
-                O MCP da Ratoeira conecta seus dados e suas páginas diretamente ao Claude e ao ChatGPT. Sem API manual, sem
-                planilha, sem painel aberto. Você pergunta — a IA age.
+                {t("ai.connection.midSection.subtitle")}
               </p>
             </div>
           </div>
@@ -175,18 +168,17 @@ export default function ConexoesComIAPage() {
           >
             <div className="flex flex-col gap-4 lg:col-span-2">
               <h2 className="text-h1 font-black tracking-tight text-[#FF7E4A] text-center">
-                MCP RATOEIRA PAGES
+                {t("ai.connection.pages.badge")}
               </h2>
 
-              <p className="text-center text-xs text-gray-400/60">Compatível com Claude</p>
+              <p className="text-center text-xs text-gray-400/60">{t("ai.connection.compatibleClaude")}</p>
 
               <h2 className="text-h1 font-black tracking-tight text-white text-center lg:text-left">
-                Crie qualquer página com um comando.
+                {t("ai.connection.pages.title")}
               </h2>
 
               <p className="text-base sm:text-lg text-gray-400/70 leading-relaxed max-w-3xl 2xl:max-w-[60rem] 4xl:max-w-[80rem] text-center lg:text-left">
-                Com o MCP do Ratoeira Pages instalado no Claude, você descreve a página que quer — e vê ela ser construída
-                em tempo real. Analytics, domínios e clones na palma da sua mão.
+                {t("ai.connection.pages.subtitle")}
               </p>
 
               <BentoGrid className="mt-2" items={mcpPagesItems} hideStatus hideCta />

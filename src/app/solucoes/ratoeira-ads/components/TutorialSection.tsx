@@ -3,8 +3,11 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Play } from "lucide-react";
 import Link from "next/link";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function TutorialSection() {
+  const { t } = useLanguage();
+
   return (
     <section className="relative py-16 md:py-24 overflow-hidden">
       {/* Background base */}
@@ -31,16 +34,12 @@ export default function TutorialSection() {
         >
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-yellow-500/10 border border-yellow-500/20 text-yellow-400 text-small font-bold tracking-wider uppercase mb-6">
             <Play className="w-4 h-4" />
-            <span>Tutorial</span>
+            <span>{t("heroAds.tutorial.badge")}</span>
           </div>
 
-          <h2 className="text-h1 text-white mb-6 hyphens-none">
-            <span className="block md:whitespace-nowrap">Confira Nosso <span className="text-yellow-500">Tutorial Completo</span></span>
-          </h2>
+          <h2 className="text-h1 text-white mb-6 hyphens-none" dangerouslySetInnerHTML={{ __html: t("heroAds.tutorial.title") }} />
 
-          <p className="text-body-lg text-gray-400 max-w-2xl mx-auto hyphens-none">
-            Aprenda a configurar a <span className="whitespace-nowrap">Ratoeira Ads</span> passo a passo, desde a instalação da tag até a ativação do bloqueio automático de fraude. Em menos de 15 minutos, sua operação estará protegida e rastreando ~100% das conversões do <span className="whitespace-nowrap">Google Ads</span>.
-          </p>
+          <p className="text-body-lg text-gray-400 max-w-2xl mx-auto hyphens-none" dangerouslySetInnerHTML={{ __html: t("heroAds.tutorial.description") }} />
 
           <div className="mt-8 flex items-center justify-center">
             <Link
@@ -49,7 +48,7 @@ export default function TutorialSection() {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-8 py-4 bg-yellow-500 text-black font-black rounded-button hover:bg-yellow-400 transition-all text-lg shadow-xl shadow-yellow-500/20 hover:scale-105 active:scale-95"
             >
-              <span className="text-black">Ver tutorial</span>
+              <span className="text-black">{t("heroAds.tutorial.button")}</span>
               <ArrowRight className="w-5 h-5 text-black" />
             </Link>
           </div>
