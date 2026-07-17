@@ -222,7 +222,7 @@ export default function Hero() {
                 >
                   <motion.h1
                     variants={itemVariants}
-                    className="text-display font-black tracking-tight leading-[1.04] text-left max-w-4xl lg:max-w-6xl 2xl:max-w-7xl hyphens-none"
+                    className="text-display font-black tracking-tight leading-[1.04] text-center lg:text-left max-w-4xl lg:max-w-6xl 2xl:max-w-7xl hyphens-none"
                   >
                     <span className="text-white">{t("hero.title.sale")}</span>{" "}
                     <span className="text-[#FFB800]">{t("hero.title.highlight")}</span>

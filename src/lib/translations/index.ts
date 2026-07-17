@@ -78,7 +78,7 @@ const translations = {
     "button.previous": "Anterior",
 
     // Google Ads Hero
-    "googleAds.hero.title": "Cada venda que o Google Ads não enxerga é lucro que escapa. A Ratoeira fecha esse gap — e faz você lucrar mais no Google Ads.",
+    "googleAds.hero.title": "Cada venda que o <span style='color:#FFB800'>Google Ads</span> não enxerga é lucro que escapa. A <span style='color:#FFB800'>Ratoeira</span> fecha esse gap — e faz você lucrar mais no <span style='color:#FFB800'>Google Ads</span>.",
     "googleAds.hero.subtitle": "Trackeamento server-side via API de Conversões do Google com ~100% de cobertura. Bloqueio automático de IPs inválidos. GCLID e UTMs preservados. Tudo que o algoritmo precisa para otimizar para quem realmente compra.",
 
     // Google Ads Features
@@ -1330,7 +1330,7 @@ const translations = {
     "button.previous": "Previous",
 
     // Google Ads Hero
-    "googleAds.hero.title": "Every sale that Google Ads can't see is profit that escapes. Ratoeira closes this gap — and makes you profit more on Google Ads.",
+    "googleAds.hero.title": "Every sale that <span style='color:#FFB800'>Google Ads</span> can't see is profit that escapes. <span style='color:#FFB800'>Ratoeira</span> closes this gap — and makes you profit more on <span style='color:#FFB800'>Google Ads</span>.",
     "googleAds.hero.subtitle": "Server-side tracking via Google Conversions API with ~100% coverage. Automatic blocking of invalid IPs. GCLID and UTMs preserved. Everything the algorithm needs to optimize for who actually buys.",
 
     // Google Ads Features
@@ -2575,7 +2575,7 @@ const translations = {
     "button.previous": "Anterior",
 
     // Google Ads Hero
-    "googleAds.hero.title": "Cada venta que Google Ads no puede ver es ganancia que se escapa. Ratoeira cierra esa brecha — y te hace ganar más en Google Ads.",
+    "googleAds.hero.title": "Cada venta que <span style='color:#FFB800'>Google Ads</span> no puede ver es ganancia que se escapa. <span style='color:#FFB800'>Ratoeira</span> cierra esa brecha — y te hace ganar más en <span style='color:#FFB800'>Google Ads</span>.",
     "googleAds.hero.subtitle": "Tracking server-side vía API de Conversiones de Google con ~100% de cobertura. Bloqueo automático de IPs inválidos. GCLID y UTMs preservados. Todo lo que el algoritmo necesita para optimizar para quienes realmente compran.",
 
     // Google Ads Features

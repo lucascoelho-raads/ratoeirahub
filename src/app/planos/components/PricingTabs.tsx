@@ -1709,8 +1709,8 @@ function PricingCardComponent({
 function ComparisonTable() {
   const { t } = useLanguage();
   const [collapsed, setCollapsed] = useState<Record<string, boolean>>({
-    "rows-ads": true,
-    "rows-pgs": true,
+    "rows-ads": false,
+    "rows-pgs": false,
     "rows-hub": false,
   });
 
@@ -1803,7 +1803,7 @@ function ComparisonTable() {
                       <span className="text-xs font-bold uppercase tracking-[0.18em] text-white">
                         {section.label}
                       </span>
-                      <span className="inline-flex items-center gap-1.5 rounded-full bg-[#f59f0a] px-3 py-1 text-xs font-bold text-[#0d0d0d]">
+                      <span className="hidden">
                         <span>{isCollapsed ? t("planos.compare.expand") : t("planos.compare.collapse")}</span>
                         <ChevronDown
                           className={cn(

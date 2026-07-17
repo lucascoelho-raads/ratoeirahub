@@ -52,6 +52,11 @@ export function shouldHideHeroPagesPanel(): boolean {
 export const HIDE_MCP_PAGES_SECTION = true;
 
 /**
+ * Quando `true`, oculta o player de vídeo (Vturb) na página /planos.
+ */
+export const HIDE_PLANOS_VIDEO_PLAYER = true;
+
+/**
  * Quando `true`, oculta os planos "Ratoeira Hub" e "Ratoeira Pages"
  * na página /planos — tanto nos cards de preços quanto na tabela "Compare
  * os Planos" (seções rows-pgs e rows-hub).

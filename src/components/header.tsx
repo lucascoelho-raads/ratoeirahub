@@ -284,7 +284,7 @@ export default function Header() {
             transition={{ duration: 0.22, ease: SHELL_EASE }}
             className="border-t border-white/10 bg-[#0a0a0a]/95 backdrop-blur-xl lg:hidden"
           >
-            <div className="mx-auto max-w-7xl 3xl:max-w-[100rem] 4xl:max-w-[120rem] px-4 pb-6 pt-4 sm:px-6 3xl:px-12 4xl:px-20">
+            <div className="mx-auto max-w-7xl 3xl:max-w-[100rem] 4xl:max-w-[120rem] px-4 pb-4 pt-3 sm:px-6 3xl:px-12 4xl:px-20">
               <AnimatePresence mode="wait" initial={false}>
                 {activeMobileLink?.menu ? (
                   <motion.div
@@ -293,37 +293,37 @@ export default function Header() {
                     initial="enter"
                     animate="center"
                     exit="exit"
-                    className="space-y-4"
+                    className="space-y-2"
                   >
                     <button
                       type="button"
                       onClick={() => setMobileStack((prev) => prev.slice(0, -1))}
-                      className="inline-flex min-h-11 items-center gap-2 rounded-button px-2 py-1 text-sm font-semibold text-gray-200 hover:bg-white/10"
+                      className="inline-flex min-h-9 items-center gap-2 rounded-button px-2 py-1 text-sm font-semibold text-gray-200 hover:bg-white/10"
                     >
                       <ChevronLeft className="size-4" />
                       Voltar
                     </button>
 
-                    <div className="space-y-4">
+                    <div className="space-y-2">
                       {activeMobileLink.menu.columns.map((column) => (
                         <div
                           key={column.heading}
                           className={cn(
-                            "rounded-card border border-border-default p-4",
+                            "rounded-card border border-border-default p-3",
                             column.accent && "bg-white/5",
                           )}
                         >
-                          <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-gray-100">
+                          <p className="mb-1.5 text-[11px] font-semibold uppercase tracking-wide text-gray-100">
                             {column.heading}
                           </p>
-                          <div className="space-y-1">
+                          <div className="space-y-0.5">
                             {column.items.map((item) => (
                               <a
                                 key={item.label}
                                 href={item.href || "#"}
-                                className="block w-full rounded-button px-2 py-2 text-left hover:bg-brand-100/30"
+                                className="block w-full rounded-button px-2 py-1.5 text-left hover:bg-brand-100/30"
                               >
-                                <span className="block min-h-11 py-2.5 text-sm md:text-sm font-semibold text-gray-100">
+                                <span className="block py-1 text-sm font-semibold text-gray-100">
                                   {item.label}
                                 </span>
                               </a>
@@ -358,7 +358,7 @@ export default function Header() {
                             setMobileOpen(false);
                           }
                         }}
-                        className="flex w-full min-h-12 items-center justify-between rounded-button border border-border-default px-4 py-3 text-left"
+                        className="flex w-full min-h-10 items-center justify-between rounded-button border border-border-default px-4 py-2 text-left"
                       >
                         <span className="text-base md:text-sm font-semibold text-gray-100">
                           {link.label}
