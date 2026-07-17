@@ -4,7 +4,7 @@ import { useState, useRef, useCallback, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, ChevronDown, ChevronLeft, Menu, X } from "lucide-react";
 import Link from "next/link";
-import { NAV_LINKS, type NavMenu } from "./header/nav-data";
+import { type NavMenu } from "./header/nav-data";
 import { MegaMenu } from "./header/mega-menu";
 import { cn } from "@/lib/utils";
 import { LanguageSelector } from "@/components/ui/LanguageSelector";
@@ -25,13 +25,19 @@ function Logo() {
   return (
     <Link
       href="/"
-      className="flex items-center gap-12 select-none"
-      aria-label="Ratoeira Hub"
+      className="flex items-center gap-4 select-none lg:mr-8 xl:mr-16 2xl:mr-24"
+      aria-label="Ratoeira Ads"
     >
-      <div className="h-[50px] w-[72px] overflow-hidden">
-        <img src="/logohub.png" alt="Ratoeira Hub" className="w-full h-auto" />
+      <div className="flex items-center justify-center self-center">
+        <img
+          src="/logoraads.png"
+          alt="Ratoeira Ads"
+          className="h-[88px] w-auto object-contain"
+        />
       </div>
-      <span className="text-[1.5rem] md:text-[2.5rem] font-black tracking-tight text-brand-primary whitespace-nowrap">Ratoeira Hub</span>
+      <span className="text-[1.5rem] md:text-[2.5rem] font-black tracking-tight text-brand-primary whitespace-nowrap">
+        Ratoeira Ads
+      </span>
     </Link>
   );
 }
@@ -114,8 +120,8 @@ function HeaderActions({
         href="/planos#pricing-cards"
         onClick={onAction}
         className={cn(
-          "flex select-none items-center justify-center gap-1.5 rounded-button bg-brand-primary text-gray-900 font-black transition-colors duration-150 hover:bg-brand-primary-hover",
-          mobile ? "min-h-14 text-lg" : "px-5 py-2 text-sm",
+          "flex select-none items-center justify-center gap-1.5 whitespace-nowrap rounded-button bg-brand-primary text-gray-900 font-black transition-colors duration-150 hover:bg-brand-primary-hover",
+          mobile ? "min-h-14 text-lg" : "px-6 py-2 text-sm",
         )}
       >
         {primaryLabel}
@@ -187,10 +193,10 @@ export default function Header() {
       className="fixed inset-x-0 top-0 z-50 bg-[#0a0a0a]/92 backdrop-blur-xl supports-[backdrop-filter]:bg-[#0a0a0a]/88 safe-area-top"
     >
       <div className="mx-auto w-full max-w-7xl 2xl:max-w-[90rem] 4xl:max-w-[120rem] px-4 sm:px-6 lg:px-8 2xl:px-12 4xl:px-20">
-        <div className="flex h-16 items-center justify-between">
+        <div className="flex h-20 items-center justify-between">
           <Logo />
 
-          <nav className="relative hidden items-center lg:flex">
+          <nav className="relative hidden items-center lg:flex lg:mr-8 xl:mr-16 2xl:mr-24">
             <div className="flex items-center rounded-button border border-white/10 bg-white/5 px-2 py-1">
               {navLinks.map((link, index) => {
                 const open = activeIndex === index && !!link.menu;

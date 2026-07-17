@@ -25,12 +25,13 @@ export default function HeroAbout() {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="space-y-8 text-center lg:text-left"
           >
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-black/5 border border-black/10 text-[#374151] mx-auto lg:mx-0">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-black/5 border border-black/10 text-[#374151] mx-auto lg:mx-0 mt-4">
               <span className="text-sm font-semibold">{t("about.hero.badge")}</span>
             </div>
 
-            <h1 className="text-display font-black text-[#111827] leading-[1.04] tracking-tight max-w-3xl lg:max-w-4xl mx-auto text-center hyphens-none">
-              A <GradientText className="font-black">Ratoeira</GradientText> {t("about.hero.title")}
+            <h1 className="text-display font-black text-[#111827] leading-[1.04] tracking-tight max-w-4xl lg:max-w-5xl 2xl:max-w-6xl mx-auto text-center hyphens-none">
+              A <GradientText className="font-black">Ratoeira</GradientText> nasceu de dentro do mercado.{" "}
+              <span className="block">Não de fora.</span>
             </h1>
 
             <div className="space-y-6 text-[#4b5563] font-medium leading-relaxed max-w-xl 2xl:max-w-[50rem] 4xl:max-w-[64rem] text-[clamp(1rem,1.1vw,1.125rem)] mx-auto lg:mx-0 hyphens-none">

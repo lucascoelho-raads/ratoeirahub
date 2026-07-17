@@ -8,6 +8,7 @@ import { RadialGlowBackground } from "@/components/ui/radial-glow-background"
 import { BarChart3, ListChecks, MessageSquareText } from "lucide-react"
 import type { CSSProperties } from "react"
 import { useLanguage } from "@/contexts/LanguageContext"
+import { HIDE_MCP_PAGES_SECTION } from "@/lib/feature-flags"
 import { useMemo } from "react"
 
 export default function ConexoesComIAPage() {
@@ -159,6 +160,7 @@ export default function ConexoesComIAPage() {
         </div>
       </section>
 
+      {!HIDE_MCP_PAGES_SECTION && (
       <section className="relative py-14 sm:py-20">
         <RadialGlowBackground sizePx={760} position={{ x: "50%", y: "180px" }} color="rgba(251,147,60,0.18)" />
         <div className="relative z-10 max-w-7xl 2xl:max-w-[90rem] 4xl:max-w-[120rem] 5xl:max-w-[140rem] 6xl:max-w-[160rem] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-12 4xl:px-20 5xl:px-28 6xl:px-36">
@@ -186,6 +188,7 @@ export default function ConexoesComIAPage() {
           </div>
         </div>
       </section>
+      )}
 
       <Footer />
     </main>

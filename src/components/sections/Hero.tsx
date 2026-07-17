@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence, Variants } from "framer-motion";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import {
   MessageCircle,
   Phone,
@@ -18,6 +19,7 @@ import {
 import SpotlightBackground from "@/components/ui/spotlight-background";
 import LogoMarquee from "./LogoMarquee";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { shouldHideHubPages, shouldHideHeroPagesPanel } from "@/lib/feature-flags";
 
 import { useFloating, offset, autoUpdate } from "@floating-ui/react";
 
@@ -116,6 +118,11 @@ const itemVariants: Variants = {
 
 export default function Hero() {
   const { t } = useLanguage();
+  const pathname = usePathname();
+  const hideHubPages = shouldHideHubPages(pathname);
+  // Painel 2 (Ratoeira Pages) oculto sempre que a flag estiver ativa,
+  // independentemente da página em que o Hero for renderizado.
+  const hideHeroPagesPanel = shouldHideHeroPagesPanel();
   const [activeSlide, setActiveSlide] = useState(0);
   const [activePanel, setActivePanel] = useState(0);
 
@@ -151,11 +158,12 @@ export default function Hero() {
   }, []);
 
   useEffect(() => {
+    if (hideHeroPagesPanel) return;
     const panelInterval = setInterval(() => {
       setActivePanel((prev) => (prev === 0 ? 1 : 0));
     }, 25000);
     return () => clearInterval(panelInterval);
-  }, []);
+  }, [hideHeroPagesPanel]);
 
   return (
     <section className="relative min-h-[100svh] lg:min-h-screen bg-[#050505] z-10 overflow-hidden [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
@@ -163,29 +171,33 @@ export default function Hero() {
         initial={false}
         animate={{ x: activePanel === 0 ? "0%" : "-50%" }}
         transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-        className="relative flex w-[200%] min-h-[100svh] lg:min-h-screen bg-[#050505]"
+        className={`relative flex ${hideHeroPagesPanel ? "w-full" : "w-[200%]"} min-h-[100svh] lg:min-h-screen bg-[#050505]`}
       >
-        <div className="relative w-1/2 min-h-[100svh] lg:min-h-screen flex items-start justify-center pt-16 lg:pt-20">
-          <button
-            type="button"
-            onClick={() => setActivePanel((prev) => (prev === 0 ? 1 : 0))}
-            className="absolute left-4 lg:left-8 top-1/2 -translate-y-1/2 z-30 w-10 h-10 lg:w-12 lg:h-12 rounded-full bg-white/10 hover:bg-white/20 border border-white/10 flex items-center justify-center transition-colors backdrop-blur-sm"
-            aria-label="Painel anterior"
-          >
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <polyline points="15 18 9 12 15 6" />
-            </svg>
-          </button>
-          <button
-            type="button"
-            onClick={() => setActivePanel((prev) => (prev === 0 ? 1 : 0))}
-            className="absolute right-4 lg:right-8 top-1/2 -translate-y-1/2 z-30 w-10 h-10 lg:w-12 lg:h-12 rounded-full bg-white/10 hover:bg-white/20 border border-white/10 flex items-center justify-center transition-colors backdrop-blur-sm"
-            aria-label="Próximo painel"
-          >
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <polyline points="9 18 15 12 9 6" />
-            </svg>
-          </button>
+        <div className={`relative ${hideHeroPagesPanel ? "w-full" : "w-1/2"} min-h-[100svh] lg:min-h-screen flex items-start justify-center pt-16 lg:pt-20`}>
+          {!hideHeroPagesPanel && (
+            <>
+              <button
+                type="button"
+                onClick={() => setActivePanel((prev) => (prev === 0 ? 1 : 0))}
+                className="absolute left-4 lg:left-8 top-1/2 -translate-y-1/2 z-30 w-10 h-10 lg:w-12 lg:h-12 rounded-full bg-white/10 hover:bg-white/20 border border-white/10 flex items-center justify-center transition-colors backdrop-blur-sm"
+                aria-label="Painel anterior"
+              >
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <polyline points="15 18 9 12 15 6" />
+                </svg>
+              </button>
+              <button
+                type="button"
+                onClick={() => setActivePanel((prev) => (prev === 0 ? 1 : 0))}
+                className="absolute right-4 lg:right-8 top-1/2 -translate-y-1/2 z-30 w-10 h-10 lg:w-12 lg:h-12 rounded-full bg-white/10 hover:bg-white/20 border border-white/10 flex items-center justify-center transition-colors backdrop-blur-sm"
+                aria-label="Próximo painel"
+              >
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <polyline points="9 18 15 12 9 6" />
+                </svg>
+              </button>
+            </>
+          )}
 
           <SpotlightBackground className="w-full h-full">
               <div
@@ -360,6 +372,7 @@ export default function Hero() {
             </SpotlightBackground>
         </div>
 
+        {!hideHeroPagesPanel && (
         <div className="relative w-1/2 min-h-[100svh] lg:min-h-screen flex items-start justify-center pt-16 lg:pt-20">
           <button
             type="button"
@@ -489,6 +502,7 @@ export default function Hero() {
               </div>
             </SpotlightBackground>
         </div>
+        )}
       </motion.div>
     </section>
   );

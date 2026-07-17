@@ -15,6 +15,8 @@ import {
 import { ShineBorder } from "@/components/ui/ShineBorder";
 import { BackgroundPaths } from "@/components/ui/background-paths";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { usePathname } from "next/navigation";
+import { shouldHideHubPages } from "@/lib/feature-flags";
 
 function renderNoBreak(text: string) {
   const patterns = [
@@ -37,6 +39,8 @@ function renderNoBreak(text: string) {
 
 export default function Benefits() {
   const { t } = useLanguage();
+  const pathname = usePathname();
+  const hideHubPages = shouldHideHubPages(pathname);
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
   const [activeIndex, setActiveIndex] = useState(0);
@@ -45,50 +49,84 @@ export default function Benefits() {
   const referenceCardRef = useRef<HTMLDivElement>(null);
   const [referenceCardHeight, setReferenceCardHeight] = useState<number | null>(null);
 
-  const benefits = useMemo(() => [
+  // Cards de benefícios que remetem a Ratoeira Hub / Ratoeira Pages.
+// São ocultos sempre que a flag HIDE_HUB_PAGES_ON_HOME estiver ativa,
+// independente da página em que a seção for renderizada.
+const HUB_PAGES_BENEFIT_LABEL_KEYS = new Set<string>([
+  "benefits.card.label3", // "Publique Páginas em Minutos, Não Dias"
+]);
+
+const allBenefits = [
     {
+      labelKey: "benefits.card.label1",
       label: t("benefits.card.label1"),
       title: t("benefits.card.title1"),
       description: t("benefits.card.desc1"),
       imageLeft: false,
       icon: BarChart3,
+      media: { kind: "image" as const, src: "/slide1home.png" },
     },
     {
+      labelKey: "benefits.card.label2",
       label: t("benefits.card.label2"),
       title: t("benefits.card.title2"),
       description: t("benefits.card.desc2"),
       imageLeft: true,
       icon: Bot,
+      media: { kind: "image" as const, src: "/slide2home.png" },
     },
     {
+      labelKey: "benefits.card.label3",
       label: t("benefits.card.label3"),
       title: t("benefits.card.title3"),
       description: t("benefits.card.desc3"),
       imageLeft: false,
       icon: LayoutTemplate,
+      media: { kind: "image" as const, src: "/slide3home.png", padded: true },
     },
     {
+      labelKey: "benefits.card.label4",
       label: t("benefits.card.label4"),
       title: t("benefits.card.title4"),
       description: t("benefits.card.desc4"),
       imageLeft: true,
       icon: FileBarChart,
+      media: { kind: "image" as const, src: "/slide4home.png" },
     },
     {
+      labelKey: "benefits.card.label5",
       label: t("benefits.card.label5"),
       title: t("benefits.card.title5"),
       description: t("benefits.card.desc5"),
       imageLeft: false,
       icon: BellRing,
+      media: { kind: "video" as const, src: "/videos/slide5.mp4" },
     },
     {
+      labelKey: "benefits.card.label6",
       label: t("benefits.card.label6"),
       title: t("benefits.card.title6"),
       description: t("benefits.card.desc6"),
       imageLeft: true,
       icon: ShieldCheck,
+      media: { kind: "image" as const, src: "/slide6home.png" },
     },
-  ], [t]);
+  ];
+
+  // Quando a flag estiver ativa, filtra os cards que remetem a Hub/Pages
+  // (ex.: "Publique Páginas em Minutos, Não Dias").
+  const benefits = useMemo(
+    () => {
+      const filtered = hideHubPages
+        ? allBenefits.filter(
+            (benefit) => !HUB_PAGES_BENEFIT_LABEL_KEYS.has(benefit.labelKey),
+          )
+        : allBenefits;
+      return filtered.map(({ labelKey, ...rest }) => rest);
+    },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [t, hideHubPages],
+  );
 
   const goToNext = () => {
     setSlideDirection(1);
@@ -140,16 +178,9 @@ export default function Benefits() {
   const renderCard = (index: number, options?: { measure?: boolean }) => {
     const benefit = benefits[index];
     const Icon = benefit.icon;
-    const imageSrc =
-      index === 0
-        ? "/slide1home.png"
-        : index === 1
-          ? "/slide2home.png"
-          : index === 2
-            ? "/slide3home.png"
-            : index === 3
-              ? "/slide4home.png"
-              : "/slide6home.png";
+    const isVideoCard = benefit.media.kind === "video";
+    const isPaddedImage =
+      benefit.media.kind === "image" && benefit.media.padded === true;
 
     return (
       <div
@@ -168,7 +199,7 @@ export default function Benefits() {
           ]}
           style={{
             ...(options?.measure ? { animation: "none" } : {}),
-            ...(isMobile && index === 4 && referenceCardHeight ? { height: referenceCardHeight } : {}),
+            ...(isMobile && isVideoCard && referenceCardHeight ? { height: referenceCardHeight } : {}),
           }}
           className="h-auto min-h-[420px] sm:h-[74vh] sm:min-h-[520px] 5xl:min-h-[560px] 6xl:min-h-[620px] w-full"
         >
@@ -185,14 +216,18 @@ export default function Benefits() {
               </div>
 
               <div className={benefit.imageLeft ? "order-1" : "order-2"}>
-                {index === 0 || index === 1 || index === 2 || index === 3 || index === 5 ? (
-                  <div className={index === 2 ? "relative rounded-card overflow-hidden p-3 5xl:p-4 6xl:p-6" : "relative rounded-card overflow-hidden 5xl:scale-100 6xl:scale-110"}>
-                    <img src={imageSrc} alt={benefit.title} className="w-full h-auto" />
+                {benefit.media.kind === "image" ? (
+                  <div className={isPaddedImage ? "relative rounded-card overflow-hidden p-3 5xl:p-4 6xl:p-6" : "relative rounded-card overflow-hidden 5xl:scale-100 6xl:scale-110"}>
+                    <img
+                      src={benefit.media.src}
+                      alt={benefit.title}
+                      className="w-full h-auto"
+                    />
                   </div>
-                ) : index === 4 ? (
+                ) : (
                   <div className="relative aspect-[9/19.5] max-w-[260px] sm:max-w-[300px] 5xl:max-w-[340px] 6xl:max-w-[420px] max-h-full mx-auto rounded-[2.5rem] overflow-hidden">
                     <video
-                      src="/videos/slide5.mp4"
+                      src={benefit.media.src}
                       autoPlay
                       muted
                       loop
@@ -200,25 +235,6 @@ export default function Benefits() {
                       preload="auto"
                       className="w-full h-full object-cover"
                     />
-                  </div>
-                ) : (
-                  <div
-                    className="relative h-[220px] sm:h-[280px] md:h-[380px] rounded-card border border-border-default overflow-hidden flex items-center justify-center"
-                    style={{
-                      background: benefit.imageLeft
-                        ? "linear-gradient(135deg, var(--color-brand-100) 0%, var(--color-brand-50) 100%)"
-                        : "linear-gradient(135deg, var(--color-brand-50) 0%, var(--color-brand-100) 100%)",
-                    }}
-                  >
-                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.9),rgba(255,255,255,0.15))]" />
-                    <div className="relative z-10 flex flex-col items-center text-center px-6">
-                      <div className="w-20 h-20 rounded-card bg-white/5 border border-white/10 flex items-center justify-center">
-                        <Icon className="w-10 h-10 text-brand-primary" />
-                      </div>
-                      <p className="mt-4 text-sm font-semibold text-gray-200">
-                        Imagem ilustrativa do {benefit.label.toLowerCase()}
-                      </p>
-                    </div>
                   </div>
                 )}
               </div>
@@ -245,11 +261,11 @@ export default function Benefits() {
               <br />
               <span style={{ color: "var(--color-brand-primary)" }}>{t("benefits.header.anunciantes")}</span> {t("benefits.header.escolheram")}
               <br />
-              a <span className="whitespace-nowrap">Ratoeira&nbsp;Hub</span>
+              a <span className="whitespace-nowrap">{hideHubPages ? "Ratoeira\u00a0Ads" : "Ratoeira\u00a0Hub"}</span>
             </span>
             <span className="hidden lg:block">
               {t("benefits.header.porQue")} <span style={{ color: "var(--color-brand-primary)" }}>+2.600 {t("benefits.header.anunciantes")}</span> {t("benefits.header.escolheram")} a{" "}
-              <span className="whitespace-nowrap">Ratoeira&nbsp;Hub</span>
+              <span className="whitespace-nowrap">{hideHubPages ? "Ratoeira\u00a0Ads" : "Ratoeira\u00a0Hub"}</span>
             </span>
           </h2>
           <p className="text-gray-400/80 text-base sm:text-lg 3xl:text-[1.75rem] max-w-2xl 3xl:max-w-[54rem] 4xl:max-w-[62rem] 5xl:max-w-[68rem] 6xl:max-w-[74rem] mx-auto hyphens-none">

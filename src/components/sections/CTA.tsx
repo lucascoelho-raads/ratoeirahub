@@ -4,12 +4,18 @@ import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { shouldHideHubPages, swapHubPagesBrand } from "@/lib/feature-flags";
 
 export default function CTA() {
   const { t } = useLanguage();
+  const pathname = usePathname();
+  const hideHubPages = shouldHideHubPages(pathname);
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
+
+  const ctaButtonLabel = swapHubPagesBrand(t("cta.button"), hideHubPages);
 
   return (
     <section
@@ -60,7 +66,7 @@ export default function CTA() {
               href="/planos#vamos-transformar"
               className="inline-flex items-center gap-2.5 px-10 py-5 min-h-12 bg-brand-primary text-black font-black rounded-button text-lg hover:bg-brand-primary-hover transition-all duration-200 shadow-2xl shadow-orange-900/25 hover:-translate-y-0.5 group"
             >
-              {t("cta.button")}
+              {ctaButtonLabel}
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Link>
           </div>

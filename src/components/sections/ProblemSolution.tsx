@@ -2,20 +2,30 @@
 
 import { useEffect, useRef, useState, useMemo } from "react";
 import { AnimatePresence, motion, useInView } from "framer-motion";
+import { usePathname } from "next/navigation";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { shouldHideHubPages } from "@/lib/feature-flags";
 
 export default function ProblemSolution() {
   const { t } = useLanguage();
+  const pathname = usePathname();
+  const hideHubPages = shouldHideHubPages(pathname);
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
   const [activeTab, setActiveTab] = useState("rastreamento");
   const [highlightIndex, setHighlightIndex] = useState(0);
 
-  const tabs = useMemo(() => [
+  const allTabs = useMemo(() => [
     { id: "rastreamento", label: t("problem.tabs.tracking"), logo: "/icons/pricing/ads-icon.png" },
     { id: "paginas", label: t("problem.tabs.pages"), logo: "/icons/pricing/pages-icon.png" },
     { id: "ecossistema", label: t("problem.tabs.ecossystem"), logo: "/icons/pricing/hub-icon.png" },
   ], [t]);
+
+  // Na Home, ocultamos as abas "paginas" (Ratoeira Pages) e "ecossistema" (Ratoeira Hub).
+  const tabs = useMemo(
+    () => (hideHubPages ? allTabs.filter((tab) => tab.id === "rastreamento") : allTabs),
+    [allTabs, hideHubPages],
+  );
 
   const trackingHighlights = useMemo(() => [
     t("problem.tracking.highlight1"),

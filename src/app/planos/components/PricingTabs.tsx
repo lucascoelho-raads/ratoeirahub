@@ -19,6 +19,7 @@ import {
   useInteractions,
   FloatingPortal,
 } from "@floating-ui/react";
+import { HIDE_PLANOS_HUB_PAGES } from "@/lib/feature-flags";
 
 type PlanType = "ads" | "pages" | "hub";
 type BillingCycle = "monthly" | "semiannual" | "annual";
@@ -1400,6 +1401,10 @@ const COMPARE_ROWS: CompareRow[] = [
 ];
 
 function getCards(product: PlanType, cycle: BillingCycle): PricingCard[] {
+  // Quando a flag estiver ativa, oculta os planos de Ratoeira Hub / Ratoeira Pages.
+  if (HIDE_PLANOS_HUB_PAGES && (product === "pages" || product === "hub")) {
+    return [];
+  }
   return PRICING_CARDS.filter(
     (c) => c.product === product && c.cycle === cycle && c.name !== "Gratuito",
   );
@@ -1713,11 +1718,20 @@ function ComparisonTable() {
     setCollapsed((prev) => ({ ...prev, [target]: !prev[target] }));
   };
 
-  const sections: { target: string; label: string }[] = useMemo(() => [
-    { target: "rows-ads", label: t("planos.compare.section.ads") },
-    { target: "rows-pgs", label: t("planos.compare.section.pages") },
-    { target: "rows-hub", label: t("planos.compare.section.hub") },
-  ], [t]);
+  const sections: { target: string; label: string }[] = useMemo(() => {
+    const all = [
+      { target: "rows-ads", label: t("planos.compare.section.ads") },
+      { target: "rows-pgs", label: t("planos.compare.section.pages") },
+      { target: "rows-hub", label: t("planos.compare.section.hub") },
+    ];
+    // Quando a flag estiver ativa, oculta as seções de Ratoeira Pages e Ratoeira Hub.
+    if (HIDE_PLANOS_HUB_PAGES) {
+      return all.filter(
+        (s) => s.target !== "rows-pgs" && s.target !== "rows-hub",
+      );
+    }
+    return all;
+  }, [t]);
 
   const renderCell = (value: string) => {
     if (value === "") {
@@ -1849,18 +1863,27 @@ function ComparisonTable() {
 
 export default function PricingTabs() {
   const { t } = useLanguage();
-  const [activeTab, setActiveTab] = useState<PlanType>("hub");
+  const [activeTab, setActiveTab] = useState<PlanType>(
+    HIDE_PLANOS_HUB_PAGES ? "ads" : "hub",
+  );
   const [billingCycle, setBillingCycle] = useState<BillingCycle>("annual");
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedPlan, setSelectedPlan] = useState<{ name: string; checkoutUrl: string } | null>(null);
   const [activeSlide, setActiveSlide] = useState(0);
   const carouselRef = useRef<HTMLDivElement>(null);
 
-  const tabs = useMemo(() => [
-    { id: "ads" as PlanType, label: t("planos.tabs.ads"), icon: "/icons/pricing/ads-icon.png" },
-    { id: "pages" as PlanType, label: t("planos.tabs.pages"), icon: "/icons/pricing/pages-icon.png" },
-    { id: "hub" as PlanType, label: t("planos.tabs.hub"), icon: "/icons/pricing/hub-icon.png", badge: t("planos.tabs.recommended") },
-  ], [t]);
+  const tabs = useMemo(() => {
+    const all = [
+      { id: "ads" as PlanType, label: t("planos.tabs.ads"), icon: "/icons/pricing/ads-icon.png" },
+      { id: "pages" as PlanType, label: t("planos.tabs.pages"), icon: "/icons/pricing/pages-icon.png" },
+      { id: "hub" as PlanType, label: t("planos.tabs.hub"), icon: "/icons/pricing/hub-icon.png", badge: t("planos.tabs.recommended") },
+    ];
+    // Quando a flag estiver ativa, mantém apenas a aba Ratoeira Ads.
+    if (HIDE_PLANOS_HUB_PAGES) {
+      return all.filter((tab) => tab.id === "ads");
+    }
+    return all;
+  }, [t]);
 
   const periods = useMemo(() => [
     { id: "monthly" as BillingCycle, label: t("planos.period.monthly") },

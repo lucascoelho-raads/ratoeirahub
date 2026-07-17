@@ -9,10 +9,12 @@ import { AuroraBackground } from "@/components/ui/aurora-background";
 import SpotlightBackground from "@/components/ui/spotlight-background";
 import { countries } from "@/lib/countries";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { shouldHideHubPages, swapHubPagesBrand } from "@/lib/feature-flags";
 
 export default function Footer() {
   const { t } = useLanguage();
   const pathname = usePathname();
+  const hideHubPages = shouldHideHubPages(pathname);
   const showTransformSection = false;
 
   const utmParams = useMemo(() => {
@@ -62,7 +64,7 @@ export default function Footer() {
   const footerLinks = useMemo(() => ({
     [t("footer.product")]: [
       { href: "/#solucoes", label: t("footer.features") },
-      { href: "/integracoes/mais-de-70-plataformas", label: t("nav.integrations") },
+      { href: "/integracoes/mais-de-70-plataformas", label: t("footer.integrations") },
       { href: "/planos#pricing-cards", label: t("footer.pricing") },
     ],
     [t("footer.company")]: [
@@ -387,13 +389,13 @@ export default function Footer() {
                 >
                   <div className="h-[40px] w-14 overflow-hidden">
                     <img
-                      src="/logohub.png"
-                      alt="Ratoeira Hub"
+                      src="/logoraads.png"
+                      alt="Ratoeira Ads"
                       className="w-full h-auto shadow-lg shadow-yellow-500/20"
                     />
                   </div>
                   <span className="text-xl font-black text-brand-primary">
-                    Ratoeira Hub
+                    Ratoeira Ads
                   </span>
                 </Link>
                 <p className="text-sm text-gray-50 leading-relaxed mb-6 max-w-xs mx-auto sm:mx-0">
@@ -417,7 +419,9 @@ export default function Footer() {
                 {/* Informações Legais */}
                 <div className="mt-6 space-y-1 text-[11px] leading-relaxed text-gray-500 text-center sm:text-left">
                   <p>Ratoeira Ads - CNPJ: 55.824.986/0001-06</p>
-                  <p>Ratoeira Pages - CNPJ: 62.829.447/0001-25</p>
+                  {!hideHubPages && (
+                    <p>Ratoeira Pages - CNPJ: 62.829.447/0001-25</p>
+                  )}
                   <p>
                     Endereço: Alameda Rio Negro, 503, sala 2020, Alphaville,
                     Barueri/SP, CEP: 06.454-000
@@ -452,7 +456,7 @@ export default function Footer() {
             {/* Bottom bar */}
             <div className="border-t border-gray-800 py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
               <p className="text-xs text-gray-50">
-                © {new Date().getFullYear()} Ratoeira Hub Technologies. Todos os
+                © {new Date().getFullYear()} Ratoeira Ads Technologies. Todos os
                 direitos reservados.
               </p>
               <div

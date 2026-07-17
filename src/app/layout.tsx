@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { GoogleTagManager } from "@next/third-parties/google";
+import Script from "next/script";
 import "./globals.css";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import TrackingProvider from "@/components/TrackingProvider";
@@ -57,6 +58,14 @@ export default function RootLayout({
         <WhatsAppButton />
       </body>
       <GoogleTagManager gtmId="GTM-W9MQ5VQT" />
+      <Script
+        defer
+        src="https://cdn.radimarkt.com/tag.js"
+        data-tag-id="10873-ac52aed3fa31418b859fea83d6f5c68e"
+        data-event-host="api.radimarkt.com"
+        data-plat-params="src,sck,utm_medium,utm_campaign,utm_content,utm_source"
+        strategy="afterInteractive"
+      />
     </html>
   );
 }

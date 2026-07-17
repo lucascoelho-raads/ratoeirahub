@@ -1,10 +1,46 @@
 "use client";
 
+import { usePathname } from "next/navigation";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { shouldHideHubPages } from "@/lib/feature-flags";
 import { NAV_LINKS, type NavLink } from "@/components/header/nav-data";
+
+// Hrefs que remetem a Ratoeira Hub / Ratoeira Pages — ocultos na Home
+const HUB_PAGES_HREFS = new Set<string>([
+  "/solucoes/ratoeira-hub",
+  "/solucoes/ratoeira-pages",
+]);
+
+// Labels (já traduzidos via t()) que remetem a Ratoeira Hub / Ratoeira Pages
+// Usado como fallback caso o item não tenha href definido.
+const HUB_PAGES_LABEL_KEYS = new Set<string>([
+  "nav.menu.ratoeiraHub",
+  "nav.menu.ratoeiraPages",
+]);
+
+function isHubPagesItem(item: { label: string; href?: string }): boolean {
+  if (item.href && HUB_PAGES_HREFS.has(item.href)) return true;
+  if (HUB_PAGES_LABEL_KEYS.has(item.label)) return true;
+  return false;
+}
+
+function filterMenuColumns(
+  columns: NonNullable<NavLink["menu"]>["columns"],
+  hideHubPages: boolean,
+): NonNullable<NavLink["menu"]>["columns"] {
+  if (!hideHubPages) return columns;
+  return columns
+    .map((column) => ({
+      ...column,
+      items: column.items.filter((item) => !isHubPagesItem(item)),
+    }))
+    .filter((column) => column.items.length > 0);
+}
 
 export function useTranslatedNav() {
   const { t } = useLanguage();
+  const pathname = usePathname();
+  const hideHubPages = shouldHideHubPages(pathname);
 
   const translatedNavLinks: NavLink[] = [
     {
@@ -47,7 +83,7 @@ export function useTranslatedNav() {
       href: "#solucoes",
       menu: {
         id: "solucoes",
-        columns: [
+        columns: filterMenuColumns([
           {
             heading: t("nav.menu.byOperation"),
             items: [
@@ -113,7 +149,7 @@ export function useTranslatedNav() {
               { label: t("nav.menu.talkToTeam"), href: "/fale-conosco" },
             ],
           },
-        ],
+        ], hideHubPages),
       },
     },
     {
