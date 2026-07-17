@@ -27,7 +27,7 @@ function HeroVideoMockup({
   onReady,
   src = "/videos/videoadsherohome.mp4",
   fallbackSrc,
-  poster = "/videos/videoadsherohome-poster.jpg",
+  poster,
   alt = "Dashboard Preview",
 }: {
   onReady?: () => void;
@@ -52,27 +52,31 @@ function HeroVideoMockup({
   return (
     <div className="w-full h-full bg-black rounded-xl overflow-hidden relative">
       {hasError ? (
-        <img
-          src={poster}
-          alt={alt}
-          className="w-full h-full object-cover"
-        />
+        <div className="w-full h-full flex items-center justify-center bg-black">
+          <span className="text-gray-500 text-sm">Vídeo indisponível</span>
+        </div>
       ) : (
         <>
-          <img
-            src={poster}
-            alt={alt}
-            className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-300 ${isPlaying ? "opacity-0" : "opacity-100"}`}
-          />
+          {poster && (
+            <img
+              src={poster}
+              alt={alt}
+              className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-300 ${isPlaying ? "opacity-0" : "opacity-100"}`}
+              onError={(e) => {
+                // Se a imagem do poster não existir, esconde para não ficar visível
+                (e.currentTarget as HTMLImageElement).style.display = "none";
+              }}
+            />
+          )}
           <video
             key={currentSrc}
             autoPlay
             muted
             loop
             playsInline
-            preload="metadata"
+            preload="auto"
             poster={poster}
-            className={`relative z-10 h-full w-full object-cover transition-opacity duration-300 ${isPlaying ? "opacity-100" : "opacity-0"}`}
+            className={`relative z-10 h-full w-full object-cover transition-opacity duration-300 ${poster ? (isPlaying ? "opacity-100" : "opacity-0") : "opacity-100"}`}
             onCanPlay={() => setIsReady(true)}
             onPlaying={() => setIsPlaying(true)}
             onPause={() => setIsPlaying(false)}
@@ -295,7 +299,6 @@ export default function Hero() {
                           <HeroVideoMockup
                             src="/videos/hero1.mp4"
                             fallbackSrc="/videos/video1.mp4"
-                            poster="/videos/video1-poster.jpg"
                             alt="Ratoeira Ads Preview"
                           />
                         </motion.div>
@@ -465,7 +468,6 @@ export default function Hero() {
                           <HeroVideoMockup
                             src="/videos/hero2.mp4"
                             fallbackSrc="/videos/videopagesheroslide2.mp4"
-                            poster="/videos/videopagesheroslide2-poster.jpg"
                             alt="Ratoeira Pages Preview"
                           />
                         </motion.div>
