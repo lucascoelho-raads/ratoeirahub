@@ -4,8 +4,8 @@ import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
 
 export const metadata = {
-  title: "Termos de Uso do Pages | Ratoeira Hub",
-  description: "Termos e Condições de Uso da plataforma Ratoeira Pages.",
+  title: "Termos de Uso do Pages | Ratoeira Pages",
+  description: "Termos e Condições de Uso da plataforma Ratoeira Pages — construtor de landing pages com tracking integrado.",
 };
 
 export default function TermosDeUsoPagesPage() {

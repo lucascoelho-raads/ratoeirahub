@@ -3,8 +3,8 @@ import Footer from "@/components/Footer";
 import CasesSocialProof from "./components/CasesSocialProof";
 
 export const metadata = {
-  title: "Cases | Ratoeira Hub",
-  description: "Veja como os maiores players do mercado escalam suas operações com o Ratoeira Hub.",
+  title: "Cases | Ratoeira Pages",
+  description: "Veja como os maiores anunciantes do Google Ads e Meta Ads escalam suas operações com a Ratoeira Pages e o tracking server-side ~100%.",
 };
 
 export default function CasesPage() {

@@ -4,8 +4,8 @@ import Mais70Hero from "./Mais70Hero";
 import Mais70ChainCarousel from "./Mais70ChainCarousel";
 
 export const metadata = {
-  title: "Mais de 70 Plataformas | Ratoeira Hub",
-  description: "Integrações prontas para conectar sua operação em minutos, com rastreamento e otimização em tempo real.",
+  title: "Mais de 70 Plataformas | Ratoeira Pages",
+  description: "Mais de 70 integrações prontas para conectar Google Ads, Meta Ads, gateways de pagamento e CRM — com tracking server-side e otimização em tempo real.",
 };
 
 export default function MaisDe70PlataformasPage() {

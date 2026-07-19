@@ -7,8 +7,8 @@ import MVVAbout from "./components/MVVAbout";
 import GalleryAbout from "./components/GalleryAbout";
 
 export const metadata = {
-  title: "Quem Somos | Ratoeira Hub",
-  description: "Conheça a história, missão e valores do Ratoeira Hub, o ecossistema definitivo para escalar no tráfego pago.",
+  title: "Quem Somos | Ratoeira Pages",
+  description: "Conheça a história, missão e valores da Ratoeira Pages — o ecossistema de tracking server-side e landing pages para escalar no tráfego pago.",
 };
 
 export default function QuemSomosPage() {

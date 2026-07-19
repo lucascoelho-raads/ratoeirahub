@@ -4,8 +4,8 @@ import PricingTabs from "./components/PricingTabs";
 import WebnarioLock from "./components/WebnarioLock";
 
 export const metadata = {
-  title: "Webnario | Ratoeira Hub",
-  description: "Escolha o plano ideal para a sua operação. Tracking server-side, páginas de alta conversão ou o ecossistema completo.",
+  title: "Webnario | Ratoeira Pages",
+  description: "Webinar da Ratoeira Pages — tracking server-side para Google Ads e Meta Ads, páginas de alta conversão e o ecossistema completo para escalar no tráfego pago.",
   other: {
     link: [
       {

@@ -3,8 +3,8 @@ import Footer from "@/components/Footer";
 import DesignSystem from "./DesignSystem";
 
 export const metadata = {
-  title: "Design System | Ratoeira Hub",
-  description: "Documentação visual do Design System do Ratoeira Hub - Tokens semânticos, tipografia e componentes.",
+  title: "Design System | Ratoeira Pages",
+  description: "Documentação visual do Design System da Ratoeira Pages — tokens semânticos, tipografia e componentes da interface.",
 };
 
 export default function DesignSystemPage() {

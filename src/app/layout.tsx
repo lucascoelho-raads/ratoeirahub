@@ -15,10 +15,11 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Ratoeira Hub — Atendimento inteligente para sua empresa",
+  title: "Ratoeira Pages — Tracking ~100% e páginas que convertem para Google e Meta Ads",
   description:
-    "Plataforma de atendimento ao cliente com IA para aumentar conversões e reduzir o tempo de resposta. Integre WhatsApp, Instagram e muito mais.",
-  keywords: "atendimento, CRM, chatbot, IA, WhatsApp, suporte ao cliente",
+    "Ecossistema integrado de tracking server-side e landing pages para anunciantes no Google Ads e Meta Ads. Rastreie ~100% das conversões, bloqueie cliques fraudulentos e construa páginas que vendem — tudo num único dashboard, em tempo real.",
+  keywords:
+    "tracking server-side, API de conversões, Meta Ads, Google Ads, bloqueio de fraude, landing pages, Flash Pages, Ratoeira Pages, Ratoeira Ads, rastreamento de conversões",
   icons: {
     icon: [
       { url: "/favicon.png", type: "image/png", sizes: "32x32" },
@@ -29,8 +30,9 @@ export const metadata: Metadata = {
     apple: "/apple-touch-icon.png",
   },
   openGraph: {
-    title: "Ratoeira Hub — Atendimento inteligente",
-    description: "A plataforma mais completa para atendimento ao cliente com IA",
+    title: "Ratoeira Pages — Tracking ~100% e páginas que convertem",
+    description:
+      "Tracking server-side, bloqueio de fraude e landing pages integradas — para quem anuncia no Google Ads e Meta Ads.",
     type: "website",
   },
 };

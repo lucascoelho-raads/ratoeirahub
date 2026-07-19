@@ -4,8 +4,8 @@ import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
 
 export const metadata = {
-  title: "Termos de Uso do Ads | Ratoeira Hub",
-  description: "Termos e Condições de Uso da plataforma Ratoeira Ads.",
+  title: "Termos de Uso do Ads | Ratoeira Pages",
+  description: "Termos e Condições de Uso da plataforma Ratoeira Ads — tracking server-side para Google Ads e Meta Ads.",
 };
 
 export default function TermosDeUsoAdsPage() {
