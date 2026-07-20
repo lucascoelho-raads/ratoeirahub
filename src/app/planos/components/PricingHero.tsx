@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import VturbPlayer from "./VturbPlayer";
+import YouTubePlayer from "./YouTubePlayer";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { HIDE_PLANOS_VIDEO_PLAYER } from "@/lib/feature-flags";
 
@@ -33,7 +33,7 @@ export default function PricingHero() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="relative max-w-4xl 2xl:max-w-[70rem] 4xl:max-w-[90rem] mx-auto rounded-3xl overflow-hidden border border-white/10 bg-surface-subdued shadow-2xl aspect-video"
           >
-            <VturbPlayer />
+            <YouTubePlayer videoId="xFSuSYcFTYs" title="Apresentação Ratoeira" />
           </motion.div>
         )}
       </div>

@@ -15,7 +15,7 @@
  * Os arquivos/páginas continuam existindo no projeto — apenas a UI deixa
  * de exibir referências a essas soluções.
  */
-export const HIDE_HUB_PAGES_ON_HOME = true;
+export const HIDE_HUB_PAGES_ON_HOME = false;
 
 /**
  * Detecta se o pathname atual é a página Home (`/`).
@@ -49,19 +49,19 @@ export function shouldHideHeroPagesPanel(): boolean {
  * A flag é independente de HIDE_HUB_PAGES_ON_HOME para permitir reativar
  * a Home sem reativar essa seção, e vice-versa.
  */
-export const HIDE_MCP_PAGES_SECTION = true;
+export const HIDE_MCP_PAGES_SECTION = false;
 
 /**
  * Quando `true`, oculta o player de vídeo (Vturb) na página /planos.
  */
-export const HIDE_PLANOS_VIDEO_PLAYER = true;
+export const HIDE_PLANOS_VIDEO_PLAYER = false;
 
 /**
  * Quando `true`, oculta os planos "Ratoeira Hub" e "Ratoeira Pages"
  * na página /planos — tanto nos cards de preços quanto na tabela "Compare
  * os Planos" (seções rows-pgs e rows-hub).
  */
-export const HIDE_PLANOS_HUB_PAGES = true;
+export const HIDE_PLANOS_HUB_PAGES = false;
 
 /**
  * Quando a flag está ativa, substitui menções visuais a
