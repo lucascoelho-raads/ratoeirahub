@@ -69,7 +69,7 @@ export default function Footer() {
     ],
     [t("footer.company")]: [
       { href: "/quem-somos", label: t("footer.aboutUs") },
-      { href: "/parcerias", label: t("nav.partners") },
+      { href: "/parcerias", label: t("footer.partners") },
     ],
     [t("footer.support")]: [
       { href: "/faq", label: t("footer.helpCenter") },
@@ -81,7 +81,7 @@ export default function Footer() {
     ],
   }), [t]);
 
-  const socialLinks = [{ href: "#", icon: Instagram, label: "Instagram" }];
+  const socialLinks = [{ href: "https://www.instagram.com/ratoeiraads.oficial?igsh=MTJsMjd2a3UxOGQ3Mg==", icon: Instagram, label: "Instagram" }];
   const subtitleClassName = isLightBackground
     ? "text-gray-50"
     : "text-gray-300";
@@ -389,13 +389,13 @@ export default function Footer() {
                 >
                   <div className="h-[40px] w-14 overflow-hidden">
                     <img
-                      src="/logoraads.png"
-                      alt="Ratoeira Ads"
+                      src="/logohub.png"
+                      alt="Ratoeira Hub"
                       className="w-full h-auto shadow-lg shadow-yellow-500/20"
                     />
                   </div>
                   <span className="text-xl font-black text-brand-primary">
-                    Ratoeira Ads
+                    Ratoeira Hub
                   </span>
                 </Link>
                 <p className="text-sm text-gray-50 leading-relaxed mb-6 max-w-xs mx-auto sm:mx-0">
@@ -418,7 +418,7 @@ export default function Footer() {
 
                 {/* Informações Legais */}
                 <div className="mt-6 space-y-1 text-[11px] leading-relaxed text-gray-500 text-center sm:text-left">
-                  <p>Ratoeira Ads - CNPJ: 55.824.986/0001-06</p>
+                  <p>Ratoeira Hub - CNPJ: 55.824.986/0001-06</p>
                   {!hideHubPages && (
                     <p>Ratoeira Pages - CNPJ: 62.829.447/0001-25</p>
                   )}
@@ -456,7 +456,7 @@ export default function Footer() {
             {/* Bottom bar */}
             <div className="border-t border-gray-800 py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
               <p className="text-xs text-gray-50">
-                © {new Date().getFullYear()} Ratoeira Ads Technologies. Todos os
+                © {new Date().getFullYear()} Ratoeira Hub Technologies. Todos os
                 direitos reservados.
               </p>
               <div

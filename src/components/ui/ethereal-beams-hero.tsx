@@ -453,17 +453,6 @@ export default function EtherealBeamsHero() {
       <div className="flex flex-col items-center justify-center min-h-[85svh] sm:min-h-screen px-4 pt-28 sm:pt-[clamp(7rem,16vh,12rem)] pb-12 sm:pb-[clamp(4.5rem,10vh,8.5rem)]">
         {/* Hero Content */}
         <div className="max-w-6xl 2xl:max-w-[90rem] 4xl:max-w-[110rem] 5xl:max-w-[130rem] 6xl:max-w-[150rem] text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.05 }}
-            className="mb-6"
-          >
-            <span className="inline-flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full bg-brand-primary/10 border border-brand-primary/20 text-brand-primary text-xs sm:text-sm font-bold uppercase tracking-wider">
-              {t("heroAds.badge")}
-            </span>
-          </motion.div>
-
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}

@@ -360,6 +360,7 @@ const translations = {
     "footer.privacy": "Privacidade",
     "footer.terms": "Termos de uso",
     "footer.followUs": "Siga-nos",
+    "footer.partners": "Parcerias",
 
     // Benefits
     "benefits.title": "Benefícios",
@@ -1612,6 +1613,7 @@ const translations = {
     "footer.privacy": "Privacy",
     "footer.terms": "Terms of use",
     "footer.followUs": "Follow us",
+    "footer.partners": "Partnerships",
 
     // Benefits
     "benefits.title": "Benefits",
@@ -2857,6 +2859,7 @@ const translations = {
     "footer.privacy": "Privacidad",
     "footer.terms": "Términos de uso",
     "footer.followUs": "Síguenos",
+    "footer.partners": "Asociaciones",
 
     // Benefits
     "benefits.title": "Beneficios",

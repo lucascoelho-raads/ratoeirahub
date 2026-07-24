@@ -1828,14 +1828,31 @@ function ComparisonTable() {
                     >
                       <td className="py-3 px-3.5 text-left text-[13px] font-medium text-[#cccccc] border-b border-white/[0.06]">
                         {row.label === "Gerenciador Integrado" ? (
-                          <span className="inline-flex items-center gap-1.5">
-                            {translatedLabel}
-                            <img
-                              src={GOOGLE_ADS_LOGO}
-                              alt="Google Ads"
-                              className="w-[18px] h-[18px] object-contain rounded-[3px] inline-block"
-                            />
-                          </span>
+                          <div className="inline-flex items-center gap-4">
+                            <span>{translatedLabel}</span>
+                            <div className="inline-flex items-center gap-4">
+                              <img
+                                src={GOOGLE_ADS_LOGO}
+                                alt="Google Ads"
+                                className="w-[18px] h-[18px] object-contain rounded-[3px] inline-block"
+                              />
+                              <img
+                                src={META_ADS_LOGO}
+                                alt="Meta Ads"
+                                className="w-[18px] h-[18px] object-contain rounded-[3px] inline-block"
+                              />
+                              <img
+                                src={TABOOLA_LOGO}
+                                alt="Taboola"
+                                className="w-[18px] h-[18px] object-contain rounded-[3px] inline-block"
+                              />
+                              <img
+                                src={NEWSBREAK_LOGO}
+                                alt="NewsBreak"
+                                className="w-[18px] h-[18px] object-contain rounded-[3px] inline-block"
+                              />
+                            </div>
+                          </div>
                         ) : (
                           translatedLabel
                         )}
