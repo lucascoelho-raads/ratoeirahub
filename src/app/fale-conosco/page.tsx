@@ -31,13 +31,6 @@ export default function FaleConoscoPage() {
             <h2 className="text-h1 font-black text-gray-900">{t("contact.hours.title")}</h2>
           </div>
 
-          <div className="mt-10 flex justify-center">
-            <Link href={WHATSAPP_SUPPORT_URL} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-12 items-center justify-center gap-2 rounded-button bg-brand-primary px-6 py-3 font-semibold text-gray-900 transition-colors hover:bg-brand-primary-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2">
-              <MessageCircle className="h-5 w-5" aria-hidden="true" />
-              Falar com Suporte
-            </Link>
-          </div>
-
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* Ratoeira Ads */}
             <div className="bg-gray-50 rounded-2xl p-8 border border-gray-200">
@@ -68,6 +61,13 @@ export default function FaleConoscoPage() {
                 </div>
               </div>
             </div>
+          </div>
+
+          <div className="mt-6 flex justify-center">
+            <Link href={WHATSAPP_SUPPORT_URL} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-12 items-center justify-center gap-2 rounded-button bg-brand-primary px-6 py-3 font-semibold text-gray-900 transition-colors hover:bg-brand-primary-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2">
+              <MessageCircle className="h-5 w-5" aria-hidden="true" />
+              Falar com Suporte
+            </Link>
           </div>
         </div>
       </section>
