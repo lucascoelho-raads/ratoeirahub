@@ -25,17 +25,17 @@ function Logo() {
   return (
     <Link
       href="/"
-      className="flex items-center gap-2 md:gap-4 select-none max-lg:absolute max-lg:left-1/2 max-lg:-translate-x-1/2 lg:mr-8 xl:mr-16 2xl:mr-24"
+      className="flex items-center gap-2 md:gap-4 select-none max-lg:absolute max-lg:inset-x-0 max-lg:w-full max-lg:justify-center lg:mr-8 xl:mr-16 2xl:mr-24"
       aria-label="Ratoeira Hub"
     >
-      <div className="flex items-center justify-center self-center">
+      <div className="flex items-center justify-center self-center max-lg:absolute max-lg:right-[calc(50%+6.8rem)]">
         <img
           src="/logohub.png"
           alt="Ratoeira Hub"
           className="h-11 md:h-[88px] w-auto object-contain"
         />
       </div>
-      <span className="text-[1.25rem] md:text-[2.5rem] font-black tracking-tight text-brand-primary whitespace-nowrap">
+      <span className="text-[1.25rem] md:text-[2.5rem] font-black tracking-tight text-brand-primary whitespace-nowrap max-lg:absolute max-lg:left-1/2 max-lg:-translate-x-1/2">
         Ratoeira Hub
       </span>
     </Link>
