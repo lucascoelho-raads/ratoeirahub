@@ -263,7 +263,7 @@ export default function Header() {
                 return next;
               })
             }
-            className="inline-flex h-11 w-11 items-center justify-center rounded-button border border-white/10 text-gray-200 transition-colors hover:bg-white/10 lg:hidden"
+            className="inline-flex h-11 w-11 items-center justify-center rounded-button border border-white/10 text-gray-200 transition-colors hover:bg-white/10 lg:hidden max-lg:absolute max-lg:right-0"
           >
             {mobileOpen ? (
               <X className="size-5" strokeWidth={1.9} />
