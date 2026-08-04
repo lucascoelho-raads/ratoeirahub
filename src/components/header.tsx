@@ -25,7 +25,7 @@ function Logo() {
   return (
     <Link
       href="/"
-      className="flex items-center gap-2 md:gap-4 select-none lg:mr-8 xl:mr-16 2xl:mr-24"
+      className="flex items-center gap-2 md:gap-4 select-none max-lg:absolute max-lg:left-1/2 max-lg:-translate-x-1/2 lg:mr-8 xl:mr-16 2xl:mr-24"
       aria-label="Ratoeira Hub"
     >
       <div className="flex items-center justify-center self-center">
@@ -193,7 +193,7 @@ export default function Header() {
       className="fixed inset-x-0 top-0 z-50 bg-[#0a0a0a]/92 backdrop-blur-xl supports-[backdrop-filter]:bg-[#0a0a0a]/88 safe-area-top"
     >
       <div className="mx-auto w-full max-w-7xl 2xl:max-w-[90rem] 4xl:max-w-[120rem] px-4 sm:px-6 lg:px-8 2xl:px-12 4xl:px-20">
-        <div className="flex h-20 items-center justify-between">
+        <div className="relative flex h-20 items-center justify-between">
           <Logo />
 
           <nav className="relative hidden items-center lg:flex lg:mr-8 xl:mr-16 2xl:mr-24">
