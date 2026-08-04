@@ -278,7 +278,7 @@ export default function Hero() {
                           <button
                             key={i}
                             onClick={() => setActiveSlide(i)}
-                            className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${
+                            className={`max-lg:hidden w-1.5 h-1.5 rounded-full transition-all duration-300 ${
                               i === activeSlide ? "bg-[#E6A600]" : "bg-white/20"
                             }`}
                           />
@@ -352,8 +352,8 @@ export default function Hero() {
 
                 {/* Controles do slide — entre a imagem e o CTA no mobile */}
                 <div className="flex lg:hidden items-center justify-center gap-3 pt-3 order-2">
-                  <button type="button" onClick={() => setActiveSlide((prev) => (prev - 1 + slides.length) % slides.length)} className="w-10 h-10 rounded-full border border-white/15 bg-white/10 text-white flex items-center justify-center transition-colors hover:bg-white/20" aria-label="Slide anterior">←</button>
-                  <button type="button" onClick={() => setActiveSlide((prev) => (prev + 1) % slides.length)} className="w-10 h-10 rounded-full border border-white/15 bg-white/10 text-white flex items-center justify-center transition-colors hover:bg-white/20" aria-label="Próximo slide">→</button>
+                  <button type="button" onClick={() => setActivePanel(1)} className="w-10 h-10 rounded-full border border-white/15 bg-white/10 text-white flex items-center justify-center transition-colors hover:bg-white/20" aria-label="Próximo slide">←</button>
+                  <button type="button" onClick={() => setActivePanel(1)} className="w-10 h-10 rounded-full border border-white/15 bg-white/10 text-white flex items-center justify-center transition-colors hover:bg-white/20" aria-label="Próximo slide">→</button>
                 </div>
 
                 {/* CTA — mobile only */}
@@ -453,7 +453,7 @@ export default function Hero() {
                           <button
                             key={i}
                             onClick={() => setActiveSlide(i)}
-                            className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${
+                            className={`max-lg:hidden w-1.5 h-1.5 rounded-full transition-all duration-300 ${
                               i === activeSlide ? "bg-[#E6A600]" : "bg-white/20"
                             }`}
                           />
@@ -494,8 +494,8 @@ export default function Hero() {
 
                 {/* Controles do slide — entre a imagem e o CTA no mobile */}
                 <div className="flex lg:hidden items-center justify-center gap-3 pt-3 order-2">
-                  <button type="button" onClick={() => setActiveSlide((prev) => (prev - 1 + slides.length) % slides.length)} className="w-10 h-10 rounded-full border border-white/15 bg-white/10 text-white flex items-center justify-center transition-colors hover:bg-white/20" aria-label="Slide anterior">←</button>
-                  <button type="button" onClick={() => setActiveSlide((prev) => (prev + 1) % slides.length)} className="w-10 h-10 rounded-full border border-white/15 bg-white/10 text-white flex items-center justify-center transition-colors hover:bg-white/20" aria-label="Próximo slide">→</button>
+                  <button type="button" onClick={() => setActivePanel(0)} className="w-10 h-10 rounded-full border border-white/15 bg-white/10 text-white flex items-center justify-center transition-colors hover:bg-white/20" aria-label="Slide anterior">←</button>
+                  <button type="button" onClick={() => setActivePanel(0)} className="w-10 h-10 rounded-full border border-white/15 bg-white/10 text-white flex items-center justify-center transition-colors hover:bg-white/20" aria-label="Slide anterior">→</button>
                 </div>
 
                 {/* CTA — mobile only */}
