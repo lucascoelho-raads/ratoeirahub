@@ -77,7 +77,8 @@ export default function Footer() {
     ],
     [t("footer.legal")]: [
       { href: "/privacidade/ads", label: t("footer.privacy") },
-      { href: "/termos-de-uso/ads", label: t("footer.terms") },
+      { href: "/termos-de-uso/ads", label: "Termos de uso — Ratoeira Ads" },
+      { href: "/termos-de-uso/pages", label: "Termos de uso — Ratoeira Pages" },
     ],
   }), [t]);
 
