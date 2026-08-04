@@ -416,7 +416,15 @@ export default function Hero() {
                 {/* Texto */}
                 <div className="flex flex-col gap-6 lg:col-start-1 lg:row-start-1">
                   <h2 className="text-display font-black tracking-tight leading-tight lg:leading-[1.04] text-white text-center lg:text-left max-w-4xl lg:max-w-6xl 2xl:max-w-7xl hyphens-none">
-                    <span>{t("hero.pages.title")}</span>
+                    <span>
+                      {t("hero.pages.title").split(/(Páginas|Integradas|trackeamento)/g).map((part, index) =>
+                        /^(Páginas|Integradas|trackeamento)$/.test(part) ? (
+                          <span key={index} className="text-[#FF7E4A]">{part}</span>
+                        ) : (
+                          <span key={index}>{part}</span>
+                        ),
+                      )}
+                    </span>
                   </h2>
                   <p className="text-base sm:text-[clamp(1rem,2vw,1.125rem)] 3xl:text-[clamp(1.125rem,1.2vw,1.5rem)] text-gray-400/70 leading-relaxed max-w-2xl 2xl:max-w-[34rem] 3xl:max-w-[46rem] 4xl:max-w-[56rem] 5xl:max-w-[48rem] text-center lg:text-left">
                     {t("hero.pages.subtitle")}
