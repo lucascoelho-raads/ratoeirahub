@@ -147,57 +147,27 @@ export const NAV_LINKS: NavLink[] = [
       id: "materiais",
       columns: [
         {
-          heading: "Comunidade e Suporte",
+          heading: "Materiais",
           items: [
+            {
+              label: "Central de Ajuda Ads",
+              description: "Documentação e suporte do Ratoeira Ads.",
+              href: "https://ratoeira-ads.gitbook.io/help-ratoeira",
+            },
+            {
+              label: "Central de Ajuda Pages",
+              description: "Documentação e suporte do Ratoeira Pages.",
+              href: "https://ratoeira-ads.gitbook.io/ratoeira-pages",
+            },
+            {
+              label: "Grupo do WhatsApp",
+              description: "Novidades e comunicados da plataforma.",
+              href: "https://chat.whatsapp.com/BQCxIjwb3I0IjGvTOPmBuz",
+            },
             {
               label: "FAQ",
               description: "Respostas para dúvidas frequentes.",
               href: "/faq",
-            },
-            {
-              label: "Grupo de Comunicados",
-              description: "Novidades e atualizações da plataforma.",
-              href: "https://chat.whatsapp.com/BQCxIjwb3I0IjGvTOPmBuz",
-            },
-          ],
-        },
-        {
-          heading: "Ratoeira ADS",
-          items: [
-            {
-              label: "Privacidade",
-              description: "Políticas de privacidade do Ads.",
-              href: "/privacidade/ads",
-            },
-            {
-              label: "Termos de Uso",
-              description: "Termos de uso do Ratoeira Ads.",
-              href: "/termos-de-uso/ads",
-            },
-            {
-              label: "Central de Ajuda",
-              description: "Fale com a nossa equipe.",
-              href: "https://ratoeira-ads.gitbook.io/help-ratoeira",
-            },
-          ],
-        },
-        {
-          heading: "Ratoeira Pages",
-          items: [
-            {
-              label: "Privacidade",
-              description: "Políticas de privacidade do Pages.",
-              href: "/privacidade/pages",
-            },
-            {
-              label: "Termos de Uso",
-              description: "Termos de uso do Ratoeira Pages.",
-              href: "/termos-de-uso/pages",
-            },
-            {
-              label: "Central de Ajuda",
-              description: "Fale com a nossa equipe.",
-              href: "https://ratoeira-ads.gitbook.io/ratoeira-pages",
             },
           ],
         },

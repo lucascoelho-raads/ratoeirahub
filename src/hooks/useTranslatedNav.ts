@@ -3,7 +3,7 @@
 import { usePathname } from "next/navigation";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { shouldHideHubPages } from "@/lib/feature-flags";
-import { NAV_LINKS, type NavLink } from "@/components/header/nav-data";
+import { type NavLink } from "@/components/header/nav-data";
 
 // Hrefs que remetem a Ratoeira Hub / Ratoeira Pages — ocultos na Home
 const HUB_PAGES_HREFS = new Set<string>([
@@ -167,22 +167,26 @@ export function useTranslatedNav() {
         id: "materiais",
         columns: [
           {
-            heading: t("nav.menu.communitySupport"),
+            heading: "Materiais",
             items: [
               {
-                label: t("nav.menu.googleAds"),
-                href: "/fontes-de-trafego/google-ads",
+                label: "Central de Ajuda Ads",
+                description: "Documentação e suporte do Ratoeira Ads.",
+                href: "https://ratoeira-ads.gitbook.io/help-ratoeira",
               },
               {
-                label: t("nav.menu.metaAds"),
-                href: "/fontes-de-trafego/meta-ads",
+                label: "Central de Ajuda Pages",
+                description: "Documentação e suporte do Ratoeira Pages.",
+                href: "https://ratoeira-ads.gitbook.io/ratoeira-pages",
               },
               {
-                label: t("nav.menu.nativeAds"),
-                href: "/fontes-de-trafego/native-ads",
+                label: "Grupo do WhatsApp",
+                description: "Novidades e comunicados da plataforma.",
+                href: "https://chat.whatsapp.com/BQCxIjwb3I0IjGvTOPmBuz",
               },
               {
-                label: t("footer.helpCenter"),
+                label: "FAQ",
+                description: "Respostas para dúvidas frequentes.",
                 href: "/faq",
               },
             ],
