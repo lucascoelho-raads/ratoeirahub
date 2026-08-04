@@ -418,7 +418,7 @@ export default function Footer() {
 
                 {/* Informações Legais */}
                 <div className="mt-6 space-y-1 text-[11px] leading-relaxed text-gray-500 text-center sm:text-left">
-                  <p>Ratoeira Hub - CNPJ: 55.824.986/0001-06</p>
+                  <p>Ratoeira Ads - CNPJ: 55.824.986/0001-06</p>
                   {!hideHubPages && (
                     <p>Ratoeira Pages - CNPJ: 62.829.447/0001-25</p>
                   )}
