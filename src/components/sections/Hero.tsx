@@ -350,6 +350,12 @@ export default function Hero() {
                   </motion.div>
                 </motion.div>
 
+                {/* Controles do slide — entre a imagem e o CTA no mobile */}
+                <div className="flex lg:hidden items-center justify-center gap-3 pt-3 order-2">
+                  <button type="button" onClick={() => setActiveSlide((prev) => (prev - 1 + slides.length) % slides.length)} className="w-10 h-10 rounded-full border border-white/15 bg-white/10 text-white flex items-center justify-center transition-colors hover:bg-white/20" aria-label="Slide anterior">←</button>
+                  <button type="button" onClick={() => setActiveSlide((prev) => (prev + 1) % slides.length)} className="w-10 h-10 rounded-full border border-white/15 bg-white/10 text-white flex items-center justify-center transition-colors hover:bg-white/20" aria-label="Próximo slide">→</button>
+                </div>
+
                 {/* CTA — mobile only */}
                 <motion.div 
                   initial={{ opacity: 0, y: 20 }}
@@ -484,6 +490,12 @@ export default function Hero() {
                   >
                     Conhecer o Ratoeira Pages →
                   </Link>
+                </div>
+
+                {/* Controles do slide — entre a imagem e o CTA no mobile */}
+                <div className="flex lg:hidden items-center justify-center gap-3 pt-3 order-2">
+                  <button type="button" onClick={() => setActiveSlide((prev) => (prev - 1 + slides.length) % slides.length)} className="w-10 h-10 rounded-full border border-white/15 bg-white/10 text-white flex items-center justify-center transition-colors hover:bg-white/20" aria-label="Slide anterior">←</button>
+                  <button type="button" onClick={() => setActiveSlide((prev) => (prev + 1) % slides.length)} className="w-10 h-10 rounded-full border border-white/15 bg-white/10 text-white flex items-center justify-center transition-colors hover:bg-white/20" aria-label="Próximo slide">→</button>
                 </div>
 
                 {/* CTA — mobile only */}
