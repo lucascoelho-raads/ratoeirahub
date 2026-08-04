@@ -183,7 +183,7 @@ export default function Hero() {
               <button
                 type="button"
                 onClick={() => setActivePanel((prev) => (prev === 0 ? 1 : 0))}
-                className="absolute left-4 lg:left-8 top-1/2 -translate-y-1/2 z-30 w-10 h-10 lg:w-12 lg:h-12 rounded-full bg-white/10 hover:bg-white/20 border border-white/10 flex items-center justify-center transition-colors backdrop-blur-sm"
+                className="absolute left-4 lg:left-8 top-1/2 -translate-y-1/2 z-30 w-10 h-10 lg:w-12 lg:h-12 rounded-full bg-white/10 hover:bg-white/20 border border-white/10 hidden lg:flex items-center justify-center transition-colors backdrop-blur-sm"
                 aria-label="Painel anterior"
               >
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -193,7 +193,7 @@ export default function Hero() {
               <button
                 type="button"
                 onClick={() => setActivePanel((prev) => (prev === 0 ? 1 : 0))}
-                className="absolute right-4 lg:right-8 top-1/2 -translate-y-1/2 z-30 w-10 h-10 lg:w-12 lg:h-12 rounded-full bg-white/10 hover:bg-white/20 border border-white/10 flex items-center justify-center transition-colors backdrop-blur-sm"
+                className="absolute right-4 lg:right-8 top-1/2 -translate-y-1/2 z-30 w-10 h-10 lg:w-12 lg:h-12 rounded-full bg-white/10 hover:bg-white/20 border border-white/10 hidden lg:flex items-center justify-center transition-colors backdrop-blur-sm"
                 aria-label="Próximo painel"
               >
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -386,7 +386,7 @@ export default function Hero() {
           <button
             type="button"
             onClick={() => setActivePanel((prev) => (prev === 0 ? 1 : 0))}
-            className="absolute left-4 lg:left-8 top-1/2 -translate-y-1/2 z-30 w-10 h-10 lg:w-12 lg:h-12 rounded-full bg-white/10 hover:bg-white/20 border border-white/10 flex items-center justify-center transition-colors backdrop-blur-sm"
+            className="absolute left-4 lg:left-8 top-1/2 -translate-y-1/2 z-30 w-10 h-10 lg:w-12 lg:h-12 rounded-full bg-white/10 hover:bg-white/20 border border-white/10 hidden lg:flex items-center justify-center transition-colors backdrop-blur-sm"
             aria-label={t("hero.panel.previous")}
           >
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -396,7 +396,7 @@ export default function Hero() {
           <button
             type="button"
             onClick={() => setActivePanel((prev) => (prev === 0 ? 1 : 0))}
-            className="absolute right-4 lg:right-8 top-1/2 -translate-y-1/2 z-30 w-10 h-10 lg:w-12 lg:h-12 rounded-full bg-white/10 hover:bg-white/20 border border-white/10 flex items-center justify-center transition-colors backdrop-blur-sm"
+            className="absolute right-4 lg:right-8 top-1/2 -translate-y-1/2 z-30 w-10 h-10 lg:w-12 lg:h-12 rounded-full bg-white/10 hover:bg-white/20 border border-white/10 hidden lg:flex items-center justify-center transition-colors backdrop-blur-sm"
             aria-label={t("hero.panel.next")}
           >
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
