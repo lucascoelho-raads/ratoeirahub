@@ -36,6 +36,9 @@ function formatPhone(value: string): string {
   if (hasPlus) digits = digits.slice(1);
 
   digits = digits.slice(0, PHONE_MASK_LENGTH);
+  // Autopreenchimento brasileiro pode fornecer apenas DDD + número (11 dígitos).
+  // Nesse caso, adiciona o DDI do Brasil antes de aplicar a máscara.
+  if (digits.length === 11) digits = `55${digits}`;
 
   let formatted = "";
   if (digits.length > 0) {
