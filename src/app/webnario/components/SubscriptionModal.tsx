@@ -363,6 +363,7 @@ export default function SubscriptionModal({
 
               <div className="pt-2">
                 <Button
+                  id="btn-continuar-checkout"
                   type="submit"
                   variant="default"
                   size="lg"
