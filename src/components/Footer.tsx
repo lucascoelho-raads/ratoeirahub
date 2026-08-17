@@ -76,9 +76,9 @@ export default function Footer() {
       { href: "/fale-conosco", label: t("button.contactSales") },
     ],
     [t("footer.legal")]: [
-      { href: "/privacidade/ads", label: "Política de privacidade — Ratoeira Ads" },
+      { href: "/politica-de-privacidade", label: "Política de privacidade — Ratoeira Ads" },
       { href: "/privacidade/pages", label: "Política de privacidade — Ratoeira Pages" },
-      { href: "/termos-de-uso/ads", label: "Termos de uso — Ratoeira Ads" },
+      { href: "/termos-de-uso/", label: "Termos de uso — Ratoeira Ads" },
       { href: "/termos-de-uso/pages", label: "Termos de uso — Ratoeira Pages" },
     ],
   }), [t]);
@@ -390,7 +390,7 @@ export default function Footer() {
                   className="flex items-center gap-6 group mb-5 w-fit mx-auto sm:mx-0"
                 >
                   <div className="h-[40px] w-14 overflow-hidden">
-                    <img
+                    <img loading="lazy" decoding="async"
                       src="/logohub.png"
                       alt="Ratoeira Hub"
                       className="w-full h-auto shadow-lg shadow-yellow-500/20"
