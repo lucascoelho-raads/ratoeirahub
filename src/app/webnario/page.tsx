@@ -6,6 +6,10 @@ import WebnarioLock from "./components/WebnarioLock";
 export const metadata = {
   title: "Webnario | Ratoeira Pages",
   description: "Webinar da Ratoeira Pages — tracking server-side para Google Ads e Meta Ads, páginas de alta conversão e o ecossistema completo para escalar no tráfego pago.",
+  robots: {
+    index: false,
+    follow: false,
+  },
   other: {
     link: [
       {

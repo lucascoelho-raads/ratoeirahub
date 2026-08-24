@@ -2,7 +2,7 @@
 
 import type React from "react"
 
-import { forwardRef, useImperativeHandle, useEffect, useRef, useMemo, type FC, type ReactNode } from "react"
+import { forwardRef, useImperativeHandle, useEffect, useRef, useMemo, useState, type FC, type ReactNode } from "react"
 import * as THREE from "three"
 import { Canvas, useFrame } from "@react-three/fiber"
 import { PerspectiveCamera } from "@react-three/drei"
@@ -91,11 +91,29 @@ ${code}`)
   return mat
 }
 
-const CanvasWrapper: FC<{ children: ReactNode }> = ({ children }) => (
-  <Canvas dpr={[1, 2]} frameloop="always" className="w-full h-full relative">
-    {children}
-  </Canvas>
-)
+const CanvasWrapper: FC<{ children: ReactNode }> = ({ children }) => {
+  // Mobile Safari perf: only after mount, check small screens and reduce
+  // render loop + DPR. Desktop behavior stays exactly as before.
+  const [isSmallScreen, setIsSmallScreen] = useState(false)
+
+  useEffect(() => {
+    const mq = window.matchMedia("(max-width: 768px)")
+    const update = () => setIsSmallScreen(mq.matches)
+    update()
+    mq.addEventListener("change", update)
+    return () => mq.removeEventListener("change", update)
+  }, [])
+
+  return (
+    <Canvas
+      dpr={isSmallScreen ? [1, 1.5] : [1, 2]}
+      frameloop={isSmallScreen ? "demand" : "always"}
+      className="w-full h-full relative"
+    >
+      {children}
+    </Canvas>
+  )
+}
 
 const hexToNormalizedRGB = (hex: string): [number, number, number] => {
   const clean = hex.replace("#", "")
@@ -431,7 +449,7 @@ export const BeamsBackground: FC<{
 // EtherealBeamsHero COMPONENT (UI Layout)
 // ============================================================================
 
-import { motion } from "framer-motion"
+import { m } from "framer-motion"
 
 export default function EtherealBeamsHero() {
   const { t } = useLanguage();
@@ -453,7 +471,7 @@ export default function EtherealBeamsHero() {
       <div className="flex flex-col items-center justify-center min-h-[85svh] sm:min-h-screen px-4 pt-28 sm:pt-[clamp(7rem,16vh,12rem)] pb-12 sm:pb-[clamp(4.5rem,10vh,8.5rem)]">
         {/* Hero Content */}
         <div className="max-w-6xl 2xl:max-w-[90rem] 4xl:max-w-[110rem] 5xl:max-w-[130rem] 6xl:max-w-[150rem] text-center">
-          <motion.h1
+          <m.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
@@ -461,7 +479,7 @@ export default function EtherealBeamsHero() {
             dangerouslySetInnerHTML={{ __html: t("heroAds.title") }}
           />
 
-          <motion.p
+          <m.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
@@ -469,7 +487,7 @@ export default function EtherealBeamsHero() {
             dangerouslySetInnerHTML={{ __html: t("heroAds.subtitle") }}
           />
 
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
@@ -482,11 +500,11 @@ export default function EtherealBeamsHero() {
               {t("header.signIn")}
               <ArrowRight className="w-4 h-4" />
             </a>
-          </motion.div>
+          </m.div>
 
 
 
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.45 }}
@@ -502,7 +520,7 @@ export default function EtherealBeamsHero() {
                 className="object-cover object-top"
               />
             </div>
-          </motion.div>
+          </m.div>
         </div>
       </div>
     </BeamsBackground>

@@ -1,8 +1,12 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-import { BeamsBackground } from "@/components/ui/ethereal-beams-hero";
+import dynamic from "next/dynamic";
+const BeamsBackground = dynamic(
+  () => import("@/components/ui/ethereal-beams-hero").then((m) => m.BeamsBackground),
+  { ssr: false }
+);
 import Image from "next/image";
 import { useLanguage } from "@/contexts/LanguageContext";
 
@@ -27,7 +31,7 @@ export default function HeroPages() {
         <div className="flex flex-col items-center justify-center min-h-screen px-4 pt-[clamp(7rem,16vh,12rem)] pb-[clamp(4.5rem,10vh,8.5rem)] relative z-10">
           {/* Hero Content */}
           <div className="max-w-6xl 2xl:max-w-[90rem] 4xl:max-w-[110rem] 5xl:max-w-[130rem] 6xl:max-w-[150rem] text-center">
-            <motion.h1
+            <m.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
@@ -35,16 +39,16 @@ export default function HeroPages() {
               dangerouslySetInnerHTML={{ __html: t("heroPages.title") }}
             />
 
-            <motion.p
+            <m.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
               className="text-body-lg text-gray-50 mb-12 max-w-3xl lg:max-w-4xl 2xl:max-w-5xl 4xl:max-w-6xl mx-auto hyphens-none"
             >
               {t("heroPages.subtitle")}
-            </motion.p>
+            </m.p>
 
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.3 }}
@@ -57,11 +61,11 @@ export default function HeroPages() {
                 {t("header.signIn")}
                 <ArrowRight className="w-5 h-5" />
               </a>
-            </motion.div>
+            </m.div>
 
 
 
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 18 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.45 }}
@@ -77,7 +81,7 @@ export default function HeroPages() {
                   className="object-cover object-top"
                 />
               </div>
-            </motion.div>
+            </m.div>
           </div>
         </div>
       </BeamsBackground>

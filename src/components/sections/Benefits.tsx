@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState, useMemo } from "react";
-import { AnimatePresence, motion, useInView } from "framer-motion";
+import { AnimatePresence, m, useInView } from "framer-motion";
 import {
   BarChart3,
   BellRing,
@@ -34,6 +34,48 @@ function renderNoBreak(text: string) {
     ) : (
       part
     )
+  );
+}
+
+// Vídeo com carregamento preguiçoso: só define o src quando o elemento
+// estiver perto do viewport (autoplay/muted/loop permanecem idênticos).
+function LazyVideo({ src, className }: { src: string; className?: string }) {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [shouldLoad, setShouldLoad] = useState(false);
+
+  useEffect(() => {
+    if (shouldLoad) return;
+    const el = containerRef.current;
+    if (!el) return;
+    if (typeof IntersectionObserver === "undefined") {
+      setShouldLoad(true);
+      return;
+    }
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((entry) => entry.isIntersecting)) {
+          setShouldLoad(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "200px" }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [shouldLoad]);
+
+  return (
+    <div ref={containerRef} className="w-full h-full">
+      <video
+        src={shouldLoad ? src : undefined}
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="metadata"
+        className={className}
+      />
+    </div>
   );
 }
 
@@ -218,7 +260,7 @@ const allBenefits = [
               <div className={benefit.imageLeft ? "order-1" : "order-2"}>
                 {benefit.media.kind === "image" ? (
                   <div className={isPaddedImage ? "relative rounded-card overflow-hidden p-3 5xl:p-4 6xl:p-6" : "relative rounded-card overflow-hidden 5xl:scale-100 6xl:scale-110"}>
-                    <img
+                    <img loading="lazy" decoding="async"
                       src={benefit.media.src}
                       alt={benefit.title}
                       className="w-full h-auto"
@@ -226,13 +268,8 @@ const allBenefits = [
                   </div>
                 ) : (
                   <div className="relative aspect-[9/19.5] max-w-[260px] sm:max-w-[300px] 5xl:max-w-[340px] 6xl:max-w-[420px] max-h-full mx-auto rounded-[2.5rem] overflow-hidden">
-                    <video
+                    <LazyVideo
                       src={benefit.media.src}
-                      autoPlay
-                      muted
-                      loop
-                      playsInline
-                      preload="auto"
                       className="w-full h-full object-cover"
                     />
                   </div>
@@ -249,7 +286,7 @@ const allBenefits = [
     <section ref={ref} className="relative pt-16 md:pt-20 lg:pt-24 pb-12 sm:pb-24 4xl:pb-28 bg-[#050505]" id="solucoes">
       <div className="relative z-10 max-w-7xl 2xl:max-w-[90rem] 4xl:max-w-[110rem] 5xl:max-w-[120rem] 6xl:max-w-[132rem] mx-auto px-4 sm:px-6 lg:px-12 2xl:px-16 4xl:px-24 5xl:px-32 6xl:px-40">
         {/* Header */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7 }}
@@ -271,7 +308,7 @@ const allBenefits = [
           <p className="text-gray-400/80 text-base sm:text-lg 3xl:text-[1.75rem] max-w-2xl 3xl:max-w-[54rem] 4xl:max-w-[62rem] 5xl:max-w-[68rem] 6xl:max-w-[74rem] mx-auto hyphens-none">
             {t("benefits.header.description")}
           </p>
-        </motion.div>
+        </m.div>
 
       </div>
 
@@ -285,7 +322,7 @@ const allBenefits = [
             </div>
           ) : null}
           <AnimatePresence mode="sync" initial={false}>
-            <motion.article
+            <m.article
               key={benefits[activeIndex].title}
               initial={{ x: slideDirection > 0 ? "100%" : "-100%", opacity: 1 }}
               animate={{ x: 0, opacity: 1 }}
@@ -294,7 +331,7 @@ const allBenefits = [
               className="absolute inset-0 px-4 sm:px-8 lg:px-12 py-8 flex items-center"
             >
               {renderCard(activeIndex)}
-            </motion.article>
+            </m.article>
           </AnimatePresence>
         </div>
       </div>

@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState, useMemo } from "react";
-import { AnimatePresence, motion, useInView } from "framer-motion";
+import { AnimatePresence, m, useInView } from "framer-motion";
 import { usePathname } from "next/navigation";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { shouldHideHubPages } from "@/lib/feature-flags";
@@ -87,7 +87,7 @@ export default function ProblemSolution() {
     <section ref={ref} className="py-16 md:py-24 bg-[#f9fafb]" id="solucoes">
       <div className="max-w-7xl 2xl:max-w-[90rem] 4xl:max-w-[110rem] 5xl:max-w-[120rem] 6xl:max-w-[132rem] mx-auto px-4 sm:px-6 lg:px-12 2xl:px-16 4xl:px-24 5xl:px-32 6xl:px-40">
         {/* Header */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7 }}
@@ -102,10 +102,10 @@ export default function ProblemSolution() {
           <p className="text-base sm:text-lg 3xl:text-xl text-orange-400 font-semibold ">
             {t("problem.header.note")}
           </p>
-        </motion.div>
+        </m.div>
 
         {/* Tabs */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7, delay: 0.1 }}
@@ -126,7 +126,7 @@ export default function ProblemSolution() {
                     : "bg-black/5 text-[#374151] border border-black/10 hover:border-orange-400 hover:bg-black/10"
                 }`}
               >
-                <img
+                <img loading="lazy" decoding="async"
                   src={tab.logo}
                   alt={tab.label}
                   className="w-4 h-4 object-contain"
@@ -135,10 +135,10 @@ export default function ProblemSolution() {
               </button>
             );
           })}
-        </motion.div>
+        </m.div>
 
         {/* Content */}
-        <motion.div
+        <m.div
           key={activeTab}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -162,26 +162,26 @@ export default function ProblemSolution() {
 
           {/* Visual (immediately below first paragraph) */}
           <div className={`relative w-full ${activeTab === "paginas" ? "max-w-4xl 3xl:max-w-[56rem] 4xl:max-w-[68rem] 5xl:max-w-[76rem] 6xl:max-w-[84rem]" : "max-w-5xl 3xl:max-w-[68rem] 4xl:max-w-[76rem] 5xl:max-w-[84rem] 6xl:max-w-[92rem]"}`}>
-            <motion.div
+            <m.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5 }}
               className="bg-linear-to-b from-gray-100 to-gray-50 rounded-3xl p-2 sm:p-4 border border-gray-200 shadow-2xl overflow-hidden"
             >
               {activeTab === "paginas" ? (
-                <img
+                <img loading="lazy" decoding="async"
                   src="/paginaaltaconversao.png"
                   alt={t("problem.pages.alt")}
                   className="w-full h-auto rounded-2xl"
                 />
               ) : activeTab === "rastreamento" ? (
-                <img
+                <img loading="lazy" decoding="async"
                   src="/rastreamentointeligente.png"
                   alt={t("problem.tracking.alt")}
                   className="w-full h-auto rounded-2xl"
                 />
               ) : activeTab === "ecossistema" ? (
-                <img
+                <img loading="lazy" decoding="async"
                   src="/loginunico.png"
                   alt={t("problem.ecossystem.alt")}
                   className="w-full h-auto rounded-2xl"
@@ -190,7 +190,7 @@ export default function ProblemSolution() {
                 <div className="aspect-video flex items-center justify-center">
                   <div className="text-center">
                     <div className="w-20 h-20 rounded-2xl mx-auto mb-4 flex items-center justify-center bg-linear-to-r from-yellow-500 to-orange-500">
-                      <img
+                      <img loading="lazy" decoding="async"
                         src={tabs.find((t) => t.id === activeTab)?.logo}
                         alt={tabs.find((t) => t.id === activeTab)?.label}
                         className="w-10 h-10 object-contain"
@@ -198,7 +198,7 @@ export default function ProblemSolution() {
                     </div>
                     <div className="min-h-[56px] flex items-center justify-center px-4">
                       <AnimatePresence mode="wait">
-                        <motion.p
+                        <m.p
                           key={`${activeTab}-highlight-${highlightIndex}`}
                           initial={{ opacity: 0, y: 6 }}
                           animate={{ opacity: 1, y: 0 }}
@@ -207,13 +207,13 @@ export default function ProblemSolution() {
                           className="text-gray-700 font-semibold text-lg md:text-xl 3xl:text-[1.75rem]"
                         >
                           • {activeHighlights[highlightIndex]}
-                        </motion.p>
+                        </m.p>
                       </AnimatePresence>
                     </div>
                   </div>
                 </div>
               )}
-            </motion.div>
+            </m.div>
 
             {/* Decorative elements */}
             <div className="absolute top-0 right-0 w-40 h-40 bg-yellow-100 rounded-full blur-3xl opacity-20 -z-10" />
@@ -233,7 +233,7 @@ export default function ProblemSolution() {
               ))}
             </div>
           )}
-        </motion.div>
+        </m.div>
       </div>
     </section>
   );

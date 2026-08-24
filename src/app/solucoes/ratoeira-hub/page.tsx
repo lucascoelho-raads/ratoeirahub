@@ -13,7 +13,11 @@ import {
   LineChart,
   ShieldCheck,
 } from "lucide-react";
-import { BeamsBackground } from "@/components/ui/ethereal-beams-hero";
+import dynamic from "next/dynamic";
+const BeamsBackground = dynamic(
+  () => import("@/components/ui/ethereal-beams-hero").then((m) => m.BeamsBackground),
+  { ssr: false }
+);
 import { GradientText } from "@/components/ui/gradient-text";
 import { BlurTextEffect } from "@/components/ui/blur-text-effect";
 import { useLanguage } from "@/contexts/LanguageContext";

@@ -122,6 +122,11 @@ export function useTranslatedNav() {
                 description: t("nav.menu.nativeAdsDesc"),
                 href: "/fontes-de-trafego/native-ads",
               },
+              {
+                label: t("nav.menu.tiktokAds"),
+                description: t("nav.menu.tiktokAdsDesc"),
+                href: "/fontes-de-trafego/tiktok-ads",
+              },
             ],
           },
           {

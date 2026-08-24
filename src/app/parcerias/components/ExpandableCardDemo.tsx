@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useId, useRef, useState, useMemo } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, m, LazyMotion, domMax } from "framer-motion";
 import { useOutsideClick } from "@/hooks/use-outside-click";
 import { useLanguage } from "@/contexts/LanguageContext";
 
@@ -474,10 +474,12 @@ export function ExpandableCardDemo() {
   useOutsideClick(ref, () => setActive(null));
 
   return (
+    // Este bloco usa layoutId/layout animations — precisa do pacote domMax.
+    <LazyMotion features={domMax}>
     <>
       <AnimatePresence>
         {active && typeof active === "object" && (
-          <motion.div
+          <m.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -488,7 +490,7 @@ export function ExpandableCardDemo() {
       <AnimatePresence>
         {active && typeof active === "object" ? (
           <div className="fixed inset-0 grid place-items-center z-[100]">
-            <motion.button
+            <m.button
               key={`button-${active.title}-${id}`}
               layout
               initial={{ opacity: 0 }}
@@ -498,41 +500,41 @@ export function ExpandableCardDemo() {
               onClick={() => setActive(null)}
             >
               <CloseIcon />
-            </motion.button>
-            <motion.div
+            </m.button>
+            <m.div
               layoutId={`card-${active.title}-${id}`}
               ref={ref}
               className="w-full max-w-[520px] h-full md:h-fit md:max-h-[90%] flex flex-col bg-[#111111] border border-white/10 sm:rounded-3xl overflow-hidden shadow-2xl"
             >
-              <motion.div layoutId={`image-${active.title}-${id}`}>
-                <img
+              <m.div layoutId={`image-${active.title}-${id}`}>
+                <img loading="lazy" decoding="async"
                   width={520}
                   height={340}
                   src={active.src}
                   alt={active.title}
                   className="w-full h-56 sm:h-72 sm:rounded-tr-lg sm:rounded-tl-lg object-cover object-top"
                 />
-              </motion.div>
+              </m.div>
 
               <div>
                 <div className="flex justify-between items-start p-6">
                   <div className="flex-1 pr-4">
-                    <motion.h3
+                    <m.h3
                       layoutId={`title-${active.title}-${id}`}
                       className="font-bold text-white text-lg"
                     >
                       {active.title}
-                    </motion.h3>
-                    <motion.p
+                    </m.h3>
+                    <m.p
                       layoutId={`description-${active.description}-${id}`}
                       className="text-gray-400 text-sm mt-1"
                     >
                       {active.description}
-                    </motion.p>
+                    </m.p>
                   </div>
                 </div>
                 <div className="pt-2 relative px-6 pb-6">
-                  <motion.div
+                  <m.div
                     layout
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
@@ -542,26 +544,26 @@ export function ExpandableCardDemo() {
                     {typeof active.content === "function"
                       ? active.content()
                       : active.content}
-                  </motion.div>
+                  </m.div>
                 </div>
               </div>
-            </motion.div>
+            </m.div>
           </div>
         ) : null}
       </AnimatePresence>
       <ul className="max-w-5xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 items-start gap-6">
         {cards.map((card) => {
           return (
-            <motion.div
+            <m.div
               layoutId={`card-${card.title}-${id}`}
               key={card.title}
               onClick={() => setActive(card)}
               className="p-0 flex flex-col bg-[#111111] border border-white/5 hover:border-white/15 hover:bg-[#161616] rounded-2xl cursor-pointer transition-colors overflow-hidden"
             >
               <div className="flex gap-0 flex-col w-full">
-                <motion.div layoutId={`image-${card.title}-${id}`}>
+                <m.div layoutId={`image-${card.title}-${id}`}>
                   <div className="relative h-56 sm:h-64 w-full overflow-hidden">
-                    <img
+                    <img loading="lazy" decoding="async"
                       width={520}
                       height={340}
                       src={card.src}
@@ -569,33 +571,34 @@ export function ExpandableCardDemo() {
                       className="h-full w-full object-cover object-top"
                     />
                   </div>
-                </motion.div>
+                </m.div>
                 <div className="flex justify-center items-center flex-col p-5">
-                  <motion.h3
+                  <m.h3
                     layoutId={`title-${card.title}-${id}`}
                     className="font-bold text-white text-center md:text-left text-base"
                   >
                     {card.title}
-                  </motion.h3>
-                  <motion.p
+                  </m.h3>
+                  <m.p
                     layoutId={`description-${card.description}-${id}`}
                     className="text-gray-400 text-center md:text-left text-sm mt-1"
                   >
                     {card.description}
-                  </motion.p>
+                  </m.p>
                 </div>
               </div>
-            </motion.div>
+            </m.div>
           );
         })}
       </ul>
     </>
+    </LazyMotion>
   );
 }
 
 const CloseIcon = () => {
   return (
-    <motion.svg
+    <m.svg
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0, transition: { duration: 0.05 } }}
@@ -613,6 +616,6 @@ const CloseIcon = () => {
       <path stroke="none" d="M0 0h24v24H0z" fill="none" />
       <path d="M18 6l-12 12" />
       <path d="M6 6l12 12" />
-    </motion.svg>
+    </m.svg>
   );
 };

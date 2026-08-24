@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, Fragment, useRef, useCallback, useEffect, useMemo } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { m, AnimatePresence } from "framer-motion";
 import { Check, ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 import SubscriptionModal from "./SubscriptionModal";
@@ -1370,7 +1370,7 @@ function Tooltip({
       <FloatingPortal>
         <AnimatePresence>
           {isOpen && (
-            <motion.div
+            <m.div
               ref={(node) => {
                 refs.setFloating(node);
               }}
@@ -1388,7 +1388,7 @@ function Tooltip({
               className="z-[99999] max-w-[250px] rounded-lg bg-white/10 px-3 py-2 text-xs text-white shadow-xl backdrop-blur-md border border-white/20 text-center"
             >
               {content}
-            </motion.div>
+            </m.div>
           )}
         </AnimatePresence>
       </FloatingPortal>
@@ -1444,7 +1444,7 @@ function PricingCardComponent({
               className="flex justify-between items-center bg-white/[0.03] rounded-lg px-2.5 py-1.5"
             >
               <div className="flex items-center gap-2">
-                <img
+                <img loading="lazy" decoding="async"
                   src={
                     name === "Google Ads"
                       ? GOOGLE_ADS_LOGO
@@ -1695,7 +1695,7 @@ function ComparisonTable() {
                         {row.label === "Gerenciador Integrado" ? (
                           <span className="inline-flex items-center gap-1.5">
                             {row.label}
-                            <img
+                            <img loading="lazy" decoding="async"
                               src={GOOGLE_ADS_LOGO}
                               alt="Google Ads"
                               className="w-[18px] h-[18px] object-contain rounded-[3px] inline-block"
@@ -1792,7 +1792,7 @@ export default function PricingTabs() {
                     : "bg-white/[0.04] text-[#aaaaaa] border-white/[0.12] hover:border-[#f59f0a]/50 hover:bg-white/[0.08]",
                 )}
               >
-                <img
+                <img loading="lazy" decoding="async"
                   src={tab.icon}
                   alt={tab.label}
                   className="w-5 h-5 object-contain"
@@ -1837,7 +1837,7 @@ export default function PricingTabs() {
         </div>
 
         <AnimatePresence mode="wait">
-          <motion.div
+          <m.div
             key={activeTab + billingCycle}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -1857,7 +1857,7 @@ export default function PricingTabs() {
                 </div>
               ))}
             </div>
-          </motion.div>
+          </m.div>
         </AnimatePresence>
 
         {/* Footer note */}

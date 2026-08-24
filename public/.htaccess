@@ -87,7 +87,23 @@ Options -Indexes
 ErrorDocument 404 /404.html
 
 # ---------------------------------------------------------------------------
-# 6. HTTPS (descomente as linhas abaixo se quiser forcar SSL)
+# 6. URLs canonicas das paginas legais
+# ---------------------------------------------------------------------------
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # Slugs antigos do Ratoeira Ads
+  RewriteRule ^privacidade/ads/?$ /politica-de-privacidade [R=301,L]
+  RewriteRule ^termos-de-uso/ads/?$ /termos-de-uso/ [R=301,L]
+
+  # A politica deve permanecer sem barra final no navegador.
+  RewriteCond %{THE_REQUEST} \s/+politica-de-privacidade/ [NC]
+  RewriteRule ^politica-de-privacidade/$ /politica-de-privacidade [R=301,L]
+  RewriteRule ^politica-de-privacidade$ politica-de-privacidade/index.html [END]
+</IfModule>
+
+# ---------------------------------------------------------------------------
+# 7. HTTPS (descomente as linhas abaixo se quiser forcar SSL)
 # ---------------------------------------------------------------------------
 # <IfModule mod_rewrite.c>
 #   RewriteEngine On
@@ -96,7 +112,7 @@ ErrorDocument 404 /404.html
 # </IfModule>
 
 # ---------------------------------------------------------------------------
-# 7. Remover extensao .html das URLs (Next.js ja exporta com index.html)
+# 8. Remover extensao .html das URLs (Next.js ja exporta com index.html)
 #    Descomente se preferir URLs sem .html ao acessar diretamente
 # ---------------------------------------------------------------------------
 # <IfModule mod_rewrite.c>

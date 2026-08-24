@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { Linkedin, Instagram } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useMemo } from "react";
@@ -25,7 +25,7 @@ export default function FoundersAbout() {
 
         <div className="space-y-16 md:space-y-24">
           {/* Eitor Guimarães */}
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
@@ -34,8 +34,8 @@ export default function FoundersAbout() {
           >
             <div className="w-full md:w-5/12">
               <div className="relative aspect-[4/5] rounded-3xl overflow-hidden bg-[#111111] border border-white/10 group">
-                <img
-                  src="/fotoeitorbrabo.jpg"
+                <img loading="lazy" decoding="async"
+                  src="/fotoeitorbrabo.webp"
                   alt="Eitor Guimarães"
                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
@@ -78,10 +78,10 @@ export default function FoundersAbout() {
                 </a>
               </div>
             </div>
-          </motion.div>
+          </m.div>
 
           {/* Paulo Furtado */}
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
@@ -90,7 +90,7 @@ export default function FoundersAbout() {
           >
             <div className="w-full md:w-5/12">
               <div className="relative aspect-[4/5] rounded-3xl overflow-hidden bg-[#111111] border border-white/10 group">
-                <img
+                <img loading="lazy" decoding="async"
                   src="/paulo.jpg"
                   alt="Paulo Furtado"
                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
@@ -134,10 +134,10 @@ export default function FoundersAbout() {
                 </a>
               </div>
             </div>
-          </motion.div>
+          </m.div>
 
           {/* Brayan Cicarone */}
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
@@ -146,7 +146,7 @@ export default function FoundersAbout() {
           >
             <div className="w-full md:w-5/12">
               <div className="relative aspect-[4/5] rounded-3xl overflow-hidden bg-[#111111] border border-white/10 group">
-                <img
+                <img loading="lazy" decoding="async"
                   src="/brayan.jpeg"
                   alt="Brayan Cicarone"
                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
@@ -185,7 +185,7 @@ export default function FoundersAbout() {
                 </a>
               </div>
             </div>
-          </motion.div>
+          </m.div>
         </div>
       </div>
     </section>

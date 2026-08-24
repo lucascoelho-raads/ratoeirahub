@@ -5,6 +5,8 @@ const platforms = [
   { name: "Meta Ads", logo: "/icons/pricing/meta-ads.png" },
   { name: "Taboola", logo: "/taboolalogo.png" },
   { name: "NewsBreak", logo: "/newbreaklogo.webp" },
+  { name: "TikTok Ads", logo: "/logos/tiktoklogo - Editado.png" },
+  { name: "MGID", logo: "/logos/mgid.svg" },
 ];
 
 export default function LogoMarquee() {
@@ -18,7 +20,7 @@ export default function LogoMarquee() {
                 key={`${platform.name}-${group}`}
                 className="flex flex-col items-center justify-center gap-2 w-[120px] md:w-[160px] mr-12 md:mr-20"
               >
-                <img
+                <img loading="lazy" decoding="async"
                   src={platform.logo}
                   alt={platform.name}
                   className="h-6 md:h-8 w-auto object-contain"

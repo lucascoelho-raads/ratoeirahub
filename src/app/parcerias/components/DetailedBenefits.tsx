@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo } from "react";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { DollarSign, Repeat, ShieldCheck, Zap, Users, GraduationCap } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -43,7 +43,7 @@ const DetailedBenefits = () => {
           {detailedBenefits.map((benefit, index) => {
             const Icon = benefit.icon;
             return (
-              <motion.div
+              <m.div
                 key={benefit.title}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -66,7 +66,7 @@ const DetailedBenefits = () => {
                 <p className="text-gray-400 leading-relaxed text-sm">
                   {benefit.description}
                 </p>
-              </motion.div>
+              </m.div>
             );
           })}
         </div>

@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 
 export const dynamic = "force-static";
 
-const SITE_URL = "https://ratoeirapages.com.br";
+const SITE_URL = "https://ratoeiraads.com.br";
 
 // Data fixa para build estático (output: "export").
 // Atualizar manualmente quando houver mudanças relevantes no site.
@@ -59,12 +59,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.6,
     },
-    {
-      url: `${SITE_URL}/webnario/`,
-      lastModified: LAST_MODIFIED,
-      changeFrequency: "weekly",
-      priority: 0.7,
-    },
+    // /webnario/ removido intencionalmente: página exclusiva por link direto,
+    // com noindex/nofollow — não deve aparecer no sitemap nem ser indexada.
     {
       url: `${SITE_URL}/faq/`,
       lastModified: LAST_MODIFIED,
@@ -107,12 +103,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly",
       priority: 0.7,
     },
+    {
+      url: `${SITE_URL}/fontes-de-trafego/tiktok-ads/`,
+      lastModified: LAST_MODIFIED,
+      changeFrequency: "weekly",
+      priority: 0.7,
+    },
   ];
 
   // Páginas legais — prioridade baixa, atualização rara
   const legalRoutes: MetadataRoute.Sitemap = [
     {
-      url: `${SITE_URL}/privacidade/ads/`,
+      url: `${SITE_URL}/politica-de-privacidade`,
       lastModified: LAST_MODIFIED,
       changeFrequency: "yearly",
       priority: 0.2,
@@ -124,7 +126,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.2,
     },
     {
-      url: `${SITE_URL}/termos-de-uso/ads/`,
+      url: `${SITE_URL}/termos-de-uso/`,
       lastModified: LAST_MODIFIED,
       changeFrequency: "yearly",
       priority: 0.2,

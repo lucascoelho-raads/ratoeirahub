@@ -1,6 +1,8 @@
 "use client";
 
-import EtherealBeamsHero from "@/components/ui/ethereal-beams-hero";
+import dynamic from "next/dynamic";
+
+const EtherealBeamsHero = dynamic(() => import("@/components/ui/ethereal-beams-hero"), { ssr: false });
 
 export default function HeroAds() {
   return (

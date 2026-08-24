@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { Star } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -20,7 +20,7 @@ function ElegantShape({
   gradient?: string;
 }) {
   return (
-    <motion.div
+    <m.div
       initial={{
         opacity: 0,
         y: -150,
@@ -39,7 +39,7 @@ function ElegantShape({
       }}
       className={cn("absolute", className)}
     >
-      <motion.div
+      <m.div
         animate={{
           y: [0, 15, 0],
         }}
@@ -65,8 +65,8 @@ function ElegantShape({
             "after:bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.2),transparent_70%)]"
           )}
         />
-      </motion.div>
-    </motion.div>
+      </m.div>
+    </m.div>
   );
 }
 
@@ -149,7 +149,7 @@ function HeroGeometric({
 
       <div className="relative z-10 container mx-auto 5xl:max-w-[180rem] 6xl:max-w-[160rem] px-4 md:px-6">
         <div className="max-w-4xl 5xl:max-w-[60rem] 6xl:max-w-[80rem] mx-auto text-center">
-          <motion.div
+          <m.div
             custom={0}
             variants={fadeUpVariants}
             initial="hidden"
@@ -160,9 +160,9 @@ function HeroGeometric({
             <span className="text-sm text-brand-primary font-bold tracking-wider uppercase">
               {badge}
             </span>
-          </motion.div>
+          </m.div>
 
-          <motion.div
+          <m.div
             custom={1}
             variants={fadeUpVariants}
             initial="hidden"
@@ -180,10 +180,10 @@ function HeroGeometric({
                 {title2}
               </span>
             </h1>
-          </motion.div>
+          </m.div>
 
           {subtitle && (
-            <motion.div
+            <m.div
               custom={2}
               variants={fadeUpVariants}
               initial="hidden"
@@ -192,7 +192,7 @@ function HeroGeometric({
               <p className="text-[clamp(1.05rem,1.25vw,1.35rem)] text-gray-400 leading-relaxed max-w-3xl 5xl:max-w-5xl 6xl:max-w-6xl mx-auto ">
                 {subtitle}
               </p>
-            </motion.div>
+            </m.div>
           )}
         </div>
       </div>

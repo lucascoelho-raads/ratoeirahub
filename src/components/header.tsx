@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef, useCallback, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { m, AnimatePresence } from "framer-motion";
 import { ArrowRight, ChevronDown, ChevronLeft, Menu, X } from "lucide-react";
 import Link from "next/link";
 import { type NavMenu } from "./header/nav-data";
@@ -43,7 +43,7 @@ function Logo() {
 }
 
 const ChevronIcon = ({ open }: { open: boolean }) => (
-  <motion.span
+  <m.span
     className="inline-flex text-current"
     animate={{ rotate: open ? 180 : 0 }}
     transition={{
@@ -53,7 +53,7 @@ const ChevronIcon = ({ open }: { open: boolean }) => (
     aria-hidden
   >
     <ChevronDown className="size-3.5" strokeWidth={1.6} />
-  </motion.span>
+  </m.span>
 );
 
 const listVariants = {
@@ -190,7 +190,7 @@ export default function Header() {
   return (
     <header
       ref={navRef}
-      className="fixed inset-x-0 top-0 z-50 bg-[#0a0a0a]/92 backdrop-blur-xl supports-[backdrop-filter]:bg-[#0a0a0a]/88 safe-area-top"
+      className="fixed inset-x-0 top-0 z-50 bg-[#0a0a0a]/95 backdrop-blur-none lg:bg-[#0a0a0a]/92 lg:backdrop-blur-xl lg:supports-[backdrop-filter]:bg-[#0a0a0a]/88 safe-area-top"
     >
       <div className="mx-auto w-full max-w-7xl 2xl:max-w-[90rem] 4xl:max-w-[120rem] px-4 sm:px-6 lg:px-8 2xl:px-12 4xl:px-20">
         <div className="relative flex h-20 items-center justify-between">
@@ -276,7 +276,7 @@ export default function Header() {
 
       <AnimatePresence>
         {mobileOpen && (
-          <motion.div
+          <m.div
             key="mobile-shell"
             initial={{ opacity: 0, y: -12 }}
             animate={{ opacity: 1, y: 0 }}
@@ -287,7 +287,7 @@ export default function Header() {
             <div className="mx-auto max-w-7xl 3xl:max-w-[100rem] 4xl:max-w-[120rem] px-4 pb-4 pt-3 sm:px-6 3xl:px-12 4xl:px-20">
               <AnimatePresence mode="wait" initial={false}>
                 {activeMobileLink?.menu ? (
-                  <motion.div
+                  <m.div
                     key={`mobile-submenu-${activeMobileLink.label}`}
                     variants={panelVariants}
                     initial="enter"
@@ -332,9 +332,9 @@ export default function Header() {
                         </div>
                       ))}
                     </div>
-                  </motion.div>
+                  </m.div>
                 ) : (
-                  <motion.div
+                  <m.div
                     key="mobile-root"
                     variants={listVariants}
                     initial="hidden"
@@ -343,7 +343,7 @@ export default function Header() {
                     className="space-y-2"
                   >
                     {navLinks.map((link, index) => (
-                      <motion.button
+                      <m.button
                         key={link.label}
                         variants={itemVariants}
                         type="button"
@@ -368,17 +368,17 @@ export default function Header() {
                         ) : (
                           <ArrowRight className="size-4 text-gray-200" />
                         )}
-                      </motion.button>
+                      </m.button>
                     ))}
 
                     <div className="pt-3">
                       <HeaderActions mobile onAction={() => setMobileOpen(false)} />
                     </div>
-                  </motion.div>
+                  </m.div>
                 )}
               </AnimatePresence>
             </div>
-          </motion.div>
+          </m.div>
         )}
       </AnimatePresence>
     </header>

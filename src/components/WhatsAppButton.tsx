@@ -1,6 +1,6 @@
 import React from "react";
 
-export const WHATSAPP_SUPPORT_URL = "https://links.ratoeirads.com/suporte";
+export const WHATSAPP_SUPPORT_URL = "https://links.ratoeirads.com/site";
 
 export default function WhatsAppButton() {
   return (

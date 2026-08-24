@@ -1,7 +1,7 @@
 "use client";
 
 import { type ComponentType, memo, useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { motion, useInView } from "framer-motion";
+import { m, useInView } from "framer-motion";
 import { Search, TrendingUp, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -26,6 +26,7 @@ interface CarouselItemProps {
 
 interface ChainCarouselProps {
   items: ChainItem[];
+  searchOnlyItems?: ChainItem[];
   scrollSpeedMs?: number;
   visibleItemCount?: number;
   className?: string;
@@ -57,7 +58,7 @@ const LogoMarquee = memo(({
             className="flex-shrink-0 w-11 h-11 sm:w-12 sm:h-12 rounded-full border border-white/10 bg-white/90 p-2"
           >
             {item.logo ? (
-              <img
+              <img loading="lazy" decoding="async"
                 src={item.logo}
                 alt={`${item.name} logo`}
                 className="w-full h-full object-contain rounded-full"
@@ -85,7 +86,7 @@ const CarouselItemCard = ({ chain, side }: CarouselItemProps) => {
   const xOffset = side === "left" ? -distance * 50 : distance * 50;
 
   return (
-    <motion.div
+    <m.div
       key={id}
       className={cn(
         "absolute flex items-center gap-4 px-6 py-3",
@@ -96,7 +97,7 @@ const CarouselItemCard = ({ chain, side }: CarouselItemProps) => {
     >
       <div className="rounded-full border border-white/10 p-2 bg-white/90">
         {logo ? (
-          <img src={logo} alt={`${name} logo`} className="size-10 rounded-full object-contain" />
+          <img loading="lazy" decoding="async" src={logo} alt={`${name} logo`} className="size-10 rounded-full object-contain" />
         ) : (
           <FallbackIcon className="size-10 text-black" />
         )}
@@ -105,12 +106,13 @@ const CarouselItemCard = ({ chain, side }: CarouselItemProps) => {
       <div className={cn("flex flex-col mx-4", side === "left" ? "text-right" : "text-left")}>
         <span className="text-md lg:text-lg font-semibold text-white max-w-[220px] truncate">{name}</span>
       </div>
-    </motion.div>
+    </m.div>
   );
 };
 
 export default function ChainCarousel({
   items,
+  searchOnlyItems = [],
   scrollSpeedMs = 1500,
   visibleItemCount = 9,
   className = "",
@@ -174,8 +176,9 @@ export default function ChainCarousel({
   }, [currentIndex, items, totalItems, visibleItemCount]);
 
   const filteredItems = useMemo(() => {
-    return items.filter((item) => item.name.toLowerCase().includes(searchTerm.toLowerCase()));
-  }, [items, searchTerm]);
+    const searchableItems = searchTerm.trim() ? [...items, ...searchOnlyItems] : items;
+    return searchableItems.filter((item) => item.name.toLowerCase().includes(searchTerm.toLowerCase()));
+  }, [items, searchOnlyItems, searchTerm]);
 
   const handleSelectChain = (id: ChainItem["id"], name: string) => {
     const index = items.findIndex((c) => c.id === id);
@@ -193,7 +196,7 @@ export default function ChainCarousel({
   return (
     <div id="explore-section" className={cn("space-y-14", className)}>
       <div className="flex flex-col xl:flex-row max-w-7xl 3xl:max-w-[100rem] 4xl:max-w-[120rem] mx-auto px-4 md:px-8 3xl:px-12 4xl:px-20 gap-12 justify-center items-center">
-        <motion.div
+        <m.div
           className="relative w-full max-w-md xl:max-w-2xl 3xl:max-w-[40rem] 4xl:max-w-[50rem] h-[450px] flex items-center justify-center hidden xl:flex"
           onMouseEnter={() => !searchTerm && setIsPaused(true)}
           onMouseLeave={() => !searchTerm && setIsPaused(false)}
@@ -209,7 +212,7 @@ export default function ChainCarousel({
           {getVisibleItems().map((chain) => (
             <CarouselItemCard key={chain.id} chain={chain} side="left" />
           ))}
-        </motion.div>
+        </m.div>
 
         <div className="flex flex-col text-center gap-4 max-w-md w-full">
           <div className="md:hidden">
@@ -220,7 +223,7 @@ export default function ChainCarousel({
             <div className="flex flex-col items-center justify-center gap-0 mt-2">
               <div className="p-2 bg-white/90 rounded-full border border-white/10">
                 {currentItem.logo ? (
-                  <img
+                  <img loading="lazy" decoding="async"
                     src={currentItem.logo}
                     alt={`${currentItem.name} logo`}
                     className="size-16 rounded-full object-contain"
@@ -286,7 +289,7 @@ export default function ChainCarousel({
                     className="flex items-center gap-3 px-4 py-3 cursor-pointer hover:bg-white/[0.06] transition-colors duration-150 rounded-xl m-2"
                   >
                     {chain.logo ? (
-                      <img src={chain.logo} alt={`${chain.name} logo`} className="size-8 rounded-full object-contain bg-white/90 p-1" />
+                      <img loading="lazy" decoding="async" src={chain.logo} alt={`${chain.name} logo`} className="size-8 rounded-full object-contain bg-white/90 p-1" />
                     ) : (
                       (() => {
                         const IconComponent = chain.icon ?? TrendingUp;
@@ -305,7 +308,7 @@ export default function ChainCarousel({
           </div>
         </div>
 
-        <motion.div
+        <m.div
           ref={rightSectionRef}
           className="relative w-full max-w-md xl:max-w-2xl 3xl:max-w-[40rem] 4xl:max-w-[50rem] h-[450px] hidden md:flex items-center justify-center"
           onMouseEnter={() => !searchTerm && setIsPaused(true)}
@@ -322,7 +325,7 @@ export default function ChainCarousel({
           {getVisibleItems().map((chain) => (
             <CarouselItemCard key={chain.id} chain={chain} side="right" />
           ))}
-        </motion.div>
+        </m.div>
       </div>
     </div>
   );

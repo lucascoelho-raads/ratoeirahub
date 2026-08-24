@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useMemo } from "react";
 
@@ -15,8 +15,8 @@ export default function GalleryAbout() {
     { id: 5, title: t("about.gallery.item5"), year: t("about.gallery.year5"), aspect: "aspect-square", src: "/time5.jpeg", type: "image" as const },
     { id: 6, title: t("about.gallery.item6"), year: t("about.gallery.year6"), aspect: "aspect-[3/4]", src: "/time6.jpeg", type: "image" as const },
     { id: 7, title: t("about.gallery.item7"), year: t("about.gallery.year7"), aspect: "aspect-video", src: "/time7.jpeg", type: "image" as const },
-    { id: 8, title: t("about.gallery.item8"), year: t("about.gallery.year8"), aspect: "aspect-square", src: "/time8.jpeg", type: "image" as const },
-    { id: 9, title: t("about.gallery.item9"), year: t("about.gallery.year9"), aspect: "aspect-square", src: "/time9.jpeg", type: "image" as const },
+    { id: 8, title: t("about.gallery.item8"), year: t("about.gallery.year8"), aspect: "aspect-square", src: "/time8.webp", type: "image" as const },
+    { id: 9, title: t("about.gallery.item9"), year: t("about.gallery.year9"), aspect: "aspect-square", src: "/time9.webp", type: "image" as const },
     { id: 10, title: t("about.gallery.item10"), year: t("about.gallery.year10"), aspect: "aspect-[3/4]", src: "/time10-HD 720p.mp4", type: "video" as const },
   ], [t]);
 
@@ -27,7 +27,7 @@ export default function GalleryAbout() {
     <section className="py-16 md:py-32 bg-[#050505]">
       <div className="max-w-7xl 2xl:max-w-[90rem] 4xl:max-w-[120rem] 5xl:max-w-[140rem] 6xl:max-w-[160rem] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-12 4xl:px-20 5xl:px-28 6xl:px-36">
 
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -38,12 +38,12 @@ export default function GalleryAbout() {
           <p className="mt-4 text-base sm:text-xl text-gray-400 max-w-2xl 2xl:max-w-[50rem] 4xl:max-w-[70rem] mx-auto px-4 sm:px-0 hyphens-none">
             {headerSubtitle}
           </p>
-        </motion.div>
+        </m.div>
 
         {/* Masonry-like Grid */}
         <div className="columns-2 md:columns-3 gap-3 sm:gap-4 md:gap-6">
           {galleryItems.map((item, index) => (
-            <motion.div
+            <m.div
               key={item.id}
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
@@ -61,7 +61,7 @@ export default function GalleryAbout() {
                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
               ) : (
-                <img
+                <img loading="lazy" decoding="async"
                   src={item.src}
                   alt={item.title}
                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
@@ -77,7 +77,7 @@ export default function GalleryAbout() {
                   {item.title}
                 </h3>
               </div>
-            </motion.div>
+            </m.div>
           ))}
         </div>
       </div>

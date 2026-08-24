@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { m, AnimatePresence } from "framer-motion";
 import { X, Loader2 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
@@ -26,28 +26,14 @@ interface FormErrors {
   phone?: string;
 }
 
-const PHONE_MASK_LENGTH = 13;
+const MIN_PHONE_DIGITS = 7;
+const MAX_PHONE_DIGITS = 15;
 
 function formatPhone(value: string): string {
-  let digits = value.replace(/[^\d+]/g, "");
+  const digits = stripPhone(value);
+  const hasInternationalPrefix = value.trim().startsWith("+");
 
-  const hasPlus = digits.startsWith("+");
-  if (hasPlus) digits = digits.slice(1);
-
-  digits = digits.slice(0, PHONE_MASK_LENGTH);
-  // Autopreenchimento brasileiro pode fornecer apenas DDD + número (11 dígitos).
-  // Nesse caso, adiciona o DDI do Brasil antes de aplicar a máscara.
-  if (digits.length === 11) digits = `55${digits}`;
-
-  let formatted = "";
-  if (digits.length > 0) {
-    formatted = `+${digits.slice(0, 2)}`;
-    if (digits.length > 2) formatted += ` (${digits.slice(2, 4)}`;
-    if (digits.length > 4) formatted += `) ${digits.slice(4, 9)}`;
-    if (digits.length > 9) formatted += `-${digits.slice(9, 13)}`;
-  }
-
-  return formatted;
+  return `${hasInternationalPrefix ? "+" : ""}${digits.slice(0, MAX_PHONE_DIGITS)}`;
 }
 
 function stripPhone(value: string): string {
@@ -126,7 +112,10 @@ export default function SubscriptionModal({
     const phoneDigits = stripPhone(formData.phone);
     if (!formData.phone.trim()) {
       newErrors.phone = t("planos.modal.phoneRequired");
-    } else if (phoneDigits.length < PHONE_MASK_LENGTH) {
+    } else if (
+      phoneDigits.length < MIN_PHONE_DIGITS ||
+      phoneDigits.length > MAX_PHONE_DIGITS
+    ) {
       newErrors.phone = t("planos.modal.phoneInvalid");
     }
 
@@ -172,8 +161,8 @@ export default function SubscriptionModal({
     const checkout = new URL(checkoutUrl, window.location.href);
     checkout.searchParams.set("name", formData.fullName.trim());
     checkout.searchParams.set("email", formData.email.trim());
-    checkout.searchParams.set("phone", phoneDigits.slice(2));
-    checkout.searchParams.set("phone_local_code", phoneDigits.slice(0, 2));
+    checkout.searchParams.set("phone", phoneDigits);
+    checkout.searchParams.set("phone_full", phoneDigits);
 
     // Pequeno delay para feedback visual antes do redirecionamento
     await new Promise((resolve) => setTimeout(resolve, 400));
@@ -200,7 +189,7 @@ export default function SubscriptionModal({
   return (
     <AnimatePresence>
       {isOpen && (
-        <motion.div
+        <m.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -209,7 +198,7 @@ export default function SubscriptionModal({
           onClick={handleBackdropClick}
           role="presentation"
         >
-          <motion.div
+          <m.div
             initial={{ scale: 0.95, opacity: 0, y: 16 }}
             animate={{ scale: 1, opacity: 1, y: 0 }}
             exit={{ scale: 0.95, opacity: 0, y: 16 }}
@@ -309,6 +298,7 @@ export default function SubscriptionModal({
                   id="phone"
                   type="tel"
                   inputMode="tel"
+                  maxLength={MAX_PHONE_DIGITS + 1}
                   value={formData.phone}
                   onChange={handlePhoneChange}
                   placeholder={t("planos.modal.phonePlaceholder")}
@@ -347,8 +337,8 @@ export default function SubscriptionModal({
                 {t("form.messagePlaceholder")}
               </p>
             </form>
-          </motion.div>
-        </motion.div>
+          </m.div>
+        </m.div>
       )}
     </AnimatePresence>
   );

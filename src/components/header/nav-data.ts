@@ -102,13 +102,18 @@ export const NAV_LINKS: NavLink[] = [
               description: "Taboola e NewsBreak",
               href: "/fontes-de-trafego/native-ads",
             },
+            {
+              label: "TikTok Ads",
+              description: "Eventos de conversão",
+              href: "/fontes-de-trafego/tiktok-ads",
+            },
           ],
         },
         {
           heading: "Integrações & IA",
           items: [
             {
-              label: "Mais de 70 plataformas",
+              label: "Mais de 100 plataformas",
               description: "Conexão em minutos",
               href: "/integracoes/mais-de-70-plataformas",
             },

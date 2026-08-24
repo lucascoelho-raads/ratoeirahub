@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { motion, AnimatePresence, Variants } from "framer-motion";
+import { m, AnimatePresence, Variants } from "framer-motion";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
@@ -25,7 +25,7 @@ import { useFloating, offset, autoUpdate } from "@floating-ui/react";
 
 function HeroVideoMockup({
   onReady,
-  src = "/videos/videoadsherohome.mp4",
+  src = "/videos/hero1.mp4",
   fallbackSrc,
   poster,
   alt = "Dashboard Preview",
@@ -40,6 +40,65 @@ function HeroVideoMockup({
   const [hasError, setHasError] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentSrc, setCurrentSrc] = useState(src);
+  // Perf: só define o src do vídeo quando o container estiver perto do viewport
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [shouldLoad, setShouldLoad] = useState(false);
+  // Perf (LCP): o poster é o elemento LCP; o vídeo só é anexado após o
+  // window load + idle (ou fallback de 1s), mantendo autoplay idêntico depois.
+  const [canStartVideo, setCanStartVideo] = useState(false);
+
+  useEffect(() => {
+    let cancelled = false;
+    const start = () => {
+      if (cancelled) return;
+      if (typeof window.requestIdleCallback === "function") {
+        const id = window.requestIdleCallback(() => setCanStartVideo(true), { timeout: 3000 });
+        return () => window.cancelIdleCallback(id);
+      }
+      const t = window.setTimeout(() => setCanStartVideo(true), 1000);
+      return () => window.clearTimeout(t);
+    };
+    let cleanup: (() => void) | undefined;
+    if (document.readyState === "complete") {
+      cleanup = start();
+    } else {
+      const onLoad = () => { cleanup = start(); };
+      window.addEventListener("load", onLoad, { once: true });
+      // Fallback caso o evento load demore demais (ex.: recursos lentos de terceiros)
+      const fallback = window.setTimeout(onLoad, 4000);
+      return () => {
+        cancelled = true;
+        window.clearTimeout(fallback);
+        window.removeEventListener("load", onLoad);
+        cleanup?.();
+      };
+    }
+    return () => {
+      cancelled = true;
+      cleanup?.();
+    };
+  }, []);
+
+  useEffect(() => {
+    if (shouldLoad) return;
+    const el = containerRef.current;
+    if (!el) return;
+    if (typeof IntersectionObserver === "undefined") {
+      setShouldLoad(true);
+      return;
+    }
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((entry) => entry.isIntersecting)) {
+          setShouldLoad(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "200px" }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [shouldLoad]);
 
   useEffect(() => {
     const timer = window.setTimeout(() => {
@@ -50,7 +109,7 @@ function HeroVideoMockup({
   }, [onReady]);
 
   return (
-    <div className="w-full h-full bg-black rounded-xl overflow-hidden relative">
+    <div ref={containerRef} className="w-full h-full bg-black rounded-xl overflow-hidden relative">
       {hasError ? (
         <div className="w-full h-full flex items-center justify-center bg-black">
           <span className="text-gray-500 text-sm">Vídeo indisponível</span>
@@ -74,7 +133,7 @@ function HeroVideoMockup({
             muted
             loop
             playsInline
-            preload="auto"
+            preload="metadata"
             poster={poster}
             className={`relative z-10 h-full w-full object-cover transition-opacity duration-300 ${poster ? (isPlaying ? "opacity-100" : "opacity-0") : "opacity-100"}`}
             onCanPlay={() => setIsReady(true)}
@@ -88,7 +147,7 @@ function HeroVideoMockup({
 
               setHasError(true);
             }}
-            src={currentSrc}
+            src={shouldLoad && canStartVideo ? currentSrc : undefined}
           />
         </>
       )}
@@ -171,7 +230,7 @@ export default function Hero() {
 
   return (
     <section className="relative min-h-[100svh] lg:min-h-screen bg-[#050505] z-10 overflow-hidden [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
-      <motion.div
+      <m.div
         initial={false}
         animate={{ x: activePanel === 0 ? "0%" : "-50%" }}
         transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
@@ -214,29 +273,29 @@ export default function Hero() {
               <div className="absolute -bottom-[30%] left-1/2 -translate-x-1/2 w-[clamp(800px,40vw,1600px)] h-[clamp(600px,30vw,1200px)] rounded-full bg-[radial-gradient(circle_at_center,rgba(255,184,0,0.18),transparent_70%)] blur-3xl pointer-events-none" />
               <div className="relative w-full h-full max-w-7xl 2xl:max-w-[90rem] 4xl:max-w-[105rem] 5xl:max-w-[110rem] 6xl:max-w-[120rem] mx-auto px-4 sm:px-6 lg:px-12 2xl:px-16 4xl:px-28 5xl:px-32 6xl:px-60 flex flex-col lg:grid lg:grid-cols-[1fr_1.1fr] 2xl:grid-cols-[1fr_1.15fr] 3xl:grid-cols-[1fr_1.2fr] 4xl:grid-cols-[1fr_1fr] 5xl:grid-cols-[0.95fr_1.05fr] 6xl:grid-cols-[0.8fr_1fr] gap-6 lg:gap-10 2xl:gap-14 3xl:gap-20 5xl:gap-16 6xl:gap-20 lg:items-start 5xl:items-center min-w-0 pt-16 lg:pt-20 pb-16 lg:pb-24">
                 {/* Texto */}
-                <motion.div
+                <m.div
                   variants={containerVariants}
                   initial="hidden"
                   animate="visible"
                   className="flex flex-col gap-4"
                 >
-                  <motion.h1
+                  <m.h1
                     variants={itemVariants}
                     className="text-display font-black tracking-tight leading-[1.04] text-center lg:text-left max-w-4xl lg:max-w-6xl 2xl:max-w-7xl hyphens-none"
                   >
                     <span className="text-white">{t("hero.title.sale")}</span>{" "}
                     <span className="text-[#FFB800]">{t("hero.title.highlight")}</span>
-                  </motion.h1>
+                  </m.h1>
 
-                  <motion.p
+                  <m.p
                     variants={itemVariants}
                     className="text-base md:text-[clamp(1rem,1.15vw,1.125rem)] 3xl:text-[clamp(1.125rem,1.2vw,1.5rem)] text-gray-400/70 leading-relaxed max-w-xl 2xl:max-w-[34rem] 3xl:max-w-[46rem] 4xl:max-w-[56rem] 5xl:max-w-[48rem] 6xl:max-w-[56rem] text-center lg:text-left"
                   >
                     {t("hero.subtitle")}
-                  </motion.p>
+                  </m.p>
 
                   {/* CTA — desktop only, inside text flow */}
-                  <motion.div variants={itemVariants} className="hidden lg:flex flex-col gap-2">
+                  <m.div variants={itemVariants} className="hidden lg:flex flex-col gap-2">
                     <Link
                       href="/planos#pricing-cards"
                       className="inline-flex self-center lg:self-start items-center justify-center px-6 py-3 min-h-12 bg-brand-primary text-black font-semibold text-sm rounded-button hover:bg-brand-primary-hover transition-colors duration-200 text-center"
@@ -244,11 +303,11 @@ export default function Hero() {
                       {t("hero.cta.signNow")}
                     </Link>
 
-                  </motion.div>
-                </motion.div>
+                  </m.div>
+                </m.div>
 
                 {/* Mockup - visível em todas as telas */}
-                <motion.div
+                <m.div
                   initial={{ opacity: 0, x: 40 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.9, delay: 0.4, ease: [0.215, 0.61, 0.355, 1] }}
@@ -263,7 +322,7 @@ export default function Hero() {
                         <div className="w-2.5 h-2.5 rounded-full bg-emerald-500/40" />
                       </div>
                       <AnimatePresence mode="wait">
-                        <motion.span
+                        <m.span
                           key={activeSlide}
                           initial={{ opacity: 0 }}
                           animate={{ opacity: 1 }}
@@ -271,7 +330,7 @@ export default function Hero() {
                           className="text-neutral-500 text-xs font-semibold tracking-widest uppercase absolute left-1/2 -translate-x-1/2"
                         >
                           {slides[activeSlide].label}
-                        </motion.span>
+                        </m.span>
                       </AnimatePresence>
                       <div className="flex gap-1">
                         {slides.map((_, i) => (
@@ -288,7 +347,7 @@ export default function Hero() {
 
                     <div className="relative h-[calc(100%-45px)] p-3">
                       <AnimatePresence mode="wait">
-                        <motion.div
+                        <m.div
                           key={activeSlide}
                           initial={{ opacity: 0, y: 10 }}
                           animate={{ opacity: 1, y: 0 }}
@@ -299,15 +358,16 @@ export default function Hero() {
                           <HeroVideoMockup
                             src="/videos/hero1.mp4"
                             fallbackSrc="/videos/video1.mp4"
+                            poster="/videos/hero1-poster.jpg"
                             alt="Ratoeira Ads Preview"
                           />
-                        </motion.div>
+                        </m.div>
                       </AnimatePresence>
                     </div>
                   </div>
 
                   {/* Cards flutuantes - desktop apenas */}
-                  <motion.div
+                  <m.div
                     ref={(node) => { badge1Refs.setFloating(node); }}
                     style={{
                       position: badge1Strategy,
@@ -326,9 +386,9 @@ export default function Hero() {
                       <p className="text-text-primary text-xs font-bold">~100%</p>
                       <p className="text-text-secondary text-xs">{t("hero.badge.tracked")}</p>
                     </div>
-                  </motion.div>
+                  </m.div>
 
-                  <motion.div
+                  <m.div
                     ref={(node) => { badge2Refs.setFloating(node); }}
                     style={{
                       position: badge2Strategy,
@@ -347,8 +407,8 @@ export default function Hero() {
                       <p className="text-text-primary text-xs font-bold">+2.600</p>
                       <p className="text-text-secondary text-xs">{t("hero.badge.activeAdvertisers")}</p>
                     </div>
-                  </motion.div>
-                </motion.div>
+                  </m.div>
+                </m.div>
 
                 {/* Controles do slide — entre a imagem e o CTA no mobile */}
                 <div className="flex lg:hidden items-center justify-center gap-3 pt-3 order-2">
@@ -357,7 +417,7 @@ export default function Hero() {
                 </div>
 
                 {/* CTA — mobile only */}
-                <motion.div 
+                <m.div 
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.7, delay: 0.6, ease: [0.215, 0.61, 0.355, 1] }}
@@ -370,7 +430,7 @@ export default function Hero() {
                     {t("hero.cta.signNow")}
                   </Link>
 
-                </motion.div>
+                </m.div>
 
                 <div className="order-4 lg:order-none lg:col-span-2 mt-4">
                   <LogoMarquee />
@@ -432,7 +492,7 @@ export default function Hero() {
                 </div>
 
                 {/* Mockup Pages - visível em todas as telas */}
-                <motion.div
+                <m.div
                   initial={{ opacity: 0, x: 40 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.9, delay: 0.4, ease: [0.215, 0.61, 0.355, 1] }}
@@ -446,7 +506,7 @@ export default function Hero() {
                         <div className="w-2.5 h-2.5 rounded-full bg-emerald-500/40" />
                       </div>
                       <AnimatePresence mode="wait">
-                        <motion.span
+                        <m.span
                           key={activeSlide}
                           initial={{ opacity: 0 }}
                           animate={{ opacity: 1 }}
@@ -454,7 +514,7 @@ export default function Hero() {
                           className="text-neutral-500 text-xs font-semibold tracking-widest uppercase absolute left-1/2 -translate-x-1/2"
                         >
                           {t("hero.pages.tabLabel")}
-                        </motion.span>
+                        </m.span>
                       </AnimatePresence>
                       <div className="flex gap-1">
                         {slides.map((_, i) => (
@@ -471,7 +531,7 @@ export default function Hero() {
 
                     <div className="relative h-[calc(100%-45px)] p-3">
                       <AnimatePresence mode="wait">
-                        <motion.div
+                        <m.div
                           key={activeSlide}
                           initial={{ opacity: 0, y: 10 }}
                           animate={{ opacity: 1, y: 0 }}
@@ -484,11 +544,11 @@ export default function Hero() {
                             fallbackSrc="/videos/videopagesheroslide2.mp4"
                             alt="Ratoeira Pages Preview"
                           />
-                        </motion.div>
+                        </m.div>
                       </AnimatePresence>
                     </div>
                   </div>
-                </motion.div>
+                </m.div>
 
                 {/* CTA — desktop only, aligned with slider */}
                 <div className="hidden lg:flex items-center justify-start gap-3 lg:col-start-1 lg:row-start-2 self-end pb-2 -mt-4">
@@ -525,7 +585,7 @@ export default function Hero() {
             </SpotlightBackground>
         </div>
         )}
-      </motion.div>
+      </m.div>
     </section>
   );
 }

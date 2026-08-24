@@ -112,6 +112,21 @@ const LOGO_FILES = [
   "trivexpay.avif",
 ] as const;
 
+const SEARCH_ONLY_ITEMS: ChainItem[] = [
+  {
+    id: "search-tiktok-ads",
+    name: "TikTok Ads",
+    icon: TrendingUp,
+    logo: "/logos/tiktoklogo - Editado.png",
+  },
+  {
+    id: "search-mgid",
+    name: "MGID",
+    icon: TrendingUp,
+    logo: "/logos/mgid.svg",
+  },
+];
+
 function humanizeLogoName(fileName: string) {
   const withoutExt = fileName.replace(/\.[^.]+$/, "");
   if (withoutExt.toLowerCase() === "kawailogo" || withoutExt.toLowerCase() === "kwailogo") return "Kwai";
@@ -150,7 +165,12 @@ export default function Mais70ChainCarousel() {
           {t("mais70.carousel.title")}
         </h2>
         <div className="h-10" />
-        <ChainCarousel items={items} visibleItemCount={9} scrollSpeedMs={1200} />
+        <ChainCarousel
+          items={items}
+          searchOnlyItems={SEARCH_ONLY_ITEMS}
+          visibleItemCount={9}
+          scrollSpeedMs={1200}
+        />
       </div>
     </section>
   );

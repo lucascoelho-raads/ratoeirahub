@@ -525,6 +525,32 @@ select {
   will-change: transform;
 }
 
+/* Mobile: blur(80px) é custoso na GPU — substituído por gradientes radiais
+   equivalentes (mesmas cores, falloff suavizado para compensar a falta do blur).
+   Desktop permanece intocado. */
+@media (max-width: 768px) {
+  .spotlight {
+    filter: none;
+    will-change: auto;
+  }
+  .spotlight-left {
+    background: radial-gradient(circle, rgba(251, 191, 36, 0.45) 0%, rgba(245, 158, 11, 0.22) 45%, transparent 75%);
+  }
+  .spotlight-mid {
+    background: radial-gradient(circle, rgba(251, 146, 60, 0.4) 0%, rgba(234, 88, 12, 0.18) 45%, transparent 75%);
+  }
+  .spotlight-right {
+    background: radial-gradient(circle, rgba(252, 211, 77, 0.4) 0%, rgba(251, 191, 36, 0.18) 45%, transparent 75%);
+  }
+}
+
+/* Pausa animações CSS infinitas quando o elemento sai da viewport
+   (classe alternada via IntersectionObserver — OffscreenAnimationPauser). */
+.anim-paused,
+.anim-paused * {
+  animation-play-state: paused !important;
+}
+
 .spotlight-left {
   width: 600px;
   height: 600px;

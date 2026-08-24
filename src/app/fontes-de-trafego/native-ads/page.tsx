@@ -25,6 +25,7 @@ export default function NativeAdsTrafficSourcePage() {
   const networks = useMemo(() => [
     { name: "Taboola", logo: "/taboolalogo.png" },
     { name: "NewsBreak", logo: "/newbreaklogo.webp" },
+    { name: "MGID", logo: "/logos/mgid.svg" },
   ], []);
 
   const taboolaCards = useMemo(() => [
@@ -91,6 +92,8 @@ export default function NativeAdsTrafficSourcePage() {
   const sectionSubtitle = useMemo(() => t("nativeAds.section.subtitle"), [t]);
   const taboolaSubtitle = useMemo(() => t("nativeAds.taboola.subtitle"), [t]);
   const newsbreakSubtitle = useMemo(() => t("nativeAds.newsbreak.subtitle"), [t]);
+  const platformsTitle = useMemo(() => t("nativeAds.platforms.title"), [t]);
+  const operationTitle = useMemo(() => t("nativeAds.operation.title"), [t]);
   const howItWorksTitle = useMemo(() => t("nativeAds.howItWorks.title"), [t]);
   const howItWorksSubtitle = useMemo(() => t("nativeAds.howItWorks.subtitle"), [t]);
   const ctaTitle = useMemo(() => t("nativeAds.cta.title"), [t]);
@@ -142,7 +145,7 @@ export default function NativeAdsTrafficSourcePage() {
           <div className="mb-24">
             <div className="text-center mb-12">
               <h3 className="text-h2 font-black text-brand-primary tracking-tight leading-tight hyphens-none">
-                <span className="whitespace-nowrap">Taboola</span>
+                {platformsTitle}
               </h3>
               <p className="mt-3 text-body-lg text-gray-300 max-w-2xl mx-auto hyphens-none">
                 {taboolaSubtitle}
@@ -200,7 +203,7 @@ export default function NativeAdsTrafficSourcePage() {
           <div className="mb-24">
             <div className="text-center mb-12">
               <h3 className="text-h2 font-black text-brand-primary tracking-tight leading-tight hyphens-none">
-                <span className="whitespace-nowrap">NewsBreak</span>
+                {operationTitle}
               </h3>
               <p className="mt-3 text-body-lg text-gray-300 max-w-2xl mx-auto hyphens-none">
                 {newsbreakSubtitle}

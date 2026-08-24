@@ -1,16 +1,16 @@
 "use client";
 
 import React, { ReactNode } from "react";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 // Individual Spotlight element
 const Spotlight = ({
   className,
   ...props
-}: React.ComponentProps<typeof motion.div>) => {
+}: React.ComponentProps<typeof m.div>) => {
   return (
-    <motion.div
+    <m.div
       className={cn(
         "absolute rounded-full blur-[80px] opacity-30 will-change-transform pointer-events-none",
         className

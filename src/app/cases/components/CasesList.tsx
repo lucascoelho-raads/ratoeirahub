@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -57,7 +57,7 @@ export default function CasesList() {
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {translatedCases.map((caseStudy, index) => (
-            <motion.div
+            <m.div
               key={caseStudy.id}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -67,7 +67,7 @@ export default function CasesList() {
             >
               {/* Imagem (Estilo Apple: Borda a borda no topo) */}
               <div className="relative h-[240px] w-full overflow-hidden bg-[#161616]">
-                <img 
+                <img loading="lazy" decoding="async" 
                   src={caseStudy.photo} 
                   alt={caseStudy.name} 
                   className="absolute inset-0 w-full h-full object-cover opacity-70 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700"
@@ -105,7 +105,7 @@ export default function CasesList() {
                   <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
                 </Link>
               </div>
-            </motion.div>
+            </m.div>
           ))}
         </div>
       </div>

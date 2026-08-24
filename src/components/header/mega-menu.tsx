@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { m, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 import type { NavMenu } from "./nav-data";
 
@@ -29,7 +29,7 @@ function MegaMenuPanel({
   const [hoveredItem, setHoveredItem] = useState<string | null>(null);
 
   return (
-    <motion.div
+    <m.div
       initial={{ opacity: 0, y: 8, x: direction === "ltr" ? 18 : -18 }}
       animate={{
         opacity: 1,
@@ -51,7 +51,7 @@ function MegaMenuPanel({
       onKeyDown={(event) => {
         if (event.key === "Escape") onEscape();
       }}
-      className="absolute left-0 top-full mt-3 w-full rounded-card border border-white/30 bg-[#0a0a0a]/95 backdrop-blur-xl p-4 shadow-[0_0_60px_rgba(255,255,255,0.12)]"
+      className="absolute left-0 top-full mt-3 w-full rounded-card border border-white/30 bg-[#0a0a0a]/95 backdrop-blur-none lg:backdrop-blur-xl p-4 shadow-[0_0_60px_rgba(255,255,255,0.12)]"
     >
       <div className="flex gap-3 items-start">
         {menu.columns.map((column) => (
@@ -94,7 +94,7 @@ function MegaMenuPanel({
                 }
 
                 return (
-                  <motion.a
+                  <m.a
                     key={itemKey}
                     href={item.href || "#"}
                     whileHover={{ x: 2 }}
@@ -111,14 +111,14 @@ function MegaMenuPanel({
                     )}
                   >
                     {content}
-                  </motion.a>
+                  </m.a>
                 );
               })}
             </div>
           </div>
         ))}
       </div>
-    </motion.div>
+    </m.div>
   );
 }
 
