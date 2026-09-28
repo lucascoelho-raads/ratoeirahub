@@ -27,6 +27,8 @@ interface FormErrors {
 }
 
 const PHONE_MASK_LENGTH = 13;
+const WHATSAPP_SUPPORT_URL =
+  "https://api.whatsapp.com/send/?phone=5519997278153&text=Ol%C3%A1%2C+vim+do+site+e+gostaria+de+falar+com+um+atendente&type=phone_number&app_absent=0";
 
 function formatPhone(value: string): string {
   let digits = value.replace(/[^\d+]/g, "");
@@ -340,8 +342,15 @@ export default function SubscriptionModal({
                 </Button>
               </div>
 
-              <p className="text-center text-xs text-[#666666]">
-                {t("form.messagePlaceholder")}
+              <p className="text-center text-xs">
+                <a
+                  href={WHATSAPP_SUPPORT_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex min-h-11 items-center justify-center rounded-input px-3 text-[#888888] underline-offset-4 transition-colors hover:text-white hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-secondary"
+                >
+                  {t("form.messagePlaceholder")}
+                </a>
               </p>
             </form>
           </motion.div>
