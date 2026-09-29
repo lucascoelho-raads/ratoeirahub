@@ -31,15 +31,34 @@ export default function FaleConoscoPage() {
             <h2 className="text-h1 font-black text-gray-900">{t("contact.hours.title")}</h2>
           </div>
 
-          <div className="mx-auto max-w-2xl rounded-2xl border border-gray-200 bg-gray-50 p-6 sm:p-8">
-            <div className="space-y-4">
-              <div className="flex flex-col gap-1 border-b border-gray-200 py-3 sm:flex-row sm:items-center sm:justify-between sm:gap-6">
-                <span className="font-medium text-gray-600">{t("contact.days.weekdays")}</span>
-                <span className="whitespace-nowrap font-bold text-gray-900">{t("contact.hours.weekday")}</span>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {/* Ratoeira Ads */}
+            <div className="bg-gray-50 rounded-2xl p-8 border border-gray-200">
+              <h3 className="text-xl font-black text-gray-900 mb-6">{t("contact.product.ads")}</h3>
+              <div className="space-y-4">
+                <div className="flex justify-between items-center py-3 border-b border-gray-200">
+                  <span className="text-gray-600 font-medium">{t("contact.days.weekdays")}</span>
+                  <span className="text-gray-900 font-bold whitespace-nowrap">{t("contact.hours.ads.weekday")}</span>
+                </div>
+                <div className="flex justify-between items-center py-3">
+                  <span className="text-gray-600 font-medium">{t("contact.days.weekend")}</span>
+                  <span className="text-gray-900 font-bold whitespace-nowrap">{t("contact.hours.ads.weekend")}</span>
+                </div>
               </div>
-              <div className="flex flex-col gap-1 py-3 sm:flex-row sm:items-center sm:justify-between sm:gap-6">
-                <span className="font-medium text-gray-600">{t("contact.days.weekend")}</span>
-                <span className="whitespace-nowrap font-bold text-gray-900">{t("contact.hours.weekend")}</span>
+            </div>
+
+            {/* Ratoeira Pages */}
+            <div className="bg-gray-50 rounded-2xl p-8 border border-gray-200">
+              <h3 className="text-xl font-black text-gray-900 mb-6">{t("contact.product.pages")}</h3>
+              <div className="space-y-4">
+                <div className="flex justify-between items-center py-3 border-b border-gray-200">
+                  <span className="text-gray-600 font-medium">{t("contact.days.weekdays")}</span>
+                  <span className="text-gray-900 font-bold whitespace-nowrap">{t("contact.hours.pages.weekday")}</span>
+                </div>
+                <div className="flex justify-between items-center py-3">
+                  <span className="text-gray-600 font-medium">{t("contact.days.saturday")}</span>
+                  <span className="text-gray-900 font-bold whitespace-nowrap">{t("contact.hours.pages.saturday")}</span>
+                </div>
               </div>
             </div>
           </div>
