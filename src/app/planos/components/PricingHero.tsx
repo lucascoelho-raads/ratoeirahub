@@ -33,7 +33,7 @@ export default function PricingHero() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="relative max-w-4xl 2xl:max-w-[70rem] 4xl:max-w-[90rem] mx-auto rounded-3xl overflow-hidden border border-white/10 bg-surface-subdued shadow-2xl aspect-video"
           >
-            <YouTubePlayer videoId="xFSuSYcFTYs" title="Apresentação Ratoeira" />
+            <YouTubePlayer videoId="TPDc-S2_QzQ" title="Encontre seu plano ideal" />
           </motion.div>
         )}
       </div>
