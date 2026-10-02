@@ -6,7 +6,7 @@ import PricingTabs from "./PricingTabs";
 
 type PlansVersion = "previous" | "new";
 
-const NEW_PLANS_RELEASE_AT = Date.parse("2026-10-02T11:30:00-03:00");
+const NEW_PLANS_RELEASE_AT = Date.parse("2026-10-02T11:45:00-03:00");
 const VERSION_CHECK_INTERVAL_MS = 1_000;
 
 function getForcedVersion(search: string): PlansVersion | null {
