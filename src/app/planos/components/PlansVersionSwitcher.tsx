@@ -6,7 +6,7 @@ import PricingTabs from "./PricingTabs";
 
 type PlansVersion = "previous" | "new";
 
-const NEW_PLANS_RELEASE_AT = Date.parse("2026-10-02T10:55:00-03:00");
+const NEW_PLANS_RELEASE_AT = Date.parse("2026-10-02T11:30:00-03:00");
 const MAX_TIMEOUT_DELAY = 2_147_483_647;
 
 function getForcedVersion(search: string): PlansVersion | null {
