@@ -7,7 +7,7 @@ import PricingTabs from "./PricingTabs";
 type PlansVersion = "previous" | "new";
 
 const NEW_PLANS_RELEASE_AT = Date.parse("2026-10-02T11:30:00-03:00");
-const MAX_TIMEOUT_DELAY = 2_147_483_647;
+const VERSION_CHECK_INTERVAL_MS = 1_000;
 
 function getForcedVersion(search: string): PlansVersion | null {
   const requestedVersion = new URLSearchParams(search).get("versao");
@@ -37,18 +37,16 @@ export default function PlansVersionSwitcher() {
 
     if (forcedVersion) return;
 
-    const delayUntilRelease = Math.max(0, NEW_PLANS_RELEASE_AT - Date.now());
-    const releaseTimer = window.setTimeout(
-      syncVersion,
-      Math.min(delayUntilRelease, MAX_TIMEOUT_DELAY),
-    );
+    const versionCheckTimer = window.setInterval(syncVersion, VERSION_CHECK_INTERVAL_MS);
 
     window.addEventListener("focus", syncVersion);
+    window.addEventListener("pageshow", syncVersion);
     document.addEventListener("visibilitychange", syncVersion);
 
     return () => {
-      window.clearTimeout(releaseTimer);
+      window.clearInterval(versionCheckTimer);
       window.removeEventListener("focus", syncVersion);
+      window.removeEventListener("pageshow", syncVersion);
       document.removeEventListener("visibilitychange", syncVersion);
     };
   }, []);
