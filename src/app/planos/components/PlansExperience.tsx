@@ -936,7 +936,7 @@ function PricingCards({ onSubscribe }: { onSubscribe: SubscribeHandler }) {
           </div>
         </div>
 
-        <div ref={carouselRef} onScroll={updateActiveCard} className="flex snap-x snap-mandatory gap-4 overflow-x-auto pb-3 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:grid md:grid-cols-2 md:overflow-visible md:pb-0 xl:grid-cols-4">
+        <div ref={carouselRef} onScroll={updateActiveCard} className="flex snap-x snap-mandatory gap-4 overflow-x-auto pb-3 pt-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:grid md:grid-cols-2 md:overflow-visible md:pb-0 md:pt-0 xl:grid-cols-4">
           {PLAN_NAMES.map((name, index) => {
             const featured = index === 1;
             const unlimited = index === PLAN_NAMES.length - 1;
