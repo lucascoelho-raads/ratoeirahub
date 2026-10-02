@@ -9,7 +9,7 @@ const platforms = [
   { name: "NewsBreak", logo: "/newbreaklogo.webp" },
   { name: "TikTok Ads", logo: "/logos/tiktoklogo - Editado.png" },
   { name: "MGID", logo: "/logos/mgid.svg" },
-  { name: "RevContent", logo: "/logos/revcontent-mark.avif" },
+  { name: "RevContent", logo: "/logos/revcontent-mark-marquee.svg" },
 ];
 
 export default function LogoMarquee() {
