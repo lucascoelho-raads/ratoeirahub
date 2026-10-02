@@ -51,7 +51,7 @@ function MegaMenuPanel({
       onKeyDown={(event) => {
         if (event.key === "Escape") onEscape();
       }}
-      className="absolute left-0 top-0 mt-3 w-full rounded-card border border-white/30 bg-[#0a0a0a]/95 backdrop-blur-none lg:backdrop-blur-xl p-4 shadow-[0_0_60px_rgba(255,255,255,0.12)]"
+      className="absolute left-0 top-3 w-full rounded-card border border-white/30 bg-[#0a0a0a]/95 backdrop-blur-none lg:backdrop-blur-xl p-4 shadow-[0_0_60px_rgba(255,255,255,0.12)]"
     >
       <div className="flex gap-3 items-start">
         {menu.columns.map((column) => (

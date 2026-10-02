@@ -16,6 +16,7 @@ const SHELL_EASE = [0.16, 1, 0.3, 1] as [number, number, number, number];
 const EXIT_EASE = [0.7, 0, 0.84, 0] as [number, number, number, number];
 const FOCUSABLE_SELECTOR =
   'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])';
+const MENU_CLOSE_DELAY_MS = 160;
 
 function hasNavigableHref(href?: string): href is string {
   return Boolean(href && href !== "#");
@@ -143,17 +144,46 @@ export default function Header() {
   const [mobileStack, setMobileStack] = useState<number[]>([]);
   const navRef = useRef<HTMLElement | null>(null);
   const panelRef = useRef<HTMLDivElement | null>(null);
+  const closeTimerRef = useRef<number | null>(null);
 
   const navLinks = useTranslatedNav();
 
   const activeMenu: NavMenu | null =
     activeIndex !== null ? navLinks[activeIndex]?.menu ?? null : null;
 
-  const openMenu = useCallback((index: number) => {
-    setActiveIndex(index);
+  const cancelScheduledClose = useCallback(() => {
+    if (closeTimerRef.current === null) return;
+    window.clearTimeout(closeTimerRef.current);
+    closeTimerRef.current = null;
   }, []);
 
-  const closeMenu = useCallback(() => setActiveIndex(null), []);
+  const openMenu = useCallback(
+    (index: number) => {
+      cancelScheduledClose();
+      setActiveIndex(index);
+    },
+    [cancelScheduledClose],
+  );
+
+  const closeMenu = useCallback(() => {
+    cancelScheduledClose();
+    setActiveIndex(null);
+  }, [cancelScheduledClose]);
+
+  const scheduleMenuClose = useCallback(() => {
+    cancelScheduledClose();
+    closeTimerRef.current = window.setTimeout(() => {
+      closeTimerRef.current = null;
+      setActiveIndex(null);
+    }, MENU_CLOSE_DELAY_MS);
+  }, [cancelScheduledClose]);
+
+  useEffect(
+    () => () => {
+      cancelScheduledClose();
+    },
+    [cancelScheduledClose],
+  );
 
   useEffect(() => {
     const onDocPointerDown = (event: PointerEvent) => {
@@ -200,7 +230,8 @@ export default function Header() {
 
           <nav
             className="relative hidden items-center lg:flex lg:mr-8 xl:mr-16 2xl:mr-24"
-            onMouseLeave={closeMenu}
+            onMouseEnter={cancelScheduledClose}
+            onMouseLeave={scheduleMenuClose}
           >
             <div className="flex items-center rounded-button border border-white/10 bg-white/5 px-2 py-1">
               {navLinks.map((link, index) => {
@@ -250,12 +281,12 @@ export default function Header() {
               })}
             </div>
 
-            <div className="absolute left-1/2 top-full z-50 w-[min(900px,calc(100vw-48px))] -translate-x-1/2 pt-1">
+            <div className="absolute left-1/2 top-full z-50 w-[min(900px,calc(100vw-48px))] -translate-x-1/2 pt-3">
               <MegaMenu
                 menu={activeMenu}
                 direction="ltr"
-                onMouseEnter={() => undefined}
-                onMouseLeave={closeMenu}
+                onMouseEnter={cancelScheduledClose}
+                onMouseLeave={scheduleMenuClose}
                 panelRef={panelRef}
                 onEscape={closeMenu}
               />
