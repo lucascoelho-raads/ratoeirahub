@@ -1,5 +1,3 @@
-import React from "react";
-
 export const WHATSAPP_SUPPORT_URL = "https://links.ratoeirads.com/site";
 
 export default function WhatsAppButton() {
@@ -8,7 +6,7 @@ export default function WhatsAppButton() {
       href={WHATSAPP_SUPPORT_URL}
       target="_blank"
       rel="noopener noreferrer"
-      className="group fixed bottom-[max(1rem,env(safe-area-inset-bottom))] right-3 z-50 flex h-12 w-12 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg transition-all duration-300 hover:scale-110 hover:bg-[#20bd5a] hover:shadow-xl sm:bottom-6 sm:right-6 sm:h-14 sm:w-14"
+      className="group fixed bottom-6 right-4 z-50 flex h-12 w-12 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg transition-all duration-300 hover:scale-110 hover:bg-[#20bd5a] hover:shadow-xl sm:right-6 sm:h-14 sm:w-14"
       aria-label="Fale conosco no WhatsApp"
     >
       <svg
